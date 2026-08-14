@@ -1,0 +1,40 @@
+---
+name: data-talent-acquisition-and-interview
+description: Design and run structured Data hiring with role profiles, scorecards, interview loops, work samples, rubrics, calibration, debriefs, fairness and validity controls. Use for recruiting or interviewing Data roles.
+---
+
+# Data Talent and Interviewing
+
+## Operating contract
+
+1. Identify the requested deliverable, then select exactly one atomic task below.
+2. Read that task file completely before acting.
+3. Read [references/lifecycle-standard.md](references/lifecycle-standard.md) and use the task's profile, risk tier and execution path.
+4. Load only the company context and adapter references needed for the selected task.
+5. On a cross-role handoff, compare logical ID and SHA-256 in `references/shared-reference-manifest.json`; reuse an already loaded shared reference when both match instead of loading its duplicate.
+6. Inspect real artifacts and systems before making change-sensitive claims.
+7. Apply Definition of Ready, stage gates, test strategy, Definition of Done, approval and handoff requirements.
+8. Do not invent access, approvals, successful execution, test results or business confirmation.
+9. For any Git-backed mutation, regardless of the task's verb or profile, require a pre-change success/scope contract, a post-change `core-audit-change-scope`, and fresh `core-verify-deliverable` evidence before completion.
+
+## Question-system routing
+
+- One question's intent, construct, competency, depth, evidence, probes and red flags → `talent-map-question-to-competency-evidence`.
+- Weak/meets/strong observable evidence for calibrated scoring → `talent-write-interview-answer-anchors`.
+- Whole-bank coverage, difficulty, redundancy, bias, leakage and burden → `talent-audit-question-bank-coverage`.
+
+Answer anchors are interviewer-only evidence standards, never candidate scripts or leaked answer keys.
+
+
+## Atomic task routing
+
+- **Plan, define, design, map, specify or create a proposed artifact** (11 tasks): read [references/catalog-plan-design.md](references/catalog-plan-design.md).
+- **Build, implement, configure, teach, interview or deliver an artifact** (21 tasks): read [references/catalog-build-deliver.md](references/catalog-build-deliver.md).
+- **Inspect, analyze, test, review, validate, assess, certify or audit** (8 tasks): read [references/catalog-test-assure.md](references/catalog-test-assure.md).
+- **Deploy, release, monitor, recover, migrate, optimize, retire or improve** (1 task): read [references/catalog-operate-improve.md](references/catalog-operate-improve.md).
+
+Read only the best-matching catalog. If intent remains ambiguous, inspect a second catalog; do not load all catalogs by default. Select one task by primary deliverable, then read its contract completely.
+
+## Completion response
+
+State the selected task ID, primary deliverable, evidence inspected, validation performed, approval status, residual risks and next owner. A draft or plan is not an executed production outcome.

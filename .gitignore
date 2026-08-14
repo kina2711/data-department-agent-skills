@@ -1,0 +1,29 @@
+# Generated packages and staging
+dist/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Local tools and editors
+.idea/
+.vscode/
+*.swp
+*.tmp
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+credentials.json
+secrets.json
+
+# OS files
+.DS_Store
+Thumbs.db
+

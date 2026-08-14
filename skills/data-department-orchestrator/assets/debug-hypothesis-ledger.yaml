@@ -1,0 +1,14 @@
+incident_or_task: ""
+baseline: []
+boundary_evidence: []
+hypotheses:
+  - id: ""
+    claim: ""
+    predicted_observation: ""
+    single_variable_test: ""
+    result: ""
+    status: "open"
+failed_material_fixes: 0
+architecture_review_required: false
+root_cause: ""
+prevention_layers: []

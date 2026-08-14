@@ -1,0 +1,92 @@
+{
+  "series_id": "airflow-foundations",
+  "episode_id": "ep-01",
+  "owner": "author-001",
+  "requested_channels": ["linkedin"],
+  "canonical_artifact": "article-ep-01",
+  "evidence": [
+    {
+      "evidence_id": "source-airflow-docs-versioned",
+      "evidence_type": "official-source",
+      "locator": "https://airflow.apache.org/docs/",
+      "snapshot_path": "snapshots/airflow-docs.txt",
+      "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "version_or_date": "3.0.0-example-fixture",
+      "environment": "",
+      "verified_by": "reviewer-001",
+      "verified_at": "2026-08-14",
+      "verification_status": "verified",
+      "claim_supports": [
+        {
+          "claim_id": "claim-001",
+          "excerpt": "The example targets a declared Airflow version for this fixture."
+        }
+      ]
+    },
+    {
+      "evidence_id": "test-report-ep-01",
+      "evidence_type": "test-report",
+      "locator": "reports/ep-01-tests.txt",
+      "snapshot_path": "reports/ep-01-tests.txt",
+      "content_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "version_or_date": "ep-01-v1",
+      "environment": "local test environment",
+      "verified_by": "reviewer-001",
+      "verified_at": "2026-08-14",
+      "verification_status": "verified",
+      "claim_supports": []
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "claim-001",
+      "text": "The example targets a declared Airflow version.",
+      "classification": "fact",
+      "evidence_refs": ["source-airflow-docs-versioned"]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "article-ep-01",
+      "channel": "canonical",
+      "language": "en",
+      "path": "articles/ep-01.md",
+      "version": "v1",
+      "sha256": "",
+      "derived_from": "",
+      "claim_ids": ["claim-001"],
+      "required_test_scopes": ["canonical-content"],
+      "status": "draft",
+      "review_ids": []
+    },
+    {
+      "artifact_id": "linkedin-ep-01",
+      "channel": "linkedin",
+      "language": "en",
+      "path": "social/linkedin/ep-01.md",
+      "version": "v1",
+      "sha256": "",
+      "derived_from": "article-ep-01",
+      "claim_ids": ["claim-001"],
+      "required_test_scopes": ["linkedin-platform-fit"],
+      "status": "draft",
+      "review_ids": []
+    }
+  ],
+  "reviews": [],
+  "tests": [
+    {
+      "test_id": "code-example",
+      "artifact_id": "article-ep-01",
+      "scope": "canonical-content",
+      "required": true,
+      "status": "passed",
+      "evidence_ref": "test-report-ep-01"
+    }
+  ],
+  "approvals": [],
+  "publication": {
+    "status": "not-published",
+    "channels": []
+  }
+}

@@ -1,0 +1,16 @@
+from_role: ""
+to_role: ""
+task_id: ""
+lifecycle_profile: ""
+risk_tier: ""
+phase_reached: ""
+deliverable: ""
+evidence: []
+test_results: []
+approvals: []
+contract_sha256: ""
+final_diff_sha256: ""
+final_diff_reverified_at: ""
+assumptions: []
+open_risks: []
+next_task: ""

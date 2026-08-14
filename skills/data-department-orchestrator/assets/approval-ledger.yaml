@@ -1,0 +1,11 @@
+approvals:
+  - gate: ""
+    task_id: ""
+    scope: ""
+    artifact_version: ""
+    contract_sha256: ""
+    final_diff_sha256: ""
+    decision: "pending"
+    approver: ""
+    approved_at: ""
+    expires_at: ""

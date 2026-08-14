@@ -1,0 +1,14 @@
+experiment_id: ""
+framework_id: ""
+target_behavior_or_decision: ""
+baseline: ""
+hypothesis: ""
+action: ""
+cadence: ""
+observations: []
+success_signal: ""
+stop_rule: ""
+confounders: []
+review_at: ""
+result: "not-run"
+evidence_refs: []

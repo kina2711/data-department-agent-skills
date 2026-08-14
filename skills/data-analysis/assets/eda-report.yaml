@@ -1,0 +1,14 @@
+dataset: ""
+grain: ""
+scope: {}
+schema: []
+row_count: 0
+missingness: []
+duplicates: {}
+distributions: []
+outliers: []
+cardinality: []
+fitness_findings: []
+sampling_limitations: []
+sensitive_columns_skipped: []
+next_questions: []

@@ -1,0 +1,19 @@
+artifact: ""
+engine: ""
+environment: ""
+plan_command: ""
+captured_at: ""
+baseline_metrics: {}
+observations:
+  - node: ""
+    evidence: ""
+    risk: ""
+    hypothesis: ""
+scan_findings: []
+join_findings: []
+shuffle_and_skew: []
+partition_findings: []
+recommendations: []
+benchmark_plan: []
+before_after: {}
+limitations: []

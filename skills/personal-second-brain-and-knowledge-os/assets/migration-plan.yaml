@@ -1,0 +1,14 @@
+migration_id: ""
+source_tools: []
+canonical_target: ""
+scope: []
+exports: []
+mapping_rules: []
+attachment_policy: {}
+link_repair: []
+deduplication: []
+privacy_review: []
+representative_queries: []
+rollback: {}
+cutover_gate: "blocked"
+status: "draft"

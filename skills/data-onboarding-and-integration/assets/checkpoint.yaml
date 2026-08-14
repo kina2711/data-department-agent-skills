@@ -1,0 +1,42 @@
+person_id: ""
+day: 0
+role: ""
+level: ""
+assessor: ""
+assessed_at: ""
+status: "draft"
+dimensions:
+  - name: "access-readiness"
+    score_0_to_3: 0
+    evidence: []
+    critical_failure: false
+  - name: "role-clarity"
+    score_0_to_3: 0
+    evidence: []
+    critical_failure: false
+  - name: "domain-understanding"
+    score_0_to_3: 0
+    evidence: []
+    critical_failure: false
+  - name: "delivery-readiness"
+    score_0_to_3: 0
+    evidence: []
+    critical_failure: false
+  - name: "integration"
+    score_0_to_3: 0
+    evidence: []
+    critical_failure: false
+  - name: "belonging-support"
+    score_0_to_3: 0
+    evidence: []
+    critical_failure: false
+blockers: []
+gaps:
+  - gap: ""
+    owner: ""
+    due_date: ""
+actions: []
+readiness_decision: "pending"
+manager_signoff: "pending"
+new_hire_acknowledgement: "pending"
+next_checkpoint: ""

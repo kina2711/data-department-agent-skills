@@ -1,0 +1,25 @@
+artifact_version: ""
+environment: ""
+scope_contract_sha256: ""
+success_contract_id: ""
+success_contract_version: ""
+success_contract_sha256: ""
+final_diff_sha256: ""
+final_diff_reverified_at: ""
+claims:
+  - claim: ""
+    required_evidence: ""
+    command_or_method: ""
+    observed_result: ""
+    exit_status: ""
+    captured_at: ""
+    fresh: false
+spec_compliance_review: "pending"
+quality_review: "pending"
+final_approval:
+  decision: "pending"
+  approved_by: ""
+  approved_at: ""
+  approved_final_diff_sha256: ""
+unsupported_claims: []
+overall_status: "pending"

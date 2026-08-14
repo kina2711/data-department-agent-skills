@@ -1,0 +1,6 @@
+interface:
+  display_name: "Product Analytics and Experimentation"
+  short_description: "Measure product behavior and experiments"
+  default_prompt: "Use $product-analytics-and-experimentation to handle this request with evidence, validation, and required approval gates."
+policy:
+  allow_implicit_invocation: true

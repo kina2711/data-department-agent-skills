@@ -1,0 +1,13 @@
+{
+  "name": "orders-fixture-contract",
+  "row_count_min": 4,
+  "row_count_max": 10,
+  "primary_key": ["order_id"],
+  "columns": {
+    "order_id": {"required": true, "nullable": false, "type": "integer", "unique": true},
+    "customer_id": {"required": true, "nullable": false, "type": "string", "pattern": "C[0-9]{3}"},
+    "status": {"required": true, "nullable": false, "type": "string", "allowed_values": ["paid", "refunded", "pending"]},
+    "amount": {"required": true, "nullable": false, "type": "float"},
+    "order_date": {"required": true, "nullable": false, "type": "date"}
+  }
+}

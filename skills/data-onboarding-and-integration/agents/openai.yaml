@@ -1,0 +1,6 @@
+interface:
+  display_name: "Data Onboarding and Integration"
+  short_description: "Integrate new data hires into productive work"
+  default_prompt: "Use $data-onboarding-and-integration to handle this request with evidence, validation, and required approval gates."
+policy:
+  allow_implicit_invocation: true

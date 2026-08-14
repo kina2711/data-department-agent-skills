@@ -1,0 +1,23 @@
+role: ""
+level: ""
+owner: ""
+version: ""
+source_evidence: []
+assumptions: []
+outcomes: []
+competencies:
+  - id: ""
+    weight: 0
+    must_have: false
+    behavioral_anchors:
+      1: ""
+      2: ""
+      3: ""
+      4: ""
+    primary_method: ""
+    corroborating_signal: ""
+    corroborating_signal_scored: false
+critical_failures: []
+decision_rule: ""
+validation_status: "draft"
+approval: "pending"

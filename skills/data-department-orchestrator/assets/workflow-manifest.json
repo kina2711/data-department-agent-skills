@@ -1,0 +1,25 @@
+{
+  "workflow_id": "",
+  "version": "",
+  "objective": "",
+  "status": "planning",
+  "workflow_risk_tier": "R0-light",
+  "current_task_id": "",
+  "tasks": [
+    {
+      "task_id": "",
+      "instance_id": "",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

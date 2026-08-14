@@ -1,0 +1,9 @@
+workflow_id: ""
+task_id: ""
+gate: "definition-of-ready"
+decision: "pending"
+criteria: []
+evidence: []
+exceptions: []
+approver: ""
+decided_at: ""

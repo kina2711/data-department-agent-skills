@@ -1,0 +1,261 @@
+#!/usr/bin/env python3
+"""Run static smoke tests over evaluation scenarios and generated artifacts."""
+
+from __future__ import annotations
+
+import json
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+SKILLS = ROOT / "skills"
+
+
+def parse_simple_eval(path: Path) -> list[dict[str, object]]:
+    cases: list[dict[str, object]] = []
+    current: dict[str, object] | None = None
+    list_key: str | None = None
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.rstrip()
+        case_match = re.match(r"^  - id:\s*(.+)$", line)
+        if case_match:
+            if current:
+                cases.append(current)
+            current = {"id": case_match.group(1).strip()}
+            list_key = None
+            continue
+        if current is None:
+            continue
+        field_match = re.match(r"^    ([a-z_]+):\s*(.*)$", line)
+        if field_match:
+            key, value = field_match.groups()
+            if value:
+                current[key] = value.strip()
+                list_key = None
+            else:
+                current[key] = []
+                list_key = key
+            continue
+        item_match = re.match(r"^      -\s*(.+)$", line)
+        if item_match and list_key:
+            cast = current[list_key]
+            if isinstance(cast, list):
+                cast.append(item_match.group(1).strip())
+    if current:
+        cases.append(current)
+    return cases
+
+
+def main() -> None:
+    errors: list[str] = []
+    catalog = json.loads((ROOT / "task-catalog.json").read_text(encoding="utf-8"))
+    task_ids = {item["id"] for item in catalog}
+    task_by_id = {item["id"]: item for item in catalog}
+    skill_ids = {path.name for path in SKILLS.iterdir() if path.is_dir()}
+    cases = parse_simple_eval(ROOT / "evaluations" / "routing-cases.yaml")
+    for case in cases:
+        primary = str(case.get("expected_primary_skill", ""))
+        if primary not in skill_ids:
+            errors.append(f"{case['id']}: unknown primary skill {primary}")
+        for task_id in case.get("expected_tasks", []):
+            if task_id not in task_ids:
+                errors.append(f"{case['id']}: unknown expected task {task_id}")
+    lifecycle_cases = parse_simple_eval(ROOT / "evaluations" / "lifecycle-cases.yaml")
+    for case in lifecycle_cases:
+        task_id = str(case.get("task", ""))
+        item = task_by_id.get(task_id)
+        if not item:
+            errors.append(f"{case['id']}: unknown lifecycle task {task_id}")
+            continue
+        if item.get("lifecycle_profile") != case.get("expected_profile"):
+            errors.append(f"{case['id']}: profile {item.get('lifecycle_profile')} != {case.get('expected_profile')}")
+        if item.get("execution_path") != case.get("expected_path"):
+            errors.append(f"{case['id']}: path {item.get('execution_path')} != {case.get('expected_path')}")
+    catalog_cases = parse_simple_eval(ROOT / "evaluations" / "catalog-routing-cases.yaml")
+    catalog_location: dict[str, str] = {}
+    for path in SKILLS.glob("*/references/catalog-*.md"):
+        group = path.stem.removeprefix("catalog-")
+        for task_id in re.findall(r"\(tasks/([a-z0-9-]+)\.md\)", path.read_text(encoding="utf-8")):
+            if task_id in catalog_location:
+                errors.append(f"{task_id}: appears in multiple routing catalogs")
+            catalog_location[task_id] = group
+    for case in catalog_cases:
+        task_id = str(case.get("task", ""))
+        expected = str(case.get("expected_catalog", ""))
+        if catalog_location.get(task_id) != expected:
+            errors.append(f"{case['id']}: catalog {catalog_location.get(task_id)} != {expected}")
+    if set(catalog_location) != task_ids:
+        errors.append("Catalog shards do not cover every atomic task exactly once")
+    confusion_cases = parse_simple_eval(ROOT / "evaluations" / "confusion-pair-cases.yaml")
+    for case in confusion_cases:
+        primary = str(case.get("expected_primary_skill", ""))
+        rejected = str(case.get("rejected_skill", ""))
+        task_id = str(case.get("expected_task", ""))
+        if primary not in skill_ids:
+            errors.append(f"{case['id']}: unknown confusion-pair primary skill {primary}")
+        if rejected not in skill_ids or rejected == primary:
+            errors.append(f"{case['id']}: invalid rejected skill {rejected}")
+        if task_id not in task_ids:
+            errors.append(f"{case['id']}: unknown confusion-pair task {task_id}")
+    required_assets = [
+        "run-state.yaml",
+        "question-register.yaml",
+        "assumption-register.yaml",
+        "conflict-register.yaml",
+        "approval-ledger.yaml",
+        "evidence-ledger.yaml",
+        "handoff-package.yaml",
+        "work-ledger.yaml",
+        "success-contract.yaml",
+        "change-scope-ledger.yaml",
+        "change-scope-contract.json",
+        "verification-claims.yaml",
+        "workflow-manifest.json",
+        "approval-record.json",
+        "telemetry-event.json",
+    ]
+    asset_root = SKILLS / "data-department-orchestrator" / "assets"
+    for asset in required_assets:
+        if not (asset_root / asset).exists():
+            errors.append(f"Missing orchestrator asset {asset}")
+    content_validator = SKILLS / "data-technical-content-and-social" / "scripts" / "validate_content_manifest.py"
+    content_cases = [
+        (ROOT / "evaluations" / "fixtures" / "content-complete" / "content-manifest.json", [], 0, []),
+        (ROOT / "evaluations" / "fixtures" / "content-manifest-valid.json", ["--mode", "plan"], 0, []),
+        (
+            ROOT / "evaluations" / "fixtures" / "content-manifest-invalid.json",
+            [],
+            1,
+            ["language must be en for linkedin", "lacks mandatory media roles"],
+        ),
+    ]
+    for manifest_path, extra, expected_exit, expected_texts in content_cases:
+        result = subprocess.run(
+            [sys.executable, str(content_validator), str(manifest_path), *extra],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if result.returncode != expected_exit:
+            errors.append(f"content validator {manifest_path.name}: exit {result.returncode} != {expected_exit}")
+        for expected_text in expected_texts:
+            if expected_text not in result.stdout:
+                errors.append(f"content validator {manifest_path.name}: missing regression signal {expected_text!r}")
+    project_skill = SKILLS / "data-personal-project-engineering"
+    project_validator = project_skill / "scripts" / "validate_personal_project_manifest.py"
+    project_cases = [
+        (ROOT / "evaluations" / "fixtures" / "personal-project-manifest-valid.json", ["--mode", "plan"], 0, []),
+        (
+            ROOT / "evaluations" / "fixtures" / "personal-project-manifest-invalid.json",
+            ["--mode", "plan"],
+            1,
+            ["cannot be represented as self-originated", "requires at least 3 substantive differentiation", "repo assessment lacks dimensions"],
+        ),
+    ]
+    for manifest_path, extra, expected_exit, expected_texts in project_cases:
+        result = subprocess.run(
+            [sys.executable, str(project_validator), str(manifest_path), *extra],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if result.returncode != expected_exit:
+            errors.append(f"project validator {manifest_path.name}: exit {result.returncode} != {expected_exit}")
+        for expected_text in expected_texts:
+            if expected_text not in result.stdout:
+                errors.append(f"project validator {manifest_path.name}: missing regression signal {expected_text!r}")
+    project_scorer = project_skill / "scripts" / "score_project_options.py"
+    score_result = subprocess.run(
+        [sys.executable, str(project_scorer), str(ROOT / "evaluations" / "fixtures" / "project-option-scorecard-valid.json")],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if score_result.returncode != 0 or '"recommended_option_id": "repo-transform"' not in score_result.stdout:
+        errors.append("project option scorer did not select the expected eligible option")
+    workflow_validator = SKILLS / "data-department-orchestrator" / "scripts" / "validate_workflow.py"
+    workflow_cases = [
+        (
+            ROOT / "evaluations" / "fixtures" / "workflow-valid.json",
+            0,
+            ["PASS: workflow graph"],
+        ),
+        (
+            ROOT / "evaluations" / "fixtures" / "workflow-invalid.json",
+            1,
+            ["risk downgrade", "dependency cycle", "verified claim lacks evidence", "invalid status 'pending'"],
+        ),
+    ]
+    for workflow_path, expected_exit, expected_texts in workflow_cases:
+        result = subprocess.run(
+            [sys.executable, str(workflow_validator), str(workflow_path), "--catalog", str(ROOT / "task-catalog.json"), "--evidence-dir", str(ROOT / "evaluations" / "fixtures" / "workflow-evidence"), "--mode", "complete"],
+            capture_output=True, text=True, check=False,
+        )
+        if result.returncode != expected_exit:
+            errors.append(f"workflow validator {workflow_path.name}: exit {result.returncode} != {expected_exit}")
+        for expected_text in expected_texts:
+            if expected_text not in result.stdout:
+                errors.append(f"workflow validator {workflow_path.name}: missing regression signal {expected_text!r}")
+    evidence_validator = SKILLS / "shared-data-core" / "scripts" / "validate_evidence_bundle.py"
+    evidence_cases = [
+        (ROOT / "evaluations" / "fixtures" / "evidence-envelope-valid.json", 0, ["cryptographically valid"]),
+        (ROOT / "evaluations" / "fixtures" / "evidence-envelope-invalid.json", 1, ["artifact_sha256", "complete bundle cannot contain status 'not-run'", "artifact does not exist"]),
+    ]
+    for evidence_path, expected_exit, expected_texts in evidence_cases:
+        result = subprocess.run(
+            [sys.executable, str(evidence_validator), str(evidence_path), "--artifact-root", str(ROOT / "evaluations" / "fixtures"), "--mode", "complete"],
+            capture_output=True, text=True, check=False,
+        )
+        if result.returncode != expected_exit:
+            errors.append(f"evidence validator {evidence_path.name}: exit {result.returncode} != {expected_exit}")
+        for expected_text in expected_texts:
+            if expected_text not in result.stdout:
+                errors.append(f"evidence validator {evidence_path.name}: missing regression signal {expected_text!r}")
+    portfolio_builder = project_skill / "scripts" / "build_portfolio_evidence.py"
+    portfolio_cases = [
+        (ROOT / "evaluations" / "fixtures" / "portfolio-manifest-valid.json", 0, ["\"verified_claims\": 1"]),
+        (ROOT / "evaluations" / "fixtures" / "personal-project-manifest-valid.json", 1, ["strict portfolio evidence requires at least one artifact", "strict portfolio evidence requires at least one structured claim"]),
+    ]
+    for manifest_path, expected_exit, expected_texts in portfolio_cases:
+        result = subprocess.run(
+            [sys.executable, str(portfolio_builder), str(manifest_path), "--project-root", str(ROOT / "evaluations" / "fixtures"), "--strict"],
+            capture_output=True, text=True, check=False,
+        )
+        if result.returncode != expected_exit:
+            errors.append(f"portfolio builder {manifest_path.name}: exit {result.returncode} != {expected_exit}")
+        for expected_text in expected_texts:
+            if expected_text not in result.stdout:
+                errors.append(f"portfolio builder {manifest_path.name}: missing regression signal {expected_text!r}")
+    telemetry_recorder = SKILLS / "data-department-orchestrator" / "scripts" / "record_skill_telemetry.py"
+    telemetry_result = subprocess.run(
+        [sys.executable, str(telemetry_recorder), str(ROOT / "evaluations" / "fixtures" / "telemetry-event-invalid.json"), "--output", str(ROOT / "evaluations" / "fixtures" / "must-not-be-created.jsonl")],
+        capture_output=True, text=True, check=False,
+    )
+    if telemetry_result.returncode != 1 or "user_content must be null" not in telemetry_result.stdout:
+        errors.append("telemetry recorder did not reject user content")
+    if (ROOT / "evaluations" / "fixtures" / "must-not-be-created.jsonl").exists():
+        errors.append("invalid telemetry unexpectedly created an output file")
+    criticality = {name: sum(item.get("criticality") == name for item in catalog) for name in ("standard", "deep", "enforced")}
+    adapter_count = len(list(SKILLS.glob("*/references/adapter-*.md")))
+    print(f"routing_cases: {len(cases)}")
+    print(f"lifecycle_cases: {len(lifecycle_cases)}")
+    print(f"catalog_routing_cases: {len(catalog_cases)}")
+    print(f"confusion_pair_cases: {len(confusion_cases)}")
+    print(f"catalog_tasks: {len(task_ids)}")
+    print(f"skills: {len(skill_ids)}")
+    print(f"deep_contracts: {criticality['deep']}")
+    print(f"enforced_contracts: {criticality['enforced']}")
+    print(f"stack_adapter_packs: {adapter_count}")
+    print(f"errors: {len(errors)}")
+    if errors:
+        for error in errors:
+            print(f"ERROR: {error}")
+        sys.exit(1)
+    print("Smoke tests passed")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Shared Data Core"
+  short_description: "Shared controls for trustworthy data work"
+  default_prompt: "Use $shared-data-core to handle this request with evidence, validation, and required approval gates."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,16 @@
+bank_id: ""
+version: ""
+role: ""
+level: ""
+competency_coverage: []
+knowledge_coverage: []
+difficulty_distribution: []
+redundancy_findings: []
+bias_findings: []
+leakage_exposure: []
+candidate_burden: {}
+validity_findings: []
+gaps: []
+retire_or_revise: []
+owner: ""
+status: "draft"

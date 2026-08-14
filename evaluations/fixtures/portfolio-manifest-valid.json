@@ -1,0 +1,30 @@
+{
+  "project_id": "portfolio-fixture",
+  "artifacts": [
+    {
+      "artifact_id": "artifact-proof",
+      "path": "evidence-artifact.txt",
+      "version": "1.0.0",
+      "sha256": "2b67fd6a16a0bbf9b902bbfa59af465841de06661b1faf7c0ded92a253ed987a",
+      "status": "tested"
+    }
+  ],
+  "validations": [
+    {
+      "validation_id": "validation-proof",
+      "scope": "functional",
+      "artifact_id": "artifact-proof",
+      "status": "passed",
+      "evidence_ref": "ev-valid"
+    }
+  ],
+  "portfolio_claims": [
+    {
+      "claim_id": "claim-proof",
+      "wording": "The fixture artifact passed its declared functional check.",
+      "artifact_refs": ["artifact-proof"],
+      "validation_refs": ["validation-proof"],
+      "limitations": ["Regression fixture only"]
+    }
+  ]
+}

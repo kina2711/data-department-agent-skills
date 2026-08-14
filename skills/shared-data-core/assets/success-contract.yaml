@@ -1,0 +1,19 @@
+contract_id: ""
+version: ""
+objective: ""
+consumer_and_decision: ""
+observable_outcomes: []
+acceptance_checks:
+  - id: ""
+    condition: ""
+    method: ""
+    evidence: ""
+    pass_rule: ""
+non_goals: []
+assumptions: []
+blocking_ambiguities: []
+stop_conditions: []
+owner: ""
+reviewed_by: ""
+approved_at: ""
+status: "draft"

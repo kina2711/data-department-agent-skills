@@ -1,0 +1,13 @@
+workflow_id: ""
+objective: ""
+work_path: "probe"
+success_contract: ""
+scope_contract: ""
+current_hypothesis: ""
+latest_verified_baseline: ""
+completed_steps: []
+failed_attempts: []
+open_findings: []
+next_smallest_action: ""
+compaction_resume_note: ""
+updated_at: ""

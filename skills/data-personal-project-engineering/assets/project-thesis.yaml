@@ -1,0 +1,22 @@
+project_id: ""
+entry_mode: ""
+problem: ""
+target_user: ""
+current_workaround: ""
+decision_or_outcome: ""
+hypothesis: ""
+original_contribution: ""
+origin_statement: ""
+non_claims: []
+technical_baseline: {}
+data_contract: {}
+success_evidence: []
+differentiation_axes:
+  - axis: "problem-user|data-domain|architecture|reliability|governance|performance-cost|operations|evaluation|experience"
+    reference_baseline: ""
+    planned_delta: ""
+    proof: ""
+scope: []
+out_of_scope: []
+risks: []
+status: "draft"

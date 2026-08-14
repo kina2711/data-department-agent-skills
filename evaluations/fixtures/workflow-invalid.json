@@ -1,0 +1,52 @@
+{
+  "workflow_id": "wf-invalid",
+  "version": "1.0.0",
+  "objective": "Bypass controls",
+  "status": "complete",
+  "workflow_risk_tier": "R0-light",
+  "current_task_id": "unknown-task",
+  "tasks": [
+    {
+      "task_id": "de-build-api-ingestion",
+      "owner": "",
+      "depends_on": ["de-profile-source-system"],
+      "status": "complete",
+      "risk_tier": "R0-light",
+      "artifact_version": "1.0.0",
+      "artifact_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-profile-source-system",
+      "owner": "data-engineering",
+      "depends_on": ["de-build-api-ingestion"],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [
+    {"task_id": "de-build-api-ingestion", "from_status": "planned", "to_status": "complete", "occurred_at": "2026-08-14T00:00:01Z", "evidence_refs": []}
+  ],
+  "claims": [
+    {
+      "claim_id": "claim-invalid",
+      "task_id": "de-build-api-ingestion",
+      "wording": "Pipeline is complete",
+      "evidence_refs": [],
+      "status": "verified"
+    },
+    {
+      "claim_id": "claim-illegal-status",
+      "task_id": "de-profile-source-system",
+      "wording": "Profiling is pending",
+      "evidence_refs": [],
+      "status": "pending"
+    }
+  ],
+  "updated_at": "2026-08-14T00:00:00Z"
+}

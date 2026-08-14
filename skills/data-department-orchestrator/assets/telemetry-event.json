@@ -1,0 +1,14 @@
+{
+  "event_id": "",
+  "occurred_at": "",
+  "suite_version": "3.1.0",
+  "skill": "",
+  "task_id": "",
+  "route_source": "implicit",
+  "outcome": "blocked",
+  "duration_ms": 0,
+  "references_loaded": [],
+  "token_estimate": 0,
+  "failure_codes": [],
+  "user_content": null
+}

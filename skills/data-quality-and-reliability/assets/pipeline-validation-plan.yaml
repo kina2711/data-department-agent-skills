@@ -1,0 +1,12 @@
+pipeline_or_product: ""
+owner: ""
+input_validation: []
+transformation_validation: []
+output_validation: []
+monitoring_validation: []
+thresholds: []
+failure_actions: []
+quarantine_or_dlq: {}
+reconciliation: []
+evidence_retention: ""
+approval_status: "draft"

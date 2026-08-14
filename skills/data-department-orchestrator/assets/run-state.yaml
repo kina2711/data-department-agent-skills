@@ -1,0 +1,13 @@
+workflow_id: ""
+status: "planning"
+lifecycle_profile: ""
+risk_tier: ""
+execution_path: ""
+current_phase: ""
+current_task: ""
+completed_tasks: []
+passed_gates: []
+failed_tests: []
+blocked_by: []
+next_permitted_action: ""
+updated_at: ""

@@ -1,0 +1,14 @@
+person_id: ""
+career_goal: ""
+target_capabilities: []
+audiences: []
+approved_themes: []
+allowed_claim_ids: []
+prohibited_or_confidential_claims: []
+authentic_evidence_refs: []
+capacity_and_cadence: {}
+author_voice_constraints: []
+success_signals: []
+next_content_task: "content-define-technical-content-strategy"
+owner: ""
+status: "draft"

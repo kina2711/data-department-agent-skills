@@ -1,0 +1,38 @@
+{
+  "project_id": "renamed-clone",
+  "owner": "learner-001",
+  "purpose": "portfolio",
+  "entry_mode": "repo-first",
+  "source_origins": [
+    {
+      "source_id": "someone-else",
+      "origin_type": "forked-from",
+      "locator": "https://github.com/example/project",
+      "author_or_owner": "",
+      "version_or_commit": "",
+      "license_or_terms": "",
+      "allowed_use": "",
+      "attribution_text": "",
+      "content_sha256": ""
+    }
+  ],
+  "thesis": {
+    "problem": "",
+    "target_user": "",
+    "decision_or_outcome": "",
+    "original_contribution": "renamed files",
+    "origin_statement": "self-originated project",
+    "non_claims": []
+  },
+  "differentiation_axes": [
+    {"axis": "styling", "reference_baseline": "blue", "planned_delta": "orange", "proof": "screenshot"}
+  ],
+  "selection": {"hard_gates": {}, "weighted_score": 120, "confidence": 2, "evidence_refs": []},
+  "repo_assessment": {"source_id": "missing", "baseline_status": "passed", "dimensions_reviewed": [], "finding_ids": [], "transformation_matrix_ref": ""},
+  "scope": {},
+  "milestones": [],
+  "artifacts": [],
+  "validations": [],
+  "portfolio_claims": [],
+  "status": "planned"
+}

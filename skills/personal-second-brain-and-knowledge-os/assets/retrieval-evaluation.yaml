@@ -1,0 +1,23 @@
+brain_id: ""
+evaluation_id: ""
+queries:
+  - query_id: ""
+    query: ""
+    expected_sources: []
+    expected_notes: []
+    forbidden_sources: []
+    freshness_requirement: ""
+    result_sources: []
+    result_notes: []
+    citation_valid: false
+    abstention_expected: false
+    abstained: false
+    score: 0
+metrics:
+  precision: 0
+  coverage: 0
+  citation_validity: 0
+  freshness_pass_rate: 0
+  abstention_accuracy: 0
+critical_failures: []
+status: "not-run"

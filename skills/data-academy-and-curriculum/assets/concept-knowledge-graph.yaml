@@ -1,0 +1,18 @@
+graph_id: ""
+role: ""
+level: ""
+concepts:
+  - concept_id: ""
+    title: ""
+    competencies: []
+    prerequisites: []
+    depends_on: []
+    related: []
+    contrasts: []
+    misconceptions: []
+    transfer_tasks: []
+entry_concepts: []
+target_concepts: []
+validation_status: "draft"
+owner: ""
+version: ""

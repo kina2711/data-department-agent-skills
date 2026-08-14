@@ -1,0 +1,30 @@
+{
+  "suite_version": "3.1.0",
+  "references": [
+    {
+      "logical_id": "lifecycle-standard",
+      "filename": "lifecycle-standard.md",
+      "sha256": "acce4f49bd63a5d4f2778180e65577880b3a19acb220b9460c92334342361808"
+    },
+    {
+      "logical_id": "safety-and-approvals",
+      "filename": "safety-and-approvals.md",
+      "sha256": "b7e288ae188ffa3f2504107d47584b243c4e4d46715cd4d1669d4f6a2c293342"
+    },
+    {
+      "logical_id": "industry-and-metrics",
+      "filename": "industry-and-metrics.md",
+      "sha256": "3692a961194975939f276b2732c431a038f6223528dbbf642f8c692cba449ce9"
+    },
+    {
+      "logical_id": "execution-discipline-standard",
+      "filename": "execution-discipline-standard.md",
+      "sha256": "f5d3a576b6d001b29ec66c3fa03bc5d38b2c1ebc6bf2ad31ae0aa86e0d4eb70e"
+    },
+    {
+      "logical_id": "workflow-runtime-and-evidence-os",
+      "filename": "workflow-runtime-and-evidence-os.md",
+      "sha256": "8b8c0cc07e6756df34b5251c4a5f66db98a3a8c52c103d83fbaf02bd55bc399d"
+    }
+  ]
+}

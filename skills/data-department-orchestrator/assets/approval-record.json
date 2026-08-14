@@ -1,0 +1,14 @@
+{
+  "approval_id": "",
+  "task_id": "",
+  "scope": [],
+  "artifact_version": "",
+  "artifact_sha256": "",
+  "risk_tier": "R1-reviewed",
+  "approver": "",
+  "authority": "",
+  "decision": "rejected",
+  "conditions": [],
+  "decided_at": "",
+  "expires_at": ""
+}

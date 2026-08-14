@@ -1,0 +1,34 @@
+question_id: ""
+question: ""
+target_role: ""
+target_level: ""
+question_analysis:
+  interviewer_intent: ""
+  competencies: []
+  scope: ""
+  ambiguities: []
+  expected_depth: ""
+  failure_traps: []
+answer_strategy:
+  format: ""
+  opening: ""
+  reasoning_flow: []
+  evidence_to_use: []
+  checks: []
+  follow_up_handling: []
+detailed_answer:
+  claims: []
+  star:
+    situation: ""
+    task: ""
+    action: []
+    result: ""
+    reflection: ""
+  technical_example: {}
+  limitations: []
+knowledge_deep_dive: []
+related_concepts: []
+practice_variants: []
+sources: []
+version: ""
+status: "draft"

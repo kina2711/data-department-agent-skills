@@ -1,0 +1,21 @@
+person_id: ""
+target_role: ""
+target_level: ""
+claims:
+  - claim_id: ""
+    claim: ""
+    evidence_type: "learning|practice|project|production|leadership|business|organizational|external"
+    artifact_ref: ""
+    evidence_refs: []
+    scope: ""
+    authorship: ""
+    reviewer: ""
+    reviewed_at: ""
+    result: ""
+    verification_status: "unverified"
+    limitations: []
+    safe_public_wording: ""
+gaps: []
+reviewers: []
+reviewed_at: ""
+status: "draft"

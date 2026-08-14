@@ -1,0 +1,122 @@
+{
+  "series_id": "validator-fixture",
+  "episode_id": "ep-01",
+  "owner": "author-001",
+  "requested_channels": [],
+  "canonical_artifact": "article-ep-01",
+  "evidence": [
+    {
+      "evidence_id": "official-source-001",
+      "evidence_type": "official-source",
+      "locator": "https://example.com/versioned-official-source",
+      "snapshot_path": "evidence/official-source.txt",
+      "content_sha256": "4156ff3a5fc8033eb1bc89d4e5992ab51e85db15b3ab769c317faa4961ce2244",
+      "version_or_date": "1.0.0",
+      "environment": "",
+      "verified_by": "technical-reviewer-001",
+      "verified_at": "2026-08-14",
+      "verification_status": "verified",
+      "claim_supports": [
+        {
+          "claim_id": "claim-001",
+          "excerpt": "This fixture demonstrates a declared product version and a stored evidence snapshot."
+        }
+      ]
+    },
+    {
+      "evidence_id": "test-report-001",
+      "evidence_type": "test-report",
+      "locator": "evidence/test-report.txt",
+      "snapshot_path": "evidence/test-report.txt",
+      "content_sha256": "60c99f448a399206ed9c1bd6968fcdad0ca542ddc6a530dd9df5ba45c08e5d1b",
+      "version_or_date": "1.0.0",
+      "environment": "local fixture",
+      "verified_by": "technical-reviewer-001",
+      "verified_at": "2026-08-14",
+      "verification_status": "verified",
+      "claim_supports": []
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "claim-001",
+      "text": "This fixture has a declared product version.",
+      "classification": "fact",
+      "evidence_refs": ["official-source-001"]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "article-ep-01",
+      "channel": "canonical",
+      "language": "en",
+      "path": "articles/ep-01.md",
+      "version": "1.0.0",
+      "sha256": "ccc6c0da953f493327811e7181469384cdc09a370a768e1b940f8af2713f953e",
+      "derived_from": "",
+      "claim_ids": ["claim-001"],
+      "required_test_scopes": ["claim-traceability", "artifact-validity"],
+      "min_words": 0,
+      "max_words": 0,
+      "structure_evidence": {},
+      "status": "approved",
+      "review_ids": ["review-technical", "review-claims", "review-artifact"]
+    }
+  ],
+  "reviews": [
+    {
+      "review_id": "review-technical",
+      "review_type": "technical-accuracy",
+      "artifact_id": "article-ep-01",
+      "artifact_version": "1.0.0",
+      "artifact_sha256": "ccc6c0da953f493327811e7181469384cdc09a370a768e1b940f8af2713f953e",
+      "status": "passed",
+      "reviewer": "technical-reviewer-001",
+      "reviewed_at": "2026-08-14"
+    },
+    {
+      "review_id": "review-claims",
+      "review_type": "claim-traceability",
+      "artifact_id": "article-ep-01",
+      "artifact_version": "1.0.0",
+      "artifact_sha256": "ccc6c0da953f493327811e7181469384cdc09a370a768e1b940f8af2713f953e",
+      "status": "passed",
+      "reviewer": "technical-reviewer-001",
+      "reviewed_at": "2026-08-14"
+    },
+    {
+      "review_id": "review-artifact",
+      "review_type": "artifact-validity",
+      "artifact_id": "article-ep-01",
+      "artifact_version": "1.0.0",
+      "artifact_sha256": "ccc6c0da953f493327811e7181469384cdc09a370a768e1b940f8af2713f953e",
+      "status": "passed",
+      "reviewer": "technical-reviewer-001",
+      "reviewed_at": "2026-08-14"
+    }
+  ],
+  "tests": [
+    {
+      "test_id": "test-claims",
+      "artifact_id": "article-ep-01",
+      "scope": "claim-traceability",
+      "required": true,
+      "status": "passed",
+      "evidence_ref": "test-report-001"
+    },
+    {
+      "test_id": "test-artifact",
+      "artifact_id": "article-ep-01",
+      "scope": "artifact-validity",
+      "required": true,
+      "status": "passed",
+      "evidence_ref": "test-report-001"
+    }
+  ],
+  "approvals": [],
+  "publication": {
+    "status": "not-published",
+    "requested_channels": [],
+    "channels": []
+  }
+}

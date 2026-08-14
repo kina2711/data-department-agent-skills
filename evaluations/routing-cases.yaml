@@ -1,0 +1,402 @@
+cases:
+  - id: vague-executive-dashboard
+    query: Build an executive revenue dashboard from our CRM and billing data.
+    expected_primary_skill: data-department-orchestrator
+    expected_tasks:
+      - dpm-intake-data-request
+      - da-define-metric-requirement
+      - de-design-ingestion-pipeline
+      - ae-build-analytics-mart
+      - dg-certify-business-metric
+      - bi-build-dashboard
+      - bi-run-independent-uat
+    expected_behavior:
+      - Ask only blocking discovery questions.
+      - Do not invent KPI semantics or source authority.
+      - Require release approval before production publishing.
+
+  - id: api-incremental-ingestion
+    query: Ingest paginated orders from an API every hour and safely rerun failures.
+    expected_primary_skill: data-engineering
+    expected_tasks:
+      - de-profile-source-system
+      - de-design-ingestion-pipeline
+      - de-build-api-ingestion
+      - de-build-incremental-load
+      - de-make-pipeline-idempotent
+    expected_behavior:
+      - Address authentication, rate limits, pagination, watermarks and retries.
+      - Define reconciliation and failure recovery.
+
+  - id: metric-conflict
+    query: Finance and Sales disagree on what Net Revenue means. Fix the dashboard.
+    expected_primary_skill: data-department-orchestrator
+    expected_tasks:
+      - dg-resolve-business-term-conflict
+      - da-define-metric-requirement
+      - ae-manage-metric-version
+      - dg-certify-business-metric
+      - bi-version-dashboard-change
+    expected_behavior:
+      - Do not silently pick a definition.
+      - Preserve the conflict and approval evidence.
+
+  - id: model-drift
+    query: The fraud model input distribution shifted and precision dropped in production.
+    expected_primary_skill: data-department-orchestrator
+    expected_tasks:
+      - mlops-monitor-data-drift
+      - mlops-monitor-model-performance
+      - mlops-handle-ml-incident
+      - ds-validate-model
+      - mlops-validate-retrained-model
+    expected_behavior:
+      - Separate service health, drift and labeled performance.
+      - Require promotion approval for a replacement model.
+
+  - id: unknown-schema
+    query: Document this inherited warehouse; nobody knows its tables or lineage.
+    expected_primary_skill: metadata-engineering-and-catalog
+    expected_tasks:
+      - dx-reverse-engineer-data-project
+      - meta-inventory-data-assets
+      - meta-harvest-technical-metadata
+      - meta-build-data-lineage
+      - meta-validate-lineage
+    expected_behavior:
+      - Ground documentation in code and live metadata.
+      - Mark uncertain lineage rather than inventing it.
+
+  - id: sensitive-architecture-diagram
+    query: Render our confidential payment architecture and customer PII flow with PlantUML.
+    expected_primary_skill: data-documentation-and-diagrams
+    expected_tasks:
+      - docs-select-diagram-type
+      - docs-create-architecture-diagram
+      - sec-threat-model-data-flow
+    expected_behavior:
+      - Avoid public rendering unless content is sanitized and approved.
+      - Prefer local rendering and preserve source.
+
+  - id: dataset-first
+    query: I only have a CSV. Find a valuable data project I can build from it.
+    expected_primary_skill: data-personal-project-engineering
+    expected_tasks:
+      - project-start-dataset-first
+      - core-profile-dataset
+      - dpm-frame-data-product-opportunity
+      - ba-assess-solution-feasibility
+    expected_behavior:
+      - Inspect the actual dataset before proposing directions.
+      - Separate observed evidence from hypotheses.
+
+  - id: personal-repo-first-transform
+    query: Use this public GitHub data pipeline repository as inspiration, review it deeply, propose improvements and turn it into a differentiated project for my portfolio.
+    expected_primary_skill: data-personal-project-engineering
+    expected_tasks:
+      - project-start-repo-first
+      - project-audit-reference-repository
+      - project-build-reuse-adapt-replace-matrix
+      - project-transform-borrowed-source-to-original-thesis
+    expected_behavior:
+      - Resolve license, provenance and exact commit before reuse.
+      - Attribute the upstream source and require substantive differentiation.
+      - Run a safe baseline before claiming defects or improvements.
+
+  - id: personal-external-idea-first
+    query: I found someone else's project idea in a video. Turn it into something I can build as my own portfolio project.
+    expected_primary_skill: data-personal-project-engineering
+    expected_tasks:
+      - project-start-inspiration-first
+      - project-plan-originality-and-attribution
+      - project-design-project-differentiation
+    expected_behavior:
+      - Treat the external idea as attributed inspiration, not self-originated work.
+      - Produce a user-owned thesis with evidence and non-claims.
+
+  - id: privacy-delete-request
+    query: Delete everything held about this customer from all systems.
+    expected_primary_skill: data-security-and-privacy
+    expected_tasks:
+      - privacy-handle-data-subject-request
+      - privacy-enforce-retention-deletion
+      - core-estimate-change-impact
+    expected_behavior:
+      - Verify identity, legal scope and holds.
+      - Require approval and produce deletion evidence.
+
+  - id: ab-test-readout
+    query: Is the checkout redesign statistically successful after seven days?
+    expected_primary_skill: product-analytics-and-experimentation
+    expected_tasks:
+      - exp-check-randomization
+      - exp-handle-experiment-peeking
+      - exp-analyze-experiment
+    expected_behavior:
+      - Check sample-ratio mismatch and stopping rules before inference.
+      - Report uncertainty and guardrails.
+
+  - id: resume-workflow
+    query: Continue the BI delivery project from the last approved checkpoint.
+    expected_primary_skill: data-department-orchestrator
+    expected_tasks:
+      - orchestrator-hydrate-context
+      - orchestrator-resume-workflow
+      - orchestrator-enforce-phase-gate
+    expected_behavior:
+      - Read state and approval ledgers.
+      - Do not redo or cross an approved gate without a change request.
+
+  - id: build-de-curriculum
+    query: Build a six-month theory and practical curriculum for Junior to Senior Data Engineers.
+    expected_primary_skill: data-academy-and-curriculum
+    expected_tasks:
+      - academy-assess-organizational-learning-needs
+      - academy-define-role-learning-outcomes
+      - academy-map-learning-prerequisites
+      - academy-design-role-syllabus
+      - academy-build-role-theory-pack
+      - academy-design-summative-exam
+    expected_behavior:
+      - Align theory, labs and assessments to observable competencies.
+      - Separate attendance from competency certification.
+
+  - id: onboard-senior-ae
+    query: Onboard a Senior Analytics Engineer into our team and get them safely productive in 90 days.
+    expected_primary_skill: data-onboarding-and-integration
+    expected_tasks:
+      - onboard-plan-new-hire-onboarding
+      - onboard-plan-access-provisioning
+      - onboard-verify-access-readiness
+      - onboard-run-guided-first-task
+      - onboard-run-first-independent-task
+      - onboard-run-ninety-day-checkpoint
+      - onboard-certify-onboarding-completion
+    expected_behavior:
+      - Use least privilege and role-specific evidence.
+      - Include 7, 30, 60 and 90 day checkpoints.
+
+  - id: interview-senior-de
+    query: Create and run a fair structured interview process for a Senior Data Engineer.
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-build-role-hiring-scorecard
+      - talent-design-structured-interview-loop
+      - talent-run-sql-interview
+      - talent-run-data-engineering-interview
+      - talent-run-behavioral-interview
+      - talent-run-hiring-debrief
+      - talent-audit-interview-fairness
+    expected_behavior:
+      - Lock independent evidence before debrief.
+      - Score job-relevant evidence with calibrated anchors.
+
+  - id: coach-ds-interview
+    query: Prepare me deeply for a Senior Data Scientist interview without fabricating my experience.
+    expected_primary_skill: data-career-and-interview-coach
+    expected_tasks:
+      - career-assess-role-readiness
+      - career-build-competency-gap-plan
+      - career-run-mock-data-science-interview
+      - career-evaluate-interview-answer
+      - career-create-targeted-remediation
+      - career-run-interview-retest
+      - career-certify-interview-readiness
+    expected_behavior:
+      - Diagnose before coaching and retest on a novel scenario.
+      - Never invent experience or complete a live hiring assessment.
+
+  - id: interview-question-deep-dive
+    query: Turn this Data Governance interview question into question analysis, answer strategy, authentic STAR example, knowledge deep dive, related concepts and a linked study note.
+    expected_primary_skill: data-career-and-interview-coach
+    expected_tasks:
+      - career-analyze-interview-question
+      - career-map-question-knowledge-dependencies
+      - career-build-question-deep-dive
+      - career-design-answer-strategy
+    expected_behavior:
+      - Build reasoning and authentic evidence rather than a memorized script.
+      - Link the question to prerequisites, concepts, follow-ups and novel retest prompts.
+
+  - id: academy-knowledge-graph
+    query: Build a concept dependency graph and evidence-backed deep dives from our Data Engineer interview question set, then trace each question to learning objectives.
+    expected_primary_skill: data-academy-and-curriculum
+    expected_tasks:
+      - academy-build-concept-knowledge-graph
+      - academy-write-knowledge-deep-dive
+      - academy-map-questions-to-learning-objectives
+    expected_behavior:
+      - Validate sources, prerequisites, misconceptions and transfer tasks.
+      - Do not equate memorized answers with competency.
+
+  - id: validate-interview-question-knowledge
+    query: Check whether our Senior Data Engineer questions measure the intended competencies and define calibrated evidence anchors without leaking model answers.
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-map-question-to-competency-evidence
+      - talent-write-interview-answer-anchors
+      - talent-audit-question-bank-coverage
+    expected_behavior:
+      - Trace role outcomes to competency, construct, question, evidence and score.
+      - Audit validity, redundancy, difficulty, bias, leakage and candidate burden.
+
+  - id: publish-linked-knowledge-library
+    query: Organize our concept deep dives and interview question dossiers into a governed linked knowledge library that can be published to Notion.
+    expected_primary_skill: data-enablement-and-knowledge
+    expected_tasks:
+      - enable-build-concept-knowledge-map
+      - enable-build-versioned-knowledge-library
+      - enable-publish-knowledge
+    expected_behavior:
+      - Use stable IDs, relations, backlinks, owners, versions and freshness.
+      - Treat Notion as a publishing view rather than the ungoverned source of truth.
+
+  - id: bounded-task-context-package
+    query: Package only the business rules, schemas, lineage and evidence needed for this one task, preserve provenance and keep it under a fixed token budget.
+    expected_primary_skill: shared-data-core
+    expected_tasks:
+      - core-build-task-context-package
+    expected_behavior:
+      - Distinguish a one-task context bundle from the durable company context index.
+      - Deduplicate sources, scan for secrets and report omissions caused by the token budget.
+
+  - id: trace-one-data-path
+    query: Do not summarize the whole repository. Trace one order event from its entry point through transformations to the final table, predict its output, then verify that prediction on a fixture.
+    expected_primary_skill: data-developer-experience
+    expected_tasks:
+      - dx-trace-data-path-end-to-end
+    expected_behavior:
+      - Follow code and configuration across one source-to-sink path.
+      - Separate predicted behavior from observed output and record discrepancies.
+
+  - id: inspect-spark-plan-before-optimization
+    query: This Spark job is slow. Read the actual explain plan and metrics first, identify the bottleneck, and only then propose a benchmarkable change.
+    expected_primary_skill: data-engineering
+    expected_tasks:
+      - de-analyze-execution-plan
+      - de-optimize-pipeline-performance
+    expected_behavior:
+      - Inspect shuffle, skew, partitions, joins and actual workload metrics before recommending a change.
+      - Preserve correctness and reconciliation as acceptance criteria for the benchmark.
+
+  - id: explain-existing-sql-to-business
+    query: Explain this existing SQL to a product manager: sources, joins, filters, grain, calculations, output columns and the business questions we still need to validate.
+    expected_primary_skill: data-analysis
+    expected_tasks:
+      - da-explain-sql-business-logic
+    expected_behavior:
+      - Trace every explanation claim to query structure.
+      - Call out join fan-out, null and dialect risks instead of inventing business semantics.
+
+  - id: independent-analysis-review
+    query: Review this completed retention analysis before it goes to leadership. Challenge the data fitness, SQL, statistics, assumptions, narrative and reproducibility, then give a release decision.
+    expected_primary_skill: data-analysis
+    expected_tasks:
+      - da-run-analysis-peer-review
+    expected_behavior:
+      - Keep must-fix findings visible and request author disposition.
+      - Treat the review as a delivery gate, not a post-delivery retrospective.
+
+  - id: define-verifiable-success-before-build
+    query: The request is vague. Convert it into observable outcomes, pass/fail checks, non-goals, evidence methods and stop conditions before implementation.
+    expected_primary_skill: shared-data-core
+    expected_tasks:
+      - core-define-success-contract
+    expected_behavior:
+      - Separate blocking ambiguity from bounded assumptions.
+      - Produce testable completion criteria rather than a prose-only plan.
+
+  - id: audit-drive-by-repository-changes
+    query: Read the Git changes and verify that every changed file maps to the approved outcomes and path allowlist; flag unapproved deletions and drive-by refactors.
+    expected_primary_skill: shared-data-core
+    expected_tasks:
+      - core-audit-change-scope
+    expected_behavior:
+      - Keep the audit read-only and compare observed changes with the scope contract.
+      - Distinguish planned generated files from unrelated or untraced edits.
+
+  - id: audit-dashboard-experience-read-only
+    query: Audit this existing executive dashboard without editing it. Check decision fit, hierarchy, metric truth, density, interaction states, accessibility, mobile behavior and generic template patterns.
+    expected_primary_skill: business-intelligence
+    expected_tasks:
+      - bi-audit-dashboard-experience
+    expected_behavior:
+      - Cite observed page or visual evidence and group findings by actual severity.
+      - Never invent missing KPI values or silently redesign during an audit.
+
+  - id: redesign-dashboard-from-approved-audit
+    query: Turn the approved dashboard audit into an implementation-ready redesign specification that preserves metric semantics and maps each finding to a change and acceptance test.
+    expected_primary_skill: business-intelligence
+    expected_tasks:
+      - bi-redesign-dashboard-experience
+    expected_behavior:
+      - Preserve existing design-system and interaction contracts unless explicitly changed.
+      - Include representative viewport, state, accessibility and regression checks.
+
+  - id: implicit-airflow-social-series
+    query: Tôi muốn làm series Airflow từ beginner tới production cho Facebook, LinkedIn và Substack. Hãy lập roadmap, research nguồn chính thức, viết bài gốc rồi chuyển thành từng kênh mà không copy nhau.
+    expected_primary_skill: data-technical-content-and-social
+    expected_tasks:
+      - content-research-technical-topic
+      - content-design-technical-series
+      - content-write-canonical-technical-article
+      - content-repurpose-technical-content
+    expected_behavior:
+      - Route implicitly from the requested deliverable without requiring the user to name a skill.
+      - Gate channel adaptations on versioned evidence, tested examples and an approved canonical artifact.
+      - Give Facebook, LinkedIn and Substack distinct reader contracts rather than copied variants.
+
+  - id: career-os-with-ethical-visibility
+    query: Xây cho tôi hệ thống phát triển từ DE hiện tại lên Staff, có competency ladder, portfolio evidence, kế hoạch viết kỹ thuật và review hàng quý nhưng không hứa promotion hoặc bắt tôi chạy theo personal brand.
+    expected_primary_skill: data-career-and-interview-coach
+    expected_tasks:
+      - career-build-career-operating-system
+      - career-map-career-stage-competencies
+      - career-build-career-evidence-portfolio
+      - career-design-technical-writing-strategy
+      - career-run-career-review-cycle
+    expected_behavior:
+      - Separate title from portable capability, scope, impact and influence.
+      - Distinguish learning, project, production, leadership and organizational evidence.
+      - Handoff actual social-series production to data-technical-content-and-social.
+
+  - id: reject-invented-technical-authority
+    query: Viết ngay bài dbt LinkedIn và Substack thật viral, cứ nói tôi đã vận hành hàng tỷ record và dùng benchmark 10x dù chưa có bằng chứng; không cần kiểm tra phiên bản.
+    expected_primary_skill: data-technical-content-and-social
+    expected_tasks:
+      - content-verify-technical-versions
+      - content-audit-claim-source-traceability
+      - content-write-linkedin-technical-post
+      - content-write-substack-technical-newsletter
+    expected_behavior:
+      - Refuse to fabricate scale, benchmarks or personal production experience.
+      - Verify version-sensitive claims and label synthetic examples before drafting channel variants.
+
+  - id: build-local-four-layer-second-brain
+    query: Tôi có export Notion, Google Sheets, PDF, transcript, ảnh và Obsidian rải rác. Hãy thiết kế Não2 local gồm 1_Nguon, 2_Wiki, 3_Toi, 4_Ket-Qua để AI tìm lại đúng nguồn, dùng đúng chất riêng, giữ dữ liệu riêng tư và kiểm thử khả năng truy hồi.
+    expected_primary_skill: personal-second-brain-and-knowledge-os
+    expected_tasks:
+      - brain-inventory-distributed-sources
+      - brain-design-four-layer-architecture
+      - brain-plan-tool-migration
+      - brain-build-source-provenance-record
+      - brain-test-retrieval-quality
+    expected_behavior:
+      - Preserve original sources and distinguish source facts, synthesis, personal rules and derived outputs.
+      - Build a local-first migration plan with stable IDs, provenance, privacy, backup and retrieval evidence.
+      - Do not require an external API or abandon the user's current tools.
+
+  - id: convert-book-to-career-and-second-brain
+    query: Đọc bộ sách này, bóc tách framework đúng tên và vị trí nguồn, đưa kiến thức vào Second Brain, rồi tạo career application pack và kế hoạch thử nghiệm thực tế; không tóm tắt chung chung và không đăng công khai.
+    expected_primary_skill: book-to-knowledge-and-action
+    expected_tasks:
+      - book-assess-source-rights
+      - book-recover-document-structure
+      - book-extract-frameworks
+      - book-build-second-brain-pack
+      - book-build-career-application-pack
+      - book-build-action-experiment-plan
+    expected_behavior:
+      - Preserve exact framework names and source locators while separating author claims from synthesis and application.
+      - Select one primary conversion destination per run and hand downstream career ownership to the career skill.
+      - Keep publication blocked unless rights and exact artifacts are explicitly approved.

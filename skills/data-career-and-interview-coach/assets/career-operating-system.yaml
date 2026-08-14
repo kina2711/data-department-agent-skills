@@ -1,0 +1,27 @@
+person_id: ""
+time_horizon_months: 12
+weekly_capacity_hours: 0
+current_state: {}
+target_capabilities: []
+constraints: []
+career_stage_assumptions: []
+competency_ladder_ref: ""
+competency_gaps: []
+phases_or_quarters: []
+practice_plan: []
+real_work_opportunities: []
+portfolio_evidence_ref: ""
+evidence_milestones: []
+feedback_sources: []
+technical_writing_strategy: {}
+ethical_visibility_boundaries: []
+content_production_handoff_ref: ""
+weekly_system: {}
+monthly_review: {}
+quarterly_review: {}
+deprioritization_rules: []
+recovery_buffers: []
+burnout_risks: []
+promotion_disclaimer: "No title, promotion, compensation or timeline is guaranteed."
+next_review: ""
+status: "draft"

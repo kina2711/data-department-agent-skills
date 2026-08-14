@@ -1,0 +1,181 @@
+cases:
+  - id: da-vs-ba-answer-question
+    query: Explain why paid conversion fell last month using the supplied event table.
+    expected_primary_skill: data-analysis
+    rejected_skill: data-business-analysis
+    expected_task: da-analyze-root-cause
+  - id: ba-vs-da-requirements
+    query: Turn stakeholder complaints about revenue reporting into testable requirements and acceptance criteria.
+    expected_primary_skill: data-business-analysis
+    rejected_skill: data-analysis
+    expected_task: ba-write-business-requirements-document
+  - id: da-vs-product-analytics
+    query: Diagnose a one-time margin anomaly in the monthly finance extract.
+    expected_primary_skill: data-analysis
+    rejected_skill: product-analytics-and-experimentation
+    expected_task: da-diagnose-metric-change
+  - id: product-analytics-vs-da
+    query: Define checkout events and analyze activation and seven-day retention cohorts.
+    expected_primary_skill: product-analytics-and-experimentation
+    rejected_skill: data-analysis
+    expected_task: pa-design-event-taxonomy
+  - id: de-vs-ae-ingestion
+    query: Ingest paginated API orders with watermarks, retries and idempotent reruns.
+    expected_primary_skill: data-engineering
+    rejected_skill: analytics-engineering
+    expected_task: de-build-api-ingestion
+  - id: ae-vs-de-mart
+    query: Build an incremental customer revenue mart with tested grain and governed metrics.
+    expected_primary_skill: analytics-engineering
+    rejected_skill: data-engineering
+    expected_task: ae-build-analytics-mart
+  - id: de-vs-platform-workload
+    query: Add CDC ingestion for one source into the existing platform.
+    expected_primary_skill: data-engineering
+    rejected_skill: data-platform-and-dataops
+    expected_task: de-build-cdc-ingestion
+  - id: platform-vs-de-shared-service
+    query: Design shared orchestration environments, secrets, CI and SLOs for all pipeline teams.
+    expected_primary_skill: data-platform-and-dataops
+    rejected_skill: data-engineering
+    expected_task: platform-provision-data-environment
+  - id: architecture-vs-platform-target-state
+    query: Compare two target architectures and record the integration and migration decision.
+    expected_primary_skill: data-architecture
+    rejected_skill: data-platform-and-dataops
+    expected_task: arch-define-target-data-architecture
+  - id: platform-vs-architecture-provision
+    query: Provision the approved shared data runtime and validate environment isolation.
+    expected_primary_skill: data-platform-and-dataops
+    rejected_skill: data-architecture
+    expected_task: platform-provision-data-environment
+  - id: governance-vs-metadata-term
+    query: Resolve competing definitions of net revenue and approve the authoritative term.
+    expected_primary_skill: data-governance-and-stewardship
+    rejected_skill: metadata-engineering-and-catalog
+    expected_task: dg-resolve-business-term-conflict
+  - id: metadata-vs-governance-lineage
+    query: Harvest column metadata and construct observed source-to-mart lineage.
+    expected_primary_skill: metadata-engineering-and-catalog
+    rejected_skill: data-governance-and-stewardship
+    expected_task: meta-build-data-lineage
+  - id: dq-vs-de-quality-assurance
+    query: Independently certify whether the order dataset meets its quality release gate.
+    expected_primary_skill: data-quality-and-reliability
+    rejected_skill: data-engineering
+    expected_task: dq-certify-quality-readiness
+  - id: de-vs-dq-implement-check
+    query: Add schema and reconciliation checks inside this ingestion pipeline.
+    expected_primary_skill: data-engineering
+    rejected_skill: data-quality-and-reliability
+    expected_task: de-add-pipeline-data-checks
+  - id: ds-vs-mle-model-study
+    query: Build and validate a leakage-safe fraud model against a baseline.
+    expected_primary_skill: data-science
+    rejected_skill: machine-learning-engineering
+    expected_task: ds-train-model
+  - id: mle-vs-ds-serving
+    query: Package the validated fraud model behind a low-latency inference contract.
+    expected_primary_skill: machine-learning-engineering
+    rejected_skill: data-science
+    expected_task: mle-build-online-inference-service
+  - id: mle-vs-mlops-runtime-code
+    query: Implement batch inference code with feature compatibility and fallback behavior.
+    expected_primary_skill: machine-learning-engineering
+    rejected_skill: mlops
+    expected_task: mle-build-batch-inference
+  - id: mlops-vs-mle-promotion
+    query: Promote the registered model through canary deployment, monitoring and rollback gates.
+    expected_primary_skill: mlops
+    rejected_skill: machine-learning-engineering
+    expected_task: mlops-promote-model-stage
+  - id: docs-vs-content-diagram
+    query: Render a validated Mermaid lineage diagram from these verified source artifacts.
+    expected_primary_skill: data-documentation-and-diagrams
+    rejected_skill: data-technical-content-and-social
+    expected_task: docs-create-architecture-diagram
+  - id: content-vs-docs-series
+    query: Build an evidence-backed Airflow series for Facebook, LinkedIn and Substack.
+    expected_primary_skill: data-technical-content-and-social
+    rejected_skill: data-documentation-and-diagrams
+    expected_task: content-design-technical-series
+  - id: academy-vs-career-curriculum
+    query: Design and certify a six-month Data Engineer curriculum for a cohort.
+    expected_primary_skill: data-academy-and-curriculum
+    rejected_skill: data-career-and-interview-coach
+    expected_task: academy-design-role-syllabus
+  - id: career-vs-academy-personal-growth
+    query: Build my personal capability roadmap and authentic evidence portfolio for Senior DE roles.
+    expected_primary_skill: data-career-and-interview-coach
+    rejected_skill: data-academy-and-curriculum
+    expected_task: career-build-career-operating-system
+  - id: hiring-vs-career-live-panel
+    query: Design a calibrated interview loop and evidence-first debrief for hiring a Senior DE.
+    expected_primary_skill: data-talent-acquisition-and-interview
+    rejected_skill: data-career-and-interview-coach
+    expected_task: talent-design-structured-interview-loop
+  - id: career-vs-hiring-candidate-prep
+    query: Assess my readiness and run a mock Senior DE interview without fabricating experience.
+    expected_primary_skill: data-career-and-interview-coach
+    rejected_skill: data-talent-acquisition-and-interview
+    expected_task: career-run-mock-data-engineering-design
+  - id: project-vs-orchestrator-personal-repo
+    query: Turn this public dbt repository into a differentiated personal portfolio project.
+    expected_primary_skill: data-personal-project-engineering
+    rejected_skill: data-department-orchestrator
+    expected_task: project-start-repo-first
+  - id: orchestrator-vs-project-org-rebuild
+    query: Rebuild our company's inherited warehouse across BA, Architecture, DE, AE, DG and BI with release gates.
+    expected_primary_skill: data-department-orchestrator
+    rejected_skill: data-personal-project-engineering
+    expected_task: orchestrator-compose-workflow
+  - id: core-vs-context-package
+    query: Package only the verified files needed for this one SQL review under a token budget.
+    expected_primary_skill: shared-data-core
+    rejected_skill: company-data-context
+    expected_task: core-build-task-context-package
+  - id: context-vs-core-index
+    query: Build a persistent authority and freshness index for company metrics, systems and policies.
+    expected_primary_skill: company-data-context
+    rejected_skill: shared-data-core
+    expected_task: ctx-build-context-index
+  - id: bi-vs-ae-dashboard
+    query: Build and independently UAT an accessible executive dashboard from an approved semantic model.
+    expected_primary_skill: business-intelligence
+    rejected_skill: analytics-engineering
+    expected_task: bi-build-dashboard
+  - id: ae-vs-bi-semantic-model
+    query: Build the governed semantic metric layer consumed by multiple dashboards.
+    expected_primary_skill: analytics-engineering
+    rejected_skill: business-intelligence
+    expected_task: ae-implement-semantic-metric
+  - id: security-vs-governance-control
+    query: Implement and test row-level access for confidential customer data.
+    expected_primary_skill: data-security-and-privacy
+    rejected_skill: data-governance-and-stewardship
+    expected_task: sec-implement-row-column-security
+  - id: governance-vs-security-policy
+    query: Define accountable ownership and exception workflow for enterprise data-access policy.
+    expected_primary_skill: data-governance-and-stewardship
+    rejected_skill: data-security-and-privacy
+    expected_task: dg-define-data-policy
+  - id: brain-vs-company-context-personal-vault
+    query: Build my local four-layer personal knowledge vault from Notion exports, PDFs, transcripts and personal writing rules.
+    expected_primary_skill: personal-second-brain-and-knowledge-os
+    rejected_skill: company-data-context
+    expected_task: brain-design-four-layer-architecture
+  - id: company-context-vs-brain-enterprise-authority
+    query: Build the governed enterprise authority index for systems, metric owners, policies and freshness SLAs.
+    expected_primary_skill: company-data-context
+    rejected_skill: personal-second-brain-and-knowledge-os
+    expected_task: ctx-build-context-index
+  - id: book-vs-academy-source-conversion
+    query: Extract exact frameworks and source locators from these books before producing any curriculum artifact.
+    expected_primary_skill: book-to-knowledge-and-action
+    rejected_skill: data-academy-and-curriculum
+    expected_task: book-extract-frameworks
+  - id: academy-vs-book-cohort-delivery
+    query: Deliver and assess an approved cohort curriculum using an existing evidence-backed book knowledge pack.
+    expected_primary_skill: data-academy-and-curriculum
+    rejected_skill: book-to-knowledge-and-action
+    expected_task: academy-deliver-theory-session

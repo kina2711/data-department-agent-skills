@@ -1,0 +1,16 @@
+workflow_id: ""
+role: ""
+level: ""
+owner: ""
+version: ""
+status: "draft"
+jurisdiction: ""
+risk_tier: ""
+tasks:
+  - task_id: ""
+    depends_on: []
+    artifact_version: ""
+    gate_status: "pending"
+    handoff_owner: ""
+approvals: []
+residual_risks: []

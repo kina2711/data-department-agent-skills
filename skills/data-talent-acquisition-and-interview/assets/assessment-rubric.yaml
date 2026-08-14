@@ -1,0 +1,18 @@
+assessment_id: ""
+version: ""
+role: ""
+competencies: []
+criteria:
+  - criterion: ""
+    weight: 0
+    anchors:
+      1: ""
+      2: ""
+      3: ""
+      4: ""
+    critical_failure: false
+timebox_minutes: 0
+synthetic_data_only: true
+authorship_check: ""
+pass_rule: ""
+approvals: []

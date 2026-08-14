@@ -1,0 +1,6 @@
+interface:
+  display_name: "Technical Content and Social"
+  short_description: "Build evidence-backed technical content series"
+  default_prompt: "Use $data-technical-content-and-social to handle this request with evidence, validation, and required approval gates."
+policy:
+  allow_implicit_invocation: true

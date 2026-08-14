@@ -1,0 +1,17 @@
+framework_id: ""
+exact_name: ""
+author: ""
+source_id: ""
+locators: []
+purpose: ""
+when_to_use: []
+inputs: []
+steps: []
+decision_rules: []
+trade_offs: []
+failure_modes: []
+exceptions: []
+worked_examples: []
+related_frameworks: []
+confidence: "unknown"
+status: "draft"

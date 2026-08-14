@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://data-department.local/schemas/atomic-task-result.schema.json",
+  "title": "Atomic Task Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "task_id",
+    "status",
+    "lifecycle_profile",
+    "risk_tier",
+    "execution_path",
+    "phase_reached",
+    "primary_deliverable",
+    "evidence",
+    "test_results",
+    "gate_results",
+    "approval_status",
+    "residual_risks",
+    "next_task",
+    "next_owner"
+  ],
+  "properties": {
+    "task_id": {"type": "string", "pattern": "^[a-z0-9-]{1,64}$"},
+    "status": {"enum": ["draft", "blocked", "failed", "validated", "approved", "released", "monitored", "complete"]},
+    "lifecycle_profile": {"enum": ["advisory-analysis", "design-specification", "build-change", "production-release", "incident-recovery", "governance-assurance", "learning", "onboarding", "hiring", "career-coaching", "career-development"]},
+    "risk_tier": {"enum": ["R0-light", "R1-reviewed", "R2-standard", "R3-controlled", "R4-critical"]},
+    "execution_path": {"enum": ["fast-path", "standard-path", "controlled-path"]},
+    "phase_reached": {"type": "string"},
+    "primary_deliverable": {"type": "string", "minLength": 1},
+    "evidence": {"type": "array", "items": {"type": "string"}},
+    "test_results": {"type": "array", "items": {"type": "string"}},
+    "gate_results": {"type": "array", "items": {"type": "string"}},
+    "approval_status": {"enum": ["not-required", "pending", "approved", "rejected", "expired"]},
+    "assumptions": {"type": "array", "items": {"type": "string"}},
+    "limitations": {"type": "array", "items": {"type": "string"}},
+    "residual_risks": {"type": "array", "items": {"type": "string"}},
+    "next_task": {"type": "string"},
+    "next_owner": {"type": "string"}
+  }
+}

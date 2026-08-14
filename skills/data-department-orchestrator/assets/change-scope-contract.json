@@ -1,0 +1,34 @@
+{
+  "contract_id": "",
+  "task_id": "",
+  "requested_outcomes": [],
+  "baseline_commit": "",
+  "allowed_paths": [],
+  "forbidden_paths": [],
+  "generated_paths": [],
+  "planned_deletions": [],
+  "task_to_paths": [
+    {
+      "outcome": "",
+      "paths": []
+    }
+  ],
+  "dependency_checks": [
+    {
+      "name": "",
+      "status": "pending",
+      "evidence": "",
+      "reason": ""
+    }
+  ],
+  "orphan_checks": [
+    {
+      "name": "",
+      "status": "pending",
+      "evidence": "",
+      "reason": ""
+    }
+  ],
+  "approved_by": "",
+  "approved_at": ""
+}

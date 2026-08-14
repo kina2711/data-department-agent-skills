@@ -1,0 +1,18 @@
+output_id: ""
+output_type: ""
+audience: ""
+artifact_path: ""
+version: ""
+sha256: ""
+context_pack_ref: ""
+source_ids: []
+wiki_note_ids: []
+personal_context_ids: []
+claims:
+  - claim_id: ""
+    text: ""
+    classification: "source-fact|synthesis|inference|personal-rule|unsupported"
+    evidence_refs: []
+review_status: "draft"
+published_at: ""
+limitations: []

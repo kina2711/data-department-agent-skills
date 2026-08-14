@@ -1,0 +1,101 @@
+suite: "data-department-agent-skills"
+version: "3.1.0"
+top_level_skills: 32
+atomic_tasks: 802
+roles:
+  - skill: "data-department-orchestrator"
+    display_name: "Data Department Orchestrator"
+    task_count: 19
+  - skill: "shared-data-core"
+    display_name: "Shared Data Core"
+    task_count: 18
+  - skill: "company-data-context"
+    display_name: "Company Data Context"
+    task_count: 9
+  - skill: "head-of-data-and-data-product"
+    display_name: "Head of Data and Data Product"
+    task_count: 21
+  - skill: "data-business-analysis"
+    display_name: "Data Business Analysis"
+    task_count: 24
+  - skill: "data-architecture"
+    display_name: "Data Architecture"
+    task_count: 22
+  - skill: "data-governance-and-stewardship"
+    display_name: "Data Governance and Stewardship"
+    task_count: 22
+  - skill: "metadata-engineering-and-catalog"
+    display_name: "Metadata Engineering and Catalog"
+    task_count: 18
+  - skill: "data-platform-and-dataops"
+    display_name: "Data Platform and DataOps"
+    task_count: 21
+  - skill: "data-developer-experience"
+    display_name: "Data Developer Experience"
+    task_count: 19
+  - skill: "data-engineering"
+    display_name: "Data Engineering"
+    task_count: 25
+  - skill: "analytics-engineering"
+    display_name: "Analytics Engineering"
+    task_count: 22
+  - skill: "data-analysis"
+    display_name: "Data Analysis"
+    task_count: 29
+  - skill: "business-intelligence"
+    display_name: "Business Intelligence"
+    task_count: 32
+  - skill: "product-analytics-and-experimentation"
+    display_name: "Product Analytics and Experimentation"
+    task_count: 17
+  - skill: "data-science"
+    display_name: "Data Science"
+    task_count: 22
+  - skill: "machine-learning-engineering"
+    display_name: "Machine Learning Engineering"
+    task_count: 20
+  - skill: "mlops"
+    display_name: "MLOps"
+    task_count: 23
+  - skill: "data-quality-and-reliability"
+    display_name: "Data Quality and Reliability"
+    task_count: 21
+  - skill: "data-security-and-privacy"
+    display_name: "Data Security and Privacy"
+    task_count: 16
+  - skill: "master-data-management"
+    display_name: "Master Data Management"
+    task_count: 13
+  - skill: "generative-ai-engineering"
+    display_name: "Generative AI Engineering"
+    task_count: 20
+  - skill: "data-documentation-and-diagrams"
+    display_name: "Data Documentation and Diagrams"
+    task_count: 20
+  - skill: "data-enablement-and-knowledge"
+    display_name: "Data Enablement and Knowledge"
+    task_count: 17
+  - skill: "data-academy-and-curriculum"
+    display_name: "Data Academy and Curriculum"
+    task_count: 39
+  - skill: "data-onboarding-and-integration"
+    display_name: "Data Onboarding and Integration"
+    task_count: 34
+  - skill: "data-talent-acquisition-and-interview"
+    display_name: "Data Talent and Interviewing"
+    task_count: 41
+  - skill: "data-career-and-interview-coach"
+    display_name: "Data Career and Interview Coach"
+    task_count: 39
+  - skill: "data-technical-content-and-social"
+    display_name: "Technical Content and Social"
+    task_count: 26
+  - skill: "data-personal-project-engineering"
+    display_name: "Personal Data Project Engineering"
+    task_count: 42
+  - skill: "personal-second-brain-and-knowledge-os"
+    display_name: "Personal Second Brain and Knowledge OS"
+    task_count: 46
+  - skill: "book-to-knowledge-and-action"
+    display_name: "Book to Knowledge and Action"
+    task_count: 45

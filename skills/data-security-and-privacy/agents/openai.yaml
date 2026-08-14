@@ -1,0 +1,6 @@
+interface:
+  display_name: "Data Security and Privacy"
+  short_description: "Protect sensitive data and privacy"
+  default_prompt: "Use $data-security-and-privacy to handle this request with evidence, validation, and required approval gates."
+policy:
+  allow_implicit_invocation: true

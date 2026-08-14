@@ -1,0 +1,70 @@
+{
+  "project_id": "airflow-ops-lab",
+  "owner": "learner-001",
+  "purpose": "portfolio",
+  "entry_mode": "repo-first",
+  "source_origins": [
+    {
+      "source_id": "upstream-repo",
+      "origin_type": "inspired-by",
+      "locator": "https://github.com/example/airflow-demo",
+      "author_or_owner": "example",
+      "version_or_commit": "commit-abc123",
+      "license_or_terms": "Apache-2.0 fixture",
+      "allowed_use": "study and adaptation with attribution",
+      "attribution_text": "Inspired by example/airflow-demo at commit abc123.",
+      "content_sha256": ""
+    }
+  ],
+  "thesis": {
+    "problem": "Junior engineers cannot safely rehearse Airflow pipeline failures.",
+    "target_user": "Junior data engineers",
+    "decision_or_outcome": "Select a recovery action from observable task and data state.",
+    "original_contribution": "A failure-injection and recovery evidence lab.",
+    "origin_statement": "Inspired by the attributed upstream demo; this project adds a new reliability thesis and evidence system.",
+    "non_claims": ["Not production experience", "Not the original upstream idea"]
+  },
+  "differentiation_axes": [
+    {"axis": "reliability", "reference_baseline": "happy-path DAG", "planned_delta": "failure injection and recovery", "proof": "scenario tests"},
+    {"axis": "operations", "reference_baseline": "no runbook", "planned_delta": "observable diagnosis and runbook", "proof": "clean-room rehearsal"},
+    {"axis": "evaluation", "reference_baseline": "demo output", "planned_delta": "reconciliation and completion gates", "proof": "stored reports"}
+  ],
+  "selection": {
+    "hard_gates": {
+      "rights-and-license": "pass",
+      "data-and-privacy": "pass",
+      "safe-and-ethical": "pass",
+      "feasible-minimum-slice": "pass",
+      "observable-success": "pass"
+    },
+    "weighted_score": 82,
+    "confidence": 0.8,
+    "evidence_refs": ["upstream-repo"]
+  },
+  "repo_assessment": {
+    "source_id": "upstream-repo",
+    "baseline_status": "not-run",
+    "dimensions_reviewed": [
+      "purpose-and-users",
+      "architecture-and-data-flow",
+      "runtime-and-reproducibility",
+      "data-contracts-and-modeling",
+      "correctness-and-tests",
+      "security-secrets-dependencies",
+      "ci-cd-and-supply-chain",
+      "observability-and-reliability",
+      "performance-and-cost",
+      "documentation-and-developer-experience",
+      "maintainability-and-activity",
+      "license-and-provenance"
+    ],
+    "finding_ids": ["finding-001"],
+    "transformation_matrix_ref": "borrowed-source-transformation.yaml"
+  },
+  "scope": {"in_scope": ["local lab"], "out_of_scope": ["production deployment"], "constraints": ["local compute"], "stop_conditions": ["license conflict"]},
+  "milestones": [],
+  "artifacts": [],
+  "validations": [],
+  "portfolio_claims": [],
+  "status": "planned"
+}

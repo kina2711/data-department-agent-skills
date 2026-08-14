@@ -1,0 +1,21 @@
+library_id: ""
+target_roles: []
+levels: []
+taxonomy: []
+question_dossiers:
+  - question_id: ""
+    title: ""
+    competencies: []
+    concepts: []
+    tags: []
+    backlinks: []
+    dossier_path: ""
+    owner: ""
+    version: ""
+    freshness: ""
+    mastery_status: ""
+platform: ""
+publishing_map: {}
+review_cadence: ""
+quality_checks: []
+next_review: ""

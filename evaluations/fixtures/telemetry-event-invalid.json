@@ -1,0 +1,14 @@
+{
+  "event_id": "event-unsafe",
+  "occurred_at": "2026-08-14T00:00:00Z",
+  "suite_version": "3.1.0",
+  "skill": "Data Engineering",
+  "task_id": "de-build-api-ingestion",
+  "route_source": "magic",
+  "outcome": "success",
+  "duration_ms": -1,
+  "references_loaded": [],
+  "token_estimate": -1,
+  "failure_codes": [],
+  "user_content": "raw prompt must never be stored"
+}

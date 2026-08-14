@@ -1,0 +1,52 @@
+{
+  "criteria_weights": {
+    "problem_value": 12,
+    "target_role_fit": 14,
+    "evidence_strength": 12,
+    "differentiation": 12,
+    "feasibility": 10,
+    "data_readiness": 8,
+    "testability": 8,
+    "operations_depth": 6,
+    "deployability_demo": 5,
+    "maintainability_evolution": 4,
+    "security_privacy_legal": 5,
+    "cost_time_sustainability": 4
+  },
+  "hard_gates": [
+    "rights-and-license",
+    "data-and-privacy",
+    "safe-and-ethical",
+    "feasible-minimum-slice",
+    "observable-success"
+  ],
+  "options": [
+    {
+      "option_id": "repo-transform",
+      "mode": "repo-first",
+      "scores": {
+        "problem_value": 8,
+        "target_role_fit": 9,
+        "evidence_strength": 9,
+        "differentiation": 8,
+        "feasibility": 8,
+        "data_readiness": 8,
+        "testability": 9,
+        "operations_depth": 8,
+        "deployability_demo": 8,
+        "maintainability_evolution": 7,
+        "security_privacy_legal": 8,
+        "cost_time_sustainability": 7
+      },
+      "confidence": 0.8,
+      "risk_penalty": 5,
+      "hard_gate_results": {
+        "rights-and-license": "pass",
+        "data-and-privacy": "pass",
+        "safe-and-ethical": "pass",
+        "feasible-minimum-slice": "pass",
+        "observable-success": "pass"
+      }
+    }
+  ]
+}

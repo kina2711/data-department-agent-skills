@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://data-department.local/schemas/second-brain-manifest.schema.json",
+  "title": "Personal Second Brain Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["brain_id", "owner", "version", "purpose", "canonical_root", "layers", "privacy_classification", "source_registry", "note_registry", "personal_context_registry", "output_registry", "retrieval_test_set", "backup", "status", "updated_at"],
+  "properties": {
+    "brain_id": {"type": "string", "minLength": 1},
+    "owner": {"type": "string", "minLength": 1},
+    "version": {"type": "string", "minLength": 1},
+    "purpose": {"type": "string", "minLength": 1},
+    "canonical_root": {"type": "string"},
+    "privacy_classification": {"enum": ["private", "confidential", "restricted", "public"]},
+    "status": {"enum": ["draft", "active", "deprecated", "archived"]},
+    "updated_at": {"type": "string", "minLength": 1},
+    "layers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["1_Nguon", "2_Wiki", "3_Toi", "4_Ket-Qua"],
+      "properties": {
+        "1_Nguon": {"$ref": "#/$defs/layer"},
+        "2_Wiki": {"$ref": "#/$defs/layer"},
+        "3_Toi": {"$ref": "#/$defs/layer"},
+        "4_Ket-Qua": {"$ref": "#/$defs/layer"}
+      }
+    },
+    "source_registry": {"type": "array", "items": {"$ref": "#/$defs/registryItem"}},
+    "note_registry": {"type": "array", "items": {"$ref": "#/$defs/registryItem"}},
+    "personal_context_registry": {"type": "array", "items": {"$ref": "#/$defs/registryItem"}},
+    "output_registry": {"type": "array", "items": {"$ref": "#/$defs/registryItem"}},
+    "retrieval_test_set": {"type": "array", "items": {"type": "object", "required": ["query_id", "query"], "properties": {"query_id": {"type": "string", "minLength": 1}, "query": {"type": "string", "minLength": 1}, "status": {"enum": ["not-run", "passed", "failed"]}}}},
+    "backup": {"type": "object", "required": ["last_verified_at", "artifact_sha256", "restore_tested_at"], "properties": {"last_verified_at": {"type": "string"}, "artifact_sha256": {"type": "string", "pattern": "^$|^[a-fA-F0-9]{64}$"}, "restore_tested_at": {"type": "string"}}}
+  },
+  "$defs": {
+    "layer": {"type": "object", "required": ["path"], "properties": {"path": {"type": "string", "minLength": 1}, "source_count": {"type": "integer", "minimum": 0}, "note_count": {"type": "integer", "minimum": 0}, "rule_count": {"type": "integer", "minimum": 0}, "output_count": {"type": "integer", "minimum": 0}}},
+    "registryItem": {"type": "object", "additionalProperties": false, "required": ["id", "path", "sha256", "status"], "properties": {"id": {"type": "string", "minLength": 1}, "path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-fA-F0-9]{64}$"}, "status": {"enum": ["draft", "verified", "deprecated", "archived"]}, "source_ids": {"type": "array", "items": {"type": "string"}}}}
+  }
+}

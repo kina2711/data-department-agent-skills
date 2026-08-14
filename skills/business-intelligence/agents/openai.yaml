@@ -1,0 +1,6 @@
+interface:
+  display_name: "Business Intelligence"
+  short_description: "Deliver governed dashboards and reports"
+  default_prompt: "Use $business-intelligence to handle this request with evidence, validation, and required approval gates."
+policy:
+  allow_implicit_invocation: true

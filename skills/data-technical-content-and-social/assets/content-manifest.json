@@ -1,0 +1,127 @@
+{
+  "series_id": "",
+  "episode_id": "",
+  "owner": "",
+  "requested_channels": [],
+  "canonical_artifact": "",
+  "evidence": [
+    {
+      "evidence_id": "",
+      "evidence_type": "official-source",
+      "locator": "",
+      "snapshot_path": "",
+      "content_sha256": "",
+      "version_or_date": "",
+      "environment": "",
+      "verified_by": "",
+      "verified_at": "",
+      "verification_status": "unverified",
+      "claim_supports": [
+        {
+          "claim_id": "",
+          "excerpt": ""
+        }
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "",
+      "text": "",
+      "classification": "fact",
+      "evidence_refs": []
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "",
+      "channel": "canonical",
+      "language": "",
+      "path": "",
+      "version": "",
+      "sha256": "",
+      "derived_from": "",
+      "claim_ids": [],
+      "required_test_scopes": [],
+      "min_words": 0,
+      "max_words": 0,
+      "structure_evidence": {},
+      "status": "draft",
+      "review_ids": []
+    }
+  ],
+  "media_assets": [
+    {
+      "media_id": "",
+      "role": "real|illustration|code",
+      "bound_artifact_ids": [],
+      "path": "",
+      "version": "",
+      "sha256": "",
+      "source": "",
+      "origin": "real-artifact|controlled-render|code-render",
+      "rights_status": "unverified",
+      "redaction_status": "not-reviewed",
+      "alt_text": "",
+      "what_to_observe": "",
+      "learning_claim": "",
+      "layout": "",
+      "rendering_method": "",
+      "code_maturity": "runnable-example|code-reference|pseudocode",
+      "technical_baseline": "",
+      "validation_performed": [],
+      "validation_status": "not-run",
+      "status": "draft"
+    }
+  ],
+  "reviews": [
+    {
+      "review_id": "",
+      "review_type": "technical-accuracy",
+      "artifact_id": "",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "status": "pending",
+      "reviewer": "",
+      "reviewed_at": ""
+    }
+  ],
+  "tests": [
+    {
+      "test_id": "",
+      "artifact_id": "",
+      "scope": "",
+      "required": true,
+      "status": "not-run",
+      "evidence_ref": ""
+    }
+  ],
+  "approvals": [
+    {
+      "approval_id": "",
+      "artifact_id": "",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "channels": [],
+      "approver": "",
+      "authority_scope": "",
+      "authority_evidence_ref": "",
+      "status": "pending",
+      "approved_at": ""
+    }
+  ],
+  "publication": {
+    "status": "not-published",
+    "requested_channels": [],
+    "channels": [
+      {
+        "channel": "",
+        "artifact_id": "",
+        "approved_version": "",
+        "approved_sha256": "",
+        "approval_id": "",
+        "published_at": ""
+      }
+    ]
+  }
+}

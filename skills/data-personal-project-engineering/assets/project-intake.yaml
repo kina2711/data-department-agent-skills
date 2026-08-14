@@ -1,0 +1,25 @@
+project_id: ""
+owner: ""
+purpose: "portfolio|learning|capstone|open-source|product-exploration"
+inputs:
+  - input_id: ""
+    type: "problem|workflow|decision|idea|external-inspiration|dataset|repository|role-gap|technology|domain|architecture|integration|open-source-issue|paper|course|incident|constraint|benchmark|governance"
+    locator: ""
+    owner_or_author: ""
+    version_or_date: ""
+    confidence: "unknown"
+    rights_or_access: "unknown"
+target_role: ""
+target_capabilities: []
+audience_or_user: ""
+constraints:
+  time: ""
+  cost: ""
+  compute: ""
+  data_access: ""
+  privacy: ""
+  license: ""
+  deployment: ""
+  maintenance: ""
+assumptions: []
+status: "draft"

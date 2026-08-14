@@ -1,0 +1,44 @@
+episode_id: ""
+article_type: ""
+central_question: ""
+audience: ""
+reader_promise: ""
+learning_objective: ""
+starting_point: ""
+misconception: ""
+scenario: ""
+core_claim: ""
+core_mechanism: ""
+decision: ""
+failure_mode: ""
+evidence_plan: []
+boundary_and_out_of_scope: []
+technical_baseline: {}
+prerequisites: []
+key_claims: []
+official_sources: []
+version_matrix: []
+mechanism: []
+worked_example: {}
+code_requirements: []
+diagram_requirements: []
+visual_asset_contract:
+  required_roles:
+    - "real"
+    - "illustration"
+    - "code"
+  default_sequence:
+    - "real"
+    - "illustration"
+    - "code"
+  exception_reason: ""
+failure_modes: []
+trade_offs: []
+limitations: []
+channel_language_policy:
+  facebook: "vi"
+  linkedin: "en"
+  substack: "en"
+platform_adaptations: {}
+acceptance_tests: []
+status: "draft"

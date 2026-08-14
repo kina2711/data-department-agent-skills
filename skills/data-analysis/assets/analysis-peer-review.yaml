@@ -1,0 +1,15 @@
+artifact: ""
+review_scope: []
+reviewer: ""
+question_method_alignment: ""
+data_fitness: ""
+sql_code: ""
+statistics: ""
+assumptions: ""
+narrative: ""
+reproducibility: ""
+must_fix: []
+should_fix: []
+optional: []
+author_disposition: []
+decision: "pending"

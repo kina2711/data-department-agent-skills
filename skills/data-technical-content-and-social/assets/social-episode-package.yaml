@@ -1,0 +1,50 @@
+episode_id: ""
+editorial_contract:
+  series: ""
+  article_type: ""
+  audience: ""
+  learning_objective: ""
+  misconception: ""
+  scenario: ""
+  core_claim: ""
+  decision: ""
+  failure_mode: ""
+  out_of_scope: []
+  technical_baseline: {}
+assets:
+  real:
+    file: ""
+    source: ""
+    what_to_observe: ""
+    redaction_required: ""
+  illustration:
+    file: ""
+    visual_model: ""
+    key_takeaway: ""
+    layout: ""
+    design_prompt: ""
+  code:
+    file: ""
+    code_type: ""
+    validation_performed: []
+    what_the_code_proves: ""
+facebook:
+  language: "vi"
+  draft: ""
+linkedin:
+  language: "en"
+  draft: ""
+substack:
+  language: "en"
+  draft: ""
+alt_text:
+  real: ""
+  illustration: ""
+  code: ""
+sources: []
+verification_notes:
+  claims_requiring_recheck: []
+  version_sensitive_statements: []
+  experimental_or_preview_warnings: []
+  runtime_validation_not_performed: []
+status: "draft"

@@ -1,0 +1,62 @@
+series_id: ""
+title: ""
+owner: ""
+topic: ""
+business_context: ""
+career_alignment_handoff_ref: ""
+audiences: []
+starting_level: ""
+target_level: ""
+capability_journey: []
+target_capabilities: []
+allowed_claim_ids: []
+prohibited_or_confidential_claims: []
+audience_problems: []
+outcomes: []
+channels: []
+channel_language_policy:
+  facebook: "vi"
+  linkedin: "en"
+  substack: "en"
+technical_baseline: {}
+source_material: []
+brand_voice: {}
+visual_system: {}
+publishing_constraints: {}
+assumptions: []
+scope: []
+out_of_scope: []
+prerequisites: []
+narrative_case:
+  synthetic: true
+  organization_context: ""
+  result_user: ""
+  input: ""
+  output: ""
+  reference_workflow: ""
+  service_expectation: ""
+  failure_scenarios: []
+  constraints: []
+narrative_arc: []
+layer_coverage:
+  problem-and-mental-model: []
+  core-mechanics: []
+  correctness-and-reliability: []
+  operations-and-governance: []
+  design-and-capstone: []
+coverage_matrix: []
+episodes:
+  - episode_id: ""
+    article_type: "FOUNDATION|DISTINCTION|MECHANISM|IMPLEMENTATION|DECISION|FAILURE|OPERATIONS|REVIEW|CAPSTONE"
+    central_question: ""
+    learning_objective: ""
+    level: ""
+    depends_on: []
+    canonical_artifact: ""
+    evidence_status: "draft"
+    channel_variants: []
+    review_status: "draft"
+cadence: {}
+quality_gates: []
+success_signals: []
+status: "draft"

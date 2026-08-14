@@ -1,0 +1,18 @@
+{
+  "evidence_id": "",
+  "task_id": "",
+  "claim_ids": [],
+  "artifact": "",
+  "artifact_version": "",
+  "artifact_sha256": "",
+  "environment": {},
+  "method": "",
+  "command": "",
+  "expected_result": null,
+  "observed_result": null,
+  "exit_status": null,
+  "status": "not-run",
+  "captured_at": "",
+  "captured_by": "",
+  "limitations": []
+}

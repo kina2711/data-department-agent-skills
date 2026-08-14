@@ -1,0 +1,37 @@
+{
+  "package_id": "benchmark-orders-analysis",
+  "task": {
+    "objective": "Explain and validate paid revenue logic",
+    "primary_deliverable": "review-ready query logic explanation",
+    "acceptance_criteria": [
+      "Trace every calculation to SQL",
+      "Identify data-quality and semantic risks"
+    ]
+  },
+  "sources": [
+    {
+      "path": "query.sql",
+      "name": "Paid revenue query",
+      "layer": "implementation",
+      "priority": 100,
+      "required": true,
+      "authority": "repository",
+      "owner": "analytics-engineering",
+      "last_verified": "2026-08-13",
+      "sensitivity": "internal"
+    },
+    {
+      "path": "sample.csv",
+      "name": "Deterministic order fixture",
+      "layer": "evidence",
+      "priority": 90,
+      "required": false,
+      "authority": "test-fixture",
+      "owner": "data-quality",
+      "last_verified": "2026-08-13",
+      "sensitivity": "synthetic"
+    }
+  ],
+  "assumptions": ["Fixture rows are synthetic"],
+  "conflicts": []
+}

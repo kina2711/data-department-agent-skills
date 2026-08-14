@@ -1,0 +1,89 @@
+{
+  "series_id": "dbt-viral",
+  "episode_id": "ep-01",
+  "owner": "author-001",
+  "requested_channels": ["linkedin", "substack"],
+  "canonical_artifact": "missing-canonical",
+  "evidence": [],
+  "claims": [
+    {
+      "claim_id": "claim-001",
+      "text": "I processed billions of rows and achieved a 10x benchmark.",
+      "classification": "fact",
+      "evidence_refs": ["trust-me"]
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "linkedin-ep-01",
+      "channel": "linkedin",
+      "language": "vi",
+      "path": "missing-linkedin.md",
+      "version": "fake-v1",
+      "sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "derived_from": "wrong-parent",
+      "claim_ids": ["claim-001"],
+      "required_test_scopes": ["linkedin-platform-fit"],
+      "status": "published",
+      "review_ids": ["fake-review"]
+    }
+  ],
+  "reviews": [
+    {
+      "review_id": "fake-review",
+      "review_type": "technical-accuracy",
+      "artifact_id": "linkedin-ep-01",
+      "artifact_version": "wrong-version",
+      "artifact_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "status": "passed",
+      "reviewer": "",
+      "reviewed_at": ""
+    }
+  ],
+  "tests": [
+    {
+      "test_id": "code-example",
+      "artifact_id": "linkedin-ep-01",
+      "scope": "examples/ep-01",
+      "required": true,
+      "status": "passed",
+      "evidence_ref": "fake-test-report"
+    }
+  ],
+  "approvals": [
+    {
+      "approval_id": "fake-approval",
+      "artifact_id": "linkedin-ep-01",
+      "artifact_version": "fake-v1",
+      "artifact_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "channels": ["linkedin"],
+      "approver": "author-001",
+      "authority_scope": "",
+      "authority_evidence_ref": "fake-authority",
+      "status": "approved",
+      "approved_at": ""
+    }
+  ],
+  "publication": {
+    "status": "published",
+    "requested_channels": ["linkedin", "substack"],
+    "channels": [
+      {
+        "channel": "linkedin",
+        "artifact_id": "linkedin-ep-01",
+        "approved_version": "fake-v1",
+        "approved_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "approval_id": "fake-approval",
+        "published_at": ""
+      },
+      {
+        "channel": "substack",
+        "artifact_id": "missing-substack",
+        "approved_version": "fake-v1",
+        "approved_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "approval_id": "fake-approval",
+        "published_at": ""
+      }
+    ]
+  }
+}

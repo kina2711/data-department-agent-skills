@@ -1,0 +1,21 @@
+source_id: ""
+title: ""
+source_type: ""
+origin: ""
+author_or_owner: ""
+edition_or_version: ""
+captured_at: ""
+effective_at: ""
+canonical_locator: ""
+snapshot_path: ""
+content_sha256: ""
+rights:
+  ownership: "unknown"
+  license_or_terms: ""
+  processing_allowed: "unknown"
+  redistribution_allowed: "unknown"
+sensitivity: "private"
+authority: "unknown"
+extraction: {}
+limitations: []
+status: "captured"

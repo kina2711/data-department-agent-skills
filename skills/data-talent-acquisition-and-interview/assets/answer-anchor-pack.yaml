@@ -1,0 +1,19 @@
+question_id: ""
+competency: ""
+anchor_version: ""
+weak_anchor:
+  evidence: []
+  reasoning_gaps: []
+  score: ""
+meets_anchor:
+  evidence: []
+  reasoning: []
+  score: ""
+strong_anchor:
+  evidence: []
+  trade_offs: []
+  follow_up_depth: []
+  score: ""
+prohibited_script: true
+calibrated_by: []
+calibration_status: "pending"

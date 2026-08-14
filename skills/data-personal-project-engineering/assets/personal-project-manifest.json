@@ -1,0 +1,75 @@
+{
+  "project_id": "",
+  "owner": "",
+  "purpose": "portfolio",
+  "entry_mode": "problem-first",
+  "source_origins": [
+    {
+      "source_id": "",
+      "origin_type": "self-originated",
+      "locator": "",
+      "author_or_owner": "",
+      "version_or_commit": "",
+      "license_or_terms": "",
+      "allowed_use": "",
+      "attribution_text": "",
+      "content_sha256": ""
+    }
+  ],
+  "thesis": {
+    "problem": "",
+    "target_user": "",
+    "decision_or_outcome": "",
+    "original_contribution": "",
+    "origin_statement": "",
+    "non_claims": []
+  },
+  "differentiation_axes": [
+    {
+      "axis": "",
+      "reference_baseline": "",
+      "planned_delta": "",
+      "proof": ""
+    }
+  ],
+  "selection": {
+    "hard_gates": {},
+    "weighted_score": 0,
+    "confidence": 0,
+    "evidence_refs": []
+  },
+  "repo_assessment": {
+    "source_id": "",
+    "baseline_status": "not-run",
+    "dimensions_reviewed": [],
+    "finding_ids": [],
+    "transformation_matrix_ref": ""
+  },
+  "scope": {
+    "in_scope": [],
+    "out_of_scope": [],
+    "constraints": [],
+    "stop_conditions": []
+  },
+  "milestones": [],
+  "artifacts": [
+    {
+      "artifact_id": "",
+      "path": "",
+      "version": "",
+      "sha256": "",
+      "status": "planned"
+    }
+  ],
+  "validations": [
+    {
+      "validation_id": "",
+      "scope": "",
+      "artifact_id": "",
+      "status": "not-run",
+      "evidence_ref": ""
+    }
+  ],
+  "portfolio_claims": [],
+  "status": "draft"
+}

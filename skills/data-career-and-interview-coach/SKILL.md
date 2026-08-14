@@ -1,0 +1,55 @@
+---
+name: data-career-and-interview-coach
+description: Build evidence-based Data career systems, competency maps, capstone roadmaps, portfolios, technical-writing strategy, ethical visibility, interview readiness, remediation and review cycles. Use for sustainable career growth; never fabricate experience or guarantee titles.
+---
+
+# Data Career and Interview Coach
+
+## Operating contract
+
+1. Identify the requested deliverable, then select exactly one atomic task below.
+2. Read that task file completely before acting.
+3. Read [references/lifecycle-standard.md](references/lifecycle-standard.md) and use the task's profile, risk tier and execution path.
+4. Load only the company context and adapter references needed for the selected task.
+5. On a cross-role handoff, compare logical ID and SHA-256 in `references/shared-reference-manifest.json`; reuse an already loaded shared reference when both match instead of loading its duplicate.
+6. Inspect real artifacts and systems before making change-sensitive claims.
+7. Apply Definition of Ready, stage gates, test strategy, Definition of Done, approval and handoff requirements.
+8. Do not invent access, approvals, successful execution, test results or business confirmation.
+9. For any Git-backed mutation, regardless of the task's verb or profile, require a pre-change success/scope contract, a post-change `core-audit-change-scope`, and fresh `core-verify-deliverable` evidence before completion.
+
+## Interview knowledge routing
+
+- One complete question with analysis, answer strategy, deep dive, related concepts and practice → `career-build-question-deep-dive`.
+- Only interviewer intent/competency/traps → `career-analyze-interview-question`.
+- Only concepts/prerequisites/follow-ups → `career-map-question-knowledge-dependencies`.
+- Only response structure and authentic evidence selection → `career-design-answer-strategy`.
+- Multiple approved dossiers plus taxonomy, tags, backlinks, versions and platform mapping → `career-build-interview-knowledge-library`.
+
+The dossier is the container for one question. The library is a collection of dossiers; never select the library task for a single-question deliverable.
+
+## Career-system routing
+
+- Long-term integrated growth system → `career-build-career-operating-system`.
+- Observable expectations by stage → `career-map-career-stage-competencies`.
+- Inventory and validate existing proof → `career-build-career-evidence-portfolio` or `career-audit-career-claims-evidence`.
+- Time-bounded 12/24-month learning-and-practice program → `career-design-career-capstone-program`.
+- Career purpose, themes and writing portfolio → `career-design-technical-writing-strategy`; actual series production belongs to `data-technical-content-and-social`.
+- Sustainable public contribution and visibility boundaries → `career-plan-ethical-professional-visibility`.
+- Periodic evidence/energy/bottleneck review → `career-run-career-review-cycle`.
+
+Career progression is `Current state → Target capability → Gap → Practice → Real work → Evidence → Feedback → Reflection → Updated plan`. Titles vary by company; never promise promotion, confuse self-study with production experience, or treat posting volume as mastery.
+
+If the request asks for the complete Career OS bundle, route through `orchestrator-run-sequential-workflow`; do not stop after one umbrella document. Default chain: `career-build-career-operating-system` → `career-map-career-stage-competencies` → `career-build-career-evidence-portfolio` → `career-design-career-capstone-program` → `career-design-technical-writing-strategy` → `career-plan-ethical-professional-visibility` → `career-run-career-review-cycle`. Each remains one atomic task and may stop on a failed gate.
+
+
+## Atomic task routing
+
+- **Plan, define, design, map, specify or create a proposed artifact** (12 tasks): read [references/catalog-plan-design.md](references/catalog-plan-design.md).
+- **Build, implement, configure, teach, interview or deliver an artifact** (20 tasks): read [references/catalog-build-deliver.md](references/catalog-build-deliver.md).
+- **Inspect, analyze, test, review, validate, assess, certify or audit** (7 tasks): read [references/catalog-test-assure.md](references/catalog-test-assure.md).
+
+Read only the best-matching catalog. If intent remains ambiguous, inspect a second catalog; do not load all catalogs by default. Select one task by primary deliverable, then read its contract completely.
+
+## Completion response
+
+State the selected task ID, primary deliverable, evidence inspected, validation performed, approval status, residual risks and next owner. A draft or plan is not an executed production outcome.

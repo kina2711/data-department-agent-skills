@@ -1,0 +1,29 @@
+{
+  "conversion_id": "",
+  "owner": "",
+  "version": "",
+  "mode": "analyze|full|fold-in|update",
+  "primary_destination": "skill|second-brain|career|interview|project|curriculum|workflow|content",
+  "source_manifest_ref": "",
+  "source_ids": [],
+  "rights_status": "unverified",
+  "content_type": "text|technical|academic|reference|visual|mixed",
+  "depth": "reference|study|application",
+  "structure": {
+    "chapters_detected": 0,
+    "chapter_map_ref": "",
+    "extraction_status": "not-run"
+  },
+  "frameworks": [],
+  "destination_artifacts": [],
+  "traceability": [],
+  "tests": [],
+  "publication": {
+    "status": "not-published",
+    "visibility": "private",
+    "authority_ref": ""
+  },
+  "limitations": [],
+  "status": "draft",
+  "updated_at": ""
+}

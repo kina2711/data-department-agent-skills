@@ -1,0 +1,25 @@
+project_id: ""
+sources:
+  - source_id: ""
+    origin_type: "inspired-by|adapted-from|forked-from|replicated-from|contributed-to"
+    locator: ""
+    author_or_owner: ""
+    version_or_commit: ""
+    license_or_terms: ""
+    allowed_use: ""
+    attribution_text: ""
+    borrowed_elements: []
+    rejected_elements: []
+transformation_matrix:
+  - component: ""
+    decision: "reuse|adapt|replace|drop|build-new"
+    source_ref: ""
+    reason: ""
+    risk: ""
+    planned_change: ""
+    validation: ""
+new_thesis_ref: ""
+substantive_differentiators: []
+public_origin_statement: ""
+prohibited_claims: []
+status: "draft"

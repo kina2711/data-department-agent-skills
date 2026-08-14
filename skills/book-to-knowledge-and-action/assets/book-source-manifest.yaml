@@ -1,0 +1,17 @@
+collection_id: ""
+sources:
+  - source_id: ""
+    title: ""
+    author: ""
+    edition: ""
+    format: ""
+    path_or_locator: ""
+    content_sha256: ""
+    rights: {}
+    extraction_method: ""
+    extracted_path: ""
+    pages_or_sections: 0
+    estimated_tokens: 0
+    limitations: []
+combined_corpus_sha256: ""
+created_at: ""

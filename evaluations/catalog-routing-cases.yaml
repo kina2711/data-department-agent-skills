@@ -1,0 +1,103 @@
+cases:
+  - id: de-design
+    task: de-design-ingestion-pipeline
+    expected_catalog: plan-design
+  - id: de-build
+    task: de-build-api-ingestion
+    expected_catalog: build-deliver
+  - id: de-assure
+    task: de-reconcile-source-target
+    expected_catalog: test-assure
+  - id: de-operate
+    task: de-deploy-data-pipeline
+    expected_catalog: operate-improve
+  - id: academy-design
+    task: academy-build-competency-curriculum-map
+    expected_catalog: plan-design
+  - id: academy-deliver
+    task: academy-deliver-theory-session
+    expected_catalog: build-deliver
+  - id: talent-assure
+    task: talent-audit-interview-fairness
+    expected_catalog: test-assure
+  - id: onboarding-operate
+    task: onboard-offboard-and-transfer-knowledge
+    expected_catalog: operate-improve
+  - id: career-question-deep-dive
+    task: career-build-question-deep-dive
+    expected_catalog: plan-design
+  - id: enable-versioned-knowledge-library
+    task: enable-build-versioned-knowledge-library
+    expected_catalog: build-deliver
+  - id: academy-question-learning-traceability
+    task: academy-map-questions-to-learning-objectives
+    expected_catalog: plan-design
+  - id: talent-question-bank-audit
+    task: talent-audit-question-bank-coverage
+    expected_catalog: test-assure
+  - id: context-package-build
+    task: core-build-task-context-package
+    expected_catalog: build-deliver
+  - id: context-index-design
+    task: ctx-build-context-index
+    expected_catalog: plan-design
+  - id: data-path-trace
+    task: dx-trace-data-path-end-to-end
+    expected_catalog: test-assure
+  - id: execution-plan-analysis
+    task: de-analyze-execution-plan
+    expected_catalog: test-assure
+  - id: programmatic-eda
+    task: da-run-programmatic-eda
+    expected_catalog: test-assure
+  - id: sql-business-explanation
+    task: da-explain-sql-business-logic
+    expected_catalog: build-deliver
+  - id: analysis-methodology
+    task: da-explain-analysis-methodology
+    expected_catalog: build-deliver
+  - id: analysis-peer-review
+    task: da-run-analysis-peer-review
+    expected_catalog: test-assure
+  - id: analysis-retrospective
+    task: da-run-analysis-retrospective
+    expected_catalog: operate-improve
+  - id: verifiable-success-contract
+    task: core-define-success-contract
+    expected_catalog: plan-design
+  - id: surgical-change-scope-audit
+    task: core-audit-change-scope
+    expected_catalog: test-assure
+  - id: dashboard-experience-audit
+    task: bi-audit-dashboard-experience
+    expected_catalog: test-assure
+  - id: dashboard-experience-redesign
+    task: bi-redesign-dashboard-experience
+    expected_catalog: plan-design
+  - id: career-operating-system
+    task: career-build-career-operating-system
+    expected_catalog: build-deliver
+  - id: content-series-design
+    task: content-design-technical-series
+    expected_catalog: plan-design
+  - id: content-canonical-article
+    task: content-write-canonical-technical-article
+    expected_catalog: plan-design
+  - id: content-claim-audit
+    task: content-audit-claim-source-traceability
+    expected_catalog: test-assure
+  - id: content-publication
+    task: content-publish-technical-content
+    expected_catalog: operate-improve
+  - id: second-brain-migration
+    task: brain-plan-tool-migration
+    expected_catalog: plan-design
+  - id: second-brain-grounding-audit
+    task: brain-audit-output-grounding
+    expected_catalog: test-assure
+  - id: book-framework-extraction
+    task: book-extract-frameworks
+    expected_catalog: build-deliver
+  - id: book-publish-derived-skill
+    task: book-publish-derived-skill
+    expected_catalog: operate-improve

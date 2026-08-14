@@ -1,0 +1,6 @@
+interface:
+  display_name: "Data Governance and Stewardship"
+  short_description: "Govern ownership policy terms and certification"
+  default_prompt: "Use $data-governance-and-stewardship to handle this request with evidence, validation, and required approval gates."
+policy:
+  allow_implicit_invocation: true

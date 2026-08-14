@@ -1,0 +1,37 @@
+repository:
+  url_or_path: ""
+  owner: ""
+  commit_or_version: ""
+  license_or_terms: ""
+  accessed_at: ""
+  snapshot_sha256: ""
+baseline_execution:
+  environment: ""
+  commands: []
+  status: "not-run"
+  evidence_refs: []
+dimensions:
+  purpose-and-users: {}
+  architecture-and-data-flow: {}
+  runtime-and-reproducibility: {}
+  data-contracts-and-modeling: {}
+  correctness-and-tests: {}
+  security-secrets-dependencies: {}
+  ci-cd-and-supply-chain: {}
+  observability-and-reliability: {}
+  performance-and-cost: {}
+  documentation-and-developer-experience: {}
+  maintainability-and-activity: {}
+  license-and-provenance: {}
+findings:
+  - finding_id: ""
+    severity: "P0|P1|P2|P3"
+    dimension: ""
+    evidence: ""
+    impact: ""
+    recommendation: ""
+    validation: ""
+strengths: []
+limitations: []
+unknowns: []
+status: "draft"

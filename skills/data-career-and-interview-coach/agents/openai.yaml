@@ -1,0 +1,6 @@
+interface:
+  display_name: "Data Career and Interview Coach"
+  short_description: "Build sustainable evidence-based Data careers"
+  default_prompt: "Use $data-career-and-interview-coach to handle this request with evidence, validation, and required approval gates."
+policy:
+  allow_implicit_invocation: true

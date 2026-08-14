@@ -1,0 +1,37 @@
+name: Validate Claude Skills
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install validation dependency
+        run: python -m pip install --disable-pip-version-check PyYAML
+      - name: Rebuild canonical artifacts
+        run: |
+          python tools/build_suite.py
+          python tools/generate_user_docs.py
+      - name: Validate suite and Claude skills
+        run: |
+          python tools/validate_suite.py
+          python tools/validate_claude_skills.py
+      - name: Run regression suites
+        run: |
+          python tools/run_smoke_tests.py
+          python tools/run_benchmark_tests.py
+      - name: Verify deterministic source tree
+        run: git diff --exit-code
+

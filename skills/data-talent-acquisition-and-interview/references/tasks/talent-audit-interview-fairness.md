@@ -1,0 +1,88 @@
+# talent-audit-interview-fairness
+
+## Trigger
+
+Use when the user asks to audit interview fairness, requests the stated deliverable, or supplies an artifact that requires this atomic workflow. Do not select by job title alone.
+
+## Contract
+
+- Profile: `hiring`
+- Risk tier: `R2-standard`
+- Execution path: `standard-path`
+- Contract version: `3.0`
+- Criticality: `deep`
+- Goal: kiểm tra adverse patterns, inconsistent scoring và prohibited signals.
+- Primary deliverable: **interview fairness audit**.
+
+## Inputs and readiness
+
+- Confirm objective, consumer, owner, target/environment, scope, constraints and acceptance criteria.
+- Identify relevant systems, data, artifacts, dependencies, authority, evidence and tests.
+- For controlled work, establish containment, backup, rollback or recovery before execution.
+
+If an absent input changes semantics, risk, cost, scope or acceptance, classify it as blocking. Otherwise state a bounded assumption and record it.
+
+## Deep execution contract
+
+- Contract version: `3.0`.
+- Criticality: `deep`; treat this as a low-freedom protocol for **interview fairness audit**.
+
+Mandatory domain inputs:
+- Validated role outcome and level.
+- Competency scorecard.
+- Consistent candidate information and jurisdiction.
+
+Invariants that must remain true:
+- Methods are job relevant and structured.
+- Evidence is independent before debrief.
+- Protected traits are excluded.
+
+Decision and execution sequence:
+1. Design loop.
+2. Calibrate anchors.
+3. Run consistent methods.
+4. Verify authorship.
+5. Evidence-first debrief.
+6. Audit fairness/validity.
+
+Required proof:
+- Question-to-competency trace.
+- Anchored scores.
+- Calibration.
+- Decision rationale and aggregate fairness signals.
+
+Block before mutation or a positive completion decision when a mandatory input, authority, invariant, recovery path or proof source is unresolved. Preserve the failed state and route remediation explicitly; never weaken a test or threshold merely to pass.
+
+
+## Procedure
+
+1. Read [the lifecycle standard](../lifecycle-standard.md); apply its stages, gates and risk-adaptive path.
+2. Load only applicable company context, then inspect live artifacts when facts may have changed.
+3. Load technology or industry references only when they affect this deliverable.
+4. Execute the stated goal; keep one primary deliverable and record provenance for material facts.
+5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
+
+Additional resources:
+- Read [role interview architecture](../role-interview-architecture.md) for methods, fairness, calibration and evidence rules.
+- Reuse the workflow, scorecard, loop, candidate, rubric, calibration, evidence, debrief and audit templates from `../../assets/`.
+
+- A bundled hiring request is a composed workflow: select the primary artifact, then name the scorecard, assessment, calibration, evidence, debrief, decision and audit tasks in dependency order.
+- Upgrade live hiring decisions, employment-impacting automation and jurisdiction-sensitive workflows to R3-controlled with HR/legal/accessibility review and a named hiring owner.
+- Upgrade fairness, validity or quality-of-hire analysis to R3-controlled whenever it processes protected, sensitive or individual-level candidate/employee data.
+- Do not claim fairness, validity or predictive usefulness from a small pilot; report sample size, uncertainty, missing data and subgroup privacy constraints.
+
+## Tests and evidence
+
+- Structured anchored scoring.
+- Job-relevant work sample.
+- Inter-rater calibration and fairness audit.
+
+Also verify scope and acceptance criteria, test relevant edge/failure paths, store evidence and keep failed mandatory checks visible. Use independent critical acceptance testing when practical.
+
+## Approval and done
+
+Require owner approval before production, sensitive, externally visible or materially costly execution. Approval is version- and scope-specific and never waives testing. Finish only when the deliverable meets acceptance criteria, mandatory tests pass, required approval exists, residual risks have owners, and handoff/monitoring is explicit. Stop as `blocked` or `failed` on missing authority, material ambiguity, failed validation or unsafe recovery; never fabricate success.
+
+## Return
+
+Return the task ID, lifecycle profile, risk tier, execution path, phase reached, primary deliverable, evidence links, test results, approvals, assumptions, open risks, affected assets, owner and one explicit next task. Route cross-role work through the department orchestrator.

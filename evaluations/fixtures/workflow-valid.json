@@ -1,0 +1,38 @@
+{
+  "workflow_id": "wf-valid",
+  "version": "1.0.0",
+  "objective": "Classify a bounded data request",
+  "status": "complete",
+  "workflow_risk_tier": "R0-light",
+  "current_task_id": "core-classify-data-request",
+  "tasks": [
+    {
+      "task_id": "core-classify-data-request",
+      "owner": "shared-data-core",
+      "depends_on": [],
+      "status": "complete",
+      "risk_tier": "R0-light",
+      "artifact_version": "1.0.0",
+      "artifact_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "evidence_refs": ["ev-workflow"],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [
+    {"task_id": "core-classify-data-request", "from_status": "planned", "to_status": "ready", "occurred_at": "2026-08-14T00:00:01Z", "evidence_refs": []},
+    {"task_id": "core-classify-data-request", "from_status": "ready", "to_status": "in-progress", "occurred_at": "2026-08-14T00:00:02Z", "evidence_refs": []},
+    {"task_id": "core-classify-data-request", "from_status": "in-progress", "to_status": "implemented", "occurred_at": "2026-08-14T00:00:03Z", "evidence_refs": []},
+    {"task_id": "core-classify-data-request", "from_status": "implemented", "to_status": "tested", "occurred_at": "2026-08-14T00:00:04Z", "evidence_refs": ["ev-workflow"]},
+    {"task_id": "core-classify-data-request", "from_status": "tested", "to_status": "complete", "occurred_at": "2026-08-14T00:00:05Z", "evidence_refs": ["ev-workflow"]}
+  ],
+  "claims": [
+    {
+      "claim_id": "claim-workflow",
+      "task_id": "core-classify-data-request",
+      "wording": "The request was classified",
+      "evidence_refs": ["ev-workflow"],
+      "status": "verified"
+    }
+  ],
+  "updated_at": "2026-08-14T00:00:00Z"
+}

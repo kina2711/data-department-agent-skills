@@ -1,0 +1,25 @@
+project_id: ""
+primary_mode: ""
+secondary_inputs: []
+vertical_slices:
+  - slice_id: ""
+    user_visible_outcome: ""
+    dependencies: []
+    deliverables: []
+    tests: []
+    evidence: []
+    exit_gate: ""
+    status: "planned"
+milestones:
+  - milestone_id: ""
+    objective: ""
+    tasks: []
+    demo: ""
+    test_gate: ""
+    stop_condition: ""
+    buffer: ""
+    status: "planned"
+role_handoffs: []
+budget: {}
+risks: []
+status: "draft"

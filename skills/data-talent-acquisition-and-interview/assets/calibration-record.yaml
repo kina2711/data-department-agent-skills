@@ -1,0 +1,10 @@
+loop_version: ""
+panel: []
+anchor_responses: []
+independent_scores: []
+maximum_anchor_delta: 1
+disagreements: []
+resolutions: []
+calibration_status: "pending"
+facilitator: ""
+completed_at: ""

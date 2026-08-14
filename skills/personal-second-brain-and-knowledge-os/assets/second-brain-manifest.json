@@ -1,0 +1,38 @@
+{
+  "brain_id": "",
+  "owner": "",
+  "version": "",
+  "purpose": "",
+  "canonical_root": "",
+  "layers": {
+    "1_Nguon": {
+      "path": "1_Nguon",
+      "source_count": 0
+    },
+    "2_Wiki": {
+      "path": "2_Wiki",
+      "note_count": 0
+    },
+    "3_Toi": {
+      "path": "3_Toi",
+      "rule_count": 0
+    },
+    "4_Ket-Qua": {
+      "path": "4_Ket-Qua",
+      "output_count": 0
+    }
+  },
+  "privacy_classification": "private",
+  "source_registry": [],
+  "note_registry": [],
+  "personal_context_registry": [],
+  "output_registry": [],
+  "retrieval_test_set": [],
+  "backup": {
+    "last_verified_at": "",
+    "artifact_sha256": "",
+    "restore_tested_at": ""
+  },
+  "status": "draft",
+  "updated_at": ""
+}

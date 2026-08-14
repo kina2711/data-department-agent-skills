@@ -1,0 +1,31 @@
+artifact: ""
+mode: "audit"
+audience_and_decisions: []
+existing_design_system: {}
+metric_and_claim_provenance: []
+scores_1_to_5:
+  decision_fit: 0
+  hierarchy: 0
+  specificity: 0
+  restraint: 0
+  truth: 0
+  accessibility: 0
+findings:
+  - severity: ""
+    category: ""
+    location: ""
+    observed_evidence: ""
+    decision_impact: ""
+    recommended_fix: ""
+interaction_states: []
+responsive_viewports: []
+accessibility_checks: []
+generic_pattern_findings: []
+redesign_scope: []
+redesign_traceability:
+  - finding_id: ""
+    design_decision: ""
+    affected_page_or_component: ""
+    preserved_behavior: []
+    acceptance_tests: []
+validation_status: "draft"

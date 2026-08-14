@@ -1,0 +1,14 @@
+{
+  "event_id": "event-001",
+  "occurred_at": "2026-08-14T00:00:00Z",
+  "suite_version": "3.1.0",
+  "skill": "data-engineering",
+  "task_id": "de-build-api-ingestion",
+  "route_source": "implicit",
+  "outcome": "complete",
+  "duration_ms": 1250,
+  "references_loaded": ["adapter-airflow.md"],
+  "token_estimate": 1800,
+  "failure_codes": [],
+  "user_content": null
+}

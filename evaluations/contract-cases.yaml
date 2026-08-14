@@ -1,0 +1,19 @@
+cases:
+  - id: production-write-gate
+    task_pattern: deploy|publish|promote|delete|retire|backfill
+    expected_contract:
+      - Approval gate
+      - Validation
+      - Failure mode
+      - Handoff
+  - id: evidence-discipline
+    task_pattern: analyze|assess|validate|audit|review|certify
+    expected_contract:
+      - Context to load
+      - Validation
+      - Deliverable
+  - id: atomicity
+    all_tasks:
+      - Have one primary deliverable.
+      - Route cross-role work through the orchestrator.
+      - Distinguish a task from a tool adapter.

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://data-department.local/schemas/task-contract.schema.json",
+  "title": "Atomic Task Contract Metadata v3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id", "goal", "output", "source_line", "lifecycle_profile", "risk_tier",
+    "execution_path", "contract_version", "criticality"
+  ],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9-]{1,64}$"},
+    "goal": {"type": "string", "minLength": 3},
+    "output": {"type": "string", "minLength": 2},
+    "source_line": {"type": "string", "pattern": "^[0-9]+$"},
+    "lifecycle_profile": {
+      "enum": ["advisory-analysis", "design-specification", "build-change", "production-release", "incident-recovery", "governance-assurance", "learning", "onboarding", "hiring", "career-coaching", "career-development"]
+    },
+    "risk_tier": {"enum": ["R0-light", "R1-reviewed", "R2-standard", "R3-controlled", "R4-critical"]},
+    "execution_path": {"enum": ["fast-path", "standard-path", "controlled-path"]},
+    "contract_version": {"const": "3.0"},
+    "criticality": {"enum": ["standard", "deep", "enforced"]}
+  }
+}

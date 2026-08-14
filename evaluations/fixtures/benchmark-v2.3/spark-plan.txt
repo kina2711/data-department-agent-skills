@@ -1,0 +1,7 @@
+== Physical Plan ==
+AdaptiveSparkPlan isFinalPlan=false
++- SortMergeJoin [customer_id#12], [customer_id#31], Inner
+   :- Exchange hashpartitioning(customer_id#12, 200)
+   :  +- FileScan parquet raw.orders[order_id,customer_id,amount] PartitionFilters: [], PushedFilters: []
+   +- Exchange hashpartitioning(customer_id#31, 200)
+      +- BatchEvalPython [normalize_customer(customer_id#31)]

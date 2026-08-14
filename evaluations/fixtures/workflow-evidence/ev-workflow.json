@@ -1,0 +1,15 @@
+{
+  "evidence_id": "ev-workflow",
+  "task_id": "core-classify-data-request",
+  "claim_ids": ["claim-workflow"],
+  "artifact": "request-classification.json",
+  "artifact_version": "1.0.0",
+  "artifact_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "environment": {"kind": "fixture"},
+  "method": "deterministic classification fixture",
+  "observed_result": "classified",
+  "status": "passed",
+  "captured_at": "2026-08-14T00:00:00Z",
+  "captured_by": "regression-fixture",
+  "limitations": []
+}

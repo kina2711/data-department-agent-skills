@@ -1,0 +1,15 @@
+conversion_id: ""
+source_hashes_verified: false
+chapter_coverage: {}
+framework_traceability: []
+quotation_review: []
+hallucination_findings: []
+broken_links: []
+token_path: {}
+retrieval_tests: []
+application_tests: []
+copyright_decision: "blocked"
+security_scan: "not-run"
+critical_failures: []
+decision: "blocked"
+reviewed_at: ""

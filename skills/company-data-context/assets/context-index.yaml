@@ -1,0 +1,18 @@
+index_id: ""
+scope: ""
+owner: ""
+version: ""
+entries:
+  - context_id: ""
+    type: ""
+    path: ""
+    authority: ""
+    load_when: []
+    do_not_use_when: []
+    owner: ""
+    last_verified: ""
+    sensitivity: ""
+    supersedes: ""
+routing_rules: []
+conflicts: []
+validation_status: "draft"

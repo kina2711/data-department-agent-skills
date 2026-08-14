@@ -1,0 +1,25 @@
+package_id: ""
+task:
+  objective: ""
+  primary_deliverable: ""
+  acceptance_criteria: []
+context_layers:
+  business: []
+  data_schema: []
+  lineage_and_code: []
+  prior_evidence: []
+  constraints_and_policies: []
+  output_contract: []
+sources:
+  - path: ""
+    sha256: ""
+    authority: ""
+    owner: ""
+    last_verified: ""
+    sensitivity: ""
+token_budget: 0
+estimated_tokens: 0
+omitted_sources: []
+assumptions: []
+conflicts: []
+freshness_status: "draft"

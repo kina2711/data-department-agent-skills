@@ -1,0 +1,19 @@
+loop_version: ""
+cohort_window: ""
+population: 0
+metrics: []
+group_results:
+  - group: ""
+    numerator: 0
+    denominator: 0
+    selection_rate: 0
+    ratio_to_reference: 0
+    uncertainty: ""
+    missingness: ""
+privacy_threshold_met: false
+content_validity_evidence: []
+predictive_validity_status: "not-claimed"
+findings: []
+actions: []
+owner: ""
+reviewed_at: ""

@@ -1,0 +1,5 @@
+order_id,customer_id,status,amount,order_date
+1001,C001,paid,120.50,2026-08-01
+1002,C002,paid,80.00,2026-08-01
+1002,C002,refunded,-80.00,2026-08-03
+1004,,pending,45.25,not-a-date

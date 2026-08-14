@@ -1,0 +1,22 @@
+topic: ""
+owner: ""
+verified_at: ""
+environment: {}
+sources:
+  - source_id: ""
+    title: ""
+    url: ""
+    source_type: "official|standard|paper|runtime-evidence|test-report|authority-record|other"
+    version: ""
+    published_or_updated_at: ""
+    accessed_at: ""
+    snapshot_path: ""
+    content_sha256: ""
+    verified_by: ""
+    claim_supports:
+      - claim_id: ""
+        excerpt: ""
+    limitations: []
+conflicts: []
+open_questions: []
+status: "draft"

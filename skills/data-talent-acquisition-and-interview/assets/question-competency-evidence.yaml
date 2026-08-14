@@ -1,0 +1,16 @@
+question_id: ""
+question: ""
+role: ""
+level: ""
+interviewer_intent: ""
+competencies: []
+knowledge_concepts: []
+expected_depth: ""
+primary_evidence: []
+corroborating_evidence: []
+allowed_probes: []
+red_flags: []
+critical_failures: []
+scoring_rubric_version: ""
+content_validity_status: "draft"
+reviewers: []

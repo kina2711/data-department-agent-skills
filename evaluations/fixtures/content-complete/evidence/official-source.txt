@@ -1,0 +1,1 @@
+This fixture demonstrates a declared product version and a stored evidence snapshot.

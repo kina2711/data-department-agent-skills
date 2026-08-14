@@ -1,0 +1,6 @@
+interface:
+  display_name: "Head of Data and Data Product"
+  short_description: "Lead strategy portfolio and data products"
+  default_prompt: "Use $head-of-data-and-data-product to handle this request with evidence, validation, and required approval gates."
+policy:
+  allow_implicit_invocation: true

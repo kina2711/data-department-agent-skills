@@ -1,0 +1,15 @@
+{
+  "evidence_id": "ev-invalid",
+  "task_id": "de-build-api-ingestion",
+  "claim_ids": [],
+  "artifact": "missing.txt",
+  "artifact_version": "",
+  "artifact_sha256": "bad",
+  "environment": {},
+  "method": "",
+  "observed_result": null,
+  "status": "not-run",
+  "captured_at": "",
+  "captured_by": "",
+  "limitations": []
+}

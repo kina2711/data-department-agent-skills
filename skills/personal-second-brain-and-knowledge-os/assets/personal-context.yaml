@@ -1,0 +1,12 @@
+context_id: ""
+owner: ""
+context_type: "experience|voice|audience|preference|work-rule"
+statement: ""
+scope: []
+evidence_refs: []
+counterexamples: []
+confidence: "unknown"
+allowed_uses: []
+prohibited_uses: []
+review_at: ""
+status: "draft"

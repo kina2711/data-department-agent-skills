@@ -1,0 +1,23 @@
+person_id: ""
+owner: ""
+status: "pending"
+risk_tier: "R3-controlled"
+entitlements:
+  - system: ""
+    environment: ""
+    access_level: ""
+    business_need: ""
+    entitlement_owner: ""
+    owner_approval: "pending"
+    approval_evidence_id: ""
+    least_privilege_evidence: ""
+    smoke_test: "pending"
+    tested_by: ""
+    tested_at: ""
+    expires_at: ""
+    r3_approval: "pending"
+security_training: "pending"
+critical_failures: []
+verified_by: ""
+verified_at: ""
+residual_risks: []

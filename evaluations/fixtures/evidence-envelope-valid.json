@@ -1,0 +1,18 @@
+{
+  "evidence_id": "ev-valid",
+  "task_id": "core-classify-data-request",
+  "claim_ids": ["claim-classified"],
+  "artifact": "evidence-artifact.txt",
+  "artifact_version": "1.0.0",
+  "artifact_sha256": "2b67fd6a16a0bbf9b902bbfa59af465841de06661b1faf7c0ded92a253ed987a",
+  "environment": {"kind": "fixture", "suite_version": "3.1.0"},
+  "method": "SHA-256 and deterministic fixture comparison",
+  "command": "validate_evidence_bundle.py",
+  "expected_result": "artifact exists and hash matches",
+  "observed_result": "artifact exists and hash matches",
+  "exit_status": 0,
+  "status": "passed",
+  "captured_at": "2026-08-14T00:00:00Z",
+  "captured_by": "regression-fixture",
+  "limitations": []
+}

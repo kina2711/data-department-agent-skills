@@ -1,0 +1,19 @@
+trace_id: ""
+user_or_business_event: ""
+entry_point: ""
+source: {}
+steps:
+  - order: 0
+    code_or_job: ""
+    input: ""
+    transformation: ""
+    output: ""
+    evidence: []
+    prediction: ""
+    observed_result: ""
+sink: {}
+lineage_reconciliation: []
+failure_paths: []
+unknowns: []
+learning_checks: []
+validation_status: "draft"

@@ -1,0 +1,23 @@
+role: ""
+level: ""
+owner: ""
+version: ""
+usage_mode: "design-only"
+risk_tier: "R2-standard"
+live_use_requires_risk_tier: "R3-controlled"
+stages:
+  - stage_id: ""
+    duration_minutes: 0
+    competencies: []
+    primary_signals: []
+    corroborating_signals: []
+    decision_rule: ""
+    candidate_burden_minutes: 0
+panel: []
+calibration_status: "pending"
+accessibility_verification: "pending"
+candidate_packet_version: ""
+test_results: []
+validation_status: "draft"
+approvals: []
+residual_risks: []

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Data Analysis"
+  short_description: "Answer business questions with evidence"
+  default_prompt: "Use $data-analysis to handle this request with evidence, validation, and required approval gates."
+policy:
+  allow_implicit_invocation: true

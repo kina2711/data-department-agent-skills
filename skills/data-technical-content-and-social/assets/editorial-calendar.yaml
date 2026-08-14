@@ -1,0 +1,14 @@
+series_id: ""
+timezone: ""
+cadence: ""
+buffer_policy: ""
+items:
+  - episode_id: ""
+    channel: ""
+    depends_on: []
+    draft_due: ""
+    technical_review_due: ""
+    editorial_review_due: ""
+    publish_window: ""
+    owner: ""
+    status: "planned"

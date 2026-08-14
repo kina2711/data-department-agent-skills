@@ -1,0 +1,17 @@
+project_id: ""
+claims:
+  - claim_id: ""
+    claim: ""
+    allowed_wording: ""
+    artifact_refs: []
+    test_refs: []
+    reviewer: ""
+    limitations: []
+    verification_status: "unverified"
+decision_records: []
+failure_evidence: []
+trade_off_evidence: []
+operations_evidence: []
+demo_plan: {}
+reproduction_instructions: ""
+status: "draft"

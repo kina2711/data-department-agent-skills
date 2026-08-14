@@ -1,0 +1,13 @@
+query_id: ""
+business_question: ""
+dialect: ""
+sources: []
+joins: []
+filters: []
+grain: ""
+aggregations: []
+window_logic: []
+output_columns: []
+null_and_fanout_risks: []
+validation_questions: []
+review_status: "draft"

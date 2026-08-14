@@ -1,0 +1,40 @@
+{
+  "criteria_weights": {
+    "problem_value": 12,
+    "target_role_fit": 14,
+    "evidence_strength": 12,
+    "differentiation": 12,
+    "feasibility": 10,
+    "data_readiness": 8,
+    "testability": 8,
+    "operations_depth": 6,
+    "deployability_demo": 5,
+    "maintainability_evolution": 4,
+    "security_privacy_legal": 5,
+    "cost_time_sustainability": 4
+  },
+  "hard_gates": [
+    "rights-and-license",
+    "data-and-privacy",
+    "safe-and-ethical",
+    "feasible-minimum-slice",
+    "observable-success"
+  ],
+  "options": [
+    {
+      "option_id": "",
+      "mode": "",
+      "thesis": "",
+      "scores": {},
+      "weighted_score": 0,
+      "confidence": 0,
+      "risk_penalty": 0,
+      "evidence_refs": [],
+      "hard_gate_results": {},
+      "decision": "reject"
+    }
+  ],
+  "selected_option_id": "",
+  "selection_reason": "",
+  "status": "draft"
+}
