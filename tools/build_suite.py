@@ -15,6 +15,12 @@ SKILLS = ROOT / "skills"
 SUITE_VERSION = "3.1.0"
 
 
+def canonical_text_sha256(path: Path) -> str:
+    """Hash canonical UTF-8/LF text so manifests are OS-independent."""
+    normalized = path.read_text(encoding="utf-8").replace("\r\n", "\n").replace("\r", "\n")
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+
+
 PREFIX_TO_SKILL = {
     "orchestrator": "data-department-orchestrator",
     "core": "shared-data-core",
@@ -3081,7 +3087,7 @@ A redesign specification maps audit finding -> design decision -> affected page/
             {
                 "logical_id": name.removesuffix(".md"),
                 "filename": name,
-                "sha256": hashlib.sha256((canonical_refs / name).read_bytes()).hexdigest(),
+                "sha256": canonical_text_sha256(canonical_refs / name),
             }
             for name in shared_names
         ],

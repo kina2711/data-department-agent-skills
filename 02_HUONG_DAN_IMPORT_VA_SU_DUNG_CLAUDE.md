@@ -75,7 +75,7 @@ Get-FileHash `
 SHA-256 bản v3.1.0:
 
 ```text
-37FE5E95021C6DB681ABE5011CDE1FCFF65B9D1EE7ACB87A4E0B15A948D8B57B
+8D95F1342CAD38E3B5E501EC26DE2B667073E81F8214BA38106BE995C43433D0
 ```
 
 Nếu hash khác, không mặc định file là cùng bản phát hành; xác minh lại nguồn hoặc build lại package.

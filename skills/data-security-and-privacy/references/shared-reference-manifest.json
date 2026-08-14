@@ -4,27 +4,27 @@
     {
       "logical_id": "lifecycle-standard",
       "filename": "lifecycle-standard.md",
-      "sha256": "acce4f49bd63a5d4f2778180e65577880b3a19acb220b9460c92334342361808"
+      "sha256": "7d91d2fd2b8c3fb1c0f004797de6b574fa3e38ae569c44c663e8c2eb9fb648db"
     },
     {
       "logical_id": "safety-and-approvals",
       "filename": "safety-and-approvals.md",
-      "sha256": "b7e288ae188ffa3f2504107d47584b243c4e4d46715cd4d1669d4f6a2c293342"
+      "sha256": "b6b5604db61c55cc6b24e20c7152681bdaa633657af78f3909536a428f4a012e"
     },
     {
       "logical_id": "industry-and-metrics",
       "filename": "industry-and-metrics.md",
-      "sha256": "3692a961194975939f276b2732c431a038f6223528dbbf642f8c692cba449ce9"
+      "sha256": "e6d055d0556cca48494d38f173758f343fb0439fbbf0868c043291836883f682"
     },
     {
       "logical_id": "execution-discipline-standard",
       "filename": "execution-discipline-standard.md",
-      "sha256": "f5d3a576b6d001b29ec66c3fa03bc5d38b2c1ebc6bf2ad31ae0aa86e0d4eb70e"
+      "sha256": "829a54279991dbd7bc2e625ea41a7f41f49312981b977479774926e6ef0e0c41"
     },
     {
       "logical_id": "workflow-runtime-and-evidence-os",
       "filename": "workflow-runtime-and-evidence-os.md",
-      "sha256": "8b8c0cc07e6756df34b5251c4a5f66db98a3a8c52c103d83fbaf02bd55bc399d"
+      "sha256": "70e317b85a1c54e08742880d72183a31e61b66394e3a15152282fa33a3982d03"
     }
   ]
 }

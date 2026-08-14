@@ -11,6 +11,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS = ROOT / "skills"
+
+
+def canonical_text_sha256(path: Path) -> str:
+    """Hash canonical UTF-8/LF text so validation is OS-independent."""
+    normalized = path.read_text(encoding="utf-8").replace("\r\n", "\n").replace("\r", "\n")
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
 REQUIRED_TASK_SECTIONS = [
     "Trigger",
     "Contract",
@@ -169,7 +175,7 @@ def validate() -> tuple[list[str], dict[str, int]]:
                     if not reference.is_file():
                         fail(errors, f"{shared_manifest_path}: missing {entry['filename']}")
                         continue
-                    observed = hashlib.sha256(reference.read_bytes()).hexdigest()
+                    observed = canonical_text_sha256(reference)
                     if observed != entry.get("sha256"):
                         fail(errors, f"{shared_manifest_path}: hash mismatch for {entry['filename']}")
             except (KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:

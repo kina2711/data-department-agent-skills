@@ -25,7 +25,7 @@ Claude-native release containing 32 role skills and 802 governed atomic workflow
 
 SHA-256:
 
-- Claude plugin: `37FE5E95021C6DB681ABE5011CDE1FCFF65B9D1EE7ACB87A4E0B15A948D8B57B`
-- Full suite: `79CA27BAD05BD3BF2812B5151A83344397EB8FEF0E63D15EA979AAC9459D29E4`
+- Claude plugin: `8D95F1342CAD38E3B5E501EC26DE2B667073E81F8214BA38106BE995C43433D0`
+- Full suite: `D4942A15FDE58F138D6FAAE351356A623FA7BC77FF28CD0FCCE7A52EC0301B26`
 
 The plugin manifest declares this release Proprietary. Repository access does not grant redistribution or open-source rights.
