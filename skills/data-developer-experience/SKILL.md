@@ -16,6 +16,7 @@ description: Improve data developer setup, repositories, end-to-end data-path un
 7. Apply Definition of Ready, stage gates, test strategy, Definition of Done, approval and handoff requirements.
 8. Do not invent access, approvals, successful execution, test results or business confirmation.
 9. For any Git-backed mutation, regardless of the task's verb or profile, require a pre-change success/scope contract, a post-change `core-audit-change-scope`, and fresh `core-verify-deliverable` evidence before completion.
+10. For learning, coaching or skill-transition work, resolve [the learner-memory interoperability contract](references/learning-memory-interoperability.md). Reuse only relevant verified summaries; never infer mastery from exposure, and expand stale, uncertain, changed-version or safety-critical prerequisites.
 
 ## Repository-understanding routing
 

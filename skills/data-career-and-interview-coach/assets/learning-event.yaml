@@ -1,0 +1,11 @@
+event_id: ""
+topic_id: ""
+event_type: "learned|practiced|applied|assessed|reviewed|forgotten|version-changed"
+skill_id: ""
+source_or_artifact_ref: ""
+evidence_refs: []
+observed_result: ""
+limitations: []
+occurred_at: ""
+recorded_at: ""
+status: "recorded"

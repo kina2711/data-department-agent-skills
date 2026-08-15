@@ -1,6 +1,6 @@
 ---
 name: data-career-and-interview-coach
-description: Build evidence-based Data career systems, competency maps, capstone roadmaps, portfolios, technical-writing strategy, ethical visibility, interview readiness, remediation and review cycles. Use for sustainable career growth; never fabricate experience or guarantee titles.
+description: Build evidence-based Data career systems, persistent cross-skill learner memory, mastery/decay tracking, compact transition context, competency maps, portfolios, interview readiness, remediation and review cycles. Use when prior learning should be reused without reteaching; never infer mastery from exposure or fabricate experience.
 ---
 
 # Data Career and Interview Coach
@@ -16,6 +16,7 @@ description: Build evidence-based Data career systems, competency maps, capstone
 7. Apply Definition of Ready, stage gates, test strategy, Definition of Done, approval and handoff requirements.
 8. Do not invent access, approvals, successful execution, test results or business confirmation.
 9. For any Git-backed mutation, regardless of the task's verb or profile, require a pre-change success/scope contract, a post-change `core-audit-change-scope`, and fresh `core-verify-deliverable` evidence before completion.
+10. For learning, coaching or skill-transition work, resolve [the learner-memory interoperability contract](references/learning-memory-interoperability.md). Reuse only relevant verified summaries; never infer mastery from exposure, and expand stale, uncertain, changed-version or safety-critical prerequisites.
 
 ## Interview knowledge routing
 
@@ -36,17 +37,24 @@ The dossier is the container for one question. The library is a collection of do
 - Career purpose, themes and writing portfolio → `career-design-technical-writing-strategy`; actual series production belongs to `data-technical-content-and-social`.
 - Sustainable public contribution and visibility boundaries → `career-plan-ethical-professional-visibility`.
 - Periodic evidence/energy/bottleneck review → `career-run-career-review-cycle`.
+- First persistent record of prior learning → `career-initialize-learning-memory`.
+- Airflow → dbt, SQL → Spark or another topic transition → select `career-build-skill-transition-context` as the primary task; use `career-map-cross-skill-prerequisites` as a prior dependency only when the relevant graph is absent or stale.
+- New lesson, lab, project, assessment or feedback → `career-record-learning-event`; recording evidence does not automatically mark mastery.
+- Promote or downgrade a topic state → `career-assess-topic-mastery`; stale/version-drift review → `career-detect-learning-decay`.
+- Merge memory from multiple repositories or vaults → `career-reconcile-learning-memory` without discarding conflicts or prior versions.
 
 Career progression is `Current state → Target capability → Gap → Practice → Real work → Evidence → Feedback → Reflection → Updated plan`. Titles vary by company; never promise promotion, confuse self-study with production experience, or treat posting volume as mastery.
+
+Resolve learner memory in this order: an explicit path; a project pointer under `.claude/data-department-memory/`; then the user-level Claude memory root. Career owns mastery semantics; Second Brain may store the durable artifact; technical role skills consume only a bounded transition pack. For a fresh, mastered Airflow prerequisite in a dbt task, keep only its interfaces, decision rules, relevant failure modes and evidence refs. Expand beyond that bridge only when a specific detail is necessary for the current deliverable, stale, contradicted, version-shifted, safety-critical or requested by the learner.
 
 If the request asks for the complete Career OS bundle, route through `orchestrator-run-sequential-workflow`; do not stop after one umbrella document. Default chain: `career-build-career-operating-system` → `career-map-career-stage-competencies` → `career-build-career-evidence-portfolio` → `career-design-career-capstone-program` → `career-design-technical-writing-strategy` → `career-plan-ethical-professional-visibility` → `career-run-career-review-cycle`. Each remains one atomic task and may stop on a failed gate.
 
 
 ## Atomic task routing
 
-- **Plan, define, design, map, specify or create a proposed artifact** (12 tasks): read [references/catalog-plan-design.md](references/catalog-plan-design.md).
-- **Build, implement, configure, teach, interview or deliver an artifact** (20 tasks): read [references/catalog-build-deliver.md](references/catalog-build-deliver.md).
-- **Inspect, analyze, test, review, validate, assess, certify or audit** (7 tasks): read [references/catalog-test-assure.md](references/catalog-test-assure.md).
+- **Plan, define, design, map, specify or create a proposed artifact** (13 tasks): read [references/catalog-plan-design.md](references/catalog-plan-design.md).
+- **Build, implement, configure, teach, interview or deliver an artifact** (23 tasks): read [references/catalog-build-deliver.md](references/catalog-build-deliver.md).
+- **Inspect, analyze, test, review, validate, assess, certify or audit** (10 tasks): read [references/catalog-test-assure.md](references/catalog-test-assure.md).
 
 Read only the best-matching catalog. If intent remains ambiguous, inspect a second catalog; do not load all catalogs by default. Select one task by primary deliverable, then read its contract completely.
 

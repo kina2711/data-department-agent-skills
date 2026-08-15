@@ -1,0 +1,17 @@
+{
+  "memory_id": "",
+  "person_id": "",
+  "version": "",
+  "privacy_classification": "private",
+  "authority": {
+    "owner": "",
+    "canonical_path": "",
+    "storage_scope": "user"
+  },
+  "current_focus": [],
+  "topics": [],
+  "evidence_registry": [],
+  "learning_events": [],
+  "updated_at": "",
+  "status": "draft"
+}

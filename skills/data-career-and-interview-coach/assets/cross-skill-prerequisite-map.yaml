@@ -1,0 +1,11 @@
+from_topics: []
+to_topic: ""
+direct_prerequisites: []
+interfaces_to_reuse: []
+decision_rules_to_reuse: []
+failure_modes_to_reuse: []
+safe_to_summarize: []
+must_expand: []
+version_conflicts: []
+evidence_refs: []
+status: "draft"

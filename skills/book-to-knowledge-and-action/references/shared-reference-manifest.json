@@ -1,5 +1,5 @@
 {
-  "suite_version": "3.1.0",
+  "suite_version": "3.2.0",
   "references": [
     {
       "logical_id": "lifecycle-standard",
@@ -25,6 +25,11 @@
       "logical_id": "workflow-runtime-and-evidence-os",
       "filename": "workflow-runtime-and-evidence-os.md",
       "sha256": "70e317b85a1c54e08742880d72183a31e61b66394e3a15152282fa33a3982d03"
+    },
+    {
+      "logical_id": "learning-memory-interoperability",
+      "filename": "learning-memory-interoperability.md",
+      "sha256": "f2c464a64cc1c1c38dac47e6c1fbb368e8766b851658765a408a10b923a27fc0"
     }
   ]
 }

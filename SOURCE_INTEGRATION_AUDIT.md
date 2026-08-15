@@ -289,3 +289,15 @@ The public `virgiliojr94/book-to-skill` repository was inspected as a behavioral
 - Multi-book comparison, new-edition merge, fold-in, retirement and changed-scenario transfer evaluation.
 
 No upstream file is vendored. Runtime references, schemas, validators, templates and task contracts are independently authored for this suite. The upstream repository remains the authority for its MIT license and original implementation.
+
+## Cross-skill Learning Memory — v3.2.0
+
+This release adds an independently authored personal learner-memory protocol; it is not copied from an upstream memory product or note-taking system.
+
+- Career owns mastery semantics, evidence review, decay detection and reconciliation. Personal Second Brain may store the canonical artifact, while all technical/academy roles consume it read-only.
+- The model distinguishes exposure, practice, demonstration, mastery, staleness and conflict. Course completion and conversation history are insufficient evidence for mastery.
+- Cross-skill transition is relevance-aware: fresh mastered knowledge is compressed; direct prerequisites retain only interfaces, decision rules and failure modes; stale, changed-version, conflicted and safety-critical knowledge is expanded and retested.
+- Learner-memory identity, authority, privacy, evidence references, dates and append-only learning events are schema-backed. Validation rejects unsupported mastery and broken references.
+- The context builder has an explicit token budget and never copies evidence bodies. It returns IDs and bounded summaries so Airflow knowledge can support dbt without reproducing an Airflow course inside the dbt prompt.
+
+Design evidence came from the suite's existing Career, Academy, Second Brain, context engineering and evidence OS boundaries. No external memory service, API or MCP dependency is required.

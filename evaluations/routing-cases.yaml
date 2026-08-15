@@ -1,4 +1,16 @@
 cases:
+  - id: cross-skill-learning-memory-airflow-to-dbt
+    query: Tôi đã học xong Airflow và có project cùng bài test xác nhận. Giờ chuyển sang dbt; chỉ tóm tắt những phần Airflow liên quan, không dạy lại toàn bộ, nhưng phải phát hiện phần đã cũ hoặc chưa chắc chắn.
+    expected_primary_skill: data-career-and-interview-coach
+    expected_tasks:
+      - career-map-cross-skill-prerequisites
+      - career-build-skill-transition-context
+      - career-detect-learning-decay
+    expected_behavior:
+      - Never infer mastery from course completion or chat history alone; resolve evidence and freshness from the canonical learner memory.
+      - Compress fresh mastered Airflow knowledge into a bounded bridge covering only dbt interfaces, decision rules and failure modes.
+      - Expand or retest stale, conflicted, version-shifted or safety-critical prerequisites.
+
   - id: vague-executive-dashboard
     query: Build an executive revenue dashboard from our CRM and billing data.
     expected_primary_skill: data-department-orchestrator

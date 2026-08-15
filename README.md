@@ -1,12 +1,12 @@
 # Data Department Agent Skills
 
-Claude-native operating system for a complete Data Department: **32 role skills**, **802 atomic workflows**, risk-adaptive lifecycle controls, executable evidence gates and progressive loading.
+Claude-native operating system for a complete Data Department: **32 role skills**, **809 atomic workflows**, risk-adaptive lifecycle controls, executable evidence gates, cross-skill learner memory and progressive loading.
 
-Current release: **v3.1.0**.
+Current release: **v3.2.0**.
 
 ## Start here
 
-- [Chi tiết toàn bộ skill và task](01_CHI_TIET_TOAN_BO_SKILL_VA_TASK.md): ownership, boundaries, resources and all 802 atomic workflows.
+- [Chi tiết toàn bộ skill và task](01_CHI_TIET_TOAN_BO_SKILL_VA_TASK.md): ownership, boundaries, resources and all 809 atomic workflows.
 - [Hướng dẫn import và sử dụng với Claude Code](02_HUONG_DAN_IMPORT_VA_SU_DUNG_CLAUDE.md): plugin, project-scope and user-scope installation; routing; prompts; validation and troubleshooting.
 - [Tổng quan năng lực](02_TONG_QUAN_NANG_LUC_DATA_DEPARTMENT_SKILLS.md).
 
@@ -19,17 +19,18 @@ The suite covers:
 - Data Analysis, Product Analytics, Data Science, ML Engineering, MLOps and Generative AI Engineering.
 - Documentation, Enablement, Academy, Onboarding, Hiring, Career/Interview and Technical Content.
 - Personal Project Engineering, Personal Second Brain / Knowledge OS and Book-to-Knowledge / Skill / Action Engineering.
+- Persistent, evidence-bound learner memory that compresses mastered prerequisites and reopens stale or uncertain knowledge when moving between skills.
 - Cross-role orchestration with task dependencies, evidence, approvals, handoffs and completion validation.
 
 Claude may route from an ordinary natural-language request. Users do not need to remember individual task IDs.
 
 ## Install from a release
 
-Download `data-department-claude-plugin-v3.1.0.zip` from the GitHub Release and extract it. Validate and start Claude Code from the target project:
+Download `data-department-claude-plugin-v3.2.0.zip` from the GitHub Release and extract it. Validate and start Claude Code from the target project:
 
 ```powershell
-$pluginRoot = "C:\Tools\data-department-agent-skills-v3.1.0"
-Expand-Archive .\data-department-claude-plugin-v3.1.0.zip -DestinationPath $pluginRoot
+$pluginRoot = "C:\Tools\data-department-agent-skills-v3.2.0"
+Expand-Archive .\data-department-claude-plugin-v3.2.0.zip -DestinationPath $pluginRoot
 claude plugin validate --strict $pluginRoot
 claude --plugin-dir $pluginRoot
 ```
@@ -55,6 +56,15 @@ Hãy xây Second Brain local từ Notion export, PDF, transcript và Obsidian.
 Giữ nguyên nguồn, source lineage, privacy và representative retrieval tests.
 ```
 
+Cross-skill learning memory is automatic when a canonical memory is available:
+
+```text
+Tôi đã hoàn thành Airflow với project và bài test. Giờ học dbt.
+Chỉ tóm tắt phần Airflow liên quan; phát hiện phần cần ôn hoặc kiểm tra lại.
+```
+
+Career owns mastery state and evidence. Technical skills consume only a bounded transition pack; they do not infer mastery from chat history or course attendance.
+
 ## Architecture
 
 ```text
@@ -65,7 +75,7 @@ natural-language request
 → Review/Approve → Release/Handoff → Monitor/Improve
 ```
 
-Only skill metadata is always visible. Claude loads one selected `SKILL.md`, one catalog shard, one task contract and conditional references/scripts as needed. The 802 task contracts are not loaded together.
+Only skill metadata is always visible. Claude loads one selected `SKILL.md`, one catalog shard, one task contract and conditional references/scripts as needed. The 809 task contracts are not loaded together.
 
 ## Validate from source
 
@@ -81,7 +91,7 @@ python tools\run_benchmark_tests.py
 powershell -ExecutionPolicy Bypass -File tools\package_claude_plugin.ps1
 ```
 
-The current release passes 34 routing cases, 36 role-confusion cases, 34 catalog-routing cases and 28 deterministic benchmark/control tests.
+The current release passes 35 routing cases, 37 role-confusion cases, 41 catalog-routing cases and 34 deterministic benchmark/control tests.
 
 ## Repository layout
 
@@ -100,4 +110,3 @@ task-catalog.json   machine-readable atomic task catalog
 - Production changes, sensitive data, publishing and external actions remain gated by task risk, evidence and authority.
 - The plugin manifest declares this release **Proprietary**. No open-source license or redistribution right is granted by publishing the repository. Change the license only through an explicit owner decision.
 - Referenced third-party projects remain governed by their own licenses; see [source integration audit](SOURCE_INTEGRATION_AUDIT.md).
-

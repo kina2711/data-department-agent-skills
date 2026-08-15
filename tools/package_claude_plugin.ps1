@@ -1,5 +1,5 @@
 param(
-    [string]$OutputPath = (Join-Path (Split-Path -Parent $PSScriptRoot) 'dist\data-department-claude-plugin-v3.1.0.zip')
+    [string]$OutputPath = (Join-Path (Split-Path -Parent $PSScriptRoot) 'dist\data-department-claude-plugin-v3.2.0.zip')
 )
 
 $ErrorActionPreference = 'Stop'

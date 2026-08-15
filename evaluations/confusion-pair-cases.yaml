@@ -1,4 +1,10 @@
 cases:
+  - id: career-memory-vs-academy-curriculum
+    query: Ghi nhận những gì riêng tôi đã học, bằng chứng mastery và tạo context ngắn khi chuyển từ Airflow sang dbt.
+    expected_primary_skill: data-career-and-interview-coach
+    rejected_skill: data-academy-and-curriculum
+    expected_task: career-build-skill-transition-context
+
   - id: da-vs-ba-answer-question
     query: Explain why paid conversion fell last month using the supplied event table.
     expected_primary_skill: data-analysis

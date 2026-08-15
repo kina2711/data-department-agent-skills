@@ -4,18 +4,18 @@ Date: 2026-08-14
 
 ## Static and package validation
 
-- `tools/validate_claude_skills.py`: 32 Claude skills, 802 atomic workflows, zero errors.
-- `tools/validate_suite.py`: 32 skills, 802 task files, 802 task links, zero errors.
-- `tools/run_smoke_tests.py`: 34 routing cases, 36 confusion-pair cases, 13 lifecycle cases, 34 catalog-routing cases, Workflow/Evidence OS, content-manifest, personal-project, Second Brain and Book-to-Knowledge regressions, zero errors.
-- `tools/run_benchmark_tests.py`: 28 deterministic adapter/control tests passed, including SQL/data-contract checks, bounded context, strict scope validation, repository/context/stack detection, portfolio/telemetry proof, privacy-minimized brain indexing, four-layer validation, multi-format book extraction and conversion rights/traceability gates.
+- `tools/validate_claude_skills.py`: 32 Claude skills, 809 atomic workflows, zero errors.
+- `tools/validate_suite.py`: 32 skills, 809 task files, 809 task links, zero errors.
+- `tools/run_smoke_tests.py`: 35 routing cases, 37 confusion-pair cases, 13 lifecycle cases, 41 catalog-routing cases, Workflow/Evidence OS, content-manifest, personal-project, Second Brain, Book-to-Knowledge and Learning Memory regressions, zero errors.
+- `tools/run_benchmark_tests.py`: 34 deterministic adapter/control tests passed, including SQL/data-contract checks, bounded context, strict scope validation, repository/context/stack detection, portfolio/telemetry proof, privacy-minimized brain indexing, four-layer validation, book conversion gates, mastery-evidence rejection, invalid-memory blocking and Airflow-to-dbt context compression/decay/version-shift behavior.
 - `claude plugin validate --strict`: passed on the staged plugin.
-- Project/plugin stage audit: 32 `SKILL.md`, 802 task contracts and zero `agents/openai.yaml` files.
-- Claude plugin ZIP audit: one plugin manifest, 32 skills, 802 task contracts, no root `CLAUDE.md`, no Python cache and no cross-client UI metadata.
-- Deterministic source build, generated documentation and strict native plugin validation all passed for v3.1.0.
+- Project/plugin stage audit: 32 `SKILL.md`, 809 task contracts and zero `agents/openai.yaml` files.
+- Claude plugin ZIP audit: one plugin manifest, 32 skills, 809 task contracts, no root `CLAUDE.md`, no Python cache and no cross-client UI metadata.
+- Deterministic source build, generated documentation and strict native plugin validation all passed for v3.2.0.
 
 ## Native Claude Code invocation
 
-The current staged v3.1.0 plugin passed `claude plugin validate --strict` with 32 skills. A prior native invocation loaded the staged v2.3.0 plugin with `claude --plugin-dir` and invoked `/data-department-agent-skills:data-engineering` for a read-only Spark execution-plan diagnosis.
+The current staged v3.2.0 plugin passed `claude plugin validate --strict` with 32 skills. A prior native invocation loaded the staged v2.3.0 plugin with `claude --plugin-dir` and invoked `/data-department-agent-skills:data-engineering` for a read-only Spark execution-plan diagnosis.
 
 Claude selected:
 
@@ -33,13 +33,21 @@ Measured with `claude --plugin-dir <stage> plugin details data-department-agent-
 - Always-on discovery remains compact: 940 words / 7,482 characters across all 32 skill descriptions, roughly 1,900 tokens before client/plugin framing overhead.
 - Role `SKILL.md` entrypoints range from 321 to 557 words; only the selected role entrypoint is loaded.
 - Conservative largest sharded path (`SKILL.md` + one catalog + one task contract + Workflow/Evidence OS + one stack adapter) is 2,043 words. Most paths omit the runtime or adapter and are smaller.
-- Atomic task contracts: 357,493 whitespace-delimited words across 802 files, maximum 692 words per file; they remain sharded and are never loaded together.
+- Atomic task contracts: 361,388 whitespace-delimited words across 809 files, maximum 692 words per file; they remain sharded and are never loaded together.
 - Task discovery is sharded into `plan-design`, `build-deliver`, `test-assure` and `operate-improve`; Claude reads one matching catalog by default.
 - Catalog shards max at 265 words; 98 role-scoped stack adapters range from 112 to 169 words. Runtime, adapter and specialist references remain conditional, so unrelated material is not injected.
 
 A native post-optimization invocation read only `catalog-plan-design.md`, selected `de-design-ingestion-pipeline`, preserved `design-specification / R2-standard / standard-path`, and correctly reported that no approval had been granted.
 
 A prior v2.2.0 native invocation of `/data-department-agent-skills:data-career-and-interview-coach` for exactly one RTM interview question selected `career-build-question-deep-dive` with the primary deliverable `complete interview-question dossier`. It did not route to the multi-dossier knowledge-library task.
+
+## v3.2.0 Cross-skill Learning Memory
+
+- Added seven Career workflows for memory initialization, prerequisite mapping, bounded transition context, append-only learning events, mastery assessment, decay detection and conflict reconciliation; the catalog now contains 809 tasks: 94 `enforced`, 163 `deep` and 552 `standard`.
+- Every role skill routes to a compact learner-memory interoperability contract. Career remains the sole mastery-state authority; technical roles are read-only consumers and never infer mastery from chat history, course attendance or an unverified note.
+- `learner-memory.schema.json` separates topic state, confidence, evidence, transfer scope, freshness, source version, limitations and append-only events. `mastered` requires level ≥ 4, confidence ≥ 0.7, verified applied evidence, verified changed-scenario transfer, compact summary and demonstration/review dates.
+- `build_skill_transition_context.py` validates the canonical memory before use and creates a token-bounded pack. Fresh mastered indirect topics become one-line reuse records; direct prerequisites become bridge summaries with interfaces, decision rules and failure modes; stale, uncertain, explicitly version-shifted or safety-critical topics move to `expand_or_retest`. An over-budget required pack is blocked rather than consumed.
+- Deterministic tests prove the Airflow → dbt case does not reteach Airflow, does not leak full evidence descriptions, stays within budget and reopens Airflow when the review date has expired.
 
 ## v3.1.0 Second Brain and Book-to-Knowledge
 

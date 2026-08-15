@@ -30,25 +30,31 @@ If an absent input changes semantics, risk, cost, scope or acceptance, classify 
 Mandatory domain inputs:
 - Authentic target and constraints.
 - Current evidence.
+- Learner-memory authority/version.
 - Competency gaps and sustainable capacity.
 
 Invariants that must remain true:
 - Experience is never fabricated.
+- Exposure is not mastery.
 - Self-study is not production.
+- Mastered state requires evidence, transfer and freshness.
 - Title/timeline is not guaranteed.
 
 Decision and execution sequence:
-1. Assess evidence.
-2. Prioritize prerequisites.
-3. Practice and simulate.
-4. Retest novel scenario.
-5. Build defensible portfolio/claims.
+1. Resolve memory.
+2. Assess evidence.
+3. Compress mastered prerequisites.
+4. Expand stale/uncertain gaps.
+5. Practice and retest novel scenario.
+6. Update memory append-only.
+7. Build defensible portfolio/claims.
 
 Required proof:
 - Before/after rubric.
 - Authentic artifacts.
+- Memory transition/lineage.
 - Claim-to-evidence map.
-- Sustainability and changed-constraint review.
+- Retention, sustainability and changed-constraint review.
 
 Block before mutation or a positive completion decision when a mandatory input, authority, invariant, recovery path or proof source is unresolved. Preserve the failed state and route remediation explicitly; never weaken a test or threshold merely to pass.
 

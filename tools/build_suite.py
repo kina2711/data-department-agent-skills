@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MAP = ROOT / "DATA_DEPARTMENT_SKILL_MAP.md"
 SKILLS = ROOT / "skills"
-SUITE_VERSION = "3.1.0"
+SUITE_VERSION = "3.2.0"
 
 
 def canonical_text_sha256(path: Path) -> str:
@@ -198,7 +198,7 @@ SKILL_META = {
         "Run structured fair data hiring interviews",
     ),
     "data-career-and-interview-coach": (
-        "Build evidence-based Data careers through career operating systems, stage competency maps, sustainable capstone plans, authentic portfolios, technical-writing strategy, ethical visibility, readiness assessment, interview practice, remediation, review cycles, and claim audits. Never fabricate experience, guarantee titles, or complete live hiring assessments.",
+        "Build evidence-based Data careers through career operating systems, cross-skill learner memory, mastery and decay tracking, bounded skill-transition context, stage competency maps, sustainable capstone plans, authentic portfolios, technical-writing strategy, interview practice, remediation and review cycles. Never fabricate experience, guarantee titles, or complete live hiring assessments.",
         "Data Career and Interview Coach",
         "Build sustainable evidence-based Data careers",
     ),
@@ -254,7 +254,7 @@ CLAUDE_TRIGGER_DESCRIPTIONS = {
     "data-academy-and-curriculum": "Design and deliver role-based Data Academy curricula with theory, labs, capstones, assessments, remediation, certification and effectiveness measurement. Use for structured learning programs across Data roles and levels.",
     "data-onboarding-and-integration": "Plan and operate Data Department preboarding, access readiness, orientation, shadowing, first work, checkpoints, crossboarding, reboarding and offboarding. Use for new-hire or role-transition integration.",
     "data-talent-acquisition-and-interview": "Design and run structured Data hiring with role profiles, scorecards, interview loops, work samples, rubrics, calibration, debriefs, fairness and validity controls. Use for recruiting or interviewing Data roles.",
-    "data-career-and-interview-coach": "Build evidence-based Data career systems, competency maps, capstone roadmaps, portfolios, technical-writing strategy, ethical visibility, interview readiness, remediation and review cycles. Use for sustainable career growth; never fabricate experience or guarantee titles.",
+    "data-career-and-interview-coach": "Build evidence-based Data career systems, persistent cross-skill learner memory, mastery/decay tracking, compact transition context, competency maps, portfolios, interview readiness, remediation and review cycles. Use when prior learning should be reused without reteaching; never infer mastery from exposure or fabricate experience.",
     "data-technical-content-and-social": "Build evidence-backed technical series for Facebook in Vietnamese, LinkedIn and Substack in English, and GitHub from research and a canonical article through code, diagrams, channel-native adaptations, QA, publishing and measurement. Use for Airflow, dbt, Spark, Kafka or other technical-content programs.",
     "data-personal-project-engineering": "Create differentiated personal Data projects for portfolios, learning or capstones from a problem, dataset, repository, role gap, technology, paper, course, open-source issue, incident, constraint or mixed evidence. Use when Claude must select a project mode, assess a reference repo, transform borrowed inspiration into an attributed user-owned thesis, plan execution, or evaluate portfolio proof.",
     "personal-second-brain-and-knowledge-os": "Build or operate a local-first AI Second Brain with 1_Nguon, 2_Wiki, 3_Toi and 4_Ket-Qua layers. Use for Obsidian or local-file knowledge systems, migration from Notion/Sheets/Lark, source ingestion, linked notes, personal context, grounded retrieval, reusable outputs, privacy, backup and freshness.",
@@ -265,6 +265,16 @@ CLAUDE_TRIGGER_DESCRIPTIONS = {
 TASK_RE = re.compile(
     r"^- `(?P<id>[a-z0-9-]+)`\s+—\s+(?P<goal>.*?);\s+output:\s+(?P<output>.+?)\.\s*$"
 )
+
+CAREER_MEMORY_TASKS = {
+    "career-initialize-learning-memory",
+    "career-map-cross-skill-prerequisites",
+    "career-build-skill-transition-context",
+    "career-record-learning-event",
+    "career-assess-topic-mastery",
+    "career-detect-learning-decay",
+    "career-reconcile-learning-memory",
+}
 
 CAREER_OS_TASKS = {
     "career-clarify-target-data-role",
@@ -281,7 +291,7 @@ CAREER_OS_TASKS = {
     "career-plan-ethical-professional-visibility",
     "career-run-career-review-cycle",
     "career-audit-career-claims-evidence",
-}
+} | CAREER_MEMORY_TASKS
 
 CONTENT_PLANNING_TASKS = {
     "content-define-technical-content-strategy",
@@ -323,7 +333,7 @@ DOMAIN_EXECUTION_CONTROLS = {
     "data-academy-and-curriculum": ("role-level outcomes; prerequisites and learner baseline; delivery constraints and transfer target", "assessment aligns to outcomes; attendance is not mastery; certification scope matches demonstrated evidence", "map outcomes; sequence theory/practice; design authentic assessment; teach; calibrate; retest transfer and improve", "blueprint traceability; learner artifacts; calibrated scores; remediation, retention and workplace-transfer evidence"),
     "data-onboarding-and-integration": ("role outcomes and prior experience; access/policy requirements; 7/30/60/90 owners and evidence", "least privilege precedes productivity; checklist completion is not readiness; access removal is independently verified", "plan; prepare access/context; orient and shadow; guided then independent task; checkpoint and handoff", "access verification; role work samples; checkpoint rubric; remaining gaps and offboarding proof"),
     "data-talent-acquisition-and-interview": ("validated role outcome and level; competency scorecard; consistent candidate information and jurisdiction", "methods are job relevant and structured; evidence is independent before debrief; protected traits are excluded", "design loop; calibrate anchors; run consistent methods; verify authorship; evidence-first debrief; audit fairness/validity", "question-to-competency trace; anchored scores; calibration; decision rationale and aggregate fairness signals"),
-    "data-career-and-interview-coach": ("authentic target and constraints; current evidence; competency gaps and sustainable capacity", "experience is never fabricated; self-study is not production; title/timeline is not guaranteed", "assess evidence; prioritize prerequisites; practice and simulate; retest novel scenario; build defensible portfolio/claims", "before/after rubric; authentic artifacts; claim-to-evidence map; sustainability and changed-constraint review"),
+    "data-career-and-interview-coach": ("authentic target and constraints; current evidence; learner-memory authority/version; competency gaps and sustainable capacity", "experience is never fabricated; exposure is not mastery; self-study is not production; mastered state requires evidence, transfer and freshness; title/timeline is not guaranteed", "resolve memory; assess evidence; compress mastered prerequisites; expand stale/uncertain gaps; practice and retest novel scenario; update memory append-only; build defensible portfolio/claims", "before/after rubric; authentic artifacts; memory transition/lineage; claim-to-evidence map; retention, sustainability and changed-constraint review"),
     "data-technical-content-and-social": ("audience and capability journey; canonical sources/runtime evidence; channel/language/rights constraints", "canonical evidence precedes social variants; claims and media remain traceable; experience/benchmarks are not invented", "research/version; build canonical artifact/code/diagram; validate; adapt by channel; review voice/platform; approve and measure", "source/claim manifest; code/media hashes; technical/editorial/platform reviews and publication authority"),
     "data-personal-project-engineering": ("starting evidence and provenance; target role/user/outcome; time/data/rights/test constraints", "external sources stay attributed; selection passes hard gates; portfolio claims match implemented/tested evidence", "classify mode; score options; lock thesis; audit/transform sources; blueprint vertical slices; validate and package proof", "origin/license record; option score; thesis/differentiation; tests, failure proof, reproduction and claim audit"),
     "personal-second-brain-and-knowledge-os": ("brain purpose and users; source inventory and rights; privacy boundary; target outputs and retrieval questions", "1_Nguon remains immutable evidence; Wiki separates fact/inference; 3_Toi never masquerades as source fact; every material output traces to source and personal-rule versions", "assess current system; design four layers; ingest and fingerprint; distill and link; retrieve minimum context; generate and verify output; review freshness and reuse", "source manifest and hashes; note-to-source links; retrieval test set; output claim lineage; privacy, freshness and restore evidence"),
@@ -1123,6 +1133,12 @@ def task_specific_resources(task_id: str) -> list[str]:
         ]
         if task_id in {"career-design-technical-writing-strategy", "career-plan-ethical-professional-visibility", "career-build-career-operating-system"}:
             resources.append("When actual content production is a downstream outcome, populate `../../assets/career-content-handoff.yaml` with allowed evidence/claims, confidential boundaries, capacity and the next content task.")
+        if task_id in CAREER_MEMORY_TASKS:
+            resources.extend([
+                "Read [the Career learner-memory and transition method](../career-learning-memory.md); preserve event lineage and keep mastery, exposure and production evidence distinct.",
+                "Reuse the learner-memory, learning-event, prerequisite-map or transition-context asset from `../../assets/` that matches the deliverable.",
+                "Run `../../scripts/validate_learning_memory.py` for plan/complete validation; use `../../scripts/build_skill_transition_context.py` to create a bounded read-only context pack for the next topic.",
+            ])
         return resources
     if task_id.startswith("project-"):
         action = task_id.removeprefix("project-")
@@ -1297,6 +1313,11 @@ def render_task(task: dict[str, str]) -> str:
         prefix = task_id.split("-", 1)[0]
         skill = PREFIX_TO_SKILL[prefix]
         inputs, invariants, sequence, proof = DOMAIN_EXECUTION_CONTROLS[skill]
+        if task_id == "career-build-skill-transition-context":
+            inputs = "canonical learner-memory path and version; next topic and direct prerequisites; current technology versions; token budget"
+            invariants = "source memory is validated before use; the task is read-only; fresh mastered prerequisites are bridged rather than retaught; invalid or over-budget context is blocked"
+            sequence = "resolve canonical memory; validate evidence and changed-scenario transfer; resolve current versions and prerequisite relevance; compress fresh mastered topics; classify stale/conflicted/version-shifted/safety-critical topics for retest; enforce the hard token budget; emit the read-only transition pack"
+            proof = "memory validation result; selected topic and evidence references; version comparison; budget estimate; bridge and expand-or-retest classifications"
         input_lines = "\n".join(f"- {item.strip().capitalize()}." for item in inputs.split(";") if item.strip())
         invariant_lines = "\n".join(f"- {item.strip().capitalize()}." for item in invariants.split(";") if item.strip())
         sequence_lines = "\n".join(f"{index}. {item.strip().capitalize()}." for index, item in enumerate(sequence.split(";"), 1) if item.strip())
@@ -1494,8 +1515,15 @@ The dossier is the container for one question. The library is a collection of do
 - Career purpose, themes and writing portfolio → `career-design-technical-writing-strategy`; actual series production belongs to `data-technical-content-and-social`.
 - Sustainable public contribution and visibility boundaries → `career-plan-ethical-professional-visibility`.
 - Periodic evidence/energy/bottleneck review → `career-run-career-review-cycle`.
+- First persistent record of prior learning → `career-initialize-learning-memory`.
+- Airflow → dbt, SQL → Spark or another topic transition → select `career-build-skill-transition-context` as the primary task; use `career-map-cross-skill-prerequisites` as a prior dependency only when the relevant graph is absent or stale.
+- New lesson, lab, project, assessment or feedback → `career-record-learning-event`; recording evidence does not automatically mark mastery.
+- Promote or downgrade a topic state → `career-assess-topic-mastery`; stale/version-drift review → `career-detect-learning-decay`.
+- Merge memory from multiple repositories or vaults → `career-reconcile-learning-memory` without discarding conflicts or prior versions.
 
 Career progression is `Current state → Target capability → Gap → Practice → Real work → Evidence → Feedback → Reflection → Updated plan`. Titles vary by company; never promise promotion, confuse self-study with production experience, or treat posting volume as mastery.
+
+Resolve learner memory in this order: an explicit path; a project pointer under `.claude/data-department-memory/`; then the user-level Claude memory root. Career owns mastery semantics; Second Brain may store the durable artifact; technical role skills consume only a bounded transition pack. For a fresh, mastered Airflow prerequisite in a dbt task, keep only its interfaces, decision rules, relevant failure modes and evidence refs. Expand beyond that bridge only when a specific detail is necessary for the current deliverable, stale, contradicted, version-shifted, safety-critical or requested by the learner.
 
 If the request asks for the complete Career OS bundle, route through `orchestrator-run-sequential-workflow`; do not stop after one umbrella document. Default chain: `career-build-career-operating-system` → `career-map-career-stage-competencies` → `career-build-career-evidence-portfolio` → `career-design-career-capstone-program` → `career-design-technical-writing-strategy` → `career-plan-ethical-professional-visibility` → `career-run-career-review-cycle`. Each remains one atomic task and may stop on a failed gate.
 """
@@ -1616,6 +1644,7 @@ description: {description}
 7. Apply Definition of Ready, stage gates, test strategy, Definition of Done, approval and handoff requirements.
 8. Do not invent access, approvals, successful execution, test results or business confirmation.
 9. For any Git-backed mutation, regardless of the task's verb or profile, require a pre-change success/scope contract, a post-change `core-audit-change-scope`, and fresh `core-verify-deliverable` evidence before completion.
+10. For learning, coaching or skill-transition work, resolve [the learner-memory interoperability contract](references/learning-memory-interoperability.md). Reuse only relevant verified summaries; never infer mastery from exposure, and expand stale, uncertain, changed-version or safety-critical prerequisites.
 {extra}
 {adapter_section}
 ## Atomic task routing
@@ -2014,6 +2043,10 @@ def build_shared_assets() -> None:
             "career-evidence-portfolio.yaml": {"person_id": "", "target_role": "", "target_level": "", "claims": [{"claim_id": "", "claim": "", "evidence_type": "learning|practice|project|production|leadership|business|organizational|external", "artifact_ref": "", "evidence_refs": [], "scope": "", "authorship": "", "reviewer": "", "reviewed_at": "", "result": "", "verification_status": "unverified", "limitations": [], "safe_public_wording": ""}], "gaps": [], "reviewers": [], "reviewed_at": "", "status": "draft"},
             "career-review.yaml": {"person_id": "", "period": "weekly|monthly|quarterly|annual", "target_capabilities": [], "evidence_added": [], "feedback_received": [], "mastery_changes": [], "scope_impact_influence": {}, "energy_and_burnout": {}, "bottlenecks": [], "deprioritized_items": [], "plan_changes": [], "next_actions": [], "next_review": ""},
             "career-content-handoff.yaml": {"person_id": "", "career_goal": "", "target_capabilities": [], "audiences": [], "approved_themes": [], "allowed_claim_ids": [], "prohibited_or_confidential_claims": [], "authentic_evidence_refs": [], "capacity_and_cadence": {}, "author_voice_constraints": [], "success_signals": [], "next_content_task": "content-define-technical-content-strategy", "owner": "", "status": "draft"},
+            "learner-memory.json": {"memory_id": "", "person_id": "", "version": "", "privacy_classification": "private", "authority": {"owner": "", "canonical_path": "", "storage_scope": "user"}, "current_focus": [], "topics": [], "evidence_registry": [], "learning_events": [], "updated_at": "", "status": "draft"},
+            "learning-event.yaml": {"event_id": "", "topic_id": "", "event_type": "learned|practiced|applied|assessed|reviewed|forgotten|version-changed", "skill_id": "", "source_or_artifact_ref": "", "evidence_refs": [], "observed_result": "", "limitations": [], "occurred_at": "", "recorded_at": "", "status": "recorded"},
+            "cross-skill-prerequisite-map.yaml": {"from_topics": [], "to_topic": "", "direct_prerequisites": [], "interfaces_to_reuse": [], "decision_rules_to_reuse": [], "failure_modes_to_reuse": [], "safe_to_summarize": [], "must_expand": [], "version_conflicts": [], "evidence_refs": [], "status": "draft"},
+            "skill-transition-context.json": {"memory_id": "", "next_topic": "", "generated_at": "", "token_budget": 0, "reuse_without_reteaching": [], "bridge_summaries": [], "expand_or_retest": [], "unknown_or_conflicted": [], "evidence_refs": [], "limitations": []},
         },
         "data-technical-content-and-social": {
             "technical-series-plan.yaml": {"series_id": "", "title": "", "owner": "", "topic": "", "business_context": "", "career_alignment_handoff_ref": "", "audiences": [], "starting_level": "", "target_level": "", "capability_journey": [], "target_capabilities": [], "allowed_claim_ids": [], "prohibited_or_confidential_claims": [], "audience_problems": [], "outcomes": [], "channels": [], "channel_language_policy": {"facebook": "vi", "linkedin": "en", "substack": "en"}, "technical_baseline": {}, "source_material": [], "brand_voice": {}, "visual_system": {}, "publishing_constraints": {}, "assumptions": [], "scope": [], "out_of_scope": [], "prerequisites": [], "narrative_case": {"synthetic": True, "organization_context": "", "result_user": "", "input": "", "output": "", "reference_workflow": "", "service_expectation": "", "failure_scenarios": [], "constraints": []}, "narrative_arc": [], "layer_coverage": {"problem-and-mental-model": [], "core-mechanics": [], "correctness-and-reliability": [], "operations-and-governance": [], "design-and-capstone": []}, "coverage_matrix": [], "episodes": [{"episode_id": "", "article_type": "FOUNDATION|DISTINCTION|MECHANISM|IMPLEMENTATION|DECISION|FAILURE|OPERATIONS|REVIEW|CAPSTONE", "central_question": "", "learning_objective": "", "level": "", "depends_on": [], "canonical_artifact": "", "evidence_status": "draft", "channel_variants": [], "review_status": "draft"}], "cadence": {}, "quality_gates": [], "success_signals": [], "status": "draft"},
@@ -2405,6 +2438,42 @@ Every plan includes constraints, prerequisite order, real-work opportunities, re
 
 Technical writing strategy belongs here when its primary purpose is career evidence and learning. Handoff actual series research, production, channel adaptation and publishing to `data-technical-content-and-social`.
 """
+    career_learning_memory = """# Career learner memory and skill-transition method
+
+Career owns the learner's semantic state; role skills consume it, and Personal Second Brain may store it. Use one versioned canonical memory rather than relying on chat history.
+
+## State and evidence
+
+Track each topic as `unseen`, `exposed`, `practiced`, `demonstrated`, `mastered`, `stale`, `conflicted` or `retired`. Recording a course, explanation or event never promotes mastery by itself. `mastered` requires independent application, a changed-scenario transfer check, evidence references, limitations, a compact reusable summary and a freshness date. Production experience remains a separate evidence class.
+
+Store durable concepts, interfaces, decision rules, failure modes and evidence pointers; do not store raw secrets, unnecessary personal data or full lesson transcripts. Append learning events and derive the current topic state. Preserve prior versions and conflicts rather than silently overwriting them.
+
+## Transition policy
+
+For the next skill, classify prior topics:
+
+- `mastered` + fresh + indirect: reuse without reteaching; one-line summary and evidence pointer.
+- `mastered` + fresh + direct prerequisite: compact bridge containing only relevant interfaces, decision rules and failure modes.
+- `practiced` or weak evidence: concise recap plus one diagnostic or transfer exercise.
+- `stale`, `conflicted`, version-shifted or safety/semantic critical: expand and retest before dependency-sensitive work.
+- unknown: ask or abstain; never infer completion from conversation history.
+
+Example: after verified Airflow mastery, a dbt transition should summarize orchestration boundaries, scheduling interfaces, retries/idempotency and how dbt jobs are invoked. It should not reteach DAG syntax unless the new task depends on it, the evidence is stale or the learner asks.
+
+Resolve memory from an explicit locator first, then a project pointer under `.claude/data-department-memory/`, then the configured user-level Claude memory root. Use `validate_learning_memory.py` before relying on mastery and `build_skill_transition_context.py` to produce the bounded pack. Memory mutation is an explicit Career task; ordinary role skills remain read-only consumers.
+"""
+    learning_memory_interop = """# Learner-memory interoperability
+
+Use this reference only for learning, coaching or a transition between technical topics.
+
+1. Resolve the canonical learner-memory locator: explicit input, project pointer, then configured user-level Claude memory root. If none exists, continue without claiming prior mastery and hand off initialization to Career.
+2. Validate the memory version and evidence references. Treat conversation history, attendance, reading and certificates as exposure unless stronger evidence exists.
+3. Select only topics relevant to the current deliverable. Consume a Career-generated transition pack when available; do not load the full learning history.
+4. Summarize fresh mastered prerequisites. Expand practiced, stale, conflicted, changed-version, directly safety-critical or user-requested material.
+5. Never turn learning evidence into production experience. Do not mutate mastery state from a domain task; return new evidence or a learning event to Career for reconciliation.
+
+Career owns mastery semantics and memory updates. Personal Second Brain may own durable storage. Academy owns formal curricula and assessment design. The active domain skill owns the current technical deliverable.
+"""
     technical_series = """# Technical-series method
 
 Build one governed content system, not disconnected posts.
@@ -2793,7 +2862,7 @@ Completion gates: source/edition hashes, extraction coverage, chapter map, frame
         "data-academy-and-curriculum": {"role-curricula.md": curricula, "assessment-and-certification.md": assessment, "knowledge-deep-dive-standard.md": deep_dive},
         "data-onboarding-and-integration": {"role-onboarding-tracks.md": onboarding},
         "data-talent-acquisition-and-interview": {"role-interview-architecture.md": interview, "question-knowledge-validity.md": question_validity},
-        "data-career-and-interview-coach": {"coaching-ethics-and-method.md": coaching, "role-curricula.md": curricula, "interview-knowledge-system.md": interview_knowledge, "career-operating-system.md": career_os},
+        "data-career-and-interview-coach": {"coaching-ethics-and-method.md": coaching, "role-curricula.md": curricula, "interview-knowledge-system.md": interview_knowledge, "career-operating-system.md": career_os, "career-learning-memory.md": career_learning_memory},
         "data-technical-content-and-social": {"technical-series-method.md": technical_series, "platform-format-playbooks.md": platform_playbooks, "technical-content-quality-standard.md": content_quality, "universal-professional-series-rules.md": universal_series_rules},
         "data-personal-project-engineering": {"personal-project-operating-system.md": personal_project_os, "repository-assessment-and-originality.md": repo_originality, "personal-project-quality-standard.md": project_quality},
         "personal-second-brain-and-knowledge-os": {"second-brain-operating-system.md": second_brain_os, "knowledge-note-and-lineage-standard.md": brain_lineage, "retrieval-and-output-grounding.md": brain_retrieval, "migration-and-tool-interop.md": brain_migration, "second-brain-quality-and-safety.md": brain_quality},
@@ -2802,6 +2871,8 @@ Completion gates: source/edition hashes, extraction coverage, chapter map, frame
     for skill, files in targets.items():
         for name, content in files.items():
             (SKILLS / skill / "references" / name).write_text(content, encoding="utf-8")
+    for skill in SKILL_META:
+        (SKILLS / skill / "references" / "learning-memory-interoperability.md").write_text(learning_memory_interop, encoding="utf-8")
 
 
 def build_benchmark_references() -> None:
@@ -3079,6 +3150,7 @@ A redesign specification maps audit finding -> design decision -> affected page/
         "industry-and-metrics.md",
         "execution-discipline-standard.md",
         "workflow-runtime-and-evidence-os.md",
+        "learning-memory-interoperability.md",
     ]
     canonical_refs = SKILLS / "shared-data-core" / "references"
     shared_manifest = {
@@ -3125,6 +3197,7 @@ def build_manifest(grouped: dict[str, list[dict[str, str]]]) -> None:
         "atomic-task-result.schema.json": "shared-data-core",
         "second-brain-manifest.schema.json": "personal-second-brain-and-knowledge-os",
         "book-conversion-manifest.schema.json": "book-to-knowledge-and-action",
+        "learner-memory.schema.json": "data-career-and-interview-coach",
     }
     for name, skill in schema_targets.items():
         source = ROOT / "schemas" / name
@@ -3140,7 +3213,7 @@ def build_plugin() -> None:
             {
                 "name": "data-department-agent-skills",
                 "version": SUITE_VERSION,
-                "description": f"Executable Data Department Operating System with {len(SKILL_META)} role skills, governed atomic task contracts, Workflow and Evidence OS, stack-native adapters, Second Brain, Book-to-Knowledge, People OS, personal projects and continuous improvement.",
+                "description": f"Executable Data Department Operating System with {len(SKILL_META)} role skills, governed atomic task contracts, cross-skill Learning Memory, Workflow and Evidence OS, stack-native adapters, Second Brain, Book-to-Knowledge, People OS, personal projects and continuous improvement.",
                 "author": {"name": "Data Department"},
                 "license": "Proprietary",
             },

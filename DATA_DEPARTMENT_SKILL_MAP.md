@@ -923,6 +923,9 @@ Ranh giới: Coach hỗ trợ nhân viên hoặc ứng viên chuẩn bị và ph
 - `career-review-data-portfolio` — đánh giá project depth, reproducibility, decisions, impact và presentation; output: portfolio review.
 - `career-build-project-story` — chuyển project thật thành problem/action/evidence/impact narrative; output: project story bank.
 - `career-build-career-operating-system` — nối current state, target capability, gaps, practice, real work, evidence, feedback và review cadence thành hệ thống phát triển bền vững; output: career operating system.
+- `career-initialize-learning-memory` — tạo learner identity, topic taxonomy, baseline, storage pointer, privacy và evidence policy dùng xuyên các role skill; output: versioned learner-memory baseline.
+- `career-map-cross-skill-prerequisites` — nối concept, interface, decision rule và failure mode giữa skill đã học với skill kế tiếp; output: cross-skill prerequisite map.
+- `career-build-skill-transition-context` — nén phần đã mastered thành bridge summary và chỉ mở rộng phần stale, uncertain hoặc trực tiếp cần cho skill mới; output: bounded skill-transition context pack.
 - `career-map-career-stage-competencies` — mô tả competency, scope, autonomy, judgment, impact và influence theo từng career stage mà không đồng nhất title giữa công ty; output: career-stage competency map.
 - `career-build-career-evidence-portfolio` — lập evidence inventory theo learning, practice, project, production, leadership, business và organizational impact; output: career evidence portfolio.
 - `career-design-career-capstone-program` — thiết kế chương trình 12/24 tháng có prerequisites, labs, projects, reviews, recovery buffers và evidence milestones; output: career capstone program.
@@ -957,6 +960,10 @@ Ranh giới: Coach hỗ trợ nhân viên hoặc ứng viên chuẩn bị và ph
 - `career-create-targeted-remediation` — giao theory/practice đúng failure pattern; output: interview remediation plan.
 - `career-run-interview-retest` — kiểm tra lại cùng competency bằng scenario mới; output: retest assessment.
 - `career-track-preparation-progress` — theo dõi evidence, scores, consistency và remaining risks; output: preparation progress report.
+- `career-record-learning-event` — ghi append-only nội dung đã học, practice, artifact, feedback, assessment và source/version mà không tự nâng mastery; output: learning event record.
+- `career-assess-topic-mastery` — đánh giá recall, application, changed-scenario transfer, failure handling, evidence và freshness trước khi đổi mastery state; output: topic mastery assessment.
+- `career-detect-learning-decay` — phát hiện knowledge stale, ít dùng, version drift, evidence hết hạn hoặc confidence giảm và chọn refresh tối thiểu; output: learning-decay and refresh report.
+- `career-reconcile-learning-memory` — hợp nhất learning history từ nhiều repo/skill, giữ lineage, xử lý conflict và ngăn silent status regression; output: reconciled learner-memory version.
 - `career-run-career-review-cycle` — review tuần/tháng/quý/năm dựa trên evidence, feedback, energy, bottleneck và thay đổi bối cảnh; output: career review record.
 - `career-audit-career-claims-evidence` — đối chiếu resume, portfolio, promotion hoặc public claims với evidence thật và gắn nhãn self-study/hypothetical đúng mức; output: career-claim evidence audit.
 - `career-certify-interview-readiness` — tổng hợp multi-format evidence và residual gaps; output: interview-readiness decision.

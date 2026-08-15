@@ -59,6 +59,7 @@ def main() -> int:
     dx = ROOT / "skills" / "data-developer-experience" / "scripts"
     brain = ROOT / "skills" / "personal-second-brain-and-knowledge-os" / "scripts"
     book = ROOT / "skills" / "book-to-knowledge-and-action" / "scripts"
+    career = ROOT / "skills" / "data-career-and-interview-coach" / "scripts"
 
     eda = invoke(da / "profile_dataset.py", "--input", str(FIXTURE / "sample.csv"))
     assert eda["status"] == "pass" and eda["rows_profiled"] == 4
@@ -314,7 +315,106 @@ def main() -> int:
         assert book_invalid.returncode == 1
         assert "resolved, non-blocked rights" in book_invalid.stdout and "frameworks missing traceability" in book_invalid.stdout and "failed tests remain unresolved" in book_invalid.stdout
 
-    print("benchmark_adapter_tests: 28")
+        learner_memory = {
+            "memory_id": "learner-memory-test-001",
+            "person_id": "fixture-person",
+            "version": "1.0.0",
+            "privacy_classification": "private",
+            "authority": {
+                "owner": "fixture-person",
+                "canonical_path": str(target / "learner-memory.json"),
+                "storage_scope": "user",
+            },
+            "current_focus": ["dbt"],
+            "topics": [
+                {
+                    "topic_id": "airflow", "display_name": "Apache Airflow", "skill_ids": ["data-engineering"],
+                    "status": "mastered", "mastery_level": 5, "confidence": 0.9,
+                    "compact_summary": "Can design idempotent DAGs, retries and observable orchestration boundaries.",
+                    "concepts": ["DAG", "scheduling", "idempotency"],
+                    "decision_rules": ["Keep transformation logic out of the scheduler"],
+                    "interfaces": ["Airflow invokes dbt jobs and observes their exit state"],
+                    "failure_modes": ["non-idempotent retry", "hidden transformation in operator code"],
+                    "prerequisites": [], "relevance_to": ["dbt"],
+                    "evidence_refs": ["e-airflow-project", "e-airflow-transfer"],
+                    "last_learned_at": "2026-07-01T00:00:00Z", "last_demonstrated_at": "2026-08-01T00:00:00Z",
+                    "review_due_at": "2027-02-01T00:00:00Z", "source_version": "Airflow 3.x", "limitations": [],
+                },
+                {
+                    "topic_id": "dbt", "display_name": "dbt", "skill_ids": ["analytics-engineering"],
+                    "status": "exposed", "mastery_level": 1, "confidence": 0.3, "compact_summary": "Beginning dbt study.",
+                    "concepts": [], "decision_rules": [], "interfaces": [], "failure_modes": [],
+                    "prerequisites": ["airflow"], "relevance_to": [], "evidence_refs": [],
+                    "last_learned_at": "2026-08-14T00:00:00Z", "last_demonstrated_at": "",
+                    "review_due_at": "", "source_version": "dbt Core 1.x", "limitations": [],
+                },
+            ],
+            "evidence_registry": [
+                {"evidence_id": "e-airflow-project", "type": "project", "locator": "repo://airflow-project", "scope": "DAG implementation", "result": "passed review", "validated_at": "2026-08-01T00:00:00Z", "validity_status": "verified", "transfer_scope": "same-context", "sha256": "b" * 64},
+                {"evidence_id": "e-airflow-transfer", "type": "assessment", "locator": "assessment://airflow-changed-scenario", "scope": "changed-scenario transfer", "result": "passed", "validated_at": "2026-08-02T00:00:00Z", "validity_status": "verified", "transfer_scope": "changed-scenario", "sha256": "c" * 64},
+            ],
+            "learning_events": [
+                {"event_id": "le-airflow-001", "topic_id": "airflow", "event_type": "assessed", "skill_id": "data-career-and-interview-coach", "evidence_refs": ["e-airflow-project", "e-airflow-transfer"], "occurred_at": "2026-08-02T00:00:00Z", "recorded_at": "2026-08-02T01:00:00Z"},
+            ],
+            "updated_at": "2026-08-14T00:00:00Z",
+            "status": "active",
+        }
+        learner_memory_path = target / "learner-memory.json"
+        learner_memory_path.write_text(json.dumps(learner_memory), encoding="utf-8")
+        memory_valid = subprocess.run(
+            [sys.executable, str(career / "validate_learning_memory.py"), str(learner_memory_path), "--mode", "complete"],
+            cwd=ROOT, text=True, encoding="utf-8", capture_output=True, check=False,
+        )
+        assert memory_valid.returncode == 0 and "mastery evidence" in memory_valid.stdout
+
+        transition = invoke_plain_json(
+            career / "build_skill_transition_context.py", str(learner_memory_path),
+            "--next-topic", "dbt", "--token-budget", "500",
+        )
+        assert [item["topic_id"] for item in transition["bridge_summaries"]] == ["airflow"]
+        assert transition["expand_or_retest"] == []
+        assert transition["estimated_tokens"] <= 500
+        assert "DAG implementation" not in json.dumps(transition)
+
+        invalid_memory = json.loads(json.dumps(learner_memory))
+        invalid_memory["topics"][0]["evidence_refs"] = []
+        invalid_memory["topics"][0]["compact_summary"] = ""
+        invalid_memory_path = target / "learner-memory-invalid.json"
+        invalid_memory_path.write_text(json.dumps(invalid_memory), encoding="utf-8")
+        memory_invalid = subprocess.run(
+            [sys.executable, str(career / "validate_learning_memory.py"), str(invalid_memory_path), "--mode", "complete"],
+            cwd=ROOT, text=True, encoding="utf-8", capture_output=True, check=False,
+        )
+        assert memory_invalid.returncode == 1
+        assert "verified evidence" in memory_invalid.stdout and "compact_summary" in memory_invalid.stdout
+
+        stale_memory = json.loads(json.dumps(learner_memory))
+        stale_memory["topics"][0]["review_due_at"] = "2026-01-01T00:00:00Z"
+        stale_memory_path = target / "learner-memory-stale.json"
+        stale_memory_path.write_text(json.dumps(stale_memory), encoding="utf-8")
+        stale_transition = invoke_plain_json(
+            career / "build_skill_transition_context.py", str(stale_memory_path),
+            "--next-topic", "dbt", "--token-budget", "500",
+        )
+        assert stale_transition["bridge_summaries"] == []
+        assert [item["topic_id"] for item in stale_transition["expand_or_retest"]] == ["airflow"]
+        assert "review is due" in stale_transition["expand_or_retest"][0]["reason"]
+
+        version_transition = invoke_plain_json(
+            career / "build_skill_transition_context.py", str(learner_memory_path),
+            "--next-topic", "dbt", "--current-version", "airflow=Airflow 4.x", "--token-budget", "500",
+        )
+        assert version_transition["bridge_summaries"] == []
+        assert "source version changed" in version_transition["expand_or_retest"][0]["reason"]
+
+        invalid_transition = subprocess.run(
+            [sys.executable, str(career / "build_skill_transition_context.py"), str(invalid_memory_path), "--next-topic", "dbt", "--token-budget", "500"],
+            cwd=ROOT, text=True, encoding="utf-8", capture_output=True, check=False,
+        )
+        assert invalid_transition.returncode == 2
+        assert "learner-memory validation failed" in invalid_transition.stderr
+
+    print("benchmark_adapter_tests: 34")
     print("benchmark_fixture_assertions: passed")
     return 0
 

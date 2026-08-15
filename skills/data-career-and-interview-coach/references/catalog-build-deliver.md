@@ -3,6 +3,8 @@
 Build, implement, configure, teach, interview or deliver an artifact. Select exactly one task by its primary deliverable.
 
 - `career-build-career-operating-system` → **career operating system**; read [contract](tasks/career-build-career-operating-system.md).
+- `career-initialize-learning-memory` → **versioned learner-memory baseline**; read [contract](tasks/career-initialize-learning-memory.md).
+- `career-build-skill-transition-context` → **bounded skill-transition context pack**; read [contract](tasks/career-build-skill-transition-context.md).
 - `career-build-career-evidence-portfolio` → **career evidence portfolio**; read [contract](tasks/career-build-career-evidence-portfolio.md).
 - `career-generate-role-question-set` → **personalized question set**; read [contract](tasks/career-generate-role-question-set.md).
 - `career-build-interview-knowledge-library` → **interview knowledge library**; read [contract](tasks/career-build-interview-knowledge-library.md).
@@ -21,4 +23,5 @@ Build, implement, configure, teach, interview or deliver an artifact. Select exa
 - `career-coach-technical-communication` → **communication coaching record**; read [contract](tasks/career-coach-technical-communication.md).
 - `career-run-interview-retest` → **retest assessment**; read [contract](tasks/career-run-interview-retest.md).
 - `career-track-preparation-progress` → **preparation progress report**; read [contract](tasks/career-track-preparation-progress.md).
+- `career-record-learning-event` → **learning event record**; read [contract](tasks/career-record-learning-event.md).
 - `career-run-career-review-cycle` → **career review record**; read [contract](tasks/career-run-career-review-cycle.md).

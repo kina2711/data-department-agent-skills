@@ -1,6 +1,6 @@
 # Hướng dẫn import và sử dụng Data Department Skills với Claude Code
 
-> Áp dụng cho `data-department-agent-skills` v3.1.0 · 32 role skills · 802 atomic workflows · Windows PowerShell.
+> Áp dụng cho `data-department-agent-skills` v3.2.0 · 32 role skills · 809 atomic workflows · Windows PowerShell.
 
 ## Mục lục
 
@@ -55,7 +55,7 @@ Bản này đã được native-test với Claude Code `2.1.206`. Claude Code th
 
 ```text
 C:\PROJECT\data-department\
-├── dist\data-department-claude-plugin-v3.1.0.zip
+├── dist\data-department-claude-plugin-v3.2.0.zip
 ├── dist\claude-plugin\data-department-agent-skills\
 ├── skills\
 ├── tools\install_claude_skills.ps1
@@ -68,14 +68,14 @@ C:\PROJECT\data-department\
 
 ```powershell
 Get-FileHash `
-  "C:\PROJECT\data-department\dist\data-department-claude-plugin-v3.1.0.zip" `
+  "C:\PROJECT\data-department\dist\data-department-claude-plugin-v3.2.0.zip" `
   -Algorithm SHA256
 ```
 
-SHA-256 bản v3.1.0:
+SHA-256 bản v3.2.0:
 
 ```text
-8D95F1342CAD38E3B5E501EC26DE2B667073E81F8214BA38106BE995C43433D0
+38638D0D93D8F05FECAE1EB94CEBE59C9EE0EC8CE75D0FC51280B7E692E9FAD8
 ```
 
 Nếu hash khác, không mặc định file là cùng bản phát hành; xác minh lại nguồn hoặc build lại package.
@@ -97,8 +97,8 @@ claude --plugin-dir $pluginRoot
 ### 3.2 Dùng ZIP được chuyển sang máy khác
 
 ```powershell
-$zipPath = "C:\Downloads\data-department-claude-plugin-v3.1.0.zip"
-$pluginRoot = "C:\Tools\data-department-agent-skills-v3.1.0"
+$zipPath = "C:\Downloads\data-department-claude-plugin-v3.2.0.zip"
+$pluginRoot = "C:\Tools\data-department-agent-skills-v3.2.0"
 
 Expand-Archive `
   -LiteralPath $zipPath `
@@ -113,7 +113,7 @@ claude --plugin-dir $pluginRoot
 Sau khi giải nén, cấu trúc đúng là:
 
 ```text
-data-department-agent-skills-v3.1.0\
+data-department-agent-skills-v3.2.0\
 ├── .claude-plugin\plugin.json
 └── skills\
     ├── data-department-orchestrator\SKILL.md
@@ -248,7 +248,7 @@ claude plugin validate --strict $pluginRoot
 claude --plugin-dir $pluginRoot plugin details data-department-agent-skills
 ```
 
-Kỳ vọng inventory có `Skills (32)` và version `3.1.0`.
+Kỳ vọng inventory có `Skills (32)` và version `3.2.0`.
 
 ### 6.3 Kiểm tra Project/User skills
 
@@ -357,7 +357,7 @@ Audit bộ câu hỏi Senior DE theo competency coverage, fairness và answer le
 
 ### 7.4 Có gọi atomic task bằng slash command không?
 
-Không. 802 atomic tasks là task contracts nằm trong `references/tasks/`; chúng không phải 802 top-level slash commands.
+Không. 809 atomic tasks là task contracts nằm trong `references/tasks/`; chúng không phải 809 top-level slash commands.
 
 Bạn gọi role skill hoặc chỉ mô tả yêu cầu. Role skill sẽ:
 
@@ -410,7 +410,7 @@ Không push, tạo PR hoặc deploy.
 Thực hiện đầy đủ tới release candidate. Dừng trước production approval gate.
 ```
 
-### 7.7 Các control của v2.4.0–v3.1.0
+### 7.7 Các control của v2.4.0–v3.2.0
 
 Bộ skill tự kích hoạt các control này theo task; bạn không cần gọi từng file template:
 
@@ -432,10 +432,56 @@ Bộ skill tự kích hoạt các control này theo task; bạn không cần g�
 | Ý tưởng/repo của người khác | `project-plan-originality-and-attribution` + `project-transform-borrowed-source-to-original-thesis` | Giữ attribution/license, tạo thesis riêng và ít nhất ba trục khác biệt thực chất; chặn renamed/cosmetic clone |
 | Xây Second Brain local | `brain-design-four-layer-architecture` + `brain-plan-tool-migration` | Tách nguồn bất biến, Wiki đã xử lý, chất riêng và kết quả; giữ stable ID, source lineage, privacy, retrieval test và restore proof |
 | Chuyển sách thành hệ thống dùng được | `book-recover-document-structure` + một destination task | Bóc cấu trúc/framework đúng locator, tách tác giả–synthesis–application, kiểm quyền và kiểm thử khả năng áp dụng trước publish |
+| Chuyển từ skill đã học sang skill mới | `career-build-skill-transition-context` | Nén phần đã mastery thành bridge liên quan; mở lại phần stale, conflicted, đổi version hoặc safety-critical |
 
 Token vẫn được tối ưu bằng progressive disclosure: Claude chỉ đọc một role catalog, một atomic task contract và reference/template đúng với failure risk hiện tại. Bốn ledger của execution discipline không được tải đồng thời nếu task chỉ cần một loại evidence.
 
-### 7.8 Workflow Runtime, Evidence OS và stack adapters — v3
+### 7.8 Learning Memory xuyên skill — v3.2
+
+Bạn không cần gọi task ID. Có thể nói tự nhiên:
+
+```text
+Tôi đã học xong Airflow, có project và bài test. Giờ chuyển sang dbt.
+Đừng dạy lại Airflow; chỉ tóm tắt phần liên quan và kiểm tra phần nào đã cũ.
+```
+
+Career là authority của trạng thái học cá nhân. Second Brain có thể là nơi lưu bền vững, còn Data Engineering, Analytics Engineering, Academy và các skill kỹ thuật chỉ đọc bản context chuyển tiếp. Thứ tự resolve memory là: đường dẫn người dùng chỉ rõ → pointer trong `.claude/data-department-memory/` của project → memory user-level đã cấu hình. Nếu không tìm thấy, Claude tiếp tục nhưng không được tự nhận rằng bạn đã mastery.
+
+Trạng thái `mastered` chỉ hợp lệ khi có evidence đã verify, một lần áp dụng/đánh giá trong tình huống thay đổi, confidence đủ và `review_due_at` còn hạn. Course attendance, một cuộc chat hoặc việc đã đọc tài liệu chỉ là exposure; chúng không tự nâng thành mastery.
+
+Quy tắc nén:
+
+- Mastered, còn mới và chỉ liên quan gián tiếp: một dòng tóm tắt kèm evidence reference.
+- Mastered, còn mới và là prerequisite trực tiếp: bridge ngắn gồm interface, decision rules và failure modes.
+- Practiced hoặc chưa verify: recap ngắn kèm diagnostic/retest.
+- Stale, conflicted, đổi version hoặc safety-critical: mở rộng đúng phần cần ôn và kiểm tra lại.
+
+Với Airflow → dbt, context thường chỉ giữ ranh giới orchestration/transformation, cách Airflow gọi dbt, retries/idempotency và failure propagation. Cú pháp DAG không được dạy lại trừ khi nó trực tiếp cần cho bài dbt, đã quá hạn, đổi version hoặc bạn yêu cầu.
+
+Các file runtime chính:
+
+```text
+skills/data-career-and-interview-coach/assets/learner-memory.json
+skills/data-career-and-interview-coach/assets/learner-memory.schema.json
+skills/data-career-and-interview-coach/scripts/validate_learning_memory.py
+skills/data-career-and-interview-coach/scripts/build_skill_transition_context.py
+```
+
+Bạn có thể kiểm tra và tạo context pack thủ công:
+
+```powershell
+python skills\data-career-and-interview-coach\scripts\validate_learning_memory.py `
+  .claude\data-department-memory\learner-memory.json --mode complete
+
+python skills\data-career-and-interview-coach\scripts\build_skill_transition_context.py `
+  .claude\data-department-memory\learner-memory.json `
+  --next-topic dbt --required-topic airflow `
+  --current-version "airflow=Airflow 3.x" --token-budget 700
+```
+
+Memory mutation chỉ xảy ra trong task Career rõ ràng như record event, assess mastery hoặc reconcile memory. Skill kỹ thuật không được âm thầm sửa lịch sử học. Learning events được giữ append-only; khi có mâu thuẫn, hệ thống tạo version/reconciliation record thay vì xóa dấu vết cũ.
+
+### 7.9 Workflow Runtime, Evidence OS và stack adapters — v3
 
 Với workflow nhiều task hoặc task `enforced`, Claude phải tạo `workflow-manifest.json`, dùng task ID canonical, owner, dependencies, risk floor, artifact version/hash, evidence và approval references. Chạy validator trước execution, sau transition và ở `complete` mode trước claim cuối:
 
@@ -467,7 +513,7 @@ Các automation read-only chính:
 - `build_portfolio_evidence.py --strict`: kiểm tra artifact/hash/validation trước portfolio claims.
 - `record_skill_telemetry.py` và `analyze_skill_telemetry.py`: telemetry không chứa prompt, secrets hoặc dữ liệu người dùng.
 
-### 7.9 Personal Project Discovery & Build OS
+### 7.10 Personal Project Discovery & Build OS
 
 Bạn không cần biết tên task. Chỉ cần đưa những gì đang có: vấn đề, user workflow, quyết định cần hỗ trợ, ý tưởng, link bài/video, dataset, GitHub repo, role mục tiêu, công nghệ, domain, architecture pattern, paper, course, incident, constraint hoặc nhiều đầu vào cùng lúc. Claude sẽ tự phân loại entry mode và chỉ hỏi khi thiếu thông tin có thể làm thay đổi đáng kể lựa chọn.
 
@@ -487,7 +533,7 @@ provenance + license + exact version
 
 Nếu repo hoặc ý tưởng đến từ người khác, kết quả được coi là project do bạn chủ động thiết kế và xây theo thesis riêng, nhưng nguồn cảm hứng vẫn phải được ghi đúng. Bộ skill không biến nguồn ngoài thành tuyên bố sai rằng ý tưởng gốc hoàn toàn do bạn nghĩ ra.
 
-### 7.10 Personal Second Brain / Knowledge OS
+### 7.11 Personal Second Brain / Knowledge OS
 
 Chỉ cần mô tả nơi dữ liệu đang nằm và kết quả bạn muốn AI tạo. Claude sẽ route vào `personal-second-brain-and-knowledge-os`, không bắt buộc bạn gọi slash command hay cài MCP. Kiến trúc canonical:
 
@@ -509,7 +555,7 @@ lập migration plan có rollback, source lineage, privacy, retrieval tests và 
 Chưa di chuyển hay xóa file nguồn.
 ```
 
-### 7.11 Book → Knowledge / Skill / Action
+### 7.12 Book → Knowledge / Skill / Action
 
 Skill này không chỉ tóm tắt sách. Nó hỗ trợ bốn mode: `analyze`, `full`, `fold-in`, `update`; kiểm tra quyền sử dụng, format/extractor và token/cost preflight; khôi phục cấu trúc; bóc framework, principle, technique, anti-pattern, mental model, example và technical artifact; sau đó biên dịch vào **một primary destination**:
 
@@ -940,4 +986,4 @@ Không suy diễn planned work thành executed outcome.
 - [Claude Code — Create plugins](https://code.claude.com/docs/en/plugins)
 - [Claude Code — Plugins reference](https://code.claude.com/docs/en/plugins-reference)
 - [Agent Skills specification](https://agentskills.io/specification)
-- [Catalog đầy đủ 32 skills và 802 tasks](01_CHI_TIET_TOAN_BO_SKILL_VA_TASK.md)
+- [Catalog đầy đủ 32 skills và 809 tasks](01_CHI_TIET_TOAN_BO_SKILL_VA_TASK.md)

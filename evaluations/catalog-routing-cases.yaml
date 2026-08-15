@@ -1,4 +1,26 @@
 cases:
+  - id: career-initialize-learning-memory
+    task: career-initialize-learning-memory
+    expected_catalog: build-deliver
+  - id: career-map-cross-skill-prerequisites
+    task: career-map-cross-skill-prerequisites
+    expected_catalog: plan-design
+  - id: career-build-skill-transition-context
+    task: career-build-skill-transition-context
+    expected_catalog: build-deliver
+  - id: career-record-learning-event
+    task: career-record-learning-event
+    expected_catalog: build-deliver
+  - id: career-assess-topic-mastery
+    task: career-assess-topic-mastery
+    expected_catalog: test-assure
+  - id: career-detect-learning-decay
+    task: career-detect-learning-decay
+    expected_catalog: test-assure
+  - id: career-reconcile-learning-memory
+    task: career-reconcile-learning-memory
+    expected_catalog: test-assure
+
   - id: de-design
     task: de-design-ingestion-pipeline
     expected_catalog: plan-design

@@ -44,8 +44,9 @@ PEOPLE_RESOURCES = {
         "assets": ["hiring-workflow-state.yaml", "role-scorecard.yaml", "interview-loop.yaml", "candidate-packet.yaml", "assessment-rubric.yaml", "interviewer-guide.yaml", "calibration-record.yaml", "interview-evidence.yaml", "debrief.yaml", "fairness-validity-audit.yaml", "question-competency-evidence.yaml", "answer-anchor-pack.yaml", "question-bank-coverage-audit.yaml"],
     },
     "data-career-and-interview-coach": {
-        "references": ["coaching-ethics-and-method.md", "role-curricula.md", "interview-knowledge-system.md", "career-operating-system.md"],
-        "assets": ["readiness-profile.yaml", "mock-assessment.yaml", "remediation-plan.yaml", "interview-question-dossier.yaml", "question-knowledge-map.yaml", "interview-knowledge-library.yaml", "career-operating-system.yaml", "career-evidence-portfolio.yaml", "career-review.yaml", "career-content-handoff.yaml"],
+        "references": ["coaching-ethics-and-method.md", "role-curricula.md", "interview-knowledge-system.md", "career-operating-system.md", "career-learning-memory.md"],
+        "assets": ["readiness-profile.yaml", "mock-assessment.yaml", "remediation-plan.yaml", "interview-question-dossier.yaml", "question-knowledge-map.yaml", "interview-knowledge-library.yaml", "career-operating-system.yaml", "career-evidence-portfolio.yaml", "career-review.yaml", "career-content-handoff.yaml", "learner-memory.json", "learning-event.yaml", "cross-skill-prerequisite-map.yaml", "skill-transition-context.json", "learner-memory.schema.json"],
+        "scripts": ["validate_learning_memory.py", "build_skill_transition_context.py"],
     },
     "data-technical-content-and-social": {
         "references": ["technical-series-method.md", "platform-format-playbooks.md", "technical-content-quality-standard.md"],
@@ -230,6 +231,11 @@ def validate() -> tuple[list[str], dict[str, int]]:
         for ref in ("lifecycle-standard.md", "technology-adapters.md", "industry-and-metrics.md", "safety-and-approvals.md", "workflow-runtime-and-evidence-os.md"):
             if not (skill_dir / "references" / ref).exists():
                 fail(errors, f"{skill_dir}: missing references/{ref}")
+        memory_interop = skill_dir / "references" / "learning-memory-interoperability.md"
+        if not memory_interop.exists():
+            fail(errors, f"{skill_dir}: missing references/learning-memory-interoperability.md")
+        elif "learning-memory-interoperability.md" not in text:
+            fail(errors, f"{skill_md}: learner-memory interoperability is not routed")
 
         people_resources = PEOPLE_RESOURCES.get(skill_dir.name)
         if people_resources:
@@ -331,6 +337,7 @@ def validate() -> tuple[list[str], dict[str, int]]:
         "approval-record.schema.json", "telemetry-event.schema.json", "run-state.schema.json",
         "atomic-task-result.schema.json", "second-brain-manifest.schema.json",
         "book-conversion-manifest.schema.json",
+        "learner-memory.schema.json",
     }
     observed_schemas = {path.name for path in (ROOT / "schemas").glob("*.json")}
     if not required_schemas.issubset(observed_schemas):
@@ -365,6 +372,8 @@ def validate() -> tuple[list[str], dict[str, int]]:
         SKILLS / "personal-second-brain-and-knowledge-os" / "scripts" / "validate_second_brain.py",
         SKILLS / "book-to-knowledge-and-action" / "scripts" / "extract_book_sources.py",
         SKILLS / "book-to-knowledge-and-action" / "scripts" / "validate_book_conversion.py",
+        SKILLS / "data-career-and-interview-coach" / "scripts" / "validate_learning_memory.py",
+        SKILLS / "data-career-and-interview-coach" / "scripts" / "build_skill_transition_context.py",
     ]
     for path in required_runtime:
         if not path.is_file():
