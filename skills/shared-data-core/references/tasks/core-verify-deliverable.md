@@ -34,7 +34,9 @@ If an absent input changes semantics, risk, cost, scope or acceptance, classify 
 Additional resources:
 - Read [the execution discipline standard](../execution-discipline-standard.md).
 - Use the success, scope, hypothesis or verification ledger from `../../assets/` that matches the current failure risk; do not load all templates by default.
+- When the project root has a `project-constitution.json`, check the plan against it with `../../scripts/validate_constitution.py --proposal-file`; exit status 3 is a blocked plan, not a warning. A locked technology or blocking architecture rule changes only by versioned, approved amendment.
 - Validate structured proof with `../../scripts/validate_evidence_bundle.py`; complete mode must verify artifact hashes when a local artifact root is available.
+- Record the outcome in `../../assets/atomic-task-output.yaml`, validate it with `../../scripts/validate_task_result.py --mode complete`, then join result to evidence with `../../scripts/verify_deliverable.py`. Exit status 2 means `incomplete` because a check could not run; never report it as a pass.
 
 
 ## Tests and evidence

@@ -1,0 +1,21 @@
+[
+  {
+    "instinct_id": "example-replace-me",
+    "scope": "global",
+    "trigger": "Describe the situation that makes this pattern apply.",
+    "pattern": "Describe the action to take when that situation holds.",
+    "rationale": "Describe the failure mode this prevents, and how it was observed.",
+    "counter_indications": [],
+    "observations": {
+      "applied": 0,
+      "succeeded": 0,
+      "failed": 0
+    },
+    "confidence": 0,
+    "status": "proposed",
+    "created_at": "",
+    "last_confirmed_at": "",
+    "evidence": [],
+    "user_content": null
+  }
+]

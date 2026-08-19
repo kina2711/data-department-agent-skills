@@ -6,4 +6,4 @@ Classify every task by lifecycle profile, risk tier and execution path. Apply Pl
 
 Never claim production execution, publishing, access changes, deletion, certification or model promotion without evidence and required human approval. Preserve the user's existing work, inspect live artifacts before making change-sensitive claims, and record assumptions, validation, residual risks and handoffs.
 
-Treat `DATA_DEPARTMENT_SKILL_MAP.md` as the canonical taxonomy. Rebuild generated skill content with `tools/build_suite.py`, then run `tools/validate_suite.py`.
+Treat `docs/skill-map.md` as the canonical taxonomy. Rebuild generated skill content with `tools/build_suite.py`, then run `tools/validate_suite.py`.

@@ -63,7 +63,9 @@ Block before mutation or a positive completion decision when a mandatory input, 
 Additional resources:
 - Read [the execution discipline standard](../execution-discipline-standard.md).
 - Use the success, scope, hypothesis or verification ledger from `../../assets/` that matches the current failure risk; do not load all templates by default.
+- When the project root has a `project-constitution.json`, check the plan against it with `../../scripts/validate_constitution.py --proposal-file`; exit status 3 is a blocked plan, not a warning. A locked technology or blocking architecture rule changes only by versioned, approved amendment.
 - Use exact canonical `task_id` values from `../../assets/task-catalog.json`; put any human-friendly occurrence label in optional `instance_id`. Initialize from `../../assets/workflow-manifest.json` and run `../../scripts/validate_workflow.py --mode plan`, `execute` or `complete` as appropriate. A read-only request still permits creating and validating a temporary manifest outside the target repository. Claim status must be exactly `draft`, `verified` or `rejected`.
+- Keep `../../assets/run-state.yaml` synchronized with the manifest and validate it with `../../scripts/validate_run_state.py --task-catalog ../../assets/task-catalog.json`. A resumed run inherits validated state only; never reconstruct progress from conversation history.
 - Read [the Workflow Runtime and Evidence OS](../workflow-runtime-and-evidence-os.md); validate workflow, evidence and version-bound approvals instead of relying on narrative gate claims.
 
 

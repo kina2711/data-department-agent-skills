@@ -26,7 +26,9 @@ Own only deliverables listed in this role catalog. When the requested deliverabl
 ## Atomic task routing
 
 - **Plan, define, design, map, specify or create a proposed artifact** (8 tasks): read [references/catalog-plan-design.md](references/catalog-plan-design.md).
-- **Build, implement, configure, teach, interview or deliver an artifact** (18 tasks): read [references/catalog-build-deliver.md](references/catalog-build-deliver.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — orientation deliverables** (6 tasks): read [references/catalog-build-deliver-orientation.md](references/catalog-build-deliver-orientation.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — checkpoint deliverables** (3 tasks): read [references/catalog-build-deliver-checkpoint.md](references/catalog-build-deliver-checkpoint.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — remaining deliverables** (9 tasks): read [references/catalog-build-deliver-other.md](references/catalog-build-deliver-other.md).
 - **Inspect, analyze, test, review, validate, assess, certify or audit** (4 tasks): read [references/catalog-test-assure.md](references/catalog-test-assure.md).
 - **Deploy, release, monitor, recover, migrate, optimize, retire or improve** (4 tasks): read [references/catalog-operate-improve.md](references/catalog-operate-improve.md).
 

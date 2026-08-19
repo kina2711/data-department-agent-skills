@@ -1,0 +1,40 @@
+{
+  "constitution_id": "",
+  "project": "",
+  "version": "0.1.0",
+  "ratified_at": "",
+  "ratified_by": "",
+  "principles": [
+    {
+      "id": "ARCH-1",
+      "statement": "",
+      "rationale": "",
+      "enforcement": "blocking"
+    }
+  ],
+  "technology_stack": [
+    {
+      "layer": "",
+      "technology": "",
+      "version_constraint": "",
+      "locked": true,
+      "decided_in": "",
+      "alternatives_rejected": []
+    }
+  ],
+  "architecture_rules": [
+    {
+      "id": "DEP-1",
+      "rule": "",
+      "enforcement": "blocking",
+      "forbidden_dependencies": [],
+      "max_module_depth": 5,
+      "allow_cycles": false
+    }
+  ],
+  "amendment_policy": {
+    "requires_approval_from": "",
+    "requires_version_bump": true,
+    "supersedes": []
+  }
+}

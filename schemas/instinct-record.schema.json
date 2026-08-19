@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://data-department.local/schemas/instinct-record.schema.json",
+  "title": "Confidence-scored Instinct",
+  "description": "A reusable pattern distilled from recorded outcomes. Confidence is derived from observations, never asserted, and no user content or transcript is ever stored.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["instinct_id", "scope", "trigger", "pattern", "rationale", "observations", "status", "created_at", "last_confirmed_at", "evidence", "user_content"],
+  "properties": {
+    "instinct_id": {"type": "string", "pattern": "^[a-z0-9-]{3,64}$"},
+    "scope": {"type": "string", "pattern": "^[a-z0-9-]{1,64}$"},
+    "trigger": {"type": "string", "minLength": 8},
+    "pattern": {"type": "string", "minLength": 8},
+    "rationale": {"type": "string", "minLength": 8},
+    "counter_indications": {"type": "array", "items": {"type": "string"}},
+    "observations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["applied", "succeeded", "failed"],
+      "properties": {
+        "applied": {"type": "integer", "minimum": 0},
+        "succeeded": {"type": "integer", "minimum": 0},
+        "failed": {"type": "integer", "minimum": 0}
+      }
+    },
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "status": {"enum": ["proposed", "active", "weakening", "retired"]},
+    "created_at": {"type": "string", "minLength": 1},
+    "last_confirmed_at": {"type": "string", "minLength": 1},
+    "review_by": {"type": "string"},
+    "evidence": {"type": "array", "items": {"type": "string"}},
+    "superseded_by": {"type": "string"},
+    "user_content": {"const": null}
+  }
+}

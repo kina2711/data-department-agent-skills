@@ -1,9 +1,24 @@
 {
   "name": "data-department-agent-skills",
-  "version": "3.2.0",
+  "displayName": "Data Department Agent Skills",
+  "version": "3.6.0",
   "description": "Executable Data Department Operating System with 32 role skills, governed atomic task contracts, cross-skill Learning Memory, Workflow and Evidence OS, stack-native adapters, Second Brain, Book-to-Knowledge, People OS, personal projects and continuous improvement.",
   "author": {
     "name": "Data Department"
   },
-  "license": "Proprietary"
+  "repository": "https://github.com/kina2711/data-department-agent-skills",
+  "license": "Proprietary",
+  "keywords": [
+    "data-engineering",
+    "analytics-engineering",
+    "business-intelligence",
+    "data-governance",
+    "mlops",
+    "data-quality",
+    "data-career"
+  ],
+  "commands": [
+    "./commands/"
+  ],
+  "hooks": "./hooks/hooks.json"
 }

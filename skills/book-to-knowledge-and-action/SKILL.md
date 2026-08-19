@@ -36,7 +36,11 @@ Load only the relevant specialist reference: [conversion OS](references/book-con
 ## Atomic task routing
 
 - **Plan, define, design, map, specify or create a proposed artifact** (1 task): read [references/catalog-plan-design.md](references/catalog-plan-design.md).
-- **Build, implement, configure, teach, interview or deliver an artifact** (32 tasks): read [references/catalog-build-deliver.md](references/catalog-build-deliver.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — book deliverables** (11 tasks): read [references/catalog-build-deliver-book.md](references/catalog-build-deliver-book.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — pack deliverables** (4 tasks): read [references/catalog-build-deliver-pack.md](references/catalog-build-deliver-pack.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — decision deliverables** (4 tasks): read [references/catalog-build-deliver-decision.md](references/catalog-build-deliver-decision.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — library deliverables** (4 tasks): read [references/catalog-build-deliver-library.md](references/catalog-build-deliver-library.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — remaining deliverables** (9 tasks): read [references/catalog-build-deliver-other.md](references/catalog-build-deliver-other.md).
 - **Inspect, analyze, test, review, validate, assess, certify or audit** (8 tasks): read [references/catalog-test-assure.md](references/catalog-test-assure.md).
 - **Deploy, release, monitor, recover, migrate, optimize, retire or improve** (4 tasks): read [references/catalog-operate-improve.md](references/catalog-operate-improve.md).
 

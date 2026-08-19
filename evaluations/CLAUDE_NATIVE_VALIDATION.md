@@ -74,7 +74,7 @@ A prior v2.2.0 native invocation of `/data-department-agent-skills:data-career-a
 - External repositories and ideas become attributed user-owned project theses. Complete-mode validation rejects false `self-originated` claims and normally requires at least three substantive differentiation axes.
 - Deterministic regressions cover project option scoring, valid repo-first manifests and adversarial renamed-clone manifests.
 - The role entrypoint is 484 words / 3,948 characters; task discovery and the three specialist references remain progressively loaded.
-- An independent read-only test against `C:\PROJECT\i-learn-airflow` passed all routing, provenance, 12-dimension audit, baseline-honesty, transformation, differentiation, roadmap and portfolio-proof checks. See `FORWARD_TEST_PERSONAL_PROJECT_V2_7.md`.
+- An independent read-only test against `C:\PROJECT\i-learn-airflow` passed all routing, provenance, 12-dimension audit, baseline-honesty, transformation, differentiation, roadmap and portfolio-proof checks. The detailed record was retired at v3.5.0; the finding stands on this summary and on git history.
 
 ## v2.5.0 Career OS and Technical Content controls
 
@@ -82,7 +82,7 @@ A prior v2.2.0 native invocation of `/data-department-agent-skills:data-career-a
 - Added a 26-task Technical Content role covering research, version verification, knowledge maps, series architecture, canonical articles, code, diagram handoffs, Facebook, LinkedIn, Substack, repository packaging, five independent quality dimensions, publishing and measurement.
 - The content role entrypoint is 474 words; its largest catalog is 101 words and largest task contract is 483 words. Only the selected lifecycle and one or two specialist references load, so the 26 tasks and all platform playbooks are not injected together.
 - `validate_content_manifest.py` has explicit `plan`, default `complete` and `release` modes. Complete/release bind claims to excerpts in hashed evidence snapshots, require runtime evidence for benchmark/scale/production claims, real artifacts and hashes, independent reviews, standardized test scopes, canonical-before-derived approval and exact-channel authority.
-- Three fresh-agent pressure tests initially exposed bundle-routing, template, JSON emission, evidence-resolution, review/test and publication-authority gaps. After iterative correction, Career OS, Airflow series and adversarial dbt tests passed with no material residual. See `FORWARD_TEST_CAREER_CONTENT_V2_5.md`.
+- Three fresh-agent pressure tests initially exposed bundle-routing, template, JSON emission, evidence-resolution, review/test and publication-authority gaps. After iterative correction, Career OS, Airflow series and adversarial dbt tests passed with no material residual. The detailed record was retired at v3.5.0; the finding stands on this summary and on git history.
 
 ## v2.4.0 discipline and dashboard controls
 
@@ -91,7 +91,7 @@ A prior v2.2.0 native invocation of `/data-department-agent-skills:data-career-a
 - New conditional resources: evidence-driven work paths, one-hypothesis debugging, two-pass review, fresh claim verification, dashboard preflight, truthful metric content and responsive/accessibility gates.
 - New state schemas: success contract, change scope, debug hypothesis, verification claims, compact work ledger and dashboard experience audit.
 - Upstream patterns were adapted to the suite's R0-R4 lifecycle rather than imposing universal code-only TDD or mandatory approval on every advisory task.
-- Three fresh-agent pressure tests initially exposed routing, coverage, contract, rename/deletion, final-diff and BI handoff loopholes. After two refactor/retest cycles, implicit repo-first routing, scope/release enforcement and BI audit/redesign all passed with no material residuals. See `FORWARD_TEST_EXECUTION_DISCIPLINE_V2_4.md`.
+- Three fresh-agent pressure tests initially exposed routing, coverage, contract, rename/deletion, final-diff and BI handoff loopholes. After two refactor/retest cycles, implicit repo-first routing, scope/release enforcement and BI audit/redesign all passed with no material residuals. The detailed record was retired at v3.5.0; the finding stands on this summary and on git history.
 
 ## v2.3.0 benchmark forward tests
 

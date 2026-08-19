@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://data-department.local/schemas/project-constitution.schema.json",
+  "title": "Project Constitution",
+  "description": "Version-bound technology and architecture decisions that downstream work may not silently renegotiate.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["constitution_id", "project", "version", "ratified_at", "ratified_by", "principles", "technology_stack", "architecture_rules", "amendment_policy"],
+  "properties": {
+    "constitution_id": {"type": "string", "minLength": 1},
+    "project": {"type": "string", "minLength": 1},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "ratified_at": {"type": "string", "minLength": 1},
+    "ratified_by": {"type": "string", "minLength": 1},
+    "principles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "statement", "rationale", "enforcement"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[A-Z]+-[0-9]+$"},
+          "statement": {"type": "string", "minLength": 1},
+          "rationale": {"type": "string", "minLength": 1},
+          "enforcement": {"enum": ["blocking", "review-required", "advisory"]}
+        }
+      }
+    },
+    "technology_stack": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["layer", "technology", "version_constraint", "locked", "decided_in"],
+        "properties": {
+          "layer": {"type": "string", "minLength": 1},
+          "technology": {"type": "string", "minLength": 1},
+          "version_constraint": {"type": "string", "minLength": 1},
+          "locked": {"type": "boolean"},
+          "decided_in": {"type": "string", "minLength": 1},
+          "alternatives_rejected": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "architecture_rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "rule", "enforcement"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[A-Z]+-[0-9]+$"},
+          "rule": {"type": "string", "minLength": 1},
+          "enforcement": {"enum": ["blocking", "review-required", "advisory"]},
+          "forbidden_dependencies": {"type": "array", "items": {"type": "string"}},
+          "max_module_depth": {"type": "integer", "minimum": 1},
+          "allow_cycles": {"type": "boolean"}
+        }
+      }
+    },
+    "amendment_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requires_approval_from", "requires_version_bump"],
+      "properties": {
+        "requires_approval_from": {"type": "string", "minLength": 1},
+        "requires_version_bump": {"type": "boolean"},
+        "supersedes": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

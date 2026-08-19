@@ -9,7 +9,7 @@ import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "01_CHI_TIET_TOAN_BO_SKILL_VA_TASK.md"
+OUTPUT = ROOT / "docs" / "skill-and-task-catalog.md"
 CATALOG_ORDER = ["plan-design", "build-deliver", "test-assure", "operate-improve"]
 CATALOG_LABELS = {
     "plan-design": "Plan / Design",
@@ -206,8 +206,14 @@ def parse_frontmatter(skill_file: Path) -> dict:
 
 def load_catalog_membership(skill_dir: Path) -> dict[str, str]:
     result: dict[str, str] = {}
-    for catalog in CATALOG_ORDER:
-        path = skill_dir / "references" / f"catalog-{catalog}.md"
+    for path in sorted((skill_dir / "references").glob("catalog-*.md")):
+        slug = path.stem.removeprefix("catalog-")
+        catalog = next(
+            (group for group in CATALOG_ORDER if slug == group or slug.startswith(f"{group}-")),
+            None,
+        )
+        if catalog is None:
+            raise ValueError(f"{path}: shard does not belong to a known catalog group")
         if not path.exists():
             continue
         for task_id in re.findall(r"^- `([^`]+)`", path.read_text(encoding="utf-8"), flags=re.M):
@@ -295,6 +301,32 @@ def main() -> None:
         "| R2-standard | Reversible build, people workflow | Practical/automated test và owner review |",
         "| R3-controlled | Production, access, sensitive, external, material cost | Independent test, explicit approval, rollback, monitoring |",
         "| R4-critical | Destructive, regulatory, breach, certified/high-impact decision | Segregated approval, strongest evidence, rehearsed recovery, audit trail |",
+        "",
+        "### Slash commands",
+        "",
+        "Mười ba lệnh điều khiển cộng 32 lệnh phòng ban (mỗi role một lệnh `/dd-<role>`, nhóm theo sprint stage think / plan / build / review / test / ship / reflect). Routing ngầm bằng ngôn ngữ tự nhiên vẫn hoạt động như cũ.",
+        "",
+        "| Lệnh | Dùng để |",
+        "|---|---|",
+        "| `/dd-route` | Định tuyến một đề bài về đúng một role và một atomic task, chưa thực thi |",
+        "| `/dd-catalog` | Tra cứu task ID theo từ khóa, role prefix hoặc deliverable |",
+        "| `/dd-task` | Nạp trọn vẹn một task contract và báo cáo readiness, gates, tests, approvals |",
+        "| `/dd-status` | Báo cáo run state đã được validate, blockers và next permitted action |",
+        "| `/dd-verify` | Chạy chuỗi evidence thực thi và trả verdict passed / failed / incomplete |",
+        "| `/dd-approve` | Kiểm tra approval record có thực sự cho phép hành động gated tại thời điểm hiện tại |",
+        "| `/dd-handoff` | Sinh handoff package với evidence, assumptions, residual risks và next owner |",
+        "| `/dd-constitution` | Chốt và cưỡng chế hiến pháp dự án: tech stack khóa và luật kiến trúc chặn |",
+        "| `/dd-scan` | Đo structural drift: cycles, độ sâu phụ thuộc, coupling, trùng lặp |",
+        "| `/dd-recall` | Truy hồi trí nhớ tất định, 0 model call, trả về con trỏ source:line |",
+        "| `/dd-navigate` | Trả lời câu hỏi code từ symbol index thay vì đọc cả file |",
+        "| `/dd-instinct` | Ghi nhận và chấm điểm instinct; confidence tính từ kết quả đếm được |",
+        "| `/dd-skill-quality` | Chấm chất lượng task contract theo outcome đã ghi nhận |",
+        "",
+        "### Production guard",
+        "",
+        "`hooks/guard_production_action.py` chặn trước các lệnh shell mang tính production, publishing hoặc phá hủy (push, terraform apply/destroy, kubectl apply, dbt --target prod, drop/truncate, delete không có where, gh release create, rm -rf) và chuyển sang quyết định tường minh của con người.",
+        "",
+        "Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định thuộc về người dùng. Nếu payload không đọc được hoặc Python không khả dụng, guard thoát im lặng và luồng permission mặc định của Claude Code được giữ nguyên — một lỗi môi trường không bao giờ được âm thầm nới quyền.",
         "",
         f"## 4. Bản đồ {manifest['top_level_skills']} skills",
         "",

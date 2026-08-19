@@ -1,0 +1,18 @@
+{
+  "version": "1",
+  "name": "data-department",
+  "description": "Governed operating system for a complete Data Department: role skills, atomic task contracts, risk-adaptive lifecycle controls and executable evidence gates.",
+  "owner": {
+    "name": "Data Department"
+  },
+  "plugins": [
+    {
+      "name": "data-department-agent-skills",
+      "displayName": "Data Department Agent Skills",
+      "version": "3.6.0",
+      "description": "Executable Data Department Operating System with 32 role skills, governed atomic task contracts, cross-skill Learning Memory, Workflow and Evidence OS, stack-native adapters, Second Brain, Book-to-Knowledge, People OS, personal projects and continuous improvement.",
+      "license": "Proprietary",
+      "source": "./"
+    }
+  ]
+}

@@ -85,8 +85,11 @@ def main() -> None:
     for case in catalog_cases:
         task_id = str(case.get("task", ""))
         expected = str(case.get("expected_catalog", ""))
-        if catalog_location.get(task_id) != expected:
-            errors.append(f"{case['id']}: catalog {catalog_location.get(task_id)} != {expected}")
+        # A catalog may be split into topic sub-shards (`plan-design-diagram`). The case still
+        # asserts the verb group; the sub-shard suffix is an implementation detail.
+        actual = catalog_location.get(task_id)
+        if actual != expected and not (actual or "").startswith(f"{expected}-"):
+            errors.append(f"{case['id']}: catalog {actual} is not in the {expected} group")
     if set(catalog_location) != task_ids:
         errors.append("Catalog shards do not cover every atomic task exactly once")
     confusion_cases = parse_simple_eval(ROOT / "evaluations" / "confusion-pair-cases.yaml")

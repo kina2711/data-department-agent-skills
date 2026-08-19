@@ -4,19 +4,90 @@
   "title": "Privacy-minimized Skill Telemetry Event",
   "type": "object",
   "additionalProperties": false,
-  "required": ["event_id", "occurred_at", "suite_version", "skill", "task_id", "route_source", "outcome", "duration_ms", "references_loaded", "token_estimate", "failure_codes"],
+  "required": [
+    "event_id",
+    "occurred_at",
+    "suite_version",
+    "skill",
+    "task_id",
+    "route_source",
+    "outcome",
+    "duration_ms",
+    "references_loaded",
+    "token_estimate",
+    "failure_codes"
+  ],
   "properties": {
-    "event_id": {"type": "string", "minLength": 1},
-    "occurred_at": {"type": "string", "minLength": 1},
-    "suite_version": {"type": "string", "minLength": 1},
-    "skill": {"type": "string", "pattern": "^[a-z0-9-]{1,64}$"},
-    "task_id": {"type": "string", "pattern": "^[a-z0-9-]{1,64}$"},
-    "route_source": {"enum": ["implicit", "explicit", "orchestrated", "overridden"]},
-    "outcome": {"enum": ["complete", "blocked", "failed", "abandoned"]},
-    "duration_ms": {"type": "integer", "minimum": 0},
-    "references_loaded": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
-    "token_estimate": {"type": "integer", "minimum": 0},
-    "failure_codes": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
-    "user_content": {"const": null}
+    "event_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "occurred_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "suite_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "skill": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]{1,64}$"
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]{1,64}$"
+    },
+    "route_source": {
+      "enum": [
+        "implicit",
+        "explicit",
+        "orchestrated",
+        "overridden"
+      ]
+    },
+    "outcome": {
+      "enum": [
+        "complete",
+        "blocked",
+        "failed",
+        "abandoned"
+      ]
+    },
+    "duration_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "references_loaded": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "token_estimate": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "failure_codes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "user_content": {
+      "const": null
+    },
+    "fallback_used": {
+      "type": "boolean"
+    },
+    "superseded_by_task": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]{1,64}$"
+    },
+    "evidence_verified": {
+      "type": "boolean"
+    }
   }
 }

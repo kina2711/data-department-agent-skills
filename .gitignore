@@ -10,6 +10,10 @@ __pycache__/
 .venv/
 venv/
 
+# Agent-harness install output (created in target projects, never here)
+.codex/
+.data-department-install.json
+
 # Local tools and editors
 .idea/
 .vscode/

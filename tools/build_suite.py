@@ -10,9 +10,10 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-MAP = ROOT / "DATA_DEPARTMENT_SKILL_MAP.md"
+MAP = ROOT / "docs" / "skill-map.md"
 SKILLS = ROOT / "skills"
-SUITE_VERSION = "3.2.0"
+SUITE_VERSION = "3.6.0"
+REPOSITORY_URL = "https://github.com/kina2711/data-department-agent-skills"
 
 
 def canonical_text_sha256(path: Path) -> str:
@@ -226,6 +227,45 @@ SKILL_META = {
 
 # Keep Claude's always-on discovery catalog compact. Each description names the
 # primary deliverables and common trigger language without duplicating the task catalog.
+# Department command surface: one slash command per role, grouped by sprint stage.
+# short name -> (skill, sprint stage). Short names are stable user-facing identifiers.
+ROLE_COMMANDS = {
+    "dd-orchestrate": ("data-department-orchestrator", "plan"),
+    "dd-core": ("shared-data-core", "build"),
+    "dd-context": ("company-data-context", "think"),
+    "dd-hod": ("head-of-data-and-data-product", "think"),
+    "dd-ba": ("data-business-analysis", "think"),
+    "dd-arch": ("data-architecture", "plan"),
+    "dd-govern": ("data-governance-and-stewardship", "review"),
+    "dd-metadata": ("metadata-engineering-and-catalog", "build"),
+    "dd-platform": ("data-platform-and-dataops", "ship"),
+    "dd-devex": ("data-developer-experience", "build"),
+    "dd-de": ("data-engineering", "build"),
+    "dd-ae": ("analytics-engineering", "build"),
+    "dd-analysis": ("data-analysis", "think"),
+    "dd-bi": ("business-intelligence", "build"),
+    "dd-experiment": ("product-analytics-and-experimentation", "test"),
+    "dd-ds": ("data-science", "build"),
+    "dd-mle": ("machine-learning-engineering", "build"),
+    "dd-mlops": ("mlops", "ship"),
+    "dd-quality": ("data-quality-and-reliability", "test"),
+    "dd-security": ("data-security-and-privacy", "review"),
+    "dd-mdm": ("master-data-management", "build"),
+    "dd-genai": ("generative-ai-engineering", "build"),
+    "dd-docs": ("data-documentation-and-diagrams", "reflect"),
+    "dd-enable": ("data-enablement-and-knowledge", "reflect"),
+    "dd-academy": ("data-academy-and-curriculum", "reflect"),
+    "dd-onboard": ("data-onboarding-and-integration", "think"),
+    "dd-hire": ("data-talent-acquisition-and-interview", "reflect"),
+    "dd-career": ("data-career-and-interview-coach", "reflect"),
+    "dd-content": ("data-technical-content-and-social", "ship"),
+    "dd-project": ("data-personal-project-engineering", "build"),
+    "dd-brain": ("personal-second-brain-and-knowledge-os", "reflect"),
+    "dd-book": ("book-to-knowledge-and-action", "reflect"),
+}
+
+SPRINT_STAGES = ["think", "plan", "build", "review", "test", "ship", "reflect"]
+
 CLAUDE_TRIGGER_DESCRIPTIONS = {
     "data-department-orchestrator": "Route ambiguous, organizational or multi-role Data Department requests and compose governed workflows with owners, dependencies, gates and handoffs. Use for cross-role repository rebuilds or end-to-end initiatives combining discovery, implementation and proof; route personal learning or portfolio projects to Personal Data Project Engineering.",
     "shared-data-core": "Apply shared data controls for bounded task-context packaging, discovery, schema inspection, profiling, validation, evidence, approvals and handoffs. Use when a data task needs reusable cross-role safeguards, a prompt-ready context bundle or artifact checks.",
@@ -947,31 +987,94 @@ def catalog_group(task_id: str) -> str:
     return "build-deliver"
 
 
-def write_task_catalogs(skill: str, tasks: list[dict[str, str]]) -> list[tuple[str, int]]:
+SHARD_MAX_TASKS = 11
+SHARD_STOPWORDS = {
+    "and", "for", "with", "the", "data", "plan", "report", "spec", "document", "record",
+    "of", "to", "a", "an", "or", "in", "on", "by", "as", "is", "one", "new", "set",
+}
+
+
+def shard_topic_tokens(output: str) -> list[str]:
+    """Significant words from a primary deliverable, in order, used to name a sub-shard."""
+    words = re.findall(r"[a-z]{4,}", output.lower())
+    return [word for word in words if word not in SHARD_STOPWORDS]
+
+
+def split_shard(group: str, items: list[dict[str, str]]) -> list[tuple[str, str, list[dict[str, str]]]]:
+    """Split an oversized catalog into topic sub-shards so one file cannot hold most of the routing.
+
+    Returns (slug, label, tasks). Deterministic: topics are chosen by descending frequency then
+    alphabetically, so the same catalog always produces the same shards.
+    """
+    if len(items) <= SHARD_MAX_TASKS:
+        return [(group, CATALOG_GROUPS[group], items)]
+
+    frequency: dict[str, int] = defaultdict(int)
+    for task in items:
+        for token in set(shard_topic_tokens(task["output"])):
+            frequency[token] += 1
+
+    remaining = list(items)
+    shards: list[tuple[str, str, list[dict[str, str]]]] = []
+    candidates = sorted(frequency.items(), key=lambda item: (-item[1], item[0]))
+
+    for token, count in candidates:
+        if len(remaining) <= SHARD_MAX_TASKS:
+            break
+        if count < 2:
+            continue
+        matched = [task for task in remaining if token in shard_topic_tokens(task["output"])]
+        if len(matched) < 2:
+            continue
+        matched = matched[:SHARD_MAX_TASKS]
+        remaining = [task for task in remaining if task not in matched]
+        shards.append((
+            f"{group}-{token}",
+            f"{CATALOG_GROUPS[group]} — {token} deliverables",
+            matched,
+        ))
+
+    if remaining:
+        if shards:
+            slug, label = f"{group}-other", f"{CATALOG_GROUPS[group]} — remaining deliverables"
+        else:
+            slug, label = group, CATALOG_GROUPS[group]
+        # A leftover set can still exceed the budget when no shared topic exists; chunk it.
+        if len(remaining) > SHARD_MAX_TASKS:
+            for index in range(0, len(remaining), SHARD_MAX_TASKS):
+                chunk = remaining[index:index + SHARD_MAX_TASKS]
+                part = index // SHARD_MAX_TASKS + 1
+                shards.append((f"{slug}-{part}", f"{label} (part {part})", chunk))
+        else:
+            shards.append((slug, label, remaining))
+    return shards
+
+
+def write_task_catalogs(skill: str, tasks: list[dict[str, str]]) -> list[tuple[str, str, int]]:
     grouped: dict[str, list[dict[str, str]]] = {name: [] for name in CATALOG_GROUPS}
     for task in tasks:
         grouped[catalog_group(task["id"])].append(task)
     references = SKILLS / skill / "references"
-    result: list[tuple[str, int]] = []
-    for group, description in CATALOG_GROUPS.items():
+    for stale in references.glob("catalog-*.md"):
+        stale.unlink()
+    result: list[tuple[str, str, int]] = []
+    for group in CATALOG_GROUPS:
         items = grouped[group]
-        path = references / f"catalog-{group}.md"
         if not items:
-            if path.exists():
-                path.unlink()
             continue
-        rows = [
-            f"# {group.replace('-', ' ').title()} task catalog",
-            "",
-            description + ". Select exactly one task by its primary deliverable.",
-            "",
-        ]
-        rows.extend(
-            f"- `{task['id']}` → **{task['output']}**; read [contract](tasks/{task['id']}.md)."
-            for task in items
-        )
-        path.write_text("\n".join(rows) + "\n", encoding="utf-8")
-        result.append((group, len(items)))
+        for slug, label, shard_items in split_shard(group, items):
+            rows = [
+                f"# {slug.replace('-', ' ').title()} task catalog",
+                "",
+                label + ". Select exactly one task by its primary deliverable.",
+                "",
+            ]
+            rows.extend(
+                f"- `{task['id']}` → **{task['output']}**; read [contract](tasks/{task['id']}.md)."
+                for task in shard_items
+            )
+            (references / f"catalog-{slug}.md").write_text("\n".join(rows) + "\n", encoding="utf-8")
+            result.append((slug, label, len(shard_items)))
     return result
 
 
@@ -1242,8 +1345,14 @@ def task_specific_resources(task_id: str) -> list[str]:
         ]
         if task_id == "core-audit-change-scope":
             resources.append("Use `../../assets/change-scope-contract.json` as the pre-change approved script input, `../../assets/change-scope-ledger.yaml` for the audit record, and run `../../scripts/audit_change_scope.py` for a Git repository. Missing or invalid traceability blocks the audit.")
+        resources.append(
+            "When the project root has a `project-constitution.json`, check the plan against it with `../../scripts/validate_constitution.py --proposal-file`; exit status 3 is a blocked plan, not a warning. A locked technology or blocking architecture rule changes only by versioned, approved amendment."
+        )
         if task_id == "core-verify-deliverable":
             resources.append("Validate structured proof with `../../scripts/validate_evidence_bundle.py`; complete mode must verify artifact hashes when a local artifact root is available.")
+            resources.append(
+                "Record the outcome in `../../assets/atomic-task-output.yaml`, validate it with `../../scripts/validate_task_result.py --mode complete`, then join result to evidence with `../../scripts/verify_deliverable.py`. Exit status 2 means `incomplete` because a check could not run; never report it as a pass."
+            )
         if task_id in {
             "orchestrator-compose-workflow",
             "orchestrator-maintain-run-state",
@@ -1252,6 +1361,9 @@ def task_specific_resources(task_id: str) -> list[str]:
         }:
             resources.append(
                 "Use exact canonical `task_id` values from `../../assets/task-catalog.json`; put any human-friendly occurrence label in optional `instance_id`. Initialize from `../../assets/workflow-manifest.json` and run `../../scripts/validate_workflow.py --mode plan`, `execute` or `complete` as appropriate. A read-only request still permits creating and validating a temporary manifest outside the target repository. Claim status must be exactly `draft`, `verified` or `rejected`."
+            )
+            resources.append(
+                "Keep `../../assets/run-state.yaml` synchronized with the manifest and validate it with `../../scripts/validate_run_state.py --task-catalog ../../assets/task-catalog.json`. A resumed run inherits validated state only; never reconstruct progress from conversation history."
             )
         return resources
     if task_id in groups["dashboard-experience"]:
@@ -1399,8 +1511,8 @@ def render_skill(skill: str, tasks: list[dict[str, str]]) -> str:
     _, display, _ = SKILL_META[skill]
     description = CLAUDE_TRIGGER_DESCRIPTIONS[skill]
     catalog = "\n".join(
-        f"- **{CATALOG_GROUPS[group]}** ({count} {'task' if count == 1 else 'tasks'}): read [references/catalog-{group}.md](references/catalog-{group}.md)."
-        for group, count in write_task_catalogs(skill, tasks)
+        f"- **{label}** ({count} {'task' if count == 1 else 'tasks'}): read [references/catalog-{slug}.md](references/catalog-{slug}.md)."
+        for slug, label, count in write_task_catalogs(skill, tasks)
     )
     adapter_names = ROLE_STACK_ADAPTERS.get(skill, ())
     adapter_section = ""
@@ -1424,9 +1536,9 @@ Route personal learning, capstone or portfolio projects—including repo-first, 
 
 ## Workflow state
 
-For multi-step work, initialize `assets/workflow-manifest.json` and update it after every completed task or gate. Every `task_id` must be an exact canonical ID from `assets/task-catalog.json`; use optional `instance_id` only as a human-friendly occurrence label. Claim status is limited to `draft`, `verified` or `rejected`. Run `scripts/validate_workflow.py` before execution, after transitions and in complete mode before the final claim. Read-only work must still validate a temporary manifest outside the target repository. Use `assets/approval-record.json` for version/hash-bound authority. Resume from the latest verified state; never redo an approved artifact without a change request.
+For multi-step work, initialize `assets/workflow-manifest.json` and update it after every completed task or gate. Every `task_id` must be an exact canonical ID from `assets/task-catalog.json`; use optional `instance_id` only as a human-friendly occurrence label. Claim status is limited to `draft`, `verified` or `rejected`. Run `scripts/validate_workflow.py` before execution, after transitions and in complete mode before the final claim. Read-only work must still validate a temporary manifest outside the target repository. Use `assets/approval-record.json` for version/hash-bound authority and check it with `scripts/validate_approval_record.py --require-approved` before any gated action; an expired, out-of-scope or hash-mismatched record is the same as no approval. Track the run with `assets/run-state.yaml` and `scripts/validate_run_state.py`. Resume from the latest verified state; never redo an approved artifact without a change request.
 
-Record optional improvement telemetry only through `scripts/record_skill_telemetry.py` and `assets/telemetry-event.json`; never store user content, prompts, secrets or data values. Aggregate it with `scripts/analyze_skill_telemetry.py`; high failure or override rates trigger investigation, never weaker gates.
+Record optional improvement telemetry only through `scripts/record_skill_telemetry.py` and `assets/telemetry-event.json`; never store user content, prompts, secrets or data values. Aggregate it with `scripts/analyze_skill_telemetry.py`; high failure or override rates trigger investigation, never weaker gates. Score contracts against those outcomes with `scripts/score_skill_quality.py`; its recommendations are change requests with evidence attached, never direct edits. Govern reusable patterns with `scripts/manage_instincts.py` and `assets/instinct-ledger.json`: confidence is the Wilson lower bound of counted outcomes, only `active` instincts may shape behavior, and an instinct unconfirmed for 90 days weakens until it is re-tested.
 """
     elif skill == "shared-data-core":
         extra = """
@@ -3168,6 +3280,155 @@ A redesign specification maps audit finding -> design decision -> affected page/
         (SKILLS / skill / "references" / "shared-reference-manifest.json").write_text(json.dumps(shared_manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
+GENERATED_COMMAND_MARKER = "<!-- generated by tools/build_suite.py -->"
+
+
+def render_role_command(short: str, skill: str, stage: str, task_count: int) -> str:
+    description, display, _ = SKILL_META[skill]
+    trigger = description.split(". Use ")[0].rstrip(".")
+    return f"""---
+name: {short}
+description: "Open the {display} department ({stage} stage) and route the request to one of its {task_count} atomic tasks. {trigger}."
+argument-hint: "<request>"
+disable-model-invocation: true
+---
+
+{GENERATED_COMMAND_MARKER}
+
+Open the **{display}** department for: $ARGUMENTS
+
+Sprint stage: `{stage}`. This department owns {task_count} atomic tasks.
+
+1. Read `skills/{skill}/SKILL.md` and follow its operating contract.
+2. Confirm this department actually owns the primary deliverable. If another role owns it,
+   stop and hand off rather than silently taking ownership — use `/dd-route` to re-route.
+3. Read the matching catalog shard under `skills/{skill}/references/`, then select exactly
+   one atomic task by primary deliverable. Do not load every catalog.
+4. Read that task contract completely before acting, and apply its lifecycle profile, risk
+   tier and execution path.
+5. Check `project-constitution.json` if the working directory has one; a change that violates
+   a locked technology or architecture decision is blocked, not negotiated.
+
+Report the selected task ID, primary deliverable, evidence inspected, validation performed,
+approval status, residual risks and next owner. A draft or plan is not an executed outcome.
+"""
+
+
+def build_commands(grouped: dict[str, list[dict[str, str]]]) -> None:
+    """Generate the department command surface; hand-written control commands are left alone."""
+    commands = ROOT / "commands"
+    commands.mkdir(parents=True, exist_ok=True)
+    handwritten = {
+        path.stem
+        for path in commands.glob("*.md")
+        if GENERATED_COMMAND_MARKER not in path.read_text(encoding="utf-8")
+    }
+    collisions = sorted(handwritten & set(ROLE_COMMANDS))
+    if collisions:
+        raise ValueError(
+            f"Department command names collide with hand-written control commands: {collisions}. "
+            "Rename one side; generating over a control command would delete it silently."
+        )
+    for existing in commands.glob("*.md"):
+        if GENERATED_COMMAND_MARKER in existing.read_text(encoding="utf-8"):
+            existing.unlink()
+    for short, (skill, stage) in ROLE_COMMANDS.items():
+        if stage not in SPRINT_STAGES:
+            raise ValueError(f"Unknown sprint stage for {short}: {stage}")
+        (commands / f"{short}.md").write_text(
+            render_role_command(short, skill, stage, len(grouped.get(skill, []))),
+            encoding="utf-8",
+        )
+    missing = set(SKILL_META) - {skill for skill, _ in ROLE_COMMANDS.values()}
+    if missing:
+        raise ValueError(f"Roles without a department command: {sorted(missing)}")
+
+
+GENERATED_AGENT_MARKER = "<!-- generated by tools/build_suite.py -->"
+
+
+def render_antigravity_agent(short: str, skill: str, stage: str, task_count: int) -> str:
+    """Render one Google Antigravity custom agent for a department.
+
+    `tools` is deliberately omitted so the harness default applies; pinning a tool list here
+    would silently narrow what the department can do as Antigravity's tool set evolves.
+    `commandExecutionPolicy` is `sandbox` because this suite never claims production execution
+    without evidence and named approval.
+    """
+    description, display, _ = SKILL_META[skill]
+    return f"""---
+name: {short}
+description: >-
+  {display} department ({stage} stage), owning {task_count} atomic task contracts.
+  {description}
+model: inherit
+mainAgent: true
+subagent: true
+commandExecutionPolicy: sandbox
+skills:
+  - skills/{skill}
+---
+
+{GENERATED_AGENT_MARKER}
+
+# {display}
+
+Sprint stage: `{stage}`. This department owns {task_count} atomic task contracts.
+
+## Operating contract
+
+1. Read `skills/{skill}/SKILL.md` and follow its operating contract before acting.
+2. Confirm this department owns the primary deliverable. If another role owns it, produce a
+   handoff instead of silently taking ownership.
+3. Read one catalog shard under `skills/{skill}/references/`, then select exactly one atomic
+   task by primary deliverable. Do not load every catalog.
+4. Read that task contract completely, and apply its lifecycle profile, risk tier and
+   execution path.
+5. Load only the company context, technology adapter and industry references the contract
+   names.
+6. Inspect live artifacts before making change-sensitive claims.
+7. If the workspace has a `project-constitution.json`, check the plan against it. A change
+   that violates a locked technology or a blocking architecture rule is blocked, not
+   negotiated.
+
+## Claims policy
+
+Never claim production execution, publishing, access change, deletion, certification or model
+promotion without evidence and required human approval. `not-run`, `incomplete` and `unknown`
+are honest statuses and must never be reported as success.
+
+## Completion response
+
+State the selected task ID, primary deliverable, evidence inspected, validation performed,
+approval status, residual risks and next owner. A draft or plan is not an executed outcome.
+"""
+
+
+def build_antigravity_agents(grouped: dict[str, list[dict[str, str]]]) -> None:
+    """Generate the Google Antigravity custom-agent surface at .agents/agents/."""
+    agents = ROOT / ".agents" / "agents"
+    agents.mkdir(parents=True, exist_ok=True)
+    handwritten = {
+        path.stem
+        for path in agents.glob("*.md")
+        if GENERATED_AGENT_MARKER not in path.read_text(encoding="utf-8")
+    }
+    collisions = sorted(handwritten & set(ROLE_COMMANDS))
+    if collisions:
+        raise ValueError(
+            f"Antigravity agent names collide with hand-written agents: {collisions}. "
+            "Rename one side; generating over a hand-written agent would delete it silently."
+        )
+    for existing in agents.glob("*.md"):
+        if GENERATED_AGENT_MARKER in existing.read_text(encoding="utf-8"):
+            existing.unlink()
+    for short, (skill, stage) in ROLE_COMMANDS.items():
+        (agents / f"{short}.md").write_text(
+            render_antigravity_agent(short, skill, stage, len(grouped.get(skill, []))),
+            encoding="utf-8",
+        )
+
+
 def build_manifest(grouped: dict[str, list[dict[str, str]]]) -> None:
     all_tasks = [task for tasks in grouped.values() for task in tasks]
     manifest = {
@@ -3191,9 +3452,12 @@ def build_manifest(grouped: dict[str, list[dict[str, str]]]) -> None:
     schema_targets = {
         "workflow-manifest.schema.json": "data-department-orchestrator",
         "approval-record.schema.json": "data-department-orchestrator",
+        "run-state.schema.json": "data-department-orchestrator",
+        "instinct-record.schema.json": "data-department-orchestrator",
         "telemetry-event.schema.json": "data-department-orchestrator",
         "task-contract.schema.json": "data-department-orchestrator",
         "evidence-envelope.schema.json": "shared-data-core",
+        "project-constitution.schema.json": "shared-data-core",
         "atomic-task-result.schema.json": "shared-data-core",
         "second-brain-manifest.schema.json": "personal-second-brain-and-knowledge-os",
         "book-conversion-manifest.schema.json": "book-to-knowledge-and-action",
@@ -3205,17 +3469,69 @@ def build_manifest(grouped: dict[str, list[dict[str, str]]]) -> None:
         target.write_bytes(source.read_bytes())
 
 
+PLUGIN_NAME = "data-department-agent-skills"
+PLUGIN_DISPLAY_NAME = "Data Department Agent Skills"
+
+
+def plugin_description() -> str:
+    return (
+        f"Executable Data Department Operating System with {len(SKILL_META)} role skills, governed atomic "
+        "task contracts, cross-skill Learning Memory, Workflow and Evidence OS, stack-native adapters, "
+        "Second Brain, Book-to-Knowledge, People OS, personal projects and continuous improvement."
+    )
+
+
 def build_plugin() -> None:
     plugin = ROOT / ".claude-plugin" / "plugin.json"
     plugin.parent.mkdir(parents=True, exist_ok=True)
     plugin.write_text(
         json.dumps(
             {
-                "name": "data-department-agent-skills",
+                "name": PLUGIN_NAME,
+                "displayName": PLUGIN_DISPLAY_NAME,
                 "version": SUITE_VERSION,
-                "description": f"Executable Data Department Operating System with {len(SKILL_META)} role skills, governed atomic task contracts, cross-skill Learning Memory, Workflow and Evidence OS, stack-native adapters, Second Brain, Book-to-Knowledge, People OS, personal projects and continuous improvement.",
+                "description": plugin_description(),
                 "author": {"name": "Data Department"},
+                "repository": REPOSITORY_URL,
                 "license": "Proprietary",
+                "keywords": [
+                    "data-engineering", "analytics-engineering", "business-intelligence",
+                    "data-governance", "mlops", "data-quality", "data-career",
+                ],
+                "commands": ["./commands/"],
+                "hooks": "./hooks/hooks.json",
+            },
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+
+def build_marketplace() -> None:
+    """Publish the repository as a single-plugin Claude Code marketplace."""
+    marketplace = ROOT / ".claude-plugin" / "marketplace.json"
+    marketplace.parent.mkdir(parents=True, exist_ok=True)
+    marketplace.write_text(
+        json.dumps(
+            {
+                "version": "1",
+                "name": "data-department",
+                "description": (
+                    "Governed operating system for a complete Data Department: role skills, atomic task "
+                    "contracts, risk-adaptive lifecycle controls and executable evidence gates."
+                ),
+                "owner": {"name": "Data Department"},
+                "plugins": [
+                    {
+                        "name": PLUGIN_NAME,
+                        "displayName": PLUGIN_DISPLAY_NAME,
+                        "version": SUITE_VERSION,
+                        "description": plugin_description(),
+                        "license": "Proprietary",
+                        "source": "./",
+                    }
+                ],
             },
             indent=2,
         )
@@ -3258,7 +3574,10 @@ def main() -> None:
     build_people_references()
     build_benchmark_references()
     build_manifest(grouped)
+    build_commands(grouped)
+    build_antigravity_agents(grouped)
     build_plugin()
+    build_marketplace()
     print(f"Built {len(SKILL_META)} skills and {sum(map(len, grouped.values()))} tasks")
 
 

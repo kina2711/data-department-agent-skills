@@ -34,8 +34,13 @@ Load only the relevant specialist reference: [operating system](references/secon
 
 ## Atomic task routing
 
-- **Plan, define, design, map, specify or create a proposed artifact** (12 tasks): read [references/catalog-plan-design.md](references/catalog-plan-design.md).
-- **Build, implement, configure, teach, interview or deliver an artifact** (27 tasks): read [references/catalog-build-deliver.md](references/catalog-build-deliver.md).
+- **Plan, define, design, map, specify or create a proposed artifact — brain deliverables** (4 tasks): read [references/catalog-plan-design-brain.md](references/catalog-plan-design-brain.md).
+- **Plan, define, design, map, specify or create a proposed artifact — remaining deliverables** (8 tasks): read [references/catalog-plan-design-other.md](references/catalog-plan-design-other.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — source deliverables** (8 tasks): read [references/catalog-build-deliver-source.md](references/catalog-build-deliver-source.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — knowledge deliverables** (5 tasks): read [references/catalog-build-deliver-knowledge.md](references/catalog-build-deliver-knowledge.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — grounded deliverables** (2 tasks): read [references/catalog-build-deliver-grounded.md](references/catalog-build-deliver-grounded.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — brain deliverables** (2 tasks): read [references/catalog-build-deliver-brain.md](references/catalog-build-deliver-brain.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — remaining deliverables** (10 tasks): read [references/catalog-build-deliver-other.md](references/catalog-build-deliver-other.md).
 - **Inspect, analyze, test, review, validate, assess, certify or audit** (4 tasks): read [references/catalog-test-assure.md](references/catalog-test-assure.md).
 - **Deploy, release, monitor, recover, migrate, optimize, retire or improve** (3 tasks): read [references/catalog-operate-improve.md](references/catalog-operate-improve.md).
 

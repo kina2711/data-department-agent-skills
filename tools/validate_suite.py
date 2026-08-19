@@ -34,6 +34,7 @@ PEOPLE_RESOURCES = {
     "data-academy-and-curriculum": {
         "references": ["role-curricula.md", "assessment-and-certification.md", "knowledge-deep-dive-standard.md"],
         "assets": ["curriculum-spec.yaml", "lesson-plan.yaml", "assessment-blueprint.yaml", "learner-evidence.yaml", "concept-knowledge-graph.yaml", "knowledge-deep-dive.yaml", "question-learning-traceability.yaml"],
+        "scripts": ["validate_curriculum_coverage.py"],
     },
     "data-onboarding-and-integration": {
         "references": ["role-onboarding-tracks.md"],
@@ -68,8 +69,13 @@ PEOPLE_RESOURCES = {
 BENCHMARK_RESOURCES = {
     "shared-data-core": {
         "references": ["context-engineering-standard.md", "execution-discipline-standard.md"],
-        "assets": ["task-context-package.yaml", "success-contract.yaml", "change-scope-ledger.yaml", "change-scope-contract.json", "debug-hypothesis-ledger.yaml", "verification-claims.yaml"],
-        "scripts": ["build_context_package.py", "audit_change_scope.py"],
+        "assets": ["task-context-package.yaml", "success-contract.yaml", "change-scope-ledger.yaml", "change-scope-contract.json", "debug-hypothesis-ledger.yaml", "verification-claims.yaml", "atomic-task-output.yaml", "atomic-task-result.schema.json", "project-constitution.json", "project-constitution.schema.json"],
+        "scripts": ["build_context_package.py", "audit_change_scope.py", "validate_evidence_bundle.py", "validate_task_result.py", "verify_deliverable.py", "validate_constitution.py"],
+    },
+    "data-department-orchestrator": {
+        "references": ["lifecycle-standard.md"],
+        "assets": ["workflow-manifest.json", "run-state.yaml", "run-state.schema.json", "approval-record.json", "approval-record.schema.json", "task-catalog.json", "instinct-ledger.json", "instinct-record.schema.json"],
+        "scripts": ["validate_workflow.py", "validate_approval_record.py", "validate_run_state.py", "manage_instincts.py", "score_skill_quality.py"],
     },
     "company-data-context": {
         "references": ["context-engineering-standard.md"],
@@ -79,12 +85,17 @@ BENCHMARK_RESOURCES = {
     "data-developer-experience": {
         "references": ["evidence-based-repository-understanding.md"],
         "assets": ["data-path-trace.yaml"],
-        "scripts": [],
+        "scripts": ["build_code_index.py"],
     },
     "data-enablement-and-knowledge": {
         "references": ["evidence-based-repository-understanding.md"],
         "assets": ["data-path-trace.yaml"],
         "scripts": [],
+    },
+    "data-architecture": {
+        "references": ["lifecycle-standard.md"],
+        "assets": [],
+        "scripts": ["scan_architecture_drift.py"],
     },
     "data-engineering": {
         "references": ["execution-plan-and-pipeline-adapters.md", "stage-gated-data-validation.md"],
@@ -109,7 +120,17 @@ BENCHMARK_RESOURCES = {
     "business-intelligence": {
         "references": ["dashboard-experience-quality.md"],
         "assets": ["dashboard-experience-audit.yaml"],
-        "scripts": [],
+        "scripts": ["validate_dashboard_spec.py"],
+    },
+    "data-governance-and-stewardship": {
+        "references": ["lifecycle-standard.md"],
+        "assets": [],
+        "scripts": ["validate_policy_coverage.py"],
+    },
+    "data-business-analysis": {
+        "references": ["lifecycle-standard.md"],
+        "assets": [],
+        "scripts": ["validate_requirements_traceability.py"],
     },
 }
 

@@ -38,14 +38,13 @@ $items = @(
     (Join-Path $suiteRoot 'evaluations'),
     (Join-Path $suiteRoot 'suite-manifest.yaml'),
     (Join-Path $suiteRoot 'task-catalog.json'),
-    (Join-Path $suiteRoot 'DATA_DEPARTMENT_SKILL_MAP.md'),
-    (Join-Path $suiteRoot 'SOURCE_INTEGRATION_AUDIT.md'),
-    (Join-Path $suiteRoot 'OPERATING_GUIDE.md'),
-    (Join-Path $suiteRoot 'LIFECYCLE_OPERATING_MODEL.md'),
-    (Join-Path $suiteRoot '01_HUONG_DAN_IMPORT_CLAUDE_SKILL.md'),
-    (Join-Path $suiteRoot '02_TONG_QUAN_NANG_LUC_DATA_DEPARTMENT_SKILLS.md'),
-    (Join-Path $suiteRoot '01_CHI_TIET_TOAN_BO_SKILL_VA_TASK.md'),
-    (Join-Path $suiteRoot '02_HUONG_DAN_IMPORT_VA_SU_DUNG_CLAUDE.md'),
+    (Join-Path $suiteRoot 'docs\skill-map.md'),
+    (Join-Path $suiteRoot 'docs\source-integration-audit.md'),
+    (Join-Path $suiteRoot 'docs\operating-guide.md'),
+    (Join-Path $suiteRoot 'docs\lifecycle-operating-model.md'),
+    (Join-Path $suiteRoot 'docs\capability-overview.md'),
+    (Join-Path $suiteRoot 'docs\skill-and-task-catalog.md'),
+    (Join-Path $suiteRoot 'docs\installation-and-usage.md'),
     (Join-Path $suiteRoot 'pyproject.toml')
 )
 

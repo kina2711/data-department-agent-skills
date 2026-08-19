@@ -32,6 +32,9 @@ jobs:
         run: |
           python tools/run_smoke_tests.py
           python tools/run_benchmark_tests.py
+          python tools/run_control_tests.py
+      - name: Audit skill structure
+        run: python tools/audit_skills.py
       - name: Verify deterministic source tree
         run: git diff --exit-code
 
