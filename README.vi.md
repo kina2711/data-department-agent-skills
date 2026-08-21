@@ -6,7 +6,7 @@ chạy được**, **12 JSON Schema**, và một production guard hook.
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
 
-Bản hiện tại: **v3.6.0** · Chạy được với **Claude Code**, **OpenAI Codex** và **Google Antigravity**
+Bản hiện tại: **v3.7.0** · Chạy được với **Claude Code**, **OpenAI Codex** và **Google Antigravity**
 
 🇬🇧 [Read in English](README.md)
 
@@ -60,16 +60,16 @@ script evidence đều cần; cả hai fail-open nếu thiếu).
 
 ```powershell
 # Windows
-$pluginRoot = "C:\Tools\data-department-agent-skills-v3.6.0"
-Expand-Archive .\data-department-claude-plugin-v3.6.0.zip -DestinationPath $pluginRoot
+$pluginRoot = "C:\Tools\data-department-agent-skills-v3.7.0"
+Expand-Archive .\data-department-claude-plugin-v3.7.0.zip -DestinationPath $pluginRoot
 claude plugin validate --strict $pluginRoot
 claude --plugin-dir $pluginRoot
 ```
 
 ```bash
 # macOS / Linux
-pluginRoot=~/tools/data-department-agent-skills-v3.6.0
-unzip data-department-claude-plugin-v3.6.0.zip -d "$pluginRoot"
+pluginRoot=~/tools/data-department-agent-skills-v3.7.0
+unzip data-department-claude-plugin-v3.7.0.zip -d "$pluginRoot"
 claude plugin validate --strict "$pluginRoot"
 claude --plugin-dir "$pluginRoot"
 ```
@@ -586,10 +586,13 @@ unknown thay vì good, và installer từ chối ghi đè file không phải c�
 
 ### Audit nói thật về những gì chưa xong
 
-`audit_skills.py` hiện báo **13 finding**: chín skill vẫn chưa có script evidence — talent
-acquisition (41 task), onboarding (34), MLOps (23), data science (22), head of data (21),
-platform (21), ML engineering (20), generative AI (20), documentation (20) — và hai catalog
-shard nhỉnh trên ngưỡng tập trung 55%.
+`audit_skills.py` báo **0 finding trên 32 skill**. v3.6.0 mang 13 finding một cách công khai:
+chín skill có 20+ contract mà không có script evidence, và bốn catalog shard vượt ngưỡng tập
+trung 55%. Cả 13 đã đóng ở v3.7.0 — chín script mới, và sharding theo tỷ trọng.
+
+Phần còn chưa xong hẹp hơn và được nêu rõ trong release notes: chín script mới đã được kiểm
+bằng fixture tự dựng cho cả đường pass lẫn đường fail, nhưng chưa có unit test riêng và CI mới
+chỉ import chứ chưa chạy chúng.
 
 `mean_thin_share` là **0.00%**: cả 815 contract đều mang ít nhất một resource riêng của task.
 

@@ -1,6 +1,12 @@
 # Changelog
 
-## Unreleased
+## v3.7.0
+
+System-design knowledge for Career, two cross-cutting reporting and design standards, a zero-finding
+skill audit, and execution patterns the orchestrator could name but not run.
+
+32 role skills - 815 atomic task contracts - 45 slash commands - 32 Antigravity agents -
+49 executable evidence scripts - 12 JSON Schemas
 
 System-design knowledge layer for Data Career, and a return path from published content.
 

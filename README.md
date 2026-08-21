@@ -6,7 +6,7 @@ evidence scripts**, **12 JSON Schemas**, and a production guard hook.
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
 
-Current release: **v3.6.0** · Works with **Claude Code**, **OpenAI Codex** and **Google Antigravity**
+Current release: **v3.7.0** · Works with **Claude Code**, **OpenAI Codex** and **Google Antigravity**
 
 🇻🇳 [Đọc bản tiếng Việt](README.vi.md)
 
@@ -59,16 +59,16 @@ evidence script need it; both fail open if it is missing).
 
 ```powershell
 # Windows
-$pluginRoot = "C:\Tools\data-department-agent-skills-v3.6.0"
-Expand-Archive .\data-department-claude-plugin-v3.6.0.zip -DestinationPath $pluginRoot
+$pluginRoot = "C:\Tools\data-department-agent-skills-v3.7.0"
+Expand-Archive .\data-department-claude-plugin-v3.7.0.zip -DestinationPath $pluginRoot
 claude plugin validate --strict $pluginRoot
 claude --plugin-dir $pluginRoot
 ```
 
 ```bash
 # macOS / Linux
-pluginRoot=~/tools/data-department-agent-skills-v3.6.0
-unzip data-department-claude-plugin-v3.6.0.zip -d "$pluginRoot"
+pluginRoot=~/tools/data-department-agent-skills-v3.7.0
+unzip data-department-claude-plugin-v3.7.0.zip -d "$pluginRoot"
 claude plugin validate --strict "$pluginRoot"
 claude --plugin-dir "$pluginRoot"
 ```
@@ -592,10 +592,14 @@ an empty ledger reporting unknown rather than good.
 
 ### The audit is honest about what is unfinished
 
-`audit_skills.py` currently reports **13 findings**: nine skills still have no executable
-evidence script — talent acquisition (41 tasks), onboarding (34), MLOps (23), data science
-(22), head of data (21), platform (21), ML engineering (20), generative AI (20),
-documentation (20) — and two catalog shards sit just over the 55% concentration threshold.
+`audit_skills.py` reports **0 findings across 32 skills**. v3.6.0 carried 13 openly: nine
+skills with 20+ contracts and no executable evidence script, and four catalog shards over the
+55% concentration threshold. All 13 closed in v3.7.0 — nine new scripts, and share-aware
+sharding.
+
+What remains unfinished is narrower and named in the release notes: the nine new scripts were
+verified against hand-built fixtures on both the passing and the failing path, but have no unit
+suite of their own and CI does not exercise them beyond import.
 
 `mean_thin_share` is **0.00%**: every one of the 815 contracts carries at least one
 task-specific resource.
