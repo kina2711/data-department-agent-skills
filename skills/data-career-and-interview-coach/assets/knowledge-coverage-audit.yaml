@@ -1,0 +1,20 @@
+audit_id: ""
+person_id: ""
+target_role: ""
+target_level: ""
+canon_version: ""
+library_ref: ""
+concepts:
+  - concept_id: ""
+    dossier_refs: []
+    mastery_state: "unseen"
+    evidence_refs: []
+    last_reviewed: ""
+    coverage: "absent|referenced|practised|demonstrated"
+uncovered_concepts: []
+prerequisite_gaps: []
+stale_entries: []
+over_practised: []
+recommended_next: []
+owner: ""
+status: "draft"

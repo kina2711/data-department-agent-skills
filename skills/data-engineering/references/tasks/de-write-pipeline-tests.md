@@ -34,6 +34,7 @@ If an absent input changes semantics, risk, cost, scope or acceptance, classify 
 Additional resources:
 - Read [the stage-gated data-validation standard](../stage-gated-data-validation.md).
 - Reuse `../../assets/pipeline-validation-plan.yaml`; validate input, transformation, output and monitoring layers with owned failure actions. In the Data Quality skill, `../../scripts/validate_tabular_data.py` can execute bounded CSV/JSONL checks.
+- Read [solution option framing](../solution-option-framing.md); frame three to five materially different approaches in `../../assets/design-option-set.yaml`, select one against the stated constraints in at most forty words, and derive the deliverable structure from that selection. Where this role already owns a scored selection artifact, use it instead of duplicating the decision.
 - Read [the execution discipline standard](../execution-discipline-standard.md).
 - Before Git-backed mutation, require a verified success contract and pre-change scope contract. After the final change, run `core-audit-change-scope` and `core-verify-deliverable`; release remains blocked if either control is absent or failed.
 
@@ -53,3 +54,5 @@ Require owner approval before production, sensitive, externally visible or mater
 ## Return
 
 Return the task ID, lifecycle profile, risk tier, execution path, phase reached, primary deliverable, evidence links, test results, approvals, assumptions, open risks, affected assets, owner and one explicit next task. Route cross-role work through the department orchestrator.
+
+Return the full contract; [response compression](../response-compression.md) governs wording, never coverage. Never soften `blocked` or `failed`, and never report an unrun check as a pass.

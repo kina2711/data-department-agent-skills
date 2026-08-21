@@ -1,0 +1,16 @@
+task_id: ""
+status: "draft"
+lifecycle_profile: ""
+risk_tier: ""
+execution_path: ""
+phase_reached: "plan"
+primary_deliverable: ""
+evidence: []
+test_results: []
+gate_results: []
+approval_status: "not-required"
+assumptions: []
+limitations: []
+residual_risks: []
+next_task: ""
+next_owner: ""

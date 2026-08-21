@@ -1,0 +1,22 @@
+explainer_id: ""
+concept_id: ""
+concept_name: ""
+audience_level: ""
+question_ids: []
+mental_model_sentence: ""
+visual_type: "flow|state|sequence|comparison|layered|timeline"
+elements: []
+relationships: []
+annotations: []
+what_the_reader_should_observe: ""
+common_misreading: ""
+takeaway: ""
+alt_text: ""
+rendering_handoff:
+  target_skill: "data-documentation-and-diagrams"
+  preferred_notation: "mermaid"
+  status: "not-requested"
+sources: []
+originality_statement: "Specification authored from primary sources; no third-party diagram copied or adapted."
+limitations: []
+status: "draft"

@@ -11,3 +11,4 @@ Plan, define, design, map, specify or create a proposed artifact — remaining d
 - `career-design-technical-writing-strategy` → **career technical-writing strategy**; read [contract](tasks/career-design-technical-writing-strategy.md).
 - `career-plan-ethical-professional-visibility` → **ethical professional-visibility plan**; read [contract](tasks/career-plan-ethical-professional-visibility.md).
 - `career-map-question-knowledge-dependencies` → **question knowledge dependency map**; read [contract](tasks/career-map-question-knowledge-dependencies.md).
+- `career-design-concept-visual-explainer` → **concept visual explainer spec**; read [contract](tasks/career-design-concept-visual-explainer.md).

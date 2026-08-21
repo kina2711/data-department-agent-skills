@@ -31,7 +31,8 @@ For a linked/versioned library request, select the library task even when the us
 ## Atomic task routing
 
 - **Plan, define, design, map, specify or create a proposed artifact** (5 tasks): read [references/catalog-plan-design.md](references/catalog-plan-design.md).
-- **Build, implement, configure, teach, interview or deliver an artifact** (10 tasks): read [references/catalog-build-deliver.md](references/catalog-build-deliver.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — knowledge deliverables** (4 tasks): read [references/catalog-build-deliver-knowledge.md](references/catalog-build-deliver-knowledge.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — remaining deliverables** (6 tasks): read [references/catalog-build-deliver-other.md](references/catalog-build-deliver-other.md).
 - **Inspect, analyze, test, review, validate, assess, certify or audit** (1 task): read [references/catalog-test-assure.md](references/catalog-test-assure.md).
 - **Deploy, release, monitor, recover, migrate, optimize, retire or improve** (1 task): read [references/catalog-operate-improve.md](references/catalog-operate-improve.md).
 

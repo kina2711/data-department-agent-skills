@@ -17,3 +17,5 @@ Use levels 0–6: unaware, familiar, guided practice, independent application, a
 Every plan includes constraints, prerequisite order, real-work opportunities, recovery buffers, deprioritization rules and weekly/monthly/quarterly review. Track energy and burnout risk. Never guarantee promotion, prescribe sustained overtime, or imply that blogging, speaking or open source is mandatory.
 
 Technical writing strategy belongs here when its primary purpose is career evidence and learning. Handoff actual series research, production, channel adaptation and publishing to `data-technical-content-and-social`.
+
+Published content returns as a candidate claim, not as a settled competency. Consume `content-evidence-return.yaml` from the content skill, verify authorship, scope, review outcome and corrections, then classify it on the evidence ladder as external or learning evidence. Audience metrics never promote a claim, and a published explanation of a topic is not production experience with it.

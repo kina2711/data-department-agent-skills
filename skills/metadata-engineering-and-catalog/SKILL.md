@@ -37,7 +37,8 @@ After selecting the task, detect the real stack/version and read only the matchi
 
 - **Plan, define, design, map, specify or create a proposed artifact** (1 task): read [references/catalog-plan-design.md](references/catalog-plan-design.md).
 - **Build, implement, configure, teach, interview or deliver an artifact — catalog deliverables** (3 tasks): read [references/catalog-build-deliver-catalog.md](references/catalog-build-deliver-catalog.md).
-- **Build, implement, configure, teach, interview or deliver an artifact — remaining deliverables** (10 tasks): read [references/catalog-build-deliver-other.md](references/catalog-build-deliver-other.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — metadata deliverables** (3 tasks): read [references/catalog-build-deliver-metadata.md](references/catalog-build-deliver-metadata.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — remaining deliverables** (7 tasks): read [references/catalog-build-deliver-other.md](references/catalog-build-deliver-other.md).
 - **Inspect, analyze, test, review, validate, assess, certify or audit** (3 tasks): read [references/catalog-test-assure.md](references/catalog-test-assure.md).
 - **Deploy, release, monitor, recover, migrate, optimize, retire or improve** (1 task): read [references/catalog-operate-improve.md](references/catalog-operate-improve.md).
 

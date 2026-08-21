@@ -65,6 +65,7 @@ Additional resources:
 - Read [the context-engineering standard](../context-engineering-standard.md).
 - Reuse the context-index or task-context-package template from `../../assets/`; for the task package, run `../../scripts/build_context_package.py` when local source files are available.
 - Use `../../scripts/bootstrap_context_index.py` for a privacy-minimized source inventory; authority and ownership remain unverified until accountable confirmation.
+- Read [solution option framing](../solution-option-framing.md); frame three to five materially different approaches in `../../assets/design-option-set.yaml`, select one against the stated constraints in at most forty words, and derive the deliverable structure from that selection. Where this role already owns a scored selection artifact, use it instead of duplicating the decision.
 
 
 ## Tests and evidence
@@ -82,3 +83,7 @@ Require owner approval before production, sensitive, externally visible or mater
 ## Return
 
 Return the task ID, lifecycle profile, risk tier, execution path, phase reached, primary deliverable, evidence links, test results, approvals, assumptions, open risks, affected assets, owner and one explicit next task. Route cross-role work through the department orchestrator.
+
+Return the full contract; [response compression](../response-compression.md) governs wording, never coverage. Never soften `blocked` or `failed`, and never report an unrun check as a pass.
+
+Mirror the outcome into `../../assets/atomic-task-output.yaml` alongside the prose. Where the prose and the structured record disagree, the record stands and the task is not complete.

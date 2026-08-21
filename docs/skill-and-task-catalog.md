@@ -1,6 +1,6 @@
 # Chi tiết toàn bộ Data Department Skills và Atomic Tasks
 
-> Phiên bản `3.6.0` · `32` Claude role skills · `809` atomic workflows.
+> Phiên bản `3.6.0` · `32` Claude role skills · `814` atomic workflows.
 > Đây là catalog tra cứu đầy đủ được sinh từ `suite-manifest.yaml`, `task-catalog.json` và task contracts; không phải nội dung luôn được nạp vào context của Claude.
 
 ## Mục lục
@@ -125,8 +125,8 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | 25 | [`data-academy-and-curriculum`](#skill-data-academy-and-curriculum) | Data Academy and Curriculum | 39 |
 | 26 | [`data-onboarding-and-integration`](#skill-data-onboarding-and-integration) | Data Onboarding and Integration | 34 |
 | 27 | [`data-talent-acquisition-and-interview`](#skill-data-talent-acquisition-and-interview) | Data Talent and Interviewing | 41 |
-| 28 | [`data-career-and-interview-coach`](#skill-data-career-and-interview-coach) | Data Career and Interview Coach | 46 |
-| 29 | [`data-technical-content-and-social`](#skill-data-technical-content-and-social) | Technical Content and Social | 26 |
+| 28 | [`data-career-and-interview-coach`](#skill-data-career-and-interview-coach) | Data Career and Interview Coach | 50 |
+| 29 | [`data-technical-content-and-social`](#skill-data-technical-content-and-social) | Technical Content and Social | 27 |
 | 30 | [`data-personal-project-engineering`](#skill-data-personal-project-engineering) | Personal Data Project Engineering | 42 |
 | 31 | [`personal-second-brain-and-knowledge-os`](#skill-personal-second-brain-and-knowledge-os) | Personal Second Brain and Knowledge OS | 46 |
 | 32 | [`book-to-knowledge-and-action`](#skill-book-to-knowledge-and-action) | Book to Knowledge and Action | 45 |
@@ -147,9 +147,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 19 tasks — Plan / Design 0; Build / Deliver 17; Test / Assure 2; Operate / Improve 0.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `approval-ledger.yaml`, `approval-record.json`, `approval-record.schema.json`, `assumption-register.yaml`, `change-scope-contract.json`, `change-scope-ledger.yaml`, `conflict-register.yaml`, `debug-hypothesis-ledger.yaml`, `evidence-ledger.yaml`, `handoff-package.yaml`, `instinct-ledger.json`, `instinct-record.schema.json`, `question-register.yaml`, `run-state.schema.json`, `run-state.yaml`, `stage-gate.yaml`, `success-contract.yaml`, `task-catalog.json`, `task-contract.schema.json`, `telemetry-event.json`, `telemetry-event.schema.json`, `test-evidence.yaml`, `verification-claims.yaml`, `work-ledger.yaml`, `workflow-manifest.json`, `workflow-manifest.schema.json`.
+**Templates/assets có thể tái sử dụng:** `approval-ledger.yaml`, `approval-record.json`, `approval-record.schema.json`, `assumption-register.yaml`, `atomic-task-output.yaml`, `change-scope-contract.json`, `change-scope-ledger.yaml`, `conflict-register.yaml`, `debug-hypothesis-ledger.yaml`, `design-option-set.yaml`, `evidence-ledger.yaml`, `handoff-package.yaml`, `instinct-ledger.json`, `instinct-record.schema.json`, `question-register.yaml`, `run-state.schema.json`, `run-state.yaml`, `stage-gate.yaml`, `success-contract.yaml`, `task-catalog.json`, `task-contract.schema.json`, `telemetry-event.json`, `telemetry-event.schema.json`, `test-evidence.yaml`, `verification-claims.yaml`, `work-ledger.yaml`, `workflow-manifest.json`, `workflow-manifest.schema.json`.
 
 **Scripts:** `analyze_skill_telemetry.py`, `manage_instincts.py`, `record_skill_telemetry.py`, `score_skill_quality.py`, `validate_approval_record.py`, `validate_run_state.py`, `validate_workflow.py`.
 
@@ -196,9 +196,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 18 tasks — Plan / Design 3; Build / Deliver 9; Test / Assure 6; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-snowflake.md`, `context-engineering-standard.md`, `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-snowflake.md`, `context-engineering-standard.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `atomic-task-result.schema.json`, `change-scope-contract.json`, `change-scope-ledger.yaml`, `debug-hypothesis-ledger.yaml`, `evidence-envelope.json`, `evidence-envelope.schema.json`, `project-constitution.json`, `project-constitution.schema.json`, `success-contract.yaml`, `task-context-package.yaml`, `verification-claims.yaml`.
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `atomic-task-result.schema.json`, `change-scope-contract.json`, `change-scope-ledger.yaml`, `debug-hypothesis-ledger.yaml`, `design-option-set.yaml`, `evidence-envelope.json`, `evidence-envelope.schema.json`, `project-constitution.json`, `project-constitution.schema.json`, `success-contract.yaml`, `task-context-package.yaml`, `verification-claims.yaml`.
 
 **Scripts:** `audit_change_scope.py`, `build_context_package.py`, `validate_constitution.py`, `validate_evidence_bundle.py`, `validate_task_result.py`, `verify_deliverable.py`.
 
@@ -249,9 +249,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 9 tasks — Plan / Design 1; Build / Deliver 7; Test / Assure 1; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `context-engineering-standard.md`, `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `context-engineering-standard.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `context-index.yaml`.
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `context-index.yaml`, `design-option-set.yaml`.
 
 **Scripts:** `bootstrap_context_index.py`, `build_context_package.py`.
 
@@ -293,7 +293,11 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 21 tasks — Plan / Design 11; Build / Deliver 7; Test / Assure 3; Operate / Improve 0.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
+
+**Scripts:** `score_portfolio_options.py`.
 
 #### Plan / Design (11 tasks)
 
@@ -345,7 +349,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 24 tasks — Plan / Design 15; Build / Deliver 7; Test / Assure 2; Operate / Improve 0.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
 **Scripts:** `validate_requirements_traceability.py`.
 
@@ -402,7 +408,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 22 tasks — Plan / Design 17; Build / Deliver 1; Test / Assure 4; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-kafka-flink.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-kafka-flink.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
 **Scripts:** `scan_architecture_drift.py`.
 
@@ -457,7 +465,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 22 tasks — Plan / Design 8; Build / Deliver 5; Test / Assure 8; Operate / Improve 1.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
 **Scripts:** `validate_policy_coverage.py`.
 
@@ -517,7 +527,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 18 tasks — Plan / Design 1; Build / Deliver 13; Test / Assure 3; Operate / Improve 1.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
 #### Plan / Design (1 tasks)
 
@@ -571,7 +583,11 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 21 tasks — Plan / Design 1; Build / Deliver 13; Test / Assure 3; Operate / Improve 4.
 
-**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-kafka-flink.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-mlflow-kubeflow.md`, `adapter-snowflake.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-kafka-flink.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-mlflow-kubeflow.md`, `adapter-snowflake.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
+
+**Scripts:** `summarize_terraform_plan.py`.
 
 #### Plan / Design (1 tasks)
 
@@ -628,9 +644,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 19 tasks — Plan / Design 3; Build / Deliver 10; Test / Assure 5; Operate / Improve 1.
 
-**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-microsoft-fabric.md`, `adapter-spark.md`, `evidence-based-repository-understanding.md`, `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-microsoft-fabric.md`, `adapter-spark.md`, `evidence-based-repository-understanding.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `data-path-trace.yaml`.
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `data-path-trace.yaml`, `design-option-set.yaml`.
 
 **Scripts:** `build_code_index.py`, `detect_data_stack.py`.
 
@@ -687,9 +703,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 25 tasks — Plan / Design 3; Build / Deliver 11; Test / Assure 4; Operate / Improve 7.
 
-**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-kafka-flink.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `adapter-spark.md`, `execution-plan-and-pipeline-adapters.md`, `learning-memory-interoperability.md`, `stage-gated-data-validation.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-kafka-flink.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `adapter-spark.md`, `execution-plan-and-pipeline-adapters.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `stage-gated-data-validation.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `execution-plan-review.yaml`, `pipeline-validation-plan.yaml`.
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`, `execution-plan-review.yaml`, `pipeline-validation-plan.yaml`.
 
 **Scripts:** `inspect_execution_plan.py`.
 
@@ -752,9 +768,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 22 tasks — Plan / Design 5; Build / Deliver 10; Test / Assure 4; Operate / Improve 3.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `execution-plan-and-pipeline-adapters.md`, `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `execution-plan-and-pipeline-adapters.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `execution-plan-review.yaml`.
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`, `execution-plan-review.yaml`.
 
 **Scripts:** `inspect_execution_plan.py`.
 
@@ -814,9 +830,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 29 tasks — Plan / Design 8; Build / Deliver 9; Test / Assure 10; Operate / Improve 2.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `analysis-rigor-and-communication.md`, `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `analysis-rigor-and-communication.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `analysis-peer-review.yaml`, `analysis-retrospective.yaml`, `eda-report.yaml`, `impact-estimate.yaml`, `methodology-note.yaml`, `query-logic-explanation.yaml`.
+**Templates/assets có thể tái sử dụng:** `analysis-peer-review.yaml`, `analysis-retrospective.yaml`, `atomic-task-output.yaml`, `design-option-set.yaml`, `eda-report.yaml`, `impact-estimate.yaml`, `methodology-note.yaml`, `query-logic-explanation.yaml`.
 
 **Scripts:** `explain_sql.py`, `profile_dataset.py`.
 
@@ -883,9 +899,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 32 tasks — Plan / Design 4; Build / Deliver 15; Test / Assure 8; Operate / Improve 5.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-microsoft-fabric.md`, `adapter-power-bi.md`, `adapter-snowflake.md`, `adapter-tableau-looker.md`, `dashboard-experience-quality.md`, `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-microsoft-fabric.md`, `adapter-power-bi.md`, `adapter-snowflake.md`, `adapter-tableau-looker.md`, `dashboard-experience-quality.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `dashboard-experience-audit.yaml`.
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `dashboard-experience-audit.yaml`, `design-option-set.yaml`.
 
 **Scripts:** `validate_dashboard_spec.py`.
 
@@ -955,7 +971,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 17 tasks — Plan / Design 5; Build / Deliver 5; Test / Assure 7; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-snowflake.md`, `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-snowflake.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
 #### Plan / Design (5 tasks)
 
@@ -1003,7 +1021,11 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 22 tasks — Plan / Design 5; Build / Deliver 13; Test / Assure 3; Operate / Improve 1.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
+
+**Scripts:** `check_experiment_design.py`.
 
 #### Plan / Design (5 tasks)
 
@@ -1061,7 +1083,11 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 20 tasks — Plan / Design 4; Build / Deliver 10; Test / Assure 3; Operate / Improve 3.
 
-**Domain references tải khi cần:** `adapter-databricks.md`, `adapter-kafka-flink.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-databricks.md`, `adapter-kafka-flink.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
+
+**Scripts:** `check_training_serving_skew.py`.
 
 #### Plan / Design (4 tasks)
 
@@ -1117,7 +1143,11 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 23 tasks — Plan / Design 1; Build / Deliver 12; Test / Assure 2; Operate / Improve 8.
 
-**Domain references tải khi cần:** `adapter-databricks.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-databricks.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
+
+**Scripts:** `check_model_promotion_readiness.py`.
 
 #### Plan / Design (1 tasks)
 
@@ -1176,9 +1206,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 21 tasks — Plan / Design 3; Build / Deliver 5; Test / Assure 8; Operate / Improve 5.
 
-**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `stage-gated-data-validation.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `stage-gated-data-validation.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `pipeline-validation-plan.yaml`.
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`, `pipeline-validation-plan.yaml`.
 
 **Scripts:** `validate_tabular_data.py`.
 
@@ -1237,7 +1267,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 16 tasks — Plan / Design 3; Build / Deliver 9; Test / Assure 4; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-power-bi.md`, `adapter-snowflake.md`, `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-power-bi.md`, `adapter-snowflake.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
 #### Plan / Design (3 tasks)
 
@@ -1284,7 +1316,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 13 tasks — Plan / Design 3; Build / Deliver 6; Test / Assure 2; Operate / Improve 2.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
 #### Plan / Design (3 tasks)
 
@@ -1333,7 +1367,11 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 20 tasks — Plan / Design 7; Build / Deliver 6; Test / Assure 4; Operate / Improve 3.
 
-**Domain references tải khi cần:** `adapter-databricks.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-databricks.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
+
+**Scripts:** `summarize_eval_run.py`.
 
 #### Plan / Design (7 tasks)
 
@@ -1389,7 +1427,11 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 20 tasks — Plan / Design 18; Build / Deliver 1; Test / Assure 1; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-dbt.md`, `adapter-metadata-catalog.md`, `adapter-power-bi.md`, `adapter-tableau-looker.md`, `learning-memory-interoperability.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-dbt.md`, `adapter-metadata-catalog.md`, `adapter-power-bi.md`, `adapter-tableau-looker.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
+
+**Scripts:** `validate_diagram_source.py`.
 
 #### Plan / Design (18 tasks)
 
@@ -1440,9 +1482,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 17 tasks — Plan / Design 5; Build / Deliver 10; Test / Assure 1; Operate / Improve 1.
 
-**Domain references tải khi cần:** `evidence-based-repository-understanding.md`, `learning-memory-interoperability.md`, `linked-knowledge-library.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `evidence-based-repository-understanding.md`, `learning-memory-interoperability.md`, `linked-knowledge-library.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `concept-knowledge-map.yaml`, `data-path-trace.yaml`, `knowledge-library.yaml`.
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `concept-knowledge-map.yaml`, `data-path-trace.yaml`, `design-option-set.yaml`, `knowledge-library.yaml`.
 
 #### Plan / Design (5 tasks)
 
@@ -1495,9 +1537,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 39 tasks — Plan / Design 24; Build / Deliver 7; Test / Assure 7; Operate / Improve 1.
 
-**Domain references tải khi cần:** `assessment-and-certification.md`, `knowledge-deep-dive-standard.md`, `learning-memory-interoperability.md`, `role-curricula.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `assessment-and-certification.md`, `knowledge-deep-dive-standard.md`, `learning-memory-interoperability.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `assessment-blueprint.yaml`, `concept-knowledge-graph.yaml`, `curriculum-spec.yaml`, `knowledge-deep-dive.yaml`, `learner-evidence.yaml`, `lesson-plan.yaml`, `question-learning-traceability.yaml`.
+**Templates/assets có thể tái sử dụng:** `assessment-blueprint.yaml`, `atomic-task-output.yaml`, `concept-knowledge-graph.yaml`, `curriculum-spec.yaml`, `design-option-set.yaml`, `knowledge-deep-dive.yaml`, `learner-evidence.yaml`, `lesson-plan.yaml`, `question-learning-traceability.yaml`.
 
 **Scripts:** `validate_curriculum_coverage.py`.
 
@@ -1574,9 +1616,11 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 34 tasks — Plan / Design 8; Build / Deliver 18; Test / Assure 4; Operate / Improve 4.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `role-onboarding-tracks.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `learning-memory-interoperability.md`, `response-compression.md`, `role-onboarding-tracks.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `access-readiness.yaml`, `checkpoint.yaml`, `onboarding-plan.yaml`.
+**Templates/assets có thể tái sử dụng:** `access-readiness.yaml`, `atomic-task-output.yaml`, `checkpoint.yaml`, `design-option-set.yaml`, `onboarding-plan.yaml`.
+
+**Scripts:** `score_onboarding_checkpoint.py`.
 
 #### Plan / Design (8 tasks)
 
@@ -1646,9 +1690,11 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 41 tasks — Plan / Design 11; Build / Deliver 21; Test / Assure 8; Operate / Improve 1.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `question-knowledge-validity.md`, `role-interview-architecture.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `learning-memory-interoperability.md`, `question-knowledge-validity.md`, `response-compression.md`, `role-interview-architecture.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `answer-anchor-pack.yaml`, `assessment-rubric.yaml`, `calibration-record.yaml`, `candidate-packet.yaml`, `debrief.yaml`, `fairness-validity-audit.yaml`, `hiring-workflow-state.yaml`, `interview-evidence.yaml`, `interview-loop.yaml`, `interviewer-guide.yaml`, `question-bank-coverage-audit.yaml`, `question-competency-evidence.yaml`, `role-scorecard.yaml`.
+**Templates/assets có thể tái sử dụng:** `answer-anchor-pack.yaml`, `assessment-rubric.yaml`, `atomic-task-output.yaml`, `calibration-record.yaml`, `candidate-packet.yaml`, `debrief.yaml`, `design-option-set.yaml`, `fairness-validity-audit.yaml`, `hiring-workflow-state.yaml`, `interview-evidence.yaml`, `interview-loop.yaml`, `interviewer-guide.yaml`, `question-bank-coverage-audit.yaml`, `question-competency-evidence.yaml`, `role-scorecard.yaml`.
+
+**Scripts:** `audit_question_bank.py`.
 
 #### Plan / Design (11 tasks)
 
@@ -1723,15 +1769,15 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Ranh giới và handoff:** Không bịa kinh nghiệm, hứa title/promotion, đánh đồng self-study với production hay biến public visibility thành proxy cho năng lực.
 
-**Quy mô:** 46 tasks — Plan / Design 13; Build / Deliver 23; Test / Assure 10; Operate / Improve 0.
+**Quy mô:** 50 tasks — Plan / Design 14; Build / Deliver 25; Test / Assure 11; Operate / Improve 0.
 
-**Domain references tải khi cần:** `career-learning-memory.md`, `career-operating-system.md`, `coaching-ethics-and-method.md`, `interview-knowledge-system.md`, `learning-memory-interoperability.md`, `role-curricula.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `career-learning-memory.md`, `career-operating-system.md`, `coaching-ethics-and-method.md`, `interview-knowledge-system.md`, `learning-memory-interoperability.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `system-design-canon.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `career-content-handoff.yaml`, `career-evidence-portfolio.yaml`, `career-operating-system.yaml`, `career-review.yaml`, `cross-skill-prerequisite-map.yaml`, `interview-knowledge-library.yaml`, `interview-question-dossier.yaml`, `learner-memory.json`, `learner-memory.schema.json`, `learning-event.yaml`, `mock-assessment.yaml`, `question-knowledge-map.yaml`, `readiness-profile.yaml`, `remediation-plan.yaml`, `skill-transition-context.json`.
+**Templates/assets có thể tái sử dụng:** `architecture-case-study.yaml`, `atomic-task-output.yaml`, `career-content-handoff.yaml`, `career-evidence-portfolio.yaml`, `career-operating-system.yaml`, `career-review.yaml`, `concept-visual-explainer.yaml`, `content-evidence-return.yaml`, `cross-skill-prerequisite-map.yaml`, `design-option-set.yaml`, `interview-knowledge-library.yaml`, `interview-question-dossier.yaml`, `knowledge-coverage-audit.yaml`, `learner-memory.json`, `learner-memory.schema.json`, `learning-event.yaml`, `mock-assessment.yaml`, `offer-evaluation.yaml`, `question-knowledge-map.yaml`, `readiness-profile.yaml`, `remediation-plan.yaml`, `skill-transition-context.json`.
 
 **Scripts:** `build_skill_transition_context.py`, `validate_learning_memory.py`.
 
-#### Plan / Design (13 tasks)
+#### Plan / Design (14 tasks)
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
@@ -1743,19 +1789,22 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`career-create-targeted-remediation`](skills/data-career-and-interview-coach/references/tasks/career-create-targeted-remediation.md) | giao theory/practice đúng failure pattern | interview remediation plan | `career-coaching` | `R1-reviewed` / `standard-path` |
 | [`career-design-answer-strategy`](skills/data-career-and-interview-coach/references/tasks/career-design-answer-strategy.md) | chọn structure, opening, reasoning flow, evidence, STAR/system-design pattern, checks và follow-up handling | interview answer strategy | `career-coaching` | `R1-reviewed` / `standard-path` |
 | [`career-design-career-capstone-program`](skills/data-career-and-interview-coach/references/tasks/career-design-career-capstone-program.md) | thiết kế chương trình 12/24 tháng có prerequisites, labs, projects, reviews, recovery buffers và evidence milestones | career capstone program | `career-development` | `R1-reviewed` / `standard-path` |
+| [`career-design-concept-visual-explainer`](skills/data-career-and-interview-coach/references/tasks/career-design-concept-visual-explainer.md) | đặc tả visual mental model cho một concept gồm elements, relationships, annotation, common misreading, takeaway và alt text | concept visual explainer spec | `career-coaching` | `R1-reviewed` / `standard-path` |
 | [`career-design-technical-writing-strategy`](skills/data-career-and-interview-coach/references/tasks/career-design-technical-writing-strategy.md) | chọn audience, writing formats, themes, cadence và evidence policy để technical writing phục vụ mastery và reputation thật | career technical-writing strategy | `career-development` | `R1-reviewed` / `standard-path` |
 | [`career-map-career-stage-competencies`](skills/data-career-and-interview-coach/references/tasks/career-map-career-stage-competencies.md) | mô tả competency, scope, autonomy, judgment, impact và influence theo từng career stage mà không đồng nhất title giữa công ty | career-stage competency map | `career-development` | `R1-reviewed` / `standard-path` |
 | [`career-map-cross-skill-prerequisites`](skills/data-career-and-interview-coach/references/tasks/career-map-cross-skill-prerequisites.md) | nối concept, interface, decision rule và failure mode giữa skill đã học với skill kế tiếp | cross-skill prerequisite map | `career-development` | `R1-reviewed` / `standard-path` |
 | [`career-map-question-knowledge-dependencies`](skills/data-career-and-interview-coach/references/tasks/career-map-question-knowledge-dependencies.md) | nối question tới core concepts, prerequisites, related concepts, contrasts và follow-up paths | question knowledge dependency map | `career-coaching` | `R1-reviewed` / `standard-path` |
 | [`career-plan-ethical-professional-visibility`](skills/data-career-and-interview-coach/references/tasks/career-plan-ethical-professional-visibility.md) | xây kế hoạch contribution, community, mentoring và public expertise không khoe title hoặc biến self-promotion thành proxy cho năng lực | ethical professional-visibility plan | `career-development` | `R1-reviewed` / `standard-path` |
 
-#### Build / Deliver (23 tasks)
+#### Build / Deliver (25 tasks)
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
+| [`career-build-architecture-case-study`](skills/data-career-and-interview-coach/references/tasks/career-build-architecture-case-study.md) | bóc tách một kiến trúc public thành constraints, decisions, rejected alternatives, consistency, cost, failure modes và follow-up questions có trích dẫn nguồn | architecture case-study dossier | `career-coaching` | `R2-standard` / `standard-path` |
 | [`career-build-career-evidence-portfolio`](skills/data-career-and-interview-coach/references/tasks/career-build-career-evidence-portfolio.md) | lập evidence inventory theo learning, practice, project, production, leadership, business và organizational impact | career evidence portfolio | `career-development` | `R1-reviewed` / `standard-path` |
 | [`career-build-career-operating-system`](skills/data-career-and-interview-coach/references/tasks/career-build-career-operating-system.md) | nối current state, target capability, gaps, practice, real work, evidence, feedback và review cadence thành hệ thống phát triển bền vững | career operating system | `career-development` | `R1-reviewed` / `standard-path` |
 | [`career-build-interview-knowledge-library`](skills/data-career-and-interview-coach/references/tasks/career-build-interview-knowledge-library.md) | tổ chức question dossiers thành linked, tagged, versioned và Notion-ready knowledge library | interview knowledge library | `career-coaching` | `R2-standard` / `standard-path` |
+| [`career-build-offer-evaluation-and-negotiation-plan`](skills/data-career-and-interview-coach/references/tasks/career-build-offer-evaluation-and-negotiation-plan.md) | định giá từng cấu phần offer, đối chiếu market range có trích dẫn, chuẩn bị asks, fallback và walk-away position mà không hứa kết quả lương | offer evaluation and negotiation plan | `career-coaching` | `R2-standard` / `standard-path` |
 | [`career-build-skill-transition-context`](skills/data-career-and-interview-coach/references/tasks/career-build-skill-transition-context.md) | nén phần đã mastered thành bridge summary và chỉ mở rộng phần stale, uncertain hoặc trực tiếp cần cho skill mới | bounded skill-transition context pack | `career-development` | `R1-reviewed` / `standard-path` |
 | [`career-coach-star-story`](skills/data-career-and-interview-coach/references/tasks/career-coach-star-story.md) | cải thiện situation/task/action/result mà không bịa evidence | refined STAR story | `career-coaching` | `R1-reviewed` / `standard-path` |
 | [`career-coach-technical-communication`](skills/data-career-and-interview-coach/references/tasks/career-coach-technical-communication.md) | luyện clarification, assumptions, trade-offs và concise explanation | communication coaching record | `career-coaching` | `R1-reviewed` / `standard-path` |
@@ -1777,7 +1826,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`career-run-mock-sql-interview`](skills/data-career-and-interview-coach/references/tasks/career-run-mock-sql-interview.md) | mô phỏng SQL live có probing, edge cases và feedback | SQL mock assessment | `career-coaching` | `R1-reviewed` / `standard-path` |
 | [`career-track-preparation-progress`](skills/data-career-and-interview-coach/references/tasks/career-track-preparation-progress.md) | theo dõi evidence, scores, consistency và remaining risks | preparation progress report | `career-coaching` | `R1-reviewed` / `standard-path` |
 
-#### Test / Assure (10 tasks)
+#### Test / Assure (11 tasks)
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
@@ -1785,6 +1834,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`career-assess-role-readiness`](skills/data-career-and-interview-coach/references/tasks/career-assess-role-readiness.md) | đánh giá theory, practical evidence, communication và gaps theo scorecard | readiness assessment | `career-development` | `R1-reviewed` / `standard-path` |
 | [`career-assess-topic-mastery`](skills/data-career-and-interview-coach/references/tasks/career-assess-topic-mastery.md) | đánh giá recall, application, changed-scenario transfer, failure handling, evidence và freshness trước khi đổi mastery state | topic mastery assessment | `career-development` | `R1-reviewed` / `standard-path` |
 | [`career-audit-career-claims-evidence`](skills/data-career-and-interview-coach/references/tasks/career-audit-career-claims-evidence.md) | đối chiếu resume, portfolio, promotion hoặc public claims với evidence thật và gắn nhãn self-study/hypothetical đúng mức | career-claim evidence audit | `career-development` | `R1-reviewed` / `standard-path` |
+| [`career-audit-knowledge-coverage`](skills/data-career-and-interview-coach/references/tasks/career-audit-knowledge-coverage.md) | đối chiếu question library với canonical concept ID để tìm concept chưa có dossier, prerequisite gap, entry stale và vùng luyện thừa | interview knowledge coverage audit | `career-coaching` | `R1-reviewed` / `standard-path` |
 | [`career-certify-interview-readiness`](skills/data-career-and-interview-coach/references/tasks/career-certify-interview-readiness.md) | tổng hợp multi-format evidence và residual gaps | interview-readiness decision | `career-coaching` | `R1-reviewed` / `standard-path` |
 | [`career-detect-learning-decay`](skills/data-career-and-interview-coach/references/tasks/career-detect-learning-decay.md) | phát hiện knowledge stale, ít dùng, version drift, evidence hết hạn hoặc confidence giảm và chọn refresh tối thiểu | learning-decay and refresh report | `career-development` | `R1-reviewed` / `standard-path` |
 | [`career-evaluate-interview-answer`](skills/data-career-and-interview-coach/references/tasks/career-evaluate-interview-answer.md) | chấm correctness, structure, evidence, depth và communication | answer evaluation | `career-coaching` | `R1-reviewed` / `standard-path` |
@@ -1804,11 +1854,11 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Ranh giới và handoff:** Không viết social trước technical validation, copy một bài sang mọi kênh, hoặc bịa production experience, benchmark, authority và reader outcomes.
 
-**Quy mô:** 26 tasks — Plan / Design 10; Build / Deliver 7; Test / Assure 7; Operate / Improve 2.
+**Quy mô:** 27 tasks — Plan / Design 10; Build / Deliver 7; Test / Assure 8; Operate / Improve 2.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `platform-format-playbooks.md`, `technical-content-quality-standard.md`, `technical-series-method.md`, `universal-professional-series-rules.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `learning-memory-interoperability.md`, `platform-format-playbooks.md`, `response-compression.md`, `solution-option-framing.md`, `technical-content-quality-standard.md`, `technical-series-method.md`, `universal-professional-series-rules.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `content-manifest.json`, `content-quality-review.yaml`, `editorial-calendar.yaml`, `episode-brief.yaml`, `social-episode-package.yaml`, `source-pack.yaml`, `technical-series-plan.yaml`.
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `content-evidence-return.yaml`, `content-manifest.json`, `content-quality-review.yaml`, `design-option-set.yaml`, `editorial-calendar.yaml`, `episode-brief.yaml`, `series-concept-coverage.yaml`, `social-episode-package.yaml`, `source-pack.yaml`, `technical-series-plan.yaml`.
 
 **Scripts:** `validate_content_manifest.py`.
 
@@ -1839,12 +1889,13 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`content-repurpose-technical-content`](skills/data-technical-content-and-social/references/tasks/content-repurpose-technical-content.md) | biến canonical article thành channel-native variants mà không copy nguyên văn hoặc làm sai claim | cross-channel adaptation package | `advisory-analysis` | `R0-light` / `fast-path` |
 | [`content-research-technical-topic`](skills/data-technical-content-and-social/references/tasks/content-research-technical-topic.md) | thu thập official sources, versioned facts, examples, controversies, failure modes và source limitations | technical-topic research pack | `advisory-analysis` | `R0-light` / `fast-path` |
 
-#### Test / Assure (7 tasks)
+#### Test / Assure (8 tasks)
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
 | [`content-audit-author-voice-and-originality`](skills/data-technical-content-and-social/references/tasks/content-audit-author-voice-and-originality.md) | kiểm tra consistency, AI tells, cliché, copied phrasing, invented authority và channel duplication | voice and originality audit | `governance-assurance` | `R1-reviewed` / `standard-path` |
 | [`content-audit-claim-source-traceability`](skills/data-technical-content-and-social/references/tasks/content-audit-claim-source-traceability.md) | nối từng material claim tới source, test, runtime evidence hoặc nhãn opinion/hypothesis | content claim-traceability audit | `governance-assurance` | `R1-reviewed` / `standard-path` |
+| [`content-audit-series-concept-coverage`](skills/data-technical-content-and-social/references/tasks/content-audit-series-concept-coverage.md) | map episode đã publish tới canonical concept ID để tách concept đã dạy khỏi concept chỉ nhắc tới, tìm prerequisite hở và trùng lặp | series concept coverage audit | `governance-assurance` | `R1-reviewed` / `standard-path` |
 | [`content-measure-series-performance`](skills/data-technical-content-and-social/references/tasks/content-measure-series-performance.md) | đánh giá qualified readership, saves, discussion quality, completion, subscriptions và learning outcomes không chạy theo vanity metrics | series performance review | `advisory-analysis` | `R0-light` / `fast-path` |
 | [`content-review-platform-fit`](skills/data-technical-content-and-social/references/tasks/content-review-platform-fit.md) | kiểm tra length, structure, accessibility, CTA, hashtags, links, formatting và native-reader experience theo channel | platform-fit review | `advisory-analysis` | `R0-light` / `fast-path` |
 | [`content-review-technical-accuracy`](skills/data-technical-content-and-social/references/tasks/content-review-technical-accuracy.md) | kiểm tra facts, mechanisms, version specificity, abstraction/implementation boundary, examples và limitations | technical accuracy review | `advisory-analysis` | `R0-light` / `fast-path` |
@@ -1872,9 +1923,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 42 tasks — Plan / Design 10; Build / Deliver 26; Test / Assure 6; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-kafka-flink.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-mlflow-kubeflow.md`, `adapter-power-bi.md`, `adapter-snowflake.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `personal-project-operating-system.md`, `personal-project-quality-standard.md`, `repository-assessment-and-originality.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-kafka-flink.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-mlflow-kubeflow.md`, `adapter-power-bi.md`, `adapter-snowflake.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `personal-project-operating-system.md`, `personal-project-quality-standard.md`, `repository-assessment-and-originality.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `borrowed-source-transformation.yaml`, `personal-project-manifest.json`, `project-evidence-plan.yaml`, `project-intake.yaml`, `project-option-scorecard.json`, `project-release-review.yaml`, `project-roadmap.yaml`, `project-thesis.yaml`, `repository-assessment.yaml`.
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `borrowed-source-transformation.yaml`, `design-option-set.yaml`, `personal-project-manifest.json`, `project-evidence-plan.yaml`, `project-intake.yaml`, `project-option-scorecard.json`, `project-release-review.yaml`, `project-roadmap.yaml`, `project-thesis.yaml`, `repository-assessment.yaml`.
 
 **Scripts:** `audit_repository.py`, `build_portfolio_evidence.py`, `score_project_options.py`, `validate_personal_project_manifest.py`.
 
@@ -1949,9 +2000,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 46 tasks — Plan / Design 12; Build / Deliver 27; Test / Assure 4; Operate / Improve 3.
 
-**Domain references tải khi cần:** `knowledge-note-and-lineage-standard.md`, `learning-memory-interoperability.md`, `migration-and-tool-interop.md`, `retrieval-and-output-grounding.md`, `second-brain-operating-system.md`, `second-brain-quality-and-safety.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `knowledge-note-and-lineage-standard.md`, `learning-memory-interoperability.md`, `migration-and-tool-interop.md`, `response-compression.md`, `retrieval-and-output-grounding.md`, `second-brain-operating-system.md`, `second-brain-quality-and-safety.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `knowledge-review.yaml`, `migration-plan.yaml`, `output-record.yaml`, `personal-context.yaml`, `retrieval-evaluation.yaml`, `second-brain-manifest.json`, `second-brain-manifest.schema.json`, `source-record.yaml`, `wiki-note.yaml`.
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`, `knowledge-review.yaml`, `migration-plan.yaml`, `output-record.yaml`, `personal-context.yaml`, `retrieval-evaluation.yaml`, `second-brain-manifest.json`, `second-brain-manifest.schema.json`, `source-record.yaml`, `wiki-note.yaml`.
 
 **Scripts:** `build_brain_index.py`, `build_entity_context_graph.py`, `validate_second_brain.py`.
 
@@ -2035,9 +2086,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 45 tasks — Plan / Design 1; Build / Deliver 32; Test / Assure 8; Operate / Improve 4.
 
-**Domain references tải khi cần:** `book-conversion-operating-system.md`, `copyright-security-and-quality.md`, `destination-packs.md`, `knowledge-distillation-and-application.md`, `learning-memory-interoperability.md`, `source-extraction-and-structure.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `book-conversion-operating-system.md`, `copyright-security-and-quality.md`, `destination-packs.md`, `knowledge-distillation-and-application.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `source-extraction-and-structure.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `application-experiment.yaml`, `book-conversion-manifest.json`, `book-conversion-manifest.schema.json`, `book-source-manifest.yaml`, `chapter-note.yaml`, `conversion-evidence.yaml`, `destination-plan.yaml`, `framework-card.yaml`.
+**Templates/assets có thể tái sử dụng:** `application-experiment.yaml`, `atomic-task-output.yaml`, `book-conversion-manifest.json`, `book-conversion-manifest.schema.json`, `book-source-manifest.yaml`, `chapter-note.yaml`, `conversion-evidence.yaml`, `design-option-set.yaml`, `destination-plan.yaml`, `framework-card.yaml`.
 
 **Scripts:** `extract_book_sources.py`, `validate_book_conversion.py`.
 
@@ -2129,4 +2180,4 @@ Hãy phân tích yêu cầu và báo trước khi làm:
 Sau đó thực hiện task hiện tại, test, báo evidence, approval status, residual risks và next owner.
 ```
 
-Tổng kiểm: **32 skills / 809 tasks** đã được liệt kê, không thiếu và không trùng ownership trong catalog này.
+Tổng kiểm: **32 skills / 814 tasks** đã được liệt kê, không thiếu và không trùng ownership trong catalog này.

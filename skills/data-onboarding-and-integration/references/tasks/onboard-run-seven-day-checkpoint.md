@@ -34,6 +34,7 @@ If an absent input changes semantics, risk, cost, scope or acceptance, classify 
 Additional resources:
 - Read [role onboarding tracks](../role-onboarding-tracks.md) and tailor by role and level.
 - Reuse `../../assets/onboarding-plan.yaml`, `../../assets/access-readiness.yaml` and `../../assets/checkpoint.yaml`.
+- Score the checkpoint with `../../scripts/score_onboarding_checkpoint.py`; a critical dimension below the bar blocks the readiness decision and is never averaged away, and any score above exposure must name evidence.
 
 - When readiness inputs are incomplete, a bounded assumption-based draft is allowed, but mark failed gates and never represent planned access, training or contribution as completed.
 - Treat actual access provisioning or sensitive-data enablement as R3-controlled; treat offboarding and access revocation as R4-critical with independent verification.
@@ -54,3 +55,5 @@ Require owner approval before production, sensitive, externally visible or mater
 ## Return
 
 Return the task ID, lifecycle profile, risk tier, execution path, phase reached, primary deliverable, evidence links, test results, approvals, assumptions, open risks, affected assets, owner and one explicit next task. Route cross-role work through the department orchestrator.
+
+Return the full contract; [response compression](../response-compression.md) governs wording, never coverage. Never soften `blocked` or `failed`, and never report an unrun check as a pass.

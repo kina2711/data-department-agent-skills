@@ -1,0 +1,19 @@
+audit_id: ""
+series_id: ""
+canon_version: ""
+episodes:
+  - episode_id: ""
+    artifact_ref: ""
+    concept_ids_taught: []
+    concept_ids_referenced: []
+    has_explanation: false
+    has_worked_artifact: false
+    has_failure_mode: false
+taught: []
+referenced_only: []
+uncovered_prerequisites: []
+duplicated_coverage: []
+arc_gaps: []
+recommended_episodes: []
+owner: ""
+status: "draft"

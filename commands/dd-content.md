@@ -1,6 +1,6 @@
 ---
 name: dd-content
-description: "Open the Technical Content and Social department (ship stage) and route the request to one of its 26 atomic tasks. Design, research, produce, validate, publish, measure, and refresh evidence-backed technical content series for Facebook in Vietnamese and LinkedIn/Substack in English, plus GitHub and related formats."
+description: "Open the Technical Content and Social department (ship stage) and route the request to one of its 27 atomic tasks. Design, research, produce, validate, publish, measure, and refresh evidence-backed technical content series for Facebook in Vietnamese and LinkedIn/Substack in English, plus GitHub and related formats."
 argument-hint: "<request>"
 disable-model-invocation: true
 ---
@@ -9,7 +9,7 @@ disable-model-invocation: true
 
 Open the **Technical Content and Social** department for: $ARGUMENTS
 
-Sprint stage: `ship`. This department owns 26 atomic tasks.
+Sprint stage: `ship`. This department owns 27 atomic tasks.
 
 1. Read `skills/data-technical-content-and-social/SKILL.md` and follow its operating contract.
 2. Confirm this department actually owns the primary deliverable. If another role owns it,

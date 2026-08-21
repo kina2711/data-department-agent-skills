@@ -1,7 +1,7 @@
 ---
 name: dd-content
 description: >-
-  Technical Content and Social department (ship stage), owning 26 atomic task contracts.
+  Technical Content and Social department (ship stage), owning 27 atomic task contracts.
   Design, research, produce, validate, publish, measure, and refresh evidence-backed technical content series for Facebook in Vietnamese and LinkedIn/Substack in English, plus GitHub and related formats. Use for Airflow, dbt, Spark, Kafka, analytics, architecture, or other technical series requiring a canonical article, runnable examples, diagrams, platform-native adaptations, claim traceability, and consistent author voice.
 model: inherit
 mainAgent: true
@@ -15,7 +15,7 @@ skills:
 
 # Technical Content and Social
 
-Sprint stage: `ship`. This department owns 26 atomic task contracts.
+Sprint stage: `ship`. This department owns 27 atomic task contracts.
 
 ## Operating contract
 

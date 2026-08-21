@@ -1,7 +1,7 @@
 ---
 name: dd-career
 description: >-
-  Data Career and Interview Coach department (reflect stage), owning 46 atomic task contracts.
+  Data Career and Interview Coach department (reflect stage), owning 50 atomic task contracts.
   Build evidence-based Data careers through career operating systems, cross-skill learner memory, mastery and decay tracking, bounded skill-transition context, stage competency maps, sustainable capstone plans, authentic portfolios, technical-writing strategy, interview practice, remediation and review cycles. Never fabricate experience, guarantee titles, or complete live hiring assessments.
 model: inherit
 mainAgent: true
@@ -15,7 +15,7 @@ skills:
 
 # Data Career and Interview Coach
 
-Sprint stage: `reflect`. This department owns 46 atomic task contracts.
+Sprint stage: `reflect`. This department owns 50 atomic task contracts.
 
 ## Operating contract
 

@@ -1,7 +1,7 @@
 # Data Department Agent Skills
 
 Hệ điều hành có kiểm soát cho toàn bộ một phòng Data, đóng gói dưới dạng plugin Claude Code.
-**32 role skill**, **809 atomic task contract**, **45 slash command**, **39 script evidence
+**32 role skill**, **814 atomic task contract**, **45 slash command**, **48 script evidence
 chạy được**, **12 JSON Schema**, và một production guard hook.
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
@@ -103,7 +103,7 @@ claude --plugin-dir .
 /dd-catalog profiling
 ```
 
-Phải trả về các task ID khớp từ catalog 809 task. Nếu nó trả lời bằng kiến thức chung thay vì
+Phải trả về các task ID khớp từ catalog 814 task. Nếu nó trả lời bằng kiến thức chung thay vì
 từ catalog, nghĩa là plugin **chưa** được nạp.
 
 ---
@@ -199,14 +199,14 @@ yêu cầu bằng ngôn ngữ tự nhiên
    ↓  route theo primary deliverable, không bao giờ theo chức danh
 một role skill sở hữu                    (32 ứng viên)
    ↓  đọc MỘT catalog shard, không phải tất cả
-một atomic task chuẩn                    (809 contract)
+một atomic task chuẩn                    (814 contract)
    ↓  đọc trọn vẹn contract đó
 Plan → Assess → Design → Execute → Test → Review/Approve → Release/Handoff → Monitor/Improve
 ```
 
 **Progressive disclosure chính là điểm mấu chốt.** Chỉ description của skill nằm thường trực
 trong context. Sau đó Claude nạp một `SKILL.md`, một catalog shard, một task contract, và chỉ
-những reference mà contract đó nêu tên. 809 contract và 98 stack adapter **không bao giờ** được
+những reference mà contract đó nêu tên. 814 contract và 98 stack adapter **không bao giờ** được
 nạp cùng lúc.
 
 Catalog chia theo intent — plan/design, build/deliver, test/assure, operate/improve — và shard
@@ -284,13 +284,13 @@ Mỗi phòng ban là một slash command, nhóm theo sprint stage. Con số là 
 |---|---|---|
 | `/dd-platform` | Data Platform and DataOps | 21 |
 | `/dd-mlops` | MLOps | 23 |
-| `/dd-content` | Technical Content and Social | 26 |
+| `/dd-content` | Technical Content and Social | 27 |
 
 ### Reflect — học, dạy, phát triển
 
 | Command | Phòng ban | Task |
 |---|---|---|
-| `/dd-career` | Data Career and Interview Coach | 46 |
+| `/dd-career` | Data Career and Interview Coach | 50 |
 | `/dd-brain` | Personal Second Brain and Knowledge OS | 46 |
 | `/dd-book` | Book to Knowledge and Action | 45 |
 | `/dd-hire` | Data Talent and Interviewing | 41 |
@@ -298,7 +298,7 @@ Mỗi phòng ban là một slash command, nhóm theo sprint stage. Con số là 
 | `/dd-docs` | Data Documentation and Diagrams | 20 |
 | `/dd-enable` | Data Enablement and Knowledge | 17 |
 
-Chi tiết đầy đủ — ownership, ranh giới, resource và toàn bộ 809 workflow — nằm ở
+Chi tiết đầy đủ — ownership, ranh giới, resource và toàn bộ 814 workflow — nằm ở
 [docs/skill-and-task-catalog.md](docs/skill-and-task-catalog.md).
 
 ---
@@ -312,7 +312,7 @@ Chi tiết đầy đủ — ownership, ranh giới, resource và toàn bộ 809 
 | Command | Làm gì |
 |---|---|
 | `/dd-route <yêu cầu>` | Xác định một role sở hữu và một task chuẩn, **chưa thực thi** |
-| `/dd-catalog <từ khóa>` | Tra catalog 809 task theo từ khóa, role prefix hoặc deliverable |
+| `/dd-catalog <từ khóa>` | Tra catalog 814 task theo từ khóa, role prefix hoặc deliverable |
 | `/dd-task <task-id>` | Nạp trọn một contract; báo readiness, gate, test, approval |
 | `/dd-navigate <symbol>` | Trả lời câu hỏi code từ symbol index thay vì đọc cả file |
 | `/dd-recall <câu hỏi>` | Truy hồi việc cũ từ trace đã index, **0 model call** |
@@ -448,7 +448,7 @@ review Airflow đã quá hạn, lúc đó nó chuyển vào nhóm cần test l�
 
 ## Evidence chạy được
 
-39 script trải khắp các skill. **Chỉ dùng thư viện chuẩn** — chạy trên máy bạn không cần cài gì
+48 script trải khắp các skill. **Chỉ dùng thư viện chuẩn** — chạy trên máy bạn không cần cài gì
 thêm. Exit code mang ý nghĩa thống nhất ở mọi nơi:
 
 | Exit | Nghĩa |
@@ -493,6 +493,15 @@ evidence đã kiểm chứng nào chống lưng.
 | `audit_repository.py` | Kiểm kê read-only tất định trước khi đánh giá định tính |
 | `profile_dataset.py`, `explain_sql.py` | Evidence phân tích lượt đầu |
 | `detect_data_stack.py` | Nhận diện stack trước khi chọn adapter |
+| `validate_diagram_source.py` | Diagram có node mồ côi, id trùng, block lệch hoặc không có text equivalent |
+| `score_onboarding_checkpoint.py` | Một dimension onboarding critical bị trung bình hoá thành "đang đúng tiến độ" |
+| `summarize_terraform_plan.py` | Destroy/replace bị lấp trong dòng tóm tắt plan; resource stateful được tách riêng |
+| `check_experiment_design.py` | Thiết kế thiếu power, không hiệu chỉnh multiple testing, effect vượt khả năng phát hiện của traffic |
+| `audit_question_bank.py` | Competency chưa phủ, câu hỏi trùng tín hiệu, thiếu answer anchor, selection-rate ratio dưới 0.80 |
+| `summarize_eval_run.py` | Pass rate không kèm khoảng tin cậy; run quá nhỏ; judge chưa được validate bằng nhãn người |
+| `score_portfolio_options.py` | Hard gate bị đánh đổi trong công thức; chênh lệch thứ hạng chỉ là nhiễu |
+| `check_training_serving_skew.py` | Feature thiếu khi serving, đổi dtype, category chưa từng thấy chiếm traffic thật |
+| `check_model_promotion_readiness.py` | Approval gắn sai artifact hash hoặc sai stage; monitor chỉ được nêu tên; rollback chưa test |
 
 Cộng thêm các validator schema cho learner memory, second-brain vault, chuyển đổi sách, content
 manifest, personal-project manifest và portfolio evidence.
@@ -519,7 +528,7 @@ Power BI, Tableau, Looker, Metabase, Superset và nhiều hơn.
 │       ├── SKILL.md              entry point, chỉ metadata luôn hiển thị
 │       ├── references/
 │       │   ├── catalog-*.md      routing shard, nạp từng cái một
-│       │   ├── tasks/*.md        809 atomic task contract
+│       │   ├── tasks/*.md        814 atomic task contract
 │       │   └── adapter-*.md      gói adapter theo stack
 │       ├── assets/               template bản ghi và JSON Schema
 │       └── scripts/              evidence chạy được  ← viết tay
@@ -559,7 +568,7 @@ python tools/audit_skills.py           # bảng điểm cấu trúc từng skill
 
 | Bộ kiểm | Kết quả |
 |---|---|
-| Skill / contract / command / agent | 32 / 809 / 45 / 32, 0 lỗi |
+| Skill / contract / command / agent | 32 / 814 / 45 / 32, 0 lỗi |
 | Routing ngôn ngữ tự nhiên | 35 case |
 | Role-confusion pair | 37 case |
 | Catalog routing | 41 case |
@@ -581,7 +590,7 @@ acquisition (41 task), onboarding (34), MLOps (23), data science (22), head of d
 platform (21), ML engineering (20), generative AI (20), documentation (20) — và hai catalog
 shard nhỉnh trên ngưỡng tập trung 55%.
 
-`mean_thin_share` là **0.00%**: cả 809 contract đều mang ít nhất một resource riêng của task.
+`mean_thin_share` là **0.00%**: cả 814 contract đều mang ít nhất một resource riêng của task.
 
 ---
 
@@ -589,7 +598,7 @@ shard nhỉnh trên ngưỡng tập trung 55%.
 
 | Tài liệu | Nội dung | Ngôn ngữ |
 |---|---|---|
-| [docs/skill-and-task-catalog.md](docs/skill-and-task-catalog.md) | Toàn bộ 32 skill và 809 workflow: ownership, ranh giới, resource | Tiếng Việt |
+| [docs/skill-and-task-catalog.md](docs/skill-and-task-catalog.md) | Toàn bộ 32 skill và 814 workflow: ownership, ranh giới, resource | Tiếng Việt |
 | [docs/installation-and-usage.md](docs/installation-and-usage.md) | Cài plugin, project-scope, user-scope; routing; prompt; xử lý sự cố | Tiếng Việt |
 | [docs/capability-overview.md](docs/capability-overview.md) | Tóm tắt năng lực | Tiếng Việt |
 | [docs/skill-map.md](docs/skill-map.md) | **Taxonomy chuẩn** — nguồn mà build đọc vào | Tiếng Anh |

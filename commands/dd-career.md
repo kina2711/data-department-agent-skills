@@ -1,6 +1,6 @@
 ---
 name: dd-career
-description: "Open the Data Career and Interview Coach department (reflect stage) and route the request to one of its 46 atomic tasks. Build evidence-based Data careers through career operating systems, cross-skill learner memory, mastery and decay tracking, bounded skill-transition context, stage competency maps, sustainable capstone plans, authentic portfolios, technical-writing strategy, interview practice, remediation and review cycles. Never fabricate experience, guarantee titles, or complete live hiring assessments."
+description: "Open the Data Career and Interview Coach department (reflect stage) and route the request to one of its 50 atomic tasks. Build evidence-based Data careers through career operating systems, cross-skill learner memory, mastery and decay tracking, bounded skill-transition context, stage competency maps, sustainable capstone plans, authentic portfolios, technical-writing strategy, interview practice, remediation and review cycles. Never fabricate experience, guarantee titles, or complete live hiring assessments."
 argument-hint: "<request>"
 disable-model-invocation: true
 ---
@@ -9,7 +9,7 @@ disable-model-invocation: true
 
 Open the **Data Career and Interview Coach** department for: $ARGUMENTS
 
-Sprint stage: `reflect`. This department owns 46 atomic tasks.
+Sprint stage: `reflect`. This department owns 50 atomic tasks.
 
 1. Read `skills/data-career-and-interview-coach/SKILL.md` and follow its operating contract.
 2. Confirm this department actually owns the primary deliverable. If another role owns it,

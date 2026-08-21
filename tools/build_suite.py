@@ -333,6 +333,11 @@ CAREER_OS_TASKS = {
     "career-audit-career-claims-evidence",
 } | CAREER_MEMORY_TASKS
 
+CAREER_SYSTEM_DESIGN_TASKS = {
+    "career-design-concept-visual-explainer",
+    "career-build-architecture-case-study",
+}
+
 CONTENT_PLANNING_TASKS = {
     "content-define-technical-content-strategy",
     "content-build-series-knowledge-map",
@@ -988,6 +993,7 @@ def catalog_group(task_id: str) -> str:
 
 
 SHARD_MAX_TASKS = 11
+SHARD_IMBALANCE_LIMIT = 0.55
 SHARD_STOPWORDS = {
     "and", "for", "with", "the", "data", "plan", "report", "spec", "document", "record",
     "of", "to", "a", "an", "or", "in", "on", "by", "as", "is", "one", "new", "set",
@@ -1000,13 +1006,13 @@ def shard_topic_tokens(output: str) -> list[str]:
     return [word for word in words if word not in SHARD_STOPWORDS]
 
 
-def split_shard(group: str, items: list[dict[str, str]]) -> list[tuple[str, str, list[dict[str, str]]]]:
+def split_shard(group: str, items: list[dict[str, str]], budget: int = SHARD_MAX_TASKS) -> list[tuple[str, str, list[dict[str, str]]]]:
     """Split an oversized catalog into topic sub-shards so one file cannot hold most of the routing.
 
     Returns (slug, label, tasks). Deterministic: topics are chosen by descending frequency then
     alphabetically, so the same catalog always produces the same shards.
     """
-    if len(items) <= SHARD_MAX_TASKS:
+    if len(items) <= budget:
         return [(group, CATALOG_GROUPS[group], items)]
 
     frequency: dict[str, int] = defaultdict(int)
@@ -1019,14 +1025,14 @@ def split_shard(group: str, items: list[dict[str, str]]) -> list[tuple[str, str,
     candidates = sorted(frequency.items(), key=lambda item: (-item[1], item[0]))
 
     for token, count in candidates:
-        if len(remaining) <= SHARD_MAX_TASKS:
+        if len(remaining) <= budget:
             break
         if count < 2:
             continue
         matched = [task for task in remaining if token in shard_topic_tokens(task["output"])]
         if len(matched) < 2:
             continue
-        matched = matched[:SHARD_MAX_TASKS]
+        matched = matched[:budget]
         remaining = [task for task in remaining if task not in matched]
         shards.append((
             f"{group}-{token}",
@@ -1040,10 +1046,15 @@ def split_shard(group: str, items: list[dict[str, str]]) -> list[tuple[str, str,
         else:
             slug, label = group, CATALOG_GROUPS[group]
         # A leftover set can still exceed the budget when no shared topic exists; chunk it.
-        if len(remaining) > SHARD_MAX_TASKS:
-            for index in range(0, len(remaining), SHARD_MAX_TASKS):
-                chunk = remaining[index:index + SHARD_MAX_TASKS]
-                part = index // SHARD_MAX_TASKS + 1
+        if len(remaining) > budget:
+            # Distribute evenly so a split never leaves a one-task orphan shard next to a full one.
+            parts = -(-len(remaining) // budget)
+            base, extra = divmod(len(remaining), parts)
+            cursor = 0
+            for part in range(1, parts + 1):
+                size = base + (1 if part <= extra else 0)
+                chunk = remaining[cursor:cursor + size]
+                cursor += size
                 shards.append((f"{slug}-{part}", f"{label} (part {part})", chunk))
         else:
             shards.append((slug, label, remaining))
@@ -1058,11 +1069,17 @@ def write_task_catalogs(skill: str, tasks: list[dict[str, str]]) -> list[tuple[s
     for stale in references.glob("catalog-*.md"):
         stale.unlink()
     result: list[tuple[str, str, int]] = []
+    total = len(tasks)
     for group in CATALOG_GROUPS:
         items = grouped[group]
         if not items:
             continue
-        for slug, label, shard_items in split_shard(group, items):
+        # A shard that holds most of a skill's routing defeats progressive disclosure even when it
+        # fits the absolute budget, so tighten the budget for a dominant group.
+        budget = SHARD_MAX_TASKS
+        if total >= 12 and len(items) > total * SHARD_IMBALANCE_LIMIT:
+            budget = max(3, min(SHARD_MAX_TASKS, total // 2))
+        for slug, label, shard_items in split_shard(group, items, budget):
             rows = [
                 f"# {slug.replace('-', ' ').title()} task catalog",
                 "",
@@ -1128,6 +1145,84 @@ def profile_resources(profile: str) -> tuple[list[str], list[str]]:
     return resources.get(profile, ([], []))
 
 
+EVIDENCE_SCRIPT_TASKS: tuple[tuple[frozenset[str], str], ...] = (
+    (
+        frozenset({
+            "docs-create-architecture-diagram", "docs-create-bpmn-process", "docs-create-d2-activity-diagram",
+            "docs-create-d2-erd", "docs-create-mermaid-activity-diagram", "docs-create-mermaid-erd",
+            "docs-create-sequence-diagram", "docs-create-state-diagram", "docs-create-swimlane-activity-diagram",
+            "docs-create-usecase-diagram", "docs-validate-diagram-semantics",
+        }),
+        "Run `../../scripts/validate_diagram_source.py` on the source before publishing; an unconnected node, a duplicated identifier or a missing text equivalent is a defect, not a style choice. The script checks structure only and never confirms the diagram matches the real system.",
+    ),
+    (
+        frozenset({
+            "onboard-run-seven-day-checkpoint", "onboard-run-thirty-day-checkpoint",
+            "onboard-run-sixty-day-checkpoint", "onboard-run-ninety-day-checkpoint",
+            "onboard-certify-onboarding-completion", "onboard-verify-access-readiness",
+        }),
+        "Score the checkpoint with `../../scripts/score_onboarding_checkpoint.py`; a critical dimension below the bar blocks the readiness decision and is never averaged away, and any score above exposure must name evidence.",
+    ),
+    (
+        frozenset({
+            "platform-provision-data-compute", "platform-provision-data-environment",
+            "platform-provision-data-storage", "platform-migrate-platform-workload",
+            "platform-deprecate-platform-component", "platform-upgrade-data-service",
+            "platform-deploy-orchestrator", "platform-configure-data-iam",
+        }),
+        "Summarize the plan with `../../scripts/summarize_terraform_plan.py` from `terraform show -json`; destroy and replace are reported separately, stateful resource types are called out, and approval binds to that destructive set rather than to a diff count.",
+    ),
+    (
+        frozenset({"ds-design-offline-experiment", "ds-select-evaluation-metric"}),
+        "Size the design with `../../scripts/check_experiment_design.py` before exposure begins; report the detectable effect the available traffic supports rather than assuming the stated MDE, and declare the stopping rule up front.",
+    ),
+    (
+        frozenset({
+            "talent-build-role-question-bank", "talent-audit-question-bank-coverage",
+            "talent-audit-interview-fairness", "talent-audit-assessment-validity",
+            "talent-write-interview-answer-anchors",
+        }),
+        "Audit the bank with `../../scripts/audit_question_bank.py` for competency coverage, difficulty balance, redundancy and anchors. Where outcome data exists it also reports the selection-rate ratio: below 0.80 is a signal to investigate the questions, never a finding of discrimination, and above it is never proof of fairness.",
+    ),
+    (
+        frozenset({
+            "ai-evaluate-answer-quality", "ai-evaluate-retrieval-quality", "ai-design-evaluation-dataset",
+            "ai-analyze-ai-failures", "ai-release-ai-version",
+        }),
+        "Summarize the run with `../../scripts/summarize_eval_run.py`; report the confidence interval, not the bare pass rate, and treat a run whose interval spans the baseline or the threshold as undecided rather than as a win.",
+    ),
+    (
+        frozenset({
+            "hod-manage-data-portfolio", "dpm-prioritize-data-backlog", "hod-build-data-roadmap",
+            "hod-evaluate-data-vendor",
+        }),
+        "Score options with `../../scripts/score_portfolio_options.py`; hard gates remove an initiative from the ranking instead of being traded off inside the arithmetic, and rank differences inside the tie threshold are reported as indistinguishable.",
+    ),
+    (
+        frozenset({
+            "mle-validate-training-serving-skew", "mle-build-feature-pipeline",
+            "mle-validate-model-compatibility", "mle-build-canary-release", "mle-build-shadow-deployment",
+        }),
+        "Compare feature statistics with `../../scripts/check_training_serving_skew.py`; a missing feature, a dtype change or an unseen category carrying real traffic is a structural failure, not drift to monitor later.",
+    ),
+    (
+        frozenset({
+            "mlops-promote-model-stage", "mlops-enforce-model-approval-gate", "mlops-validate-retrained-model",
+            "mlops-deploy-model-version", "mlops-audit-model-controls",
+        }),
+        "Check the record with `../../scripts/check_model_promotion_readiness.py`; approval must bind to the exact artifact hash and to this stage, monitors must be configured rather than named, and an untested rollback is a plan, not a control.",
+    ),
+)
+
+
+def evidence_script_resources(task_id: str) -> list[str]:
+    """The runnable check that turns this contract's claim into evidence, where one exists."""
+    for task_ids, line in EVIDENCE_SCRIPT_TASKS:
+        if task_id in task_ids:
+            return [line]
+    return []
+
+
 def task_specific_resources(task_id: str) -> list[str]:
     groups = {
         "enable": {
@@ -1152,6 +1247,7 @@ def task_specific_resources(task_id: str) -> list[str]:
             "career-build-interview-knowledge-library",
         },
         "career-os": CAREER_OS_TASKS,
+        "career-system-design": CAREER_SYSTEM_DESIGN_TASKS,
         "context-engineering": {
             "core-build-task-context-package",
             "ctx-build-context-index",
@@ -1224,6 +1320,39 @@ def task_specific_resources(task_id: str) -> list[str]:
             "Read [question-to-competency validity controls](../question-knowledge-validity.md).",
             "Reuse the question traceability, answer-anchor or question-bank audit template from `../../assets/`.",
         ]
+    if task_id == "career-audit-knowledge-coverage":
+        return [
+            "Read [the data system-design canon](../system-design-canon.md) and [the interview knowledge-system method](../interview-knowledge-system.md); coverage is measured against registered canonical concept IDs, not against the count of questions practised.",
+            "Reuse `../../assets/knowledge-coverage-audit.yaml`. Report concepts with no dossier, dossiers with no mastery evidence and stale entries separately; a practised question is not coverage of its prerequisites.",
+        ]
+    if task_id == "career-build-offer-evaluation-and-negotiation-plan":
+        return [
+            "Reuse `../../assets/offer-evaluation.yaml`. Value base, variable, equity, benefits, leave, learning budget and working conditions separately, and mark every equity figure as a scenario with its assumptions rather than as expected money.",
+            "Anchor any market range to a cited public source with its date, region and level definition. An uncited number is an assumption, not evidence, and no compensation outcome may be promised.",
+            "Never coach a misstatement of a current salary, a competing offer or a deadline. Prepare the walk-away position and the non-compensation asks before the conversation, and record what would change the decision.",
+        ]
+    if task_id == "content-audit-series-concept-coverage":
+        return [
+            "Reuse `../../assets/series-concept-coverage.yaml`. Map each published episode to the canonical concept IDs it actually taught, then report unclaimed prerequisites, concepts claimed by two episodes and arc gaps.",
+            "A mention is not coverage. Only a concept with an explanation, a worked artifact and a stated failure mode counts as taught; anything weaker is listed as referenced.",
+        ]
+    if task_id in groups["career-system-design"]:
+        resources = [
+            "Read [the data system-design canon](../system-design-canon.md); link every concept to a registered canonical ID and register a new ID there before using it.",
+            "Read [the interview knowledge-system method](../interview-knowledge-system.md); this artifact is a dossier component, not a substitute for the dossier.",
+        ]
+        if task_id == "career-build-architecture-case-study":
+            resources.append(
+                "Reuse `../../assets/architecture-case-study.yaml`. Cite public primary sources with publisher, version/date and accessed date, classify every claim as documented, measured or inferred, and label the result a third-party study; it is never the learner's production experience."
+            )
+        else:
+            resources.append(
+                "Reuse `../../assets/concept-visual-explainer.yaml`. This task ends at a visual specification with one mental-model sentence, takeaway and alt text; hand actual Mermaid/PlantUML/D2 rendering to `data-documentation-and-diagrams` and never report the brief as a finished diagram."
+            )
+        resources.append(
+            "A curated third-party collection is a pointer to primary sources, not content to reuse. Under `NonCommercial`/`NoDerivatives` terms you may link and cite it, but never copy, translate or adapt its text or images into the deliverable."
+        )
+        return resources
     if task_id in groups["career"]:
         return [
             "Read [the interview knowledge-system method](../interview-knowledge-system.md).",
@@ -1269,6 +1398,10 @@ def task_specific_resources(task_id: str) -> list[str]:
             resources.append("Read [the technical-content quality standard](../technical-content-quality-standard.md); material claims require a source, executable evidence, or an explicit opinion/hypothesis label.")
         if action.startswith(("define-author-voice", "write-facebook", "write-linkedin", "write-substack", "create-technical-carousel", "repurpose-technical-content", "audit-author-voice", "review-platform-fit", "publish-technical-content", "measure-series-performance")):
             resources.append("Read [the platform format playbooks](../platform-format-playbooks.md); adapt from the canonical evidence pack without copying one channel verbatim into another.")
+        if action.startswith(("publish-technical-content", "measure-series-performance")):
+            resources.append(
+                "When the artifact is published and measured, populate `../../assets/content-evidence-return.yaml` and hand it to `career-build-career-evidence-portfolio` in `data-career-and-interview-coach`. Content owns the artifact; Career decides whether it counts as competency evidence. Reach, reactions and post count are audience signals, never mastery."
+            )
         if action == "create-technical-diagram-brief":
             resources.append("This task ends at a visual specification. Handoff diagram creation/rendering to `data-documentation-and-diagrams`, then return the artifact to `content-test-code-and-diagrams`; never report the brief as the finished diagram.")
         resources.append("Reuse only the matching template from `../../assets/`; run `../../scripts/validate_content_manifest.py` when a content manifest is available.")
@@ -1389,7 +1522,11 @@ def render_task(task: dict[str, str]) -> str:
             "Never guarantee title, promotion, compensation or timeline; distinguish portable capability from company-specific level mapping.",
             "Never relabel self-study or hypothetical work as production evidence, and never prescribe sustained overtime as ownership.",
         ]
-    resource_lines = [*resource_lines, *task_specific_resources(task_id)]
+    resource_lines = [*resource_lines, *task_specific_resources(task_id), *evidence_script_resources(task_id)]
+    if catalog_group(task_id) == "plan-design" and profile not in {"read-only-analysis", "incident-recovery"}:
+        resource_lines.append(
+            "Read [solution option framing](../solution-option-framing.md); frame three to five materially different approaches in `../../assets/design-option-set.yaml`, select one against the stated constraints in at most forty words, and derive the deliverable structure from that selection. Where this role already owns a scored selection artifact, use it instead of duplicating the decision."
+        )
     if criticality == "enforced":
         resource_lines.append("Read [the Workflow Runtime and Evidence OS](../workflow-runtime-and-evidence-os.md); validate workflow, evidence and version-bound approvals instead of relying on narrative gate claims.")
     needs_execution_discipline = profile in {"build-change", "production-release", "incident-recovery"} or task_id.startswith("orchestrator-run-") or task_id == "orchestrator-resume-workflow"
@@ -1411,6 +1548,20 @@ def render_task(task: dict[str, str]) -> str:
         if control_lines
         else ""
     )
+    return_shape_lines = []
+    if risk in {"R0-light", "R1-reviewed"}:
+        return_shape_lines.append(
+            "Report it in the compact shape from [response compression](../response-compression.md): one state line, the deliverable, only the fields that carry content, then one next action. Blocked gates, unrun checks, assumptions, limitations and residual risks are printed in full even here."
+        )
+    else:
+        return_shape_lines.append(
+            "Return the full contract; [response compression](../response-compression.md) governs wording, never coverage. Never soften `blocked` or `failed`, and never report an unrun check as a pass."
+        )
+    if criticality in {"deep", "enforced"}:
+        return_shape_lines.append(
+            "Mirror the outcome into `../../assets/atomic-task-output.yaml` alongside the prose. Where the prose and the structured record disagree, the record stands and the task is not complete."
+        )
+    return_shape = "".join(f"\n{line}\n" for line in return_shape_lines)
     approval = (
         "Explicit approval is normally not required for read-only work, but becomes mandatory if scope expands to a governed or mutating action."
         if risk == "R0-light"
@@ -1504,7 +1655,7 @@ Also verify scope and acceptance criteria, test relevant edge/failure paths, sto
 ## Return
 
 Return the task ID, lifecycle profile, risk tier, execution path, phase reached, primary deliverable, evidence links, test results, approvals, assumptions, open risks, affected assets, owner and one explicit next task. Route cross-role work through the department orchestrator.
-"""
+{return_shape}"""
 
 
 def render_skill(skill: str, tasks: list[dict[str, str]]) -> str:
@@ -1615,8 +1766,12 @@ Never invent a KPI, benchmark, testimonial or business result to fill a visual s
 - Only concepts/prerequisites/follow-ups → `career-map-question-knowledge-dependencies`.
 - Only response structure and authentic evidence selection → `career-design-answer-strategy`.
 - Multiple approved dossiers plus taxonomy, tags, backlinks, versions and platform mapping → `career-build-interview-knowledge-library`.
+- Only the visual mental model of one concept → `career-design-concept-visual-explainer`; it ends at a specification, and rendering belongs to `data-documentation-and-diagrams`.
+- A published architecture deconstructed into constraints, decisions, rejected alternatives, trade-offs and follow-ups → `career-build-architecture-case-study`.
 
 The dossier is the container for one question. The library is a collection of dossiers; never select the library task for a single-question deliverable.
+
+Every dossier, knowledge map, case study and explainer links to canonical concept IDs registered in [references/system-design-canon.md](references/system-design-canon.md); register a new ID there before using it. Answer a design question with the canon's `Clarify → Constrain → Contract → Component → Consistency → Cost → Collapse` frame and mark assumed numbers as assumptions. A case study is cited third-party material, never the learner's production experience, and curated third-party collections under `NonCommercial`/`NoDerivatives` terms may be linked and cited but never copied or adapted into a deliverable.
 
 ## Career-system routing
 
@@ -1627,11 +1782,14 @@ The dossier is the container for one question. The library is a collection of do
 - Career purpose, themes and writing portfolio → `career-design-technical-writing-strategy`; actual series production belongs to `data-technical-content-and-social`.
 - Sustainable public contribution and visibility boundaries → `career-plan-ethical-professional-visibility`.
 - Periodic evidence/energy/bottleneck review → `career-run-career-review-cycle`.
+- Compare a concrete offer and prepare the conversation → `career-build-offer-evaluation-and-negotiation-plan`; compare total value against cited public ranges with their date and source, never against an invented market figure, and never coach a candidate to misstate a competing offer or their current compensation.
+- Blind spots between the practised questions and the concepts the role actually tests → `career-audit-knowledge-coverage`.
 - First persistent record of prior learning → `career-initialize-learning-memory`.
 - Airflow → dbt, SQL → Spark or another topic transition → select `career-build-skill-transition-context` as the primary task; use `career-map-cross-skill-prerequisites` as a prior dependency only when the relevant graph is absent or stale.
 - New lesson, lab, project, assessment or feedback → `career-record-learning-event`; recording evidence does not automatically mark mastery.
 - Promote or downgrade a topic state → `career-assess-topic-mastery`; stale/version-drift review → `career-detect-learning-decay`.
 - Merge memory from multiple repositories or vaults → `career-reconcile-learning-memory` without discarding conflicts or prior versions.
+- Published technical content returned from `data-technical-content-and-social` → verify it through `career-build-career-evidence-portfolio` using `assets/content-evidence-return.yaml`; audience metrics and posting volume never promote a claim.
 
 Career progression is `Current state → Target capability → Gap → Practice → Real work → Evidence → Feedback → Reflection → Updated plan`. Titles vary by company; never promise promotion, confuse self-study with production experience, or treat posting volume as mastery.
 
@@ -1651,7 +1809,9 @@ If the request asks for the complete Career OS bundle, route through `orchestrat
 - One approved canonical artifact adapted to multiple channels → `content-repurpose-technical-content`.
 - Accuracy, traceability, executable artifacts, voice/originality and platform fit are independent reviews; passing one never waives another.
 - A whole/end-to-end series request containing research, code, diagrams and multiple channels must enter `orchestrator-run-sequential-workflow`; one content task must not masquerade as the completed series.
+- Which canon concepts the series has actually taught, and where the arc leaves a gap → `content-audit-series-concept-coverage`.
 - `content-create-technical-diagram-brief` specifies the visual only. Handoff actual Mermaid/PlantUML/D2/rendered work to `data-documentation-and-diagrams`, then return to `content-test-code-and-diagrams` before adaptation.
+- After publication and measurement, return the approved artifact, its claim IDs and review outcome to `data-career-and-interview-coach` through `assets/content-evidence-return.yaml` and `career-build-career-evidence-portfolio`. This skill owns the artifact; Career owns whether it counts as competency evidence.
 
 Do not write a social post before its material technical claims are supported. Do not fabricate production experience, benchmarks, incidents, readership or authority. Clearly label teaching examples, synthetic scenarios, opinions and hypotheses. Publication is an R3 controlled task and requires explicit channel authority plus approval of the exact version.
 """
@@ -2155,6 +2315,11 @@ def build_shared_assets() -> None:
             "career-evidence-portfolio.yaml": {"person_id": "", "target_role": "", "target_level": "", "claims": [{"claim_id": "", "claim": "", "evidence_type": "learning|practice|project|production|leadership|business|organizational|external", "artifact_ref": "", "evidence_refs": [], "scope": "", "authorship": "", "reviewer": "", "reviewed_at": "", "result": "", "verification_status": "unverified", "limitations": [], "safe_public_wording": ""}], "gaps": [], "reviewers": [], "reviewed_at": "", "status": "draft"},
             "career-review.yaml": {"person_id": "", "period": "weekly|monthly|quarterly|annual", "target_capabilities": [], "evidence_added": [], "feedback_received": [], "mastery_changes": [], "scope_impact_influence": {}, "energy_and_burnout": {}, "bottlenecks": [], "deprioritized_items": [], "plan_changes": [], "next_actions": [], "next_review": ""},
             "career-content-handoff.yaml": {"person_id": "", "career_goal": "", "target_capabilities": [], "audiences": [], "approved_themes": [], "allowed_claim_ids": [], "prohibited_or_confidential_claims": [], "authentic_evidence_refs": [], "capacity_and_cadence": {}, "author_voice_constraints": [], "success_signals": [], "next_content_task": "content-define-technical-content-strategy", "owner": "", "status": "draft"},
+            "knowledge-coverage-audit.yaml": {"audit_id": "", "person_id": "", "target_role": "", "target_level": "", "canon_version": "", "library_ref": "", "concepts": [{"concept_id": "", "dossier_refs": [], "mastery_state": "unseen", "evidence_refs": [], "last_reviewed": "", "coverage": "absent|referenced|practised|demonstrated"}], "uncovered_concepts": [], "prerequisite_gaps": [], "stale_entries": [], "over_practised": [], "recommended_next": [], "owner": "", "status": "draft"},
+            "offer-evaluation.yaml": {"offer_id": "", "person_id": "", "company": "", "role_title": "", "level_mapping_assumption": "", "location_and_work_mode": "", "components": {"base": {}, "variable": {}, "equity": {"instrument": "", "quantity": 0, "vesting": "", "scenarios": [], "assumptions": [], "is_expected_money": False}, "benefits": [], "leave": "", "learning_budget": ""}, "non_compensation_factors": [{"factor": "", "evidence": "", "weight": ""}], "market_reference": [{"source": "", "url": "", "published_at": "", "region": "", "level_definition": "", "range": "", "confidence": "unknown"}], "assumptions": [], "asks": [{"ask": "", "priority": "", "justification_evidence_ref": "", "fallback": ""}], "walk_away_position": "", "decision_change_signals": [], "prohibited_statements": ["misstating current compensation", "misstating a competing offer", "inventing a deadline"], "outcome_guarantee": "None. No compensation outcome is promised.", "status": "draft"},
+            "architecture-case-study.yaml": {"case_id": "", "system_name": "", "organization": "", "study_type": "third-party-public-source", "as_of": "", "business_context": "", "decision_the_system_serves": "", "given_constraints": [], "assumed_constraints": [], "data_contract": {"grain": "", "keys": [], "delivery_semantics": "", "schema_evolution": ""}, "components": [{"stage": "ingest|store|process|serve", "choice": "", "alternative_rejected": "", "reason": "", "concept_ids": [], "evidence_ref": ""}], "consistency_model": "", "failure_modes": [], "cost_profile": {}, "trade_offs": [], "what_would_change_the_design": [], "follow_up_questions": [], "concept_ids": [], "sources": [{"title": "", "url": "", "publisher": "", "published_or_updated_at": "", "accessed_at": "", "license": "", "reuse_allowed": "unknown"}], "claims": [{"claim": "", "classification": "documented|measured|inferred", "evidence_ref": ""}], "personal_experience_claim": False, "limitations": [], "owner": "", "version": "", "status": "draft"},
+            "concept-visual-explainer.yaml": {"explainer_id": "", "concept_id": "", "concept_name": "", "audience_level": "", "question_ids": [], "mental_model_sentence": "", "visual_type": "flow|state|sequence|comparison|layered|timeline", "elements": [], "relationships": [], "annotations": [], "what_the_reader_should_observe": "", "common_misreading": "", "takeaway": "", "alt_text": "", "rendering_handoff": {"target_skill": "data-documentation-and-diagrams", "preferred_notation": "mermaid", "status": "not-requested"}, "sources": [], "originality_statement": "Specification authored from primary sources; no third-party diagram copied or adapted.", "limitations": [], "status": "draft"},
+            "content-evidence-return.yaml": {"return_id": "", "person_id": "", "series_id": "", "episode_id": "", "artifact_id": "", "artifact_version": "", "artifact_sha256": "", "channels": [], "published_at": "", "publication_evidence_ref": "", "claim_ids": [], "capabilities_demonstrated": [], "evidence_type": "external", "review_outcomes": [], "correction_history": [], "audience_signals": {"note": "Reach, reactions and post count are audience signals, not competency evidence.", "metrics": []}, "proposed_portfolio_claims": [], "career_task": "career-build-career-evidence-portfolio", "verification_status": "unverified", "owner": "", "status": "draft"},
             "learner-memory.json": {"memory_id": "", "person_id": "", "version": "", "privacy_classification": "private", "authority": {"owner": "", "canonical_path": "", "storage_scope": "user"}, "current_focus": [], "topics": [], "evidence_registry": [], "learning_events": [], "updated_at": "", "status": "draft"},
             "learning-event.yaml": {"event_id": "", "topic_id": "", "event_type": "learned|practiced|applied|assessed|reviewed|forgotten|version-changed", "skill_id": "", "source_or_artifact_ref": "", "evidence_refs": [], "observed_result": "", "limitations": [], "occurred_at": "", "recorded_at": "", "status": "recorded"},
             "cross-skill-prerequisite-map.yaml": {"from_topics": [], "to_topic": "", "direct_prerequisites": [], "interfaces_to_reuse": [], "decision_rules_to_reuse": [], "failure_modes_to_reuse": [], "safe_to_summarize": [], "must_expand": [], "version_conflicts": [], "evidence_refs": [], "status": "draft"},
@@ -2166,6 +2331,8 @@ def build_shared_assets() -> None:
             "source-pack.yaml": {"topic": "", "owner": "", "verified_at": "", "environment": {}, "sources": [{"source_id": "", "title": "", "url": "", "source_type": "official|standard|paper|runtime-evidence|test-report|authority-record|other", "version": "", "published_or_updated_at": "", "accessed_at": "", "snapshot_path": "", "content_sha256": "", "verified_by": "", "claim_supports": [{"claim_id": "", "excerpt": ""}], "limitations": []}], "conflicts": [], "open_questions": [], "status": "draft"},
             "content-manifest.json": {"series_id": "", "episode_id": "", "owner": "", "requested_channels": [], "canonical_artifact": "", "evidence": [{"evidence_id": "", "evidence_type": "official-source", "locator": "", "snapshot_path": "", "content_sha256": "", "version_or_date": "", "environment": "", "verified_by": "", "verified_at": "", "verification_status": "unverified", "claim_supports": [{"claim_id": "", "excerpt": ""}]}], "claims": [{"claim_id": "", "text": "", "classification": "fact", "evidence_refs": []}], "artifacts": [{"artifact_id": "", "channel": "canonical", "language": "", "path": "", "version": "", "sha256": "", "derived_from": "", "claim_ids": [], "required_test_scopes": [], "min_words": 0, "max_words": 0, "structure_evidence": {}, "status": "draft", "review_ids": []}], "media_assets": [{"media_id": "", "role": "real|illustration|code", "bound_artifact_ids": [], "path": "", "version": "", "sha256": "", "source": "", "origin": "real-artifact|controlled-render|code-render", "rights_status": "unverified", "redaction_status": "not-reviewed", "alt_text": "", "what_to_observe": "", "learning_claim": "", "layout": "", "rendering_method": "", "code_maturity": "runnable-example|code-reference|pseudocode", "technical_baseline": "", "validation_performed": [], "validation_status": "not-run", "status": "draft"}], "reviews": [{"review_id": "", "review_type": "technical-accuracy", "artifact_id": "", "artifact_version": "", "artifact_sha256": "", "status": "pending", "reviewer": "", "reviewed_at": ""}], "tests": [{"test_id": "", "artifact_id": "", "scope": "", "required": True, "status": "not-run", "evidence_ref": ""}], "approvals": [{"approval_id": "", "artifact_id": "", "artifact_version": "", "artifact_sha256": "", "channels": [], "approver": "", "authority_scope": "", "authority_evidence_ref": "", "status": "pending", "approved_at": ""}], "publication": {"status": "not-published", "requested_channels": [], "channels": [{"channel": "", "artifact_id": "", "approved_version": "", "approved_sha256": "", "approval_id": "", "published_at": ""}]}},
             "editorial-calendar.yaml": {"series_id": "", "timezone": "", "cadence": "", "buffer_policy": "", "items": [{"episode_id": "", "channel": "", "depends_on": [], "draft_due": "", "technical_review_due": "", "editorial_review_due": "", "publish_window": "", "owner": "", "status": "planned"}]},
+            "content-evidence-return.yaml": {"return_id": "", "person_id": "", "series_id": "", "episode_id": "", "artifact_id": "", "artifact_version": "", "artifact_sha256": "", "channels": [], "published_at": "", "publication_evidence_ref": "", "claim_ids": [], "capabilities_demonstrated": [], "evidence_type": "external", "review_outcomes": [], "correction_history": [], "audience_signals": {"note": "Reach, reactions and post count are audience signals, not competency evidence.", "metrics": []}, "proposed_portfolio_claims": [], "career_task": "career-build-career-evidence-portfolio", "verification_status": "unverified", "owner": "", "status": "draft"},
+            "series-concept-coverage.yaml": {"audit_id": "", "series_id": "", "canon_version": "", "episodes": [{"episode_id": "", "artifact_ref": "", "concept_ids_taught": [], "concept_ids_referenced": [], "has_explanation": False, "has_worked_artifact": False, "has_failure_mode": False}], "taught": [], "referenced_only": [], "uncovered_prerequisites": [], "duplicated_coverage": [], "arc_gaps": [], "recommended_episodes": [], "owner": "", "status": "draft"},
             "content-quality-review.yaml": {"artifact_id": "", "review_type": "technical-accuracy|claim-traceability|artifact-validity|voice-originality|human-voice|media-integrity|platform-fit", "artifact_version": "", "reviewer": "", "editorial_gate": "blocked", "human_voice_gate": "blocked", "depth_gate": "blocked", "evidence_gate": "blocked", "real_image_gate": "blocked", "illustration_gate": "blocked", "code_gate": "blocked", "platform_gate": "blocked", "findings": [], "critical_failures": [], "tests": [], "decision": "blocked", "residual_risks": [], "reviewed_at": ""},
             "social-episode-package.yaml": {"episode_id": "", "editorial_contract": {"series": "", "article_type": "", "audience": "", "learning_objective": "", "misconception": "", "scenario": "", "core_claim": "", "decision": "", "failure_mode": "", "out_of_scope": [], "technical_baseline": {}}, "assets": {"real": {"file": "", "source": "", "what_to_observe": "", "redaction_required": ""}, "illustration": {"file": "", "visual_model": "", "key_takeaway": "", "layout": "", "design_prompt": ""}, "code": {"file": "", "code_type": "", "validation_performed": [], "what_the_code_proves": ""}}, "facebook": {"language": "vi", "draft": ""}, "linkedin": {"language": "en", "draft": ""}, "substack": {"language": "en", "draft": ""}, "alt_text": {"real": "", "illustration": "", "code": ""}, "sources": [], "verification_notes": {"claims_requiring_recheck": [], "version_sensitive_statements": [], "experimental_or_preview_warnings": [], "runtime_validation_not_performed": []}, "status": "draft"},
         },
@@ -2200,6 +2367,53 @@ def build_shared_assets() -> None:
             "conversion-evidence.yaml": {"conversion_id": "", "source_hashes_verified": False, "chapter_coverage": {}, "framework_traceability": [], "quotation_review": [], "hallucination_findings": [], "broken_links": [], "token_path": {}, "retrieval_tests": [], "application_tests": [], "copyright_decision": "blocked", "security_scan": "not-run", "critical_failures": [], "decision": "blocked", "reviewed_at": ""},
         },
     }
+    task_output_template = {
+        "task_id": "",
+        "status": "draft",
+        "lifecycle_profile": "",
+        "risk_tier": "",
+        "execution_path": "",
+        "phase_reached": "plan",
+        "primary_deliverable": "",
+        "evidence": [],
+        "test_results": [],
+        "gate_results": [],
+        "approval_status": "not-required",
+        "assumptions": [],
+        "limitations": [],
+        "residual_risks": [],
+        "next_task": "",
+        "next_owner": "",
+    }
+    option_set_template = {
+        "decision_id": "",
+        "task_id": "",
+        "deliverable": "",
+        "constraints": [],
+        "options": [
+            {
+                "option_id": "",
+                "approach": "",
+                "defining_points": [],
+                "optimizes_for": "",
+                "wrong_when": "",
+                "evidence_refs": [],
+                "decision": "rejected",
+                "reason": "",
+            }
+        ],
+        "selected_option_id": "",
+        "selection_rationale": "",
+        "eliminated_by_constraint": [],
+        "reopen_signal": [],
+        "structure_derived_from_selection": False,
+        "owner": "",
+        "status": "draft",
+    }
+    for skill in SKILL_META:
+        write_yaml(SKILLS / skill / "assets" / "atomic-task-output.yaml", task_output_template)
+        write_yaml(SKILLS / skill / "assets" / "design-option-set.yaml", option_set_template)
+
     for skill, assets in people_assets.items():
         for name, body in assets.items():
             target = SKILLS / skill / "assets" / name
@@ -2290,6 +2504,55 @@ Load industry references only when business semantics depend on the domain. Avai
 
 Load metric packs by decision domain: core business, finance, sales, marketing, product, retention, SaaS, operations, supply chain and people analytics. Treat all generic formulas as candidates until a company owner confirms the local definition.
 """
+    response_compression = """# Response compression
+
+This standard governs how a result is *reported*. It never changes what the task requires. Compression may not remove a gate, a test, an approval, a residual risk or an evidence pointer; a shorter answer that hides an unmet control is a failed task, not a concise one.
+
+## Compact return for R0 and R1
+
+For `R0-light` and `R1-reviewed` work, return in this order:
+
+1. One state line: task ID, phase reached, status.
+2. The deliverable itself, or the path to it.
+3. Only the return fields that carry content. An empty field is omitted, not printed as empty.
+4. Exactly one next action, named as a task ID with its owner.
+
+Lead with what changed or what to do, not with what was asked. No preamble, no restatement of the request, no closing summary of the text above it. Number steps only when order matters. Cap any list at five items; when more exist, show the five that change the decision and state how many remain.
+
+## What never compresses
+
+`R2-standard`, `R3-controlled` and `R4-critical` work returns the full contract. At every tier, these print in full regardless of length: blocked or failed status, unmet gates, unrun checks, assumptions, limitations, residual risks with owners, approval status, and any label that separates a draft from an executed outcome or self-study from production evidence.
+
+Silence is not a pass. An unrun check is reported as unrun. Never merge two claims into one sentence to save a line, never drop the evidence reference of a material claim, and never soften `blocked` or `failed` into narrative phrasing.
+
+## Standing state
+
+When work spans turns or resumes from saved state, open with the current task, the last verified gate and what remains open — read from the validated run state, never reconstructed from conversation history.
+"""
+    solution_option_framing = """# Solution option framing
+
+Use before committing to a design, specification, model, plan, architecture or program. A first idea presented as the only idea hides the trade-off the reviewer needs to see.
+
+## Step-back procedure
+
+1. Before drafting, list three to five candidate approaches at the level of approach, not implementation detail. Two variants of the same approach count as one option.
+2. For each option record three to five defining points, what it optimizes for, and the condition under which it is the wrong choice.
+3. Select one and justify the selection in at most forty words, against the stated constraints rather than preference.
+4. Record each rejected option with the reason it lost and the signal that would reopen the decision.
+5. Derive the deliverable's structure from the selected approach. An outline that would be identical under any option means the framing was decorative.
+
+Do not manufacture filler options to reach a count: three genuinely different approaches beat five where two are padding. When only one approach is viable, say so and name the constraint that eliminates the others — that is still a recorded decision, not a skipped step.
+
+## Where it applies
+
+Required when the primary deliverable is a specification, design, architecture, model, strategy, plan, curriculum or program. Not required for read-only inspection, mechanical execution of an already approved design, or incident recovery where the recovery path is prescribed. Where the role already owns a scored selection artifact, use that artifact instead of duplicating the decision.
+
+## Result envelope
+
+Return prose and a structured record together. The option set belongs in `design-option-set.yaml`; the task outcome belongs in `atomic-task-output.yaml`, whose fields mirror the return contract — task, status, phase reached, deliverable, evidence, test results, gate results, approval, assumptions, limitations, residual risks and next task/owner. Validate it with `shared-data-core/scripts/validate_task_result.py` when the script is reachable.
+
+The structured record is a mirror of the reported outcome, not a second version of it. If the prose claims a pass that the record does not carry, the record wins and the task is not complete.
+"""
     safety = """# Safety and approval matrix
 
 Require explicit, scoped, version-specific human approval for:
@@ -2338,6 +2601,8 @@ Record only routing/task metadata, outcome, duration, references loaded, token e
     for skill in SKILL_META:
         refs = SKILLS / skill / "references"
         (refs / "lifecycle-standard.md").write_text(lifecycle, encoding="utf-8")
+        (refs / "response-compression.md").write_text(response_compression, encoding="utf-8")
+        (refs / "solution-option-framing.md").write_text(solution_option_framing, encoding="utf-8")
         adapters = ROLE_STACK_ADAPTERS.get(skill, ())
         adapter_links = "\n".join(f"- [{name}](adapter-{name}.md)" for name in adapters)
         if not adapter_links:
@@ -2521,14 +2786,62 @@ Use this chain for each practice question:
 2. **Answer strategy:** choose direct explanation, structured analysis, STAR, system design or mixed format; define opening, reasoning flow, evidence, checks and follow-up handling.
 3. **Detailed answer:** build from authentic experience or label a hypothetical example. Include assumptions, trade-offs, validation and limitations. Never memorize wording.
 4. **Knowledge deep dive:** definition, mental model, mechanism, use/non-use cases, comparisons, failure modes, practical examples and authoritative sources.
-5. **Knowledge map:** prerequisites, related concepts, contrasts, common misconceptions and likely follow-up questions.
-6. **Mastery loop:** answer without notes, handle changed constraints, receive rubric feedback, remediate gaps and retest with a novel scenario.
+5. **Visual mental model:** one required diagram specification that carries the mechanism — flow, state, sequence, comparison or layered view — plus a one-sentence mental model, what the reader should observe, the common misreading, a takeaway and alt text. If the picture cannot stand without the prose, the mental model is not yet clear. Specify only; rendering belongs to `data-documentation-and-diagrams`, and the full specification is `career-design-concept-visual-explainer`.
+6. **Knowledge map:** prerequisites, related concepts, contrasts, common misconceptions and likely follow-up questions.
+7. **Mastery loop:** answer without notes, handle changed constraints, receive rubric feedback, remediate gaps and retest with a novel scenario.
 
 ## Library model
 
-Store each dossier under a stable question ID and link it to canonical concept IDs. Tag by role, level, competency, question type, difficulty and mastery status. Track owner, version, source date, freshness and next review. A Notion-ready output should define databases for Questions, Concepts, Evidence/Stories and Practice Results with relations and rollups; do not rely on page titles as identifiers.
+Store each dossier under a stable question ID and link it to canonical concept IDs registered in [the data system-design canon](system-design-canon.md). Tag by role, level, competency, question type, difficulty and mastery status. Track owner, version, source date, freshness and next review. A Notion-ready output should define databases for Questions, Concepts, Evidence/Stories and Practice Results with relations and rollups; do not rely on page titles as identifiers.
 
 The library is a learning system, not a bank of scripted answers. Readiness requires transfer across unseen questions and the ability to defend reasoning under follow-up.
+
+## System-design questions
+
+A design question is answered with the `Clarify → Constrain → Contract → Component → Consistency → Cost → Collapse` frame from [the data system-design canon](system-design-canon.md), not with a memorized reference architecture. State every assumed number as an assumption. A published architecture may be reused as a cited comparison through `career-build-architecture-case-study`; presenting it as personal production experience is fabrication.
+"""
+    system_design_canon = """# Data system-design canon
+
+Use this as the shared concept registry for interview knowledge work, not as study content. Every entry is a canonical concept ID that a question dossier, knowledge map, case study or visual explainer links to. Write each explanation yourself from primary sources.
+
+## Concept domains and canonical IDs
+
+| Domain | Canonical concept IDs |
+|---|---|
+| Ingestion | `sd.ingest.batch-extract`, `sd.ingest.cdc-log`, `sd.ingest.cdc-query`, `sd.ingest.api-pagination`, `sd.ingest.backpressure` |
+| Streaming | `sd.stream.delivery-semantics`, `sd.stream.ordering-and-keys`, `sd.stream.windowing`, `sd.stream.watermark-and-late-data`, `sd.stream.replay` |
+| Storage | `sd.store.row-vs-columnar`, `sd.store.file-layout-and-size`, `sd.store.table-format-acid`, `sd.store.partitioning`, `sd.store.clustering-and-sort`, `sd.store.compaction` |
+| Distribution | `sd.dist.sharding-key`, `sd.dist.replication`, `sd.dist.consistency-model`, `sd.dist.quorum`, `sd.dist.partition-tolerance-tradeoff` |
+| Processing | `sd.proc.shuffle-and-skew`, `sd.proc.join-strategy`, `sd.proc.incremental-vs-full`, `sd.proc.idempotency`, `sd.proc.backfill-and-restatement` |
+| Serving | `sd.serve.cache-strategy`, `sd.serve.cache-invalidation`, `sd.serve.precompute-vs-query-time`, `sd.serve.concurrency-and-isolation` |
+| Reliability | `sd.rel.slo-freshness`, `sd.rel.retry-and-dlq`, `sd.rel.schema-evolution`, `sd.rel.lineage-and-impact`, `sd.rel.failure-domain` |
+| Governance and cost | `sd.gov.access-model`, `sd.gov.pii-boundary`, `sd.gov.retention`, `sd.cost.storage-vs-compute`, `sd.cost.scan-reduction` |
+
+Add a domain or ID only with an explicit definition and owner. Never mint an ID inside a single deliverable; register it here first so dossiers, maps, case studies and explainers stay joinable.
+
+## Design answer frame
+
+Move `Clarify → Constrain → Contract → Component → Consistency → Cost → Collapse`:
+
+1. **Clarify** the decision the system serves, its users and the read/write pattern.
+2. **Constrain** with explicit numbers — event rate, rows per day, retention, freshness target, concurrency, budget — and mark every number you assumed rather than were given.
+3. **Contract** the data: grain, keys, schema-evolution policy, delivery semantics and ownership.
+4. **Component** the flow source → ingest → store → process → serve, naming one rejected alternative per hop and why it lost.
+5. **Consistency**: what may be stale, what must be exact, and how duplicates, late data and replays are handled.
+6. **Cost and operations**: scan/compute profile, failure domains, on-call surface, SLO and its recovery path.
+7. **Collapse** into trade-offs: the two or three decisions you would revisit first and the signal that would force the change.
+
+Depth rises with level: Foundation names the components; Practitioner defends the contract and failure handling; Advanced quantifies trade-offs and migration; Lead argues the operating and cost model. A named reference architecture recited without constraints is not an answer.
+
+## Visual mental model rule
+
+Each concept carries at most one diagram, and that diagram must show the mechanism rather than decorate it. Specify elements, relationships, the single takeaway, what the reader should observe, the common misreading and alt text. Specification belongs to `career-design-concept-visual-explainer`; rendering belongs to `data-documentation-and-diagrams`.
+
+## Source policy
+
+Prefer primary sources: project and vendor documentation for the exact version, papers, and first-party engineering blogs. Record source URL, version or date, accessed date, and whether each claim is documented, measured or inferred.
+
+Curated third-party collections — public system-design cheat-sheet repositories, course notes, summary threads — are navigation aids only. Cite them as a pointer and verify the underlying primary source. Material under `NonCommercial` or `NoDerivatives` terms may be linked and quoted briefly with attribution, but never copied, translated, redrawn or adapted into a deliverable.
 """
     career_os = """# Career operating-system and evidence method
 
@@ -2549,6 +2862,8 @@ Use levels 0–6: unaware, familiar, guided practice, independent application, a
 Every plan includes constraints, prerequisite order, real-work opportunities, recovery buffers, deprioritization rules and weekly/monthly/quarterly review. Track energy and burnout risk. Never guarantee promotion, prescribe sustained overtime, or imply that blogging, speaking or open source is mandatory.
 
 Technical writing strategy belongs here when its primary purpose is career evidence and learning. Handoff actual series research, production, channel adaptation and publishing to `data-technical-content-and-social`.
+
+Published content returns as a candidate claim, not as a settled competency. Consume `content-evidence-return.yaml` from the content skill, verify authorship, scope, review outcome and corrections, then classify it on the evidence ladder as external or learning evidence. Audience metrics never promote a claim, and a published explanation of a topic is not production experience with it.
 """
     career_learning_memory = """# Career learner memory and skill-transition method
 
@@ -2974,7 +3289,7 @@ Completion gates: source/edition hashes, extraction coverage, chapter map, frame
         "data-academy-and-curriculum": {"role-curricula.md": curricula, "assessment-and-certification.md": assessment, "knowledge-deep-dive-standard.md": deep_dive},
         "data-onboarding-and-integration": {"role-onboarding-tracks.md": onboarding},
         "data-talent-acquisition-and-interview": {"role-interview-architecture.md": interview, "question-knowledge-validity.md": question_validity},
-        "data-career-and-interview-coach": {"coaching-ethics-and-method.md": coaching, "role-curricula.md": curricula, "interview-knowledge-system.md": interview_knowledge, "career-operating-system.md": career_os, "career-learning-memory.md": career_learning_memory},
+        "data-career-and-interview-coach": {"coaching-ethics-and-method.md": coaching, "role-curricula.md": curricula, "interview-knowledge-system.md": interview_knowledge, "system-design-canon.md": system_design_canon, "career-operating-system.md": career_os, "career-learning-memory.md": career_learning_memory},
         "data-technical-content-and-social": {"technical-series-method.md": technical_series, "platform-format-playbooks.md": platform_playbooks, "technical-content-quality-standard.md": content_quality, "universal-professional-series-rules.md": universal_series_rules},
         "data-personal-project-engineering": {"personal-project-operating-system.md": personal_project_os, "repository-assessment-and-originality.md": repo_originality, "personal-project-quality-standard.md": project_quality},
         "personal-second-brain-and-knowledge-os": {"second-brain-operating-system.md": second_brain_os, "knowledge-note-and-lineage-standard.md": brain_lineage, "retrieval-and-output-grounding.md": brain_retrieval, "migration-and-tool-interop.md": brain_migration, "second-brain-quality-and-safety.md": brain_quality},
@@ -3258,6 +3573,8 @@ A redesign specification maps audit finding -> design decision -> affected page/
     (SKILLS / "business-intelligence" / "references" / "dashboard-experience-quality.md").write_text(dashboard_experience, encoding="utf-8")
     shared_names = [
         "lifecycle-standard.md",
+        "response-compression.md",
+        "solution-option-framing.md",
         "safety-and-approvals.md",
         "industry-and-metrics.md",
         "execution-discipline-standard.md",

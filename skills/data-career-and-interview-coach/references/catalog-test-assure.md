@@ -12,3 +12,4 @@ Inspect, analyze, test, review, validate, assess, certify or audit. Select exact
 - `career-reconcile-learning-memory` → **reconciled learner-memory version**; read [contract](tasks/career-reconcile-learning-memory.md).
 - `career-audit-career-claims-evidence` → **career-claim evidence audit**; read [contract](tasks/career-audit-career-claims-evidence.md).
 - `career-certify-interview-readiness` → **interview-readiness decision**; read [contract](tasks/career-certify-interview-readiness.md).
+- `career-audit-knowledge-coverage` → **interview knowledge coverage audit**; read [contract](tasks/career-audit-knowledge-coverage.md).

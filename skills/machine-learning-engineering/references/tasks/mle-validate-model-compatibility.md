@@ -61,7 +61,7 @@ Block before mutation or a positive completion decision when a mandatory input, 
 5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
 
 Additional resources:
-- None beyond the selected company, technology and industry context.
+- Compare feature statistics with `../../scripts/check_training_serving_skew.py`; a missing feature, a dtype change or an unseen category carrying real traffic is a structural failure, not drift to monitor later.
 
 
 ## Tests and evidence
@@ -79,3 +79,7 @@ Explicit approval is normally not required for read-only work, but becomes manda
 ## Return
 
 Return the task ID, lifecycle profile, risk tier, execution path, phase reached, primary deliverable, evidence links, test results, approvals, assumptions, open risks, affected assets, owner and one explicit next task. Route cross-role work through the department orchestrator.
+
+Report it in the compact shape from [response compression](../response-compression.md): one state line, the deliverable, only the fields that carry content, then one next action. Blocked gates, unrun checks, assumptions, limitations and residual risks are printed in full even here.
+
+Mirror the outcome into `../../assets/atomic-task-output.yaml` alongside the prose. Where the prose and the structured record disagree, the record stands and the task is not complete.

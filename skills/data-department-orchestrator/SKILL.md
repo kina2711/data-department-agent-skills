@@ -35,7 +35,8 @@ Record optional improvement telemetry only through `scripts/record_skill_telemet
 
 - **Build, implement, configure, teach, interview or deliver an artifact — project deliverables** (3 tasks): read [references/catalog-build-deliver-project.md](references/catalog-build-deliver-project.md).
 - **Build, implement, configure, teach, interview or deliver an artifact — register deliverables** (3 tasks): read [references/catalog-build-deliver-register.md](references/catalog-build-deliver-register.md).
-- **Build, implement, configure, teach, interview or deliver an artifact — remaining deliverables** (11 tasks): read [references/catalog-build-deliver-other.md](references/catalog-build-deliver-other.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — decision deliverables** (2 tasks): read [references/catalog-build-deliver-decision.md](references/catalog-build-deliver-decision.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — remaining deliverables** (9 tasks): read [references/catalog-build-deliver-other.md](references/catalog-build-deliver-other.md).
 - **Inspect, analyze, test, review, validate, assess, certify or audit** (2 tasks): read [references/catalog-test-assure.md](references/catalog-test-assure.md).
 
 Read only the best-matching catalog. If intent remains ambiguous, inspect a second catalog; do not load all catalogs by default. Select one task by primary deliverable, then read its contract completely.

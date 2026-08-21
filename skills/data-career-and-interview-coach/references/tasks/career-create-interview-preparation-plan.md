@@ -34,6 +34,7 @@ If an absent input changes semantics, risk, cost, scope or acceptance, classify 
 Additional resources:
 - Read [coaching ethics](../coaching-ethics-and-method.md) and [role curricula](../role-curricula.md).
 - Reuse the readiness, mock-assessment and remediation templates from `../../assets/`.
+- Read [solution option framing](../solution-option-framing.md); frame three to five materially different approaches in `../../assets/design-option-set.yaml`, select one against the stated constraints in at most forty words, and derive the deliverable structure from that selection. Where this role already owns a scored selection artifact, use it instead of duplicating the decision.
 
 - Assess before teaching, teach before simulation, score before revealing a model answer, and retest the same competency with a novel scenario.
 - Never fabricate candidate experience, complete a live assessment, impersonate the candidate or treat a single mock as proof of readiness.
@@ -53,3 +54,5 @@ Require named reviewer acceptance before the artifact becomes an organizational 
 ## Return
 
 Return the task ID, lifecycle profile, risk tier, execution path, phase reached, primary deliverable, evidence links, test results, approvals, assumptions, open risks, affected assets, owner and one explicit next task. Route cross-role work through the department orchestrator.
+
+Report it in the compact shape from [response compression](../response-compression.md): one state line, the deliverable, only the fields that carry content, then one next action. Blocked gates, unrun checks, assumptions, limitations and residual risks are printed in full even here.

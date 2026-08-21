@@ -1,7 +1,7 @@
 # Data Department Agent Skills
 
 A governed operating system for an entire Data Department, packaged as a Claude Code plugin.
-**32 role skills**, **809 atomic task contracts**, **45 slash commands**, **39 executable
+**32 role skills**, **814 atomic task contracts**, **45 slash commands**, **48 executable
 evidence scripts**, **12 JSON Schemas**, and a production guard hook.
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
@@ -103,7 +103,7 @@ claude --plugin-dir .
 /dd-catalog profiling
 ```
 
-It should return matching task IDs from the 809-task catalog. If it answers from general
+It should return matching task IDs from the 814-task catalog. If it answers from general
 knowledge instead of the catalog, the plugin is not loaded.
 
 ---
@@ -201,14 +201,14 @@ natural-language request
    ↓  route by primary deliverable, never by job title
 one owning role skill                    (32 candidates)
    ↓  read ONE catalog shard, not all of them
-one canonical atomic task                (809 contracts)
+one canonical atomic task                (814 contracts)
    ↓  read that contract completely
 Plan → Assess → Design → Execute → Test → Review/Approve → Release/Handoff → Monitor/Improve
 ```
 
 **Progressive disclosure is the point.** Only skill descriptions sit in context permanently.
 Claude then loads one `SKILL.md`, one catalog shard, one task contract, and only the
-references that contract names. The 809 contracts and 98 stack adapters are never loaded
+references that contract names. The 814 contracts and 98 stack adapters are never loaded
 together.
 
 Catalogs shard by intent — plan/design, build/deliver, test/assure, operate/improve — and any
@@ -288,13 +288,13 @@ atomic tasks.
 |---|---|---|
 | `/dd-platform` | Data Platform and DataOps | 21 |
 | `/dd-mlops` | MLOps | 23 |
-| `/dd-content` | Technical Content and Social | 26 |
+| `/dd-content` | Technical Content and Social | 27 |
 
 ### Reflect — learn, teach, grow
 
 | Command | Department | Tasks |
 |---|---|---|
-| `/dd-career` | Data Career and Interview Coach | 46 |
+| `/dd-career` | Data Career and Interview Coach | 50 |
 | `/dd-brain` | Personal Second Brain and Knowledge OS | 46 |
 | `/dd-book` | Book to Knowledge and Action | 45 |
 | `/dd-hire` | Data Talent and Interviewing | 41 |
@@ -302,7 +302,7 @@ atomic tasks.
 | `/dd-docs` | Data Documentation and Diagrams | 20 |
 | `/dd-enable` | Data Enablement and Knowledge | 17 |
 
-Full detail — ownership, boundaries, resources and all 809 workflows — is in
+Full detail — ownership, boundaries, resources and all 814 workflows — is in
 [docs/skill-and-task-catalog.md](docs/skill-and-task-catalog.md).
 
 ---
@@ -317,7 +317,7 @@ fire on their own.
 | Command | Does |
 |---|---|
 | `/dd-route <request>` | Resolves one owning role and one canonical task **without executing** |
-| `/dd-catalog <keyword>` | Searches the 809-task catalog by keyword, role prefix or deliverable |
+| `/dd-catalog <keyword>` | Searches the 814-task catalog by keyword, role prefix or deliverable |
 | `/dd-task <task-id>` | Loads one contract completely; reports readiness, gates, tests, approvals |
 | `/dd-navigate <symbol>` | Answers code questions from a symbol index instead of reading whole files |
 | `/dd-recall <question>` | Retrieves prior work from indexed traces with **zero model calls** |
@@ -453,7 +453,7 @@ set.
 
 ## Executable evidence
 
-39 scripts across the skills. **Standard library only** — they run on your machine with no
+48 scripts across the skills. **Standard library only** — they run on your machine with no
 install step. Exit codes carry meaning everywhere:
 
 | Exit | Meaning |
@@ -498,6 +498,15 @@ verified evidence supports.
 | `audit_repository.py` | Deterministic read-only inventory before qualitative judgement |
 | `profile_dataset.py`, `explain_sql.py` | First-pass analysis evidence |
 | `detect_data_stack.py` | Stack detection before binding an adapter |
+| `validate_diagram_source.py` | Diagram sources with orphan nodes, duplicate ids, unbalanced blocks or no text equivalent |
+| `score_onboarding_checkpoint.py` | A critical onboarding dimension averaged away into an "on track" mean |
+| `summarize_terraform_plan.py` | Destroy and replace hidden inside a plan summary; stateful resources called out separately |
+| `check_experiment_design.py` | Underpowered designs, uncorrected multiple testing, effects the traffic cannot detect |
+| `audit_question_bank.py` | Uncovered competencies, redundant questions, unanchored scoring, selection-rate ratio below 0.80 |
+| `summarize_eval_run.py` | Pass rates without an interval; runs too small to separate a fix from noise; unvalidated judges |
+| `score_portfolio_options.py` | Hard gates traded off inside the arithmetic; rank differences that are noise |
+| `check_training_serving_skew.py` | Features missing at serving, dtype changes, unseen categories carrying real traffic |
+| `check_model_promotion_readiness.py` | Approval bound to a different artifact hash or stage; named-but-unconfigured monitors; untested rollback |
 
 Plus schema validators for learner memory, second-brain vaults, book conversions, content
 manifests, personal-project manifests, and portfolio evidence.
@@ -524,7 +533,7 @@ Airflow, Spark, Kafka, Power BI, Tableau, Looker, Metabase, Superset and more.
 │       ├── SKILL.md              entry point, always-visible metadata only
 │       ├── references/
 │       │   ├── catalog-*.md      routing shards, loaded one at a time
-│       │   ├── tasks/*.md        the 809 atomic task contracts
+│       │   ├── tasks/*.md        the 814 atomic task contracts
 │       │   └── adapter-*.md      stack-native adapter packs
 │       ├── assets/               record templates and JSON Schemas
 │       └── scripts/              executable evidence  ← hand-written
@@ -565,7 +574,7 @@ python tools/install_agent_harness.py <project> --dry-run   # multi-harness inst
 
 | Suite | Result |
 |---|---|
-| Skills / contracts / commands / agents | 32 / 809 / 45 / 32, 0 errors |
+| Skills / contracts / commands / agents | 32 / 814 / 45 / 32, 0 errors |
 | Natural-language routing | 35 cases |
 | Role-confusion pairs | 37 cases |
 | Catalog routing | 41 cases |
@@ -587,7 +596,7 @@ evidence script — talent acquisition (41 tasks), onboarding (34), MLOps (23), 
 (22), head of data (21), platform (21), ML engineering (20), generative AI (20),
 documentation (20) — and two catalog shards sit just over the 55% concentration threshold.
 
-`mean_thin_share` is **0.00%**: every one of the 809 contracts carries at least one
+`mean_thin_share` is **0.00%**: every one of the 814 contracts carries at least one
 task-specific resource.
 
 ---
@@ -596,7 +605,7 @@ task-specific resource.
 
 | Document | Contents | Language |
 |---|---|---|
-| [docs/skill-and-task-catalog.md](docs/skill-and-task-catalog.md) | All 32 skills and 809 workflows: ownership, boundaries, resources | Vietnamese |
+| [docs/skill-and-task-catalog.md](docs/skill-and-task-catalog.md) | All 32 skills and 814 workflows: ownership, boundaries, resources | Vietnamese |
 | [docs/installation-and-usage.md](docs/installation-and-usage.md) | Plugin, project-scope and user-scope install; routing; prompts; troubleshooting | Vietnamese |
 | [docs/capability-overview.md](docs/capability-overview.md) | Capability summary | Vietnamese |
 | [docs/skill-map.md](docs/skill-map.md) | **Canonical taxonomy** — the source the build reads | English |

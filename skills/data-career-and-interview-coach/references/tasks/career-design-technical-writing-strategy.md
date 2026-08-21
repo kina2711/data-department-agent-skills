@@ -35,6 +35,7 @@ Additional resources:
 - Read [the career operating-system and evidence method](../career-operating-system.md).
 - Reuse the career operating-system, career evidence or career review template from `../../assets/` that matches the deliverable.
 - When actual content production is a downstream outcome, populate `../../assets/career-content-handoff.yaml` with allowed evidence/claims, confidential boundaries, capacity and the next content task.
+- Read [solution option framing](../solution-option-framing.md); frame three to five materially different approaches in `../../assets/design-option-set.yaml`, select one against the stated constraints in at most forty words, and derive the deliverable structure from that selection. Where this role already owns a scored selection artifact, use it instead of duplicating the decision.
 
 - Never guarantee title, promotion, compensation or timeline; distinguish portable capability from company-specific level mapping.
 - Never relabel self-study or hypothetical work as production evidence, and never prescribe sustained overtime as ownership.
@@ -54,3 +55,5 @@ Require named reviewer acceptance before the artifact becomes an organizational 
 ## Return
 
 Return the task ID, lifecycle profile, risk tier, execution path, phase reached, primary deliverable, evidence links, test results, approvals, assumptions, open risks, affected assets, owner and one explicit next task. Route cross-role work through the department orchestrator.
+
+Report it in the compact shape from [response compression](../response-compression.md): one state line, the deliverable, only the fields that carry content, then one next action. Blocked gates, unrun checks, assumptions, limitations and residual risks are printed in full even here.

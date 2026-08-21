@@ -1,0 +1,23 @@
+return_id: ""
+person_id: ""
+series_id: ""
+episode_id: ""
+artifact_id: ""
+artifact_version: ""
+artifact_sha256: ""
+channels: []
+published_at: ""
+publication_evidence_ref: ""
+claim_ids: []
+capabilities_demonstrated: []
+evidence_type: "external"
+review_outcomes: []
+correction_history: []
+audience_signals:
+  note: "Reach, reactions and post count are audience signals, not competency evidence."
+  metrics: []
+proposed_portfolio_claims: []
+career_task: "career-build-career-evidence-portfolio"
+verification_status: "unverified"
+owner: ""
+status: "draft"

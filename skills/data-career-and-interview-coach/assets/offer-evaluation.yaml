@@ -1,0 +1,45 @@
+offer_id: ""
+person_id: ""
+company: ""
+role_title: ""
+level_mapping_assumption: ""
+location_and_work_mode: ""
+components:
+  base: {}
+  variable: {}
+  equity:
+    instrument: ""
+    quantity: 0
+    vesting: ""
+    scenarios: []
+    assumptions: []
+    is_expected_money: false
+  benefits: []
+  leave: ""
+  learning_budget: ""
+non_compensation_factors:
+  - factor: ""
+    evidence: ""
+    weight: ""
+market_reference:
+  - source: ""
+    url: ""
+    published_at: ""
+    region: ""
+    level_definition: ""
+    range: ""
+    confidence: "unknown"
+assumptions: []
+asks:
+  - ask: ""
+    priority: ""
+    justification_evidence_ref: ""
+    fallback: ""
+walk_away_position: ""
+decision_change_signals: []
+prohibited_statements:
+  - "misstating current compensation"
+  - "misstating a competing offer"
+  - "inventing a deadline"
+outcome_guarantee: "None. No compensation outcome is promised."
+status: "draft"

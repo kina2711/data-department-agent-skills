@@ -65,6 +65,7 @@ Additional resources:
 - Read [the universal professional-series rules](../universal-professional-series-rules.md) for the capability journey, teaching contract, human voice, REAL/ILLUSTRATION/CODE asset contract and non-publication gates.
 - Read [the technical-content quality standard](../technical-content-quality-standard.md); material claims require a source, executable evidence, or an explicit opinion/hypothesis label.
 - Read [the platform format playbooks](../platform-format-playbooks.md); adapt from the canonical evidence pack without copying one channel verbatim into another.
+- When the artifact is published and measured, populate `../../assets/content-evidence-return.yaml` and hand it to `career-build-career-evidence-portfolio` in `data-career-and-interview-coach`. Content owns the artifact; Career decides whether it counts as competency evidence. Reach, reactions and post count are audience signals, never mastery.
 - Reuse only the matching template from `../../assets/`; run `../../scripts/validate_content_manifest.py` when a content manifest is available.
 - Read [the Workflow Runtime and Evidence OS](../workflow-runtime-and-evidence-os.md); validate workflow, evidence and version-bound approvals instead of relying on narrative gate claims.
 - Read [the execution discipline standard](../execution-discipline-standard.md).
@@ -87,3 +88,7 @@ Require explicit, scoped, version-specific human approval before execution and p
 ## Return
 
 Return the task ID, lifecycle profile, risk tier, execution path, phase reached, primary deliverable, evidence links, test results, approvals, assumptions, open risks, affected assets, owner and one explicit next task. Route cross-role work through the department orchestrator.
+
+Return the full contract; [response compression](../response-compression.md) governs wording, never coverage. Never soften `blocked` or `failed`, and never report an unrun check as a pass.
+
+Mirror the outcome into `../../assets/atomic-task-output.yaml` alongside the prose. Where the prose and the structured record disagree, the record stands and the task is not complete.

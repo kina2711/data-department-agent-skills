@@ -67,6 +67,7 @@ Additional resources:
 - Reuse the workflow, scorecard, loop, candidate, rubric, calibration, evidence, debrief and audit templates from `../../assets/`.
 - Read [question-to-competency validity controls](../question-knowledge-validity.md).
 - Reuse the question traceability, answer-anchor or question-bank audit template from `../../assets/`.
+- Audit the bank with `../../scripts/audit_question_bank.py` for competency coverage, difficulty balance, redundancy and anchors. Where outcome data exists it also reports the selection-rate ratio: below 0.80 is a signal to investigate the questions, never a finding of discrimination, and above it is never proof of fairness.
 
 - A bundled hiring request is a composed workflow: select the primary artifact, then name the scorecard, assessment, calibration, evidence, debrief, decision and audit tasks in dependency order.
 - Upgrade live hiring decisions, employment-impacting automation and jurisdiction-sensitive workflows to R3-controlled with HR/legal/accessibility review and a named hiring owner.
@@ -88,3 +89,7 @@ Require owner approval before production, sensitive, externally visible or mater
 ## Return
 
 Return the task ID, lifecycle profile, risk tier, execution path, phase reached, primary deliverable, evidence links, test results, approvals, assumptions, open risks, affected assets, owner and one explicit next task. Route cross-role work through the department orchestrator.
+
+Return the full contract; [response compression](../response-compression.md) governs wording, never coverage. Never soften `blocked` or `failed`, and never report an unrun check as a pass.
+
+Mirror the outcome into `../../assets/atomic-task-output.yaml` alongside the prose. Where the prose and the structured record disagree, the record stands and the task is not complete.

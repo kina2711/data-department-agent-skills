@@ -937,6 +937,9 @@ Ranh giới: Coach hỗ trợ nhân viên hoặc ứng viên chuẩn bị và ph
 - `career-build-question-deep-dive` — tạo hồ sơ gồm question analysis, concept theory, practical examples, trade-offs, failure modes, sources và related knowledge; output: interview question deep-dive dossier.
 - `career-design-answer-strategy` — chọn structure, opening, reasoning flow, evidence, STAR/system-design pattern, checks và follow-up handling; output: interview answer strategy.
 - `career-build-interview-knowledge-library` — tổ chức question dossiers thành linked, tagged, versioned và Notion-ready knowledge library; output: interview knowledge library.
+- `career-design-concept-visual-explainer` — đặc tả visual mental model cho một concept gồm elements, relationships, annotation, common misreading, takeaway và alt text; output: concept visual explainer spec.
+- `career-build-architecture-case-study` — bóc tách một kiến trúc public thành constraints, decisions, rejected alternatives, consistency, cost, failure modes và follow-up questions có trích dẫn nguồn; output: architecture case-study dossier.
+- `career-build-offer-evaluation-and-negotiation-plan` — định giá từng cấu phần offer, đối chiếu market range có trích dẫn, chuẩn bị asks, fallback và walk-away position mà không hứa kết quả lương; output: offer evaluation and negotiation plan.
 
 ### P1 — simulations
 
@@ -967,6 +970,7 @@ Ranh giới: Coach hỗ trợ nhân viên hoặc ứng viên chuẩn bị và ph
 - `career-run-career-review-cycle` — review tuần/tháng/quý/năm dựa trên evidence, feedback, energy, bottleneck và thay đổi bối cảnh; output: career review record.
 - `career-audit-career-claims-evidence` — đối chiếu resume, portfolio, promotion hoặc public claims với evidence thật và gắn nhãn self-study/hypothetical đúng mức; output: career-claim evidence audit.
 - `career-certify-interview-readiness` — tổng hợp multi-format evidence và residual gaps; output: interview-readiness decision.
+- `career-audit-knowledge-coverage` — đối chiếu question library với canonical concept ID để tìm concept chưa có dossier, prerequisite gap, entry stale và vùng luyện thừa; output: interview knowledge coverage audit.
 
 ## 29. Technical Content / Social Series Engineering
 
@@ -1000,6 +1004,7 @@ Ranh giới: skill này sở hữu strategy, research, production, QA, publishin
 - `content-review-technical-accuracy` — kiểm tra facts, mechanisms, version specificity, abstraction/implementation boundary, examples và limitations; output: technical accuracy review.
 - `content-audit-claim-source-traceability` — nối từng material claim tới source, test, runtime evidence hoặc nhãn opinion/hypothesis; output: content claim-traceability audit.
 - `content-test-code-and-diagrams` — chạy code/tests và đối chiếu diagram với implementation hoặc evidence đã khai báo; output: content artifact validation report.
+- `content-audit-series-concept-coverage` — map episode đã publish tới canonical concept ID để tách concept đã dạy khỏi concept chỉ nhắc tới, tìm prerequisite hở và trùng lặp; output: series concept coverage audit.
 - `content-audit-author-voice-and-originality` — kiểm tra consistency, AI tells, cliché, copied phrasing, invented authority và channel duplication; output: voice and originality audit.
 - `content-review-platform-fit` — kiểm tra length, structure, accessibility, CTA, hashtags, links, formatting và native-reader experience theo channel; output: platform-fit review.
 - `content-publish-technical-content` — phát hành đúng approved version, metadata, links, alt text và schedule lên kênh đã được ủy quyền; output: technical-content publication record.

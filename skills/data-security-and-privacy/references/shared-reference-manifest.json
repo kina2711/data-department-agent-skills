@@ -7,6 +7,16 @@
       "sha256": "7d91d2fd2b8c3fb1c0f004797de6b574fa3e38ae569c44c663e8c2eb9fb648db"
     },
     {
+      "logical_id": "response-compression",
+      "filename": "response-compression.md",
+      "sha256": "5b0e5d8980c985af07ea47adb2a2c0beb70e2e27267ffbad7ad58c69ca24ebaa"
+    },
+    {
+      "logical_id": "solution-option-framing",
+      "filename": "solution-option-framing.md",
+      "sha256": "6c17ba2cba1e7fbe27c90f001b5201313fc01f9ee1bedab9135f6a187ae79649"
+    },
+    {
       "logical_id": "safety-and-approvals",
       "filename": "safety-and-approvals.md",
       "sha256": "b6b5604db61c55cc6b24e20c7152681bdaa633657af78f3909536a428f4a012e"

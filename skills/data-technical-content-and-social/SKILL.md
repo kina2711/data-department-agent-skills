@@ -28,7 +28,9 @@ description: Build evidence-backed technical series for Facebook in Vietnamese, 
 - One approved canonical artifact adapted to multiple channels → `content-repurpose-technical-content`.
 - Accuracy, traceability, executable artifacts, voice/originality and platform fit are independent reviews; passing one never waives another.
 - A whole/end-to-end series request containing research, code, diagrams and multiple channels must enter `orchestrator-run-sequential-workflow`; one content task must not masquerade as the completed series.
+- Which canon concepts the series has actually taught, and where the arc leaves a gap → `content-audit-series-concept-coverage`.
 - `content-create-technical-diagram-brief` specifies the visual only. Handoff actual Mermaid/PlantUML/D2/rendered work to `data-documentation-and-diagrams`, then return to `content-test-code-and-diagrams` before adaptation.
+- After publication and measurement, return the approved artifact, its claim IDs and review outcome to `data-career-and-interview-coach` through `assets/content-evidence-return.yaml` and `career-build-career-evidence-portfolio`. This skill owns the artifact; Career owns whether it counts as competency evidence.
 
 Do not write a social post before its material technical claims are supported. Do not fabricate production experience, benchmarks, incidents, readership or authority. Clearly label teaching examples, synthetic scenarios, opinions and hypotheses. Publication is an R3 controlled task and requires explicit channel authority plus approval of the exact version.
 
@@ -37,7 +39,7 @@ Do not write a social post before its material technical claims are supported. D
 
 - **Plan, define, design, map, specify or create a proposed artifact** (10 tasks): read [references/catalog-plan-design.md](references/catalog-plan-design.md).
 - **Build, implement, configure, teach, interview or deliver an artifact** (7 tasks): read [references/catalog-build-deliver.md](references/catalog-build-deliver.md).
-- **Inspect, analyze, test, review, validate, assess, certify or audit** (7 tasks): read [references/catalog-test-assure.md](references/catalog-test-assure.md).
+- **Inspect, analyze, test, review, validate, assess, certify or audit** (8 tasks): read [references/catalog-test-assure.md](references/catalog-test-assure.md).
 - **Deploy, release, monitor, recover, migrate, optimize, retire or improve** (2 tasks): read [references/catalog-operate-improve.md](references/catalog-operate-improve.md).
 
 Read only the best-matching catalog. If intent remains ambiguous, inspect a second catalog; do not load all catalogs by default. Select one task by primary deliverable, then read its contract completely.

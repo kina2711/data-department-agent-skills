@@ -1,0 +1,45 @@
+case_id: ""
+system_name: ""
+organization: ""
+study_type: "third-party-public-source"
+as_of: ""
+business_context: ""
+decision_the_system_serves: ""
+given_constraints: []
+assumed_constraints: []
+data_contract:
+  grain: ""
+  keys: []
+  delivery_semantics: ""
+  schema_evolution: ""
+components:
+  - stage: "ingest|store|process|serve"
+    choice: ""
+    alternative_rejected: ""
+    reason: ""
+    concept_ids: []
+    evidence_ref: ""
+consistency_model: ""
+failure_modes: []
+cost_profile: {}
+trade_offs: []
+what_would_change_the_design: []
+follow_up_questions: []
+concept_ids: []
+sources:
+  - title: ""
+    url: ""
+    publisher: ""
+    published_or_updated_at: ""
+    accessed_at: ""
+    license: ""
+    reuse_allowed: "unknown"
+claims:
+  - claim: ""
+    classification: "documented|measured|inferred"
+    evidence_ref: ""
+personal_experience_claim: false
+limitations: []
+owner: ""
+version: ""
+status: "draft"

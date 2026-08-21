@@ -1,7 +1,7 @@
 suite: "data-department-agent-skills"
 version: "3.6.0"
 top_level_skills: 32
-atomic_tasks: 809
+atomic_tasks: 814
 roles:
   - skill: "data-department-orchestrator"
     display_name: "Data Department Orchestrator"
@@ -86,10 +86,10 @@ roles:
     task_count: 41
   - skill: "data-career-and-interview-coach"
     display_name: "Data Career and Interview Coach"
-    task_count: 46
+    task_count: 50
   - skill: "data-technical-content-and-social"
     display_name: "Technical Content and Social"
-    task_count: 26
+    task_count: 27
   - skill: "data-personal-project-engineering"
     display_name: "Personal Data Project Engineering"
     task_count: 42

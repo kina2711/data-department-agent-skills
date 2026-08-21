@@ -1,5 +1,69 @@
 # Changelog
 
+## Unreleased
+
+System-design knowledge layer for Data Career, and a return path from published content.
+
+- New reference `system-design-canon.md` in `data-career-and-interview-coach`: a registry of
+  canonical concept IDs across ingestion, streaming, storage, distribution, processing, serving,
+  reliability, governance and cost; the `Clarify -> Constrain -> Contract -> Component ->
+  Consistency -> Cost -> Collapse` answer frame; and a source policy that treats curated
+  third-party collections as pointers to primary sources, never as content to copy or adapt.
+- New task `career-build-architecture-case-study` — deconstructs a public architecture into
+  constraints, decisions, rejected alternatives, consistency, cost, failure modes and follow-up
+  questions, with per-claim classification and an explicit third-party study label.
+- New task `career-design-concept-visual-explainer` — specifies one visual mental model per
+  concept and hands rendering to `data-documentation-and-diagrams`; it never reports a brief as
+  a finished diagram.
+- `career-build-question-deep-dive` now requires a visual mental model section in the dossier,
+  and dossier concept links resolve against the system-design canon.
+- Published content now returns to Career as a candidate claim through
+  `content-evidence-return.yaml`, verified by `career-build-career-evidence-portfolio`. Reach,
+  reactions and posting volume remain audience signals, never mastery evidence.
+- Career grows from 46 to 48 atomic tasks; the suite from 809 to 811.
+
+Two cross-cutting standards, applied to all 32 skills and all 811 contracts.
+
+- New shared reference `response-compression.md`: `R0-light` and `R1-reviewed` results are
+  reported in a compact shape — one state line, the deliverable, only the fields that carry
+  content, one named next action, lists capped at five. It governs presentation only. Blocked
+  gates, unrun checks, assumptions, limitations, residual risks and draft-versus-executed labels
+  print in full at every risk tier, and `R2`+ still returns the full contract.
+- New shared reference `solution-option-framing.md`: plan/design tasks step back and frame three
+  to five materially different approaches in the new `design-option-set.yaml` asset, select one
+  against the stated constraints in at most forty words, record why each rejected option lost and
+  what would reopen the decision, then derive the deliverable structure from that selection.
+  Roles that already own a scored selection artifact reuse it instead of duplicating the decision.
+- `atomic-task-output.yaml` is now distributed to every skill, and `deep`/`enforced` contracts
+  mirror their outcome into it. Where prose and the structured record disagree, the record stands.
+- Both references join the shared-reference manifest, so a cross-role handoff deduplicates them
+  by logical ID and SHA-256 instead of loading a second copy.
+
+Deep upgrade: the audit closes at zero findings.
+
+`tools/audit_skills.py` reported 13 findings across 13 skills. All 13 are now closed.
+
+- Nine new executable evidence scripts, standard library only, for the nine skills that carried
+  20+ contracts and no runnable check: `validate_diagram_source.py` (documentation),
+  `score_onboarding_checkpoint.py` (onboarding), `summarize_terraform_plan.py` (platform),
+  `check_experiment_design.py` (data science), `audit_question_bank.py` (talent),
+  `summarize_eval_run.py` (generative AI), `score_portfolio_options.py` (head of data),
+  `check_training_serving_skew.py` (ML engineering) and
+  `check_model_promotion_readiness.py` (MLOps). Each is wired into the contracts that need it,
+  and each states in its own docstring what it cannot verify.
+- Catalog sharding is now share-aware: a group that would hold more than 55% of a skill's routing
+  gets a tighter budget even when it fits the absolute one, and leftover tasks are distributed
+  evenly instead of leaving a one-task orphan shard beside a full one. This closed the imbalance
+  in the orchestrator, enablement, security/privacy and metadata catalogs.
+- Career gains `career-build-offer-evaluation-and-negotiation-plan` — components valued
+  separately, equity as a scenario rather than expected money, market ranges only from cited
+  sources with date/region/level, an explicit walk-away position, and a standing refusal to coach
+  a misstatement of current or competing compensation — and `career-audit-knowledge-coverage`,
+  which measures preparation against registered canon concept IDs rather than questions practised.
+- Content gains `content-audit-series-concept-coverage`: a mention is not coverage, and only a
+  concept with an explanation, a worked artifact and a stated failure mode counts as taught.
+- Career grows to 50 tasks, Content to 27, the suite to 814. Evidence scripts: 39 to 48.
+
 ## v3.6.0
 
 Multi-harness support and a Vietnamese README.

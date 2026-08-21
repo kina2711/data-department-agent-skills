@@ -25,8 +25,12 @@ description: Build evidence-based Data career systems, persistent cross-skill le
 - Only concepts/prerequisites/follow-ups → `career-map-question-knowledge-dependencies`.
 - Only response structure and authentic evidence selection → `career-design-answer-strategy`.
 - Multiple approved dossiers plus taxonomy, tags, backlinks, versions and platform mapping → `career-build-interview-knowledge-library`.
+- Only the visual mental model of one concept → `career-design-concept-visual-explainer`; it ends at a specification, and rendering belongs to `data-documentation-and-diagrams`.
+- A published architecture deconstructed into constraints, decisions, rejected alternatives, trade-offs and follow-ups → `career-build-architecture-case-study`.
 
 The dossier is the container for one question. The library is a collection of dossiers; never select the library task for a single-question deliverable.
+
+Every dossier, knowledge map, case study and explainer links to canonical concept IDs registered in [references/system-design-canon.md](references/system-design-canon.md); register a new ID there before using it. Answer a design question with the canon's `Clarify → Constrain → Contract → Component → Consistency → Cost → Collapse` frame and mark assumed numbers as assumptions. A case study is cited third-party material, never the learner's production experience, and curated third-party collections under `NonCommercial`/`NoDerivatives` terms may be linked and cited but never copied or adapted into a deliverable.
 
 ## Career-system routing
 
@@ -37,11 +41,14 @@ The dossier is the container for one question. The library is a collection of do
 - Career purpose, themes and writing portfolio → `career-design-technical-writing-strategy`; actual series production belongs to `data-technical-content-and-social`.
 - Sustainable public contribution and visibility boundaries → `career-plan-ethical-professional-visibility`.
 - Periodic evidence/energy/bottleneck review → `career-run-career-review-cycle`.
+- Compare a concrete offer and prepare the conversation → `career-build-offer-evaluation-and-negotiation-plan`; compare total value against cited public ranges with their date and source, never against an invented market figure, and never coach a candidate to misstate a competing offer or their current compensation.
+- Blind spots between the practised questions and the concepts the role actually tests → `career-audit-knowledge-coverage`.
 - First persistent record of prior learning → `career-initialize-learning-memory`.
 - Airflow → dbt, SQL → Spark or another topic transition → select `career-build-skill-transition-context` as the primary task; use `career-map-cross-skill-prerequisites` as a prior dependency only when the relevant graph is absent or stale.
 - New lesson, lab, project, assessment or feedback → `career-record-learning-event`; recording evidence does not automatically mark mastery.
 - Promote or downgrade a topic state → `career-assess-topic-mastery`; stale/version-drift review → `career-detect-learning-decay`.
 - Merge memory from multiple repositories or vaults → `career-reconcile-learning-memory` without discarding conflicts or prior versions.
+- Published technical content returned from `data-technical-content-and-social` → verify it through `career-build-career-evidence-portfolio` using `assets/content-evidence-return.yaml`; audience metrics and posting volume never promote a claim.
 
 Career progression is `Current state → Target capability → Gap → Practice → Real work → Evidence → Feedback → Reflection → Updated plan`. Titles vary by company; never promise promotion, confuse self-study with production experience, or treat posting volume as mastery.
 
@@ -53,11 +60,11 @@ If the request asks for the complete Career OS bundle, route through `orchestrat
 ## Atomic task routing
 
 - **Plan, define, design, map, specify or create a proposed artifact — interview deliverables** (4 tasks): read [references/catalog-plan-design-interview.md](references/catalog-plan-design-interview.md).
-- **Plan, define, design, map, specify or create a proposed artifact — remaining deliverables** (9 tasks): read [references/catalog-plan-design-other.md](references/catalog-plan-design-other.md).
+- **Plan, define, design, map, specify or create a proposed artifact — remaining deliverables** (10 tasks): read [references/catalog-plan-design-other.md](references/catalog-plan-design-other.md).
 - **Build, implement, configure, teach, interview or deliver an artifact — assessment deliverables** (11 tasks): read [references/catalog-build-deliver-assessment.md](references/catalog-build-deliver-assessment.md).
 - **Build, implement, configure, teach, interview or deliver an artifact — career deliverables** (3 tasks): read [references/catalog-build-deliver-career.md](references/catalog-build-deliver-career.md).
-- **Build, implement, configure, teach, interview or deliver an artifact — remaining deliverables** (9 tasks): read [references/catalog-build-deliver-other.md](references/catalog-build-deliver-other.md).
-- **Inspect, analyze, test, review, validate, assess, certify or audit** (10 tasks): read [references/catalog-test-assure.md](references/catalog-test-assure.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — remaining deliverables** (11 tasks): read [references/catalog-build-deliver-other.md](references/catalog-build-deliver-other.md).
+- **Inspect, analyze, test, review, validate, assess, certify or audit** (11 tasks): read [references/catalog-test-assure.md](references/catalog-test-assure.md).
 
 Read only the best-matching catalog. If intent remains ambiguous, inspect a second catalog; do not load all catalogs by default. Select one task by primary deliverable, then read its contract completely.
 

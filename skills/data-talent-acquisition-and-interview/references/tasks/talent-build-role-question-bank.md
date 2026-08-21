@@ -65,6 +65,8 @@ Block before mutation or a positive completion decision when a mandatory input, 
 Additional resources:
 - Read [role interview architecture](../role-interview-architecture.md) for methods, fairness, calibration and evidence rules.
 - Reuse the workflow, scorecard, loop, candidate, rubric, calibration, evidence, debrief and audit templates from `../../assets/`.
+- Audit the bank with `../../scripts/audit_question_bank.py` for competency coverage, difficulty balance, redundancy and anchors. Where outcome data exists it also reports the selection-rate ratio: below 0.80 is a signal to investigate the questions, never a finding of discrimination, and above it is never proof of fairness.
+- Read [solution option framing](../solution-option-framing.md); frame three to five materially different approaches in `../../assets/design-option-set.yaml`, select one against the stated constraints in at most forty words, and derive the deliverable structure from that selection. Where this role already owns a scored selection artifact, use it instead of duplicating the decision.
 
 - A bundled hiring request is a composed workflow: select the primary artifact, then name the scorecard, assessment, calibration, evidence, debrief, decision and audit tasks in dependency order.
 - Upgrade live hiring decisions, employment-impacting automation and jurisdiction-sensitive workflows to R3-controlled with HR/legal/accessibility review and a named hiring owner.
@@ -86,3 +88,7 @@ Require owner approval before production, sensitive, externally visible or mater
 ## Return
 
 Return the task ID, lifecycle profile, risk tier, execution path, phase reached, primary deliverable, evidence links, test results, approvals, assumptions, open risks, affected assets, owner and one explicit next task. Route cross-role work through the department orchestrator.
+
+Return the full contract; [response compression](../response-compression.md) governs wording, never coverage. Never soften `blocked` or `failed`, and never report an unrun check as a pass.
+
+Mirror the outcome into `../../assets/atomic-task-output.yaml` alongside the prose. Where the prose and the structured record disagree, the record stands and the task is not complete.

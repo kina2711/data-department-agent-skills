@@ -62,7 +62,7 @@ Block before mutation or a positive completion decision when a mandatory input, 
 5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
 
 Additional resources:
-- None beyond the selected company, technology and industry context.
+- Check the record with `../../scripts/check_model_promotion_readiness.py`; approval must bind to the exact artifact hash and to this stage, monitors must be configured rather than named, and an untested rollback is a plan, not a control.
 
 
 ## Tests and evidence
@@ -80,3 +80,7 @@ Require named reviewer acceptance before the artifact becomes an organizational 
 ## Return
 
 Return the task ID, lifecycle profile, risk tier, execution path, phase reached, primary deliverable, evidence links, test results, approvals, assumptions, open risks, affected assets, owner and one explicit next task. Route cross-role work through the department orchestrator.
+
+Report it in the compact shape from [response compression](../response-compression.md): one state line, the deliverable, only the fields that carry content, then one next action. Blocked gates, unrun checks, assumptions, limitations and residual risks are printed in full even here.
+
+Mirror the outcome into `../../assets/atomic-task-output.yaml` alongside the prose. Where the prose and the structured record disagree, the record stands and the task is not complete.
