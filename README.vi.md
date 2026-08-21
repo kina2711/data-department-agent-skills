@@ -1,7 +1,7 @@
 # Data Department Agent Skills
 
 Hệ điều hành có kiểm soát cho toàn bộ một phòng Data, đóng gói dưới dạng plugin Claude Code.
-**32 role skill**, **814 atomic task contract**, **45 slash command**, **48 script evidence
+**32 role skill**, **815 atomic task contract**, **45 slash command**, **49 script evidence
 chạy được**, **12 JSON Schema**, và một production guard hook.
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
@@ -103,7 +103,7 @@ claude --plugin-dir .
 /dd-catalog profiling
 ```
 
-Phải trả về các task ID khớp từ catalog 814 task. Nếu nó trả lời bằng kiến thức chung thay vì
+Phải trả về các task ID khớp từ catalog 815 task. Nếu nó trả lời bằng kiến thức chung thay vì
 từ catalog, nghĩa là plugin **chưa** được nạp.
 
 ---
@@ -199,14 +199,14 @@ yêu cầu bằng ngôn ngữ tự nhiên
    ↓  route theo primary deliverable, không bao giờ theo chức danh
 một role skill sở hữu                    (32 ứng viên)
    ↓  đọc MỘT catalog shard, không phải tất cả
-một atomic task chuẩn                    (814 contract)
+một atomic task chuẩn                    (815 contract)
    ↓  đọc trọn vẹn contract đó
 Plan → Assess → Design → Execute → Test → Review/Approve → Release/Handoff → Monitor/Improve
 ```
 
 **Progressive disclosure chính là điểm mấu chốt.** Chỉ description của skill nằm thường trực
 trong context. Sau đó Claude nạp một `SKILL.md`, một catalog shard, một task contract, và chỉ
-những reference mà contract đó nêu tên. 814 contract và 98 stack adapter **không bao giờ** được
+những reference mà contract đó nêu tên. 815 contract và 98 stack adapter **không bao giờ** được
 nạp cùng lúc.
 
 Catalog chia theo intent — plan/design, build/deliver, test/assure, operate/improve — và shard
@@ -246,7 +246,7 @@ Mỗi phòng ban là một slash command, nhóm theo sprint stage. Con số là 
 | Command | Phòng ban | Task |
 |---|---|---|
 | `/dd-arch` | Data Architecture | 22 |
-| `/dd-orchestrate` | Data Department Orchestrator | 19 |
+| `/dd-orchestrate` | Data Department Orchestrator | 20 |
 
 ### Build — tạo ra artifact
 
@@ -298,7 +298,7 @@ Mỗi phòng ban là một slash command, nhóm theo sprint stage. Con số là 
 | `/dd-docs` | Data Documentation and Diagrams | 20 |
 | `/dd-enable` | Data Enablement and Knowledge | 17 |
 
-Chi tiết đầy đủ — ownership, ranh giới, resource và toàn bộ 814 workflow — nằm ở
+Chi tiết đầy đủ — ownership, ranh giới, resource và toàn bộ 815 workflow — nằm ở
 [docs/skill-and-task-catalog.md](docs/skill-and-task-catalog.md).
 
 ---
@@ -312,7 +312,7 @@ Chi tiết đầy đủ — ownership, ranh giới, resource và toàn bộ 814 
 | Command | Làm gì |
 |---|---|
 | `/dd-route <yêu cầu>` | Xác định một role sở hữu và một task chuẩn, **chưa thực thi** |
-| `/dd-catalog <từ khóa>` | Tra catalog 814 task theo từ khóa, role prefix hoặc deliverable |
+| `/dd-catalog <từ khóa>` | Tra catalog 815 task theo từ khóa, role prefix hoặc deliverable |
 | `/dd-task <task-id>` | Nạp trọn một contract; báo readiness, gate, test, approval |
 | `/dd-navigate <symbol>` | Trả lời câu hỏi code từ symbol index thay vì đọc cả file |
 | `/dd-recall <câu hỏi>` | Truy hồi việc cũ từ trace đã index, **0 model call** |
@@ -448,7 +448,7 @@ review Airflow đã quá hạn, lúc đó nó chuyển vào nhóm cần test l�
 
 ## Evidence chạy được
 
-48 script trải khắp các skill. **Chỉ dùng thư viện chuẩn** — chạy trên máy bạn không cần cài gì
+49 script trải khắp các skill. **Chỉ dùng thư viện chuẩn** — chạy trên máy bạn không cần cài gì
 thêm. Exit code mang ý nghĩa thống nhất ở mọi nơi:
 
 | Exit | Nghĩa |
@@ -479,6 +479,7 @@ evidence đã kiểm chứng nào chống lưng.
 | `validate_workflow.py` | Chuyển trạng thái không hợp lệ, task ID không chuẩn |
 | `validate_run_state.py` | Một run "complete" mà còn blocker hoặc test fail |
 | `validate_approval_record.py` | Approval hết hạn, sai scope, lệch hash |
+| `validate_branch_plan.py` | Hai branch cùng ghi một path, phụ thuộc nằm trong cùng một wave, branch vượt trần uỷ quyền, thiếu merge policy |
 
 ### Kiểm soát theo lĩnh vực
 
@@ -528,7 +529,7 @@ Power BI, Tableau, Looker, Metabase, Superset và nhiều hơn.
 │       ├── SKILL.md              entry point, chỉ metadata luôn hiển thị
 │       ├── references/
 │       │   ├── catalog-*.md      routing shard, nạp từng cái một
-│       │   ├── tasks/*.md        814 atomic task contract
+│       │   ├── tasks/*.md        815 atomic task contract
 │       │   └── adapter-*.md      gói adapter theo stack
 │       ├── assets/               template bản ghi và JSON Schema
 │       └── scripts/              evidence chạy được  ← viết tay
@@ -568,7 +569,7 @@ python tools/audit_skills.py           # bảng điểm cấu trúc từng skill
 
 | Bộ kiểm | Kết quả |
 |---|---|
-| Skill / contract / command / agent | 32 / 814 / 45 / 32, 0 lỗi |
+| Skill / contract / command / agent | 32 / 815 / 45 / 32, 0 lỗi |
 | Routing ngôn ngữ tự nhiên | 35 case |
 | Role-confusion pair | 37 case |
 | Catalog routing | 41 case |
@@ -590,7 +591,7 @@ acquisition (41 task), onboarding (34), MLOps (23), data science (22), head of d
 platform (21), ML engineering (20), generative AI (20), documentation (20) — và hai catalog
 shard nhỉnh trên ngưỡng tập trung 55%.
 
-`mean_thin_share` là **0.00%**: cả 814 contract đều mang ít nhất một resource riêng của task.
+`mean_thin_share` là **0.00%**: cả 815 contract đều mang ít nhất một resource riêng của task.
 
 ---
 
@@ -598,7 +599,7 @@ shard nhỉnh trên ngưỡng tập trung 55%.
 
 | Tài liệu | Nội dung | Ngôn ngữ |
 |---|---|---|
-| [docs/skill-and-task-catalog.md](docs/skill-and-task-catalog.md) | Toàn bộ 32 skill và 814 workflow: ownership, ranh giới, resource | Tiếng Việt |
+| [docs/skill-and-task-catalog.md](docs/skill-and-task-catalog.md) | Toàn bộ 32 skill và 815 workflow: ownership, ranh giới, resource | Tiếng Việt |
 | [docs/installation-and-usage.md](docs/installation-and-usage.md) | Cài plugin, project-scope, user-scope; routing; prompt; xử lý sự cố | Tiếng Việt |
 | [docs/capability-overview.md](docs/capability-overview.md) | Tóm tắt năng lực | Tiếng Việt |
 | [docs/skill-map.md](docs/skill-map.md) | **Taxonomy chuẩn** — nguồn mà build đọc vào | Tiếng Anh |

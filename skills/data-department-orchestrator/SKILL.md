@@ -24,6 +24,16 @@ Read [references/role-routing.md](references/role-routing.md) to select the prim
 
 Route personal learning, capstone or portfolio projects—including repo-first, dataset-first and external-idea-first requests—to `data-personal-project-engineering`. Keep organizational repository rebuilds and governed cross-role delivery in this orchestrator.
 
+## Execution-pattern routing
+
+- One ordered chain where each task consumes the previous deliverable → `orchestrator-run-sequential-workflow`.
+- Independent branches with disjoint write paths → `orchestrator-run-parallel-workflow`.
+- One input split across branches and recombined into a single deliverable → `orchestrator-run-fanout-fanin`.
+- Route selection that depends on an intermediate result → `orchestrator-run-conditional-workflow`.
+- A deliverable whose plausible-but-wrong failure is expensive, checked by an independent reviewer → `orchestrator-run-producer-reviewer`.
+
+Parallel and fan-out require branch isolation by write path, a validated branch plan, and a declared merge policy; read [references/parallel-execution-and-agent-teams.md](references/parallel-execution-and-agent-teams.md). A delegated branch never approves, publishes, mutates production or raises its own risk tier, and a dependency between branches means the work is sequential. Concurrent agent execution may be unavailable in a given harness; the branch contract holds in either mode and correctness never depends on the runtime.
+
 ## Workflow state
 
 For multi-step work, initialize `assets/workflow-manifest.json` and update it after every completed task or gate. Every `task_id` must be an exact canonical ID from `assets/task-catalog.json`; use optional `instance_id` only as a human-friendly occurrence label. Claim status is limited to `draft`, `verified` or `rejected`. Run `scripts/validate_workflow.py` before execution, after transitions and in complete mode before the final claim. Read-only work must still validate a temporary manifest outside the target repository. Use `assets/approval-record.json` for version/hash-bound authority and check it with `scripts/validate_approval_record.py --require-approved` before any gated action; an expired, out-of-scope or hash-mismatched record is the same as no approval. Track the run with `assets/run-state.yaml` and `scripts/validate_run_state.py`. Resume from the latest verified state; never redo an approved artifact without a change request.
@@ -36,7 +46,7 @@ Record optional improvement telemetry only through `scripts/record_skill_telemet
 - **Build, implement, configure, teach, interview or deliver an artifact — project deliverables** (3 tasks): read [references/catalog-build-deliver-project.md](references/catalog-build-deliver-project.md).
 - **Build, implement, configure, teach, interview or deliver an artifact — register deliverables** (3 tasks): read [references/catalog-build-deliver-register.md](references/catalog-build-deliver-register.md).
 - **Build, implement, configure, teach, interview or deliver an artifact — decision deliverables** (2 tasks): read [references/catalog-build-deliver-decision.md](references/catalog-build-deliver-decision.md).
-- **Build, implement, configure, teach, interview or deliver an artifact — remaining deliverables** (9 tasks): read [references/catalog-build-deliver-other.md](references/catalog-build-deliver-other.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — remaining deliverables** (10 tasks): read [references/catalog-build-deliver-other.md](references/catalog-build-deliver-other.md).
 - **Inspect, analyze, test, review, validate, assess, certify or audit** (2 tasks): read [references/catalog-test-assure.md](references/catalog-test-assure.md).
 
 Read only the best-matching catalog. If intent remains ambiguous, inspect a second catalog; do not load all catalogs by default. Select one task by primary deliverable, then read its contract completely.

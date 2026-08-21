@@ -32,6 +32,10 @@ If an absent input changes semantics, risk, cost, scope or acceptance, classify 
 5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
 
 Additional resources:
+- Read [parallel execution and delegated branches](../parallel-execution-and-agent-teams.md); branches must be disjoint in what they write, not merely in what they read.
+- Declare every branch in `../../assets/branch-delegation-contract.json` and validate the wave with `../../scripts/validate_branch_plan.py --task-catalog ../../assets/task-catalog.json` before dispatching anything. Without the catalog the check exits `incomplete`; that is not a pass.
+- A delegated branch holds no authority: it never approves, publishes, mutates production or raises its own risk tier. Any task above the delegation ceiling stops at a proposal and returns it to the supervisor.
+- Record fan-in in `../../assets/fan-in-merge-record.yaml`. Verify each returned artifact against its expected hash, route contradictions to `orchestrator-manage-conflict-register` with both positions intact, inherit the highest child risk tier, and report a failed branch as `partial` rather than reducing scope.
 - Read [the execution discipline standard](../execution-discipline-standard.md).
 - Before Git-backed mutation, require a verified success contract and pre-change scope contract. After the final change, run `core-audit-change-scope` and `core-verify-deliverable`; release remains blocked if either control is absent or failed.
 

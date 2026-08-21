@@ -7,6 +7,7 @@ Build, implement, configure, teach, interview or deliver an artifact — remaini
 - `orchestrator-run-sequential-workflow` → **completed chain**; read [contract](tasks/orchestrator-run-sequential-workflow.md).
 - `orchestrator-run-parallel-workflow` → **merged result**; read [contract](tasks/orchestrator-run-parallel-workflow.md).
 - `orchestrator-run-fanout-fanin` → **consolidated assessment**; read [contract](tasks/orchestrator-run-fanout-fanin.md).
+- `orchestrator-run-producer-reviewer` → **producer-reviewer verdict record**; read [contract](tasks/orchestrator-run-producer-reviewer.md).
 - `orchestrator-maintain-run-state` → **run-state record**; read [contract](tasks/orchestrator-maintain-run-state.md).
 - `orchestrator-resume-workflow` → **resumed execution plan**; read [contract](tasks/orchestrator-resume-workflow.md).
 - `orchestrator-manage-approval-ledger` → **approval ledger**; read [contract](tasks/orchestrator-manage-approval-ledger.md).

@@ -1,7 +1,7 @@
 ---
 name: dd-orchestrate
 description: >-
-  Data Department Orchestrator department (plan stage), owning 19 atomic task contracts.
+  Data Department Orchestrator department (plan stage), owning 20 atomic task contracts.
   Route complex or cross-role Data Department requests through atomic tasks, dependencies, evidence, state, handoffs, and human approval gates. Use for end-to-end data initiatives, vague repo-first rebuilds, requests combining discovery, implementation and proof, ambiguous ownership or workload type, multi-role work, workflow resume, or completion assessment.
 model: inherit
 mainAgent: true
@@ -15,7 +15,7 @@ skills:
 
 # Data Department Orchestrator
 
-Sprint stage: `plan`. This department owns 19 atomic task contracts.
+Sprint stage: `plan`. This department owns 20 atomic task contracts.
 
 ## Operating contract
 

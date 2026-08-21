@@ -1,7 +1,7 @@
 # Data Department Agent Skills
 
 A governed operating system for an entire Data Department, packaged as a Claude Code plugin.
-**32 role skills**, **814 atomic task contracts**, **45 slash commands**, **48 executable
+**32 role skills**, **815 atomic task contracts**, **45 slash commands**, **49 executable
 evidence scripts**, **12 JSON Schemas**, and a production guard hook.
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
@@ -103,7 +103,7 @@ claude --plugin-dir .
 /dd-catalog profiling
 ```
 
-It should return matching task IDs from the 814-task catalog. If it answers from general
+It should return matching task IDs from the 815-task catalog. If it answers from general
 knowledge instead of the catalog, the plugin is not loaded.
 
 ---
@@ -201,14 +201,14 @@ natural-language request
    ↓  route by primary deliverable, never by job title
 one owning role skill                    (32 candidates)
    ↓  read ONE catalog shard, not all of them
-one canonical atomic task                (814 contracts)
+one canonical atomic task                (815 contracts)
    ↓  read that contract completely
 Plan → Assess → Design → Execute → Test → Review/Approve → Release/Handoff → Monitor/Improve
 ```
 
 **Progressive disclosure is the point.** Only skill descriptions sit in context permanently.
 Claude then loads one `SKILL.md`, one catalog shard, one task contract, and only the
-references that contract names. The 814 contracts and 98 stack adapters are never loaded
+references that contract names. The 815 contracts and 98 stack adapters are never loaded
 together.
 
 Catalogs shard by intent — plan/design, build/deliver, test/assure, operate/improve — and any
@@ -250,7 +250,7 @@ atomic tasks.
 | Command | Department | Tasks |
 |---|---|---|
 | `/dd-arch` | Data Architecture | 22 |
-| `/dd-orchestrate` | Data Department Orchestrator | 19 |
+| `/dd-orchestrate` | Data Department Orchestrator | 20 |
 
 ### Build — produce the artefact
 
@@ -302,7 +302,7 @@ atomic tasks.
 | `/dd-docs` | Data Documentation and Diagrams | 20 |
 | `/dd-enable` | Data Enablement and Knowledge | 17 |
 
-Full detail — ownership, boundaries, resources and all 814 workflows — is in
+Full detail — ownership, boundaries, resources and all 815 workflows — is in
 [docs/skill-and-task-catalog.md](docs/skill-and-task-catalog.md).
 
 ---
@@ -317,7 +317,7 @@ fire on their own.
 | Command | Does |
 |---|---|
 | `/dd-route <request>` | Resolves one owning role and one canonical task **without executing** |
-| `/dd-catalog <keyword>` | Searches the 814-task catalog by keyword, role prefix or deliverable |
+| `/dd-catalog <keyword>` | Searches the 815-task catalog by keyword, role prefix or deliverable |
 | `/dd-task <task-id>` | Loads one contract completely; reports readiness, gates, tests, approvals |
 | `/dd-navigate <symbol>` | Answers code questions from a symbol index instead of reading whole files |
 | `/dd-recall <question>` | Retrieves prior work from indexed traces with **zero model calls** |
@@ -453,7 +453,7 @@ set.
 
 ## Executable evidence
 
-48 scripts across the skills. **Standard library only** — they run on your machine with no
+49 scripts across the skills. **Standard library only** — they run on your machine with no
 install step. Exit codes carry meaning everywhere:
 
 | Exit | Meaning |
@@ -484,6 +484,7 @@ verified evidence supports.
 | `validate_workflow.py` | Invalid state transitions, non-canonical task IDs |
 | `validate_run_state.py` | A "complete" run carrying blockers or failed tests |
 | `validate_approval_record.py` | Expired, out-of-scope or hash-mismatched approval |
+| `validate_branch_plan.py` | Branches writing the same path, a dependency inside a parallel wave, a branch above the delegation ceiling, an undeclared merge policy |
 
 ### Domain controls
 
@@ -533,7 +534,7 @@ Airflow, Spark, Kafka, Power BI, Tableau, Looker, Metabase, Superset and more.
 │       ├── SKILL.md              entry point, always-visible metadata only
 │       ├── references/
 │       │   ├── catalog-*.md      routing shards, loaded one at a time
-│       │   ├── tasks/*.md        the 814 atomic task contracts
+│       │   ├── tasks/*.md        the 815 atomic task contracts
 │       │   └── adapter-*.md      stack-native adapter packs
 │       ├── assets/               record templates and JSON Schemas
 │       └── scripts/              executable evidence  ← hand-written
@@ -574,7 +575,7 @@ python tools/install_agent_harness.py <project> --dry-run   # multi-harness inst
 
 | Suite | Result |
 |---|---|
-| Skills / contracts / commands / agents | 32 / 814 / 45 / 32, 0 errors |
+| Skills / contracts / commands / agents | 32 / 815 / 45 / 32, 0 errors |
 | Natural-language routing | 35 cases |
 | Role-confusion pairs | 37 cases |
 | Catalog routing | 41 cases |
@@ -596,7 +597,7 @@ evidence script — talent acquisition (41 tasks), onboarding (34), MLOps (23), 
 (22), head of data (21), platform (21), ML engineering (20), generative AI (20),
 documentation (20) — and two catalog shards sit just over the 55% concentration threshold.
 
-`mean_thin_share` is **0.00%**: every one of the 814 contracts carries at least one
+`mean_thin_share` is **0.00%**: every one of the 815 contracts carries at least one
 task-specific resource.
 
 ---
@@ -605,7 +606,7 @@ task-specific resource.
 
 | Document | Contents | Language |
 |---|---|---|
-| [docs/skill-and-task-catalog.md](docs/skill-and-task-catalog.md) | All 32 skills and 814 workflows: ownership, boundaries, resources | Vietnamese |
+| [docs/skill-and-task-catalog.md](docs/skill-and-task-catalog.md) | All 32 skills and 815 workflows: ownership, boundaries, resources | Vietnamese |
 | [docs/installation-and-usage.md](docs/installation-and-usage.md) | Plugin, project-scope and user-scope install; routing; prompts; troubleshooting | Vietnamese |
 | [docs/capability-overview.md](docs/capability-overview.md) | Capability summary | Vietnamese |
 | [docs/skill-map.md](docs/skill-map.md) | **Canonical taxonomy** — the source the build reads | English |

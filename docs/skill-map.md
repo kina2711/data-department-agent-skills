@@ -1255,6 +1255,7 @@ Các task dưới đây mở rộng role BI/DA/DG hiện có bằng control-plan
 - `orchestrator-run-parallel-workflow` — chạy independent checks và hợp nhất kết quả; output: merged result.
 - `orchestrator-run-conditional-workflow` — chọn branch theo evidence/status/threshold; output: branch decision and execution.
 - `orchestrator-run-fanout-fanin` — phân tách một artifact cho nhiều reviewers rồi synthesize; output: consolidated assessment.
+- `orchestrator-run-producer-reviewer` — chạy vòng producer/reviewer độc lập với rubric chốt trước, giữ kín lập luận của producer tới khi reviewer ghi verdict, và đưa bất đồng chưa giải vào conflict register; output: producer-reviewer verdict record.
 - `orchestrator-maintain-run-state` — lưu lifecycle phase, current task, blockers và next permitted action; output: run-state record.
 - `orchestrator-resume-workflow` — phục hồi context từ run state và ledgers mà không làm lại approved work; output: resumed execution plan.
 - `orchestrator-check-information-sufficiency` — xác định thiếu blocking/nonblocking và conflicts; output: proceed/ask/stop decision.

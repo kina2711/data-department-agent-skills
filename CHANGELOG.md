@@ -64,6 +64,29 @@ Deep upgrade: the audit closes at zero findings.
   concept with an explanation, a worked artifact and a stated failure mode counts as taught.
 - Career grows to 50 tasks, Content to 27, the suite to 814. Evidence scripts: 39 to 48.
 
+Execution patterns: an independent reviewer, and a real path for parallel work.
+
+- New task `orchestrator-run-producer-reviewer` with `producer-reviewer-method.md`. The rubric is
+  fixed before production, the reviewer never receives the rationale behind the artifact until an
+  independent verdict is recorded, producer and reviewer are never the same actor, and the loop
+  caps at two rounds. Disagreement routes to the conflict register with both positions rather than
+  being split, out-argued or broken by a tie-breaking third opinion. Reviewer acceptance is quality
+  evidence and never owner approval.
+- New reference `parallel-execution-and-agent-teams.md` gives the parallel and fan-out workflows an
+  execution path they previously described but did not have. Branches must be disjoint in what they
+  write, not merely in what they read; a dependency between branches means the work is sequential;
+  a delegated branch never approves, publishes, mutates production or raises its own risk tier, and
+  anything above the delegation ceiling stops at a proposal. Fan-in verifies each returned artifact
+  against its expected hash, and a failed branch reports `partial` instead of quietly reducing
+  scope. Correctness never depends on whether a harness can actually run branches concurrently.
+- New script `validate_branch_plan.py` checks a wave before dispatch: write-path collisions,
+  read-write hazards, in-wave dependencies, risk floors and the delegation ceiling against the
+  canonical catalog, and an explicit merge policy. Without the catalog it exits `incomplete` (2)
+  rather than passing.
+- New assets `branch-delegation-contract.json`, `fan-in-merge-record.yaml` and
+  `producer-reviewer-record.yaml`. The orchestrator SKILL.md now routes by execution pattern.
+- Orchestrator grows to 20 tasks, the suite to 815. Evidence scripts: 48 to 49.
+
 ## v3.6.0
 
 Multi-harness support and a Vietnamese README.

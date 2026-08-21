@@ -1320,6 +1320,20 @@ def task_specific_resources(task_id: str) -> list[str]:
             "Read [question-to-competency validity controls](../question-knowledge-validity.md).",
             "Reuse the question traceability, answer-anchor or question-bank audit template from `../../assets/`.",
         ]
+    if task_id in {"orchestrator-run-parallel-workflow", "orchestrator-run-fanout-fanin"}:
+        return [
+            "Read [parallel execution and delegated branches](../parallel-execution-and-agent-teams.md); branches must be disjoint in what they write, not merely in what they read.",
+            "Declare every branch in `../../assets/branch-delegation-contract.json` and validate the wave with `../../scripts/validate_branch_plan.py --task-catalog ../../assets/task-catalog.json` before dispatching anything. Without the catalog the check exits `incomplete`; that is not a pass.",
+            "A delegated branch holds no authority: it never approves, publishes, mutates production or raises its own risk tier. Any task above the delegation ceiling stops at a proposal and returns it to the supervisor.",
+            "Record fan-in in `../../assets/fan-in-merge-record.yaml`. Verify each returned artifact against its expected hash, route contradictions to `orchestrator-manage-conflict-register` with both positions intact, inherit the highest child risk tier, and report a failed branch as `partial` rather than reducing scope.",
+        ]
+    if task_id == "orchestrator-run-producer-reviewer":
+        return [
+            "Read [the producer-reviewer method](../producer-reviewer-method.md); fix the acceptance criteria and rubric before production, and withhold the rationale behind the artifact until the reviewer has recorded an independent verdict.",
+            "Reuse `../../assets/producer-reviewer-record.yaml`. The producer and reviewer are never the same actor, the reviewer is not a branch the producer dispatched, and every round is recorded including the ones that failed.",
+            "Reviewer acceptance is quality evidence, never owner approval; a gate requiring named authority bound to artifact version and hash stays unmet until that approval exists.",
+            "Cap the loop at two full rounds. Escalate an unresolved disagreement to the requester through `orchestrator-manage-conflict-register` with both positions; never split the difference or let the more confident side win.",
+        ]
     if task_id == "career-audit-knowledge-coverage":
         return [
             "Read [the data system-design canon](../system-design-canon.md) and [the interview knowledge-system method](../interview-knowledge-system.md); coverage is measured against registered canonical concept IDs, not against the count of questions practised.",
@@ -1685,6 +1699,16 @@ Read [references/role-routing.md](references/role-routing.md) to select the prim
 
 Route personal learning, capstone or portfolio projects—including repo-first, dataset-first and external-idea-first requests—to `data-personal-project-engineering`. Keep organizational repository rebuilds and governed cross-role delivery in this orchestrator.
 
+## Execution-pattern routing
+
+- One ordered chain where each task consumes the previous deliverable → `orchestrator-run-sequential-workflow`.
+- Independent branches with disjoint write paths → `orchestrator-run-parallel-workflow`.
+- One input split across branches and recombined into a single deliverable → `orchestrator-run-fanout-fanin`.
+- Route selection that depends on an intermediate result → `orchestrator-run-conditional-workflow`.
+- A deliverable whose plausible-but-wrong failure is expensive, checked by an independent reviewer → `orchestrator-run-producer-reviewer`.
+
+Parallel and fan-out require branch isolation by write path, a validated branch plan, and a declared merge policy; read [references/parallel-execution-and-agent-teams.md](references/parallel-execution-and-agent-teams.md). A delegated branch never approves, publishes, mutates production or raises its own risk tier, and a dependency between branches means the work is sequential. Concurrent agent execution may be unavailable in a given harness; the branch contract holds in either mode and correctness never depends on the runtime.
+
 ## Workflow state
 
 For multi-step work, initialize `assets/workflow-manifest.json` and update it after every completed task or gate. Every `task_id` must be an exact canonical ID from `assets/task-catalog.json`; use optional `instance_id` only as a human-friendly occurrence label. Claim status is limited to `draft`, `verified` or `rejected`. Run `scripts/validate_workflow.py` before execution, after transitions and in complete mode before the final claim. Read-only work must still validate a temporary manifest outside the target repository. Use `assets/approval-record.json` for version/hash-bound authority and check it with `scripts/validate_approval_record.py --require-approved` before any gated action; an expired, out-of-scope or hash-mismatched record is the same as no approval. Track the run with `assets/run-state.yaml` and `scripts/validate_run_state.py`. Resume from the latest verified state; never redo an approved artifact without a change request.
@@ -2008,6 +2032,9 @@ def build_shared_assets() -> None:
             "next_permitted_action": "",
             "updated_at": "",
         },
+        "branch-delegation-contract.json": {"workflow_id": "", "wave": 1, "supervisor_risk_ceiling": "R2-standard", "dispatch_mode": "sequential", "branches": [{"branch_id": "", "task_id": "", "instance_id": "", "owner": "", "risk_tier": "", "objective": "", "inputs": [], "read_paths": [], "write_paths": [], "forbidden_actions": ["approve", "publish", "mutate production", "grant access", "raise own risk tier"], "expected_artifacts": [{"path": "", "sha256": ""}], "evidence_required": [], "token_budget": 0, "depends_on": [], "status": "planned"}], "merge": {"order": [], "on_conflict": "conflict-register", "on_branch_failure": "block"}, "status": "draft"},
+        "fan-in-merge-record.yaml": {"workflow_id": "", "wave": 1, "merged_at": "", "order": [], "branch_results": [{"branch_id": "", "task_id": "", "status": "complete", "artifact_path": "", "artifact_sha256": "", "hash_verified": False, "evidence_refs": [], "risk_tier": "", "limitations": []}], "inherited_risk_tier": "", "conflicts": [{"conflict_id": "", "branches": [], "positions": [], "evidence_refs": [], "resolution": "unresolved"}], "failed_branches": [], "scope_reduced": False, "run_status": "partial", "next_task": "", "owner": ""},
+        "producer-reviewer-record.yaml": {"record_id": "", "task_id": "", "requirement_ref": "", "acceptance_criteria": [], "rubric_ref": "", "rubric_fixed_before_production": False, "producer": "", "reviewer": "", "same_actor": False, "rounds": [{"round": 1, "artifact_ref": "", "artifact_sha256": "", "producer_rationale_ref": "", "rationale_withheld_until_verdict": True, "reviewer_verdict": "pending", "reviewer_findings": [], "verdict_recorded_at": "", "disclosed_at": "", "outcome": ""}], "max_rounds": 2, "unresolved_disagreements": [], "conflict_register_refs": [], "reviewer_acceptance_is_not_owner_approval": True, "owner_approval_ref": "", "status": "draft"},
         "question-register.yaml": {"questions": []},
         "assumption-register.yaml": {"assumptions": []},
         "conflict-register.yaml": {"conflicts": []},
@@ -2613,6 +2640,97 @@ Record only routing/task metadata, outcome, duration, references loaded, token e
         (refs / "industry-and-metrics.md").write_text(industry, encoding="utf-8")
         (refs / "safety-and-approvals.md").write_text(safety, encoding="utf-8")
         (refs / "workflow-runtime-and-evidence-os.md").write_text(runtime, encoding="utf-8")
+
+
+def build_orchestration_references() -> None:
+    parallel_execution = """# Parallel execution and delegated branches
+
+Use this whenever work fans out — into subagents, an agent-teams runtime, or several passes by one
+agent. The branch contract is the invariant; the runtime is not. If the runtime cannot run branches
+concurrently, the same contract executes sequentially and the result is identical, only slower.
+
+## When parallelism is legitimate
+
+Branches must be independent in what they **write**, not merely in what they read. Two branches
+reading one schema is fine; two branches writing one file is a silent last-writer-wins defect that
+no test will show. Declare `write_paths` per branch and keep them disjoint. A branch that reads a
+path another branch is rewriting sees a half-written state; either serialize those two or snapshot
+the input first.
+
+If a branch depends on another branch's output, the work is sequential. Say so and use the
+sequential workflow rather than declaring a dependency inside a parallel wave.
+
+## Branch delegation contract
+
+Each branch is dispatched with `branch-delegation-contract.json`: branch ID, canonical `task_id`,
+owner, inherited risk tier, allowed `write_paths` and `read_paths`, forbidden actions, expected
+artifacts with hashes, the evidence it must return, and a token budget. Validate the whole wave
+with `scripts/validate_branch_plan.py --task-catalog assets/task-catalog.json` before dispatching
+anything; without the catalog the check is `incomplete`, not a pass.
+
+**A delegated branch holds no authority.** It never approves, never publishes, never mutates
+production, and never raises its own risk tier. Catalog risk is a floor that a branch inherits and
+may exceed only by returning a proposal to the supervisor. Any task above the delegation ceiling
+stops at a proposal; the supervisor obtains version- and hash-bound approval and executes it in the
+main line.
+
+## Fan-in
+
+Merge in a declared deterministic order and record it in `fan-in-merge-record.yaml`. Two branches
+that return contradictory findings do not get averaged, reconciled by preference, or resolved by
+recency: the contradiction goes to `orchestrator-manage-conflict-register` with both sources
+intact. Reconstruct nothing from a branch's narrative — a result exists only as the artifact and
+evidence the branch returned, verified against the expected hash.
+
+A failed branch never silently reduces scope. The run is `partial` with the failure visible and
+owned; `complete` requires every branch released or complete. The supervisor inherits the highest
+child risk tier before claiming completion.
+
+## Runtime note
+
+Concurrent agent execution may be experimental or unavailable in a given harness, and availability
+changes. Never make correctness depend on it: the plan, the isolation rules and the merge policy
+are what make the result trustworthy, and they hold in either mode.
+"""
+    producer_reviewer = """# Producer-reviewer method
+
+Use when the cost of a plausible-but-wrong deliverable is higher than the cost of producing it
+twice. A reviewer who has already read the producer's reasoning is measuring agreement with that
+reasoning, not the work.
+
+## Independence rules
+
+1. Fix the acceptance criteria and the review rubric **before** production starts. A rubric written
+   after seeing the artifact describes the artifact.
+2. The reviewer receives the artifact, the original requirement and the acceptance criteria. The
+   reviewer does not receive the producer's rationale, chain of reasoning, self-assessment or
+   confidence until an independent verdict is recorded.
+3. The producer and the reviewer are never the same actor, and the reviewer is not a branch the
+   producer dispatched.
+4. The reviewer's verdict is recorded first and is immutable. Only then are both sides disclosed
+   and the disagreement discussed.
+
+## Disagreement
+
+Disagreement is the output, not a failure of the process. Route an unresolved contradiction to
+`orchestrator-manage-conflict-register` with both positions and their evidence. Do not split the
+difference, do not let the more confident side win, and do not send it back for a third opinion
+that merely breaks the tie without new evidence.
+
+A reviewer's acceptance is quality evidence. It is **not** owner approval, and it never satisfies a
+gate that requires named authority bound to an artifact version and hash.
+
+## Rounds
+
+Cap the loop. Two full rounds without convergence is a signal that the requirement is ambiguous,
+not that a third round will help; escalate to the requester with both positions rather than
+iterating. Record every round in `producer-reviewer-record.yaml`, including rounds that failed.
+"""
+    for name, content in (
+        ("parallel-execution-and-agent-teams.md", parallel_execution),
+        ("producer-reviewer-method.md", producer_reviewer),
+    ):
+        (SKILLS / "data-department-orchestrator" / "references" / name).write_text(content, encoding="utf-8")
 
 
 def build_people_references() -> None:
@@ -3889,6 +4007,7 @@ def main() -> None:
     build_role_routing(grouped)
     build_references()
     build_people_references()
+    build_orchestration_references()
     build_benchmark_references()
     build_manifest(grouped)
     build_commands(grouped)

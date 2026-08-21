@@ -1,0 +1,26 @@
+record_id: ""
+task_id: ""
+requirement_ref: ""
+acceptance_criteria: []
+rubric_ref: ""
+rubric_fixed_before_production: false
+producer: ""
+reviewer: ""
+same_actor: false
+rounds:
+  - round: 1
+    artifact_ref: ""
+    artifact_sha256: ""
+    producer_rationale_ref: ""
+    rationale_withheld_until_verdict: true
+    reviewer_verdict: "pending"
+    reviewer_findings: []
+    verdict_recorded_at: ""
+    disclosed_at: ""
+    outcome: ""
+max_rounds: 2
+unresolved_disagreements: []
+conflict_register_refs: []
+reviewer_acceptance_is_not_owner_approval: true
+owner_approval_ref: ""
+status: "draft"

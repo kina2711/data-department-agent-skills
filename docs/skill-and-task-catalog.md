@@ -1,6 +1,6 @@
 # Chi tiết toàn bộ Data Department Skills và Atomic Tasks
 
-> Phiên bản `3.6.0` · `32` Claude role skills · `814` atomic workflows.
+> Phiên bản `3.6.0` · `32` Claude role skills · `815` atomic workflows.
 > Đây là catalog tra cứu đầy đủ được sinh từ `suite-manifest.yaml`, `task-catalog.json` và task contracts; không phải nội dung luôn được nạp vào context của Claude.
 
 ## Mục lục
@@ -98,7 +98,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 | # | Skill | Role | Tasks |
 |---:|---|---|---:|
-| 1 | [`data-department-orchestrator`](#skill-data-department-orchestrator) | Data Department Orchestrator | 19 |
+| 1 | [`data-department-orchestrator`](#skill-data-department-orchestrator) | Data Department Orchestrator | 20 |
 | 2 | [`shared-data-core`](#skill-shared-data-core) | Shared Data Core | 18 |
 | 3 | [`company-data-context`](#skill-company-data-context) | Company Data Context | 9 |
 | 4 | [`head-of-data-and-data-product`](#skill-head-of-data-and-data-product) | Head of Data and Data Product | 21 |
@@ -145,15 +145,15 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Ranh giới và handoff:** Không thay chuyên môn của các role. Mỗi task chỉ có một accountable owner; orchestrator quản lý workflow state, approval và thứ tự thực thi.
 
-**Quy mô:** 19 tasks — Plan / Design 0; Build / Deliver 17; Test / Assure 2; Operate / Improve 0.
+**Quy mô:** 20 tasks — Plan / Design 0; Build / Deliver 18; Test / Assure 2; Operate / Improve 0.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `learning-memory-interoperability.md`, `parallel-execution-and-agent-teams.md`, `producer-reviewer-method.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `approval-ledger.yaml`, `approval-record.json`, `approval-record.schema.json`, `assumption-register.yaml`, `atomic-task-output.yaml`, `change-scope-contract.json`, `change-scope-ledger.yaml`, `conflict-register.yaml`, `debug-hypothesis-ledger.yaml`, `design-option-set.yaml`, `evidence-ledger.yaml`, `handoff-package.yaml`, `instinct-ledger.json`, `instinct-record.schema.json`, `question-register.yaml`, `run-state.schema.json`, `run-state.yaml`, `stage-gate.yaml`, `success-contract.yaml`, `task-catalog.json`, `task-contract.schema.json`, `telemetry-event.json`, `telemetry-event.schema.json`, `test-evidence.yaml`, `verification-claims.yaml`, `work-ledger.yaml`, `workflow-manifest.json`, `workflow-manifest.schema.json`.
+**Templates/assets có thể tái sử dụng:** `approval-ledger.yaml`, `approval-record.json`, `approval-record.schema.json`, `assumption-register.yaml`, `atomic-task-output.yaml`, `branch-delegation-contract.json`, `change-scope-contract.json`, `change-scope-ledger.yaml`, `conflict-register.yaml`, `debug-hypothesis-ledger.yaml`, `design-option-set.yaml`, `evidence-ledger.yaml`, `fan-in-merge-record.yaml`, `handoff-package.yaml`, `instinct-ledger.json`, `instinct-record.schema.json`, `producer-reviewer-record.yaml`, `question-register.yaml`, `run-state.schema.json`, `run-state.yaml`, `stage-gate.yaml`, `success-contract.yaml`, `task-catalog.json`, `task-contract.schema.json`, `telemetry-event.json`, `telemetry-event.schema.json`, `test-evidence.yaml`, `verification-claims.yaml`, `work-ledger.yaml`, `workflow-manifest.json`, `workflow-manifest.schema.json`.
 
-**Scripts:** `analyze_skill_telemetry.py`, `manage_instincts.py`, `record_skill_telemetry.py`, `score_skill_quality.py`, `validate_approval_record.py`, `validate_run_state.py`, `validate_workflow.py`.
+**Scripts:** `analyze_skill_telemetry.py`, `manage_instincts.py`, `record_skill_telemetry.py`, `score_skill_quality.py`, `validate_approval_record.py`, `validate_branch_plan.py`, `validate_run_state.py`, `validate_workflow.py`.
 
-#### Build / Deliver (17 tasks)
+#### Build / Deliver (18 tasks)
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
@@ -170,6 +170,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`orchestrator-run-conditional-workflow`](skills/data-department-orchestrator/references/tasks/orchestrator-run-conditional-workflow.md) | chọn branch theo evidence/status/threshold | branch decision and execution | `advisory-analysis` | `R2-standard` / `standard-path` |
 | [`orchestrator-run-fanout-fanin`](skills/data-department-orchestrator/references/tasks/orchestrator-run-fanout-fanin.md) | phân tách một artifact cho nhiều reviewers rồi synthesize | consolidated assessment | `advisory-analysis` | `R2-standard` / `standard-path` |
 | [`orchestrator-run-parallel-workflow`](skills/data-department-orchestrator/references/tasks/orchestrator-run-parallel-workflow.md) | chạy independent checks và hợp nhất kết quả | merged result | `advisory-analysis` | `R2-standard` / `standard-path` |
+| [`orchestrator-run-producer-reviewer`](skills/data-department-orchestrator/references/tasks/orchestrator-run-producer-reviewer.md) | chạy vòng producer/reviewer độc lập với rubric chốt trước, giữ kín lập luận của producer tới khi reviewer ghi verdict, và đưa bất đồng chưa giải vào conflict register | producer-reviewer verdict record | `advisory-analysis` | `R2-standard` / `standard-path` |
 | [`orchestrator-run-sequential-workflow`](skills/data-department-orchestrator/references/tasks/orchestrator-run-sequential-workflow.md) | truyền verified output giữa dependent tasks | completed chain | `advisory-analysis` | `R2-standard` / `standard-path` |
 | [`orchestrator-start-dataset-first-project`](skills/data-department-orchestrator/references/tasks/orchestrator-start-dataset-first-project.md) | bắt đầu từ dataset bằng profiling, direction generation và fitness assessment | evidence-grounded project direction | `advisory-analysis` | `R0-light` / `fast-path` |
 | [`orchestrator-start-idea-first-project`](skills/data-department-orchestrator/references/tasks/orchestrator-start-idea-first-project.md) | bắt đầu từ business idea qua discovery, product và feasibility gates | baselined project charter | `advisory-analysis` | `R0-light` / `fast-path` |
@@ -2180,4 +2181,4 @@ Hãy phân tích yêu cầu và báo trước khi làm:
 Sau đó thực hiện task hiện tại, test, báo evidence, approval status, residual risks và next owner.
 ```
 
-Tổng kiểm: **32 skills / 814 tasks** đã được liệt kê, không thiếu và không trùng ownership trong catalog này.
+Tổng kiểm: **32 skills / 815 tasks** đã được liệt kê, không thiếu và không trùng ownership trong catalog này.

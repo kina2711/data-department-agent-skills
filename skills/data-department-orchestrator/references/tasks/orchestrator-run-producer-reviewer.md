@@ -1,8 +1,8 @@
-# orchestrator-run-fanout-fanin
+# orchestrator-run-producer-reviewer
 
 ## Trigger
 
-Use when the user asks to run fanout fanin, requests the stated deliverable, or supplies an artifact that requires this atomic workflow. Do not select by job title alone.
+Use when the user asks to run producer reviewer, requests the stated deliverable, or supplies an artifact that requires this atomic workflow. Do not select by job title alone.
 
 ## Contract
 
@@ -11,8 +11,8 @@ Use when the user asks to run fanout fanin, requests the stated deliverable, or 
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
-- Goal: phân tách một artifact cho nhiều reviewers rồi synthesize.
-- Primary deliverable: **consolidated assessment**.
+- Goal: chạy vòng producer/reviewer độc lập với rubric chốt trước, giữ kín lập luận của producer tới khi reviewer ghi verdict, và đưa bất đồng chưa giải vào conflict register.
+- Primary deliverable: **producer-reviewer verdict record**.
 
 ## Inputs and readiness
 
@@ -32,10 +32,10 @@ If an absent input changes semantics, risk, cost, scope or acceptance, classify 
 5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
 
 Additional resources:
-- Read [parallel execution and delegated branches](../parallel-execution-and-agent-teams.md); branches must be disjoint in what they write, not merely in what they read.
-- Declare every branch in `../../assets/branch-delegation-contract.json` and validate the wave with `../../scripts/validate_branch_plan.py --task-catalog ../../assets/task-catalog.json` before dispatching anything. Without the catalog the check exits `incomplete`; that is not a pass.
-- A delegated branch holds no authority: it never approves, publishes, mutates production or raises its own risk tier. Any task above the delegation ceiling stops at a proposal and returns it to the supervisor.
-- Record fan-in in `../../assets/fan-in-merge-record.yaml`. Verify each returned artifact against its expected hash, route contradictions to `orchestrator-manage-conflict-register` with both positions intact, inherit the highest child risk tier, and report a failed branch as `partial` rather than reducing scope.
+- Read [the producer-reviewer method](../producer-reviewer-method.md); fix the acceptance criteria and rubric before production, and withhold the rationale behind the artifact until the reviewer has recorded an independent verdict.
+- Reuse `../../assets/producer-reviewer-record.yaml`. The producer and reviewer are never the same actor, the reviewer is not a branch the producer dispatched, and every round is recorded including the ones that failed.
+- Reviewer acceptance is quality evidence, never owner approval; a gate requiring named authority bound to artifact version and hash stays unmet until that approval exists.
+- Cap the loop at two full rounds. Escalate an unresolved disagreement to the requester through `orchestrator-manage-conflict-register` with both positions; never split the difference or let the more confident side win.
 - Read [the execution discipline standard](../execution-discipline-standard.md).
 - Before Git-backed mutation, require a verified success contract and pre-change scope contract. After the final change, run `core-audit-change-scope` and `core-verify-deliverable`; release remains blocked if either control is absent or failed.
 

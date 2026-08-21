@@ -1,0 +1,26 @@
+workflow_id: ""
+wave: 1
+merged_at: ""
+order: []
+branch_results:
+  - branch_id: ""
+    task_id: ""
+    status: "complete"
+    artifact_path: ""
+    artifact_sha256: ""
+    hash_verified: false
+    evidence_refs: []
+    risk_tier: ""
+    limitations: []
+inherited_risk_tier: ""
+conflicts:
+  - conflict_id: ""
+    branches: []
+    positions: []
+    evidence_refs: []
+    resolution: "unresolved"
+failed_branches: []
+scope_reduced: false
+run_status: "partial"
+next_task: ""
+owner: ""
