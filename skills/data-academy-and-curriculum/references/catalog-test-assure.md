@@ -8,4 +8,5 @@ Inspect, analyze, test, review, validate, assess, certify or audit. Select exact
 - `academy-certify-role-competency` → **competency certification decision**; read [contract](tasks/academy-certify-role-competency.md).
 - `academy-calibrate-assessors` → **assessor-calibration record**; read [contract](tasks/academy-calibrate-assessors.md).
 - `academy-audit-curriculum-quality` → **curriculum quality audit**; read [contract](tasks/academy-audit-curriculum-quality.md).
+- `academy-audit-note-corpus` → **note corpus audit**; read [contract](tasks/academy-audit-note-corpus.md).
 - `academy-measure-training-effectiveness` → **training-effectiveness report**; read [contract](tasks/academy-measure-training-effectiveness.md).

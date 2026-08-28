@@ -37,6 +37,7 @@ Additional resources:
 - Read [the Career learner-memory and transition method](../career-learning-memory.md); preserve event lineage and keep mastery, exposure and production evidence distinct.
 - Reuse the learner-memory, learning-event, prerequisite-map or transition-context asset from `../../assets/` that matches the deliverable.
 - Run `../../scripts/validate_learning_memory.py` for plan/complete validation; use `../../scripts/build_skill_transition_context.py` to create a bounded read-only context pack for the next topic.
+- Compute freshness with `../../scripts/schedule_topic_review.py` rather than typing a date; the interval follows demonstrated state, independent evidence count, version sensitivity and how many topics depend on this one. A computed due date is a scheduling decision, never evidence, and a topic that is not yet due is only not known to have decayed.
 - Read [solution option framing](../solution-option-framing.md); frame three to five materially different approaches in `../../assets/design-option-set.yaml`, select one against the stated constraints in at most forty words, and derive the deliverable structure from that selection. Where this role already owns a scored selection artifact, use it instead of duplicating the decision.
 
 - Never guarantee title, promotion, compensation or timeline; distinguish portable capability from company-specific level mapping.

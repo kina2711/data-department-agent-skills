@@ -147,6 +147,53 @@ def main() -> None:
         for expected_text in expected_texts:
             if expected_text not in result.stdout:
                 errors.append(f"content validator {manifest_path.name}: missing regression signal {expected_text!r}")
+    corpus_validator = SKILLS / "data-academy-and-curriculum" / "scripts" / "validate_note_corpus.py"
+    registry_validator = SKILLS / "data-career-and-interview-coach" / "scripts" / "validate_concept_registry.py"
+    fixtures = ROOT / "evaluations" / "fixtures"
+    learning_cases = [
+        (corpus_validator, [str(fixtures / "note-corpus-manifest-valid.json")], 0, []),
+        (
+            registry_validator,
+            [str(fixtures / "concept-registry-valid.json"), "--corpus-manifest", str(fixtures / "note-corpus-manifest-valid.json")],
+            0,
+            [],
+        ),
+        (
+            SKILLS / "data-career-and-interview-coach" / "scripts" / "schedule_topic_review.py",
+            [str(fixtures / "learner-memory-schedule.json"), "--today", "2026-08-28"],
+            0,
+            ["t.spark: due 2026-08-28  (stale: review now)", "version-sensitive x0.5", "3 dependents x0.8"],
+        ),
+        (
+            registry_validator,
+            [str(fixtures / "concept-registry-proposed.json")],
+            0,
+            ["possible duplicate key: ck.proc.idempotency ~ ck.proc.idempotent-write"],
+        ),
+        (
+            registry_validator,
+            [str(fixtures / "concept-registry-invalid.json")],
+            1,
+            [
+                "not of the form ck.<domain>.<slug>",
+                "no definition sentence",
+                "claimed by both",
+                "superseded with no successor named",
+            ],
+        ),
+    ]
+    for validator, argv, expected_exit, expected_texts in learning_cases:
+        result = subprocess.run(
+            [sys.executable, str(validator), *argv],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if result.returncode != expected_exit:
+            errors.append(f"{validator.name}: exit {result.returncode} != {expected_exit}")
+        for expected_text in expected_texts:
+            if expected_text not in result.stdout:
+                errors.append(f"{validator.name}: missing regression signal {expected_text!r}")
     project_skill = SKILLS / "data-personal-project-engineering"
     project_validator = project_skill / "scripts" / "validate_personal_project_manifest.py"
     project_cases = [

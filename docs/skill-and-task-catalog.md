@@ -1,6 +1,6 @@
 # Chi tiết toàn bộ Data Department Skills và Atomic Tasks
 
-> Phiên bản `3.7.0` · `32` Claude role skills · `815` atomic workflows.
+> Phiên bản `3.8.0` · `32` Claude role skills · `826` atomic workflows.
 > Đây là catalog tra cứu đầy đủ được sinh từ `suite-manifest.yaml`, `task-catalog.json` và task contracts; không phải nội dung luôn được nạp vào context của Claude.
 
 ## Mục lục
@@ -122,10 +122,10 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | 22 | [`generative-ai-engineering`](#skill-generative-ai-engineering) | Generative AI Engineering | 20 |
 | 23 | [`data-documentation-and-diagrams`](#skill-data-documentation-and-diagrams) | Data Documentation and Diagrams | 20 |
 | 24 | [`data-enablement-and-knowledge`](#skill-data-enablement-and-knowledge) | Data Enablement and Knowledge | 17 |
-| 25 | [`data-academy-and-curriculum`](#skill-data-academy-and-curriculum) | Data Academy and Curriculum | 39 |
+| 25 | [`data-academy-and-curriculum`](#skill-data-academy-and-curriculum) | Data Academy and Curriculum | 48 |
 | 26 | [`data-onboarding-and-integration`](#skill-data-onboarding-and-integration) | Data Onboarding and Integration | 34 |
 | 27 | [`data-talent-acquisition-and-interview`](#skill-data-talent-acquisition-and-interview) | Data Talent and Interviewing | 41 |
-| 28 | [`data-career-and-interview-coach`](#skill-data-career-and-interview-coach) | Data Career and Interview Coach | 50 |
+| 28 | [`data-career-and-interview-coach`](#skill-data-career-and-interview-coach) | Data Career and Interview Coach | 52 |
 | 29 | [`data-technical-content-and-social`](#skill-data-technical-content-and-social) | Technical Content and Social | 27 |
 | 30 | [`data-personal-project-engineering`](#skill-data-personal-project-engineering) | Personal Data Project Engineering | 42 |
 | 31 | [`personal-second-brain-and-knowledge-os`](#skill-personal-second-brain-and-knowledge-os) | Personal Second Brain and Knowledge OS | 46 |
@@ -1536,20 +1536,21 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Ranh giới và handoff:** Không coi attendance hay đáp án học thuộc là competency; certification cần rubric, critical failures, calibration và retention/transfer evidence.
 
-**Quy mô:** 39 tasks — Plan / Design 24; Build / Deliver 7; Test / Assure 7; Operate / Improve 1.
+**Quy mô:** 48 tasks — Plan / Design 28; Build / Deliver 11; Test / Assure 8; Operate / Improve 1.
 
-**Domain references tải khi cần:** `assessment-and-certification.md`, `knowledge-deep-dive-standard.md`, `learning-memory-interoperability.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `assessment-and-certification.md`, `concept-registry-standard.md`, `diagnostic-session-method.md`, `knowledge-deep-dive-standard.md`, `learning-memory-interoperability.md`, `note-corpus-operating-system.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `assessment-blueprint.yaml`, `atomic-task-output.yaml`, `concept-knowledge-graph.yaml`, `curriculum-spec.yaml`, `design-option-set.yaml`, `knowledge-deep-dive.yaml`, `learner-evidence.yaml`, `lesson-plan.yaml`, `question-learning-traceability.yaml`.
+**Templates/assets có thể tái sử dụng:** `assessment-blueprint.yaml`, `atomic-task-output.yaml`, `concept-knowledge-graph.yaml`, `concept-registry.json`, `corpus-priority-plan.yaml`, `corpus-workflow-manifest.json`, `curriculum-spec.yaml`, `design-option-set.yaml`, `knowledge-deep-dive.yaml`, `learner-evidence.yaml`, `lesson-plan.yaml`, `misconception-feedback.yaml`, `note-corpus-audit.yaml`, `note-corpus-manifest.json`, `note-diagnostic-session.yaml`, `question-learning-traceability.yaml`, `role-roadmap.yaml`, `skill-track-map.yaml`.
 
-**Scripts:** `validate_curriculum_coverage.py`.
+**Scripts:** `validate_curriculum_coverage.py`, `validate_note_corpus.py`.
 
-#### Plan / Design (24 tasks)
+#### Plan / Design (28 tasks)
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
 | [`academy-build-competency-curriculum-map`](skills/data-academy-and-curriculum/references/tasks/academy-build-competency-curriculum-map.md) | nối competencies, modules, practice và assessments | competency-to-curriculum map | `learning` | `R2-standard` / `standard-path` |
 | [`academy-build-role-theory-pack`](skills/data-academy-and-curriculum/references/tasks/academy-build-role-theory-pack.md) | đóng gói lý thuyết chuẩn theo role, level và company context | role theory knowledge pack | `learning` | `R2-standard` / `standard-path` |
+| [`academy-build-skill-track-map`](skills/data-academy-and-curriculum/references/tasks/academy-build-skill-track-map.md) | tách mỗi bước roadmap thành skill track có thứ tự học, module và tiêu chí ra | skill-track map | `learning` | `R2-standard` / `standard-path` |
 | [`academy-create-business-case-study`](skills/data-academy-and-curriculum/references/tasks/academy-create-business-case-study.md) | tạo scenario, data, ambiguity, stakeholder context và decision ask | case-study package | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-create-instructor-guide`](skills/data-academy-and-curriculum/references/tasks/academy-create-instructor-guide.md) | ghi facilitation flow, timings, prompts, expected questions và interventions | instructor guide | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-create-learner-workbook`](skills/data-academy-and-curriculum/references/tasks/academy-create-learner-workbook.md) | tạo notes, exercises, reflection và progress checks | learner workbook | `learning` | `R1-reviewed` / `standard-path` |
@@ -1568,24 +1569,31 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`academy-map-learning-prerequisites`](skills/data-academy-and-curriculum/references/tasks/academy-map-learning-prerequisites.md) | xác định kiến thức tiên quyết và dependency giữa modules | learning prerequisite graph | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-map-questions-to-learning-objectives`](skills/data-academy-and-curriculum/references/tasks/academy-map-questions-to-learning-objectives.md) | nối question tới competency, Bloom depth, prerequisites, learning objectives và assessments | question-to-learning traceability matrix | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-plan-learning-cohort`](skills/data-academy-and-curriculum/references/tasks/academy-plan-learning-cohort.md) | lập audience, schedule, instructors, capacity và support | cohort delivery plan | `learning` | `R1-reviewed` / `standard-path` |
+| [`academy-plan-note-corpus`](skills/data-academy-and-curriculum/references/tasks/academy-plan-note-corpus.md) | liệt kê toàn bộ note dự kiến theo module kèm id, prerequisite và trạng thái build | note corpus plan | `learning` | `R1-reviewed` / `standard-path` |
+| [`academy-prioritize-corpus-by-gap`](skills/data-academy-and-curriculum/references/tasks/academy-prioritize-corpus-by-gap.md) | xếp thứ tự module theo khoảng cách năng lực đã đo thay vì theo thứ tự roadmap | gap-prioritized corpus plan | `learning` | `R1-reviewed` / `standard-path` |
+| [`academy-research-role-roadmap`](skills/data-academy-and-curriculum/references/tasks/academy-research-role-roadmap.md) | nghiên cứu roadmap hành nghề đang được dùng từ nguồn công khai, mỗi mục kèm nguồn và ngày truy cập | sourced role roadmap | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-write-answer-key`](skills/data-academy-and-curriculum/references/tasks/academy-write-answer-key.md) | tạo expected reasoning, alternatives, checks và common errors | answer key | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-write-assessment-rubric`](skills/data-academy-and-curriculum/references/tasks/academy-write-assessment-rubric.md) | định nghĩa criteria, evidence, performance levels và critical failures | assessment rubric | `learning` | `R2-standard` / `standard-path` |
 | [`academy-write-knowledge-deep-dive`](skills/data-academy-and-curriculum/references/tasks/academy-write-knowledge-deep-dive.md) | giải thích một concept từ definition, mental model, mechanism, trade-offs tới edge cases, examples và sources | evidence-backed knowledge deep dive | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-write-theory-lesson`](skills/data-academy-and-curriculum/references/tasks/academy-write-theory-lesson.md) | viết lesson có mental model, principles, trade-offs và misconceptions | theory lesson | `learning` | `R1-reviewed` / `standard-path` |
 
-#### Build / Deliver (7 tasks)
+#### Build / Deliver (11 tasks)
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
+| [`academy-apply-misconception-feedback`](skills/data-academy-and-curriculum/references/tasks/academy-apply-misconception-feedback.md) | gom ngộ nhận lặp lại theo concept key rồi bổ sung vào chính note dạy sai mô hình đó | revised note batch | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-build-concept-knowledge-graph`](skills/data-academy-and-curriculum/references/tasks/academy-build-concept-knowledge-graph.md) | mô hình hóa concepts, prerequisites, dependencies, misconceptions và transfer paths | concept knowledge graph | `learning` | `R2-standard` / `standard-path` |
+| [`academy-build-note-module`](skills/data-academy-and-curriculum/references/tasks/academy-build-note-module.md) | dựng trọn bộ note của một module theo cùng một chuẩn rồi cập nhật corpus manifest | module note batch | `learning` | `R2-standard` / `standard-path` |
 | [`academy-deliver-theory-session`](skills/data-academy-and-curriculum/references/tasks/academy-deliver-theory-session.md) | thực hiện lesson có knowledge checks và participation evidence | delivered-session record | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-facilitate-learning-workshop`](skills/data-academy-and-curriculum/references/tasks/academy-facilitate-learning-workshop.md) | điều phối collaborative problem solving và peer feedback | workshop outcome record | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-generate-training-dataset`](skills/data-academy-and-curriculum/references/tasks/academy-generate-training-dataset.md) | tạo dataset realistic, privacy-safe và có planted issues | training dataset | `learning` | `R1-reviewed` / `standard-path` |
+| [`academy-index-note-corpus`](skills/data-academy-and-curriculum/references/tasks/academy-index-note-corpus.md) | hợp nhất corpus thành index tra cứu bền vững ghi lại cái gì tồn tại, không suy ra mastery | note corpus index | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-run-knowledge-diagnostic`](skills/data-academy-and-curriculum/references/tasks/academy-run-knowledge-diagnostic.md) | đo baseline theory, practical skills và misconceptions | learner diagnostic report | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-run-lab-session`](skills/data-academy-and-curriculum/references/tasks/academy-run-lab-session.md) | giám sát hands-on execution, safety, checkpoints và recovery | lab completion evidence | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-run-learning-office-hours`](skills/data-academy-and-curriculum/references/tasks/academy-run-learning-office-hours.md) | xử lý blockers, misconceptions và follow-up actions | office-hours support log | `learning` | `R1-reviewed` / `standard-path` |
+| [`academy-run-note-diagnostic`](skills/data-academy-and-curriculum/references/tasks/academy-run-note-diagnostic.md) | chạy kịch bản chẩn đoán của corpus theo vòng Socratic có giới hạn rồi đề xuất hạng bằng chứng | note diagnostic session record | `learning` | `R1-reviewed` / `standard-path` |
 
-#### Test / Assure (7 tasks)
+#### Test / Assure (8 tasks)
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
@@ -1593,6 +1601,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`academy-assess-learner-submission`](skills/data-academy-and-curriculum/references/tasks/academy-assess-learner-submission.md) | chấm artifact theo rubric với evidence và actionable feedback | assessed submission | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-assess-organizational-learning-needs`](skills/data-academy-and-curriculum/references/tasks/academy-assess-organizational-learning-needs.md) | phân tích strategy, competency gaps, incidents và delivery demand | organizational learning-needs assessment | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-audit-curriculum-quality`](skills/data-academy-and-curriculum/references/tasks/academy-audit-curriculum-quality.md) | kiểm tra accuracy, coverage, accessibility, bias và assessment validity | curriculum quality audit | `learning` | `R1-reviewed` / `standard-path` |
+| [`academy-audit-note-corpus`](skills/data-academy-and-curriculum/references/tasks/academy-audit-note-corpus.md) | kiểm tra trùng lặp, cạnh quan hệ treo, chu trình prerequisite, độ cũ và độ phủ của corpus | note corpus audit | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-calibrate-assessors`](skills/data-academy-and-curriculum/references/tasks/academy-calibrate-assessors.md) | chuẩn hóa cách chấm bằng anchor examples và disagreement resolution | assessor-calibration record | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-certify-role-competency`](skills/data-academy-and-curriculum/references/tasks/academy-certify-role-competency.md) | đối chiếu evidence với pass rules và scope chứng nhận | competency certification decision | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-measure-training-effectiveness`](skills/data-academy-and-curriculum/references/tasks/academy-measure-training-effectiveness.md) | đo reaction, learning, behavior transfer và business impact | training-effectiveness report | `learning` | `R1-reviewed` / `standard-path` |
@@ -1770,18 +1779,19 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Ranh giới và handoff:** Không bịa kinh nghiệm, hứa title/promotion, đánh đồng self-study với production hay biến public visibility thành proxy cho năng lực.
 
-**Quy mô:** 50 tasks — Plan / Design 14; Build / Deliver 25; Test / Assure 11; Operate / Improve 0.
+**Quy mô:** 52 tasks — Plan / Design 16; Build / Deliver 25; Test / Assure 11; Operate / Improve 0.
 
-**Domain references tải khi cần:** `career-learning-memory.md`, `career-operating-system.md`, `coaching-ethics-and-method.md`, `interview-knowledge-system.md`, `learning-memory-interoperability.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `system-design-canon.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `career-learning-memory.md`, `career-operating-system.md`, `coaching-ethics-and-method.md`, `concept-registry-standard.md`, `interview-knowledge-system.md`, `learning-memory-interoperability.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `system-design-canon.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `architecture-case-study.yaml`, `atomic-task-output.yaml`, `career-content-handoff.yaml`, `career-evidence-portfolio.yaml`, `career-operating-system.yaml`, `career-review.yaml`, `concept-visual-explainer.yaml`, `content-evidence-return.yaml`, `cross-skill-prerequisite-map.yaml`, `design-option-set.yaml`, `interview-knowledge-library.yaml`, `interview-question-dossier.yaml`, `knowledge-coverage-audit.yaml`, `learner-memory.json`, `learner-memory.schema.json`, `learning-event.yaml`, `mock-assessment.yaml`, `offer-evaluation.yaml`, `question-knowledge-map.yaml`, `readiness-profile.yaml`, `remediation-plan.yaml`, `skill-transition-context.json`.
+**Templates/assets có thể tái sử dụng:** `architecture-case-study.yaml`, `atomic-task-output.yaml`, `career-content-handoff.yaml`, `career-evidence-portfolio.yaml`, `career-operating-system.yaml`, `career-review.yaml`, `concept-registry.json`, `concept-visual-explainer.yaml`, `content-evidence-return.yaml`, `cross-skill-prerequisite-map.yaml`, `design-option-set.yaml`, `interview-knowledge-library.yaml`, `interview-question-dossier.yaml`, `knowledge-coverage-audit.yaml`, `learner-memory.json`, `learner-memory.schema.json`, `learning-event.yaml`, `mock-assessment.yaml`, `offer-evaluation.yaml`, `question-knowledge-map.yaml`, `readiness-profile.yaml`, `remediation-plan.yaml`, `skill-transition-context.json`.
 
-**Scripts:** `build_skill_transition_context.py`, `validate_learning_memory.py`.
+**Scripts:** `build_skill_transition_context.py`, `schedule_topic_review.py`, `validate_concept_registry.py`, `validate_learning_memory.py`.
 
-#### Plan / Design (14 tasks)
+#### Plan / Design (16 tasks)
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
+| [`career-bootstrap-concept-registry`](skills/data-career-and-interview-coach/references/tasks/career-bootstrap-concept-registry.md) | sinh lô concept key ứng viên từ track map và canon để corpus có chỗ bind ngay | proposed concept key batch | `career-coaching` | `R1-reviewed` / `standard-path` |
 | [`career-build-competency-gap-plan`](skills/data-career-and-interview-coach/references/tasks/career-build-competency-gap-plan.md) | ưu tiên gap theo hiring impact, prerequisites và available time | competency-gap plan | `career-development` | `R1-reviewed` / `standard-path` |
 | [`career-build-project-story`](skills/data-career-and-interview-coach/references/tasks/career-build-project-story.md) | chuyển project thật thành problem/action/evidence/impact narrative | project story bank | `career-development` | `R1-reviewed` / `standard-path` |
 | [`career-build-question-deep-dive`](skills/data-career-and-interview-coach/references/tasks/career-build-question-deep-dive.md) | tạo hồ sơ gồm question analysis, concept theory, practical examples, trade-offs, failure modes, sources và related knowledge | interview question deep-dive dossier | `career-coaching` | `R2-standard` / `standard-path` |
@@ -1796,6 +1806,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`career-map-cross-skill-prerequisites`](skills/data-career-and-interview-coach/references/tasks/career-map-cross-skill-prerequisites.md) | nối concept, interface, decision rule và failure mode giữa skill đã học với skill kế tiếp | cross-skill prerequisite map | `career-development` | `R1-reviewed` / `standard-path` |
 | [`career-map-question-knowledge-dependencies`](skills/data-career-and-interview-coach/references/tasks/career-map-question-knowledge-dependencies.md) | nối question tới core concepts, prerequisites, related concepts, contrasts và follow-up paths | question knowledge dependency map | `career-coaching` | `R1-reviewed` / `standard-path` |
 | [`career-plan-ethical-professional-visibility`](skills/data-career-and-interview-coach/references/tasks/career-plan-ethical-professional-visibility.md) | xây kế hoạch contribution, community, mentoring và public expertise không khoe title hoặc biến self-promotion thành proxy cho năng lực | ethical professional-visibility plan | `career-development` | `R1-reviewed` / `standard-path` |
+| [`career-register-canonical-concept`](skills/data-career-and-interview-coach/references/tasks/career-register-canonical-concept.md) | cấp và quản lý concept key nối canon, note, topic và competency về một danh tính | canonical concept registry entry | `career-coaching` | `R1-reviewed` / `standard-path` |
 
 #### Build / Deliver (25 tasks)
 
@@ -2181,4 +2192,4 @@ Hãy phân tích yêu cầu và báo trước khi làm:
 Sau đó thực hiện task hiện tại, test, báo evidence, approval status, residual risks và next owner.
 ```
 
-Tổng kiểm: **32 skills / 815 tasks** đã được liệt kê, không thiếu và không trùng ownership trong catalog này.
+Tổng kiểm: **32 skills / 826 tasks** đã được liệt kê, không thiếu và không trùng ownership trong catalog này.

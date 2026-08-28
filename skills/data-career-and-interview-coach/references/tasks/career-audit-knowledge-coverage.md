@@ -70,7 +70,7 @@ Block before mutation or a positive completion decision when a mandatory input, 
 Additional resources:
 - Read [coaching ethics](../coaching-ethics-and-method.md) and [role curricula](../role-curricula.md).
 - Reuse the readiness, mock-assessment and remediation templates from `../../assets/`.
-- Read [the data system-design canon](../system-design-canon.md) and [the interview knowledge-system method](../interview-knowledge-system.md); coverage is measured against registered canonical concept IDs, not against the count of questions practised.
+- Read [the data system-design canon](../system-design-canon.md), [the canonical concept registry](../concept-registry-standard.md) and [the interview knowledge-system method](../interview-knowledge-system.md); coverage is measured through registered `ck.` keys whose primary note is `reviewed`, not against the count of questions practised, and a note that merely exists is not coverage.
 - Reuse `../../assets/knowledge-coverage-audit.yaml`. Report concepts with no dossier, dossiers with no mastery evidence and stale entries separately; a practised question is not coverage of its prerequisites.
 
 - Assess before teaching, teach before simulation, score before revealing a model answer, and retest the same competency with a novel scenario.

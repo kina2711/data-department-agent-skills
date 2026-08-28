@@ -7,6 +7,7 @@ Choose one primary destination; secondary outputs are explicit handoffs:
 - Career/interview: competency map, deliberate practice, authentic evidence boundary, question dependencies, answer strategy and novel retest.
 - Project: hypothesis, user/decision, constraints, experiments, artifacts, failure proof and attributed portfolio claims.
 - Curriculum: objectives, prerequisites, theory, examples, labs, assessments, remediation and capstone.
+- Note corpus: concept keys, a corpus plan and notes in the receiving skill's authoring standard; the book supplies structure, locators and claim classification, and Academy owns the corpus manifest, coverage and any diagnostic use of it.
 - Technical content: evidence map and canonical series architecture; actual production and publication belong to the content skill.
 - Workflow: inputs, procedure, decision rules, exceptions, gates, evidence and rollback.
 

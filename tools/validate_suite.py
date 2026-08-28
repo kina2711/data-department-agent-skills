@@ -32,9 +32,9 @@ PEOPLE_RESOURCES = {
         "assets": ["concept-knowledge-map.yaml", "knowledge-library.yaml"],
     },
     "data-academy-and-curriculum": {
-        "references": ["role-curricula.md", "assessment-and-certification.md", "knowledge-deep-dive-standard.md"],
-        "assets": ["curriculum-spec.yaml", "lesson-plan.yaml", "assessment-blueprint.yaml", "learner-evidence.yaml", "concept-knowledge-graph.yaml", "knowledge-deep-dive.yaml", "question-learning-traceability.yaml"],
-        "scripts": ["validate_curriculum_coverage.py"],
+        "references": ["role-curricula.md", "assessment-and-certification.md", "knowledge-deep-dive-standard.md", "note-corpus-operating-system.md", "concept-registry-standard.md", "diagnostic-session-method.md"],
+        "assets": ["curriculum-spec.yaml", "lesson-plan.yaml", "assessment-blueprint.yaml", "learner-evidence.yaml", "concept-knowledge-graph.yaml", "knowledge-deep-dive.yaml", "question-learning-traceability.yaml", "role-roadmap.yaml", "skill-track-map.yaml", "note-corpus-manifest.json", "note-corpus-audit.yaml", "concept-registry.json", "note-diagnostic-session.yaml", "corpus-priority-plan.yaml", "misconception-feedback.yaml", "corpus-workflow-manifest.json"],
+        "scripts": ["validate_curriculum_coverage.py", "validate_note_corpus.py"],
     },
     "data-onboarding-and-integration": {
         "references": ["role-onboarding-tracks.md"],
@@ -45,9 +45,9 @@ PEOPLE_RESOURCES = {
         "assets": ["hiring-workflow-state.yaml", "role-scorecard.yaml", "interview-loop.yaml", "candidate-packet.yaml", "assessment-rubric.yaml", "interviewer-guide.yaml", "calibration-record.yaml", "interview-evidence.yaml", "debrief.yaml", "fairness-validity-audit.yaml", "question-competency-evidence.yaml", "answer-anchor-pack.yaml", "question-bank-coverage-audit.yaml"],
     },
     "data-career-and-interview-coach": {
-        "references": ["coaching-ethics-and-method.md", "role-curricula.md", "interview-knowledge-system.md", "career-operating-system.md", "career-learning-memory.md"],
-        "assets": ["readiness-profile.yaml", "mock-assessment.yaml", "remediation-plan.yaml", "interview-question-dossier.yaml", "question-knowledge-map.yaml", "interview-knowledge-library.yaml", "career-operating-system.yaml", "career-evidence-portfolio.yaml", "career-review.yaml", "career-content-handoff.yaml", "learner-memory.json", "learning-event.yaml", "cross-skill-prerequisite-map.yaml", "skill-transition-context.json", "learner-memory.schema.json"],
-        "scripts": ["validate_learning_memory.py", "build_skill_transition_context.py"],
+        "references": ["coaching-ethics-and-method.md", "role-curricula.md", "interview-knowledge-system.md", "career-operating-system.md", "career-learning-memory.md", "concept-registry-standard.md"],
+        "assets": ["readiness-profile.yaml", "mock-assessment.yaml", "remediation-plan.yaml", "interview-question-dossier.yaml", "question-knowledge-map.yaml", "interview-knowledge-library.yaml", "career-operating-system.yaml", "career-evidence-portfolio.yaml", "career-review.yaml", "career-content-handoff.yaml", "learner-memory.json", "learning-event.yaml", "cross-skill-prerequisite-map.yaml", "skill-transition-context.json", "learner-memory.schema.json", "concept-registry.json"],
+        "scripts": ["validate_learning_memory.py", "build_skill_transition_context.py", "validate_concept_registry.py", "schedule_topic_review.py"],
     },
     "data-technical-content-and-social": {
         "references": ["technical-series-method.md", "platform-format-playbooks.md", "technical-content-quality-standard.md"],

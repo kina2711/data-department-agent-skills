@@ -34,6 +34,8 @@ If an absent input changes semantics, risk, cost, scope or acceptance, classify 
 Additional resources:
 - Read [role curricula](../role-curricula.md) and [assessment rules](../assessment-and-certification.md).
 - Reuse the applicable curriculum, lesson, assessment or evidence template from `../../assets/`.
+- Read [the knowledge deep-dive authoring standard](../knowledge-deep-dive-standard.md); the same fixed section order, front-matter contract and content/instruction separation apply to this artifact.
+- Reuse the lesson-plan or deep-dive template from `../../assets/`; keep answers inside the collapsible self-check and keep any diagnostic scenario free of answers and of instructions addressed to an agent.
 - Read [solution option framing](../solution-option-framing.md); frame three to five materially different approaches in `../../assets/design-option-set.yaml`, select one against the stated constraints in at most forty words, and derive the deliverable structure from that selection. Where this role already owns a scored selection artifact, use it instead of duplicating the decision.
 
 - Certification proves only the named, versioned competencies demonstrated by evidence; it never proves tenure, job title, automatic promotion or general seniority.
@@ -42,9 +44,9 @@ Additional resources:
 
 ## Tests and evidence
 
-- Formative knowledge checks.
-- Summative theory test.
-- Authentic practical performance and retention check.
+- Authoritative-source and domain-review verification.
+- Prerequisite, graph-cycle, misconception and coverage checks.
+- Novel-scenario application and learning-transfer test.
 
 Also verify scope and acceptance criteria, test relevant edge/failure paths, store evidence and keep failed mandatory checks visible. Use independent critical acceptance testing when practical.
 

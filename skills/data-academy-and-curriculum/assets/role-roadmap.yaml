@@ -1,0 +1,25 @@
+roadmap_id: ""
+role: ""
+domain: ""
+as_of: ""
+level_framework: ""
+steps:
+  - step_id: ""
+    name: ""
+    why_it_is_on_the_roadmap: ""
+    level: ""
+    basis: "sourced|convention|judgment"
+    sources:
+      - title: ""
+        publisher: ""
+        url: ""
+        published_or_updated_at: ""
+        accessed_at: ""
+    note: ""
+assumptions: []
+uncited_steps: []
+currency_claim: "not-claimed"
+limitations: []
+owner: ""
+version: ""
+status: "draft"

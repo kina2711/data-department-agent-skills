@@ -1,21 +1,40 @@
-concept_id: ""
+id: ""
 title: ""
+domain: ""
+type: ""
+tags: []
+concept_keys: []
+primary_for_keys: []
+ai_summary: ""
+relationships:
+  builds_on: []
+  prerequisite_of: []
+  commonly_confused_with: []
+version_sensitive: false
+created: ""
+updated: ""
 audience: ""
 level: ""
 learning_objectives: []
-definition: ""
-mental_model: ""
+elevator_pitch: ""
+pain_and_motivation: ""
 mechanism: []
-why_it_matters: []
-when_to_use: []
-when_not_to_use: []
-trade_offs: []
-comparisons: []
-failure_modes: []
-worked_examples: []
-practice_prompts: []
+decision_map: []
+wrong_choice_consequence: ""
+case_study:
+  situation: ""
+  walkthrough: []
+  harder_variant: ""
+edge_cases: []
 misconceptions: []
-related_concepts: []
+teaching_seed:
+  hook: ""
+  exercise: ""
+self_check: []
+diagnostic_scenarios:
+  mini_schema: []
+  scenarios: []
+next_note: ""
 sources: []
 reviewer: ""
 version: ""

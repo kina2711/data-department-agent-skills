@@ -1,0 +1,6 @@
+{"memory_id":"m","topics":[
+{"topic_id":"t.airflow","status":"mastered","last_demonstrated_at":"2026-01-10","evidence_refs":["e1","e2","e3"],"prerequisites":[]},
+{"topic_id":"t.dbt","status":"practiced","last_demonstrated_at":"2026-07-01","evidence_refs":["e4"],"prerequisites":["t.sql"],"source_version":"1.8"},
+{"topic_id":"t.sql","status":"demonstrated","last_demonstrated_at":"2026-06-01","evidence_refs":["e5","e6"],"prerequisites":[]},
+{"topic_id":"t.spark","status":"stale","last_demonstrated_at":"2025-02-01","evidence_refs":[],"prerequisites":["t.sql"]},
+{"topic_id":"t.kafka","status":"mastered","evidence_refs":["e7"],"prerequisites":["t.sql"]}]}

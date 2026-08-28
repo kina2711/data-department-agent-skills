@@ -73,6 +73,7 @@ Additional resources:
 - Read [the Career learner-memory and transition method](../career-learning-memory.md); preserve event lineage and keep mastery, exposure and production evidence distinct.
 - Reuse the learner-memory, learning-event, prerequisite-map or transition-context asset from `../../assets/` that matches the deliverable.
 - Run `../../scripts/validate_learning_memory.py` for plan/complete validation; use `../../scripts/build_skill_transition_context.py` to create a bounded read-only context pack for the next topic.
+- Compute freshness with `../../scripts/schedule_topic_review.py` rather than typing a date; the interval follows demonstrated state, independent evidence count, version sensitivity and how many topics depend on this one. A computed due date is a scheduling decision, never evidence, and a topic that is not yet due is only not known to have decayed.
 
 - Never guarantee title, promotion, compensation or timeline; distinguish portable capability from company-specific level mapping.
 - Never relabel self-study or hypothetical work as production evidence, and never prescribe sustained overtime as ownership.

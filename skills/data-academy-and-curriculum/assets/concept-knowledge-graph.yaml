@@ -3,6 +3,7 @@ role: ""
 level: ""
 concepts:
   - concept_id: ""
+    concept_key: ""
     title: ""
     competencies: []
     prerequisites: []

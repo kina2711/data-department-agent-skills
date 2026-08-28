@@ -1,0 +1,33 @@
+rollup_id: ""
+corpus_ref: ""
+sessions_considered: []
+window: ""
+threshold_sessions: 3
+findings:
+  - concept_key: ""
+    misconception: ""
+    learner_framing: []
+    session_ids: []
+    occurrences: 0
+    primary_note_id: ""
+    note_status: ""
+    eligible_for_edit: false
+    ineligible_reason: ""
+    proposed_entry:
+      misconception: ""
+      reality: ""
+      why_it_sounds_plausible: ""
+edits_applied:
+  - note_id: ""
+    concept_key: ""
+    appended_entry: ""
+    status_before: ""
+    status_after: "needs-review"
+    updated_to: ""
+    applied_at: ""
+    revert_ref: ""
+edits_skipped: []
+version_control_verified: false
+content_removed: false
+owner: ""
+status: "draft"

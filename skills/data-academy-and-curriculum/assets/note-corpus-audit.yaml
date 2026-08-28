@@ -1,0 +1,25 @@
+audit_id: ""
+corpus_ref: ""
+checked_at: ""
+duplicate_ids: []
+unregistered_concept_keys: []
+duplicate_primary_keys: []
+keys_without_primary: []
+duplicate_candidates: []
+dangling_edges: []
+prerequisite_cycles: []
+planned_missing_files: []
+files_not_in_manifest: []
+stale_notes: []
+roadmap_coverage:
+  steps_total: 0
+  steps_with_notes: 0
+  uncovered_steps: []
+depth_inconsistencies: []
+script_run:
+  command: ""
+  exit_status: "not-run"
+  observed: ""
+limitations: []
+owner: ""
+status: "draft"

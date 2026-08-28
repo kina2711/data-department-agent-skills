@@ -1,0 +1,32 @@
+{
+  "corpus_id": "",
+  "domain": "",
+  "roadmap_ref": "",
+  "track_map_ref": "",
+  "note_root": "",
+  "standard": "knowledge-deep-dive-standard.md",
+  "notes": [
+    {
+      "id": "",
+      "title": "",
+      "module_id": "",
+      "path": "",
+      "tags": [],
+      "concept_keys": [],
+      "primary_for_keys": [],
+      "builds_on": [],
+      "prerequisite_of": [],
+      "status": "planned",
+      "version_sensitive": false,
+      "updated": "",
+      "superseded_by": "",
+      "stale_reason": ""
+    }
+  ],
+  "modules_completed": [],
+  "next_module": "",
+  "open_gaps": [],
+  "owner": "",
+  "version": "",
+  "status": "draft"
+}

@@ -34,7 +34,7 @@ If an absent input changes semantics, risk, cost, scope or acceptance, classify 
 Additional resources:
 - Read [role curricula](../role-curricula.md) and [assessment rules](../assessment-and-certification.md).
 - Reuse the applicable curriculum, lesson, assessment or evidence template from `../../assets/`.
-- Read [the knowledge deep-dive authoring standard](../knowledge-deep-dive-standard.md).
+- Read [the knowledge deep-dive authoring standard](../knowledge-deep-dive-standard.md); its fixed section order and front-matter contract are mandatory, and its `relationships` edges are what the concept graph and question mapping consume.
 - Reuse the concept-graph, deep-dive or question-learning traceability template from `../../assets/`.
 - Read [solution option framing](../solution-option-framing.md); frame three to five materially different approaches in `../../assets/design-option-set.yaml`, select one against the stated constraints in at most forty words, and derive the deliverable structure from that selection. Where this role already owns a scored selection artifact, use it instead of duplicating the decision.
 

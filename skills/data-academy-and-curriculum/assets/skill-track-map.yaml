@@ -1,0 +1,18 @@
+map_id: ""
+roadmap_ref: ""
+tracks:
+  - track_id: ""
+    step_id: ""
+    name: ""
+    entry_criteria: []
+    exit_criteria: []
+    modules:
+      - module_id: ""
+        name: ""
+        objectives: []
+        depends_on: []
+        estimated_notes: 0
+ordering_rationale: ""
+owner: ""
+version: ""
+status: "draft"

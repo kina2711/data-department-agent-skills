@@ -1,0 +1,4 @@
+{"registry_id":"boot","owner":"me","keys":[
+{"concept_key":"ck.proc.idempotency","display_name":"Idempotency","definition":"Re-running a step produces the same end state rather than extra rows.","domain":"processing","binds":{"note_ids":[]},"status":"proposed","registered_at":"2026-08-28","registered_by":"me"},
+{"concept_key":"ck.proc.idempotent-write","display_name":"Idempotent write","definition":"Re-running a write produces the same end state instead of extra rows.","domain":"processing","binds":{"note_ids":[]},"status":"proposed","registered_at":"2026-08-28","registered_by":"me"},
+{"concept_key":"ck.store.partitioning","display_name":"Partitioning","definition":"Splitting a table by a column so scans read fewer files.","domain":"storage","binds":{"note_ids":[]},"status":"proposed","registered_at":"2026-08-28","registered_by":"me"}]}

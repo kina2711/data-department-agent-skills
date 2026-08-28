@@ -1,0 +1,125 @@
+{
+  "workflow_id": "",
+  "version": "1.0.0",
+  "objective": "",
+  "status": "draft",
+  "workflow_risk_tier": "R1-reviewed",
+  "current_task_id": "academy-research-role-roadmap",
+  "tasks": [
+    {
+      "task_id": "academy-research-role-roadmap",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-bootstrap-concept-registry",
+      "owner": "",
+      "depends_on": [
+        "academy-research-role-roadmap"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-build-skill-track-map",
+      "owner": "",
+      "depends_on": [
+        "academy-research-role-roadmap"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-plan-note-corpus",
+      "owner": "",
+      "depends_on": [
+        "academy-build-skill-track-map",
+        "career-bootstrap-concept-registry"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-prioritize-corpus-by-gap",
+      "owner": "",
+      "depends_on": [
+        "academy-plan-note-corpus"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-build-note-module",
+      "instance_id": "module-1",
+      "owner": "",
+      "depends_on": [
+        "academy-prioritize-corpus-by-gap"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-audit-note-corpus",
+      "owner": "",
+      "depends_on": [
+        "academy-build-note-module"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-index-note-corpus",
+      "owner": "",
+      "depends_on": [
+        "academy-audit-note-corpus"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "module_locks": [
+    {
+      "module_id": "",
+      "claimed_by": "",
+      "claimed_at": "",
+      "released_at": ""
+    }
+  ],
+  "updated_at": ""
+}

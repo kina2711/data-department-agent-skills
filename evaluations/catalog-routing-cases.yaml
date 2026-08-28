@@ -123,3 +123,37 @@ cases:
   - id: book-publish-derived-skill
     task: book-publish-derived-skill
     expected_catalog: operate-improve
+
+  - id: academy-research-role-roadmap
+    task: academy-research-role-roadmap
+    expected_catalog: plan-design
+  - id: academy-build-skill-track-map
+    task: academy-build-skill-track-map
+    expected_catalog: plan-design
+  - id: academy-plan-note-corpus
+    task: academy-plan-note-corpus
+    expected_catalog: plan-design
+  - id: academy-prioritize-corpus-by-gap
+    task: academy-prioritize-corpus-by-gap
+    expected_catalog: plan-design
+  - id: academy-build-note-module
+    task: academy-build-note-module
+    expected_catalog: build-deliver
+  - id: academy-run-note-diagnostic
+    task: academy-run-note-diagnostic
+    expected_catalog: build-deliver
+  - id: academy-audit-note-corpus
+    task: academy-audit-note-corpus
+    expected_catalog: test-assure
+  - id: academy-index-note-corpus
+    task: academy-index-note-corpus
+    expected_catalog: build-deliver
+  - id: career-register-canonical-concept
+    task: career-register-canonical-concept
+    expected_catalog: plan-design
+  - id: career-bootstrap-concept-registry
+    task: career-bootstrap-concept-registry
+    expected_catalog: plan-design
+  - id: academy-apply-misconception-feedback
+    task: academy-apply-misconception-feedback
+    expected_catalog: build-deliver

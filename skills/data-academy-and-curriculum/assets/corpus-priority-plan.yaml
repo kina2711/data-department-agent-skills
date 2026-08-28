@@ -1,0 +1,20 @@
+plan_id: ""
+corpus_ref: ""
+roadmap_ref: ""
+gap_source:
+  skill: "data-career-and-interview-coach"
+  artifact: ""
+  assessed_at: ""
+modules:
+  - module_id: ""
+    concept_keys: []
+    gap_severity: ""
+    evidence_basis: "measured|self-reported|assumed"
+    blocking_for: []
+    priority_rank: 0
+    rationale: ""
+deferred_modules: []
+coverage_before: {}
+assumptions: []
+owner: ""
+status: "draft"

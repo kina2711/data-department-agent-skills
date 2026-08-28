@@ -185,3 +185,34 @@ cases:
     expected_primary_skill: data-academy-and-curriculum
     rejected_skill: book-to-knowledge-and-action
     expected_task: academy-deliver-theory-session
+
+  - id: academy-corpus-vs-career-memory
+    query: Dựng bộ note cho Data Engineering và ghi lại xem những note nào đã tồn tại, còn thiếu phần nào.
+    expected_primary_skill: data-academy-and-curriculum
+    rejected_skill: data-career-and-interview-coach
+    expected_task: academy-index-note-corpus
+  - id: career-mastery-vs-academy-corpus-index
+    query: Sau các buổi luyện vừa rồi, cập nhật lại trạng thái thành thạo của tôi và giải quyết chỗ mâu thuẫn với bằng chứng cũ.
+    expected_primary_skill: data-career-and-interview-coach
+    rejected_skill: data-academy-and-curriculum
+    expected_task: career-reconcile-learning-memory
+  - id: career-registry-vs-academy-graph
+    query: Cấp một danh tính chung để canon system design, note trong corpus và topic trong learner memory cùng trỏ về một concept.
+    expected_primary_skill: data-career-and-interview-coach
+    rejected_skill: data-academy-and-curriculum
+    expected_task: career-register-canonical-concept
+  - id: academy-diagnostic-vs-career-mock
+    query: Chạy kịch bản chẩn đoán trong các note tôi đã viết để xem tôi hiểu sai chỗ nào.
+    expected_primary_skill: data-academy-and-curriculum
+    rejected_skill: data-career-and-interview-coach
+    expected_task: academy-run-note-diagnostic
+  - id: academy-misconception-vs-career-remediation
+    query: Nhiều buổi liền tôi hiểu sai cùng một chỗ về idempotency; sửa lại chính note đang dạy sai phần đó.
+    expected_primary_skill: data-academy-and-curriculum
+    rejected_skill: data-career-and-interview-coach
+    expected_task: academy-apply-misconception-feedback
+  - id: career-bootstrap-vs-academy-plan
+    query: Sinh sẵn một lô concept key ứng viên từ track map để corpus có chỗ bind trước khi viết note.
+    expected_primary_skill: data-career-and-interview-coach
+    rejected_skill: data-academy-and-curriculum
+    expected_task: career-bootstrap-concept-registry

@@ -1,0 +1,11 @@
+{
+  "corpus_id": "de-foundation",
+  "domain": "data-engineering",
+  "note_root": "notes",
+  "notes": [
+    {"id": "de.ingest.idempotency", "title": "Idempotency", "module_id": "m1", "path": "de/ingest/idempotency.md", "tags": ["ingest", "reliability"], "concept_keys": ["ck.proc.idempotency"], "primary_for_keys": ["ck.proc.idempotency"], "builds_on": ["de.ingest.retry"], "status": "reviewed", "version_sensitive": false, "updated": "2026-08-20"},
+    {"id": "de.ingest.retry", "title": "Retry and DLQ", "module_id": "m1", "path": "de/ingest/retry.md", "tags": ["retry", "dlq"], "concept_keys": ["ck.rel.retry-and-dlq"], "primary_for_keys": ["ck.rel.retry-and-dlq"], "prerequisite_of": ["de.ingest.idempotency"], "status": "reviewed", "version_sensitive": false, "updated": "2026-08-20"}
+  ],
+  "modules_completed": ["m1"],
+  "status": "draft"
+}

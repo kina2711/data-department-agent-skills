@@ -1,5 +1,96 @@
 # Changelog
 
+## v3.8.0
+
+A note-corpus pipeline for Academy, a concept registry that finally joins Career's canon to it,
+and a Socratic diagnostic loop that proposes evidence without ever claiming mastery.
+
+32 role skills - 826 atomic task contracts - 45 slash commands - 32 Antigravity agents -
+52 executable evidence scripts - 12 JSON Schemas
+
+### Note authoring moves to a fixed-phrase structure
+
+- `knowledge-deep-dive-standard.md` is rewritten as a structural contract: a required section
+  order with verbatim headings, a YAML front-matter contract carrying `ai_summary` and
+  `relationships`, collapsible self-check answers, and strict content/instruction separation —
+  note content describes and never issues commands to an agent. Bracket labels such as `[L1]`
+  are prohibited; the fixed phrase is itself the retrieval signal.
+- The standard now also governs `academy-write-theory-lesson`, `academy-create-worked-example`
+  and `academy-create-learner-workbook`, not deep dives alone.
+- `knowledge-deep-dive.yaml` is restructured to hold what the standard requires.
+
+### A corpus is a deliverable, not a pile of notes
+
+- New reference `note-corpus-operating-system.md`: sourced roadmap, skill tracks, corpus plan,
+  module batches, audit, index — in one direction, resumable across sessions.
+- Six new tasks: `academy-research-role-roadmap`, `academy-build-skill-track-map`,
+  `academy-plan-note-corpus`, `academy-build-note-module`, `academy-audit-note-corpus`,
+  `academy-index-note-corpus`.
+- A roadmap presented as current names its sources with dates; `currency_claim` stays
+  `not-claimed` while any step is uncited, and `role-curricula.md` is an input, never evidence.
+- `note-corpus-manifest.json` is the resume anchor. Regenerating the plan mid-corpus renumbers
+  IDs that existing notes point at, so changed roadmaps supersede rather than rewrite.
+- One module, one writer: modules are claimed before building, and on a collision the module
+  that produced no notes yields. `corpus-workflow-manifest.json` represents the whole flow for
+  `validate_workflow.py`.
+- New script `validate_note_corpus.py` — duplicate IDs, dangling relationship targets,
+  prerequisite cycles, planned-but-missing files, unmanifested files, stale version-sensitive
+  notes, tag-overlap duplicate candidates, and hollow sections: an empty decision table, fewer
+  than two misconceptions, fewer than two self-check questions, a stub case study.
+
+### One identity across four ID spaces
+
+- New reference `concept-registry-standard.md`, shared by Academy and Career. Concept keys
+  `ck.<domain>.<slug>` bind outward to canon IDs, note IDs, learner-memory topics, competencies
+  and questions; nothing downstream is rewritten and `sd.*` keeps its meaning.
+- Exactly one primary note per key. This makes duplication decidable rather than a judgment
+  about tag similarity, and it gives coverage a single meaning: a canon ID is covered when a
+  key bound to it has a primary note marked `reviewed`. A note that merely exists is not
+  coverage.
+- Notes may bind to a `proposed` key immediately so a corpus can start; only `registered` keys
+  count, so a corpus built on proposed keys reports zero verified coverage rather than
+  borrowing a number it does not have. The duplicate-coining risk this accepts is contained
+  mechanically: near-duplicate proposed keys are reported while merging them is still cheap.
+- New tasks `career-register-canonical-concept` and `career-bootstrap-concept-registry`.
+- New script `validate_concept_registry.py` — unregistered keys in use, duplicate primaries,
+  alias collisions, dangling bindings, `parents` cycles, near-duplicate keys, canon IDs with
+  no key.
+- `concept_keys` crosswalk fields added across six assets and, optionally, to
+  `learner-memory.schema.json`; existing memory files stay valid.
+
+### Diagnosis that proposes evidence instead of asserting it
+
+- New reference `diagnostic-session-method.md`: three Socratic rounds per scenario, then teach
+  directly, because questioning past productive struggle stops being Socratic. The resolving
+  round is the evidence — unaided on an unseen surface proposes `demonstrated`, rounds one and
+  two propose `practiced`, round three or direct teaching proposes `exposed`, and a previously
+  seen scenario is recall rather than transfer.
+- New task `academy-run-note-diagnostic` emits a learning event to Career and never writes
+  mastery. Academy proposes; Career reconciles and decides.
+- New task `academy-apply-misconception-feedback` closes the loop: the same misconception
+  against one concept key in three or more distinct sessions is written back into the key's
+  primary note. The edit is append-only and sets `status` to `needs-review`; a pattern from one
+  learner is enough to add a warning and nowhere near enough to overturn deliberate content.
+- New task `academy-prioritize-corpus-by-gap` ranks modules against a measured gap artifact,
+  labelling each `measured`, `self-reported` or `assumed`.
+
+### Freshness stops being a typed date
+
+- New script `schedule_topic_review.py` computes `review_due_at` from demonstrated state,
+  independent evidence count with diminishing returns, version sensitivity and dependent count.
+  A computed due date is a scheduling decision, never evidence, and a topic that is not yet due
+  is only not known to have decayed.
+
+### Elsewhere
+
+- The book skill gains a note-corpus destination: it supplies structure, locators and claim
+  classification while Academy owns the manifest, coverage and any diagnostic use.
+- Evaluation coverage for every new task — catalog routing, lifecycle profiles, two end-to-end
+  routing scenarios and six confusion pairs — plus five fixtures, with all three new scripts
+  exercised from the smoke suite. The first run caught a real defect:
+  `academy-prioritize-corpus-by-gap` was routing to the wrong catalog group.
+- The suite grows from 815 to 826 atomic tasks and from 49 to 52 evidence scripts.
+
 ## v3.7.0
 
 System-design knowledge for Career, two cross-cutting reporting and design standards, a zero-finding

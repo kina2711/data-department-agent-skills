@@ -60,7 +60,8 @@ If the request asks for the complete Career OS bundle, route through `orchestrat
 ## Atomic task routing
 
 - **Plan, define, design, map, specify or create a proposed artifact — interview deliverables** (4 tasks): read [references/catalog-plan-design-interview.md](references/catalog-plan-design-interview.md).
-- **Plan, define, design, map, specify or create a proposed artifact — remaining deliverables** (10 tasks): read [references/catalog-plan-design-other.md](references/catalog-plan-design-other.md).
+- **Plan, define, design, map, specify or create a proposed artifact — career deliverables** (3 tasks): read [references/catalog-plan-design-career.md](references/catalog-plan-design-career.md).
+- **Plan, define, design, map, specify or create a proposed artifact — remaining deliverables** (9 tasks): read [references/catalog-plan-design-other.md](references/catalog-plan-design-other.md).
 - **Build, implement, configure, teach, interview or deliver an artifact — assessment deliverables** (11 tasks): read [references/catalog-build-deliver-assessment.md](references/catalog-build-deliver-assessment.md).
 - **Build, implement, configure, teach, interview or deliver an artifact — career deliverables** (3 tasks): read [references/catalog-build-deliver-career.md](references/catalog-build-deliver-career.md).
 - **Build, implement, configure, teach, interview or deliver an artifact — remaining deliverables** (11 tasks): read [references/catalog-build-deliver-other.md](references/catalog-build-deliver-other.md).

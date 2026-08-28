@@ -412,3 +412,29 @@ cases:
       - Preserve exact framework names and source locators while separating author claims from synthesis and application.
       - Select one primary conversion destination per run and hand downstream career ownership to the career skill.
       - Keep publication blocked unless rights and exact artifacts are explicitly approved.
+
+  - id: build-note-corpus-for-data-engineering
+    query: Tôi muốn có một bộ note học Data Engineering đầy đủ, bắt đầu từ roadmap mới nhất rồi đi sâu từng module.
+    expected_primary_skill: data-academy-and-curriculum
+    expected_tasks:
+      - academy-research-role-roadmap
+      - academy-build-skill-track-map
+      - academy-plan-note-corpus
+      - academy-build-note-module
+    expected_behavior:
+      - Source every roadmap step with publisher and dates; leave currency_claim at not-claimed while any step is uncited.
+      - Enumerate every planned note with its ID and prerequisites before writing the first note.
+      - Build one module to completion and checkpoint note-corpus-manifest.json rather than regenerating the plan.
+      - Bind notes to registered ck. concept keys and claim exactly one primary note per key.
+
+  - id: diagnose-me-against-my-notes
+    query: Cho tôi làm bài kiểm tra dựa trên bộ note đã viết, chấm và cập nhật xem tôi đã nắm chắc phần nào.
+    expected_primary_skill: data-academy-and-curriculum
+    expected_tasks:
+      - academy-run-note-diagnostic
+      - career-record-learning-event
+    expected_behavior:
+      - Draw scenarios only from notes marked reviewed, vary the surface and keep the trap logic.
+      - Cap the exchange at three Socratic rounds per scenario, then teach directly rather than continuing to withhold.
+      - Map the resolving round to a proposed evidence class; a previously seen scenario is recall, never transfer.
+      - Propose the evidence class and hand reconciliation to Career; never write mastery from Academy.

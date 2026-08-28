@@ -64,3 +64,16 @@ cases:
     expected_profile: career-development
     expected_path: standard-path
     required_stages: [Plan, Assess, Design, Execute, Test, Review, Handoff, Improve]
+
+  - id: academy-build-note-module-lifecycle
+    task: academy-build-note-module
+    expected_profile: learning
+    expected_path: standard-path
+  - id: academy-run-note-diagnostic-lifecycle
+    task: academy-run-note-diagnostic
+    expected_profile: learning
+    expected_path: standard-path
+  - id: career-register-canonical-concept-lifecycle
+    task: career-register-canonical-concept
+    expected_profile: career-coaching
+    expected_path: standard-path

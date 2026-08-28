@@ -1,0 +1,29 @@
+{
+  "registry_id": "",
+  "version": "",
+  "owner": "",
+  "keys": [
+    {
+      "concept_key": "",
+      "display_name": "",
+      "definition": "",
+      "domain": "",
+      "aliases": [],
+      "parents": [],
+      "related": [],
+      "binds": {
+        "canon_ids": [],
+        "note_ids": [],
+        "topic_ids": [],
+        "competency_ids": [],
+        "question_ids": []
+      },
+      "primary_note_id": "",
+      "status": "proposed",
+      "superseded_by": "",
+      "registered_at": "",
+      "registered_by": ""
+    }
+  ],
+  "status": "draft"
+}

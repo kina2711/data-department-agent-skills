@@ -770,6 +770,10 @@ Ranh giới: Academy role thiết kế, giảng dạy, đánh giá và cải ti�
 - `academy-design-level-learning-path` — tạo pathway Junior/Middle/Senior/Lead có entry/exit criteria; output: level learning pathway.
 - `academy-build-role-theory-pack` — đóng gói lý thuyết chuẩn theo role, level và company context; output: role theory knowledge pack.
 - `academy-build-concept-knowledge-graph` — mô hình hóa concepts, prerequisites, dependencies, misconceptions và transfer paths; output: concept knowledge graph.
+- `academy-research-role-roadmap` — nghiên cứu roadmap hành nghề đang được dùng từ nguồn công khai, mỗi mục kèm nguồn và ngày truy cập; output: sourced role roadmap.
+- `academy-build-skill-track-map` — tách mỗi bước roadmap thành skill track có thứ tự học, module và tiêu chí ra; output: skill-track map.
+- `academy-plan-note-corpus` — liệt kê toàn bộ note dự kiến theo module kèm id, prerequisite và trạng thái build; output: note corpus plan.
+- `academy-prioritize-corpus-by-gap` — xếp thứ tự module theo khoảng cách năng lực đã đo thay vì theo thứ tự roadmap; output: gap-prioritized corpus plan.
 - `academy-map-questions-to-learning-objectives` — nối question tới competency, Bloom depth, prerequisites, learning objectives và assessments; output: question-to-learning traceability matrix.
 - `academy-design-learning-module` — định nghĩa objectives, concepts, examples, activities và assessment; output: learning-module specification.
 - `academy-plan-learning-cohort` — lập audience, schedule, instructors, capacity và support; output: cohort delivery plan.
@@ -778,6 +782,7 @@ Ranh giới: Academy role thiết kế, giảng dạy, đánh giá và cải ti�
 
 - `academy-write-theory-lesson` — viết lesson có mental model, principles, trade-offs và misconceptions; output: theory lesson.
 - `academy-write-knowledge-deep-dive` — giải thích một concept từ definition, mental model, mechanism, trade-offs tới edge cases, examples và sources; output: evidence-backed knowledge deep dive.
+- `academy-build-note-module` — dựng trọn bộ note của một module theo cùng một chuẩn rồi cập nhật corpus manifest; output: module note batch.
 - `academy-create-lecture-deck` — chuyển lesson thành slide narrative có examples và checks; output: lecture deck.
 - `academy-create-instructor-guide` — ghi facilitation flow, timings, prompts, expected questions và interventions; output: instructor guide.
 - `academy-create-learner-workbook` — tạo notes, exercises, reflection và progress checks; output: learner workbook.
@@ -795,6 +800,8 @@ Ranh giới: Academy role thiết kế, giảng dạy, đánh giá và cải ti�
 ### P2 — delivery, testing và certification
 
 - `academy-run-knowledge-diagnostic` — đo baseline theory, practical skills và misconceptions; output: learner diagnostic report.
+- `academy-run-note-diagnostic` — chạy kịch bản chẩn đoán của corpus theo vòng Socratic có giới hạn rồi đề xuất hạng bằng chứng; output: note diagnostic session record.
+- `academy-apply-misconception-feedback` — gom ngộ nhận lặp lại theo concept key rồi bổ sung vào chính note dạy sai mô hình đó; output: revised note batch.
 - `academy-deliver-theory-session` — thực hiện lesson có knowledge checks và participation evidence; output: delivered-session record.
 - `academy-facilitate-learning-workshop` — điều phối collaborative problem solving và peer feedback; output: workshop outcome record.
 - `academy-run-lab-session` — giám sát hands-on execution, safety, checkpoints và recovery; output: lab completion evidence.
@@ -805,6 +812,8 @@ Ranh giới: Academy role thiết kế, giảng dạy, đánh giá và cải ti�
 - `academy-certify-role-competency` — đối chiếu evidence với pass rules và scope chứng nhận; output: competency certification decision.
 - `academy-calibrate-assessors` — chuẩn hóa cách chấm bằng anchor examples và disagreement resolution; output: assessor-calibration record.
 - `academy-audit-curriculum-quality` — kiểm tra accuracy, coverage, accessibility, bias và assessment validity; output: curriculum quality audit.
+- `academy-audit-note-corpus` — kiểm tra trùng lặp, cạnh quan hệ treo, chu trình prerequisite, độ cũ và độ phủ của corpus; output: note corpus audit.
+- `academy-index-note-corpus` — hợp nhất corpus thành index tra cứu bền vững ghi lại cái gì tồn tại, không suy ra mastery; output: note corpus index.
 - `academy-measure-training-effectiveness` — đo reaction, learning, behavior transfer và business impact; output: training-effectiveness report.
 - `academy-refresh-curriculum` — cập nhật theo stack, policy, incidents và learner evidence; output: versioned curriculum release.
 
@@ -971,6 +980,8 @@ Ranh giới: Coach hỗ trợ nhân viên hoặc ứng viên chuẩn bị và ph
 - `career-audit-career-claims-evidence` — đối chiếu resume, portfolio, promotion hoặc public claims với evidence thật và gắn nhãn self-study/hypothetical đúng mức; output: career-claim evidence audit.
 - `career-certify-interview-readiness` — tổng hợp multi-format evidence và residual gaps; output: interview-readiness decision.
 - `career-audit-knowledge-coverage` — đối chiếu question library với canonical concept ID để tìm concept chưa có dossier, prerequisite gap, entry stale và vùng luyện thừa; output: interview knowledge coverage audit.
+- `career-register-canonical-concept` — cấp và quản lý concept key nối canon, note, topic và competency về một danh tính; output: canonical concept registry entry.
+- `career-bootstrap-concept-registry` — sinh lô concept key ứng viên từ track map và canon để corpus có chỗ bind ngay; output: proposed concept key batch.
 
 ## 29. Technical Content / Social Series Engineering
 

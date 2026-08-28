@@ -1,12 +1,12 @@
 # Data Department Agent Skills
 
 Hệ điều hành có kiểm soát cho toàn bộ một phòng Data, đóng gói dưới dạng plugin Claude Code.
-**32 role skill**, **815 atomic task contract**, **45 slash command**, **49 script evidence
+**32 role skill**, **826 atomic task contract**, **45 slash command**, **52 script evidence
 chạy được**, **12 JSON Schema**, và một production guard hook.
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
 
-Bản hiện tại: **v3.7.0** · Chạy được với **Claude Code**, **OpenAI Codex** và **Google Antigravity**
+Bản hiện tại: **v3.8.0** · Chạy được với **Claude Code**, **OpenAI Codex** và **Google Antigravity**
 
 🇬🇧 [Read in English](README.md)
 
@@ -60,16 +60,16 @@ script evidence đều cần; cả hai fail-open nếu thiếu).
 
 ```powershell
 # Windows
-$pluginRoot = "C:\Tools\data-department-agent-skills-v3.7.0"
-Expand-Archive .\data-department-claude-plugin-v3.7.0.zip -DestinationPath $pluginRoot
+$pluginRoot = "C:\Tools\data-department-agent-skills-v3.8.0"
+Expand-Archive .\data-department-claude-plugin-v3.8.0.zip -DestinationPath $pluginRoot
 claude plugin validate --strict $pluginRoot
 claude --plugin-dir $pluginRoot
 ```
 
 ```bash
 # macOS / Linux
-pluginRoot=~/tools/data-department-agent-skills-v3.7.0
-unzip data-department-claude-plugin-v3.7.0.zip -d "$pluginRoot"
+pluginRoot=~/tools/data-department-agent-skills-v3.8.0
+unzip data-department-claude-plugin-v3.8.0.zip -d "$pluginRoot"
 claude plugin validate --strict "$pluginRoot"
 claude --plugin-dir "$pluginRoot"
 ```
@@ -103,7 +103,7 @@ claude --plugin-dir .
 /dd-catalog profiling
 ```
 
-Phải trả về các task ID khớp từ catalog 815 task. Nếu nó trả lời bằng kiến thức chung thay vì
+Phải trả về các task ID khớp từ catalog 826 task. Nếu nó trả lời bằng kiến thức chung thay vì
 từ catalog, nghĩa là plugin **chưa** được nạp.
 
 ---
@@ -199,14 +199,14 @@ yêu cầu bằng ngôn ngữ tự nhiên
    ↓  route theo primary deliverable, không bao giờ theo chức danh
 một role skill sở hữu                    (32 ứng viên)
    ↓  đọc MỘT catalog shard, không phải tất cả
-một atomic task chuẩn                    (815 contract)
+một atomic task chuẩn                    (826 contract)
    ↓  đọc trọn vẹn contract đó
 Plan → Assess → Design → Execute → Test → Review/Approve → Release/Handoff → Monitor/Improve
 ```
 
 **Progressive disclosure chính là điểm mấu chốt.** Chỉ description của skill nằm thường trực
 trong context. Sau đó Claude nạp một `SKILL.md`, một catalog shard, một task contract, và chỉ
-những reference mà contract đó nêu tên. 815 contract và 98 stack adapter **không bao giờ** được
+những reference mà contract đó nêu tên. 826 contract và 98 stack adapter **không bao giờ** được
 nạp cùng lúc.
 
 Catalog chia theo intent — plan/design, build/deliver, test/assure, operate/improve — và shard
@@ -298,7 +298,7 @@ Mỗi phòng ban là một slash command, nhóm theo sprint stage. Con số là 
 | `/dd-docs` | Data Documentation and Diagrams | 20 |
 | `/dd-enable` | Data Enablement and Knowledge | 17 |
 
-Chi tiết đầy đủ — ownership, ranh giới, resource và toàn bộ 815 workflow — nằm ở
+Chi tiết đầy đủ — ownership, ranh giới, resource và toàn bộ 826 workflow — nằm ở
 [docs/skill-and-task-catalog.md](docs/skill-and-task-catalog.md).
 
 ---
@@ -312,7 +312,7 @@ Chi tiết đầy đủ — ownership, ranh giới, resource và toàn bộ 815 
 | Command | Làm gì |
 |---|---|
 | `/dd-route <yêu cầu>` | Xác định một role sở hữu và một task chuẩn, **chưa thực thi** |
-| `/dd-catalog <từ khóa>` | Tra catalog 815 task theo từ khóa, role prefix hoặc deliverable |
+| `/dd-catalog <từ khóa>` | Tra catalog 826 task theo từ khóa, role prefix hoặc deliverable |
 | `/dd-task <task-id>` | Nạp trọn một contract; báo readiness, gate, test, approval |
 | `/dd-navigate <symbol>` | Trả lời câu hỏi code từ symbol index thay vì đọc cả file |
 | `/dd-recall <câu hỏi>` | Truy hồi việc cũ từ trace đã index, **0 model call** |
@@ -448,7 +448,7 @@ review Airflow đã quá hạn, lúc đó nó chuyển vào nhóm cần test l�
 
 ## Evidence chạy được
 
-49 script trải khắp các skill. **Chỉ dùng thư viện chuẩn** — chạy trên máy bạn không cần cài gì
+52 script trải khắp các skill. **Chỉ dùng thư viện chuẩn** — chạy trên máy bạn không cần cài gì
 thêm. Exit code mang ý nghĩa thống nhất ở mọi nơi:
 
 | Exit | Nghĩa |
@@ -529,7 +529,7 @@ Power BI, Tableau, Looker, Metabase, Superset và nhiều hơn.
 │       ├── SKILL.md              entry point, chỉ metadata luôn hiển thị
 │       ├── references/
 │       │   ├── catalog-*.md      routing shard, nạp từng cái một
-│       │   ├── tasks/*.md        815 atomic task contract
+│       │   ├── tasks/*.md        826 atomic task contract
 │       │   └── adapter-*.md      gói adapter theo stack
 │       ├── assets/               template bản ghi và JSON Schema
 │       └── scripts/              evidence chạy được  ← viết tay
@@ -569,7 +569,7 @@ python tools/audit_skills.py           # bảng điểm cấu trúc từng skill
 
 | Bộ kiểm | Kết quả |
 |---|---|
-| Skill / contract / command / agent | 32 / 815 / 45 / 32, 0 lỗi |
+| Skill / contract / command / agent | 32 / 826 / 45 / 32, 0 lỗi |
 | Routing ngôn ngữ tự nhiên | 35 case |
 | Role-confusion pair | 37 case |
 | Catalog routing | 41 case |
@@ -594,7 +594,7 @@ Phần còn chưa xong hẹp hơn và được nêu rõ trong release notes: ch�
 bằng fixture tự dựng cho cả đường pass lẫn đường fail, nhưng chưa có unit test riêng và CI mới
 chỉ import chứ chưa chạy chúng.
 
-`mean_thin_share` là **0.00%**: cả 815 contract đều mang ít nhất một resource riêng của task.
+`mean_thin_share` là **0.00%**: cả 826 contract đều mang ít nhất một resource riêng của task.
 
 ---
 
@@ -602,7 +602,7 @@ chỉ import chứ chưa chạy chúng.
 
 | Tài liệu | Nội dung | Ngôn ngữ |
 |---|---|---|
-| [docs/skill-and-task-catalog.md](docs/skill-and-task-catalog.md) | Toàn bộ 32 skill và 815 workflow: ownership, ranh giới, resource | Tiếng Việt |
+| [docs/skill-and-task-catalog.md](docs/skill-and-task-catalog.md) | Toàn bộ 32 skill và 826 workflow: ownership, ranh giới, resource | Tiếng Việt |
 | [docs/installation-and-usage.md](docs/installation-and-usage.md) | Cài plugin, project-scope, user-scope; routing; prompt; xử lý sự cố | Tiếng Việt |
 | [docs/capability-overview.md](docs/capability-overview.md) | Tóm tắt năng lực | Tiếng Việt |
 | [docs/skill-map.md](docs/skill-map.md) | **Taxonomy chuẩn** — nguồn mà build đọc vào | Tiếng Anh |

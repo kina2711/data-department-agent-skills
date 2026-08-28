@@ -65,7 +65,7 @@ Block before mutation or a positive completion decision when a mandatory input, 
 Additional resources:
 - Read [role curricula](../role-curricula.md) and [assessment rules](../assessment-and-certification.md).
 - Reuse the applicable curriculum, lesson, assessment or evidence template from `../../assets/`.
-- Read [the knowledge deep-dive authoring standard](../knowledge-deep-dive-standard.md).
+- Read [the knowledge deep-dive authoring standard](../knowledge-deep-dive-standard.md); its fixed section order and front-matter contract are mandatory, and its `relationships` edges are what the concept graph and question mapping consume.
 - Reuse the concept-graph, deep-dive or question-learning traceability template from `../../assets/`.
 
 - Certification proves only the named, versioned competencies demonstrated by evidence; it never proves tenure, job title, automatic promotion or general seniority.

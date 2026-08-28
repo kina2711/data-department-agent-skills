@@ -3,9 +3,14 @@ person_id: ""
 target_role: ""
 target_level: ""
 canon_version: ""
+registry_ref: ""
 library_ref: ""
+corpus_ref: ""
 concepts:
   - concept_id: ""
+    concept_key: ""
+    primary_note_id: ""
+    primary_note_status: ""
     dossier_refs: []
     mastery_state: "unseen"
     evidence_refs: []

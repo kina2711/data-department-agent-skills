@@ -1,0 +1,10 @@
+{
+  "registry_id": "dd-concepts",
+  "version": "1.0.0",
+  "owner": "data-career-and-interview-coach",
+  "keys": [
+    {"concept_key": "ck.proc.idempotency", "display_name": "Idempotency", "definition": "Re-running a step produces the same end state rather than additional rows.", "domain": "processing", "aliases": ["idempotent write"], "parents": [], "related": ["ck.rel.retry-and-dlq"], "binds": {"canon_ids": ["sd.proc.idempotency"], "note_ids": ["de.ingest.idempotency"], "topic_ids": ["t.idempotency"], "competency_ids": ["de.p.reliability"], "question_ids": []}, "primary_note_id": "de.ingest.idempotency", "status": "registered", "superseded_by": "", "registered_at": "2026-08-01", "registered_by": "kina2711"},
+    {"concept_key": "ck.rel.retry-and-dlq", "display_name": "Retry and dead-letter", "definition": "Bounded retry with a terminal destination for messages that never succeed.", "domain": "reliability", "aliases": [], "parents": [], "related": [], "binds": {"canon_ids": ["sd.rel.retry-and-dlq"], "note_ids": ["de.ingest.retry"], "topic_ids": [], "competency_ids": [], "question_ids": []}, "primary_note_id": "de.ingest.retry", "status": "registered", "superseded_by": "", "registered_at": "2026-08-01", "registered_by": "kina2711"}
+  ],
+  "status": "draft"
+}

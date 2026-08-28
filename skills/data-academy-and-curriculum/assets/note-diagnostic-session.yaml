@@ -1,0 +1,30 @@
+session_id: ""
+corpus_ref: ""
+learner_ref: ""
+run_at: ""
+entry_level: ""
+scenarios:
+  - scenario_id: ""
+    concept_key: ""
+    source_note_id: ""
+    surface_varied_from: ""
+    previously_seen: false
+    prediction_recorded: ""
+    resolving_round: 0
+    taught_directly: false
+    misconceptions_observed: []
+proposed_evidence:
+  - concept_key: ""
+    class: "exposed|practiced|demonstrated"
+    scenario_ids: []
+    rationale: ""
+    limitations: ""
+rounds_cap: 3
+learning_event_ref: ""
+handoff:
+  target_skill: "data-career-and-interview-coach"
+  task: "career-record-learning-event"
+  status: "not-sent"
+mastery_claimed: false
+owner: ""
+status: "draft"

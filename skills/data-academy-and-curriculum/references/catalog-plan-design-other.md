@@ -3,6 +3,7 @@
 Plan, define, design, map, specify or create a proposed artifact — remaining deliverables. Select exactly one task by its primary deliverable.
 
 - `academy-build-competency-curriculum-map` → **competency-to-curriculum map**; read [contract](tasks/academy-build-competency-curriculum-map.md).
+- `academy-build-skill-track-map` → **skill-track map**; read [contract](tasks/academy-build-skill-track-map.md).
 - `academy-plan-learning-cohort` → **cohort delivery plan**; read [contract](tasks/academy-plan-learning-cohort.md).
 - `academy-write-theory-lesson` → **theory lesson**; read [contract](tasks/academy-write-theory-lesson.md).
 - `academy-write-knowledge-deep-dive` → **evidence-backed knowledge deep dive**; read [contract](tasks/academy-write-knowledge-deep-dive.md).
