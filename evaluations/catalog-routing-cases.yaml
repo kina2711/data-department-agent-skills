@@ -157,3 +157,6 @@ cases:
   - id: academy-apply-misconception-feedback
     task: academy-apply-misconception-feedback
     expected_catalog: build-deliver
+  - id: orchestrator-write-session-handoff
+    task: orchestrator-write-session-handoff
+    expected_catalog: plan-design

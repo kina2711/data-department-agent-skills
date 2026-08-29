@@ -1,6 +1,6 @@
 # Chi tiết toàn bộ Data Department Skills và Atomic Tasks
 
-> Phiên bản `3.8.0` · `32` Claude role skills · `826` atomic workflows.
+> Phiên bản `3.9.0` · `32` Claude role skills · `827` atomic workflows.
 > Đây là catalog tra cứu đầy đủ được sinh từ `suite-manifest.yaml`, `task-catalog.json` và task contracts; không phải nội dung luôn được nạp vào context của Claude.
 
 ## Mục lục
@@ -98,7 +98,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 | # | Skill | Role | Tasks |
 |---:|---|---|---:|
-| 1 | [`data-department-orchestrator`](#skill-data-department-orchestrator) | Data Department Orchestrator | 20 |
+| 1 | [`data-department-orchestrator`](#skill-data-department-orchestrator) | Data Department Orchestrator | 21 |
 | 2 | [`shared-data-core`](#skill-shared-data-core) | Shared Data Core | 18 |
 | 3 | [`company-data-context`](#skill-company-data-context) | Company Data Context | 9 |
 | 4 | [`head-of-data-and-data-product`](#skill-head-of-data-and-data-product) | Head of Data and Data Product | 21 |
@@ -145,13 +145,19 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Ranh giới và handoff:** Không thay chuyên môn của các role. Mỗi task chỉ có một accountable owner; orchestrator quản lý workflow state, approval và thứ tự thực thi.
 
-**Quy mô:** 20 tasks — Plan / Design 0; Build / Deliver 18; Test / Assure 2; Operate / Improve 0.
+**Quy mô:** 21 tasks — Plan / Design 1; Build / Deliver 18; Test / Assure 2; Operate / Improve 0.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `parallel-execution-and-agent-teams.md`, `producer-reviewer-method.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `context-engineering-standard.md`, `learning-memory-interoperability.md`, `parallel-execution-and-agent-teams.md`, `producer-reviewer-method.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `approval-ledger.yaml`, `approval-record.json`, `approval-record.schema.json`, `assumption-register.yaml`, `atomic-task-output.yaml`, `branch-delegation-contract.json`, `change-scope-contract.json`, `change-scope-ledger.yaml`, `conflict-register.yaml`, `debug-hypothesis-ledger.yaml`, `design-option-set.yaml`, `evidence-ledger.yaml`, `fan-in-merge-record.yaml`, `handoff-package.yaml`, `instinct-ledger.json`, `instinct-record.schema.json`, `producer-reviewer-record.yaml`, `question-register.yaml`, `run-state.schema.json`, `run-state.yaml`, `stage-gate.yaml`, `success-contract.yaml`, `task-catalog.json`, `task-contract.schema.json`, `telemetry-event.json`, `telemetry-event.schema.json`, `test-evidence.yaml`, `verification-claims.yaml`, `work-ledger.yaml`, `workflow-manifest.json`, `workflow-manifest.schema.json`.
+**Templates/assets có thể tái sử dụng:** `approval-ledger.yaml`, `approval-record.json`, `approval-record.schema.json`, `assumption-register.yaml`, `atomic-task-output.yaml`, `branch-delegation-contract.json`, `change-scope-contract.json`, `change-scope-ledger.yaml`, `conflict-register.yaml`, `debug-hypothesis-ledger.yaml`, `design-option-set.yaml`, `evidence-ledger.yaml`, `fan-in-merge-record.yaml`, `handoff-package.yaml`, `instinct-ledger.json`, `instinct-record.schema.json`, `producer-reviewer-record.yaml`, `question-register.yaml`, `run-state.schema.json`, `run-state.yaml`, `session-handoff.yaml`, `stage-gate.yaml`, `success-contract.yaml`, `task-catalog.json`, `task-contract.schema.json`, `telemetry-event.json`, `telemetry-event.schema.json`, `test-evidence.yaml`, `verification-claims.yaml`, `work-ledger.yaml`, `workflow-manifest.json`, `workflow-manifest.schema.json`.
 
 **Scripts:** `analyze_skill_telemetry.py`, `manage_instincts.py`, `record_skill_telemetry.py`, `score_skill_quality.py`, `validate_approval_record.py`, `validate_branch_plan.py`, `validate_run_state.py`, `validate_workflow.py`.
+
+#### Plan / Design (1 tasks)
+
+| Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
+|---|---|---|---|---|
+| [`orchestrator-write-session-handoff`](skills/data-department-orchestrator/references/tasks/orchestrator-write-session-handoff.md) | ghi lại suy luận mà run state không giữ được khi một phiên kết thúc dở dang | session handoff note | `design-specification` | `R1-reviewed` / `standard-path` |
 
 #### Build / Deliver (18 tasks)
 
@@ -197,7 +203,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 18 tasks — Plan / Design 3; Build / Deliver 9; Test / Assure 6; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-snowflake.md`, `context-engineering-standard.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-snowflake.md`, `authored-prose-voice.md`, `context-engineering-standard.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `atomic-task-result.schema.json`, `change-scope-contract.json`, `change-scope-ledger.yaml`, `debug-hypothesis-ledger.yaml`, `design-option-set.yaml`, `evidence-envelope.json`, `evidence-envelope.schema.json`, `project-constitution.json`, `project-constitution.schema.json`, `success-contract.yaml`, `task-context-package.yaml`, `verification-claims.yaml`.
 
@@ -1428,9 +1434,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 20 tasks — Plan / Design 18; Build / Deliver 1; Test / Assure 1; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-dbt.md`, `adapter-metadata-catalog.md`, `adapter-power-bi.md`, `adapter-tableau-looker.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-dbt.md`, `adapter-metadata-catalog.md`, `adapter-power-bi.md`, `adapter-tableau-looker.md`, `authored-prose-voice.md`, `diagram-fidelity-standard.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`, `diagram-provenance.yaml`.
 
 **Scripts:** `validate_diagram_source.py`.
 
@@ -1483,7 +1489,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 17 tasks — Plan / Design 5; Build / Deliver 10; Test / Assure 1; Operate / Improve 1.
 
-**Domain references tải khi cần:** `evidence-based-repository-understanding.md`, `learning-memory-interoperability.md`, `linked-knowledge-library.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `authored-prose-voice.md`, `evidence-based-repository-understanding.md`, `learning-memory-interoperability.md`, `linked-knowledge-library.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `concept-knowledge-map.yaml`, `data-path-trace.yaml`, `design-option-set.yaml`, `knowledge-library.yaml`.
 
@@ -1538,7 +1544,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 48 tasks — Plan / Design 28; Build / Deliver 11; Test / Assure 8; Operate / Improve 1.
 
-**Domain references tải khi cần:** `assessment-and-certification.md`, `concept-registry-standard.md`, `diagnostic-session-method.md`, `knowledge-deep-dive-standard.md`, `learning-memory-interoperability.md`, `note-corpus-operating-system.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `assessment-and-certification.md`, `authored-prose-voice.md`, `concept-registry-standard.md`, `diagnostic-session-method.md`, `knowledge-deep-dive-standard.md`, `learning-memory-interoperability.md`, `note-corpus-operating-system.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `assessment-blueprint.yaml`, `atomic-task-output.yaml`, `concept-knowledge-graph.yaml`, `concept-registry.json`, `corpus-priority-plan.yaml`, `corpus-workflow-manifest.json`, `curriculum-spec.yaml`, `design-option-set.yaml`, `knowledge-deep-dive.yaml`, `learner-evidence.yaml`, `lesson-plan.yaml`, `misconception-feedback.yaml`, `note-corpus-audit.yaml`, `note-corpus-manifest.json`, `note-diagnostic-session.yaml`, `question-learning-traceability.yaml`, `role-roadmap.yaml`, `skill-track-map.yaml`.
 
@@ -1781,7 +1787,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 52 tasks — Plan / Design 16; Build / Deliver 25; Test / Assure 11; Operate / Improve 0.
 
-**Domain references tải khi cần:** `career-learning-memory.md`, `career-operating-system.md`, `coaching-ethics-and-method.md`, `concept-registry-standard.md`, `interview-knowledge-system.md`, `learning-memory-interoperability.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `system-design-canon.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `authored-prose-voice.md`, `career-learning-memory.md`, `career-operating-system.md`, `coaching-ethics-and-method.md`, `concept-registry-standard.md`, `interview-knowledge-system.md`, `learning-memory-interoperability.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `system-design-canon.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `architecture-case-study.yaml`, `atomic-task-output.yaml`, `career-content-handoff.yaml`, `career-evidence-portfolio.yaml`, `career-operating-system.yaml`, `career-review.yaml`, `concept-registry.json`, `concept-visual-explainer.yaml`, `content-evidence-return.yaml`, `cross-skill-prerequisite-map.yaml`, `design-option-set.yaml`, `interview-knowledge-library.yaml`, `interview-question-dossier.yaml`, `knowledge-coverage-audit.yaml`, `learner-memory.json`, `learner-memory.schema.json`, `learning-event.yaml`, `mock-assessment.yaml`, `offer-evaluation.yaml`, `question-knowledge-map.yaml`, `readiness-profile.yaml`, `remediation-plan.yaml`, `skill-transition-context.json`.
 
@@ -2192,4 +2198,4 @@ Hãy phân tích yêu cầu và báo trước khi làm:
 Sau đó thực hiện task hiện tại, test, báo evidence, approval status, residual risks và next owner.
 ```
 
-Tổng kiểm: **32 skills / 826 tasks** đã được liệt kê, không thiếu và không trùng ownership trong catalog này.
+Tổng kiểm: **32 skills / 827 tasks** đã được liệt kê, không thiếu và không trùng ownership trong catalog này.

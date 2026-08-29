@@ -1,0 +1,1 @@
+{"corpus_id":"t","notes":[{"id":"de.x.slop","module_id":"m","path":"de/slop.md","tags":["a"],"builds_on":["de.x.other"],"status":"drafted"},{"id":"de.x.other","module_id":"m","path":"","tags":["b"],"prerequisite_of":["de.x.slop"],"status":"planned"}]}

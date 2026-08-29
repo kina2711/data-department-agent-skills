@@ -438,3 +438,14 @@ cases:
       - Cap the exchange at three Socratic rounds per scenario, then teach directly rather than continuing to withhold.
       - Map the resolving round to a proposed evidence class; a previously seen scenario is recall, never transfer.
       - Propose the evidence class and hand reconciliation to Career; never write mastery from Academy.
+  - id: end-session-with-work-unfinished
+    query: Tôi phải dừng ở đây. Viết bàn giao để phiên sau tiếp tục được, đừng nói việc đã xong.
+    expected_primary_skill: data-department-orchestrator
+    expected_tasks:
+      - orchestrator-maintain-run-state
+      - orchestrator-write-session-handoff
+    expected_behavior:
+      - Carry only what no spec, plan, ADR, commit, diff or run-state record already holds; reference those by path or hash.
+      - Record what was tried and rejected with the reason; that reasoning is what disappears when the session does.
+      - Write to the OS temporary directory or a scratch location, never into the workspace unless asked.
+      - Redact secrets and personal data, and list every gate the session left unpassed rather than describing unfinished work as done.

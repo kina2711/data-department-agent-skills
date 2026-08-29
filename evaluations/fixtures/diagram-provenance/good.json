@@ -1,0 +1,10 @@
+{"diagram_id":"p1","diagram_class":"observed",
+ "version_anchor":{"kind":"commit","value":"a2050cc","read_at":"2026-08-30"},
+ "inspected_by":"kina2711",
+ "elements":[
+  {"node_id":"src","element_class":"observed","source_type":"ddl","locator":"db/schema.sql:12"},
+  {"node_id":"ing","element_class":"observed","source_type":"scheduler","locator":"dags/ingest_orders.py:41"},
+  {"node_id":"stg","element_class":"observed","source_type":"code","locator":"models/staging/stg_orders.sql:1"},
+  {"node_id":"mart","element_class":"observed","source_type":"code","locator":"models/marts/fct_sales.sql:1"},
+  {"node_id":"bi","element_class":"observed","source_type":"catalog","locator":"workspace/SalesModel"}],
+ "excluded":[{"component":"monitoring stack","reason":"not part of the data path this diagram answers"}]}

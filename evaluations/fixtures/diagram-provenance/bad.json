@@ -1,0 +1,6 @@
+{"diagram_id":"p1","diagram_class":"observed","derived_from_diagram":"old-architecture.png",
+ "version_anchor":{"kind":"commit","value":""},
+ "elements":[
+  {"node_id":"src","element_class":"observed","source_type":"ddl","locator":"db/schema.sql:12"},
+  {"node_id":"ing","element_class":"proposed","source_type":"diagram","locator":""},
+  {"node_id":"ghost","element_class":"observed","source_type":"code","locator":"x.py:1"}]}

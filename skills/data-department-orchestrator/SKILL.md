@@ -43,6 +43,7 @@ Record optional improvement telemetry only through `scripts/record_skill_telemet
 
 ## Atomic task routing
 
+- **Plan, define, design, map, specify or create a proposed artifact** (1 task): read [references/catalog-plan-design.md](references/catalog-plan-design.md).
 - **Build, implement, configure, teach, interview or deliver an artifact — project deliverables** (3 tasks): read [references/catalog-build-deliver-project.md](references/catalog-build-deliver-project.md).
 - **Build, implement, configure, teach, interview or deliver an artifact — register deliverables** (3 tasks): read [references/catalog-build-deliver-register.md](references/catalog-build-deliver-register.md).
 - **Build, implement, configure, teach, interview or deliver an artifact — decision deliverables** (2 tasks): read [references/catalog-build-deliver-decision.md](references/catalog-build-deliver-decision.md).

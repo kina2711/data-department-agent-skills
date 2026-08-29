@@ -1,5 +1,74 @@
 # Changelog
 
+## v3.9.0
+
+Three standards for things the suite could check structurally but never judged: whether prose is
+worth reading, whether a diagram was derived from anything, and what a session loses when it ends.
+
+32 role skills - 827 atomic task contracts - 45 slash commands - 32 Antigravity agents -
+52 executable evidence scripts - 12 JSON Schemas
+
+### Prose voice reaches the skills that write prose
+
+The suite already had good voice rules, trapped in one skill. Academy, Career, Enablement and
+Documentation — the four that produce the most explanatory prose — had none, so a note could pass
+every structural check and still open with a scene-setting paragraph restating its own title.
+
+- New shared reference `authored-prose-voice.md`, shipped to those four skills and to
+  `shared-data-core`. It resolves the tension the ROOT note format creates: the summary line
+  answers immediately, the reason section then starts from the problem — both rules hold, on
+  different parts of the document.
+- Named tells, each paired with what replaces it, in the language the corpus is written in.
+  A ban list produces avoidance; a replacement produces writing.
+- Register matching rather than voice imitation: producing text in a named person's voice for
+  others to read is impersonation regardless of framing.
+- It states its own limit. Fluent prose can be confidently wrong, and no qualifier is removed for
+  reading weak when the claim genuinely is qualified.
+- `validate_note_corpus.py` now flags filler phrasings, always as warnings and never as failures,
+  because style is a judgment a regular expression does not get to make. Measured against 606
+  repo documents it flags six, five of which are the standard itself listing its own examples.
+
+### Diagrams say where they came from
+
+`validate_diagram_source.py` stated in its own docstring that it cannot confirm a diagram is true.
+Nothing else did either, and the skill owned no reference of its own across thirteen diagram tasks.
+
+- New reference `diagram-fidelity-standard.md`. Every diagram declares itself `observed`,
+  `proposed` or `illustrative` on the rendering rather than only in metadata, because a reader
+  seeing it in a slide has no access to the file.
+- Another diagram, a README, a ticket or recall is not inspection. A diagram derived from a
+  diagram inherits its errors and none of its freshness.
+- An observed diagram names the commit, tag or extraction timestamp it was read at; without one,
+  "is this still true" has no answer and the diagram does not announce when it stops being true.
+- Omission is a claim: what was excluded and why is recorded.
+- `validate_diagram_source.py --provenance` cross-checks parsed node ids against
+  `diagram-provenance.yaml` — unsourced nodes, missing version anchors, entries naming nodes the
+  source does not contain, and elements sourced from another diagram. Its pass message now says
+  what it did not verify.
+
+### A session handoff carries what run state cannot
+
+`run-state.yaml` records phase, current task, gates and blockers. It records nothing about how the
+session arrived there, so a successor re-derives the reasoning, sometimes differently and
+sometimes by repeating the approach already abandoned.
+
+- New section in `context-engineering-standard.md`, and new task
+  `orchestrator-write-session-handoff` with `session-handoff.yaml`.
+- The document carries only what no spec, plan, ADR, issue, commit, diff or run-state record
+  already holds; everything else is referenced by path or hash. A handoff that restates the plan
+  is a second copy of the plan and will drift from it.
+- What was tried and rejected, and the load-bearing assumption, are the fields that matter: they
+  are the only content that disappears completely when the session does.
+- It is written to the OS temporary directory, never into the workspace unless asked. A handoff
+  written into the repository gets committed, then reviewed, then eventually believed.
+- It is not evidence and not an approval. Gates the session left unpassed are listed as unpassed.
+
+### Elsewhere
+
+- `context-engineering-standard.md` now also ships to the orchestrator, which referenced it
+  without having it; every `../*.md` link across all 827 contracts resolves.
+- The suite grows from 826 to 827 atomic tasks.
+
 ## v3.8.0
 
 A note-corpus pipeline for Academy, a concept registry that finally joins Career's canon to it,

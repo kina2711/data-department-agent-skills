@@ -147,11 +147,55 @@ def main() -> None:
         for expected_text in expected_texts:
             if expected_text not in result.stdout:
                 errors.append(f"content validator {manifest_path.name}: missing regression signal {expected_text!r}")
+    diagram_validator = SKILLS / "data-documentation-and-diagrams" / "scripts" / "validate_diagram_source.py"
+    diagram_dir = ROOT / "evaluations" / "fixtures" / "diagram-provenance"
+    diagram_cases = [
+        (
+            diagram_validator,
+            [str(diagram_dir / "pipeline.mmd"), "--provenance", str(diagram_dir / "good.json"), "--no-alt-text-required"],
+            0,
+            ["every node claims an inspected source"],
+        ),
+        (
+            diagram_validator,
+            [str(diagram_dir / "pipeline.mmd"), "--provenance", str(diagram_dir / "bad.json"), "--no-alt-text-required"],
+            1,
+            [
+                "has no provenance entry",
+                "has no version anchor",
+                "derived from another diagram",
+                "is not an inspected artifact",
+            ],
+        ),
+    ]
+    for validator, argv, expected_exit, expected_texts in diagram_cases:
+        result = subprocess.run([sys.executable, str(validator), *argv], capture_output=True, text=True, check=False)
+        if result.returncode != expected_exit:
+            errors.append(f"{validator.name} provenance: exit {result.returncode} != {expected_exit}")
+        for expected_text in expected_texts:
+            if expected_text not in result.stdout:
+                errors.append(f"{validator.name} provenance: missing regression signal {expected_text!r}")
     corpus_validator = SKILLS / "data-academy-and-curriculum" / "scripts" / "validate_note_corpus.py"
     registry_validator = SKILLS / "data-career-and-interview-coach" / "scripts" / "validate_concept_registry.py"
     fixtures = ROOT / "evaluations" / "fixtures"
     learning_cases = [
         (corpus_validator, [str(fixtures / "note-corpus-manifest-valid.json")], 0, []),
+        (
+            corpus_validator,
+            [
+                str(fixtures / "note-corpus-slop" / "manifest.json"),
+                "--note-root",
+                str(fixtures / "note-corpus-slop" / "notes"),
+            ],
+            0,
+            [
+                "scene-setting opener",
+                "delete the frame, keep the noting",
+                "structure announcement",
+                "three hedges in one sentence",
+                "em dashes in one sentence",
+            ],
+        ),
         (
             registry_validator,
             [str(fixtures / "concept-registry-valid.json"), "--corpus-manifest", str(fixtures / "note-corpus-manifest-valid.json")],

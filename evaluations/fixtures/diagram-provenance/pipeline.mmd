@@ -1,0 +1,5 @@
+flowchart LR
+  src[Postgres orders] --> ing[Airflow ingest DAG]
+  ing --> stg[stg_orders]
+  stg --> mart[fct_sales]
+  mart --> bi[Power BI model]

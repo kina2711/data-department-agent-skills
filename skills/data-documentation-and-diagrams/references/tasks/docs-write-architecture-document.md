@@ -32,6 +32,9 @@ If an absent input changes semantics, risk, cost, scope or acceptance, classify 
 5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
 
 Additional resources:
+- Read [the diagram fidelity standard](../diagram-fidelity-standard.md); declare the diagram `observed`, `proposed` or `illustrative` on the rendering itself, because a reader who sees the image in a slide has no access to its metadata.
+- Record each element in `../../assets/diagram-provenance.yaml` with the artifact it was read out of and a locator. Another diagram, a README, a ticket or recall is not inspection: a diagram derived from a diagram inherits its errors and none of its freshness.
+- An observed diagram names the commit, tag or extraction timestamp it was read at; without one, whether it is still true has no answer. Record what was excluded and why — a silent omission reads as a claim that nothing was left out.
 - Read [solution option framing](../solution-option-framing.md); frame three to five materially different approaches in `../../assets/design-option-set.yaml`, select one against the stated constraints in at most forty words, and derive the deliverable structure from that selection. Where this role already owns a scored selection artifact, use it instead of duplicating the decision.
 
 

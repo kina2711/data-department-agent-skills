@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MAP = ROOT / "docs" / "skill-map.md"
 SKILLS = ROOT / "skills"
-SUITE_VERSION = "3.8.0"
+SUITE_VERSION = "3.9.0"
 REPOSITORY_URL = "https://github.com/kina2711/data-department-agent-skills"
 
 
@@ -997,6 +997,16 @@ def catalog_group(task_id: str) -> str:
     return "build-deliver"
 
 
+# Skills whose primary output is explanatory prose a person reads end to end. Reporting-shape
+# rules live in response-compression; these skills also need rules for how the prose itself reads.
+PROSE_AUTHORING_SKILLS = {
+    "shared-data-core",
+    "data-academy-and-curriculum",
+    "data-career-and-interview-coach",
+    "data-enablement-and-knowledge",
+    "data-documentation-and-diagrams",
+}
+
 SHARD_MAX_TASKS = 11
 SHARD_IMBALANCE_LIMIT = 0.55
 SHARD_STOPWORDS = {
@@ -1150,6 +1160,13 @@ def profile_resources(profile: str) -> tuple[list[str], list[str]]:
     return resources.get(profile, ([], []))
 
 
+DIAGRAM_FIDELITY_TASKS = frozenset({
+    "docs-create-architecture-diagram", "docs-create-bpmn-process", "docs-create-d2-activity-diagram",
+    "docs-create-d2-erd", "docs-create-mermaid-activity-diagram", "docs-create-mermaid-erd",
+    "docs-create-sequence-diagram", "docs-create-state-diagram", "docs-create-swimlane-activity-diagram",
+    "docs-create-usecase-diagram", "docs-validate-diagram-semantics", "docs-write-architecture-document",
+})
+
 EVIDENCE_SCRIPT_TASKS: tuple[tuple[frozenset[str], str], ...] = (
     (
         frozenset({
@@ -1158,7 +1175,7 @@ EVIDENCE_SCRIPT_TASKS: tuple[tuple[frozenset[str], str], ...] = (
             "docs-create-sequence-diagram", "docs-create-state-diagram", "docs-create-swimlane-activity-diagram",
             "docs-create-usecase-diagram", "docs-validate-diagram-semantics",
         }),
-        "Run `../../scripts/validate_diagram_source.py` on the source before publishing; an unconnected node, a duplicated identifier or a missing text equivalent is a defect, not a style choice. The script checks structure only and never confirms the diagram matches the real system.",
+        "Run `../../scripts/validate_diagram_source.py --provenance` before publishing; an unconnected node, a duplicated identifier, a missing text equivalent or a node with no inspected source is a defect, not a style choice. It confirms each element claims a source and never opens that source to confirm the claim.",
     ),
     (
         frozenset({
@@ -1336,6 +1353,19 @@ def task_specific_resources(task_id: str) -> list[str]:
             "Read [the knowledge deep-dive authoring standard](../knowledge-deep-dive-standard.md); its fixed section order and front-matter contract are mandatory, and its `relationships` edges are what the concept graph and question mapping consume.",
             "Reuse the concept-graph, deep-dive or question-learning traceability template from `../../assets/`.",
         ]
+    if task_id == "orchestrator-write-session-handoff":
+        return [
+            "Read the session-boundary section of [the context-engineering standard](../context-engineering-standard.md); this document carries only what no durable artifact already holds.",
+            "Reuse `../../assets/session-handoff.yaml`. What was tried and rejected, and why, is the highest-value content and the only part that disappears completely when the session does; record the load-bearing assumption and how the successor can check it.",
+            "Name the skills and task IDs to route to, so a routing decision already made is not made again and differently. Reference specs, plans, ADRs, issues, commits, diffs and run state by path or hash instead of restating them; a handoff that restates the plan will drift from it.",
+            "Write it to the OS temporary directory or a configured scratch location, never into the workspace unless the user asks. Redact secrets, credentials and personal data first. A handoff is not evidence and not an approval: list every gate the session left unpassed, and never describe unfinished work as done.",
+        ]
+    if task_id in DIAGRAM_FIDELITY_TASKS:
+        return [
+            "Read [the diagram fidelity standard](../diagram-fidelity-standard.md); declare the diagram `observed`, `proposed` or `illustrative` on the rendering itself, because a reader who sees the image in a slide has no access to its metadata.",
+            "Record each element in `../../assets/diagram-provenance.yaml` with the artifact it was read out of and a locator. Another diagram, a README, a ticket or recall is not inspection: a diagram derived from a diagram inherits its errors and none of its freshness.",
+            "An observed diagram names the commit, tag or extraction timestamp it was read at; without one, whether it is still true has no answer. Record what was excluded and why — a silent omission reads as a claim that nothing was left out.",
+        ]
     if task_id in groups["academy-corpus"]:
         resources = [
             "Read [the note-corpus operating system](../note-corpus-operating-system.md); the stages run in one direction, and `note-corpus-manifest.json` is the resume anchor rather than something to re-derive each session.",
@@ -1348,7 +1378,7 @@ def task_specific_resources(task_id: str) -> list[str]:
             )
         if task_id in {"academy-plan-note-corpus", "academy-build-note-module"}:
             resources.append(
-                "Read [the knowledge deep-dive authoring standard](../knowledge-deep-dive-standard.md); planned IDs and `relationships` edges come from it, and every note in a batch is built to the same depth before the module closes."
+                "Read [the knowledge deep-dive authoring standard](../knowledge-deep-dive-standard.md) and [the authored prose voice standard](../authored-prose-voice.md); planned IDs and `relationships` edges come from the first, and the second decides whether the batch reads as writing or as filler."
             )
         if task_id == "academy-build-note-module":
             resources.append(
@@ -1382,6 +1412,7 @@ def task_specific_resources(task_id: str) -> list[str]:
     if task_id in groups["academy-authoring"]:
         return [
             "Read [the knowledge deep-dive authoring standard](../knowledge-deep-dive-standard.md); the same fixed section order, front-matter contract and content/instruction separation apply to this artifact.",
+            "Read [the authored prose voice standard](../authored-prose-voice.md); structure passing every check is not the same as prose worth reading, and the revision pass runs before the artifact is called done.",
             "Reuse the lesson-plan or deep-dive template from `../../assets/`; keep answers inside the collapsible self-check and keep any diagnostic scenario free of answers and of instructions addressed to an agent.",
         ]
     if task_id in groups["talent"]:
@@ -2141,6 +2172,7 @@ def build_shared_assets() -> None:
         "conflict-register.yaml": {"conflicts": []},
         "approval-ledger.yaml": {"approvals": [{"gate": "", "task_id": "", "scope": "", "artifact_version": "", "contract_sha256": "", "final_diff_sha256": "", "decision": "pending", "approver": "", "approved_at": "", "expires_at": ""}]},
         "evidence-ledger.yaml": {"evidence": []},
+        "session-handoff.yaml": {"handoff_id": "", "written_at": "", "written_to": "", "next_session_focus": "", "workflow_ref": "", "run_state_ref": "", "task": {"id": "", "plan_says": "", "actually_stands": ""}, "tried_and_rejected": [{"approach": "", "why_rejected": "", "evidence_ref": ""}], "load_bearing_assumption": {"assumption": "", "if_wrong": "", "how_to_check": ""}, "next_action": {"action": "", "why_this_one": "", "alternatives_already_considered": []}, "route_to": [{"skill": "", "task_id": "", "why": ""}], "open_questions": [{"question": "", "waiting_on": ""}], "referenced_artifacts": [{"kind": "spec|plan|adr|issue|commit|diff|run-state", "locator": "", "sha256": ""}], "redaction_checked": False, "is_evidence": False, "is_approval": False, "unpassed_gates": [], "owner": "", "status": "draft"},
         "handoff-package.yaml": {
             "from_role": "",
             "to_role": "",
@@ -2421,6 +2453,9 @@ def build_shared_assets() -> None:
             "note-corpus-audit.yaml": {"audit_id": "", "corpus_ref": "", "checked_at": "", "duplicate_ids": [], "unregistered_concept_keys": [], "duplicate_primary_keys": [], "keys_without_primary": [], "duplicate_candidates": [], "dangling_edges": [], "prerequisite_cycles": [], "planned_missing_files": [], "files_not_in_manifest": [], "stale_notes": [], "roadmap_coverage": {"steps_total": 0, "steps_with_notes": 0, "uncovered_steps": []}, "depth_inconsistencies": [], "script_run": {"command": "", "exit_status": "not-run", "observed": ""}, "limitations": [], "owner": "", "status": "draft"},
             "question-learning-traceability.yaml": {"question_id": "", "question": "", "role": "", "level": "", "concept_keys": [], "competencies": [], "learning_objectives": [], "bloom_depth": "", "prerequisites": [], "concepts": [], "expected_reasoning": [], "assessment_method": "", "critical_failures": [], "coverage_status": "", "reviewer": "", "version": ""},
         },
+        "data-documentation-and-diagrams": {
+            "diagram-provenance.yaml": {"diagram_id": "", "title": "", "diagram_class": "observed|proposed|illustrative", "question_answered": "", "notation": "", "source_file": "", "version_anchor": {"kind": "commit|tag|release|extraction-timestamp", "value": "", "read_at": ""}, "inspected_by": "", "elements": [{"node_id": "", "label": "", "element_class": "observed|proposed|illustrative", "source_type": "code|config|ddl|catalog|lineage|api-response|query-plan|scheduler", "locator": "", "read_at": ""}], "excluded": [{"component": "", "reason": ""}], "derived_from_diagram": "", "limitations": [], "owner": "", "status": "draft"},
+        },
         "data-onboarding-and-integration": {
             "onboarding-plan.yaml": {"person_id": "", "owner": "", "role": "", "level": "", "location": "", "employment_type": "", "start_date": "", "version": "", "status": "draft", "lifecycle_profile": "onboarding", "risk_tier": "R2-standard", "execution_path": "standard-path", "source_evidence": [], "assumptions": [], "limitations": [], "acceptance_criteria": [], "stakeholders": [], "days_0_7": [], "days_8_30": [], "days_31_60": [], "days_61_90": [], "validation_results": [], "approvals": [], "exit_criteria": [], "residual_risks": [], "next_task": "", "next_owner": ""},
             "access-readiness.yaml": {"person_id": "", "owner": "", "status": "pending", "risk_tier": "R3-controlled", "entitlements": [{"system": "", "environment": "", "access_level": "", "business_need": "", "entitlement_owner": "", "owner_approval": "pending", "approval_evidence_id": "", "least_privilege_evidence": "", "smoke_test": "pending", "tested_by": "", "tested_at": "", "expires_at": "", "r3_approval": "pending"}], "security_training": "pending", "critical_failures": [], "verified_by": "", "verified_at": "", "residual_risks": []},
@@ -2642,6 +2677,55 @@ Load industry references only when business semantics depend on the domain. Avai
 
 Load metric packs by decision domain: core business, finance, sales, marketing, product, retention, SaaS, operations, supply chain and people analytics. Treat all generic formulas as candidates until a company owner confirms the local definition.
 """
+    authored_prose_voice = """# Authored prose voice
+
+Structure can be correct while the prose is worthless. A note can carry every required heading, a valid front matter block and a filled decision table, and still open with "Trong thế giới dữ liệu ngày nay" and spend a paragraph restating its own title. This standard governs how authored explanatory prose reads — notes, lessons, deep dives, walkthroughs, dossiers, documentation. It does not govern how a task result is reported; that is the response-compression standard.
+
+## Answer first, root first — they are not in conflict
+
+Two rules that sound opposed apply to different parts of the same document.
+
+The opening line answers. A reader who stops after one sentence should still know what the thing is and what it is for. No warm-up, no restatement of the question, no announcement of what the document will cover.
+
+The body then starts from the problem, not the definition. Once the reader knows what they are looking at, the explanation earns its shape by showing what went wrong before this concept existed.
+
+So: answer in the summary line, root in the first section. A document that buries the answer is meandering; one that opens with the problem and never states the answer is a riddle.
+
+## Named tells, each with what to write instead
+
+A ban list produces avoidance, not better writing. Each tell below is paired with the move that replaces it.
+
+| Tell | Replace with |
+|---|---|
+| Scene-setting opener — "Trong thế giới ... ngày nay", "In today's data landscape" | The claim itself, in the first clause |
+| Restating the heading as the first sentence | The first thing the heading does not already say |
+| Announcing structure — "Bài viết này sẽ trình bày...", "Let's explore" | Delete; the headings already announce it |
+| "Điều quan trọng cần lưu ý là", "It's worth noting that" | Delete the frame, keep the noting |
+| "Không chỉ ... mà còn", "not only ... but also" | Two sentences, or one with the weaker half cut |
+| Adjective triplets — "mạnh mẽ, linh hoạt và hiệu quả" | One adjective that survives a challenge, or a measurement |
+| Hedge stacking — "có thể sẽ thường", "may sometimes potentially" | One hedge, placed where the uncertainty actually is |
+| Closing recap of the text directly above it | The consequence, the boundary, or the next decision |
+| Em dashes carrying every clause break | Vary: full stop, comma, colon, parenthesis, or restructure |
+| Symmetrical rhetorical pairs — "Không phải X. Mà là Y." used as rhythm | Use once per document at most, where the contrast is the point |
+
+The list is a checklist for the revision pass, not a set of forbidden strings. A tell used deliberately, once, where it carries meaning, is writing; the same phrase used as connective tissue is filler.
+
+## Register, not imitation
+
+Match the register of the corpus the piece joins — its sentence length, its level of formality, how much it assumes, whether it addresses the reader directly. Read two neighbouring documents before writing a new one.
+
+Do not imitate a specific person's voice from samples of their speech or writing unless they asked for that and supplied the samples. Producing text in someone's voice for anyone else to read is impersonation regardless of how it was framed.
+
+## The subtraction pass
+
+Draft, then cut. Every paragraph earns its place by adding a fact, a distinction, a consequence or a worked step; a paragraph that only smooths the transition between two others is the transition, and it goes.
+
+Specific passes, in order: delete the opening if the second paragraph could start the document; remove every sentence that restates the one before it; replace abstractions with the observable detail behind them; check each paragraph's first sentence carries the paragraph's actual point; cut ten to twenty percent where nothing is lost.
+
+## Where this stops
+
+Fluency is not accuracy. Prose that reads well and hedges nothing can be confidently wrong, and this standard does nothing about that — sourcing, evidence and review do. Never remove a qualifier because it reads as weak when the underlying claim genuinely is qualified, and never sharpen a number, a version or a limitation to make a sentence land. A stated uncertainty is content, not filler.
+"""
     response_compression = """# Response compression
 
 This standard governs how a result is *reported*. It never changes what the task requires. Compression may not remove a gate, a test, an approval, a residual risk or an evidence pointer; a shorter answer that hides an unmet control is a failed task, not a concise one.
@@ -2740,6 +2824,8 @@ Record only routing/task metadata, outcome, duration, references loaded, token e
         refs = SKILLS / skill / "references"
         (refs / "lifecycle-standard.md").write_text(lifecycle, encoding="utf-8")
         (refs / "response-compression.md").write_text(response_compression, encoding="utf-8")
+        if skill in PROSE_AUTHORING_SKILLS:
+            (refs / "authored-prose-voice.md").write_text(authored_prose_voice, encoding="utf-8")
         (refs / "solution-option-framing.md").write_text(solution_option_framing, encoding="utf-8")
         adapters = ROLE_STACK_ADAPTERS.get(skill, ())
         adapter_links = "\n".join(f"- [{name}](adapter-{name}.md)" for name in adapters)
@@ -2990,6 +3076,8 @@ Use these headings verbatim, in this order. The fixed phrase is itself the retri
 | Diagnostic scenarios *(optional)* | `## Bài Tập Chẩn Đoán (AI Assessment)` | a local mini-schema and neutrally described scenarios carrying no answers |
 
 An analogy or postmortem section is optional and free-form; add one only where it genuinely fits. Close the body with one prose line pointing to the next note, derived from `relationships`.
+
+How the prose inside those sections reads is governed by [the authored prose voice standard](authored-prose-voice.md). Note the division of labour it names: the elevator pitch answers immediately, and the reason section then starts from the problem. Both rules hold, on different parts of the note.
 
 ## Front matter
 
@@ -3698,6 +3786,42 @@ Completion gates: source/edition hashes, extraction coverage, chapter map, frame
 
 
 def build_benchmark_references() -> None:
+    diagram_fidelity = """# Diagram fidelity
+
+`validate_diagram_source.py` says in its own docstring that it cannot confirm a diagram is true. Nothing else in the suite did either. A structurally perfect diagram that is quietly wrong is more dangerous than no diagram, because a reader acts on it: boxes drawn from memory get treated as an inventory, and an arrow someone assumed becomes a dependency in someone else's plan.
+
+## Declare the class, visibly
+
+Every diagram is exactly one of:
+
+- **observed** — every element was read out of an artifact that exists now.
+- **proposed** — a design for something that does not exist yet.
+- **illustrative** — a teaching example that depicts no particular system.
+
+The class appears on the rendered diagram, not only in its metadata. A reader who sees the image in a slide, a wiki page or a screenshot has no access to the file's front matter, and that is where diagrams do most of their travelling.
+
+Mixing classes silently is the common failure: four services that exist and one that is planned, drawn as five identical boxes. Either render the proposed elements distinctly and say so in the legend, or split them into two diagrams.
+
+## What counts as inspection
+
+Reading the artifact itself: source files, configuration, DDL, catalog or lineage output, an API response, a query plan, a scheduler definition. Each observed element records where it was read — a path with a line or anchor, a table name, a DAG id, a topic name, a config key.
+
+Not inspection: another diagram, a README's description of the system, a ticket, a design document, or recall. A diagram derived from a diagram inherits every error in the original and none of its freshness. Where a prior diagram is the only source available, the new one is `proposed` until an artifact is actually read, however confident the original looked.
+
+## Bind to a version
+
+An observed diagram names the commit, tag, release or extraction timestamp it was read at. Without that, "is this still true" has no answer, and the diagram does not announce the moment it stops being accurate — it just keeps rendering. Treat an observed diagram whose version anchor is gone as `proposed` until re-derived.
+
+## Absence is a claim
+
+Leaving a component out for clarity states that it does not matter to the question the diagram answers. That is often correct, but it is a decision rather than a default: record what was excluded and why. The difference between a simplification and a misrepresentation is whether the omission was declared.
+
+## The check
+
+Record elements in `diagram-provenance.yaml` and run `../../scripts/validate_diagram_source.py --provenance` alongside the structural check. It reports nodes with no provenance entry, entries pointing at nodes the source does not contain, observed diagrams with no version anchor, and observed entries whose source type is another diagram.
+
+It confirms that each element claims a source. It cannot open that source and confirm the claim is honest. Only the person who inspected the artifact can do that, and the point of recording it is that this person is identifiable later.
+"""
     context_engineering = """# Context engineering standard
 
 Use context as a governed retrieval layer, not as one oversized prompt or a substitute for live inspection.
@@ -3728,6 +3852,25 @@ Use context as a governed retrieval layer, not as one oversized prompt or a subs
 7. Validate the package by asking whether a fresh agent can identify the task, unknowns, authority, constraints, required tests and output without hidden context.
 
 The package may enable progress with bounded assumptions, but it must never turn missing authority, live state or critical semantics into an assumed fact.
+
+## Session-boundary handoff
+
+Run state records where work stands: phase, current task, gates passed, what blocks it. It records nothing about how the session arrived there — the approach tried and abandoned, the assumption everything else rests on, the reason the obvious solution does not work here. A successor resuming from run state alone re-derives that reasoning, sometimes differently, and sometimes by repeating the abandoned approach.
+
+Write a handoff when a session ends with work unfinished. It carries only what no durable artifact already holds.
+
+- The task and where it actually stands, stated separately from where the plan says it stands.
+- What was tried and rejected, with the reason. This is the highest-value content in the document and the only part that disappears completely when the session does.
+- The load-bearing assumption: the one that, if wrong, invalidates the rest of the work.
+- The next action, and why that one rather than the alternatives already considered.
+- Which skills and task IDs the successor should route to, so a routing decision already made is not made again and differently.
+- Open questions waiting on a named person.
+
+Leave out anything a spec, plan, ADR, issue, commit, diff or run-state record already holds; reference it by path, hash or URL. A handoff that restates the plan is a second copy of the plan, and it will drift from the first.
+
+Write it to the operating system's temporary directory or a configured scratch location, never into the workspace unless the user asks for it there. A handoff is working scratch, not a deliverable: written into the repository it gets committed, then reviewed, then eventually believed.
+
+A handoff is not evidence, not an approval and not a claim that anything finished. A gate the session did not pass stays unpassed however the document describes it. Redact secrets, credentials and personal data before writing — a scratch file is still a file.
 """
 
     analysis_rigor = """# Analysis rigor and communication standard
@@ -3952,6 +4095,8 @@ A redesign specification maps audit finding -> design decision -> affected page/
 
     targets = {
         "shared-data-core": {"context-engineering-standard.md": context_engineering},
+        "data-department-orchestrator": {"context-engineering-standard.md": context_engineering},
+        "data-documentation-and-diagrams": {"diagram-fidelity-standard.md": diagram_fidelity},
         "company-data-context": {"context-engineering-standard.md": context_engineering},
         "data-analysis": {"analysis-rigor-and-communication.md": analysis_rigor},
         "data-developer-experience": {"evidence-based-repository-understanding.md": repository_understanding},

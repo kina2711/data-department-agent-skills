@@ -10,6 +10,9 @@ entry knows about. Each is cheap to find mechanically and expensive to find by r
 It also reports near-duplicate candidates by tag overlap, because the rule of extending an
 existing note instead of creating a twin cannot be applied by hand once the corpus is large.
 
+It also flags a short list of filler phrasings, always as warnings and never as failures, because
+style is a judgment a regular expression does not get to make.
+
 It reads structure. It cannot tell whether a note is correct, well written, pitched at the right
 level, or worth keeping; a corpus can pass every check here and still teach the wrong things.
 """
@@ -40,6 +43,25 @@ REQUIRED_HEADINGS = [
 ]
 CASE_STUDY_PREFIX = "## Case Study Thực Chiến:"
 PITCH_MARKER = "**Tóm tắt bản chất:**"
+
+# Phrasings that are almost always connective filler in explanatory prose. Each is reported with
+# what replaces it, because a bare ban list produces avoidance rather than better writing. These
+# are warnings at every note status: style is judgment, and a checker gets a vote, not a veto.
+PROSE_TELLS = [
+    (r"[Tt]rong (thế giới|bối cảnh|kỷ nguyên)[^.]{0,40}(ngày nay|hiện nay)", "scene-setting opener; lead with the claim"),
+    (r"[Ii]n today'?s [a-z ]{0,30}(world|landscape|era)", "scene-setting opener; lead with the claim"),
+    (r"[Kk]hông chỉ [^.]{1,60} mà còn", "'không chỉ … mà còn'; split it or cut the weaker half"),
+    (r"\bnot only\b[^.]{1,60}\bbut also\b", "'not only … but also'; split it or cut the weaker half"),
+    (r"[Đđ]iều (quan trọng|đáng) (cần )?(lưu ý|chú ý) là", "delete the frame, keep the noting"),
+    (r"[Ii]t'?s worth noting that", "delete the frame, keep the noting"),
+    (r"([Bb]ài viết|[Pp]hần|[Nn]ote) này sẽ (trình bày|giới thiệu|đề cập|khám phá)", "structure announcement; the headings already do this"),
+    (r"[Ll]et'?s (explore|dive|take a look)", "structure announcement; the headings already do this"),
+    (r"[Tt]óm lại,? (có thể thấy|ta thấy|chúng ta)", "closing recap; end on the consequence or next decision"),
+    (r"[Hh]ãy cùng (tìm hiểu|khám phá|đi sâu)", "structure announcement; the headings already do this"),
+]
+# One hedge is precision; three stacked is avoidance.
+HEDGE_WORDS = r"(có thể|có lẽ|thường|đôi khi|dường như|khá là|might|maybe|possibly|potentially|somewhat)"
+EM_DASH_PER_1000_LIMIT = 4.0
 
 
 def load(path: Path) -> Any:
@@ -85,6 +107,42 @@ def section_body(text: str, heading: str) -> str:
     nxt = re.search(r"^## ", text[start:], re.MULTILINE)
     body = text[start:start + nxt.start()] if nxt else text[start:]
     return body.strip()
+
+
+def check_prose_tells(text: str) -> list[str]:
+    """Filler phrasings a structural check cannot see. Advisory only, never a failure."""
+    tells: list[str] = []
+    body = text.split("---\n", 2)[-1] if text.startswith("---\n") else text
+    # Tables and headings legitimately carry dashes and have no sentence terminators, so a run
+    # of table rows would otherwise read as one enormous sentence.
+    prose_only = "\n".join(
+        line for line in body.splitlines()
+        if not line.lstrip().startswith(("|", "#"))
+    )
+    for pattern, advice in PROSE_TELLS:
+        found = re.search(pattern, body)
+        if found:
+            tells.append(f"prose: {found.group(0).strip()!r} — {advice}")
+
+    prose_chars = len(re.sub(r"```.*?```", "", prose_only, flags=re.DOTALL))
+    dashes = prose_only.count("—")
+    if prose_chars > 400 and dashes / (prose_chars / 1000) > EM_DASH_PER_1000_LIMIT:
+        tells.append(
+            f"prose: {dashes} em dashes in {prose_chars} chars; vary the clause breaks"
+        )
+
+    # Density over a whole note misses the pattern that actually reads badly: one sentence
+    # strung together entirely on dashes.
+    for sentence in re.split(r"(?<=[.!?])\s+|\n", prose_only):
+        if sentence.count("—") >= 3:
+            tells.append(f"prose: {sentence.count('—')} em dashes in one sentence — {sentence.strip()[:60]!r}")
+            break
+
+    for sentence in re.split(r"(?<=[.!?])\s+|\n", prose_only):
+        if len(re.findall(HEDGE_WORDS, sentence, re.IGNORECASE)) >= 3:
+            tells.append(f"prose: three hedges in one sentence — {sentence.strip()[:70]!r}")
+            break
+    return tells
 
 
 def check_note_file(path: Path) -> list[str]:
@@ -249,6 +307,8 @@ def validate(manifest: Any, note_root: Path | None) -> tuple[list[str], list[str
                         file_faults[note_id] = faults
                         for fault in faults:
                             (errors if status == "reviewed" else warnings).append(f"{note_id}: {fault}")
+                    for tell in check_prose_tells(target.read_text(encoding="utf-8")):
+                        warnings.append(f"{note_id}: {tell}")
             for found in sorted(note_root.rglob("*.md")):
                 if found.resolve() not in declared:
                     unmanifested.append(str(found.relative_to(note_root)))

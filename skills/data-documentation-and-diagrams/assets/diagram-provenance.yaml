@@ -1,0 +1,25 @@
+diagram_id: ""
+title: ""
+diagram_class: "observed|proposed|illustrative"
+question_answered: ""
+notation: ""
+source_file: ""
+version_anchor:
+  kind: "commit|tag|release|extraction-timestamp"
+  value: ""
+  read_at: ""
+inspected_by: ""
+elements:
+  - node_id: ""
+    label: ""
+    element_class: "observed|proposed|illustrative"
+    source_type: "code|config|ddl|catalog|lineage|api-response|query-plan|scheduler"
+    locator: ""
+    read_at: ""
+excluded:
+  - component: ""
+    reason: ""
+derived_from_diagram: ""
+limitations: []
+owner: ""
+status: "draft"

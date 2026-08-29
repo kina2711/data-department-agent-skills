@@ -20,6 +20,8 @@ Use these headings verbatim, in this order. The fixed phrase is itself the retri
 
 An analogy or postmortem section is optional and free-form; add one only where it genuinely fits. Close the body with one prose line pointing to the next note, derived from `relationships`.
 
+How the prose inside those sections reads is governed by [the authored prose voice standard](authored-prose-voice.md). Note the division of labour it names: the elevator pitch answers immediately, and the reason section then starts from the problem. Both rules hold, on different parts of the note.
+
 ## Front matter
 
 Machine-readable metadata lives in YAML front matter, never in body labels:

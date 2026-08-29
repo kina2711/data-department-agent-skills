@@ -1,0 +1,39 @@
+handoff_id: ""
+written_at: ""
+written_to: ""
+next_session_focus: ""
+workflow_ref: ""
+run_state_ref: ""
+task:
+  id: ""
+  plan_says: ""
+  actually_stands: ""
+tried_and_rejected:
+  - approach: ""
+    why_rejected: ""
+    evidence_ref: ""
+load_bearing_assumption:
+  assumption: ""
+  if_wrong: ""
+  how_to_check: ""
+next_action:
+  action: ""
+  why_this_one: ""
+  alternatives_already_considered: []
+route_to:
+  - skill: ""
+    task_id: ""
+    why: ""
+open_questions:
+  - question: ""
+    waiting_on: ""
+referenced_artifacts:
+  - kind: "spec|plan|adr|issue|commit|diff|run-state"
+    locator: ""
+    sha256: ""
+redaction_checked: false
+is_evidence: false
+is_approval: false
+unpassed_gates: []
+owner: ""
+status: "draft"

@@ -68,7 +68,7 @@ Additional resources:
 - Read [the note-corpus operating system](../note-corpus-operating-system.md); the stages run in one direction, and `note-corpus-manifest.json` is the resume anchor rather than something to re-derive each session.
 - Read [the canonical concept registry](../concept-registry-standard.md); bind every note, module and scenario to a `ck.` key, coining it as `proposed` when none fits, and claim exactly one primary note per key. Only `registered` keys count toward coverage, so never report a corpus built on proposed keys as covered.
 - Reuse the role-roadmap, skill-track-map, note-corpus-manifest or note-corpus-audit asset from `../../assets/` that matches this stage.
-- Read [the knowledge deep-dive authoring standard](../knowledge-deep-dive-standard.md); planned IDs and `relationships` edges come from it, and every note in a batch is built to the same depth before the module closes.
+- Read [the knowledge deep-dive authoring standard](../knowledge-deep-dive-standard.md) and [the authored prose voice standard](../authored-prose-voice.md); planned IDs and `relationships` edges come from the first, and the second decides whether the batch reads as writing or as filler.
 - Build one module to completion and checkpoint the manifest before starting the next. `drafted` means a file exists at the expected path; only `reviewed` records a note as usable, and neither is evidence that anyone learned it.
 
 - Certification proves only the named, versioned competencies demonstrated by evidence; it never proves tenure, job title, automatic promotion or general seniority.

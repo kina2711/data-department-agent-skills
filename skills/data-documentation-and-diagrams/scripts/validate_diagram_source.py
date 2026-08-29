@@ -6,16 +6,23 @@ declared and never connected, two nodes sharing an identifier, an edge pointing 
 does not exist, a canvas so dense nobody reads it, or no alt text at all. Those are cheap to catch
 in the source and expensive to catch after the page ships.
 
-It reads Mermaid, PlantUML or D2 source and checks it against itself. It cannot confirm the
-diagram is *true* — that the depicted system matches reality — and it does not render anything.
+It reads Mermaid, PlantUML or D2 source and checks it against itself. It does not render anything.
+
+With `--provenance` it also checks that every node claims a source: an entry in a provenance
+record naming the artifact it was read out of, plus a version anchor for the diagram as a whole.
+That closes the gap between a diagram being well-formed and a diagram being derived from
+anything. It still cannot open those artifacts and confirm the claims are honest — only the
+person who inspected them can, and recording provenance is what makes that person identifiable.
 """
 
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 from pathlib import Path
+from typing import Any
 
 MERMAID_HEADERS = (
     "flowchart", "graph", "sequenceDiagram", "erDiagram", "classDiagram",
@@ -112,6 +119,76 @@ def check_balance(text: str, notation: str) -> list[str]:
     return errors
 
 
+VALID_CLASSES = {"observed", "proposed", "illustrative"}
+# A diagram read out of another diagram inherits its errors and none of its freshness.
+DERIVED_SOURCE_TYPES = {"diagram", "readme", "ticket", "design-doc", "recall"}
+
+
+def check_provenance(record: Any, nodes: set[str]) -> tuple[list[str], list[str]]:
+    """Cross-check a provenance record against the node ids actually present in the source."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    if not isinstance(record, dict):
+        return ["provenance record is not an object"], []
+
+    diagram_class = str(record.get("diagram_class", "")).strip()
+    if diagram_class not in VALID_CLASSES:
+        errors.append(f"diagram_class {diagram_class or '(empty)'} is not one of {sorted(VALID_CLASSES)}")
+
+    elements = record.get("elements")
+    if not isinstance(elements, list):
+        return errors + ["provenance record has no elements list"], warnings
+
+    by_node: dict[str, dict[str, Any]] = {}
+    for element in elements:
+        if not isinstance(element, dict):
+            errors.append("an element entry is not an object")
+            continue
+        node_id = str(element.get("node_id", "")).strip()
+        if not node_id:
+            errors.append("an element entry has no node_id")
+            continue
+        by_node[node_id] = element
+
+    # Only an observed diagram makes a claim about a system that exists, so only it needs sources.
+    if diagram_class == "observed":
+        unsourced = sorted(nodes - set(by_node))
+        for node_id in unsourced:
+            errors.append(f"node {node_id} has no provenance entry")
+        anchor = record.get("version_anchor") or {}
+        if not str(anchor.get("value", "")).strip():
+            errors.append("observed diagram has no version anchor; 'is this still true' has no answer")
+        if str(record.get("derived_from_diagram", "")).strip():
+            errors.append(
+                "observed diagram is derived from another diagram; it is proposed until an artifact is read"
+            )
+        for node_id, element in sorted(by_node.items()):
+            source_type = str(element.get("source_type", "")).strip().lower()
+            if source_type in DERIVED_SOURCE_TYPES:
+                errors.append(f"node {node_id}: source_type {source_type} is not an inspected artifact")
+            elif not source_type:
+                errors.append(f"node {node_id}: no source_type")
+            if not str(element.get("locator", "")).strip():
+                errors.append(f"node {node_id}: no locator saying where it was read")
+
+    # An element the source no longer contains is a rename or a deletion nobody propagated.
+    for node_id in sorted(set(by_node) - nodes):
+        warnings.append(f"provenance names {node_id}, which the diagram source does not contain")
+
+    mixed = {
+        str(e.get("element_class", "")).strip()
+        for e in by_node.values()
+        if str(e.get("element_class", "")).strip()
+    }
+    if len(mixed) > 1:
+        warnings.append(
+            f"elements mix classes ({', '.join(sorted(mixed))}); render them distinctly or split the diagram"
+        )
+    if not record.get("excluded"):
+        warnings.append("nothing recorded as excluded; a silent omission reads as a claim that nothing was left out")
+    return errors, warnings
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("source", type=Path, help="diagram source file (.mmd, .puml, .d2 or .md fence)")
@@ -119,6 +196,7 @@ def main() -> None:
     parser.add_argument("--alt-text-file", type=Path, help="read alt text from a file instead")
     parser.add_argument("--no-alt-text-required", action="store_true", help="the diagram is decorative and carries no information")
     parser.add_argument("--max-nodes", type=int, default=DENSITY_WARNING, help=f"density warning threshold (default {DENSITY_WARNING})")
+    parser.add_argument("--provenance", type=Path, help="diagram-provenance JSON record to check the source against")
     parser.add_argument("--strict", action="store_true", help="treat warnings as failures")
     args = parser.parse_args()
 
@@ -169,6 +247,19 @@ def main() -> None:
             "split the diagram or raise its abstraction level"
         )
 
+    if args.provenance is not None:
+        if not args.provenance.is_file():
+            errors.append(f"provenance record not found: {args.provenance}")
+        else:
+            try:
+                record = json.loads(args.provenance.read_text(encoding="utf-8"))
+            except json.JSONDecodeError as exc:
+                errors.append(f"unreadable provenance record: {exc}")
+            else:
+                provenance_errors, provenance_warnings = check_provenance(record, nodes)
+                errors.extend(provenance_errors)
+                warnings.extend(provenance_warnings)
+
     alt_text = args.alt_text
     if args.alt_text_file:
         if not args.alt_text_file.is_file():
@@ -196,7 +287,13 @@ def main() -> None:
     if warnings:
         print(f"PASS WITH WARNINGS: {len(warnings)} item(s) to confirm before publishing")
         sys.exit(0)
-    print("PASS: diagram source is structurally consistent and has a text equivalent")
+    if args.provenance is not None:
+        print(
+            "PASS: structurally consistent, has a text equivalent, and every node claims an "
+            "inspected source. Whether those sources say what the diagram says is not checked here."
+        )
+    else:
+        print("PASS: diagram source is structurally consistent and has a text equivalent")
 
 
 if __name__ == "__main__":

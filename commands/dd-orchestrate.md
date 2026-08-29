@@ -1,6 +1,6 @@
 ---
 name: dd-orchestrate
-description: "Open the Data Department Orchestrator department (plan stage) and route the request to one of its 20 atomic tasks. Route complex or cross-role Data Department requests through atomic tasks, dependencies, evidence, state, handoffs, and human approval gates."
+description: "Open the Data Department Orchestrator department (plan stage) and route the request to one of its 21 atomic tasks. Route complex or cross-role Data Department requests through atomic tasks, dependencies, evidence, state, handoffs, and human approval gates."
 argument-hint: "<request>"
 disable-model-invocation: true
 ---
@@ -9,7 +9,7 @@ disable-model-invocation: true
 
 Open the **Data Department Orchestrator** department for: $ARGUMENTS
 
-Sprint stage: `plan`. This department owns 20 atomic tasks.
+Sprint stage: `plan`. This department owns 21 atomic tasks.
 
 1. Read `skills/data-department-orchestrator/SKILL.md` and follow its operating contract.
 2. Confirm this department actually owns the primary deliverable. If another role owns it,

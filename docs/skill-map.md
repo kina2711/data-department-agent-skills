@@ -1269,6 +1269,7 @@ Các task dưới đây mở rộng role BI/DA/DG hiện có bằng control-plan
 - `orchestrator-run-producer-reviewer` — chạy vòng producer/reviewer độc lập với rubric chốt trước, giữ kín lập luận của producer tới khi reviewer ghi verdict, và đưa bất đồng chưa giải vào conflict register; output: producer-reviewer verdict record.
 - `orchestrator-maintain-run-state` — lưu lifecycle phase, current task, blockers và next permitted action; output: run-state record.
 - `orchestrator-resume-workflow` — phục hồi context từ run state và ledgers mà không làm lại approved work; output: resumed execution plan.
+- `orchestrator-write-session-handoff` — ghi lại suy luận mà run state không giữ được khi một phiên kết thúc dở dang; output: session handoff note.
 - `orchestrator-check-information-sufficiency` — xác định thiếu blocking/nonblocking và conflicts; output: proceed/ask/stop decision.
 - `orchestrator-manage-question-register` — deduplicate, prioritize và close questions bằng evidence; output: question register.
 - `orchestrator-manage-assumption-register` — ghi source, impact, expiry và confirmation status; output: assumption register.

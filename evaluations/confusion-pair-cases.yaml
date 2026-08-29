@@ -216,3 +216,8 @@ cases:
     expected_primary_skill: data-career-and-interview-coach
     rejected_skill: data-academy-and-curriculum
     expected_task: career-bootstrap-concept-registry
+  - id: session-handoff-vs-core-context-package
+    query: Phiên này sắp hết, ghi lại cho agent sau biết tôi đã thử hướng nào và bỏ vì sao, đừng chép lại plan.
+    expected_primary_skill: data-department-orchestrator
+    rejected_skill: shared-data-core
+    expected_task: orchestrator-write-session-handoff
