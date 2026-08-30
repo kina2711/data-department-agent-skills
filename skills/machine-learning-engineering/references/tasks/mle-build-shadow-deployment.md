@@ -11,6 +11,7 @@ Use when the user asks to build shadow deployment, requests the stated deliverab
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chạy model mới không ảnh hưởng decision.
 - Primary deliverable: **shadow comparison**.
 

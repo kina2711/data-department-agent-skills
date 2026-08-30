@@ -11,6 +11,7 @@ Use when the user asks to extract examples and cases, requests the stated delive
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: synthesize worked examples, context, decision, outcome và limitation với bounded quotation.
 - Primary deliverable: **example-and-case pack**.
 

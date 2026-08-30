@@ -11,6 +11,7 @@ Use when the user asks to review data sharing security, requests the stated deli
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đánh giá recipient, transport, controls và expiry.
 - Primary deliverable: **security recommendation**.
 

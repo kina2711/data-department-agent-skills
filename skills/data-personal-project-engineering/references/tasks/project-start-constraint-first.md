@@ -11,6 +11,7 @@ Use when the user asks to start constraint first, requests the stated deliverabl
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: bắt đầu từ cost, privacy, latency, offline, scale, resource hoặc regulatory constraint.
 - Primary deliverable: **constraint-driven project direction**.
 

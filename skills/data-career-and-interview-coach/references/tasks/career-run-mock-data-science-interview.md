@@ -11,6 +11,7 @@ Use when the user asks to run mock data science interview, requests the stated d
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: mô phỏng statistics, experiment, modeling và validation questions.
 - Primary deliverable: **DS mock assessment**.
 

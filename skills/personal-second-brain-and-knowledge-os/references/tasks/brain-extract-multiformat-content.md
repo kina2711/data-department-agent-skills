@@ -11,6 +11,7 @@ Use when the user asks to extract multiformat content, requests the stated deliv
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: trích text và structure từ PDF, EPUB, DOCX, HTML, Markdown, CSV và plain text bằng trusted local tools.
 - Primary deliverable: **normalized source extraction**.
 

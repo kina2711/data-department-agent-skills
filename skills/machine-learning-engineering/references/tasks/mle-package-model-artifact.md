@@ -11,6 +11,7 @@ Use when the user asks to package model artifact, requests the stated deliverabl
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đóng gói model, dependencies, signature và metadata.
 - Primary deliverable: **deployable artifact**.
 

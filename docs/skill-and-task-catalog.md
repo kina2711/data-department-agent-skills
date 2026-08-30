@@ -1,6 +1,6 @@
 # Chi tiết toàn bộ Data Department Skills và Atomic Tasks
 
-> Phiên bản `3.9.0` · `32` Claude role skills · `827` atomic workflows.
+> Phiên bản `3.10.0` · `32` Claude role skills · `827` atomic workflows.
 > Đây là catalog tra cứu đầy đủ được sinh từ `suite-manifest.yaml`, `task-catalog.json` và task contracts; không phải nội dung luôn được nạp vào context của Claude.
 
 ## Mục lục
@@ -147,7 +147,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 21 tasks — Plan / Design 1; Build / Deliver 18; Test / Assure 2; Operate / Improve 0.
 
-**Domain references tải khi cần:** `context-engineering-standard.md`, `learning-memory-interoperability.md`, `parallel-execution-and-agent-teams.md`, `producer-reviewer-method.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `context-engineering-standard.md`, `learning-memory-interoperability.md`, `model-selection.md`, `parallel-execution-and-agent-teams.md`, `producer-reviewer-method.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `approval-ledger.yaml`, `approval-record.json`, `approval-record.schema.json`, `assumption-register.yaml`, `atomic-task-output.yaml`, `branch-delegation-contract.json`, `change-scope-contract.json`, `change-scope-ledger.yaml`, `conflict-register.yaml`, `debug-hypothesis-ledger.yaml`, `design-option-set.yaml`, `evidence-ledger.yaml`, `fan-in-merge-record.yaml`, `handoff-package.yaml`, `instinct-ledger.json`, `instinct-record.schema.json`, `producer-reviewer-record.yaml`, `question-register.yaml`, `run-state.schema.json`, `run-state.yaml`, `session-handoff.yaml`, `stage-gate.yaml`, `success-contract.yaml`, `task-catalog.json`, `task-contract.schema.json`, `telemetry-event.json`, `telemetry-event.schema.json`, `test-evidence.yaml`, `verification-claims.yaml`, `work-ledger.yaml`, `workflow-manifest.json`, `workflow-manifest.schema.json`.
 
@@ -203,7 +203,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 18 tasks — Plan / Design 3; Build / Deliver 9; Test / Assure 6; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-snowflake.md`, `authored-prose-voice.md`, `context-engineering-standard.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-snowflake.md`, `authored-prose-voice.md`, `context-engineering-standard.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `atomic-task-result.schema.json`, `change-scope-contract.json`, `change-scope-ledger.yaml`, `debug-hypothesis-ledger.yaml`, `design-option-set.yaml`, `evidence-envelope.json`, `evidence-envelope.schema.json`, `project-constitution.json`, `project-constitution.schema.json`, `success-contract.yaml`, `task-context-package.yaml`, `verification-claims.yaml`.
 
@@ -256,7 +256,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 9 tasks — Plan / Design 1; Build / Deliver 7; Test / Assure 1; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `context-engineering-standard.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `context-engineering-standard.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `context-index.yaml`, `design-option-set.yaml`.
 
@@ -300,7 +300,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 21 tasks — Plan / Design 11; Build / Deliver 7; Test / Assure 3; Operate / Improve 0.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -356,7 +356,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 24 tasks — Plan / Design 15; Build / Deliver 7; Test / Assure 2; Operate / Improve 0.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -415,7 +415,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 22 tasks — Plan / Design 17; Build / Deliver 1; Test / Assure 4; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-kafka-flink.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-kafka-flink.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -472,7 +472,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 22 tasks — Plan / Design 8; Build / Deliver 5; Test / Assure 8; Operate / Improve 1.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -524,7 +524,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 ### 8. `metadata-engineering-and-catalog` — Metadata Engineering and Catalog
 
-**Claude trigger description:** Build and operate metadata ingestion, catalog, search, lineage, ownership, usage and metadata quality. Use for data catalog, discovery, technical metadata or lineage engineering requests.
+**Claude trigger description:** Build and operate metadata ingestion, catalog, search, lineage, ownership, usage and metadata quality. Use for data catalog, discovery, technical metadata or lineage engineering requests. This skill describes assets rather than building them, so pipeline construction belongs to data-engineering and transformation modelling to analytics-engineering.
 
 **Ownership:** Thu thập và vận hành technical/business metadata, lineage, ownership, search, usage analytics, metadata APIs và chất lượng catalog.
 
@@ -534,7 +534,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 18 tasks — Plan / Design 1; Build / Deliver 13; Test / Assure 3; Operate / Improve 1.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -580,7 +580,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 ### 9. `data-platform-and-dataops` — Data Platform and DataOps
 
-**Claude trigger description:** Design and operate data platforms, environments, orchestration, CI/CD, observability, capacity, reliability, cost and disaster recovery. Use for Data Platform, DataOps or platform operations work.
+**Claude trigger description:** Design and operate data platforms, environments, orchestration, CI/CD, observability, capacity, reliability, cost and disaster recovery. Use for Data Platform, DataOps or platform operations work. The model lifecycle itself belongs to mlops.
 
 **Ownership:** Thiết kế và vận hành nền tảng dữ liệu: environments, orchestration, CI/CD, secrets, observability, capacity, cost, backup, DR và incidents.
 
@@ -590,7 +590,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 21 tasks — Plan / Design 1; Build / Deliver 13; Test / Assure 3; Operate / Improve 4.
 
-**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-kafka-flink.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-mlflow-kubeflow.md`, `adapter-snowflake.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-kafka-flink.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-mlflow-kubeflow.md`, `adapter-snowflake.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -651,7 +651,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 19 tasks — Plan / Design 3; Build / Deliver 10; Test / Assure 5; Operate / Improve 1.
 
-**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-microsoft-fabric.md`, `adapter-spark.md`, `evidence-based-repository-understanding.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-microsoft-fabric.md`, `adapter-spark.md`, `evidence-based-repository-understanding.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `data-path-trace.yaml`, `design-option-set.yaml`.
 
@@ -700,7 +700,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 ### 11. `data-engineering` — Data Engineering
 
-**Claude trigger description:** Design, build, test, diagnose execution plans and operate batch, API, file, CDC and streaming pipelines with idempotency, schema evolution, reconciliation, recovery and runbooks. Use for Data Engineer ingestion, performance or pipeline work.
+**Claude trigger description:** Design, build, test, diagnose execution plans and operate batch, API, file, CDC and streaming pipelines with idempotency, schema evolution, reconciliation, recovery and runbooks. Use for Data Engineer ingestion, performance or pipeline work. Route feature pipelines and model serving to machine-learning-engineering, dbt-style modelling to analytics-engineering, and catalog or lineage harvesting to metadata-engineering-and-catalog.
 
 **Ownership:** Thiết kế, xây, kiểm thử và vận hành batch/API/file/CDC/streaming pipelines với idempotency, schema evolution, reconciliation và recovery.
 
@@ -710,7 +710,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 25 tasks — Plan / Design 3; Build / Deliver 11; Test / Assure 4; Operate / Improve 7.
 
-**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-kafka-flink.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `adapter-spark.md`, `execution-plan-and-pipeline-adapters.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `stage-gated-data-validation.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-kafka-flink.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `adapter-spark.md`, `execution-plan-and-pipeline-adapters.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `stage-gated-data-validation.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`, `execution-plan-review.yaml`, `pipeline-validation-plan.yaml`.
 
@@ -765,7 +765,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 ### 12. `analytics-engineering` — Analytics Engineering
 
-**Claude trigger description:** Build governed staging, intermediate, mart, dimensional and semantic models with tests, documentation, lineage, incremental logic and release controls. Use for Analytics Engineering, dbt or analytics-ready dataset work.
+**Claude trigger description:** Build governed staging, intermediate, mart, dimensional and semantic models with tests, documentation, lineage, incremental logic and release controls. Use for Analytics Engineering, dbt or analytics-ready dataset work. Route source ingestion to data-engineering and catalog, lineage harvesting or metadata quality to metadata-engineering-and-catalog.
 
 **Ownership:** Chuyển dữ liệu thô thành staging/intermediate/marts, semantic metrics và data products có tests, documentation, lineage và versioning.
 
@@ -775,7 +775,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 22 tasks — Plan / Design 5; Build / Deliver 10; Test / Assure 4; Operate / Improve 3.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `execution-plan-and-pipeline-adapters.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `execution-plan-and-pipeline-adapters.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`, `execution-plan-review.yaml`.
 
@@ -837,7 +837,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 29 tasks — Plan / Design 8; Build / Deliver 9; Test / Assure 10; Operate / Improve 2.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `analysis-rigor-and-communication.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `analysis-rigor-and-communication.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `analysis-peer-review.yaml`, `analysis-retrospective.yaml`, `atomic-task-output.yaml`, `design-option-set.yaml`, `eda-report.yaml`, `impact-estimate.yaml`, `methodology-note.yaml`, `query-logic-explanation.yaml`.
 
@@ -896,7 +896,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 ### 14. `business-intelligence` — Business Intelligence
 
-**Claude trigger description:** Design, build, test and govern BI semantic models, KPIs, dashboards, reports, interactions, row-level security, refresh, accessibility and adoption. Use for BI Engineer, reporting or dashboard work.
+**Claude trigger description:** Design, build, test and govern BI semantic models, KPIs, dashboards, reports, interactions, row-level security, refresh, accessibility and adoption. Use for BI Engineer, reporting or dashboard work. This skill owns the semantic layer upward; pipelines belong to data-engineering.
 
 **Ownership:** Thiết kế, xây và vận hành dashboards/reports, semantic presentation, visualization, access, performance, UAT, release và adoption.
 
@@ -906,7 +906,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 32 tasks — Plan / Design 4; Build / Deliver 15; Test / Assure 8; Operate / Improve 5.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-microsoft-fabric.md`, `adapter-power-bi.md`, `adapter-snowflake.md`, `adapter-tableau-looker.md`, `dashboard-experience-quality.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-microsoft-fabric.md`, `adapter-power-bi.md`, `adapter-snowflake.md`, `adapter-tableau-looker.md`, `dashboard-experience-quality.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `dashboard-experience-audit.yaml`, `design-option-set.yaml`.
 
@@ -978,7 +978,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 17 tasks — Plan / Design 5; Build / Deliver 5; Test / Assure 7; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-snowflake.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-snowflake.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -1028,7 +1028,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 22 tasks — Plan / Design 5; Build / Deliver 13; Test / Assure 3; Operate / Improve 1.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -1080,7 +1080,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 ### 17. `machine-learning-engineering` — Machine Learning Engineering
 
-**Claude trigger description:** Engineer training pipelines, features, model artifacts, batch or online serving, performance, testing, deployment interfaces and resilience. Use for ML Engineer implementation and productionization work.
+**Claude trigger description:** Engineer training pipelines, features, model artifacts, batch or online serving, performance, testing, deployment interfaces and resilience. Use for ML Engineer implementation and productionization work. Route general batch, CDC or streaming ingestion to data-engineering, and registry, drift or model rollout operations to mlops.
 
 **Ownership:** Chuyển model thành phần mềm đáng tin cậy: training/inference code, feature pipelines, serving, performance, integration và release artifacts.
 
@@ -1090,7 +1090,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 20 tasks — Plan / Design 4; Build / Deliver 10; Test / Assure 3; Operate / Improve 3.
 
-**Domain references tải khi cần:** `adapter-databricks.md`, `adapter-kafka-flink.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-databricks.md`, `adapter-kafka-flink.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -1140,7 +1140,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 ### 18. `mlops` — MLOps
 
-**Claude trigger description:** Operate the ML lifecycle through experiment tracking, registry, CI/CD, deployment, monitoring, drift, retraining, rollback, lineage and governance. Use for MLOps, model release or ML platform operations.
+**Claude trigger description:** Operate the ML lifecycle through experiment tracking, registry, CI/CD, deployment, monitoring, drift, retraining, rollback, lineage and governance. Use for MLOps, model release or ML platform operations. The underlying platform belongs to data-platform-and-dataops.
 
 **Ownership:** Quản lý ML lifecycle trong production: registry, reproducibility, CI/CD/CT, promotion, deployment, monitoring, drift, incidents và rollback.
 
@@ -1150,7 +1150,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 23 tasks — Plan / Design 1; Build / Deliver 12; Test / Assure 2; Operate / Improve 8.
 
-**Domain references tải khi cần:** `adapter-databricks.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-databricks.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -1213,7 +1213,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 21 tasks — Plan / Design 3; Build / Deliver 5; Test / Assure 8; Operate / Improve 5.
 
-**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `stage-gated-data-validation.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `stage-gated-data-validation.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`, `pipeline-validation-plan.yaml`.
 
@@ -1274,7 +1274,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 16 tasks — Plan / Design 3; Build / Deliver 9; Test / Assure 4; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-power-bi.md`, `adapter-snowflake.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-power-bi.md`, `adapter-snowflake.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -1323,7 +1323,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 13 tasks — Plan / Design 3; Build / Deliver 6; Test / Assure 2; Operate / Improve 2.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -1374,7 +1374,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 20 tasks — Plan / Design 7; Build / Deliver 6; Test / Assure 4; Operate / Improve 3.
 
-**Domain references tải khi cần:** `adapter-databricks.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-databricks.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -1434,7 +1434,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 20 tasks — Plan / Design 18; Build / Deliver 1; Test / Assure 1; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-dbt.md`, `adapter-metadata-catalog.md`, `adapter-power-bi.md`, `adapter-tableau-looker.md`, `authored-prose-voice.md`, `diagram-fidelity-standard.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-dbt.md`, `adapter-metadata-catalog.md`, `adapter-power-bi.md`, `adapter-tableau-looker.md`, `authored-prose-voice.md`, `diagram-fidelity-standard.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`, `diagram-provenance.yaml`.
 
@@ -1489,7 +1489,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 17 tasks — Plan / Design 5; Build / Deliver 10; Test / Assure 1; Operate / Improve 1.
 
-**Domain references tải khi cần:** `authored-prose-voice.md`, `evidence-based-repository-understanding.md`, `learning-memory-interoperability.md`, `linked-knowledge-library.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `authored-prose-voice.md`, `evidence-based-repository-understanding.md`, `learning-memory-interoperability.md`, `linked-knowledge-library.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `concept-knowledge-map.yaml`, `data-path-trace.yaml`, `design-option-set.yaml`, `knowledge-library.yaml`.
 
@@ -1534,7 +1534,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 ### 25. `data-academy-and-curriculum` — Data Academy and Curriculum
 
-**Claude trigger description:** Design and deliver role-based Data Academy curricula with theory, labs, capstones, assessments, remediation, certification and effectiveness measurement. Use for structured learning programs across Data roles and levels.
+**Claude trigger description:** Design and deliver role-based Data Academy curricula with theory, labs, capstones, assessments, remediation, certification and effectiveness measurement. Use for structured learning programs across Data roles and levels. Route hiring loops, scorecards and candidate evaluation to data-talent-acquisition-and-interview; this skill teaches, never selects.
 
 **Ownership:** Thiết kế curriculum theo role/level, theory, labs, capstones, assessment, remediation, certification và knowledge deep dives.
 
@@ -1544,7 +1544,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 48 tasks — Plan / Design 28; Build / Deliver 11; Test / Assure 8; Operate / Improve 1.
 
-**Domain references tải khi cần:** `assessment-and-certification.md`, `authored-prose-voice.md`, `concept-registry-standard.md`, `diagnostic-session-method.md`, `knowledge-deep-dive-standard.md`, `learning-memory-interoperability.md`, `note-corpus-operating-system.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `assessment-and-certification.md`, `authored-prose-voice.md`, `concept-registry-standard.md`, `diagnostic-session-method.md`, `knowledge-deep-dive-standard.md`, `learning-memory-interoperability.md`, `model-selection.md`, `note-corpus-operating-system.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `assessment-blueprint.yaml`, `atomic-task-output.yaml`, `concept-knowledge-graph.yaml`, `concept-registry.json`, `corpus-priority-plan.yaml`, `corpus-workflow-manifest.json`, `curriculum-spec.yaml`, `design-option-set.yaml`, `knowledge-deep-dive.yaml`, `learner-evidence.yaml`, `lesson-plan.yaml`, `misconception-feedback.yaml`, `note-corpus-audit.yaml`, `note-corpus-manifest.json`, `note-diagnostic-session.yaml`, `question-learning-traceability.yaml`, `role-roadmap.yaml`, `skill-track-map.yaml`.
 
@@ -1632,7 +1632,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 34 tasks — Plan / Design 8; Build / Deliver 18; Test / Assure 4; Operate / Improve 4.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `response-compression.md`, `role-onboarding-tracks.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `role-onboarding-tracks.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `access-readiness.yaml`, `atomic-task-output.yaml`, `checkpoint.yaml`, `design-option-set.yaml`, `onboarding-plan.yaml`.
 
@@ -1696,7 +1696,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 ### 27. `data-talent-acquisition-and-interview` — Data Talent and Interviewing
 
-**Claude trigger description:** Design and run structured Data hiring with role profiles, scorecards, interview loops, work samples, rubrics, calibration, debriefs, fairness and validity controls. Use for recruiting or interviewing Data roles.
+**Claude trigger description:** Design and run structured Data hiring with role profiles, scorecards, interview loops, work samples, rubrics, calibration, debriefs, fairness and validity controls. Use for recruiting or interviewing Data roles. Route curriculum, labs and certification of existing staff to data-academy-and-curriculum; this skill decides who to hire, never how to train.
 
 **Ownership:** Thiết kế hiring scorecards, sourcing/screening, structured interviews, role-specific rounds, rubrics, calibration, debrief và fairness audits.
 
@@ -1706,7 +1706,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 41 tasks — Plan / Design 11; Build / Deliver 21; Test / Assure 8; Operate / Improve 1.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `question-knowledge-validity.md`, `response-compression.md`, `role-interview-architecture.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `learning-memory-interoperability.md`, `model-selection.md`, `question-knowledge-validity.md`, `response-compression.md`, `role-interview-architecture.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `answer-anchor-pack.yaml`, `assessment-rubric.yaml`, `atomic-task-output.yaml`, `calibration-record.yaml`, `candidate-packet.yaml`, `debrief.yaml`, `design-option-set.yaml`, `fairness-validity-audit.yaml`, `hiring-workflow-state.yaml`, `interview-evidence.yaml`, `interview-loop.yaml`, `interviewer-guide.yaml`, `question-bank-coverage-audit.yaml`, `question-competency-evidence.yaml`, `role-scorecard.yaml`.
 
@@ -1787,7 +1787,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 52 tasks — Plan / Design 16; Build / Deliver 25; Test / Assure 11; Operate / Improve 0.
 
-**Domain references tải khi cần:** `authored-prose-voice.md`, `career-learning-memory.md`, `career-operating-system.md`, `coaching-ethics-and-method.md`, `concept-registry-standard.md`, `interview-knowledge-system.md`, `learning-memory-interoperability.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `system-design-canon.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `authored-prose-voice.md`, `career-learning-memory.md`, `career-operating-system.md`, `coaching-ethics-and-method.md`, `concept-registry-standard.md`, `interview-knowledge-system.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `system-design-canon.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `architecture-case-study.yaml`, `atomic-task-output.yaml`, `career-content-handoff.yaml`, `career-evidence-portfolio.yaml`, `career-operating-system.yaml`, `career-review.yaml`, `concept-registry.json`, `concept-visual-explainer.yaml`, `content-evidence-return.yaml`, `cross-skill-prerequisite-map.yaml`, `design-option-set.yaml`, `interview-knowledge-library.yaml`, `interview-question-dossier.yaml`, `knowledge-coverage-audit.yaml`, `learner-memory.json`, `learner-memory.schema.json`, `learning-event.yaml`, `mock-assessment.yaml`, `offer-evaluation.yaml`, `question-knowledge-map.yaml`, `readiness-profile.yaml`, `remediation-plan.yaml`, `skill-transition-context.json`.
 
@@ -1874,7 +1874,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 27 tasks — Plan / Design 10; Build / Deliver 7; Test / Assure 8; Operate / Improve 2.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `platform-format-playbooks.md`, `response-compression.md`, `solution-option-framing.md`, `technical-content-quality-standard.md`, `technical-series-method.md`, `universal-professional-series-rules.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `learning-memory-interoperability.md`, `model-selection.md`, `platform-format-playbooks.md`, `response-compression.md`, `solution-option-framing.md`, `technical-content-quality-standard.md`, `technical-series-method.md`, `universal-professional-series-rules.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `content-evidence-return.yaml`, `content-manifest.json`, `content-quality-review.yaml`, `design-option-set.yaml`, `editorial-calendar.yaml`, `episode-brief.yaml`, `series-concept-coverage.yaml`, `social-episode-package.yaml`, `source-pack.yaml`, `technical-series-plan.yaml`.
 
@@ -1941,7 +1941,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 42 tasks — Plan / Design 10; Build / Deliver 26; Test / Assure 6; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-kafka-flink.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-mlflow-kubeflow.md`, `adapter-power-bi.md`, `adapter-snowflake.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `personal-project-operating-system.md`, `personal-project-quality-standard.md`, `repository-assessment-and-originality.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-kafka-flink.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-mlflow-kubeflow.md`, `adapter-power-bi.md`, `adapter-snowflake.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `model-selection.md`, `personal-project-operating-system.md`, `personal-project-quality-standard.md`, `repository-assessment-and-originality.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `borrowed-source-transformation.yaml`, `design-option-set.yaml`, `personal-project-manifest.json`, `project-evidence-plan.yaml`, `project-intake.yaml`, `project-option-scorecard.json`, `project-release-review.yaml`, `project-roadmap.yaml`, `project-thesis.yaml`, `repository-assessment.yaml`.
 
@@ -2018,7 +2018,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 46 tasks — Plan / Design 12; Build / Deliver 27; Test / Assure 4; Operate / Improve 3.
 
-**Domain references tải khi cần:** `knowledge-note-and-lineage-standard.md`, `learning-memory-interoperability.md`, `migration-and-tool-interop.md`, `response-compression.md`, `retrieval-and-output-grounding.md`, `second-brain-operating-system.md`, `second-brain-quality-and-safety.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `knowledge-note-and-lineage-standard.md`, `learning-memory-interoperability.md`, `migration-and-tool-interop.md`, `model-selection.md`, `response-compression.md`, `retrieval-and-output-grounding.md`, `second-brain-operating-system.md`, `second-brain-quality-and-safety.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`, `knowledge-review.yaml`, `migration-plan.yaml`, `output-record.yaml`, `personal-context.yaml`, `retrieval-evaluation.yaml`, `second-brain-manifest.json`, `second-brain-manifest.schema.json`, `source-record.yaml`, `wiki-note.yaml`.
 
@@ -2104,7 +2104,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 45 tasks — Plan / Design 1; Build / Deliver 32; Test / Assure 8; Operate / Improve 4.
 
-**Domain references tải khi cần:** `book-conversion-operating-system.md`, `copyright-security-and-quality.md`, `destination-packs.md`, `knowledge-distillation-and-application.md`, `learning-memory-interoperability.md`, `response-compression.md`, `solution-option-framing.md`, `source-extraction-and-structure.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `book-conversion-operating-system.md`, `copyright-security-and-quality.md`, `destination-packs.md`, `knowledge-distillation-and-application.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `source-extraction-and-structure.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `application-experiment.yaml`, `atomic-task-output.yaml`, `book-conversion-manifest.json`, `book-conversion-manifest.schema.json`, `book-source-manifest.yaml`, `chapter-note.yaml`, `conversion-evidence.yaml`, `design-option-set.yaml`, `destination-plan.yaml`, `framework-card.yaml`.
 

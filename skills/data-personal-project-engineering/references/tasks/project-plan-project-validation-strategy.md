@@ -11,6 +11,7 @@ Use when the user asks to plan project validation strategy, requests the stated 
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: thiết kế static, unit, contract, integration, reconciliation, security, performance, failure, usability và portfolio-proof checks.
 - Primary deliverable: **project validation strategy**.
 

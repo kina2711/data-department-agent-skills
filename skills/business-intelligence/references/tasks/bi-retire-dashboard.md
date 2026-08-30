@@ -11,6 +11,7 @@ Use when the user asks to retire dashboard, requests the stated deliverable, or 
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tìm consumers, cung cấp replacement và archive.
 - Primary deliverable: **retired dashboard**.
 

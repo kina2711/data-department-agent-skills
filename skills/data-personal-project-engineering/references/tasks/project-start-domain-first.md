@@ -11,6 +11,7 @@ Use when the user asks to start domain first, requests the stated deliverable, o
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: bắt đầu từ business domain, lập entity/event/process/decision map rồi chọn bounded problem.
 - Primary deliverable: **domain-grounded project direction**.
 

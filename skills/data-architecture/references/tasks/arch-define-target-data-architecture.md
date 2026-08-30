@@ -11,6 +11,7 @@ Use when the user asks to define target data architecture, requests the stated d
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: mô tả target state, boundaries, flows và quality attributes.
 - Primary deliverable: **target architecture**.
 

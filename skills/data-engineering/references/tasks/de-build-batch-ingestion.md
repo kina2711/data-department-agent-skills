@@ -11,6 +11,7 @@ Use when the user asks to build batch ingestion, requests the stated deliverable
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: nạp batch có checkpoint, audit và retry.
 - Primary deliverable: **production-ready batch pipeline**.
 

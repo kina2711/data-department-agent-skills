@@ -11,6 +11,7 @@ Use when the user asks to design four layer architecture, requests the stated de
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: thiết kế 1_Nguon, 2_Wiki, 3_Toi và 4_Ket-Qua với identity, flow và invariants.
 - Primary deliverable: **four-layer brain architecture**.
 

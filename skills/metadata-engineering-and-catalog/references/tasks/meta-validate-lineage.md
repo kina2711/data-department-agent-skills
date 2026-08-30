@@ -11,6 +11,7 @@ Use when the user asks to validate lineage, requests the stated deliverable, or 
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đối chiếu parsed lineage với code, queries và owner evidence.
 - Primary deliverable: **lineage validation report**.
 

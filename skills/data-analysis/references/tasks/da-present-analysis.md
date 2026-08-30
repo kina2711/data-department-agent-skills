@@ -11,6 +11,7 @@ Use when the user asks to present analysis, requests the stated deliverable, or 
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: cấu trúc narrative, anticipated objections và decision ask.
 - Primary deliverable: **presentation package**.
 

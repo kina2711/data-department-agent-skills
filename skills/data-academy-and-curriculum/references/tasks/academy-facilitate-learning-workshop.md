@@ -11,6 +11,7 @@ Use when the user asks to facilitate learning workshop, requests the stated deli
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: điều phối collaborative problem solving và peer feedback.
 - Primary deliverable: **workshop outcome record**.
 

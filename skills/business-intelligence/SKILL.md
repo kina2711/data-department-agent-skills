@@ -1,6 +1,6 @@
 ---
 name: business-intelligence
-description: Design, build, test and govern BI semantic models, KPIs, dashboards, reports, interactions, row-level security, refresh, accessibility and adoption. Use for BI Engineer, reporting or dashboard work.
+description: Design, build, test and govern BI semantic models, KPIs, dashboards, reports, interactions, row-level security, refresh, accessibility and adoption. Use for BI Engineer, reporting or dashboard work. This skill owns the semantic layer upward; pipelines belong to data-engineering.
 ---
 
 # Business Intelligence

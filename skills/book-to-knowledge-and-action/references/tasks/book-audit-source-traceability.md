@@ -11,6 +11,7 @@ Use when the user asks to audit source traceability, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: sample và đối chiếu frameworks, rules, examples, technical artifacts với source locators và hashes.
 - Primary deliverable: **book traceability audit**.
 

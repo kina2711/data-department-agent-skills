@@ -11,6 +11,7 @@ Use when the user asks to build context index, requests the stated deliverable, 
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo index phân tầng chỉ rõ nguồn context, authority, scope, trigger đọc, owner và freshness cho Claude/agent sessions.
 - Primary deliverable: **governed context index**.
 

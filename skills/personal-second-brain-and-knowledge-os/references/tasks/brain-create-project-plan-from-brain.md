@@ -11,6 +11,7 @@ Use when the user asks to create project plan from brain, requests the stated de
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: biến prior knowledge, constraints, decisions và evidence gaps thành project direction rồi handoff sang project skill.
 - Primary deliverable: **knowledge-grounded project plan**.
 

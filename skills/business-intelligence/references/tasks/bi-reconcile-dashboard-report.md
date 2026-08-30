@@ -11,6 +11,7 @@ Use when the user asks to reconcile dashboard report, requests the stated delive
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đảm bảo KPI, filters, claims và limitations nhất quán.
 - Primary deliverable: **reconciliation report**.
 

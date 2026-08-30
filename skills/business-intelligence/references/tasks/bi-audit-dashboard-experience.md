@@ -11,6 +11,7 @@ Use when the user asks to audit dashboard experience, requests the stated delive
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đánh giá read-only decision fit, hierarchy, metric truth, information density, interaction states, accessibility, responsiveness và dấu hiệu dashboard generic.
 - Primary deliverable: **prioritized dashboard experience audit**.
 

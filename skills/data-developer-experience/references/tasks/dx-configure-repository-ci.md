@@ -11,6 +11,7 @@ Use when the user asks to configure repository ci, requests the stated deliverab
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chạy tests, scans, validation và packaging theo pull request.
 - Primary deliverable: **repository CI**.
 

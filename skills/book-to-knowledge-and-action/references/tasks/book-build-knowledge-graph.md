@@ -11,6 +11,7 @@ Use when the user asks to build knowledge graph, requests the stated deliverable
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: nối chapters, prerequisites, concepts, frameworks, techniques, conflicts và applications.
 - Primary deliverable: **book knowledge graph**.
 

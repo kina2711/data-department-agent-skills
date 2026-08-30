@@ -11,6 +11,7 @@ Use when the user asks to validate report claims, requests the stated deliverabl
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: phát hiện unsupported claim, semantic drift và missing evidence.
 - Primary deliverable: **report QA findings**.
 

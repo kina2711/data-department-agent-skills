@@ -11,6 +11,7 @@ Use when the user asks to select diagram type, requests the stated deliverable, 
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chọn ERD, sequence, state, activity, swimlane, BPMN, use case hoặc architecture theo question.
 - Primary deliverable: **diagram decision**.
 

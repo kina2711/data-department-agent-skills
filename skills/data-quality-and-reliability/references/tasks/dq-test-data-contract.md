@@ -11,6 +11,7 @@ Use when the user asks to test data contract, requests the stated deliverable, o
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: kiểm tra schema, semantics, freshness và compatibility.
 - Primary deliverable: **contract test report**.
 

@@ -11,6 +11,7 @@ Use when the user asks to generate synthetic dataset, requests the stated delive
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: sinh data giả theo schema, distribution và privacy constraints.
 - Primary deliverable: **synthetic dataset**.
 

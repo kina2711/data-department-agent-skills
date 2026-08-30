@@ -11,6 +11,7 @@ Use when the user asks to run mock analytics case, requests the stated deliverab
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: mô phỏng ambiguous business case từ framing tới recommendation.
 - Primary deliverable: **analytics-case mock assessment**.
 

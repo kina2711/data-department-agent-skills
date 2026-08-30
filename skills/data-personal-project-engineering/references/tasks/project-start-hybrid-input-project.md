@@ -11,6 +11,7 @@ Use when the user asks to start hybrid input project, requests the stated delive
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: hợp nhất nhiều input nhưng chọn một primary thesis, resolve conflicts và giữ provenance của từng input.
 - Primary deliverable: **hybrid-input project charter**.
 

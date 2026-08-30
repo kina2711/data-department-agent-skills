@@ -11,6 +11,7 @@ Use when the user asks to verify deliverable, requests the stated deliverable, o
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chạy checklist theo loại artifact và thu evidence.
 - Primary deliverable: **pass/fail verification report**.
 

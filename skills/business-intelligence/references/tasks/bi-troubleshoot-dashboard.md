@@ -11,6 +11,7 @@ Use when the user asks to troubleshoot dashboard, requests the stated deliverabl
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: xử lý data, refresh, permission hoặc visual issue.
 - Primary deliverable: **restored dashboard**.
 

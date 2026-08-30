@@ -11,6 +11,7 @@ Use when the user asks to create candidate feedback, requests the stated deliver
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo feedback lawful, respectful và evidence-grounded.
 - Primary deliverable: **candidate feedback package**.
 

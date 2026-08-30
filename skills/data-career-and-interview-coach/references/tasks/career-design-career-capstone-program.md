@@ -11,6 +11,7 @@ Use when the user asks to design career capstone program, requests the stated de
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: thiết kế chương trình 12/24 tháng có prerequisites, labs, projects, reviews, recovery buffers và evidence milestones.
 - Primary deliverable: **career capstone program**.
 

@@ -11,6 +11,7 @@ Use when the user asks to design technical writing strategy, requests the stated
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chọn audience, writing formats, themes, cadence và evidence policy để technical writing phục vụ mastery và reputation thật.
 - Primary deliverable: **career technical-writing strategy**.
 

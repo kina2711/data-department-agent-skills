@@ -11,6 +11,7 @@ Use when the user asks to review data portfolio, requests the stated deliverable
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đánh giá project depth, reproducibility, decisions, impact và presentation.
 - Primary deliverable: **portfolio review**.
 

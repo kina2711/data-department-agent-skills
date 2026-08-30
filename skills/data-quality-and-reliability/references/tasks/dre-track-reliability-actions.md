@@ -11,6 +11,7 @@ Use when the user asks to track reliability actions, requests the stated deliver
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: theo dõi corrective/preventive actions đến closure.
 - Primary deliverable: **action register**.
 

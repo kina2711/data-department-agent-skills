@@ -11,6 +11,7 @@ Use when the user asks to implement dashboard measures, requests the stated deli
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo measures đúng context và aggregation.
 - Primary deliverable: **tested measures**.
 

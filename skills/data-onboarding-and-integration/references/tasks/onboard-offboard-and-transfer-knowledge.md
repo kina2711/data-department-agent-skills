@@ -11,6 +11,7 @@ Use when the user asks to offboard and transfer knowledge, requests the stated d
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: thu hồi access, bàn giao ownership, knowledge và open risks.
 - Primary deliverable: **offboarding evidence package**.
 

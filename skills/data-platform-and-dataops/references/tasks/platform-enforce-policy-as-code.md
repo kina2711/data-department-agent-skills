@@ -11,6 +11,7 @@ Use when the user asks to enforce policy as code, requests the stated deliverabl
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: mã hóa guardrails và exception flow.
 - Primary deliverable: **enforced controls**.
 

@@ -11,6 +11,7 @@ Use when the user asks to map question knowledge dependencies, requests the stat
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: nối question tới core concepts, prerequisites, related concepts, contrasts và follow-up paths.
 - Primary deliverable: **question knowledge dependency map**.
 

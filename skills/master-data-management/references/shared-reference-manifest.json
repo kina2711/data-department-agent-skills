@@ -1,5 +1,5 @@
 {
-  "suite_version": "3.9.0",
+  "suite_version": "3.10.0",
   "references": [
     {
       "logical_id": "lifecycle-standard",
@@ -40,6 +40,11 @@
       "logical_id": "learning-memory-interoperability",
       "filename": "learning-memory-interoperability.md",
       "sha256": "f2c464a64cc1c1c38dac47e6c1fbb368e8766b851658765a408a10b923a27fc0"
+    },
+    {
+      "logical_id": "model-selection",
+      "filename": "model-selection.md",
+      "sha256": "eef7583f033ba477135c05911ba6168c3593d9e20631b5e738db19915e30430a"
     }
   ]
 }

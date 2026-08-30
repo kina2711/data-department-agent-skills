@@ -11,6 +11,7 @@ Use when the user asks to write architecture document, requests the stated deliv
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: ghi context, components, flows, qualities và decisions.
 - Primary deliverable: **architecture document**.
 

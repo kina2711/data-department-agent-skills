@@ -11,6 +11,7 @@ Use when the user asks to manage project dependencies, requests the stated deliv
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: lock, update, vulnerability-check và document dependencies.
 - Primary deliverable: **reproducible dependency set**.
 

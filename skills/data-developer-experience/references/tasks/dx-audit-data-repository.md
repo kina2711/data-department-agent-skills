@@ -11,6 +11,7 @@ Use when the user asks to audit data repository, requests the stated deliverable
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: phân loại code, configs, tests, docs, data và risks.
 - Primary deliverable: **repository assessment**.
 

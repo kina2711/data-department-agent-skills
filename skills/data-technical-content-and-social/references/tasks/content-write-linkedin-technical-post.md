@@ -11,6 +11,7 @@ Use when the user asks to write linkedin technical post, requests the stated del
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuyển một insight kỹ thuật thành bài tiếng Anh chuyên nghiệp, cô đọng, scannable, có evidence và takeaway.
 - Primary deliverable: **English LinkedIn technical post**.
 

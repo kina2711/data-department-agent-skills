@@ -11,6 +11,7 @@ Use when the user asks to enforce retention deletion, requests the stated delive
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: map assets, execute approved deletion và verify.
 - Primary deliverable: **deletion evidence**.
 

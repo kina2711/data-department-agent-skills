@@ -11,6 +11,7 @@ Use when the user asks to discover analysis data, requests the stated deliverabl
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tìm datasets/metrics phù hợp và đánh giá fitness.
 - Primary deliverable: **selected data sources**.
 

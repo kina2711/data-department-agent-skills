@@ -11,6 +11,7 @@ Use when the user asks to create data work ticket, requests the stated deliverab
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuyển yêu cầu thành scope, acceptance criteria, dependency và estimate.
 - Primary deliverable: **implementation-ready ticket**.
 

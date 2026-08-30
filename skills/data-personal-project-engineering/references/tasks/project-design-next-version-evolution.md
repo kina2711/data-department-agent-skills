@@ -11,6 +11,7 @@ Use when the user asks to design next version evolution, requests the stated del
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chọn next version từ real gaps/feedback thay vì feature accumulation và giữ backward evidence.
 - Primary deliverable: **evidence-driven project evolution plan**.
 

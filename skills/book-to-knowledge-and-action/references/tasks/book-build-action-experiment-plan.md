@@ -11,6 +11,7 @@ Use when the user asks to build action experiment plan, requests the stated deli
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chọn behaviors hoặc decisions để thử, baseline, cadence, observation, stop rule và review.
 - Primary deliverable: **book application experiment**.
 

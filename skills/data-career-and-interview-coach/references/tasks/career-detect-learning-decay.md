@@ -11,6 +11,7 @@ Use when the user asks to detect learning decay, requests the stated deliverable
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: phát hiện knowledge stale, ít dùng, version drift, evidence hết hạn hoặc confidence giảm và chọn refresh tối thiểu.
 - Primary deliverable: **learning-decay and refresh report**.
 

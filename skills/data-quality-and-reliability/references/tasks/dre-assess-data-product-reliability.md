@@ -11,6 +11,7 @@ Use when the user asks to assess data product reliability, requests the stated d
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: review SLO, incidents, tests và dependencies.
 - Primary deliverable: **reliability assessment**.
 

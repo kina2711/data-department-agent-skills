@@ -11,6 +11,7 @@ Use when the user asks to run mock sql interview, requests the stated deliverabl
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: mô phỏng SQL live có probing, edge cases và feedback.
 - Primary deliverable: **SQL mock assessment**.
 

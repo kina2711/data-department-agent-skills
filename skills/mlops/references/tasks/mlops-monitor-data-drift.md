@@ -11,6 +11,7 @@ Use when the user asks to monitor data drift, requests the stated deliverable, o
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đo input distribution shift với baseline.
 - Primary deliverable: **drift alert/report**.
 

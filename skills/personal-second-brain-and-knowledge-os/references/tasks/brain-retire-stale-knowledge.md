@@ -11,6 +11,7 @@ Use when the user asks to retire stale knowledge, requests the stated deliverabl
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: deprecate hoặc archive note/source/output với reason, successor, retention và backlink repair.
 - Primary deliverable: **knowledge retirement record**.
 

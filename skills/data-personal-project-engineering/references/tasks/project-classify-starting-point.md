@@ -11,6 +11,7 @@ Use when the user asks to classify starting point, requests the stated deliverab
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: phân loại evidence đầu vào, mức sở hữu, độ chắc chắn và project entry mode phù hợp.
 - Primary deliverable: **project starting-point classification**.
 

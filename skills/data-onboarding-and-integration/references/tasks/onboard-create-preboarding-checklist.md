@@ -11,6 +11,7 @@ Use when the user asks to create preboarding checklist, requests the stated deli
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuẩn bị contract dependencies, equipment, accounts, schedule và contacts.
 - Primary deliverable: **preboarding checklist**.
 

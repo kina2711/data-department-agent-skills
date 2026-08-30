@@ -11,6 +11,7 @@ Use when the user asks to design learning module, requests the stated deliverabl
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: định nghĩa objectives, concepts, examples, activities và assessment.
 - Primary deliverable: **learning-module specification**.
 

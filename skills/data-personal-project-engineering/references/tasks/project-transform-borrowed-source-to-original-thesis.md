@@ -11,6 +11,7 @@ Use when the user asks to transform borrowed source to original thesis, requests
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: biến repo hoặc ý tưởng ngoài thành thesis do người dùng sở hữu nhưng vẫn giữ attribution và giới hạn provenance claim.
 - Primary deliverable: **attributed differentiated project thesis**.
 

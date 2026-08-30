@@ -11,6 +11,7 @@ Use when the user asks to test prompt injection resistance, requests the stated 
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chạy attack set và đánh giá containment.
 - Primary deliverable: **security test report**.
 

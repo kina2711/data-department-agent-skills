@@ -11,6 +11,7 @@ Use when the user asks to evaluate platform capacity, requests the stated delive
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: stress test concurrency, throughput và saturation.
 - Primary deliverable: **capacity report**.
 

@@ -1,6 +1,6 @@
 ---
 name: analytics-engineering
-description: Build governed staging, intermediate, mart, dimensional and semantic models with tests, documentation, lineage, incremental logic and release controls. Use for Analytics Engineering, dbt or analytics-ready dataset work.
+description: Build governed staging, intermediate, mart, dimensional and semantic models with tests, documentation, lineage, incremental logic and release controls. Use for Analytics Engineering, dbt or analytics-ready dataset work. Route source ingestion to data-engineering and catalog, lineage harvesting or metadata quality to metadata-engineering-and-catalog.
 ---
 
 # Analytics Engineering

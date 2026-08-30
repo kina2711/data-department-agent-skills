@@ -11,6 +11,7 @@ Use when the user asks to define product north star, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: xác định value event, frequency, breadth và guardrails.
 - Primary deliverable: **north-star framework**.
 

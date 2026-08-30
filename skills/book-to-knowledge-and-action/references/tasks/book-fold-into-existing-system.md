@@ -11,6 +11,7 @@ Use when the user asks to fold into existing system, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: merge source/version mới vào skill hoặc Second Brain mà preserve IDs, backlinks, conflicts và prior evidence.
 - Primary deliverable: **governed fold-in release**.
 

@@ -11,6 +11,7 @@ Use when the user asks to map cross skill prerequisites, requests the stated del
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: nối concept, interface, decision rule và failure mode giữa skill đã học với skill kế tiếp.
 - Primary deliverable: **cross-skill prerequisite map**.
 

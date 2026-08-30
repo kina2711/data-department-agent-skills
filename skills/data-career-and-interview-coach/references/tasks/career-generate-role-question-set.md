@@ -11,6 +11,7 @@ Use when the user asks to generate role question set, requests the stated delive
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo question set theo role, level, company style và gaps.
 - Primary deliverable: **personalized question set**.
 

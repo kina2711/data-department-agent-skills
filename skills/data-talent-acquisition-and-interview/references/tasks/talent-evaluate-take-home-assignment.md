@@ -11,6 +11,7 @@ Use when the user asks to evaluate take home assignment, requests the stated del
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chấm correctness, reasoning, trade-offs, testing và authorship discussion.
 - Primary deliverable: **take-home assessment**.
 

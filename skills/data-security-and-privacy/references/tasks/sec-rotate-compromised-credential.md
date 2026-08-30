@@ -11,6 +11,7 @@ Use when the user asks to rotate compromised credential, requests the stated del
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: revoke, rotate, update consumers và audit.
 - Primary deliverable: **restored credentials**.
 

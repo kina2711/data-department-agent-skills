@@ -221,3 +221,53 @@ cases:
     expected_primary_skill: data-department-orchestrator
     rejected_skill: shared-data-core
     expected_task: orchestrator-write-session-handoff
+  - id: de-vs-mle-batch-pipeline
+    query: Xây pipeline batch nạp đơn hàng hằng đêm vào warehouse, chịu được chạy lại và schema đổi.
+    expected_primary_skill: data-engineering
+    rejected_skill: machine-learning-engineering
+    expected_task: de-build-batch-ingestion
+  - id: mle-vs-de-feature-pipeline
+    query: Xây pipeline sinh feature cho model, đảm bảo lúc train và lúc serve tính giống nhau.
+    expected_primary_skill: machine-learning-engineering
+    rejected_skill: data-engineering
+    expected_task: mle-build-feature-pipeline
+  - id: academy-vs-talent-role-design
+    query: Thiết kế chương trình học theo cấp cho Data Engineer, có lab và bài thi cuối khoá.
+    expected_primary_skill: data-academy-and-curriculum
+    rejected_skill: data-talent-acquisition-and-interview
+    expected_task: academy-design-role-syllabus
+  - id: talent-vs-academy-role-design
+    query: Thiết kế vòng phỏng vấn tuyển Data Engineer với scorecard và work sample chấm được.
+    expected_primary_skill: data-talent-acquisition-and-interview
+    rejected_skill: data-academy-and-curriculum
+    expected_task: talent-design-structured-interview-loop
+  - id: bi-vs-de-build-test
+    query: Dựng dashboard doanh thu theo vùng, có RLS và lịch refresh, rồi kiểm thử với người dùng.
+    expected_primary_skill: business-intelligence
+    rejected_skill: data-engineering
+    expected_task: bi-build-dashboard
+  - id: platform-vs-mlops-operate
+    query: Vận hành nền tảng dữ liệu: môi trường, orchestration, CI/CD, observability và chi phí.
+    expected_primary_skill: data-platform-and-dataops
+    rejected_skill: mlops
+    expected_task: platform-build-data-ci-pipeline
+  - id: mlops-vs-platform-operate
+    query: Vận hành vòng đời model: registry, triển khai phiên bản, drift, retrain và rollback.
+    expected_primary_skill: mlops
+    rejected_skill: data-platform-and-dataops
+    expected_task: mlops-deploy-model-version
+  - id: ae-vs-meta-lineage
+    query: Dựng mart bán hàng bằng dbt có test, tài liệu và mô hình incremental.
+    expected_primary_skill: analytics-engineering
+    rejected_skill: metadata-engineering-and-catalog
+    expected_task: ae-build-analytics-mart
+  - id: meta-vs-ae-lineage
+    query: Thu thập metadata từ warehouse vào catalog, dựng lineage cột và gán owner.
+    expected_primary_skill: metadata-engineering-and-catalog
+    rejected_skill: analytics-engineering
+    expected_task: meta-build-data-lineage
+  - id: meta-vs-de-ingestion
+    query: Thu hoạch metadata kỹ thuật từ các nguồn vào catalog và giữ nó tươi.
+    expected_primary_skill: metadata-engineering-and-catalog
+    rejected_skill: data-engineering
+    expected_task: meta-harvest-technical-metadata

@@ -11,6 +11,7 @@ Use when the user asks to test disaster recovery, requests the stated deliverabl
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: diễn tập restore/failover và đo RTO/RPO.
 - Primary deliverable: **DR test report**.
 

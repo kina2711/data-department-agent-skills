@@ -11,6 +11,7 @@ Use when the user asks to evaluate project completion, requests the stated deliv
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: phân biệt planned, implemented, tested, demonstrated, released và maintained rồi kiểm tra Definition of Done.
 - Primary deliverable: **personal-project completion decision**.
 

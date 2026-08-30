@@ -11,6 +11,7 @@ Use when the user asks to register canonical concept, requests the stated delive
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: cấp và quản lý concept key nối canon, note, topic và competency về một danh tính.
 - Primary deliverable: **canonical concept registry entry**.
 

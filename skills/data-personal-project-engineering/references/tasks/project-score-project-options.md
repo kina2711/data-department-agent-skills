@@ -11,6 +11,7 @@ Use when the user asks to score project options, requests the stated deliverable
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chấm các phương án theo value, role fit, evidence, differentiation, feasibility, data, testability, operations, risk, cost và sustainability.
 - Primary deliverable: **weighted project option scorecard**.
 

@@ -11,6 +11,7 @@ Use when the user asks to design data security architecture, requests the stated
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: thiết kế trust boundaries, IAM, encryption và policy enforcement.
 - Primary deliverable: **security architecture**.
 

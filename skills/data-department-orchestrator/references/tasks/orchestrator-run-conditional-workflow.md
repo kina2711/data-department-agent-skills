@@ -11,6 +11,7 @@ Use when the user asks to run conditional workflow, requests the stated delivera
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chọn branch theo evidence/status/threshold.
 - Primary deliverable: **branch decision and execution**.
 

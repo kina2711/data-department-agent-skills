@@ -11,6 +11,7 @@ Use when the user asks to explain sql business logic, requests the stated delive
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuyển sources, joins, filters, grain, aggregations và output columns của SQL thành logic nghiệp vụ kèm validation questions.
 - Primary deliverable: **query logic explanation**.
 

@@ -11,6 +11,7 @@ Use when the user asks to register business metric, requests the stated delivera
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: ghi definition, formula, grain, dimensions, exclusions và owner.
 - Primary deliverable: **metric entry**.
 

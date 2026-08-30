@@ -11,6 +11,7 @@ Use when the user asks to review data resume, requests the stated deliverable, o
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: kiểm tra relevance, evidence, clarity, claims và role alignment.
 - Primary deliverable: **resume review**.
 

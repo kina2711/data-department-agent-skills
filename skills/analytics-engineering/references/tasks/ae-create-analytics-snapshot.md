@@ -11,6 +11,7 @@ Use when the user asks to create analytics snapshot, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: lưu point-in-time state có valid-from/to.
 - Primary deliverable: **snapshot model**.
 

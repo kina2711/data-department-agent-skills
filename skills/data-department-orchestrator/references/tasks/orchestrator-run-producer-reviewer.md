@@ -11,6 +11,7 @@ Use when the user asks to run producer reviewer, requests the stated deliverable
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chạy vòng producer/reviewer độc lập với rubric chốt trước, giữ kín lập luận của producer tới khi reviewer ghi verdict, và đưa bất đồng chưa giải vào conflict register.
 - Primary deliverable: **producer-reviewer verdict record**.
 
@@ -35,7 +36,7 @@ Additional resources:
 - Read [the producer-reviewer method](../producer-reviewer-method.md); fix the acceptance criteria and rubric before production, and withhold the rationale behind the artifact until the reviewer has recorded an independent verdict.
 - Reuse `../../assets/producer-reviewer-record.yaml`. The producer and reviewer are never the same actor, the reviewer is not a branch the producer dispatched, and every round is recorded including the ones that failed.
 - Reviewer acceptance is quality evidence, never owner approval; a gate requiring named authority bound to artifact version and hash stays unmet until that approval exists.
-- Cap the loop at two full rounds. Escalate an unresolved disagreement to the requester through `orchestrator-manage-conflict-register` with both positions; never split the difference or let the more confident side win.
+- Cap the loop at two full rounds. Each round ends in exactly one of `accept`, `revise` or `reject`; the severity threshold separating revise from reject is fixed in the rubric before production, and one critical defect is a reject however many minor ones were repaired. A reject terminates the loop as `failed` and returns the unmet requirement to the requester with both positions intact — never split the difference or let the more confident side win.
 - Read [the execution discipline standard](../execution-discipline-standard.md).
 - Before Git-backed mutation, require a verified success contract and pre-change scope contract. After the final change, run `core-audit-change-scope` and `core-verify-deliverable`; release remains blocked if either control is absent or failed.
 

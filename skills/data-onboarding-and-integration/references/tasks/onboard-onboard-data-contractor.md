@@ -11,6 +11,7 @@ Use when the user asks to onboard data contractor, requests the stated deliverab
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: áp dụng bounded access, scope, deliverables và exit controls.
 - Primary deliverable: **contractor onboarding package**.
 

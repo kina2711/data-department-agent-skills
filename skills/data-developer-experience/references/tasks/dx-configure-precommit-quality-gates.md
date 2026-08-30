@@ -11,6 +11,7 @@ Use when the user asks to configure precommit quality gates, requests the stated
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: cài format, lint, secret scan và file checks.
 - Primary deliverable: **pre-commit workflow**.
 

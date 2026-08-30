@@ -11,6 +11,7 @@ Use when the user asks to inventory distributed sources, requests the stated del
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: inventory file, URL, export, note, image, video, transcript và spreadsheet theo owner, format, sensitivity, authority và last-used.
 - Primary deliverable: **distributed-source inventory**.
 

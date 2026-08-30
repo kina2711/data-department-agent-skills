@@ -11,6 +11,7 @@ Use when the user asks to build grounded context pack, requests the stated deliv
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đóng gói context có source locators, facts, inferences, personal rules, conflicts, omissions và expiry.
 - Primary deliverable: **prompt-ready grounded context pack**.
 

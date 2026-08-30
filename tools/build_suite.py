@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MAP = ROOT / "docs" / "skill-map.md"
 SKILLS = ROOT / "skills"
-SUITE_VERSION = "3.9.0"
+SUITE_VERSION = "3.10.0"
 REPOSITORY_URL = "https://github.com/kina2711/data-department-agent-skills"
 
 
@@ -274,26 +274,26 @@ CLAUDE_TRIGGER_DESCRIPTIONS = {
     "data-business-analysis": "Elicit and validate data requirements, business rules, processes, use cases, acceptance criteria and traceability. Use for Data Business Analyst work or when an ambiguous business request must become an implementation-ready specification.",
     "data-architecture": "Design data target states, domains, models, integration patterns, contracts, technology decisions, migrations and architecture reviews. Use for enterprise, solution or data architecture deliverables and ADRs.",
     "data-governance-and-stewardship": "Define and operate data ownership, policies, glossary, classification, access governance, retention, certification, stewardship and control evidence. Use for Data Governance, Data Office or Data Steward work.",
-    "metadata-engineering-and-catalog": "Build and operate metadata ingestion, catalog, search, lineage, ownership, usage and metadata quality. Use for data catalog, discovery, technical metadata or lineage engineering requests.",
-    "data-platform-and-dataops": "Design and operate data platforms, environments, orchestration, CI/CD, observability, capacity, reliability, cost and disaster recovery. Use for Data Platform, DataOps or platform operations work.",
+    "metadata-engineering-and-catalog": "Build and operate metadata ingestion, catalog, search, lineage, ownership, usage and metadata quality. Use for data catalog, discovery, technical metadata or lineage engineering requests. This skill describes assets rather than building them, so pipeline construction belongs to data-engineering and transformation modelling to analytics-engineering.",
+    "data-platform-and-dataops": "Design and operate data platforms, environments, orchestration, CI/CD, observability, capacity, reliability, cost and disaster recovery. Use for Data Platform, DataOps or platform operations work. The model lifecycle itself belongs to mlops.",
     "data-developer-experience": "Improve data developer setup, repositories, end-to-end data-path understanding, templates, local environments, CI feedback, standards and inner-loop productivity. Use for Data DevEx, repo reverse engineering, evidence-based walkthroughs or golden paths.",
-    "data-engineering": "Design, build, test, diagnose execution plans and operate batch, API, file, CDC and streaming pipelines with idempotency, schema evolution, reconciliation, recovery and runbooks. Use for Data Engineer ingestion, performance or pipeline work.",
-    "analytics-engineering": "Build governed staging, intermediate, mart, dimensional and semantic models with tests, documentation, lineage, incremental logic and release controls. Use for Analytics Engineering, dbt or analytics-ready dataset work.",
+    "data-engineering": "Design, build, test, diagnose execution plans and operate batch, API, file, CDC and streaming pipelines with idempotency, schema evolution, reconciliation, recovery and runbooks. Use for Data Engineer ingestion, performance or pipeline work. Route feature pipelines and model serving to machine-learning-engineering, dbt-style modelling to analytics-engineering, and catalog or lineage harvesting to metadata-engineering-and-catalog.",
+    "analytics-engineering": "Build governed staging, intermediate, mart, dimensional and semantic models with tests, documentation, lineage, incremental logic and release controls. Use for Analytics Engineering, dbt or analytics-ready dataset work. Route source ingestion to data-engineering and catalog, lineage harvesting or metadata quality to metadata-engineering-and-catalog.",
     "data-analysis": "Perform programmatic EDA, reproducible analysis, SQL-to-business explanation, methodology communication, peer review and retrospective. Use for Data Analyst requests involving datasets, SQL, statistics, insights or analytical quality.",
-    "business-intelligence": "Design, build, test and govern BI semantic models, KPIs, dashboards, reports, interactions, row-level security, refresh, accessibility and adoption. Use for BI Engineer, reporting or dashboard work.",
+    "business-intelligence": "Design, build, test and govern BI semantic models, KPIs, dashboards, reports, interactions, row-level security, refresh, accessibility and adoption. Use for BI Engineer, reporting or dashboard work. This skill owns the semantic layer upward; pipelines belong to data-engineering.",
     "product-analytics-and-experimentation": "Define product events and metrics, analyze funnels, activation, retention and growth, and design or evaluate experiments. Use for Product Analyst, growth analytics, instrumentation or A/B testing work.",
     "data-science": "Frame and execute statistical, causal, forecasting, optimization and machine-learning studies with leakage controls, validation, explainability and model-risk evidence. Use for Data Scientist or decision-science work.",
-    "machine-learning-engineering": "Engineer training pipelines, features, model artifacts, batch or online serving, performance, testing, deployment interfaces and resilience. Use for ML Engineer implementation and productionization work.",
-    "mlops": "Operate the ML lifecycle through experiment tracking, registry, CI/CD, deployment, monitoring, drift, retraining, rollback, lineage and governance. Use for MLOps, model release or ML platform operations.",
+    "machine-learning-engineering": "Engineer training pipelines, features, model artifacts, batch or online serving, performance, testing, deployment interfaces and resilience. Use for ML Engineer implementation and productionization work. Route general batch, CDC or streaming ingestion to data-engineering, and registry, drift or model rollout operations to mlops.",
+    "mlops": "Operate the ML lifecycle through experiment tracking, registry, CI/CD, deployment, monitoring, drift, retraining, rollback, lineage and governance. Use for MLOps, model release or ML platform operations. The underlying platform belongs to data-platform-and-dataops.",
     "data-quality-and-reliability": "Define data quality rules and SLOs, implement observability, reconcile data, triage incidents, run game days and prevent recurrence. Use for Data Quality, Data Reliability or data incident work.",
     "data-security-and-privacy": "Protect data through classification, threat modeling, least privilege, encryption, masking, audit, privacy workflows and incident response. Use for Data Security, Privacy, DSR or sensitive-data risk work.",
     "master-data-management": "Design and operate master entities, identity matching, survivorship, golden records, reference data, hierarchies, stewardship and synchronization. Use for MDM, entity resolution or reference-data work.",
     "generative-ai-engineering": "Build and evaluate governed RAG, retrieval, prompt, tool-using agent and GenAI systems with guardrails, injection testing, monitoring and system cards. Use for production GenAI data products or agents.",
     "data-documentation-and-diagrams": "Create validated data documentation, ADRs, runbooks, postmortems, ERDs, BPMN, sequence, state, lineage and architecture diagrams. Use when the primary deliverable is a data document or technical diagram.",
     "data-enablement-and-knowledge": "Enable data teams through technical onboarding, learning plans, explanations, walkthroughs, pairing, knowledge checks, articles and knowledge-base curation. Use for internal data enablement or knowledge-transfer work.",
-    "data-academy-and-curriculum": "Design and deliver role-based Data Academy curricula with theory, labs, capstones, assessments, remediation, certification and effectiveness measurement. Use for structured learning programs across Data roles and levels.",
+    "data-academy-and-curriculum": "Design and deliver role-based Data Academy curricula with theory, labs, capstones, assessments, remediation, certification and effectiveness measurement. Use for structured learning programs across Data roles and levels. Route hiring loops, scorecards and candidate evaluation to data-talent-acquisition-and-interview; this skill teaches, never selects.",
     "data-onboarding-and-integration": "Plan and operate Data Department preboarding, access readiness, orientation, shadowing, first work, checkpoints, crossboarding, reboarding and offboarding. Use for new-hire or role-transition integration.",
-    "data-talent-acquisition-and-interview": "Design and run structured Data hiring with role profiles, scorecards, interview loops, work samples, rubrics, calibration, debriefs, fairness and validity controls. Use for recruiting or interviewing Data roles.",
+    "data-talent-acquisition-and-interview": "Design and run structured Data hiring with role profiles, scorecards, interview loops, work samples, rubrics, calibration, debriefs, fairness and validity controls. Use for recruiting or interviewing Data roles. Route curriculum, labs and certification of existing staff to data-academy-and-curriculum; this skill decides who to hire, never how to train.",
     "data-career-and-interview-coach": "Build evidence-based Data career systems, persistent cross-skill learner memory, mastery/decay tracking, compact transition context, competency maps, portfolios, interview readiness, remediation and review cycles. Use when prior learning should be reused without reteaching; never infer mastery from exposure or fabricate experience.",
     "data-technical-content-and-social": "Build evidence-backed technical series for Facebook in Vietnamese, LinkedIn and Substack in English, and GitHub from research and a canonical article through code, diagrams, channel-native adaptations, QA, publishing and measurement. Use for Airflow, dbt, Spark, Kafka or other technical-content programs.",
     "data-personal-project-engineering": "Create differentiated personal Data projects for portfolios, learning or capstones from a problem, dataset, repository, role gap, technology, paper, course, open-source issue, incident, constraint or mixed evidence. Use when Claude must select a project mode, assess a reference repo, transform borrowed inspiration into an attributed user-owned thesis, plan execution, or evaluate portfolio proof.",
@@ -695,6 +695,35 @@ def classify_risk(task_id: str, profile: str) -> str:
     return "R0-light"
 
 
+def model_tier(task_id: str, profile: str, risk: str, criticality: str) -> str:
+    """Which model tier this task needs, per references/model-selection.md.
+
+    The variable is not importance but what catches an error before someone acts on it: a
+    validator, a reviewer, or nothing.
+    """
+    action = task_id.split("-", 1)[1]
+    # Evaluating another artifact is where a weak model is most confidently wrong and least
+    # likely to be checked, because the verdict itself is what everyone downstream trusts.
+    judgment = (
+        "audit", "certify", "assess", "evaluate", "review", "validate", "verify", "score",
+        "calibrate", "diagnose", "troubleshoot", "triage", "analyze", "detect", "reconcile",
+        "approve", "approval-gate", "grade",
+    )
+    if any(word in action for word in judgment):
+        return "strong"
+    if risk in {"R3-controlled", "R4-critical"}:
+        return "strong"
+    if profile in {"production-release", "incident-recovery", "governance-assurance"}:
+        return "strong"
+    # A deterministic check downstream turns a mistake into one retry.
+    mechanical = ("index-", "record-", "maintain-", "package-", "collect-", "inventory-", "list-")
+    if risk == "R0-light" and action.startswith(mechanical):
+        return "light"
+    if risk == "R0-light" and criticality == "standard":
+        return "light"
+    return "standard"
+
+
 def execution_path(risk: str) -> str:
     if risk == "R0-light":
         return "fast-path"
@@ -932,6 +961,7 @@ def parse_tasks() -> dict[str, list[dict[str, str]]]:
             "execution_path": execution_path(risk),
             "contract_version": "3.0",
             "criticality": task_criticality(task_id, profile, risk),
+            "model_tier": model_tier(task_id, profile, risk, task_criticality(task_id, profile, risk)),
         })
     return grouped
 
@@ -1432,7 +1462,7 @@ def task_specific_resources(task_id: str) -> list[str]:
             "Read [the producer-reviewer method](../producer-reviewer-method.md); fix the acceptance criteria and rubric before production, and withhold the rationale behind the artifact until the reviewer has recorded an independent verdict.",
             "Reuse `../../assets/producer-reviewer-record.yaml`. The producer and reviewer are never the same actor, the reviewer is not a branch the producer dispatched, and every round is recorded including the ones that failed.",
             "Reviewer acceptance is quality evidence, never owner approval; a gate requiring named authority bound to artifact version and hash stays unmet until that approval exists.",
-            "Cap the loop at two full rounds. Escalate an unresolved disagreement to the requester through `orchestrator-manage-conflict-register` with both positions; never split the difference or let the more confident side win.",
+            "Cap the loop at two full rounds. Each round ends in exactly one of `accept`, `revise` or `reject`; the severity threshold separating revise from reject is fixed in the rubric before production, and one critical defect is a reject however many minor ones were repaired. A reject terminates the loop as `failed` and returns the unmet requirement to the requester with both positions intact — never split the difference or let the more confident side win.",
         ]
     if task_id == "career-bootstrap-concept-registry":
         return [
@@ -1747,6 +1777,7 @@ Use when the user asks to {action}, requests the stated deliverable, or supplies
 - Execution path: `{path}`
 - Contract version: `{task['contract_version']}`
 - Criticality: `{criticality}`
+- Model tier: `{task['model_tier']}` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: {task['goal'].rstrip('.')}.
 - Primary deliverable: **{task['output']}**.
 
@@ -2146,7 +2177,55 @@ def write_yaml(path: Path, data: object) -> None:
     path.write_text("\n".join(yaml_dump(data)) + "\n", encoding="utf-8")
 
 
-def build_shared_assets() -> None:
+CORPUS_WORKFLOW_STAGES = (
+    # (task_id, depends_on, instance_id)
+    ("academy-research-role-roadmap", (), ""),
+    ("career-bootstrap-concept-registry", ("academy-research-role-roadmap",), ""),
+    ("academy-build-skill-track-map", ("academy-research-role-roadmap",), ""),
+    ("academy-plan-note-corpus", ("academy-build-skill-track-map", "career-bootstrap-concept-registry"), ""),
+    ("academy-prioritize-corpus-by-gap", ("academy-plan-note-corpus",), ""),
+    ("academy-build-note-module", ("academy-prioritize-corpus-by-gap",), "module-1"),
+    ("academy-audit-note-corpus", ("academy-build-note-module",), ""),
+    ("academy-index-note-corpus", ("academy-audit-note-corpus",), ""),
+)
+
+
+def corpus_workflow_manifest(risk_of: dict[str, str]) -> dict[str, object]:
+    """Build the corpus workflow template with risk tiers taken from the catalog.
+
+    Hardcoding them let the template declare a tier below the catalog floor, which is the exact
+    downgrade the validator exists to catch. Deriving them means the template cannot drift when a
+    task's tier changes.
+    """
+    order = ["R0-light", "R1-reviewed", "R2-standard", "R3-controlled", "R4-critical"]
+    tasks = []
+    for task_id, depends_on, instance_id in CORPUS_WORKFLOW_STAGES:
+        entry = {"task_id": task_id}
+        if instance_id:
+            entry["instance_id"] = instance_id
+        entry.update({
+            "owner": "",
+            "depends_on": list(depends_on),
+            "status": "planned",
+            "risk_tier": risk_of.get(task_id, "R1-reviewed"),
+            "artifact_version": "",
+            "artifact_sha256": "",
+            "evidence_refs": [],
+            "approval_refs": [],
+        })
+        tasks.append(entry)
+    highest = max((order.index(t["risk_tier"]) for t in tasks), default=1)
+    return {
+        "workflow_id": "", "version": "1.0.0", "objective": "", "status": "draft",
+        "workflow_risk_tier": order[highest],
+        "current_task_id": CORPUS_WORKFLOW_STAGES[0][0],
+        "tasks": tasks, "transitions": [], "claims": [],
+        "module_locks": [{"module_id": "", "claimed_by": "", "claimed_at": "", "released_at": ""}],
+        "updated_at": "",
+    }
+
+
+def build_shared_assets(risk_of: dict[str, str] | None = None) -> None:
     orchestrator_assets = SKILLS / "data-department-orchestrator" / "assets"
     templates = {
         "run-state.yaml": {
@@ -2166,7 +2245,7 @@ def build_shared_assets() -> None:
         },
         "branch-delegation-contract.json": {"workflow_id": "", "wave": 1, "supervisor_risk_ceiling": "R2-standard", "dispatch_mode": "sequential", "branches": [{"branch_id": "", "task_id": "", "instance_id": "", "owner": "", "risk_tier": "", "objective": "", "inputs": [], "read_paths": [], "write_paths": [], "forbidden_actions": ["approve", "publish", "mutate production", "grant access", "raise own risk tier"], "expected_artifacts": [{"path": "", "sha256": ""}], "evidence_required": [], "token_budget": 0, "depends_on": [], "status": "planned"}], "merge": {"order": [], "on_conflict": "conflict-register", "on_branch_failure": "block"}, "status": "draft"},
         "fan-in-merge-record.yaml": {"workflow_id": "", "wave": 1, "merged_at": "", "order": [], "branch_results": [{"branch_id": "", "task_id": "", "status": "complete", "artifact_path": "", "artifact_sha256": "", "hash_verified": False, "evidence_refs": [], "risk_tier": "", "limitations": []}], "inherited_risk_tier": "", "conflicts": [{"conflict_id": "", "branches": [], "positions": [], "evidence_refs": [], "resolution": "unresolved"}], "failed_branches": [], "scope_reduced": False, "run_status": "partial", "next_task": "", "owner": ""},
-        "producer-reviewer-record.yaml": {"record_id": "", "task_id": "", "requirement_ref": "", "acceptance_criteria": [], "rubric_ref": "", "rubric_fixed_before_production": False, "producer": "", "reviewer": "", "same_actor": False, "rounds": [{"round": 1, "artifact_ref": "", "artifact_sha256": "", "producer_rationale_ref": "", "rationale_withheld_until_verdict": True, "reviewer_verdict": "pending", "reviewer_findings": [], "verdict_recorded_at": "", "disclosed_at": "", "outcome": ""}], "max_rounds": 2, "unresolved_disagreements": [], "conflict_register_refs": [], "reviewer_acceptance_is_not_owner_approval": True, "owner_approval_ref": "", "status": "draft"},
+        "producer-reviewer-record.yaml": {"record_id": "", "task_id": "", "requirement_ref": "", "acceptance_criteria": [], "rubric_ref": "", "rubric_fixed_before_production": False, "producer": "", "reviewer": "", "same_actor": False, "rounds": [{"round": 1, "artifact_ref": "", "artifact_sha256": "", "producer_rationale_ref": "", "rationale_withheld_until_verdict": True, "reviewer_verdict": "pending|accept|revise|reject", "reviewer_findings": [{"defect": "", "severity": "minor|major|critical", "repairable": True}], "verdict_recorded_at": "", "disclosed_at": "", "outcome": ""}], "max_rounds": 2, "reject_threshold": "", "reject_threshold_fixed_before_production": False, "terminal_state": "", "returned_to_requester": "", "unrepairable_reason": "", "unresolved_disagreements": [], "conflict_register_refs": [], "reviewer_acceptance_is_not_owner_approval": True, "owner_approval_ref": "", "status": "draft"},
         "question-register.yaml": {"questions": []},
         "assumption-register.yaml": {"assumptions": []},
         "conflict-register.yaml": {"conflicts": []},
@@ -2447,7 +2526,7 @@ def build_shared_assets() -> None:
             "note-corpus-manifest.json": {"corpus_id": "", "domain": "", "roadmap_ref": "", "track_map_ref": "", "note_root": "", "standard": "knowledge-deep-dive-standard.md", "notes": [{"id": "", "title": "", "module_id": "", "path": "", "tags": [], "concept_keys": [], "primary_for_keys": [], "builds_on": [], "prerequisite_of": [], "status": "planned", "version_sensitive": False, "updated": "", "superseded_by": "", "stale_reason": ""}], "modules_completed": [], "next_module": "", "open_gaps": [], "owner": "", "version": "", "status": "draft"},
             "concept-registry.json": {"registry_id": "", "version": "", "owner": "", "keys": [{"concept_key": "", "display_name": "", "definition": "", "domain": "", "aliases": [], "parents": [], "related": [], "binds": {"canon_ids": [], "note_ids": [], "topic_ids": [], "competency_ids": [], "question_ids": []}, "primary_note_id": "", "status": "proposed", "superseded_by": "", "registered_at": "", "registered_by": ""}], "status": "draft"},
             "note-diagnostic-session.yaml": {"session_id": "", "corpus_ref": "", "learner_ref": "", "run_at": "", "entry_level": "", "scenarios": [{"scenario_id": "", "concept_key": "", "source_note_id": "", "surface_varied_from": "", "previously_seen": False, "prediction_recorded": "", "resolving_round": 0, "taught_directly": False, "misconceptions_observed": []}], "proposed_evidence": [{"concept_key": "", "class": "exposed|practiced|demonstrated", "scenario_ids": [], "rationale": "", "limitations": ""}], "rounds_cap": 3, "learning_event_ref": "", "handoff": {"target_skill": "data-career-and-interview-coach", "task": "career-record-learning-event", "status": "not-sent"}, "mastery_claimed": False, "owner": "", "status": "draft"},
-            "corpus-workflow-manifest.json": {"workflow_id": "", "version": "1.0.0", "objective": "", "status": "draft", "workflow_risk_tier": "R1-reviewed", "current_task_id": "academy-research-role-roadmap", "tasks": [{"task_id": "academy-research-role-roadmap", "owner": "", "depends_on": [], "status": "planned", "risk_tier": "R1-reviewed", "artifact_version": "", "artifact_sha256": "", "evidence_refs": [], "approval_refs": []}, {"task_id": "career-bootstrap-concept-registry", "owner": "", "depends_on": ["academy-research-role-roadmap"], "status": "planned", "risk_tier": "R1-reviewed", "artifact_version": "", "artifact_sha256": "", "evidence_refs": [], "approval_refs": []}, {"task_id": "academy-build-skill-track-map", "owner": "", "depends_on": ["academy-research-role-roadmap"], "status": "planned", "risk_tier": "R1-reviewed", "artifact_version": "", "artifact_sha256": "", "evidence_refs": [], "approval_refs": []}, {"task_id": "academy-plan-note-corpus", "owner": "", "depends_on": ["academy-build-skill-track-map", "career-bootstrap-concept-registry"], "status": "planned", "risk_tier": "R1-reviewed", "artifact_version": "", "artifact_sha256": "", "evidence_refs": [], "approval_refs": []}, {"task_id": "academy-prioritize-corpus-by-gap", "owner": "", "depends_on": ["academy-plan-note-corpus"], "status": "planned", "risk_tier": "R1-reviewed", "artifact_version": "", "artifact_sha256": "", "evidence_refs": [], "approval_refs": []}, {"task_id": "academy-build-note-module", "instance_id": "module-1", "owner": "", "depends_on": ["academy-prioritize-corpus-by-gap"], "status": "planned", "risk_tier": "R1-reviewed", "artifact_version": "", "artifact_sha256": "", "evidence_refs": [], "approval_refs": []}, {"task_id": "academy-audit-note-corpus", "owner": "", "depends_on": ["academy-build-note-module"], "status": "planned", "risk_tier": "R1-reviewed", "artifact_version": "", "artifact_sha256": "", "evidence_refs": [], "approval_refs": []}, {"task_id": "academy-index-note-corpus", "owner": "", "depends_on": ["academy-audit-note-corpus"], "status": "planned", "risk_tier": "R1-reviewed", "artifact_version": "", "artifact_sha256": "", "evidence_refs": [], "approval_refs": []}], "transitions": [], "claims": [], "module_locks": [{"module_id": "", "claimed_by": "", "claimed_at": "", "released_at": ""}], "updated_at": ""},
+            "corpus-workflow-manifest.json": corpus_workflow_manifest(risk_of or {}),
             "misconception-feedback.yaml": {"rollup_id": "", "corpus_ref": "", "sessions_considered": [], "window": "", "threshold_sessions": 3, "findings": [{"concept_key": "", "misconception": "", "learner_framing": [], "session_ids": [], "occurrences": 0, "primary_note_id": "", "note_status": "", "eligible_for_edit": False, "ineligible_reason": "", "proposed_entry": {"misconception": "", "reality": "", "why_it_sounds_plausible": ""}}], "edits_applied": [{"note_id": "", "concept_key": "", "appended_entry": "", "status_before": "", "status_after": "needs-review", "updated_to": "", "applied_at": "", "revert_ref": ""}], "edits_skipped": [], "version_control_verified": False, "content_removed": False, "owner": "", "status": "draft"},
             "corpus-priority-plan.yaml": {"plan_id": "", "corpus_ref": "", "roadmap_ref": "", "gap_source": {"skill": "data-career-and-interview-coach", "artifact": "", "assessed_at": ""}, "modules": [{"module_id": "", "concept_keys": [], "gap_severity": "", "evidence_basis": "measured|self-reported|assumed", "blocking_for": [], "priority_rank": 0, "rationale": ""}], "deferred_modules": [], "coverage_before": {}, "assumptions": [], "owner": "", "status": "draft"},
             "note-corpus-audit.yaml": {"audit_id": "", "corpus_ref": "", "checked_at": "", "duplicate_ids": [], "unregistered_concept_keys": [], "duplicate_primary_keys": [], "keys_without_primary": [], "duplicate_candidates": [], "dangling_edges": [], "prerequisite_cycles": [], "planned_missing_files": [], "files_not_in_manifest": [], "stale_notes": [], "roadmap_coverage": {"steps_total": 0, "steps_with_notes": 0, "uncovered_steps": []}, "depth_inconsistencies": [], "script_run": {"command": "", "exit_status": "not-run", "observed": ""}, "limitations": [], "owner": "", "status": "draft"},
@@ -2726,6 +2805,36 @@ Specific passes, in order: delete the opening if the second paragraph could star
 
 Fluency is not accuracy. Prose that reads well and hedges nothing can be confidently wrong, and this standard does nothing about that — sourcing, evidence and review do. Never remove a qualifier because it reads as weak when the underlying claim genuinely is qualified, and never sharpen a number, a version or a limitation to make a sentence land. A stated uncertainty is content, not filler.
 """
+    model_selection = """# Model selection
+
+Every task in this suite already declares a risk tier and a criticality. Neither says which model should run it, so the choice has been made by whatever was open at the time. That is the wrong variable to leave to chance in both directions: a weak model on a judgment task produces confident wrong answers that a reviewer then has to catch, and the strongest model on a mechanical task burns budget that the deadline will later reclaim from somewhere that mattered.
+
+## Choose by what catches the error, not by importance
+
+Everything in a governed suite feels important. The question that actually separates the tiers is what happens to a mistake between the model making it and someone acting on it.
+
+| What catches an error here | Tier | Typical work |
+|---|---|---|
+| A deterministic check — a script, a schema, a test, a validator | **light** | Formatting to a template, extracting fields, filling a manifest, mechanical rewriting, listing what exists |
+| A human reviewer reading the output | **standard** | Drafting a specification, writing an explanation, proposing a design, summarizing findings |
+| Nothing before it reaches a decision, an approval, a release, or a judgment about a person | **strong** | Grading, auditing, reviewing another artifact, root-cause diagnosis, risk assessment, certification, anything at `R3-controlled` or above |
+
+The reasoning is that a mistake a validator will reject costs one retry, a mistake a reviewer will catch costs their attention, and a mistake nothing catches becomes a decision. Spend where nothing else is watching.
+
+## Two rules that override the table
+
+A task whose output is the **evaluation of another artifact** runs on the strong tier regardless of its risk tier. Grading is where a weak model is most confidently wrong and least likely to be checked, because the grade itself is what everyone downstream trusts. The same applies to a reviewer in a producer-reviewer pair: the reviewer never runs on a lighter tier than the producer, or the review is theatre.
+
+A task at `R3-controlled` or `R4-critical` runs on the strong tier. These are the tiers where execution is irreversible or affects access, employment, money or published claims.
+
+## What model choice is not
+
+It is not a control. A strong model does not satisfy a gate, replace a review, raise an evidence level or license a claim the evidence does not support; a light model does not lower the bar the output must clear. Every gate in the lifecycle standard applies identically at every tier.
+
+Do not downgrade a tier to save budget or time on work the table places higher, for the same reason risk tiers are never downgraded to meet a deadline. If budget genuinely forces a lighter model on judgment work, that is a constraint to state in the deliverable, not a decision to make silently — record it as a limitation so the reader knows the grade they are reading was produced under one.
+
+Record the model actually used alongside the output whenever the task produced a judgment, a score or an approval input. Six months later, "which model graded this" is a question with consequences, and it has no answer unless it was written down.
+"""
     response_compression = """# Response compression
 
 This standard governs how a result is *reported*. It never changes what the task requires. Compression may not remove a gate, a test, an approval, a residual risk or an evidence pointer; a shorter answer that hides an unmet control is a failed task, not a concise one.
@@ -2824,6 +2933,7 @@ Record only routing/task metadata, outcome, duration, references loaded, token e
         refs = SKILLS / skill / "references"
         (refs / "lifecycle-standard.md").write_text(lifecycle, encoding="utf-8")
         (refs / "response-compression.md").write_text(response_compression, encoding="utf-8")
+        (refs / "model-selection.md").write_text(model_selection, encoding="utf-8")
         if skill in PROSE_AUTHORING_SKILLS:
             (refs / "authored-prose-voice.md").write_text(authored_prose_voice, encoding="utf-8")
         (refs / "solution-option-framing.md").write_text(solution_option_framing, encoding="utf-8")
@@ -2917,11 +3027,33 @@ that merely breaks the tie without new evidence.
 A reviewer's acceptance is quality evidence. It is **not** owner approval, and it never satisfies a
 gate that requires named authority bound to an artifact version and hash.
 
-## Rounds
+## Rounds and the three ways one ends
 
 Cap the loop. Two full rounds without convergence is a signal that the requirement is ambiguous,
-not that a third round will help; escalate to the requester with both positions rather than
-iterating. Record every round in `producer-reviewer-record.yaml`, including rounds that failed.
+not that a third round will help. Record every round in `producer-reviewer-record.yaml`,
+including rounds that failed.
+
+Each round ends in exactly one of three verdicts, and the reviewer names which:
+
+- **accept** — the artifact meets the acceptance criteria. Downstream work proceeds. This is
+  quality evidence, never owner approval.
+- **revise** — the defects are specific, bounded and repairable by the producer. The reviewer
+  lists them with severity; the producer returns a revision, not an argument.
+- **reject** — the artifact is wrong in a way another revision will not repair: it answers a
+  different question, rests on a premise that does not hold, or would need to be rebuilt rather
+  than corrected. The loop terminates as `failed` and returns to the requester.
+
+The missing verdict is usually `reject`. Without it, work that should stop instead spends its two
+rounds being polished, and arrives late and still wrong. A reviewer who can only say *accept* or
+*try again* cannot report that the task itself was misframed.
+
+Set the severity threshold that separates `revise` from `reject` in the rubric, before production,
+alongside the acceptance criteria. Deciding it after reading the artifact is deciding it about the
+artifact. A single critical defect is a `reject` regardless of how many minor ones were fixed;
+counting defects is not a substitute for weighing the worst one.
+
+A `reject` is a terminal state of this loop, not of the work. It returns an unmet requirement to
+whoever set it, with both positions intact and the reason the artifact could not be repaired.
 """
     for name, content in (
         ("parallel-execution-and-agent-teams.md", parallel_execution),
@@ -3145,7 +3277,7 @@ A corpus outlives its sessions, so two of them will eventually run at once. The 
 
 Claim a module before building it and release it when the batch closes. Two sessions may work in parallel only on modules that share no notes, and neither rewrites a manifest entry belonging to the other's module. On a collision, the module that has not yet written any note yields; re-running a module that produced nothing is cheap, and reconciling two divergent manifests is not.
 
-Where the corpus spans enough stages to need gates, represent it as `corpus-workflow-manifest.json` and validate it with `data-department-orchestrator/scripts/validate_workflow.py`. The dependency edges are the stage order — research before tracks, tracks before plan, plan before any module — and each module batch is its own task instance so a failure names the module rather than the whole corpus. Resume through `orchestrator-resume-workflow` reading that manifest alongside the corpus manifest.
+Where the corpus spans enough stages to need gates, represent it as `corpus-workflow-manifest.json` and validate it with `data-department-orchestrator/scripts/validate_workflow.py`. The dependency edges are the stage order: research before tracks, tracks before plan, plan before any module. One workflow carries one `academy-build-note-module` entry, because the validator keys tasks by `task_id` and rejects a duplicate; `instance_id` labels which module that entry is currently on, and a corpus with many modules advances that one entry rather than fanning out into one entry per module. Resume through `orchestrator-resume-workflow` reading that manifest alongside the corpus manifest.
 
 ## What the corpus index does not record
 
@@ -4120,6 +4252,7 @@ A redesign specification maps audit finding -> design decision -> affected page/
         "execution-discipline-standard.md",
         "workflow-runtime-and-evidence-os.md",
         "learning-memory-interoperability.md",
+        "model-selection.md",
     ]
     canonical_refs = SKILLS / "shared-data-core" / "references"
     shared_manifest = {
@@ -4425,7 +4558,7 @@ def main() -> None:
                 "policy": {"allow_implicit_invocation": True},
             },
         )
-    build_shared_assets()
+    build_shared_assets({t['id']: t['risk_tier'] for tasks in grouped.values() for t in tasks})
     build_role_routing(grouped)
     build_references()
     build_people_references()

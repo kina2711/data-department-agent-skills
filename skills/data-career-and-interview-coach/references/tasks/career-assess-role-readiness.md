@@ -11,6 +11,7 @@ Use when the user asks to assess role readiness, requests the stated deliverable
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đánh giá theory, practical evidence, communication và gaps theo scorecard.
 - Primary deliverable: **readiness assessment**.
 

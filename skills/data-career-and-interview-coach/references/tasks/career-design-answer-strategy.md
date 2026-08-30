@@ -11,6 +11,7 @@ Use when the user asks to design answer strategy, requests the stated deliverabl
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chọn structure, opening, reasoning flow, evidence, STAR/system-design pattern, checks và follow-up handling.
 - Primary deliverable: **interview answer strategy**.
 

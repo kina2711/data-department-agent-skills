@@ -11,6 +11,7 @@ Use when the user asks to assess source rights, requests the stated deliverable,
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: kiểm tra ownership, license, edition, quotation, processing, storage và publication rights trước conversion.
 - Primary deliverable: **source-rights decision**.
 

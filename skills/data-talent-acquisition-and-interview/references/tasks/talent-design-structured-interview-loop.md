@@ -11,6 +11,7 @@ Use when the user asks to design structured interview loop, requests the stated 
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: sắp xếp stages, competencies, interviewers và decision rules.
 - Primary deliverable: **interview-loop design**.
 

@@ -11,6 +11,7 @@ Use when the user asks to start idea first, requests the stated deliverable, or 
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: bắt đầu từ ý tưởng do người dùng tự đề xuất rồi kiểm tra problem, user, feasibility và evidence value.
 - Primary deliverable: **self-idea project charter**.
 

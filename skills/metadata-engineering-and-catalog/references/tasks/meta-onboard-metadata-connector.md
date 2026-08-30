@@ -11,6 +11,7 @@ Use when the user asks to onboard metadata connector, requests the stated delive
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: cấu hình extraction, credentials, schedule và validation.
 - Primary deliverable: **operational connector**.
 

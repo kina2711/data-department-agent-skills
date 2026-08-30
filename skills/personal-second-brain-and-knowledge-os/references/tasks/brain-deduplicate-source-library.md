@@ -11,6 +11,7 @@ Use when the user asks to deduplicate source library, requests the stated delive
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: phát hiện exact, near-duplicate, revised và syndicated sources mà không xóa evidence tùy tiện.
 - Primary deliverable: **source deduplication decision**.
 

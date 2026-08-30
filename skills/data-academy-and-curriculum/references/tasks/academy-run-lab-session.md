@@ -11,6 +11,7 @@ Use when the user asks to run lab session, requests the stated deliverable, or s
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: giám sát hands-on execution, safety, checkpoints và recovery.
 - Primary deliverable: **lab completion evidence**.
 

@@ -11,6 +11,7 @@ Use when the user asks to frame generative ai use case, requests the stated deli
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: xác định user task, value, risk và non-AI baseline.
 - Primary deliverable: **AI use-case brief**.
 

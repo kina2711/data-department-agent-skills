@@ -11,6 +11,7 @@ Use when the user asks to inventory source collection, requests the stated deliv
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: inventory books, chapters, PDFs, EPUBs, notes và companion artifacts theo source identity và edition.
 - Primary deliverable: **book-source inventory**.
 

@@ -11,6 +11,7 @@ Use when the user asks to write knowledge deep dive, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: giải thích một concept từ definition, mental model, mechanism, trade-offs tới edge cases, examples và sources.
 - Primary deliverable: **evidence-backed knowledge deep dive**.
 

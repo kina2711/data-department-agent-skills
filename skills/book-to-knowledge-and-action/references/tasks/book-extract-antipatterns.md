@@ -11,6 +11,7 @@ Use when the user asks to extract antipatterns, requests the stated deliverable,
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: trích what-not-to-do, detection signals, why-it-fails, exceptions và remedies.
 - Primary deliverable: **anti-pattern library**.
 

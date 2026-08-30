@@ -11,6 +11,7 @@ Use when the user asks to generate practice exercise, requests the stated delive
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo realistic task, fixtures và success criteria.
 - Primary deliverable: **practice assignment**.
 

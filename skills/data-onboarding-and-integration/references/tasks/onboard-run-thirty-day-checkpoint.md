@@ -11,6 +11,7 @@ Use when the user asks to run thirty day checkpoint, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đánh giá foundations, first contributions và support needs.
 - Primary deliverable: **thirty-day checkpoint record**.
 

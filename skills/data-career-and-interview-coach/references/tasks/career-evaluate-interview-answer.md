@@ -11,6 +11,7 @@ Use when the user asks to evaluate interview answer, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chấm correctness, structure, evidence, depth và communication.
 - Primary deliverable: **answer evaluation**.
 

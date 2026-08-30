@@ -11,6 +11,7 @@ Use when the user asks to design formative assessment, requests the stated deliv
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo low-stakes checks để điều chỉnh việc học sớm.
 - Primary deliverable: **formative assessment**.
 

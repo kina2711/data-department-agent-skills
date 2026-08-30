@@ -11,6 +11,7 @@ Use when the user asks to optimize ml infrastructure cost, requests the stated d
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: phân tích training/serving utilization và rightsizing.
 - Primary deliverable: **cost plan**.
 

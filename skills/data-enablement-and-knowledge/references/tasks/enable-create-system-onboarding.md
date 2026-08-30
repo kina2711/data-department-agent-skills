@@ -11,6 +11,7 @@ Use when the user asks to create system onboarding, requests the stated delivera
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: giải thích architecture, workflows, environments và runbooks.
 - Primary deliverable: **system onboarding guide**.
 

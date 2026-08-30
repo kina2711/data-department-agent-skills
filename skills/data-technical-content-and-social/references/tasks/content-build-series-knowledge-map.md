@@ -11,6 +11,7 @@ Use when the user asks to build series knowledge map, requests the stated delive
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: nối prerequisites, core concepts, mechanisms, contrasts, failure modes và follow-on topics.
 - Primary deliverable: **series knowledge map**.
 

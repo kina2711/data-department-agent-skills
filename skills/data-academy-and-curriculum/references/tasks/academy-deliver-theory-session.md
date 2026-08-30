@@ -11,6 +11,7 @@ Use when the user asks to deliver theory session, requests the stated deliverabl
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: thực hiện lesson có knowledge checks và participation evidence.
 - Primary deliverable: **delivered-session record**.
 

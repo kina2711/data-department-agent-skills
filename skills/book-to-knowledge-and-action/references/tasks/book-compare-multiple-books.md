@@ -11,6 +11,7 @@ Use when the user asks to compare multiple books, requests the stated deliverabl
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: so sánh terminology, assumptions, frameworks, agreements, contradictions và applicability qua nhiều nguồn.
 - Primary deliverable: **multi-book comparison**.
 

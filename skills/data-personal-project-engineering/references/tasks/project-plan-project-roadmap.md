@@ -11,6 +11,7 @@ Use when the user asks to plan project roadmap, requests the stated deliverable,
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: thiết kế phases, dependencies, milestones, gates, buffers và stop conditions.
 - Primary deliverable: **personal-project roadmap**.
 

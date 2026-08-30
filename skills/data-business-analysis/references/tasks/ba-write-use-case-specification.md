@@ -11,6 +11,7 @@ Use when the user asks to write use case specification, requests the stated deli
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: mô tả actor, precondition, main flow, alternatives và postcondition.
 - Primary deliverable: **use-case specification**.
 

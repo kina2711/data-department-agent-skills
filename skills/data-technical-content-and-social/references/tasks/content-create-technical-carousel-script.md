@@ -11,6 +11,7 @@ Use when the user asks to create technical carousel script, requests the stated 
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuyển một mental model thành slide sequence có hook, progressive explanation, visual direction, alt text và takeaway.
 - Primary deliverable: **technical carousel script**.
 

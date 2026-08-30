@@ -11,6 +11,7 @@ Use when the user asks to generate grounded output, requests the stated delivera
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo output từ context pack và gắn material claims tới source hoặc personal-rule IDs.
 - Primary deliverable: **grounded second-brain output**.
 

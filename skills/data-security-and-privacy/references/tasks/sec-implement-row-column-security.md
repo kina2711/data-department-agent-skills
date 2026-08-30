@@ -11,6 +11,7 @@ Use when the user asks to implement row column security, requests the stated del
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: triển khai filters/masking và test bypass.
 - Primary deliverable: **enforced policies**.
 

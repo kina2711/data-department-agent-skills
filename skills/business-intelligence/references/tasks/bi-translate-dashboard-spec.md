@@ -11,6 +11,7 @@ Use when the user asks to translate dashboard spec, requests the stated delivera
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuyển requirement thành dataset, measures, pages và interactions.
 - Primary deliverable: **BI design**.
 

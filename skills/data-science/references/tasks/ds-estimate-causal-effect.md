@@ -11,6 +11,7 @@ Use when the user asks to estimate causal effect, requests the stated deliverabl
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chọn identification strategy, assumptions và robustness tests.
 - Primary deliverable: **causal estimate**.
 

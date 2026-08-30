@@ -11,6 +11,7 @@ Use when the user asks to record learning event, requests the stated deliverable
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: ghi append-only nội dung đã học, practice, artifact, feedback, assessment và source/version mà không tự nâng mastery.
 - Primary deliverable: **learning event record**.
 

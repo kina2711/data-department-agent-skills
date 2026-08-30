@@ -11,6 +11,7 @@ Use when the user asks to start incident failure first, requests the stated deli
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: bắt đầu từ failure scenario, tạo reproduction, detection, diagnosis, recovery và prevention evidence.
 - Primary deliverable: **reliability project charter**.
 

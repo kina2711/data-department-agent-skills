@@ -11,6 +11,7 @@ Use when the user asks to troubleshoot platform incident, requests the stated de
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: triage infrastructure/runtime fault.
 - Primary deliverable: **restored platform and incident record**.
 

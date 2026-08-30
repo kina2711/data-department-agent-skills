@@ -11,6 +11,7 @@ Use when the user asks to plan portfolio evidence, requests the stated deliverab
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chọn decisions, artifacts, tests, failures, trade-offs và narrative proof cần lưu.
 - Primary deliverable: **portfolio evidence plan**.
 

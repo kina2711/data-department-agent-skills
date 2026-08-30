@@ -11,6 +11,7 @@ Use when the user asks to assess organizational learning needs, requests the sta
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: phân tích strategy, competency gaps, incidents và delivery demand.
 - Primary deliverable: **organizational learning-needs assessment**.
 

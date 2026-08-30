@@ -11,6 +11,7 @@ Use when the user asks to configure experiment tracking, requests the stated del
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuẩn hóa runs, params, metrics và artifacts.
 - Primary deliverable: **tracking workspace**.
 

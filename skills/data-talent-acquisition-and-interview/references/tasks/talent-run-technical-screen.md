@@ -11,6 +11,7 @@ Use when the user asks to run technical screen, requests the stated deliverable,
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: kiểm tra fundamentals và problem-solving theo role.
 - Primary deliverable: **technical-screen assessment**.
 

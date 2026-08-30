@@ -11,6 +11,7 @@ Use when the user asks to package data project, requests the stated deliverable,
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo artifact/container/package có version và provenance.
 - Primary deliverable: **deployable project artifact**.
 

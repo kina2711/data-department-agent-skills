@@ -11,6 +11,7 @@ Use when the user asks to assess topic mastery, requests the stated deliverable,
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đánh giá recall, application, changed-scenario transfer, failure handling, evidence và freshness trước khi đổi mastery state.
 - Primary deliverable: **topic mastery assessment**.
 

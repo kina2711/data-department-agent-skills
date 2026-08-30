@@ -11,6 +11,7 @@ Use when the user asks to build retrieval pipeline, requests the stated delivera
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: query transform, filters, hybrid search và top-k.
 - Primary deliverable: **retriever**.
 

@@ -11,6 +11,7 @@ Use when the user asks to define data role competencies, requests the stated del
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo competency matrix theo level.
 - Primary deliverable: **role framework**.
 

@@ -11,6 +11,7 @@ Use when the user asks to harvest technical metadata, requests the stated delive
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: thu schema, type, keys, jobs và dependencies từ platforms.
 - Primary deliverable: **harvested metadata**.
 

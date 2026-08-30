@@ -11,6 +11,7 @@ Use when the user asks to run behavioral interview, requests the stated delivera
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đánh giá past evidence về ownership, collaboration, learning và conflict.
 - Primary deliverable: **behavioral assessment**.
 

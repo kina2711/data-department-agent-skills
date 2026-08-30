@@ -11,6 +11,7 @@ Use when the user asks to build role theory pack, requests the stated deliverabl
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đóng gói lý thuyết chuẩn theo role, level và company context.
 - Primary deliverable: **role theory knowledge pack**.
 

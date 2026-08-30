@@ -11,6 +11,7 @@ Use when the user asks to map question to competency evidence, requests the stat
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: phân tích intent, competency, depth, expected evidence, probes và red flags của từng question.
 - Primary deliverable: **question-competency-evidence matrix**.
 

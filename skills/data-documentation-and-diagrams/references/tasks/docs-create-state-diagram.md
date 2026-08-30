@@ -11,6 +11,7 @@ Use when the user asks to create state diagram, requests the stated deliverable,
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: mô tả states, triggers, valid và invalid transitions.
 - Primary deliverable: **state model**.
 

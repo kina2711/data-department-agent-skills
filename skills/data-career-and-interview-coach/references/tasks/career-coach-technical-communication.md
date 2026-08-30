@@ -11,6 +11,7 @@ Use when the user asks to coach technical communication, requests the stated del
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: luyện clarification, assumptions, trade-offs và concise explanation.
 - Primary deliverable: **communication coaching record**.
 

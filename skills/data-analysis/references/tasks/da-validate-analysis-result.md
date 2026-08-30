@@ -11,6 +11,7 @@ Use when the user asks to validate analysis result, requests the stated delivera
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: kiểm tra totals, edge cases, benchmark và alternate query.
 - Primary deliverable: **validation evidence**.
 

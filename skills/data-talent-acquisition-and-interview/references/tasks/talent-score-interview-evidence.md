@@ -11,6 +11,7 @@ Use when the user asks to score interview evidence, requests the stated delivera
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: map independent notes tới scorecard trước debrief.
 - Primary deliverable: **evidence-based interview score**.
 

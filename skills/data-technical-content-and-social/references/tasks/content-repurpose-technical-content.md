@@ -11,6 +11,7 @@ Use when the user asks to repurpose technical content, requests the stated deliv
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: biến canonical article thành channel-native variants mà không copy nguyên văn hoặc làm sai claim.
 - Primary deliverable: **cross-channel adaptation package**.
 

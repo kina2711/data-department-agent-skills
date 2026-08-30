@@ -11,6 +11,7 @@ Use when the user asks to design disaster recovery, requests the stated delivera
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: xác định RTO/RPO, backup, failover và test plan.
 - Primary deliverable: **DR architecture**.
 

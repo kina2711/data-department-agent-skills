@@ -11,6 +11,7 @@ Use when the user asks to investigate data access anomaly, requests the stated d
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: correlate identity, query, asset và context.
 - Primary deliverable: **investigation report**.
 

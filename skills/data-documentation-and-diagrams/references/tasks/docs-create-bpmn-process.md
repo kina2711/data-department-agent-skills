@@ -11,6 +11,7 @@ Use when the user asks to create bpmn process, requests the stated deliverable, 
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo BPMN 2.0 có pools, lanes, events, gateways và semantic validation.
 - Primary deliverable: **valid BPMN artifact**.
 

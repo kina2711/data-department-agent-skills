@@ -11,6 +11,7 @@ Use when the user asks to build requirement traceability, requests the stated de
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: nối requirement tới design, data, test và release.
 - Primary deliverable: **traceability matrix**.
 

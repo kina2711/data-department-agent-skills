@@ -11,6 +11,7 @@ Use when the user asks to run reference check, requests the stated deliverable, 
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: xác minh role-relevant evidence với consent và consistent questions.
 - Primary deliverable: **reference-check record**.
 

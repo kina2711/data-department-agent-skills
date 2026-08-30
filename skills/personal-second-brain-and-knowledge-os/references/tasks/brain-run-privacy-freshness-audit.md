@@ -11,6 +11,7 @@ Use when the user asks to run privacy freshness audit, requests the stated deliv
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: kiểm tra secrets, sensitive personal data, permissions, stale notes, broken links, rights và retention.
 - Primary deliverable: **privacy-and-freshness audit**.
 

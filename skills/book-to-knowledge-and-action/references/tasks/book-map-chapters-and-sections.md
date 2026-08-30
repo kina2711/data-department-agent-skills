@@ -11,6 +11,7 @@ Use when the user asks to map chapters and sections, requests the stated deliver
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: map table of contents, chapter boundaries, themes, source offsets và destination slices.
 - Primary deliverable: **chapter-source map**.
 

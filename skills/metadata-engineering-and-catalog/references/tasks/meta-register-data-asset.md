@@ -11,6 +11,7 @@ Use when the user asks to register data asset, requests the stated deliverable, 
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo catalog entry có identifier, owner, classification và lifecycle.
 - Primary deliverable: **registered asset**.
 

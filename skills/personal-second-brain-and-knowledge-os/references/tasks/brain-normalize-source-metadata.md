@@ -11,6 +11,7 @@ Use when the user asks to normalize source metadata, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuẩn hóa title, author, date, source type, canonical URL, edition, tags, sensitivity và authority.
 - Primary deliverable: **normalized source metadata**.
 

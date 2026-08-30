@@ -11,6 +11,7 @@ Use when the user asks to register dataset schema, requests the stated deliverab
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: ghi schema, grain, keys, partitions, relationships và examples.
 - Primary deliverable: **dataset-schema entry**.
 

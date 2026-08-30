@@ -11,6 +11,7 @@ Use when the user asks to curate personal principles, requests the stated delive
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: rút ra principles từ kinh nghiệm thật và gắn scope, counterexample, confidence, review date.
 - Primary deliverable: **personal-principle library**.
 

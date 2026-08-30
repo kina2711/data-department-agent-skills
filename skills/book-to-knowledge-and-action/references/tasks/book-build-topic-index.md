@@ -11,6 +11,7 @@ Use when the user asks to build topic index, requests the stated deliverable, or
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: map natural-language topics và questions tới chapter, framework và destination files.
 - Primary deliverable: **progressive topic index**.
 

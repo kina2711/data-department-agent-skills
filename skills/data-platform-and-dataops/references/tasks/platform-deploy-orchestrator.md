@@ -11,6 +11,7 @@ Use when the user asks to deploy orchestrator, requests the stated deliverable, 
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: cài đặt, cấu hình và kiểm tra orchestration runtime.
 - Primary deliverable: **operational orchestrator**.
 

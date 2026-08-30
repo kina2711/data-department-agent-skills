@@ -11,6 +11,7 @@ Use when the user asks to monitor schema change, requests the stated deliverable
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: phát hiện breaking drift và affected consumers.
 - Primary deliverable: **schema alert**.
 

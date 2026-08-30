@@ -11,6 +11,7 @@ Use when the user asks to process image and diagram source, requests the stated 
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: mô tả OCR, labels, relationships, uncertainty và link về ảnh gốc thay vì coi visual inference là fact.
 - Primary deliverable: **image knowledge record**.
 

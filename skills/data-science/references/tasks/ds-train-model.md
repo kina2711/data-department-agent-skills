@@ -11,6 +11,7 @@ Use when the user asks to train model, requests the stated deliverable, or suppl
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: huấn luyện pipeline reproducible với tracked config.
 - Primary deliverable: **trained candidate**.
 

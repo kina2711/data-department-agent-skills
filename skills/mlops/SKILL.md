@@ -1,6 +1,6 @@
 ---
 name: mlops
-description: Operate the ML lifecycle through experiment tracking, registry, CI/CD, deployment, monitoring, drift, retraining, rollback, lineage and governance. Use for MLOps, model release or ML platform operations.
+description: Operate the ML lifecycle through experiment tracking, registry, CI/CD, deployment, monitoring, drift, retraining, rollback, lineage and governance. Use for MLOps, model release or ML platform operations. The underlying platform belongs to data-platform-and-dataops.
 ---
 
 # MLOps

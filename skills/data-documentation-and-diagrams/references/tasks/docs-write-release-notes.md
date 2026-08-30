@@ -11,6 +11,7 @@ Use when the user asks to write release notes, requests the stated deliverable, 
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tóm tắt changes, impact, migration và known issues.
 - Primary deliverable: **release notes**.
 

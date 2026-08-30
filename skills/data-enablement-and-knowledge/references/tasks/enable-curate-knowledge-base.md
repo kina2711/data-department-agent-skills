@@ -11,6 +11,7 @@ Use when the user asks to curate knowledge base, requests the stated deliverable
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: merge duplicates, retire stale content và repair links.
 - Primary deliverable: **curated knowledge base**.
 

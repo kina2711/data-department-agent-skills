@@ -11,6 +11,7 @@ Use when the user asks to design project differentiation, requests the stated de
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo khác biệt có ý nghĩa theo problem/user, data/domain, architecture, reliability, governance, performance, operations, evaluation hoặc experience.
 - Primary deliverable: **project differentiation design**.
 

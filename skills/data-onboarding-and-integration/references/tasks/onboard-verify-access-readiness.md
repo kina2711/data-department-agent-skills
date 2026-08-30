@@ -11,6 +11,7 @@ Use when the user asks to verify access readiness, requests the stated deliverab
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: test accounts, MFA, environments, repositories và data permissions.
 - Primary deliverable: **access-readiness report**.
 

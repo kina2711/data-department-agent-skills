@@ -11,6 +11,7 @@ Use when the user asks to build architecture case study, requests the stated del
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: bóc tách một kiến trúc public thành constraints, decisions, rejected alternatives, consistency, cost, failure modes và follow-up questions có trích dẫn nguồn.
 - Primary deliverable: **architecture case-study dossier**.
 

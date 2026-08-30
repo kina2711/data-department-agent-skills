@@ -11,6 +11,7 @@ Use when the user asks to discover sensitive data, requests the stated deliverab
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: scan và xác minh PII/secrets/confidential fields.
 - Primary deliverable: **sensitive-data inventory**.
 

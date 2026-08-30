@@ -11,6 +11,7 @@ Use when the user asks to assess current knowledge system, requests the stated d
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đánh giá nơi lưu, retrieval friction, duplication, portability, AI access, privacy và reuse baseline.
 - Primary deliverable: **current knowledge-system assessment**.
 

@@ -1,6 +1,6 @@
 ---
 name: metadata-engineering-and-catalog
-description: Build and operate metadata ingestion, catalog, search, lineage, ownership, usage and metadata quality. Use for data catalog, discovery, technical metadata or lineage engineering requests.
+description: Build and operate metadata ingestion, catalog, search, lineage, ownership, usage and metadata quality. Use for data catalog, discovery, technical metadata or lineage engineering requests. This skill describes assets rather than building them, so pipeline construction belongs to data-engineering and transformation modelling to analytics-engineering.
 ---
 
 # Metadata Engineering and Catalog

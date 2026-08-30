@@ -11,6 +11,7 @@ Use when the user asks to prevent data leakage, requests the stated deliverable,
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: audit temporal, target, identity và split leakage.
 - Primary deliverable: **leakage assessment**.
 

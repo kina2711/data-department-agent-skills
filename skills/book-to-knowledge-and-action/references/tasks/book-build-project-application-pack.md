@@ -11,6 +11,7 @@ Use when the user asks to build project application pack, requests the stated de
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: biến frameworks thành project hypotheses, decisions, constraints, experiments, artifacts và portfolio proof.
 - Primary deliverable: **book-to-project application pack**.
 

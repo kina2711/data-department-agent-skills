@@ -11,6 +11,7 @@ Use when the user asks to maintain run state, requests the stated deliverable, o
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: lưu lifecycle phase, current task, blockers và next permitted action.
 - Primary deliverable: **run-state record**.
 

@@ -11,6 +11,7 @@ Use when the user asks to write architecture decision record, requests the state
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: ghi context, options, decision và consequence.
 - Primary deliverable: **ADR**.
 

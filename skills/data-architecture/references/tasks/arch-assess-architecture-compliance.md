@@ -11,6 +11,7 @@ Use when the user asks to assess architecture compliance, requests the stated de
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đối chiếu implementation với standards và waiver.
 - Primary deliverable: **compliance report**.
 

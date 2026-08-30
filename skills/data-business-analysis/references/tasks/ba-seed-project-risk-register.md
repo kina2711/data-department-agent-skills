@@ -11,6 +11,7 @@ Use when the user asks to seed project risk register, requests the stated delive
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: ghi risk, likelihood, impact, mitigation và owner.
 - Primary deliverable: **initial risk register**.
 

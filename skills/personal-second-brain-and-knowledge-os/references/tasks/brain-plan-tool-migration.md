@@ -11,6 +11,7 @@ Use when the user asks to plan tool migration, requests the stated deliverable, 
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: lập kế hoạch export, inventory, transform, verify và cutover từ Notion, Sheets, Lark hoặc tool khác sang local-first vault.
 - Primary deliverable: **reversible knowledge migration plan**.
 

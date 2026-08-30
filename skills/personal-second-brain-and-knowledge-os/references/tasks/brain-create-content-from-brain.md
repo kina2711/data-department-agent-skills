@@ -11,6 +11,7 @@ Use when the user asks to create content from brain, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo content từ Wiki và 3_Toi rồi handoff sang content skill khi cần production đa kênh.
 - Primary deliverable: **source-and-voice-grounded content draft**.
 

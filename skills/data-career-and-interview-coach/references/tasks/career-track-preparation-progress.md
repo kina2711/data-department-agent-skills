@@ -11,6 +11,7 @@ Use when the user asks to track preparation progress, requests the stated delive
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: theo dõi evidence, scores, consistency và remaining risks.
 - Primary deliverable: **preparation progress report**.
 

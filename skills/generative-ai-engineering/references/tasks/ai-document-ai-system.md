@@ -11,6 +11,7 @@ Use when the user asks to document ai system, requests the stated deliverable, o
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: ghi data, prompts, models, tools, risks và limitations.
 - Primary deliverable: **AI system card**.
 

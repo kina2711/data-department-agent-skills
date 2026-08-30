@@ -11,6 +11,7 @@ Use when the user asks to deliver data architecture orientation, requests the st
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: hướng dẫn systems, flows, models, environments và critical dependencies.
 - Primary deliverable: **architecture-orientation record**.
 

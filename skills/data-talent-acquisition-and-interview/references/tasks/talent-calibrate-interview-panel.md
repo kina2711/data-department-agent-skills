@@ -11,6 +11,7 @@ Use when the user asks to calibrate interview panel, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: dùng anchor responses để chuẩn hóa scoring và probing.
 - Primary deliverable: **panel calibration record**.
 

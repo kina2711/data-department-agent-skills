@@ -11,6 +11,7 @@ Use when the user asks to distill source to wiki note, requests the stated deliv
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuyển nguồn thành Wiki note tách source facts, synthesis, inference, uncertainty, applications và citations.
 - Primary deliverable: **source-grounded Wiki note**.
 

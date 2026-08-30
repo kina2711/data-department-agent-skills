@@ -11,6 +11,7 @@ Use when the user asks to plan execution and milestones, requests the stated del
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuyển thesis thành vertical slices, milestones, task graph, test gates, demo checkpoints và recovery buffers.
 - Primary deliverable: **executable project milestone plan**.
 

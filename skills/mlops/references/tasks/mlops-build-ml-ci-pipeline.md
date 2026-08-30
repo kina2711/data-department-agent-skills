@@ -11,6 +11,7 @@ Use when the user asks to build ml ci pipeline, requests the stated deliverable,
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: lint, tests, data checks, security scan và package.
 - Primary deliverable: **ML CI workflow**.
 

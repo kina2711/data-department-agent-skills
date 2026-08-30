@@ -11,6 +11,7 @@ Use when the user asks to manage content backlog, requests the stated deliverabl
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: ưu tiên topic theo audience value, evidence readiness, dependency, effort, freshness và strategic fit.
 - Primary deliverable: **governed content backlog**.
 

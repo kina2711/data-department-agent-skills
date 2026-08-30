@@ -11,6 +11,7 @@ Use when the user asks to prepare workstation environment, requests the stated d
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: thiết lập approved tools, runtime, configs và security baseline.
 - Primary deliverable: **workstation readiness evidence**.
 

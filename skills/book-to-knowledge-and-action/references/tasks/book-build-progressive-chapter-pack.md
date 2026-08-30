@@ -11,6 +11,7 @@ Use when the user asks to build progressive chapter pack, requests the stated de
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo chapter files on-demand có core idea, frameworks, worked examples, failures, takeaways và links.
 - Primary deliverable: **progressive chapter pack**.
 

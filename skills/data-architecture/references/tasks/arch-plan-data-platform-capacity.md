@@ -11,6 +11,7 @@ Use when the user asks to plan data platform capacity, requests the stated deliv
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: dự báo throughput, concurrency, storage và headroom.
 - Primary deliverable: **capacity model**.
 

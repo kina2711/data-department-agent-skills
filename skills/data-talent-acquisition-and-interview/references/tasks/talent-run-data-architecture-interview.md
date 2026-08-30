@@ -11,6 +11,7 @@ Use when the user asks to run data architecture interview, requests the stated d
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đánh giá boundaries, patterns, qualities, governance và migration.
 - Primary deliverable: **architecture-interview assessment**.
 

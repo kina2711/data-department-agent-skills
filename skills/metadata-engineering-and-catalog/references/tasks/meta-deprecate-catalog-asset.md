@@ -11,6 +11,7 @@ Use when the user asks to deprecate catalog asset, requests the stated deliverab
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đánh dấu replacement, notify consumers và archive lineage.
 - Primary deliverable: **deprecated catalog record**.
 

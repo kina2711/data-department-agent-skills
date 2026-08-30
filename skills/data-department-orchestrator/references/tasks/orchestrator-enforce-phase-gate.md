@@ -11,6 +11,7 @@ Use when the user asks to enforce phase gate, requests the stated deliverable, o
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: ngăn task vượt lifecycle khi prerequisites chưa approved.
 - Primary deliverable: **gate decision**.
 

@@ -11,6 +11,7 @@ Use when the user asks to audit career claims evidence, requests the stated deli
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đối chiếu resume, portfolio, promotion hoặc public claims với evidence thật và gắn nhãn self-study/hypothetical đúng mức.
 - Primary deliverable: **career-claim evidence audit**.
 

@@ -11,6 +11,7 @@ Use when the user asks to define personal context contract, requests the stated 
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: định nghĩa kinh nghiệm, preferences, voice, audiences và work rules được phép dùng cùng provenance.
 - Primary deliverable: **personal-context contract**.
 

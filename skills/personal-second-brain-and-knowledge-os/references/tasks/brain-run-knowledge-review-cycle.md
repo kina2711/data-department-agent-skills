@@ -11,6 +11,7 @@ Use when the user asks to run knowledge review cycle, requests the stated delive
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: review inbox, orphans, conflicts, stale notes, personal rules, outputs và improvement actions theo cadence.
 - Primary deliverable: **knowledge review record**.
 

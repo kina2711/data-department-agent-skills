@@ -11,6 +11,7 @@ Use when the user asks to start architecture first, requests the stated delivera
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: bắt đầu từ architecture pattern hoặc system design question và khóa quality attributes, workload, alternatives, failure và proof.
 - Primary deliverable: **architecture-grounded project charter**.
 

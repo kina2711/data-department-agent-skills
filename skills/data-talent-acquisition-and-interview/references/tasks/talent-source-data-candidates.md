@@ -11,6 +11,7 @@ Use when the user asks to source data candidates, requests the stated deliverabl
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: xây search strategy, outreach criteria và source tracking.
 - Primary deliverable: **qualified candidate slate**.
 

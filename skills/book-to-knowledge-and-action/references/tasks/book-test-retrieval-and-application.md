@@ -11,6 +11,7 @@ Use when the user asks to test retrieval and application, requests the stated de
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: dùng unseen queries và scenarios để đo routing, citation, abstention và framework application.
 - Primary deliverable: **book knowledge evaluation**.
 

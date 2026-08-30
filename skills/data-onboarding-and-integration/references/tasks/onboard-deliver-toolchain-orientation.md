@@ -11,6 +11,7 @@ Use when the user asks to deliver toolchain orientation, requests the stated del
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: hướng dẫn local setup, Git, orchestration, warehouse, BI/ML và support paths.
 - Primary deliverable: **toolchain-orientation record**.
 

@@ -11,6 +11,7 @@ Use when the user asks to assess production readiness, requests the stated deliv
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: kiểm tra documentation, tests, deployment, observability và controls.
 - Primary deliverable: **readiness decision**.
 

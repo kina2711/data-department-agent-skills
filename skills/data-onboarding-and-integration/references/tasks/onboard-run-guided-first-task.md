@@ -11,6 +11,7 @@ Use when the user asks to run guided first task, requests the stated deliverable
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: thực hiện task nhỏ với coach, gates và feedback.
 - Primary deliverable: **guided-task completion record**.
 

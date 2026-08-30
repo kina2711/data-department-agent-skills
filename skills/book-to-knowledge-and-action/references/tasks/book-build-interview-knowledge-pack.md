@@ -11,6 +11,7 @@ Use when the user asks to build interview knowledge pack, requests the stated de
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuyển frameworks thành question dependencies, answer strategies, examples, trade-offs và novel retests.
 - Primary deliverable: **book-to-interview knowledge pack**.
 

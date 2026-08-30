@@ -11,6 +11,7 @@ Use when the user asks to audit copyright and privacy, requests the stated deliv
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: kiểm tra quotation length, redistribution, internal/confidential content, personal data và public/private boundary.
 - Primary deliverable: **copyright-and-privacy audit**.
 

@@ -11,6 +11,7 @@ Use when the user asks to research technical topic, requests the stated delivera
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: thu thập official sources, versioned facts, examples, controversies, failure modes và source limitations.
 - Primary deliverable: **technical-topic research pack**.
 

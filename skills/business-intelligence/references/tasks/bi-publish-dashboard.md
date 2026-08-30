@@ -11,6 +11,7 @@ Use when the user asks to publish dashboard, requests the stated deliverable, or
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: deploy workspace/app, permissions và refresh.
 - Primary deliverable: **published dashboard**.
 

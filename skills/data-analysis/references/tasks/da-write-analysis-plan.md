@@ -11,6 +11,7 @@ Use when the user asks to write analysis plan, requests the stated deliverable, 
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: xác định hypotheses, metrics, dimensions, method và limitations.
 - Primary deliverable: **analysis plan**.
 

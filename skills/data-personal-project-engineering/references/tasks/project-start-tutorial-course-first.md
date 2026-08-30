@@ -11,6 +11,7 @@ Use when the user asks to start tutorial course first, requests the stated deliv
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuyển tutorial/course thành project độc lập bằng cách bỏ scaffold, thay constraints/data và thêm tests, failures, operations.
 - Primary deliverable: **tutorial-to-independent-project plan**.
 

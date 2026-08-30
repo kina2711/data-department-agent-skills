@@ -11,6 +11,7 @@ Use when the user asks to implement incremental model, requests the stated deliv
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: định nghĩa unique key, filter và merge behavior.
 - Primary deliverable: **incremental model**.
 

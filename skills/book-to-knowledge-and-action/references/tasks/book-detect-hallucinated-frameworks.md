@@ -11,6 +11,7 @@ Use when the user asks to detect hallucinated frameworks, requests the stated de
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: phát hiện invented names, merged concepts, missing qualifiers, false quotations và unsupported author voice.
 - Primary deliverable: **hallucination findings**.
 

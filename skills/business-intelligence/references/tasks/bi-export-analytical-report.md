@@ -11,6 +11,7 @@ Use when the user asks to export analytical report, requests the stated delivera
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: render approved source thành Markdown/PDF có kiểm tra.
 - Primary deliverable: **published report files**.
 

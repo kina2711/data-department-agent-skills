@@ -11,6 +11,7 @@ Use when the user asks to build source manifest, requests the stated deliverable
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: ghi source/edition hash, rights, extraction method, locators, transformations và limitations.
 - Primary deliverable: **book source manifest**.
 

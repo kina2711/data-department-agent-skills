@@ -11,6 +11,7 @@ Use when the user asks to start open source issue first, requests the stated del
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: bắt đầu từ issue thật, kiểm tra maintainer intent, contribution rules, reproducibility và contribution scope.
 - Primary deliverable: **contribution-grounded project plan**.
 

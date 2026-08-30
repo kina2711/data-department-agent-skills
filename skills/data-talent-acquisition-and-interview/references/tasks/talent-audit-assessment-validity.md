@@ -11,6 +11,7 @@ Use when the user asks to audit assessment validity, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đo alignment, reliability và predictive usefulness của assessments.
 - Primary deliverable: **assessment-validity report**.
 

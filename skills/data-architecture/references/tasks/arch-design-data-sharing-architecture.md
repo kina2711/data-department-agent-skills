@@ -11,6 +11,7 @@ Use when the user asks to design data sharing architecture, requests the stated 
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: thiết kế clean room/exchange/API/share có governance.
 - Primary deliverable: **sharing architecture**.
 

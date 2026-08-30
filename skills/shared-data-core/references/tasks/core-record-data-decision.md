@@ -11,6 +11,7 @@ Use when the user asks to record data decision, requests the stated deliverable,
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: ghi decision, alternatives, evidence và consequences.
 - Primary deliverable: **decision record**.
 

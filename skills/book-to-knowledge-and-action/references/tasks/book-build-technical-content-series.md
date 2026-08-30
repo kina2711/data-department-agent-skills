@@ -11,6 +11,7 @@ Use when the user asks to build technical content series, requests the stated de
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuyển source map thành canonical technical series và handoff evidence-bound production sang content skill.
 - Primary deliverable: **book-to-content series blueprint**.
 

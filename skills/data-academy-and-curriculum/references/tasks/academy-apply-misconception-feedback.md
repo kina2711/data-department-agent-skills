@@ -11,6 +11,7 @@ Use when the user asks to apply misconception feedback, requests the stated deli
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: gom ngộ nhận lặp lại theo concept key rồi bổ sung vào chính note dạy sai mô hình đó.
 - Primary deliverable: **revised note batch**.
 

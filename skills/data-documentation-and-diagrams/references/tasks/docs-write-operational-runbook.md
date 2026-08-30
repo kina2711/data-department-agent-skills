@@ -11,6 +11,7 @@ Use when the user asks to write operational runbook, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: ghi symptoms, diagnosis, recovery, escalation và verification.
 - Primary deliverable: **runbook**.
 

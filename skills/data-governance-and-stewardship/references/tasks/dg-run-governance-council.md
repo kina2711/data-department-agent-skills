@@ -11,6 +11,7 @@ Use when the user asks to run governance council, requests the stated deliverabl
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuẩn bị agenda, decisions, owners và deadlines.
 - Primary deliverable: **council decision log**.
 

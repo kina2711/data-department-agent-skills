@@ -11,6 +11,7 @@ Use when the user asks to create role onboarding, requests the stated deliverabl
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo lộ trình 30/60/90 ngày theo role và access needs.
 - Primary deliverable: **role onboarding plan**.
 

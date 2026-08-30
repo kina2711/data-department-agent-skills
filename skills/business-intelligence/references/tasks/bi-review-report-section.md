@@ -11,6 +11,7 @@ Use when the user asks to review report section, requests the stated deliverable
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: kiểm tra và xin approval theo từng section.
 - Primary deliverable: **section approval status**.
 

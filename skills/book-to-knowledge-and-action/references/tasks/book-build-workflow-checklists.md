@@ -11,6 +11,7 @@ Use when the user asks to build workflow checklists, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: compile procedures, gates, exceptions, checklists và evidence requirements cho công việc lặp lại.
 - Primary deliverable: **book-derived workflow pack**.
 

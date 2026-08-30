@@ -11,6 +11,7 @@ Use when the user asks to create test data fixture, requests the stated delivera
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo deterministic edge-case records cho automated tests.
 - Primary deliverable: **test fixture**.
 

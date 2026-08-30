@@ -11,6 +11,7 @@ Use when the user asks to extract mental models, requests the stated deliverable
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: trích thinking models và nêu when-to-use, limits, contrasts và source evidence.
 - Primary deliverable: **mental-model library**.
 

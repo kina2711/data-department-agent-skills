@@ -11,6 +11,7 @@ Use when the user asks to write insight narrative, requests the stated deliverab
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: trình bày what/so-what/why/now-what với evidence.
 - Primary deliverable: **insight memo**.
 

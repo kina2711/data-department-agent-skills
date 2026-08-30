@@ -11,6 +11,7 @@ Use when the user asks to define output contracts, requests the stated deliverab
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: định nghĩa schema, audience, evidence, review, channel, version và done criteria theo từng output.
 - Primary deliverable: **second-brain output contracts**.
 

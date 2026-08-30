@@ -11,6 +11,7 @@ Use when the user asks to define match rules, requests the stated deliverable, o
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: thiết kế deterministic/probabilistic matching và thresholds.
 - Primary deliverable: **match rule set**.
 

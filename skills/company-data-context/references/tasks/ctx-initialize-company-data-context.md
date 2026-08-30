@@ -11,6 +11,7 @@ Use when the user asks to initialize company data context, requests the stated d
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo cấu trúc context chuẩn cho business, data, platform, policy và ownership.
 - Primary deliverable: **initialized context pack**.
 

@@ -11,6 +11,7 @@ Use when the user asks to build source provenance record, requests the stated de
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: nối source ID tới origin, locator, snapshot hash, rights, ingestion method và transformations.
 - Primary deliverable: **source provenance record**.
 

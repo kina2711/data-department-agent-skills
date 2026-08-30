@@ -11,6 +11,7 @@ Use when the user asks to run interview retest, requests the stated deliverable,
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: kiểm tra lại cùng competency bằng scenario mới.
 - Primary deliverable: **retest assessment**.
 

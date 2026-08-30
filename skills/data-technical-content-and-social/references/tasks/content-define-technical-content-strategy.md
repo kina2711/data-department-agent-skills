@@ -11,6 +11,7 @@ Use when the user asks to define technical content strategy, requests the stated
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: xác định audience, problem space, positioning, outcomes, channels, constraints và success signals.
 - Primary deliverable: **technical-content strategy brief**.
 

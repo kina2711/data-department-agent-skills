@@ -11,6 +11,7 @@ Use when the user asks to define success evidence, requests the stated deliverab
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: nối outcome tới observable proof, tests, demo, artifacts và portfolio claims được phép.
 - Primary deliverable: **project success-evidence contract**.
 

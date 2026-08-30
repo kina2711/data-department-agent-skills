@@ -11,6 +11,7 @@ Use when the user asks to create data hiring scorecard, requests the stated deli
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: định nghĩa outcomes, signals và interview rubric.
 - Primary deliverable: **hiring scorecard**.
 

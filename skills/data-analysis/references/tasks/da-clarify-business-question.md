@@ -11,6 +11,7 @@ Use when the user asks to clarify business question, requests the stated deliver
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuyển yêu cầu mơ hồ thành decision, population, period và success criteria.
 - Primary deliverable: **analysis brief**.
 

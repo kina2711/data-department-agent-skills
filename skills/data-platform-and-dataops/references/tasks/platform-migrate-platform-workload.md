@@ -11,6 +11,7 @@ Use when the user asks to migrate platform workload, requests the stated deliver
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: di chuyển workload có dual-run và rollback.
 - Primary deliverable: **migrated workload**.
 

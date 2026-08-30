@@ -11,6 +11,7 @@ Use when the user asks to manage reference data, requests the stated deliverable
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: version codes, descriptions, mappings và effective dates.
 - Primary deliverable: **governed reference set**.
 

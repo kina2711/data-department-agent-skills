@@ -11,6 +11,7 @@ Use when the user asks to define data onboarding standard, requests the stated d
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: định nghĩa lifecycle, mandatory content, gates, owners và SLAs.
 - Primary deliverable: **data onboarding standard**.
 

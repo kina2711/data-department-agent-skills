@@ -11,6 +11,7 @@ Use when the user asks to build project task runner, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuẩn hóa commands setup/test/lint/build/run.
 - Primary deliverable: **task runner**.
 

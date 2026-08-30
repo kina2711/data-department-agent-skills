@@ -11,6 +11,7 @@ Use when the user asks to run note diagnostic, requests the stated deliverable, 
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chạy kịch bản chẩn đoán của corpus theo vòng Socratic có giới hạn rồi đề xuất hạng bằng chứng.
 - Primary deliverable: **note diagnostic session record**.
 

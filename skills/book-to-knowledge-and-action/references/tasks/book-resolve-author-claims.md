@@ -11,6 +11,7 @@ Use when the user asks to resolve author claims, requests the stated deliverable
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: phân biệt author claim, cited evidence, illustrative example, synthesis, disagreement và uncertainty.
 - Primary deliverable: **author-claim evidence map**.
 

@@ -11,6 +11,7 @@ Use when the user asks to build agent skill, requests the stated deliverable, or
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: compile frameworks, routing, progressive references, assets và guardrails thành Claude-compatible skill.
 - Primary deliverable: **validated book-derived agent skill**.
 

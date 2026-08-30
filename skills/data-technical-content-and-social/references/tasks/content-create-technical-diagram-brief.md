@@ -11,6 +11,7 @@ Use when the user asks to create technical diagram brief, requests the stated de
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: mô tả message, entities, flow, evidence, labels, alt text và validation cho visual/diagram.
 - Primary deliverable: **technical diagram brief**.
 

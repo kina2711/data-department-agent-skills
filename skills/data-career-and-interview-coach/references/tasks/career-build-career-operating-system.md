@@ -11,6 +11,7 @@ Use when the user asks to build career operating system, requests the stated del
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: nối current state, target capability, gaps, practice, real work, evidence, feedback và review cadence thành hệ thống phát triển bền vững.
 - Primary deliverable: **career operating system**.
 

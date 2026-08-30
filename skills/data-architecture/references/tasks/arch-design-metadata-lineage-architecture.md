@@ -11,6 +11,7 @@ Use when the user asks to design metadata lineage architecture, requests the sta
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: thiết kế metadata collection, lineage và catalog integration.
 - Primary deliverable: **metadata architecture**.
 

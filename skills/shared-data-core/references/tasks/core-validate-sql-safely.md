@@ -11,6 +11,7 @@ Use when the user asks to validate sql safely, requests the stated deliverable, 
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: lint, dry-run/explain, kiểm tra scan cost và read/write risk.
 - Primary deliverable: **validated SQL**.
 

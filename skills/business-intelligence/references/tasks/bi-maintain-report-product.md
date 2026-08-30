@@ -11,6 +11,7 @@ Use when the user asks to maintain report product, requests the stated deliverab
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: xử lý source/metric/platform change và regression validation.
 - Primary deliverable: **maintained BI release**.
 

@@ -11,6 +11,7 @@ Use when the user asks to build task context package, requests the stated delive
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: gom task, business, schema, lineage, constraints và evidence thành context bundle có manifest, provenance, freshness và token budget.
 - Primary deliverable: **prompt-ready task context package**.
 

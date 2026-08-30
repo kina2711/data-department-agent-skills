@@ -11,6 +11,7 @@ Use when the user asks to write model unit tests, requests the stated deliverabl
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: test preprocessing, features, prediction và edge cases.
 - Primary deliverable: **unit test suite**.
 

@@ -11,6 +11,7 @@ Use when the user asks to build atomic knowledge note, requests the stated deliv
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo một note cho một concept hoặc decision có stable ID, aliases, status, source links và related notes.
 - Primary deliverable: **atomic knowledge note**.
 

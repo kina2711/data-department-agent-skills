@@ -11,6 +11,7 @@ Use when the user asks to build optimization model, requests the stated delivera
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: định nghĩa objective, constraints và scenario evaluation.
 - Primary deliverable: **optimization solution**.
 

@@ -11,6 +11,7 @@ Use when the user asks to refresh technical series, requests the stated delivera
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: cập nhật version drift, broken examples, stale claims, links và cross-channel variants rồi ghi changelog.
 - Primary deliverable: **refreshed technical-series release**.
 

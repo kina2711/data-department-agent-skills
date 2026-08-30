@@ -11,6 +11,7 @@ Use when the user asks to define role learning outcomes, requests the stated del
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuyển competency theo role/level thành observable learning outcomes.
 - Primary deliverable: **role learning-outcome framework**.
 

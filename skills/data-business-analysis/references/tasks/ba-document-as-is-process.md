@@ -11,6 +11,7 @@ Use when the user asks to document as is process, requests the stated deliverabl
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: mô tả actors, events, steps, rules và pain points hiện tại.
 - Primary deliverable: **as-is process model**.
 

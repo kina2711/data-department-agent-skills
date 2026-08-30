@@ -11,6 +11,7 @@ Use when the user asks to build streaming ingestion, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: xử lý partition, ordering, delivery semantics và dead-letter.
 - Primary deliverable: **stream pipeline**.
 

@@ -11,6 +11,7 @@ Use when the user asks to provision data storage, requests the stated deliverabl
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: cấu hình bucket/database/schema, lifecycle và encryption.
 - Primary deliverable: **storage resource**.
 

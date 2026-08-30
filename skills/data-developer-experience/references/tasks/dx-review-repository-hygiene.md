@@ -11,6 +11,7 @@ Use when the user asks to review repository hygiene, requests the stated deliver
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: kiểm tra naming, generated files, data leakage và dead code.
 - Primary deliverable: **hygiene report**.
 

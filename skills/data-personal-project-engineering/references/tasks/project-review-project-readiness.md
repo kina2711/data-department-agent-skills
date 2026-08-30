@@ -11,6 +11,7 @@ Use when the user asks to review project readiness, requests the stated delivera
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: kiểm tra thesis, rights, data, scope, architecture, dependencies, success evidence, cost và next owner trước build.
 - Primary deliverable: **project readiness decision**.
 

@@ -11,6 +11,7 @@ Use when the user asks to trace data path end to end, requests the stated delive
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: theo một source hoặc job qua code, configuration, transforms và sink; dự đoán hành vi trước khi chạy rồi đối chiếu observed output.
 - Primary deliverable: **evidence-based end-to-end data path trace**.
 

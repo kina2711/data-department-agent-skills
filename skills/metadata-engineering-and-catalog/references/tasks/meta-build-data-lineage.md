@@ -11,6 +11,7 @@ Use when the user asks to build data lineage, requests the stated deliverable, o
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo source-to-target lineage ở dataset/column/job level.
 - Primary deliverable: **lineage graph**.
 

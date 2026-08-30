@@ -11,6 +11,7 @@ Use when the user asks to define author voice, requests the stated deliverable, 
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: rút ra voice traits, rhythm, vocabulary, boundaries và anti-patterns mà không copy câu/ví dụ mẫu.
 - Primary deliverable: **author-voice guide**.
 

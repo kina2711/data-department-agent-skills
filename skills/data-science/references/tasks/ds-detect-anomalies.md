@@ -11,6 +11,7 @@ Use when the user asks to detect anomalies, requests the stated deliverable, or 
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: xây expected behavior và calibrated anomaly threshold.
 - Primary deliverable: **anomaly model**.
 

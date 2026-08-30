@@ -11,6 +11,7 @@ Use when the user asks to run analysis peer review, requests the stated delivera
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: review question-method alignment, data fitness, SQL/code, statistics, assumptions, narrative và reproducibility.
 - Primary deliverable: **analysis peer-review decision**.
 

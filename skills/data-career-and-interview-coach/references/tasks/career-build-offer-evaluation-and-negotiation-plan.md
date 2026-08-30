@@ -11,6 +11,7 @@ Use when the user asks to build offer evaluation and negotiation plan, requests 
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: định giá từng cấu phần offer, đối chiếu market range có trích dẫn, chuẩn bị asks, fallback và walk-away position mà không hứa kết quả lương.
 - Primary deliverable: **offer evaluation and negotiation plan**.
 

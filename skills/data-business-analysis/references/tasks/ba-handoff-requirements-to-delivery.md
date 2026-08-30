@@ -11,6 +11,7 @@ Use when the user asks to handoff requirements to delivery, requests the stated 
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đóng gói baselined requirements, decisions và open questions.
 - Primary deliverable: **delivery handoff**.
 

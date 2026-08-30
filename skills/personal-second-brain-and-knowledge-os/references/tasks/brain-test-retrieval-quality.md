@@ -11,6 +11,7 @@ Use when the user asks to test retrieval quality, requests the stated deliverabl
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đo relevance, coverage, source authority, freshness, context precision và abstention trên representative query set.
 - Primary deliverable: **retrieval evaluation**.
 

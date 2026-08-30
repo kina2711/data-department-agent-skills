@@ -11,6 +11,7 @@ Use when the user asks to reverse engineer data project, requests the stated del
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: trace entry points, pipeline, dependencies và outputs.
 - Primary deliverable: **evidence-based project map**.
 

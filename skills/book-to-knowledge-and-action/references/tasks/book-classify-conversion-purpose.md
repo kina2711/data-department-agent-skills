@@ -11,6 +11,7 @@ Use when the user asks to classify conversion purpose, requests the stated deliv
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chọn primary destination là skill, second brain, career, interview, project, curriculum, workflow, content hoặc mixed có one primary output.
 - Primary deliverable: **book-conversion purpose decision**.
 

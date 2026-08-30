@@ -11,6 +11,7 @@ Use when the user asks to deliver business domain orientation, requests the stat
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: dạy processes, entities, KPIs, rules và stakeholders.
 - Primary deliverable: **domain-orientation record**.
 

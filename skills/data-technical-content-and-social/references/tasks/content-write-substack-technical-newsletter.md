@@ -11,6 +11,7 @@ Use when the user asks to write substack technical newsletter, requests the stat
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: viết newsletter tiếng Anh chuyên sâu có subject, preheader, editorial opening, technical walkthrough, exercise, references và next-episode bridge.
 - Primary deliverable: **English Substack technical newsletter**.
 

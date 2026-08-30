@@ -11,6 +11,7 @@ Use when the user asks to define data quality rule, requests the stated delivera
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuyển expectation thành executable rule, threshold và owner.
 - Primary deliverable: **DQ rule spec**.
 

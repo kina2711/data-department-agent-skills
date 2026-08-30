@@ -11,6 +11,7 @@ Use when the user asks to reconcile data systems, requests the stated deliverabl
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: so sánh source/target theo control totals và samples.
 - Primary deliverable: **reconciliation evidence**.
 

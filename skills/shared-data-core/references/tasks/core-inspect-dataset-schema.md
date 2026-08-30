@@ -11,6 +11,7 @@ Use when the user asks to inspect dataset schema, requests the stated deliverabl
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đọc schema, khóa, partition và quan hệ.
 - Primary deliverable: **schema assessment**.
 

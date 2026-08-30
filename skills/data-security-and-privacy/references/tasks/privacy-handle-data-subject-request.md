@@ -11,6 +11,7 @@ Use when the user asks to handle data subject request, requests the stated deliv
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: discover, verify, export/delete và record evidence.
 - Primary deliverable: **completed DSR package**.
 

@@ -11,6 +11,7 @@ Use when the user asks to synchronize asset ownership, requests the stated deliv
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: cập nhật owner/steward từ systems of record.
 - Primary deliverable: **consistent ownership metadata**.
 

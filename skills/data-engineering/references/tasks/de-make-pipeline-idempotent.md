@@ -11,6 +11,7 @@ Use when the user asks to make pipeline idempotent, requests the stated delivera
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đảm bảo rerun không tạo duplicate hoặc corruption.
 - Primary deliverable: **idempotency guarantees**.
 

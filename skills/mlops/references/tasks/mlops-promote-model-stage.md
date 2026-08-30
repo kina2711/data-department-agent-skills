@@ -11,6 +11,7 @@ Use when the user asks to promote model stage, requests the stated deliverable, 
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: kiểm tra gates từ candidate tới staging/production.
 - Primary deliverable: **promotion decision**.
 

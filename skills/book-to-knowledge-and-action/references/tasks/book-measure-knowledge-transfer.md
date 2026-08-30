@@ -11,6 +11,7 @@ Use when the user asks to measure knowledge transfer, requests the stated delive
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đo recall, application, decision quality, artifact quality và changed-scenario transfer thay vì file count.
 - Primary deliverable: **knowledge-transfer review**.
 

@@ -11,6 +11,7 @@ Use when the user asks to redesign dashboard experience, requests the stated del
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuyển audit và dashboard spec thành redesign có traceability, design-system fit, truthful content, test matrix và migration scope.
 - Primary deliverable: **implementation-ready dashboard redesign specification**.
 

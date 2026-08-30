@@ -11,6 +11,7 @@ Use when the user asks to create d2 erd, requests the stated deliverable, or sup
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo standalone ERD dễ đọc cho model phức tạp.
 - Primary deliverable: **D2 ERD**.
 

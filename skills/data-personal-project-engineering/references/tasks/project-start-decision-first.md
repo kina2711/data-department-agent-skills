@@ -11,6 +11,7 @@ Use when the user asks to start decision first, requests the stated deliverable,
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: bắt đầu từ quyết định cần cải thiện, xác định decision owner, inputs, uncertainty, latency và action.
 - Primary deliverable: **decision-grounded project direction**.
 

@@ -11,6 +11,7 @@ Use when the user asks to plan ethical professional visibility, requests the sta
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: xây kế hoạch contribution, community, mentoring và public expertise không khoe title hoặc biến self-promotion thành proxy cho năng lực.
 - Primary deliverable: **ethical professional-visibility plan**.
 

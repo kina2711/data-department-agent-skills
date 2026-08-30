@@ -11,6 +11,7 @@ Use when the user asks to prepare release approval, requests the stated delivera
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: gom approved gates, open risks, version và target environment.
 - Primary deliverable: **release package**.
 

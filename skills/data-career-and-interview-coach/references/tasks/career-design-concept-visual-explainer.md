@@ -11,6 +11,7 @@ Use when the user asks to design concept visual explainer, requests the stated d
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đặc tả visual mental model cho một concept gồm elements, relationships, annotation, common misreading, takeaway và alt text.
 - Primary deliverable: **concept visual explainer spec**.
 

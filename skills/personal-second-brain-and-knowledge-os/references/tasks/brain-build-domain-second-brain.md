@@ -11,6 +11,7 @@ Use when the user asks to build domain second brain, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: cấu hình four-layer system cho một domain cụ thể và chỉ nạp rules/references phù hợp.
 - Primary deliverable: **domain-specific second-brain package**.
 

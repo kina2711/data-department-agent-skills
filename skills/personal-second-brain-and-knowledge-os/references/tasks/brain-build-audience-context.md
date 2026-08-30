@@ -11,6 +11,7 @@ Use when the user asks to build audience context, requests the stated deliverabl
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: ghi audience problems, sophistication, language, objections, desired outcomes và sensitive boundaries.
 - Primary deliverable: **audience-context pack**.
 

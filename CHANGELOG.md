@@ -1,5 +1,63 @@
 # Changelog
 
+## v3.10.0
+
+Which model a task needs, a reviewer verdict that can stop work, and skill descriptions audited
+as the routing surface they actually are.
+
+32 role skills - 827 atomic task contracts - 45 slash commands - 32 Antigravity agents -
+52 executable evidence scripts - 12 JSON Schemas
+
+### Model tier per task
+
+Every contract declared a risk tier and a criticality; none said which model should run it, so the
+choice fell to whatever was open at the time.
+
+- New shared reference `model-selection.md` in all 32 skills. The variable is not importance but
+  what catches an error before someone acts on it: a validator (light), a reviewer (standard), or
+  nothing at all before a decision, approval or judgment about a person (strong).
+- Two rules override the table. Evaluating another artifact runs strong regardless of risk tier,
+  because a grade is what everyone downstream trusts and is the least likely thing to be checked;
+  a reviewer never runs lighter than the producer it reviews. `R3-controlled` and above run strong.
+- `model_tier` is now emitted per task in `task-catalog.json` and printed in every contract:
+  238 strong, 409 standard, 180 light.
+- Model choice is not a control. It never satisfies a gate, and a lighter model never lowers the
+  bar an output must clear. Where budget forces a lighter model on judgment work, that is recorded
+  as a limitation rather than decided silently.
+
+### A reviewer can now say stop
+
+Producer-reviewer had two ways out: converge, or exhaust two rounds and escalate.
+
+- Each round ends in exactly one of `accept`, `revise` or `reject`. The missing verdict was
+  `reject` — without it, work that should stop instead spends its rounds being polished and
+  arrives late and still wrong.
+- The severity threshold separating revise from reject is fixed in the rubric before production.
+  One critical defect is a reject however many minor ones were repaired.
+
+### Descriptions audited as a routing surface
+
+A skill's `description` is the text a router matches an intent against, not documentation.
+
+- New `tools/audit_skill_descriptions.py`. It found six of the eight highest-overlap skill pairs
+  had no confusion-pair case pinning the intended winner; ten cases now cover them, taking the
+  suite to 54.
+- Nine descriptions gained an explicit boundary naming where competing work belongs. That first
+  made the measurement worse — naming a neighbour imports the neighbour's vocabulary — so overlap
+  is now scored on the claim span with redirect sentences excluded. A sentence whose job is to
+  decline a request should not be counted as competing for it.
+
+### Corrections to v3.8.0
+
+- `corpus-workflow-manifest.json` hardcoded `R1-reviewed` for every task while two of them are
+  `R2-standard` in the catalog: a risk downgrade of exactly the kind `validate_workflow.py` exists
+  to catch. Risk tiers are now derived from the catalog at build time, so the template cannot
+  drift when a task's tier changes.
+- The note-corpus operating system claimed each module batch could be its own task instance. The
+  validator keys tasks by `task_id` and rejects duplicates, so that was impossible; one workflow
+  carries one `academy-build-note-module` entry that advances, and `instance_id` labels which
+  module it is currently on.
+
 ## v3.9.0
 
 Three standards for things the suite could check structurally but never judged: whether prose is

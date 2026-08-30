@@ -11,6 +11,7 @@ Use when the user asks to prepare data breach assessment, requests the stated de
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: xác định affected data, subjects, scope và notifications.
 - Primary deliverable: **breach assessment**.
 

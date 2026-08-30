@@ -11,6 +11,7 @@ Use when the user asks to start repo first, requests the stated deliverable, or 
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: bắt đầu từ repository bằng provenance/license check, evidence-based audit, baseline execution, improvement matrix và thesis riêng.
 - Primary deliverable: **assessed and differentiated repo-first plan**.
 

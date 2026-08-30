@@ -11,6 +11,7 @@ Use when the user asks to retrieve task context, requests the stated deliverable
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: lấy minimum sufficient sources, Wiki notes và 3_Toi rules cho một task với authority, freshness và token budget.
 - Primary deliverable: **routed task context**.
 

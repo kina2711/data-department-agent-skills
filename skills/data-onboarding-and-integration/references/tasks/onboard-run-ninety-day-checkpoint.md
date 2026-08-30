@@ -11,6 +11,7 @@ Use when the user asks to run ninety day checkpoint, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đánh giá role readiness, outcomes, gaps và next development plan.
 - Primary deliverable: **ninety-day onboarding review**.
 

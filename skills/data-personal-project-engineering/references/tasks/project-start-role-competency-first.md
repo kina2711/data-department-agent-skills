@@ -11,6 +11,7 @@ Use when the user asks to start role competency first, requests the stated deliv
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: bắt đầu từ target role/gap, chọn project tạo đúng technical, judgment, operations và communication evidence.
 - Primary deliverable: **competency-evidence project direction**.
 

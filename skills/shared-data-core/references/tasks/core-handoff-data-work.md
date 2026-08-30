@@ -11,6 +11,7 @@ Use when the user asks to handoff data work, requests the stated deliverable, or
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đóng gói context, artifacts, open risks và next action.
 - Primary deliverable: **lossless handoff package**.
 

@@ -11,6 +11,7 @@ Use when the user asks to build online inference service, requests the stated de
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: triển khai API/service có latency, scaling và health checks.
 - Primary deliverable: **serving service**.
 

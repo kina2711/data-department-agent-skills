@@ -11,6 +11,7 @@ Use when the user asks to manage data issue, requests the stated deliverable, or
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: ghi nhận, phân loại, assign, track remediation và closure evidence.
 - Primary deliverable: **governed issue record**.
 

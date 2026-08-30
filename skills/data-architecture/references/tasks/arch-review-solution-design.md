@@ -11,6 +11,7 @@ Use when the user asks to review solution design, requests the stated deliverabl
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: kiểm tra consistency, scalability, operability và governance.
 - Primary deliverable: **review decision**.
 

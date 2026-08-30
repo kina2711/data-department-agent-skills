@@ -11,6 +11,7 @@ Use when the user asks to design vault taxonomy, requests the stated deliverable
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: thiết kế folders, note types, tags, links, IDs, status và naming mà không tạo taxonomy quá sâu.
 - Primary deliverable: **vault taxonomy**.
 

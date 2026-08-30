@@ -26,8 +26,30 @@ that merely breaks the tie without new evidence.
 A reviewer's acceptance is quality evidence. It is **not** owner approval, and it never satisfies a
 gate that requires named authority bound to an artifact version and hash.
 
-## Rounds
+## Rounds and the three ways one ends
 
 Cap the loop. Two full rounds without convergence is a signal that the requirement is ambiguous,
-not that a third round will help; escalate to the requester with both positions rather than
-iterating. Record every round in `producer-reviewer-record.yaml`, including rounds that failed.
+not that a third round will help. Record every round in `producer-reviewer-record.yaml`,
+including rounds that failed.
+
+Each round ends in exactly one of three verdicts, and the reviewer names which:
+
+- **accept** — the artifact meets the acceptance criteria. Downstream work proceeds. This is
+  quality evidence, never owner approval.
+- **revise** — the defects are specific, bounded and repairable by the producer. The reviewer
+  lists them with severity; the producer returns a revision, not an argument.
+- **reject** — the artifact is wrong in a way another revision will not repair: it answers a
+  different question, rests on a premise that does not hold, or would need to be rebuilt rather
+  than corrected. The loop terminates as `failed` and returns to the requester.
+
+The missing verdict is usually `reject`. Without it, work that should stop instead spends its two
+rounds being polished, and arrives late and still wrong. A reviewer who can only say *accept* or
+*try again* cannot report that the task itself was misframed.
+
+Set the severity threshold that separates `revise` from `reject` in the rubric, before production,
+alongside the acceptance criteria. Deciding it after reading the artifact is deciding it about the
+artifact. A single critical defect is a `reject` regardless of how many minor ones were fixed;
+counting defects is not a substitute for weighing the worst one.
+
+A `reject` is a terminal state of this loop, not of the work. It returns an unmet requirement to
+whoever set it, with both positions intact and the reason the artifact could not be repaired.

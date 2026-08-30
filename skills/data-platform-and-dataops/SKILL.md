@@ -1,6 +1,6 @@
 ---
 name: data-platform-and-dataops
-description: Design and operate data platforms, environments, orchestration, CI/CD, observability, capacity, reliability, cost and disaster recovery. Use for Data Platform, DataOps or platform operations work.
+description: Design and operate data platforms, environments, orchestration, CI/CD, observability, capacity, reliability, cost and disaster recovery. Use for Data Platform, DataOps or platform operations work. The model lifecycle itself belongs to mlops.
 ---
 
 # Data Platform and DataOps

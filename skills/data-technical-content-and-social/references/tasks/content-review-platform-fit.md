@@ -11,6 +11,7 @@ Use when the user asks to review platform fit, requests the stated deliverable, 
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: kiểm tra length, structure, accessibility, CTA, hashtags, links, formatting và native-reader experience theo channel.
 - Primary deliverable: **platform-fit review**.
 

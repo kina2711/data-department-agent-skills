@@ -11,6 +11,7 @@ Use when the user asks to build batch inference, requests the stated deliverable
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: triển khai scalable scheduled scoring và result delivery.
 - Primary deliverable: **batch inference job**.
 

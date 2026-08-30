@@ -11,6 +11,7 @@ Use when the user asks to design event taxonomy, requests the stated deliverable
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuẩn hóa naming, entities và lifecycle.
 - Primary deliverable: **event taxonomy**.
 

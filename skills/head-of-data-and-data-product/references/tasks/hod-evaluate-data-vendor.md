@@ -11,6 +11,7 @@ Use when the user asks to evaluate data vendor, requests the stated deliverable,
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: so sánh fit, TCO, lock-in, security và exit path.
 - Primary deliverable: **vendor decision memo**.
 

@@ -11,6 +11,7 @@ Use when the user asks to write canonical technical article, requests the stated
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: viết source-of-truth article có first principles, mechanisms, code, trade-offs, failures, limitations và references.
 - Primary deliverable: **canonical technical article**.
 

@@ -11,6 +11,7 @@ Use when the user asks to frame modeling problem, requests the stated deliverabl
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuyển business decision thành target, unit, horizon và constraints.
 - Primary deliverable: **modeling brief**.
 

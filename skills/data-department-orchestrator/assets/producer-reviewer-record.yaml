@@ -13,12 +13,20 @@ rounds:
     artifact_sha256: ""
     producer_rationale_ref: ""
     rationale_withheld_until_verdict: true
-    reviewer_verdict: "pending"
-    reviewer_findings: []
+    reviewer_verdict: "pending|accept|revise|reject"
+    reviewer_findings:
+      - defect: ""
+        severity: "minor|major|critical"
+        repairable: true
     verdict_recorded_at: ""
     disclosed_at: ""
     outcome: ""
 max_rounds: 2
+reject_threshold: ""
+reject_threshold_fixed_before_production: false
+terminal_state: ""
+returned_to_requester: ""
+unrepairable_reason: ""
 unresolved_disagreements: []
 conflict_register_refs: []
 reviewer_acceptance_is_not_owner_approval: true

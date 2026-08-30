@@ -11,6 +11,7 @@ Use when the user asks to map stakeholders, requests the stated deliverable, or 
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: xác định sponsor, decision maker, users, SMEs và approvers.
 - Primary deliverable: **stakeholder map**.
 

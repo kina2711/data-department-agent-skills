@@ -11,6 +11,7 @@ Use when the user asks to create episode brief, requests the stated deliverable,
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: khóa central question, audience promise, evidence, example, code, diagram, failure và platform adaptations cho một episode.
 - Primary deliverable: **episode content brief**.
 

@@ -11,6 +11,7 @@ Use when the user asks to map questions to learning objectives, requests the sta
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: nối question tới competency, Bloom depth, prerequisites, learning objectives và assessments.
 - Primary deliverable: **question-to-learning traceability matrix**.
 

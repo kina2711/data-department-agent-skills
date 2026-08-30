@@ -11,6 +11,7 @@ Use when the user asks to build analytics mart, requests the stated deliverable,
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo subject-area fact/dimension/wide mart.
 - Primary deliverable: **consumable mart**.
 

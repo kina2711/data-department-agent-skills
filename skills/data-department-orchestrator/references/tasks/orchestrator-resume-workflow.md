@@ -11,6 +11,7 @@ Use when the user asks to resume workflow, requests the stated deliverable, or s
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: phục hồi context từ run state và ledgers mà không làm lại approved work.
 - Primary deliverable: **resumed execution plan**.
 

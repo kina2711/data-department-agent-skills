@@ -11,6 +11,7 @@ Use when the user asks to verify technical versions, requests the stated deliver
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: xác minh version, environment, behavior khác biệt và ngày hiệu lực trước khi viết claim phụ thuộc thời gian.
 - Primary deliverable: **technical version matrix**.
 

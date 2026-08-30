@@ -11,6 +11,7 @@ Use when the user asks to run mock governance architecture interview, requests t
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: mô phỏng policy, ownership, architecture và risk trade-offs.
 - Primary deliverable: **DG-architecture mock assessment**.
 

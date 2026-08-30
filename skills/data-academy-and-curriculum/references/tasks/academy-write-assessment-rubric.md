@@ -11,6 +11,7 @@ Use when the user asks to write assessment rubric, requests the stated deliverab
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: định nghĩa criteria, evidence, performance levels và critical failures.
 - Primary deliverable: **assessment rubric**.
 

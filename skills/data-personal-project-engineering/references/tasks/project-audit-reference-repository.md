@@ -11,6 +11,7 @@ Use when the user asks to audit reference repository, requests the stated delive
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: nhận xét và đánh giá repo theo purpose, architecture, data flow, runtime, correctness, tests, security, dependencies, CI/CD, observability, performance, cost, documentation, maintainability, activity và license.
 - Primary deliverable: **evidence-backed repository assessment**.
 

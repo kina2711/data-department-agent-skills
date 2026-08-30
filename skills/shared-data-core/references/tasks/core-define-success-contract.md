@@ -11,6 +11,7 @@ Use when the user asks to define success contract, requests the stated deliverab
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuyển mục tiêu mơ hồ thành outcome quan sát được, tiêu chí pass/fail, evidence, non-goals và điều kiện dừng.
 - Primary deliverable: **verifiable success contract**.
 

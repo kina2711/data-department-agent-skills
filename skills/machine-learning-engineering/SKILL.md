@@ -1,6 +1,6 @@
 ---
 name: machine-learning-engineering
-description: Engineer training pipelines, features, model artifacts, batch or online serving, performance, testing, deployment interfaces and resilience. Use for ML Engineer implementation and productionization work.
+description: Engineer training pipelines, features, model artifacts, batch or online serving, performance, testing, deployment interfaces and resilience. Use for ML Engineer implementation and productionization work. Route general batch, CDC or streaming ingestion to data-engineering, and registry, drift or model rollout operations to mlops.
 ---
 
 # Machine Learning Engineering

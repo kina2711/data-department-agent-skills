@@ -11,6 +11,7 @@ Use when the user asks to bootstrap concept registry, requests the stated delive
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: sinh lô concept key ứng viên từ track map và canon để corpus có chỗ bind ngay.
 - Primary deliverable: **proposed concept key batch**.
 

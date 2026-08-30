@@ -11,6 +11,7 @@ Use when the user asks to link knowledge graph, requests the stated deliverable,
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo typed links giữa source, concept, person, project, decision và output đồng thời phát hiện orphan links.
 - Primary deliverable: **linked knowledge graph**.
 

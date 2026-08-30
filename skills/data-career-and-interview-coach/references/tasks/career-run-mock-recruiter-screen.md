@@ -11,6 +11,7 @@ Use when the user asks to run mock recruiter screen, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: mô phỏng motivation, background, logistics và concise pitch.
 - Primary deliverable: **recruiter-screen mock report**.
 

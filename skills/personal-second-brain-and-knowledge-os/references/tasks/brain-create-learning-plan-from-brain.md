@@ -11,6 +11,7 @@ Use when the user asks to create learning plan from brain, requests the stated d
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: map known/unknown, prerequisites, sources, practice và retrieval checks thành learning plan.
 - Primary deliverable: **second-brain learning plan**.
 

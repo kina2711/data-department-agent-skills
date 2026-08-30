@@ -11,6 +11,7 @@ Use when the user asks to engineer features, requests the stated deliverable, or
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo features có rationale, availability và reproducibility.
 - Primary deliverable: **feature set**.
 

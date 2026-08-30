@@ -11,6 +11,7 @@ Use when the user asks to assess model change impact, requests the stated delive
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tìm consumers, metric changes và migration needs.
 - Primary deliverable: **impact assessment**.
 

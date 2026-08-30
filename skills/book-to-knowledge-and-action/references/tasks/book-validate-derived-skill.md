@@ -11,6 +11,7 @@ Use when the user asks to validate derived skill, requests the stated deliverabl
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: kiểm tra Claude format, triggering, progressive disclosure, broken links, token path và task behavior.
 - Primary deliverable: **derived-skill validation report**.
 

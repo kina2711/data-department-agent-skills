@@ -11,6 +11,7 @@ Use when the user asks to discover data assets, requests the stated deliverable,
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tìm source, table, metric, dashboard và owner liên quan.
 - Primary deliverable: **evidence-backed asset shortlist**.
 

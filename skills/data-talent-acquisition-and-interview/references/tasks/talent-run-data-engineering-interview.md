@@ -11,6 +11,7 @@ Use when the user asks to run data engineering interview, requests the stated de
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đánh giá ingestion, reliability, scale, recovery và cost.
 - Primary deliverable: **data-engineering assessment**.
 

@@ -11,6 +11,7 @@ Use when the user asks to migrate project structure, requests the stated deliver
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuyển layout/config có compatibility plan và verification.
 - Primary deliverable: **migrated repository**.
 

@@ -11,6 +11,7 @@ Use when the user asks to analyze funnel, requests the stated deliverable, or su
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tính stage conversion, drop-off và segment differences.
 - Primary deliverable: **funnel findings**.
 

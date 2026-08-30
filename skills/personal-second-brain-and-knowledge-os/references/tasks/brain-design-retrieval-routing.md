@@ -11,6 +11,7 @@ Use when the user asks to design retrieval routing, requests the stated delivera
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: map intents và queries tới note types, scopes, freshness, ranking và fallback.
 - Primary deliverable: **retrieval-routing design**.
 

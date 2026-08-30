@@ -11,6 +11,7 @@ Use when the user asks to profile source system, requests the stated deliverable
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: xác định schema, keys, volume, change pattern và limits.
 - Primary deliverable: **source profile**.
 

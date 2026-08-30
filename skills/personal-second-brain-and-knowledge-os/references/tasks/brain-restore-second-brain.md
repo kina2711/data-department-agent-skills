@@ -11,6 +11,7 @@ Use when the user asks to restore second brain, requests the stated deliverable,
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: phục hồi vào location tách biệt, kiểm tra integrity, links, indexes và representative retrieval trước cutover.
 - Primary deliverable: **verified restore record**.
 

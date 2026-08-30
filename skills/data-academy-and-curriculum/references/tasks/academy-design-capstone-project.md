@@ -11,6 +11,7 @@ Use when the user asks to design capstone project, requests the stated deliverab
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo end-to-end project, milestones, gates và rubric.
 - Primary deliverable: **capstone specification**.
 

@@ -11,6 +11,7 @@ Use when the user asks to backfill data range, requests the stated deliverable, 
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: ước lượng scope/cost, chạy chunked backfill và reconcile.
 - Primary deliverable: **verified backfill**.
 

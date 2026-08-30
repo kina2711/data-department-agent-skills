@@ -11,6 +11,7 @@ Use when the user asks to troubleshoot inference error, requests the stated deli
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: isolate input, feature, artifact, runtime hoặc dependency cause.
 - Primary deliverable: **restored inference**.
 

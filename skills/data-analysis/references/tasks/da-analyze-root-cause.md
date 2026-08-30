@@ -11,6 +11,7 @@ Use when the user asks to analyze root cause, requests the stated deliverable, o
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: dùng issue tree và decomposition để tìm driver.
 - Primary deliverable: **causal hypothesis tree**.
 

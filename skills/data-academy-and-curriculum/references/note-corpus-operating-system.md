@@ -41,7 +41,7 @@ A corpus outlives its sessions, so two of them will eventually run at once. The 
 
 Claim a module before building it and release it when the batch closes. Two sessions may work in parallel only on modules that share no notes, and neither rewrites a manifest entry belonging to the other's module. On a collision, the module that has not yet written any note yields; re-running a module that produced nothing is cheap, and reconciling two divergent manifests is not.
 
-Where the corpus spans enough stages to need gates, represent it as `corpus-workflow-manifest.json` and validate it with `data-department-orchestrator/scripts/validate_workflow.py`. The dependency edges are the stage order — research before tracks, tracks before plan, plan before any module — and each module batch is its own task instance so a failure names the module rather than the whole corpus. Resume through `orchestrator-resume-workflow` reading that manifest alongside the corpus manifest.
+Where the corpus spans enough stages to need gates, represent it as `corpus-workflow-manifest.json` and validate it with `data-department-orchestrator/scripts/validate_workflow.py`. The dependency edges are the stage order: research before tracks, tracks before plan, plan before any module. One workflow carries one `academy-build-note-module` entry, because the validator keys tasks by `task_id` and rejects a duplicate; `instance_id` labels which module that entry is currently on, and a corpus with many modules advances that one entry rather than fanning out into one entry per module. Resume through `orchestrator-resume-workflow` reading that manifest alongside the corpus manifest.
 
 ## What the corpus index does not record
 

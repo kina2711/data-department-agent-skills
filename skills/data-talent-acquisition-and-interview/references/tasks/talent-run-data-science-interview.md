@@ -11,6 +11,7 @@ Use when the user asks to run data science interview, requests the stated delive
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đánh giá statistics, experiment/model validity, leakage và business fit.
 - Primary deliverable: **data-science assessment**.
 

@@ -11,6 +11,7 @@ Use when the user asks to start inspiration first, requests the stated deliverab
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: bắt đầu từ ý tưởng, bài viết, video, demo hoặc sản phẩm của người khác và chuyển thành thesis riêng có attribution.
 - Primary deliverable: **inspiration-derived project charter**.
 

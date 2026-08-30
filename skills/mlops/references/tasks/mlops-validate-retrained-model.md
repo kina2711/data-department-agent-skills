@@ -11,6 +11,7 @@ Use when the user asks to validate retrained model, requests the stated delivera
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: so sánh challenger/champion và policy gates.
 - Primary deliverable: **validation decision**.
 

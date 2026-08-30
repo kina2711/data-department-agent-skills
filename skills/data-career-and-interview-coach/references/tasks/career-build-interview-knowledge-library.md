@@ -11,6 +11,7 @@ Use when the user asks to build interview knowledge library, requests the stated
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tổ chức question dossiers thành linked, tagged, versioned và Notion-ready knowledge library.
 - Primary deliverable: **interview knowledge library**.
 

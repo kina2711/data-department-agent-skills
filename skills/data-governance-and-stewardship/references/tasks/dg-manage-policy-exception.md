@@ -11,6 +11,7 @@ Use when the user asks to manage policy exception, requests the stated deliverab
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đánh giá compensating controls, expiry và approver.
 - Primary deliverable: **time-bound exception**.
 

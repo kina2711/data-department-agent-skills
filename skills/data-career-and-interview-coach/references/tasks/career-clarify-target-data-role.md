@@ -11,6 +11,7 @@ Use when the user asks to clarify target data role, requests the stated delivera
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: xác định role, level, company context và timeline mục tiêu.
 - Primary deliverable: **target-role brief**.
 

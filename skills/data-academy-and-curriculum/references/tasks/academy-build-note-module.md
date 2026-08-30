@@ -11,6 +11,7 @@ Use when the user asks to build note module, requests the stated deliverable, or
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: dựng trọn bộ note của một module theo cùng một chuẩn rồi cập nhật corpus manifest.
 - Primary deliverable: **module note batch**.
 

@@ -11,6 +11,7 @@ Use when the user asks to build code example package, requests the stated delive
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo runnable teaching/production-oriented examples, tests, setup, expected output và safety notes.
 - Primary deliverable: **validated code example package**.
 

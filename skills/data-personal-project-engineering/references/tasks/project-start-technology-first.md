@@ -11,6 +11,7 @@ Use when the user asks to start technology first, requests the stated deliverabl
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: bắt đầu từ công nghệ nhưng buộc chứng minh problem fit, learning value, alternatives và non-toy outcome.
 - Primary deliverable: **technology-grounded project charter**.
 

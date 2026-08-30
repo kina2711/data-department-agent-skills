@@ -11,6 +11,7 @@ Use when the user asks to run data modeling interview, requests the stated deliv
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đánh giá grain, entities, dimensions, history và trade-offs.
 - Primary deliverable: **data-modeling assessment**.
 

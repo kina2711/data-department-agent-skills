@@ -11,6 +11,7 @@ Use when the user asks to certify role competency, requests the stated deliverab
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đối chiếu evidence với pass rules và scope chứng nhận.
 - Primary deliverable: **competency certification decision**.
 

@@ -11,6 +11,7 @@ Use when the user asks to write facebook technical post, requests the stated del
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chuyển canonical evidence thành bài tiếng Việt dài, tự nhiên, giàu context, failure/trade-off và câu hỏi thảo luận, đồng thời giữ nguyên technical terms cần độ chính xác.
 - Primary deliverable: **Vietnamese Facebook technical post**.
 

@@ -11,6 +11,7 @@ Use when the user asks to build reuse adapt replace matrix, requests the stated 
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: phân loại từng component thành reuse/adapt/replace/drop/build-new kèm evidence, reason, risk và validation.
 - Primary deliverable: **repository transformation matrix**.
 

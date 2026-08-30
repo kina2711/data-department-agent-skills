@@ -11,6 +11,7 @@ Use when the user asks to build decision cheatsheet, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: compile decision trees, trade-off matrices, thresholds, defaults và smells thay vì glossary rút gọn.
 - Primary deliverable: **decision cheatsheet**.
 

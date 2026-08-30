@@ -11,6 +11,7 @@ Use when the user asks to write interview answer anchors, requests the stated de
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: định nghĩa behavioral anchors và evidence của câu trả lời yếu/đạt/mạnh mà không tạo script học thuộc.
 - Primary deliverable: **calibrated answer-anchor pack**.
 

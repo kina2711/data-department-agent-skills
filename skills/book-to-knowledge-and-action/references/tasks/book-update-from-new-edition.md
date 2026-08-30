@@ -11,6 +11,7 @@ Use when the user asks to update from new edition, requests the stated deliverab
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: diff editions, classify changed/added/removed claims, update impacted packs và retain prior version.
 - Primary deliverable: **new-edition update release**.
 

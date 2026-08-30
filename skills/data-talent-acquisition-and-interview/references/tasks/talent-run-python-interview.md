@@ -11,6 +11,7 @@ Use when the user asks to run python interview, requests the stated deliverable,
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đánh giá data manipulation, design, testing và maintainability.
 - Primary deliverable: **Python interview assessment**.
 

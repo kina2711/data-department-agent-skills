@@ -11,6 +11,7 @@ Use when the user asks to write data product requirements, requests the stated d
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: định nghĩa scope, user story, NFR và acceptance criteria.
 - Primary deliverable: **PRD**.
 

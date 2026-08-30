@@ -11,6 +11,7 @@ Use when the user asks to build work rule library, requests the stated deliverab
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: mã hóa preferences, quality bars, decision rules, templates, exceptions và escalation.
 - Primary deliverable: **personal work-rule library**.
 

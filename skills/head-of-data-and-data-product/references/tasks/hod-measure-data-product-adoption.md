@@ -11,6 +11,7 @@ Use when the user asks to measure data product adoption, requests the stated del
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: theo dõi usage, satisfaction, decision impact và retirement signal.
 - Primary deliverable: **adoption report**.
 

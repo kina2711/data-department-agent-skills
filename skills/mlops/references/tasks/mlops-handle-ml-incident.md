@@ -11,6 +11,7 @@ Use when the user asks to handle ml incident, requests the stated deliverable, o
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: triage data/model/service issue và coordinate response.
 - Primary deliverable: **resolved incident**.
 

@@ -11,6 +11,7 @@ Use when the user asks to audit series concept coverage, requests the stated del
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: map episode đã publish tới canonical concept ID để tách concept đã dạy khỏi concept chỉ nhắc tới, tìm prerequisite hở và trùng lặp.
 - Primary deliverable: **series concept coverage audit**.
 

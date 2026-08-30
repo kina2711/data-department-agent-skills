@@ -11,6 +11,7 @@ Use when the user asks to build versioned knowledge library, requests the stated
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tổ chức deep dives, question dossiers, tags, backlinks, owner, freshness và review status.
 - Primary deliverable: **governed knowledge library**.
 

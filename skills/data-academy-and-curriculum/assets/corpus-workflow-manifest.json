@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "objective": "",
   "status": "draft",
-  "workflow_risk_tier": "R1-reviewed",
+  "workflow_risk_tier": "R2-standard",
   "current_task_id": "academy-research-role-roadmap",
   "tasks": [
     {
@@ -37,7 +37,7 @@
         "academy-research-role-roadmap"
       ],
       "status": "planned",
-      "risk_tier": "R1-reviewed",
+      "risk_tier": "R2-standard",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -78,7 +78,7 @@
         "academy-prioritize-corpus-by-gap"
       ],
       "status": "planned",
-      "risk_tier": "R1-reviewed",
+      "risk_tier": "R2-standard",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],

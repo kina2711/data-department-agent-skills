@@ -11,6 +11,7 @@ Use when the user asks to define business rules, requests the stated deliverable
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: ghi condition, decision, exception, owner và examples.
 - Primary deliverable: **business-rule register**.
 

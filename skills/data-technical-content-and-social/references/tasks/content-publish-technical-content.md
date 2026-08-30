@@ -11,6 +11,7 @@ Use when the user asks to publish technical content, requests the stated deliver
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: phát hành đúng approved version, metadata, links, alt text và schedule lên kênh đã được ủy quyền.
 - Primary deliverable: **technical-content publication record**.
 

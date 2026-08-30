@@ -11,6 +11,7 @@ Use when the user asks to run first independent task, requests the stated delive
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: giao task bounded để đánh giá khả năng tự chủ.
 - Primary deliverable: **first-independent-task assessment**.
 

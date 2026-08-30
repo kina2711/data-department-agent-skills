@@ -11,6 +11,7 @@ Use when the user asks to build project blueprint, requests the stated deliverab
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: hợp nhất requirements, architecture, data contracts, interfaces, environments, risks, tests và handoffs trước implementation.
 - Primary deliverable: **implementation-ready project blueprint**.
 

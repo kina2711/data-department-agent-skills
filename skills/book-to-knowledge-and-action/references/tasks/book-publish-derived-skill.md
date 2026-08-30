@@ -11,6 +11,7 @@ Use when the user asks to publish derived skill, requests the stated deliverable
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: publish exact scanned version chỉ khi rights và explicit public/private authority hợp lệ.
 - Primary deliverable: **derived-skill publication record**.
 

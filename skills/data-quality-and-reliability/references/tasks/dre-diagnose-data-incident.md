@@ -11,6 +11,7 @@ Use when the user asks to diagnose data incident, requests the stated deliverabl
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: trace lineage và evidence để tìm failure point.
 - Primary deliverable: **root-cause diagnosis**.
 

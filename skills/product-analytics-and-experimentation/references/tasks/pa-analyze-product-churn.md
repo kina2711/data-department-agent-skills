@@ -11,6 +11,7 @@ Use when the user asks to analyze product churn, requests the stated deliverable
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tìm patterns trước churn và affected segments.
 - Primary deliverable: **churn findings**.
 

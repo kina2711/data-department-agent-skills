@@ -11,6 +11,7 @@ Use when the user asks to provision data compute, requests the stated deliverabl
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: cấu hình compute, workload isolation và autoscaling.
 - Primary deliverable: **compute resource**.
 

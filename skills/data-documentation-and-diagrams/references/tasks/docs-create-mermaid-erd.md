@@ -11,6 +11,7 @@ Use when the user asks to create mermaid erd, requests the stated deliverable, o
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo inline ERD cho model nhỏ/trung bình.
 - Primary deliverable: **Mermaid ERD**.
 

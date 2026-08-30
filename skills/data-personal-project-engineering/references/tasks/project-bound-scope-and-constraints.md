@@ -11,6 +11,7 @@ Use when the user asks to bound scope and constraints, requests the stated deliv
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: khóa time, cost, compute, data access, privacy, license, deployment và maintenance boundary.
 - Primary deliverable: **project scope and constraint contract**.
 

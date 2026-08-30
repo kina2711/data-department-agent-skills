@@ -11,6 +11,7 @@ Use when the user asks to plan data capacity, requests the stated deliverable, o
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: dự báo demand, capacity, bottleneck và hiring/outsourcing.
 - Primary deliverable: **capacity plan**.
 

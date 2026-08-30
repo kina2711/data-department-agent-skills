@@ -11,6 +11,7 @@ Use when the user asks to define data role profile, requests the stated delivera
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: định nghĩa mission, outcomes, responsibilities, boundaries và level.
 - Primary deliverable: **role profile**.
 

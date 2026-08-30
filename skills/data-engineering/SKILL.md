@@ -1,6 +1,6 @@
 ---
 name: data-engineering
-description: Design, build, test, diagnose execution plans and operate batch, API, file, CDC and streaming pipelines with idempotency, schema evolution, reconciliation, recovery and runbooks. Use for Data Engineer ingestion, performance or pipeline work.
+description: Design, build, test, diagnose execution plans and operate batch, API, file, CDC and streaming pipelines with idempotency, schema evolution, reconciliation, recovery and runbooks. Use for Data Engineer ingestion, performance or pipeline work. Route feature pipelines and model serving to machine-learning-engineering, dbt-style modelling to analytics-engineering, and catalog or lineage harvesting to metadata-engineering-and-catalog.
 ---
 
 # Data Engineering

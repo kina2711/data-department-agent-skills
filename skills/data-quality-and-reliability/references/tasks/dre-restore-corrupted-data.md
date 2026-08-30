@@ -11,6 +11,7 @@ Use when the user asks to restore corrupted data, requests the stated deliverabl
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: quarantine, restore/reprocess và reconcile.
 - Primary deliverable: **recovered dataset**.
 

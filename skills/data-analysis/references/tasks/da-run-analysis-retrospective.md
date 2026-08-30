@@ -11,6 +11,7 @@ Use when the user asks to run analysis retrospective, requests the stated delive
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: so sánh plan với thực tế, tìm nguyên nhân rework và chuyển lessons thành actions/templates/standards có owner.
 - Primary deliverable: **analysis retrospective and improvement actions**.
 

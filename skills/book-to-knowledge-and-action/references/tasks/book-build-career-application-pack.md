@@ -11,6 +11,7 @@ Use when the user asks to build career application pack, requests the stated del
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: map book concepts tới competencies, deliberate practice, authentic evidence, reflection và career review.
 - Primary deliverable: **book-to-career application pack**.
 

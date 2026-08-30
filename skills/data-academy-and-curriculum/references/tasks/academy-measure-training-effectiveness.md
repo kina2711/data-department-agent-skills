@@ -11,6 +11,7 @@ Use when the user asks to measure training effectiveness, requests the stated de
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đo reaction, learning, behavior transfer và business impact.
 - Primary deliverable: **training-effectiveness report**.
 

@@ -11,6 +11,7 @@ Use when the user asks to create dbml schema, requests the stated deliverable, o
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo DBML có types, keys, indexes và exportable SQL.
 - Primary deliverable: **validated DBML schema**.
 

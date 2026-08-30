@@ -11,6 +11,7 @@ Use when the user asks to start paper replication first, requests the stated del
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: bắt đầu từ paper/experiment bằng hypothesis, environment, dataset, reproduction criteria và extension question.
 - Primary deliverable: **replication-and-extension project plan**.
 

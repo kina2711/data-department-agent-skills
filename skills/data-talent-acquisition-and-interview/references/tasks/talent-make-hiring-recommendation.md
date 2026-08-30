@@ -11,6 +11,7 @@ Use when the user asks to make hiring recommendation, requests the stated delive
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: cân must-have evidence, risks và development assumptions.
 - Primary deliverable: **hiring recommendation**.
 

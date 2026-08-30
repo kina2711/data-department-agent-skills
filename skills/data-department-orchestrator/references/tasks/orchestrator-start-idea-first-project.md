@@ -11,6 +11,7 @@ Use when the user asks to start idea first project, requests the stated delivera
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: bắt đầu từ business idea qua discovery, product và feasibility gates.
 - Primary deliverable: **baselined project charter**.
 

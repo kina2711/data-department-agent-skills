@@ -11,6 +11,7 @@ Use when the user asks to measure reuse value, requests the stated deliverable, 
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đo time-to-find, reuse rate, grounded-output rate, search failure và avoided rework mà không chạy theo note count.
 - Primary deliverable: **second-brain value review**.
 

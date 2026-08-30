@@ -11,6 +11,7 @@ Use when the user asks to profile dataset, requests the stated deliverable, or s
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đo null, distinct, distribution, outlier và freshness.
 - Primary deliverable: **profile report**.
 

@@ -11,6 +11,7 @@ Use when the user asks to assess model fairness, requests the stated deliverable
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đo subgroup performance, disparity và mitigation.
 - Primary deliverable: **fairness assessment**.
 

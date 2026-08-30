@@ -11,6 +11,7 @@ Use when the user asks to request human approval, requests the stated deliverabl
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: tạo approval package đúng owner.
 - Primary deliverable: **auditable approval request**.
 

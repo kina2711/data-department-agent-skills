@@ -11,6 +11,7 @@ Use when the user asks to define metric requirement, requests the stated deliver
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: định nghĩa business intent, formula, grain, filters và examples.
 - Primary deliverable: **metric requirement**.
 

@@ -11,6 +11,7 @@ Use when the user asks to start integration first, requests the stated deliverab
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: bắt đầu từ API, event, source/target hoặc interoperability gap và xác định contract, reliability, security, reconciliation.
 - Primary deliverable: **integration-grounded project direction**.
 

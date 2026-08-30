@@ -11,6 +11,7 @@ Use when the user asks to maintain evidence ledger, requests the stated delivera
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `light` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: nối claim/metric/visual tới query và evidence status.
 - Primary deliverable: **evidence ledger**.
 

@@ -11,6 +11,7 @@ Use when the user asks to capture source material, requests the stated deliverab
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: đưa nguồn mới vào 1_Nguon với stable ID, snapshot, checksum, origin, captured-at và rights.
 - Primary deliverable: **captured source record**.
 

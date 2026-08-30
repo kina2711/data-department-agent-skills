@@ -11,6 +11,7 @@ Use when the user asks to design ab test, requests the stated deliverable, or su
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: chọn unit, randomization, variants, duration và analysis plan.
 - Primary deliverable: **experiment design**.
 

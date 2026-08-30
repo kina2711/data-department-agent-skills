@@ -11,6 +11,7 @@ Use when the user asks to test dashboard usability, requests the stated delivera
 - Execution path: `fast-path`
 - Contract version: `3.0`
 - Criticality: `deep`
+- Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: kiểm tra navigation, readability, accessibility và mobile.
 - Primary deliverable: **usability findings**.
 

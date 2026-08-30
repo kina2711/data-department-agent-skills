@@ -11,6 +11,7 @@ Use when the user asks to release ai version, requests the stated deliverable, o
 - Execution path: `controlled-path`
 - Contract version: `3.0`
 - Criticality: `enforced`
+- Model tier: `strong` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
 - Goal: evaluate, approve, canary và rollback.
 - Primary deliverable: **controlled release**.
 
