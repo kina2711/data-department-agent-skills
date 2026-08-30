@@ -219,3 +219,82 @@ ipcMain.handle('workflow:validate', (_e, { file, suitePath, mode }) => {
   if (run.error) return { ok: false, output: String(run.error.message) };
   return { ok: run.status === 0, exit: run.status, output: (run.stdout || '') + (run.stderr || '') };
 });
+
+// ---- In-app run ------------------------------------------------------------
+// `claude -p --output-format stream-json` emits one JSON object per line. The app parses those
+// and renders them itself, so no terminal window is involved. It still runs the CLI, so it uses
+// the existing login rather than a separate API key.
+//
+// Headless means no interactive permission prompt. The mode is the user's choice, surfaced in
+// the UI, and it defaults to `plan` — Claude says what it would do and touches nothing.
+
+const runs = new Map();
+
+ipcMain.handle('run:start', (event, { runId, folder, prompt, suitePath, permissionMode }) => {
+  if (!folder || !fs.existsSync(folder)) return { ok: false, error: 'Thư mục không tồn tại' };
+  if (!String(prompt || '').trim()) return { ok: false, error: 'Prompt rỗng' };
+
+  const argv = ['-p', '--output-format', 'stream-json', '--verbose'];
+  if (suitePath && fs.existsSync(path.join(suitePath, '.claude-plugin'))) {
+    argv.push('--plugin-dir', suitePath);
+  }
+  argv.push('--permission-mode', permissionMode || 'plan');
+  argv.push(String(prompt));
+
+  let child;
+  try {
+    child = spawn('claude', argv, { cwd: folder, stdio: ['ignore', 'pipe', 'pipe'] });
+  } catch (err) {
+    return { ok: false, error: `Không chạy được claude: ${err.message}` };
+  }
+  runs.set(runId, child);
+
+  const send = (channel, payload) => {
+    if (!event.sender.isDestroyed()) event.sender.send(channel, { runId, ...payload });
+  };
+
+  let buffer = '';
+  child.stdout.on('data', (chunk) => {
+    buffer += chunk.toString('utf8');
+    const lines = buffer.split('\n');
+    buffer = lines.pop() || '';
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (!trimmed) continue;
+      try {
+        send('run:event', { event: JSON.parse(trimmed) });
+      } catch {
+        // Not every line is JSON when the CLI writes a notice; show it rather than drop it.
+        send('run:event', { event: { type: 'raw', text: trimmed } });
+      }
+    }
+  });
+
+  child.stderr.on('data', (chunk) => send('run:stderr', { text: chunk.toString('utf8') }));
+
+  child.on('error', (err) => {
+    runs.delete(runId);
+    send('run:done', { code: -1, error: err.message });
+  });
+  child.on('close', (code) => {
+    runs.delete(runId);
+    if (buffer.trim()) {
+      try {
+        send('run:event', { event: JSON.parse(buffer.trim()) });
+      } catch {
+        send('run:event', { event: { type: 'raw', text: buffer.trim() } });
+      }
+    }
+    send('run:done', { code });
+  });
+
+  return { ok: true };
+});
+
+ipcMain.handle('run:stop', (_e, runId) => {
+  const child = runs.get(runId);
+  if (!child) return { ok: false };
+  child.kill('SIGTERM');
+  runs.delete(runId);
+  return { ok: true };
+});

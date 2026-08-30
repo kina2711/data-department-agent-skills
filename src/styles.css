@@ -282,3 +282,64 @@ header.top h1 { font-size: 26px; letter-spacing: -.02em; margin: 0; }
   cursor: pointer; padding: 0; margin-top: 8px; text-decoration: underline;
 }
 .desc-en { font-size: 12px; color: var(--ink-faint); margin: 8px 0 0; }
+
+/* ---- Preset jobs ---- */
+h4.sec {
+  margin: 16px 0 8px; font-size: 11px; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--ink-faint); font-weight: 600;
+}
+h4.sec:first-child { margin-top: 0; }
+
+.job-card {
+  display: flex; flex-direction: column; gap: 3px; width: 100%; text-align: left;
+  border: 1px solid var(--line); border-radius: 11px; background: var(--surface);
+  padding: 12px 13px; margin-bottom: 8px; cursor: pointer; font: inherit; color: inherit;
+  transition: border-color .14s ease, transform .14s ease;
+}
+.job-card:hover { border-color: var(--ink-faint); transform: translateY(-1px); }
+.job-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.job-name { font-size: 13.5px; font-weight: 600; }
+.job-desc { font-size: 12.5px; color: var(--ink-muted); }
+
+.job-form-title { margin: 10px 0 14px; font-size: 16px; letter-spacing: -.01em; }
+.job-field { display: block; margin-bottom: 12px; }
+.job-field > span {
+  display: block; font-size: 11px; color: var(--ink-faint); margin-bottom: 4px;
+  text-transform: uppercase; letter-spacing: .04em;
+}
+.job-field .search { width: 100%; }
+.job-field textarea.search { resize: vertical; font: inherit; }
+
+.job-preview {
+  border: 1px solid var(--line); border-left: 2px solid var(--accent);
+  border-radius: 9px; background: var(--bg); padding: 11px 13px;
+  font-size: 13px; line-height: 1.55; color: var(--ink); white-space: pre-wrap;
+}
+
+/* ---- In-app run transcript ---- */
+.run-head { display: flex; gap: 9px; align-items: center; margin-bottom: 12px; }
+.run-status { flex: 1; font-size: 12.5px; color: var(--ink-muted); }
+.run-log {
+  border: 1px solid var(--line); border-radius: 11px; background: var(--bg);
+  padding: 12px; max-height: 52vh; overflow: auto;
+}
+.run-row { display: flex; gap: 9px; margin-bottom: 9px; align-items: flex-start; }
+.run-label {
+  flex: 0 0 auto; font-size: 10.5px; text-transform: uppercase; letter-spacing: .04em;
+  color: var(--ink-faint); border: 1px solid var(--line); border-radius: 6px;
+  padding: 1px 6px; margin-top: 2px; white-space: nowrap;
+}
+.run-body { font-size: 13px; line-height: 1.55; white-space: pre-wrap; word-break: break-word; }
+.run-text .run-body { color: var(--ink); }
+.run-meta .run-body, .run-result .run-body {
+  color: var(--ink-muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11.5px;
+}
+.run-tool .run-label { color: var(--accent); border-color: currentColor; }
+.run-tool .run-body { color: var(--ink-muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11.5px; }
+.run-err .run-label { color: var(--danger); border-color: currentColor; }
+.run-err .run-body { color: var(--danger); }
+
+.drawer .foot .row .grow { flex: 1; }
+.drawer .foot .row .perm { flex: 0 0 auto; max-width: 200px; }
+.btn-quiet { color: var(--ink-muted); border-style: dashed; }
+.drawer .foot .row .btn { white-space: nowrap; }

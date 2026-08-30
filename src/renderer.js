@@ -8,6 +8,9 @@ const state = {
   query: '',
   openSkill: null,
   catalog: new Map(),
+  job: null,
+  jobPrompt: '',
+  jobMissing: [],
   selectedTask: null,
   folder: '',
 };
@@ -225,9 +228,41 @@ function renderGuide(skill) {
   box.append(toggle, en);
 }
 
+function showPane(which) {
+  for (const id of ['paneJobs', 'paneForm', 'paneRun']) $(id).hidden = id !== which;
+}
+
+// A preset job and a hand-picked task are two ways to reach the same run; only one is active.
+function pickJob(job) {
+  state.job = job;
+  state.selectedTask = job.task_id;
+  window.jobsUI.renderJobForm(
+    job,
+    (_j, _v, text, missing) => {
+      state.jobPrompt = text;
+      state.jobMissing = missing;
+      updateLaunch();
+    },
+    () => {
+      state.job = null;
+      state.jobPrompt = '';
+      state.jobMissing = [];
+      showPane('paneJobs');
+      updateLaunch();
+    }
+  );
+  showPane('paneForm');
+  updateLaunch();
+}
+
 function openDrawer(skill) {
   state.openSkill = skill;
   state.selectedTask = null;
+  state.job = null;
+  state.jobPrompt = '';
+  state.jobMissing = [];
+  showPane('paneJobs');
+  window.jobsUI.renderJobList(skill, pickJob);
   $('dTitle').textContent = skill.name;
   renderGuide(skill);
   $('drawer').dataset.open = 'true';
@@ -249,11 +284,27 @@ function shortPath(p, keep = 2) {
   return '…/' + parts.slice(-keep).join('/');
 }
 
+function effectivePrompt() {
+  if (state.job) return state.jobPrompt;
+  if (!state.openSkill) return '';
+  return state.selectedTask
+    ? `Use the ${state.openSkill.id} skill and run the atomic task ${state.selectedTask} in this directory.`
+    : `Use the ${state.openSkill.id} skill for work in this directory. Route to the right atomic task by primary deliverable.`;
+}
+
 function updateLaunch() {
-  $('launch').disabled = !(state.openSkill && state.folder);
+  const ready = Boolean(state.openSkill && state.folder);
+  const blocked = state.job && state.jobMissing.length > 0;
+  $('launch').disabled = !ready;
+  $('runStart').disabled = !ready || blocked;
   const line = $('folderLine');
-  line.textContent = state.folder ? shortPath(state.folder) : 'Chưa chọn thư mục';
-  line.title = state.folder || '';
+  if (blocked) {
+    line.textContent = `Còn thiếu: ${state.jobMissing.join(', ')}`;
+    line.title = '';
+  } else {
+    line.textContent = state.folder ? shortPath(state.folder) : 'Chưa chọn thư mục';
+    line.title = state.folder || '';
+  }
 }
 
 async function loadSuite(suitePath) {
@@ -295,6 +346,36 @@ $('pickFolder').addEventListener('click', async () => {
     state.folder = folder;
     updateLaunch();
   }
+});
+
+$('runStart').addEventListener('click', async () => {
+  const prompt = effectivePrompt();
+  if (!prompt) return;
+  showPane('paneRun');
+  window.runUI.reset();
+  window.runUI.setRunning(true);
+  const runId = window.runUI.newId();
+  const res = await window.studio.startRun({
+    runId,
+    folder: state.folder,
+    prompt,
+    suitePath: state.suitePath,
+    permissionMode: $('permMode').value,
+  });
+  if (!res.ok) window.runUI.finish(-1, res.error);
+});
+
+$('runStop').addEventListener('click', () => window.studio.stopRun(window.runUI.currentId()));
+$('runBack').addEventListener('click', () => showPane(state.job ? 'paneForm' : 'paneJobs'));
+
+window.studio.onRunEvent(({ runId, event }) => {
+  if (runId === window.runUI.currentId()) window.runUI.handleEvent(event);
+});
+window.studio.onRunStderr(({ runId, text }) => {
+  if (runId === window.runUI.currentId() && text.trim()) window.runUI.handleEvent({ type: 'raw', text });
+});
+window.studio.onRunDone(({ runId, code, error }) => {
+  if (runId === window.runUI.currentId()) window.runUI.finish(code, error);
 });
 
 $('launch').addEventListener('click', async () => {

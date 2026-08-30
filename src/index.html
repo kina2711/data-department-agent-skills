@@ -69,10 +69,22 @@
     <div id="dGuide" class="guide"></div>
   </header>
   <div class="body">
-    <p class="drawer-hint">
-      Chọn một task để chạy đúng contract đó, hoặc bỏ trống để Claude tự định tuyến theo primary deliverable.
-    </p>
-    <div id="dTasks"></div>
+    <div id="paneJobs">
+      <h4 class="sec">Công việc dựng sẵn</h4>
+      <div id="dJobs"></div>
+      <h4 class="sec">Hoặc chọn task trực tiếp</h4>
+      <p class="drawer-hint">Bỏ trống để Claude tự định tuyến theo primary deliverable.</p>
+      <div id="dTasks"></div>
+    </div>
+    <div id="paneForm" hidden></div>
+    <div id="paneRun" hidden>
+      <div class="run-head">
+        <span id="runStatus" class="run-status"></span>
+        <button class="btn" id="runStop" disabled>Dừng</button>
+        <button class="btn" id="runBack">← Quay lại</button>
+      </div>
+      <div id="runLog" class="run-log"></div>
+    </div>
   </div>
   <div class="foot">
     <span class="folder-line" id="folderLine">Chưa chọn thư mục</span>
@@ -80,11 +92,21 @@
       <button class="btn" id="pickFolder">Chọn thư mục…</button>
       <button class="btn" id="closeDrawer">Đóng</button>
       <span class="spacer"></span>
-      <button class="btn btn-primary" id="launch" disabled>Mở phiên</button>
+      <button class="btn btn-quiet" id="launch" disabled>Mở terminal</button>
+    </div>
+    <div class="row">
+      <select class="btn perm" id="permMode" aria-label="Chế độ quyền" title="Chỉ lên kế hoạch: Claude nói sẽ làm gì và không sửa file nào">
+        <option value="plan">Chỉ lên kế hoạch</option>
+        <option value="acceptEdits">Cho sửa file</option>
+        <option value="bypassPermissions">Bỏ mọi kiểm tra quyền</option>
+      </select>
+      <button class="btn btn-primary grow" id="runStart" disabled>Chạy trong app</button>
     </div>
   </div>
 </aside>
 
+<script src="jobs.js"></script>
+<script src="run.js"></script>
 <script src="canvas.js"></script>
 <script src="renderer.js"></script>
 </body>

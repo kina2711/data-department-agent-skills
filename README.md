@@ -78,3 +78,25 @@ The choice is remembered in the app's user-data directory, alongside recent work
   instead of a window that blinks and disappears.
 - Model tier comes from the suite's own catalog. It is a recommendation the contract carries,
   not something this app enforces at runtime.
+
+## Running work in the app
+
+Two ways to start, both from the drawer after picking a skill and a folder:
+
+- **Chạy trong app** runs `claude -p --output-format stream-json` and renders the events itself.
+  No terminal window. It still runs the CLI, so it uses the existing login rather than a separate
+  API key — but it does consume plan usage, and the transcript shows the run's cost when it ends.
+- **Mở terminal** is the older path, kept for interactive work.
+
+Headless means there is no interactive permission prompt, so the mode is an explicit choice in
+the footer and defaults to **Chỉ lên kế hoạch** (`plan`): Claude says what it would do and edits
+nothing. `Cho sửa file` (`acceptEdits`) lets it write. `Bỏ mọi kiểm tra quyền`
+(`bypassPermissions`) removes every check and is never selected for you.
+
+## Preset jobs
+
+`docs/cong-viec.vi.json` in the suite holds jobs: a Vietnamese name, a description, the task the
+job runs, and typed parameters. Filling the form composes a prompt, shown live before it is sent.
+Optional parameters left blank drop their whole sentence rather than leaving a gap. The suite's
+`validate_suite.py` checks that every job names a real skill and task, every template placeholder
+is declared, and every declared parameter is actually used.

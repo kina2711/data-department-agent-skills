@@ -36,12 +36,20 @@ function readSuite(suitePath) {
   // Vietnamese guides are the human routing layer. They are optional: an older suite still
   // renders, just without them.
   let guides = {};
+  let jobs = [];
   try {
     guides = JSON.parse(
       fs.readFileSync(path.join(suitePath, 'docs', 'huong-dan-skill.vi.json'), 'utf8')
     ).skills || {};
   } catch {
     guides = {};
+  }
+  try {
+    jobs = JSON.parse(
+      fs.readFileSync(path.join(suitePath, 'docs', 'cong-viec.vi.json'), 'utf8')
+    ).cong_viec || [];
+  } catch {
+    jobs = [];
   }
 
   // Task-level metadata is optional; the grid degrades to names and counts without it.
@@ -76,6 +84,7 @@ function readSuite(suitePath) {
       name: role.display_name || role.skill,
       description,
       guide: guides[role.skill] || null,
+      jobs: jobs.filter((j) => j.skill === role.skill),
       taskCount: role.task_count || owned.length,
       tasks: owned.map((t) => ({
         id: t.id,
