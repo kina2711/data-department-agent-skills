@@ -1,15 +1,28 @@
 {
   "workflow_id": "data-documentation-and-diagrams-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through data-documentation-and-diagrams. Edges encode phase precedence from docs/skill-map.md (P0 diagram selection và modeling; P1 document artifacts), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through data-documentation-and-diagrams, 5 stages over 20 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/test-assure → P0/design-specification/plan-design → P1/advisory-analysis/build-deliver → P1/design-specification/plan-design → P1/production-release/plan-design. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R3-controlled",
-  "current_task_id": "docs-select-diagram-type",
+  "current_task_id": "docs-validate-diagram-semantics",
   "tasks": [
+    {
+      "task_id": "docs-validate-diagram-semantics",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
     {
       "task_id": "docs-select-diagram-type",
       "owner": "",
-      "depends_on": [],
+      "depends_on": [
+        "docs-validate-diagram-semantics"
+      ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
       "artifact_version": "",
@@ -161,7 +174,7 @@
       "approval_refs": []
     },
     {
-      "task_id": "docs-validate-diagram-semantics",
+      "task_id": "docs-maintain-changelog",
       "owner": "",
       "depends_on": [
         "docs-select-diagram-type"
@@ -177,7 +190,7 @@
       "task_id": "docs-write-architecture-document",
       "owner": "",
       "depends_on": [
-        "docs-select-diagram-type"
+        "docs-maintain-changelog"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -246,19 +259,6 @@
       ],
       "status": "planned",
       "risk_tier": "R3-controlled",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "docs-maintain-changelog",
-      "owner": "",
-      "depends_on": [
-        "docs-write-architecture-document"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],

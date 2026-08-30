@@ -1,7 +1,7 @@
 {
   "workflow_id": "data-department-orchestrator-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through data-department-orchestrator. Edges encode phase precedence from docs/skill-map.md (P0), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through data-department-orchestrator, 4 stages over 21 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/design-specification/plan-design → P0/build-change/build-deliver. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R2-standard",
   "current_task_id": "orchestrator-hydrate-context",
@@ -161,32 +161,6 @@
       "approval_refs": []
     },
     {
-      "task_id": "orchestrator-write-session-handoff",
-      "owner": "",
-      "depends_on": [
-        "orchestrator-hydrate-context"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "orchestrator-check-information-sufficiency",
-      "owner": "",
-      "depends_on": [
-        "orchestrator-hydrate-context"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "orchestrator-manage-question-register",
       "owner": "",
       "depends_on": [
@@ -252,13 +226,13 @@
       "approval_refs": []
     },
     {
-      "task_id": "orchestrator-enforce-phase-gate",
+      "task_id": "orchestrator-check-information-sufficiency",
       "owner": "",
       "depends_on": [
         "orchestrator-hydrate-context"
       ],
       "status": "planned",
-      "risk_tier": "R2-standard",
+      "risk_tier": "R0-light",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -268,10 +242,36 @@
       "task_id": "orchestrator-evaluate-workflow-completion",
       "owner": "",
       "depends_on": [
-        "orchestrator-hydrate-context"
+        "orchestrator-check-information-sufficiency"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-write-session-handoff",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-check-information-sufficiency"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-enforce-phase-gate",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-write-session-handoff"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],

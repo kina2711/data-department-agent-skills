@@ -1,15 +1,93 @@
 {
   "workflow_id": "product-analytics-and-experimentation-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through product-analytics-and-experimentation. Edges encode phase precedence from docs/skill-map.md (P0 product measurement; P1 experimentation), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through product-analytics-and-experimentation, 7 stages over 17 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/design-specification/plan-design → P0/build-change/build-deliver → P1/advisory-analysis/build-deliver → P1/advisory-analysis/test-assure → P1/design-specification/plan-design. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R2-standard",
-  "current_task_id": "pa-define-product-event",
+  "current_task_id": "pa-qa-product-instrumentation",
   "tasks": [
+    {
+      "task_id": "pa-qa-product-instrumentation",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "pa-analyze-user-journey",
+      "owner": "",
+      "depends_on": [
+        "pa-qa-product-instrumentation"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "pa-analyze-activation",
+      "owner": "",
+      "depends_on": [
+        "pa-analyze-user-journey"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "pa-analyze-feature-adoption",
+      "owner": "",
+      "depends_on": [
+        "pa-analyze-user-journey"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "pa-analyze-product-retention",
+      "owner": "",
+      "depends_on": [
+        "pa-analyze-user-journey"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "pa-analyze-product-churn",
+      "owner": "",
+      "depends_on": [
+        "pa-analyze-user-journey"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
     {
       "task_id": "pa-define-product-event",
       "owner": "",
-      "depends_on": [],
+      "depends_on": [
+        "pa-analyze-user-journey"
+      ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
       "artifact_version": "",
@@ -31,19 +109,6 @@
       "approval_refs": []
     },
     {
-      "task_id": "pa-qa-product-instrumentation",
-      "owner": "",
-      "depends_on": [
-        "pa-define-product-event"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "pa-define-product-north-star",
       "owner": "",
       "depends_on": [
@@ -51,71 +116,6 @@
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "pa-analyze-user-journey",
-      "owner": "",
-      "depends_on": [
-        "pa-define-product-event"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "pa-analyze-activation",
-      "owner": "",
-      "depends_on": [
-        "pa-define-product-event"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "pa-analyze-feature-adoption",
-      "owner": "",
-      "depends_on": [
-        "pa-define-product-event"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "pa-analyze-product-retention",
-      "owner": "",
-      "depends_on": [
-        "pa-define-product-event"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "pa-analyze-product-churn",
-      "owner": "",
-      "depends_on": [
-        "pa-define-product-event"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -135,10 +135,75 @@
       "approval_refs": []
     },
     {
+      "task_id": "exp-calculate-sample-size",
+      "owner": "",
+      "depends_on": [
+        "pa-build-growth-accounting"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "exp-handle-experiment-peeking",
+      "owner": "",
+      "depends_on": [
+        "exp-calculate-sample-size"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "exp-register-experiment",
+      "owner": "",
+      "depends_on": [
+        "exp-calculate-sample-size"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "exp-check-randomization",
+      "owner": "",
+      "depends_on": [
+        "exp-calculate-sample-size"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "exp-analyze-experiment",
+      "owner": "",
+      "depends_on": [
+        "exp-check-randomization"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
       "task_id": "exp-frame-experiment-hypothesis",
       "owner": "",
       "depends_on": [
-        "pa-define-product-event"
+        "exp-check-randomization"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -155,71 +220,6 @@
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "exp-calculate-sample-size",
-      "owner": "",
-      "depends_on": [
-        "exp-frame-experiment-hypothesis"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "exp-check-randomization",
-      "owner": "",
-      "depends_on": [
-        "exp-frame-experiment-hypothesis"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "exp-analyze-experiment",
-      "owner": "",
-      "depends_on": [
-        "exp-frame-experiment-hypothesis"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "exp-handle-experiment-peeking",
-      "owner": "",
-      "depends_on": [
-        "exp-frame-experiment-hypothesis"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "exp-register-experiment",
-      "owner": "",
-      "depends_on": [
-        "exp-frame-experiment-hypothesis"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],

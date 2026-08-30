@@ -1,17 +1,43 @@
 {
   "workflow_id": "master-data-management-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through master-data-management. Edges encode phase precedence from docs/skill-map.md (P0 master lifecycle; P1 controlled change), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through master-data-management, 8 stages over 13 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/advisory-analysis/operate-improve → P0/design-specification/plan-design → P0/build-change/build-deliver → P1/advisory-analysis/build-deliver → P1/advisory-analysis/operate-improve → P1/governance-assurance/test-assure. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R2-standard",
-  "current_task_id": "mdm-design-master-entity",
+  "current_task_id": "mdm-manage-stewardship-queue",
   "tasks": [
     {
-      "task_id": "mdm-design-master-entity",
+      "task_id": "mdm-manage-stewardship-queue",
       "owner": "",
       "depends_on": [],
       "status": "planned",
-      "risk_tier": "R1-reviewed",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "mdm-manage-reference-data",
+      "owner": "",
+      "depends_on": [
+        "mdm-manage-stewardship-queue"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "mdm-manage-master-hierarchy",
+      "owner": "",
+      "depends_on": [
+        "mdm-manage-stewardship-queue"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -21,10 +47,36 @@
       "task_id": "mdm-profile-entity-duplicates",
       "owner": "",
       "depends_on": [
-        "mdm-design-master-entity"
+        "mdm-manage-stewardship-queue"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "mdm-monitor-master-data-quality",
+      "owner": "",
+      "depends_on": [
+        "mdm-profile-entity-duplicates"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "mdm-design-master-entity",
+      "owner": "",
+      "depends_on": [
+        "mdm-monitor-master-data-quality"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -70,62 +122,10 @@
       "approval_refs": []
     },
     {
-      "task_id": "mdm-manage-stewardship-queue",
-      "owner": "",
-      "depends_on": [
-        "mdm-design-master-entity"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "mdm-manage-reference-data",
-      "owner": "",
-      "depends_on": [
-        "mdm-design-master-entity"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "mdm-manage-master-hierarchy",
-      "owner": "",
-      "depends_on": [
-        "mdm-design-master-entity"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "mdm-monitor-master-data-quality",
-      "owner": "",
-      "depends_on": [
-        "mdm-design-master-entity"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "mdm-synchronize-master-data",
       "owner": "",
       "depends_on": [
-        "mdm-design-master-entity"
+        "mdm-build-golden-record"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -138,7 +138,7 @@
       "task_id": "mdm-handle-master-data-change",
       "owner": "",
       "depends_on": [
-        "mdm-design-master-entity"
+        "mdm-build-golden-record"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -164,7 +164,7 @@
       "task_id": "mdm-audit-master-data-lineage",
       "owner": "",
       "depends_on": [
-        "mdm-handle-master-data-change"
+        "mdm-resolve-identity-conflict"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",

@@ -1,69 +1,17 @@
 {
   "workflow_id": "data-developer-experience-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through data-developer-experience. Edges encode phase precedence from docs/skill-map.md (P0 repository và scaffolding; P1 project quality và delivery), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through data-developer-experience, 10 stages over 19 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/design-specification/plan-design → P0/build-change/build-deliver → P0/governance-assurance/test-assure → P1/advisory-analysis/build-deliver → P1/advisory-analysis/test-assure → P1/design-specification/plan-design → P1/build-change/build-deliver → P1/build-change/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R3-controlled",
-  "current_task_id": "dx-audit-data-repository",
+  "current_task_id": "dx-reverse-engineer-data-project",
   "tasks": [
-    {
-      "task_id": "dx-audit-data-repository",
-      "owner": "",
-      "depends_on": [],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
     {
       "task_id": "dx-reverse-engineer-data-project",
       "owner": "",
-      "depends_on": [
-        "dx-audit-data-repository"
-      ],
+      "depends_on": [],
       "status": "planned",
       "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dx-trace-data-path-end-to-end",
-      "owner": "",
-      "depends_on": [
-        "dx-audit-data-repository"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dx-scaffold-data-project",
-      "owner": "",
-      "depends_on": [
-        "dx-audit-data-repository"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dx-select-project-template",
-      "owner": "",
-      "depends_on": [
-        "dx-audit-data-repository"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -73,7 +21,7 @@
       "task_id": "dx-bootstrap-local-environment",
       "owner": "",
       "depends_on": [
-        "dx-audit-data-repository"
+        "dx-reverse-engineer-data-project"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -86,7 +34,7 @@
       "task_id": "dx-manage-project-dependencies",
       "owner": "",
       "depends_on": [
-        "dx-audit-data-repository"
+        "dx-reverse-engineer-data-project"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -99,7 +47,7 @@
       "task_id": "dx-generate-synthetic-dataset",
       "owner": "",
       "depends_on": [
-        "dx-audit-data-repository"
+        "dx-reverse-engineer-data-project"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -109,10 +57,23 @@
       "approval_refs": []
     },
     {
-      "task_id": "dx-create-test-data-fixture",
+      "task_id": "dx-trace-data-path-end-to-end",
       "owner": "",
       "depends_on": [
-        "dx-audit-data-repository"
+        "dx-reverse-engineer-data-project"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dx-select-project-template",
+      "owner": "",
+      "depends_on": [
+        "dx-trace-data-path-end-to-end"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -122,10 +83,36 @@
       "approval_refs": []
     },
     {
+      "task_id": "dx-create-test-data-fixture",
+      "owner": "",
+      "depends_on": [
+        "dx-select-project-template"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dx-scaffold-data-project",
+      "owner": "",
+      "depends_on": [
+        "dx-select-project-template"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
       "task_id": "dx-build-project-task-runner",
       "owner": "",
       "depends_on": [
-        "dx-audit-data-repository"
+        "dx-scaffold-data-project"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -138,7 +125,7 @@
       "task_id": "dx-configure-precommit-quality-gates",
       "owner": "",
       "depends_on": [
-        "dx-audit-data-repository"
+        "dx-scaffold-data-project"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -148,13 +135,26 @@
       "approval_refs": []
     },
     {
-      "task_id": "dx-configure-repository-ci",
+      "task_id": "dx-audit-data-repository",
+      "owner": "",
+      "depends_on": [
+        "dx-scaffold-data-project"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dx-benchmark-data-project",
       "owner": "",
       "depends_on": [
         "dx-audit-data-repository"
       ],
       "status": "planned",
-      "risk_tier": "R2-standard",
+      "risk_tier": "R0-light",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -164,7 +164,7 @@
       "task_id": "dx-review-repository-hygiene",
       "owner": "",
       "depends_on": [
-        "dx-configure-repository-ci"
+        "dx-benchmark-data-project"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -177,10 +177,49 @@
       "task_id": "dx-detect-repository-secrets",
       "owner": "",
       "depends_on": [
-        "dx-configure-repository-ci"
+        "dx-review-repository-hygiene"
       ],
       "status": "planned",
       "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dx-assess-production-readiness",
+      "owner": "",
+      "depends_on": [
+        "dx-review-repository-hygiene"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dx-create-project-demo",
+      "owner": "",
+      "depends_on": [
+        "dx-review-repository-hygiene"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dx-configure-repository-ci",
+      "owner": "",
+      "depends_on": [
+        "dx-create-project-demo"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -194,45 +233,6 @@
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dx-create-project-demo",
-      "owner": "",
-      "depends_on": [
-        "dx-configure-repository-ci"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dx-benchmark-data-project",
-      "owner": "",
-      "depends_on": [
-        "dx-configure-repository-ci"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dx-assess-production-readiness",
-      "owner": "",
-      "depends_on": [
-        "dx-configure-repository-ci"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],

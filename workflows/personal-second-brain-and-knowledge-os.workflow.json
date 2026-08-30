@@ -1,15 +1,28 @@
 {
   "workflow_id": "personal-second-brain-and-knowledge-os-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through personal-second-brain-and-knowledge-os. Edges encode phase precedence from docs/skill-map.md (P0 purpose, architecture và migration; P1 source ingestion và Wiki distillation; P1 3_Toi và khả năng tái sử dụng; P2 retrieval, output và reuse; P2 assurance và lifecycle), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through personal-second-brain-and-knowledge-os, 18 stages over 46 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/design-specification/plan-design → P1/advisory-analysis/build-deliver → P1/build-change/build-deliver → P1/build-change/operate-improve → P1/advisory-analysis/build-deliver → P1/build-change/build-deliver → P2/advisory-analysis/build-deliver → P2/design-specification/plan-design → P2/build-change/build-deliver → P2/advisory-analysis/build-deliver → P2/advisory-analysis/test-assure → P2/build-change/build-deliver → P2/governance-assurance/build-deliver → P2/governance-assurance/test-assure → P2/production-release/operate-improve → P2/incident-recovery/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R4-critical",
-  "current_task_id": "brain-assess-current-knowledge-system",
+  "current_task_id": "brain-classify-knowledge-domain",
   "tasks": [
+    {
+      "task_id": "brain-classify-knowledge-domain",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
     {
       "task_id": "brain-assess-current-knowledge-system",
       "owner": "",
-      "depends_on": [],
+      "depends_on": [
+        "brain-classify-knowledge-domain"
+      ],
       "status": "planned",
       "risk_tier": "R0-light",
       "artifact_version": "",
@@ -31,23 +44,10 @@
       "approval_refs": []
     },
     {
-      "task_id": "brain-classify-knowledge-domain",
-      "owner": "",
-      "depends_on": [
-        "brain-assess-current-knowledge-system"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "brain-design-four-layer-architecture",
       "owner": "",
       "depends_on": [
-        "brain-assess-current-knowledge-system"
+        "brain-define-second-brain-purpose"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -60,7 +60,7 @@
       "task_id": "brain-design-vault-taxonomy",
       "owner": "",
       "depends_on": [
-        "brain-assess-current-knowledge-system"
+        "brain-define-second-brain-purpose"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -73,7 +73,7 @@
       "task_id": "brain-define-source-rights-policy",
       "owner": "",
       "depends_on": [
-        "brain-assess-current-knowledge-system"
+        "brain-define-second-brain-purpose"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -86,7 +86,7 @@
       "task_id": "brain-define-personal-context-contract",
       "owner": "",
       "depends_on": [
-        "brain-assess-current-knowledge-system"
+        "brain-define-second-brain-purpose"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -99,7 +99,7 @@
       "task_id": "brain-define-output-contracts",
       "owner": "",
       "depends_on": [
-        "brain-assess-current-knowledge-system"
+        "brain-define-second-brain-purpose"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -112,7 +112,7 @@
       "task_id": "brain-design-retrieval-routing",
       "owner": "",
       "depends_on": [
-        "brain-assess-current-knowledge-system"
+        "brain-define-second-brain-purpose"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -125,7 +125,7 @@
       "task_id": "brain-plan-tool-migration",
       "owner": "",
       "depends_on": [
-        "brain-assess-current-knowledge-system"
+        "brain-define-second-brain-purpose"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -138,7 +138,7 @@
       "task_id": "brain-inventory-distributed-sources",
       "owner": "",
       "depends_on": [
-        "brain-assess-current-knowledge-system"
+        "brain-define-second-brain-purpose"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -164,7 +164,7 @@
       "task_id": "brain-import-exported-workspace",
       "owner": "",
       "depends_on": [
-        "brain-inventory-distributed-sources"
+        "brain-capture-source-material"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -177,7 +177,7 @@
       "task_id": "brain-extract-multiformat-content",
       "owner": "",
       "depends_on": [
-        "brain-inventory-distributed-sources"
+        "brain-capture-source-material"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -190,7 +190,7 @@
       "task_id": "brain-transcribe-audio-video-source",
       "owner": "",
       "depends_on": [
-        "brain-inventory-distributed-sources"
+        "brain-capture-source-material"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -203,7 +203,7 @@
       "task_id": "brain-process-image-and-diagram-source",
       "owner": "",
       "depends_on": [
-        "brain-inventory-distributed-sources"
+        "brain-capture-source-material"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -216,7 +216,7 @@
       "task_id": "brain-normalize-source-metadata",
       "owner": "",
       "depends_on": [
-        "brain-inventory-distributed-sources"
+        "brain-capture-source-material"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -229,7 +229,7 @@
       "task_id": "brain-deduplicate-source-library",
       "owner": "",
       "depends_on": [
-        "brain-inventory-distributed-sources"
+        "brain-capture-source-material"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -242,7 +242,7 @@
       "task_id": "brain-build-source-provenance-record",
       "owner": "",
       "depends_on": [
-        "brain-inventory-distributed-sources"
+        "brain-capture-source-material"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -255,7 +255,7 @@
       "task_id": "brain-distill-source-to-wiki-note",
       "owner": "",
       "depends_on": [
-        "brain-inventory-distributed-sources"
+        "brain-capture-source-material"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -268,7 +268,7 @@
       "task_id": "brain-build-atomic-knowledge-note",
       "owner": "",
       "depends_on": [
-        "brain-inventory-distributed-sources"
+        "brain-capture-source-material"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -281,7 +281,7 @@
       "task_id": "brain-build-concept-map",
       "owner": "",
       "depends_on": [
-        "brain-inventory-distributed-sources"
+        "brain-capture-source-material"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -294,7 +294,7 @@
       "task_id": "brain-build-topic-map",
       "owner": "",
       "depends_on": [
-        "brain-inventory-distributed-sources"
+        "brain-capture-source-material"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -307,7 +307,7 @@
       "task_id": "brain-link-knowledge-graph",
       "owner": "",
       "depends_on": [
-        "brain-inventory-distributed-sources"
+        "brain-capture-source-material"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -320,7 +320,7 @@
       "task_id": "brain-resolve-knowledge-conflict",
       "owner": "",
       "depends_on": [
-        "brain-inventory-distributed-sources"
+        "brain-capture-source-material"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -333,7 +333,7 @@
       "task_id": "brain-curate-personal-principles",
       "owner": "",
       "depends_on": [
-        "brain-inventory-distributed-sources"
+        "brain-resolve-knowledge-conflict"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -359,7 +359,7 @@
       "task_id": "brain-build-audience-context",
       "owner": "",
       "depends_on": [
-        "brain-curate-personal-principles"
+        "brain-build-author-voice-profile"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -372,7 +372,7 @@
       "task_id": "brain-build-work-rule-library",
       "owner": "",
       "depends_on": [
-        "brain-curate-personal-principles"
+        "brain-build-author-voice-profile"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -385,7 +385,7 @@
       "task_id": "brain-build-domain-second-brain",
       "owner": "",
       "depends_on": [
-        "brain-curate-personal-principles"
+        "brain-build-author-voice-profile"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -398,49 +398,10 @@
       "task_id": "brain-retrieve-task-context",
       "owner": "",
       "depends_on": [
-        "brain-curate-personal-principles"
+        "brain-build-author-voice-profile"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "brain-build-grounded-context-pack",
-      "owner": "",
-      "depends_on": [
-        "brain-retrieve-task-context"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "brain-generate-grounded-output",
-      "owner": "",
-      "depends_on": [
-        "brain-retrieve-task-context"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "brain-reuse-prior-work",
-      "owner": "",
-      "depends_on": [
-        "brain-retrieve-task-context"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -463,7 +424,7 @@
       "task_id": "brain-create-report-from-brain",
       "owner": "",
       "depends_on": [
-        "brain-retrieve-task-context"
+        "brain-create-content-from-brain"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -476,7 +437,7 @@
       "task_id": "brain-create-learning-plan-from-brain",
       "owner": "",
       "depends_on": [
-        "brain-retrieve-task-context"
+        "brain-create-content-from-brain"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -489,7 +450,7 @@
       "task_id": "brain-create-project-plan-from-brain",
       "owner": "",
       "depends_on": [
-        "brain-retrieve-task-context"
+        "brain-create-content-from-brain"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -499,10 +460,49 @@
       "approval_refs": []
     },
     {
-      "task_id": "brain-test-retrieval-quality",
+      "task_id": "brain-build-grounded-context-pack",
       "owner": "",
       "depends_on": [
-        "brain-retrieve-task-context"
+        "brain-create-content-from-brain"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-generate-grounded-output",
+      "owner": "",
+      "depends_on": [
+        "brain-build-grounded-context-pack"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-reuse-prior-work",
+      "owner": "",
+      "depends_on": [
+        "brain-build-grounded-context-pack"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-run-knowledge-review-cycle",
+      "owner": "",
+      "depends_on": [
+        "brain-build-grounded-context-pack"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -512,26 +512,26 @@
       "approval_refs": []
     },
     {
-      "task_id": "brain-audit-output-grounding",
+      "task_id": "brain-test-retrieval-quality",
       "owner": "",
       "depends_on": [
-        "brain-test-retrieval-quality"
+        "brain-run-knowledge-review-cycle"
       ],
       "status": "planned",
-      "risk_tier": "R1-reviewed",
+      "risk_tier": "R0-light",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
       "approval_refs": []
     },
     {
-      "task_id": "brain-run-privacy-freshness-audit",
+      "task_id": "brain-measure-reuse-value",
       "owner": "",
       "depends_on": [
         "brain-test-retrieval-quality"
       ],
       "status": "planned",
-      "risk_tier": "R3-controlled",
+      "risk_tier": "R0-light",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -551,10 +551,10 @@
       "approval_refs": []
     },
     {
-      "task_id": "brain-restore-second-brain",
+      "task_id": "brain-run-privacy-freshness-audit",
       "owner": "",
       "depends_on": [
-        "brain-test-retrieval-quality"
+        "brain-backup-second-brain"
       ],
       "status": "planned",
       "risk_tier": "R3-controlled",
@@ -564,13 +564,13 @@
       "approval_refs": []
     },
     {
-      "task_id": "brain-run-knowledge-review-cycle",
+      "task_id": "brain-audit-output-grounding",
       "owner": "",
       "depends_on": [
-        "brain-test-retrieval-quality"
+        "brain-run-privacy-freshness-audit"
       ],
       "status": "planned",
-      "risk_tier": "R0-light",
+      "risk_tier": "R1-reviewed",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -580,7 +580,7 @@
       "task_id": "brain-retire-stale-knowledge",
       "owner": "",
       "depends_on": [
-        "brain-test-retrieval-quality"
+        "brain-audit-output-grounding"
       ],
       "status": "planned",
       "risk_tier": "R4-critical",
@@ -590,13 +590,13 @@
       "approval_refs": []
     },
     {
-      "task_id": "brain-measure-reuse-value",
+      "task_id": "brain-restore-second-brain",
       "owner": "",
       "depends_on": [
-        "brain-test-retrieval-quality"
+        "brain-retire-stale-knowledge"
       ],
       "status": "planned",
-      "risk_tier": "R0-light",
+      "risk_tier": "R3-controlled",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],

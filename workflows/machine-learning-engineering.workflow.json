@@ -1,7 +1,7 @@
 {
   "workflow_id": "machine-learning-engineering-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through machine-learning-engineering. Edges encode phase precedence from docs/skill-map.md (P0 productionization; P1 safe release; P2 optimization), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through machine-learning-engineering, 12 stages over 20 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/build-deliver → P0/design-specification/plan-design → P0/build-change/build-deliver → P0/build-change/test-assure → P0/build-change/operate-improve → P1/advisory-analysis/plan-design → P1/advisory-analysis/test-assure → P1/production-release/build-deliver → P1/production-release/operate-improve → P1/incident-recovery/operate-improve → P2/advisory-analysis/build-deliver → P2/advisory-analysis/test-assure. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R3-controlled",
   "current_task_id": "mle-productionize-model-code",
@@ -12,45 +12,6 @@
       "depends_on": [],
       "status": "planned",
       "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "mle-build-feature-pipeline",
-      "owner": "",
-      "depends_on": [
-        "mle-productionize-model-code"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "mle-build-training-pipeline",
-      "owner": "",
-      "depends_on": [
-        "mle-productionize-model-code"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "mle-package-model-artifact",
-      "owner": "",
-      "depends_on": [
-        "mle-productionize-model-code"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -70,36 +31,10 @@
       "approval_refs": []
     },
     {
-      "task_id": "mle-build-batch-inference",
-      "owner": "",
-      "depends_on": [
-        "mle-productionize-model-code"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "mle-build-online-inference-service",
-      "owner": "",
-      "depends_on": [
-        "mle-productionize-model-code"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "mle-write-model-unit-tests",
       "owner": "",
       "depends_on": [
-        "mle-productionize-model-code"
+        "mle-define-inference-contract"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -112,7 +47,7 @@
       "task_id": "mle-write-model-integration-tests",
       "owner": "",
       "depends_on": [
-        "mle-productionize-model-code"
+        "mle-define-inference-contract"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -122,10 +57,10 @@
       "approval_refs": []
     },
     {
-      "task_id": "mle-validate-training-serving-skew",
+      "task_id": "mle-build-feature-pipeline",
       "owner": "",
       "depends_on": [
-        "mle-productionize-model-code"
+        "mle-define-inference-contract"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -135,10 +70,49 @@
       "approval_refs": []
     },
     {
-      "task_id": "mle-optimize-inference-performance",
+      "task_id": "mle-build-training-pipeline",
       "owner": "",
       "depends_on": [
-        "mle-productionize-model-code"
+        "mle-build-feature-pipeline"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "mle-package-model-artifact",
+      "owner": "",
+      "depends_on": [
+        "mle-build-feature-pipeline"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "mle-build-batch-inference",
+      "owner": "",
+      "depends_on": [
+        "mle-build-feature-pipeline"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "mle-build-online-inference-service",
+      "owner": "",
+      "depends_on": [
+        "mle-build-feature-pipeline"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -151,7 +125,7 @@
       "task_id": "mle-implement-model-fallback",
       "owner": "",
       "depends_on": [
-        "mle-productionize-model-code"
+        "mle-build-feature-pipeline"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -161,10 +135,62 @@
       "approval_refs": []
     },
     {
+      "task_id": "mle-validate-training-serving-skew",
+      "owner": "",
+      "depends_on": [
+        "mle-build-feature-pipeline"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "mle-optimize-inference-performance",
+      "owner": "",
+      "depends_on": [
+        "mle-validate-training-serving-skew"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "mle-document-model-service",
+      "owner": "",
+      "depends_on": [
+        "mle-optimize-inference-performance"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "mle-validate-model-compatibility",
+      "owner": "",
+      "depends_on": [
+        "mle-document-model-service"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
       "task_id": "mle-build-shadow-deployment",
       "owner": "",
       "depends_on": [
-        "mle-productionize-model-code"
+        "mle-validate-model-compatibility"
       ],
       "status": "planned",
       "risk_tier": "R3-controlled",
@@ -175,32 +201,6 @@
     },
     {
       "task_id": "mle-build-canary-release",
-      "owner": "",
-      "depends_on": [
-        "mle-build-shadow-deployment"
-      ],
-      "status": "planned",
-      "risk_tier": "R3-controlled",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "mle-validate-model-compatibility",
-      "owner": "",
-      "depends_on": [
-        "mle-build-shadow-deployment"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "mle-troubleshoot-inference-error",
       "owner": "",
       "depends_on": [
         "mle-build-shadow-deployment"
@@ -226,13 +226,13 @@
       "approval_refs": []
     },
     {
-      "task_id": "mle-document-model-service",
+      "task_id": "mle-troubleshoot-inference-error",
       "owner": "",
       "depends_on": [
-        "mle-build-shadow-deployment"
+        "mle-rollback-model-release"
       ],
       "status": "planned",
-      "risk_tier": "R0-light",
+      "risk_tier": "R3-controlled",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -242,7 +242,7 @@
       "task_id": "mle-compress-model",
       "owner": "",
       "depends_on": [
-        "mle-build-shadow-deployment"
+        "mle-troubleshoot-inference-error"
       ],
       "status": "planned",
       "risk_tier": "R0-light",

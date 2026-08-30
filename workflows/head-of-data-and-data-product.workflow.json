@@ -1,15 +1,54 @@
 {
   "workflow_id": "head-of-data-and-data-product-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through head-of-data-and-data-product. Edges encode phase precedence from docs/skill-map.md (P0 vận hành cơ bản; P1 scale organization; P2 organization development), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through head-of-data-and-data-product, 10 stages over 21 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/design-specification/plan-design → P0/build-change/build-deliver → P0/production-release/plan-design → P1/advisory-analysis/build-deliver → P1/advisory-analysis/test-assure → P1/design-specification/plan-design → P2/design-specification/plan-design → P2/build-change/build-deliver. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R3-controlled",
-  "current_task_id": "hod-assess-data-maturity",
+  "current_task_id": "dpm-intake-data-request",
   "tasks": [
+    {
+      "task_id": "dpm-intake-data-request",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dpm-prioritize-data-backlog",
+      "owner": "",
+      "depends_on": [
+        "dpm-intake-data-request"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dpm-accept-data-deliverable",
+      "owner": "",
+      "depends_on": [
+        "dpm-intake-data-request"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
     {
       "task_id": "hod-assess-data-maturity",
       "owner": "",
-      "depends_on": [],
+      "depends_on": [
+        "dpm-intake-data-request"
+      ],
       "status": "planned",
       "risk_tier": "R0-light",
       "artifact_version": "",
@@ -31,39 +70,13 @@
       "approval_refs": []
     },
     {
-      "task_id": "hod-build-data-roadmap",
-      "owner": "",
-      "depends_on": [
-        "hod-assess-data-maturity"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "hod-define-data-okrs",
       "owner": "",
       "depends_on": [
-        "hod-assess-data-maturity"
+        "hod-define-data-strategy"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dpm-intake-data-request",
-      "owner": "",
-      "depends_on": [
-        "hod-assess-data-maturity"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -73,23 +86,10 @@
       "task_id": "dpm-frame-data-product-opportunity",
       "owner": "",
       "depends_on": [
-        "hod-assess-data-maturity"
+        "hod-define-data-strategy"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dpm-prioritize-data-backlog",
-      "owner": "",
-      "depends_on": [
-        "hod-assess-data-maturity"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -99,7 +99,7 @@
       "task_id": "dpm-write-data-product-requirements",
       "owner": "",
       "depends_on": [
-        "hod-assess-data-maturity"
+        "hod-define-data-strategy"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -109,10 +109,23 @@
       "approval_refs": []
     },
     {
+      "task_id": "hod-build-data-roadmap",
+      "owner": "",
+      "depends_on": [
+        "hod-define-data-strategy"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
       "task_id": "dpm-plan-data-release",
       "owner": "",
       "depends_on": [
-        "hod-assess-data-maturity"
+        "hod-build-data-roadmap"
       ],
       "status": "planned",
       "risk_tier": "R3-controlled",
@@ -122,10 +135,49 @@
       "approval_refs": []
     },
     {
-      "task_id": "dpm-accept-data-deliverable",
+      "task_id": "hod-manage-data-portfolio",
       "owner": "",
       "depends_on": [
-        "hod-assess-data-maturity"
+        "dpm-plan-data-release"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "hod-run-data-steering-review",
+      "owner": "",
+      "depends_on": [
+        "hod-manage-data-portfolio"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "hod-evaluate-data-vendor",
+      "owner": "",
+      "depends_on": [
+        "hod-manage-data-portfolio"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "hod-measure-data-product-adoption",
+      "owner": "",
+      "depends_on": [
+        "hod-evaluate-data-vendor"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -138,7 +190,7 @@
       "task_id": "hod-design-data-operating-model",
       "owner": "",
       "depends_on": [
-        "hod-assess-data-maturity"
+        "hod-evaluate-data-vendor"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -161,19 +213,6 @@
       "approval_refs": []
     },
     {
-      "task_id": "hod-manage-data-portfolio",
-      "owner": "",
-      "depends_on": [
-        "hod-design-data-operating-model"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "hod-define-data-service-slas",
       "owner": "",
       "depends_on": [
@@ -181,45 +220,6 @@
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "hod-evaluate-data-vendor",
-      "owner": "",
-      "depends_on": [
-        "hod-design-data-operating-model"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "hod-measure-data-product-adoption",
-      "owner": "",
-      "depends_on": [
-        "hod-design-data-operating-model"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "hod-run-data-steering-review",
-      "owner": "",
-      "depends_on": [
-        "hod-design-data-operating-model"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],

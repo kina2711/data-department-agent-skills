@@ -1,15 +1,41 @@
 {
   "workflow_id": "generative-ai-engineering-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through generative-ai-engineering. Edges encode phase precedence from docs/skill-map.md (P0 RAG và agent foundation; P1 production quality), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through generative-ai-engineering, 9 stages over 20 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/test-assure → P0/design-specification/plan-design → P0/build-change/build-deliver → P1/advisory-analysis/plan-design → P1/advisory-analysis/test-assure → P1/advisory-analysis/operate-improve → P1/design-specification/plan-design → P1/build-change/operate-improve → P1/production-release/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R3-controlled",
-  "current_task_id": "ai-frame-generative-ai-use-case",
+  "current_task_id": "ai-evaluate-retrieval-quality",
   "tasks": [
+    {
+      "task_id": "ai-evaluate-retrieval-quality",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-evaluate-answer-quality",
+      "owner": "",
+      "depends_on": [
+        "ai-evaluate-retrieval-quality"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
     {
       "task_id": "ai-frame-generative-ai-use-case",
       "owner": "",
-      "depends_on": [],
+      "depends_on": [
+        "ai-evaluate-retrieval-quality"
+      ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
       "artifact_version": "",
@@ -25,19 +51,6 @@
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "ai-ingest-knowledge-source",
-      "owner": "",
-      "depends_on": [
-        "ai-frame-generative-ai-use-case"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -70,32 +83,6 @@
       "approval_refs": []
     },
     {
-      "task_id": "ai-build-retrieval-pipeline",
-      "owner": "",
-      "depends_on": [
-        "ai-frame-generative-ai-use-case"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "ai-build-reranking-pipeline",
-      "owner": "",
-      "depends_on": [
-        "ai-frame-generative-ai-use-case"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "ai-design-system-prompt",
       "owner": "",
       "depends_on": [
@@ -109,10 +96,49 @@
       "approval_refs": []
     },
     {
-      "task_id": "ai-build-rag-answering-flow",
+      "task_id": "ai-ingest-knowledge-source",
       "owner": "",
       "depends_on": [
         "ai-frame-generative-ai-use-case"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-build-retrieval-pipeline",
+      "owner": "",
+      "depends_on": [
+        "ai-ingest-knowledge-source"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-build-reranking-pipeline",
+      "owner": "",
+      "depends_on": [
+        "ai-ingest-knowledge-source"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-build-rag-answering-flow",
+      "owner": "",
+      "depends_on": [
+        "ai-ingest-knowledge-source"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -125,7 +151,7 @@
       "task_id": "ai-build-tool-using-agent",
       "owner": "",
       "depends_on": [
-        "ai-frame-generative-ai-use-case"
+        "ai-ingest-knowledge-source"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -138,7 +164,7 @@
       "task_id": "ai-implement-ai-guardrails",
       "owner": "",
       "depends_on": [
-        "ai-frame-generative-ai-use-case"
+        "ai-ingest-knowledge-source"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -148,23 +174,10 @@
       "approval_refs": []
     },
     {
-      "task_id": "ai-evaluate-retrieval-quality",
+      "task_id": "ai-document-ai-system",
       "owner": "",
       "depends_on": [
-        "ai-frame-generative-ai-use-case"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "ai-evaluate-answer-quality",
-      "owner": "",
-      "depends_on": [
-        "ai-frame-generative-ai-use-case"
+        "ai-ingest-knowledge-source"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -177,20 +190,7 @@
       "task_id": "ai-test-prompt-injection-resistance",
       "owner": "",
       "depends_on": [
-        "ai-frame-generative-ai-use-case"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "ai-monitor-ai-application",
-      "owner": "",
-      "depends_on": [
-        "ai-test-prompt-injection-resistance"
+        "ai-document-ai-system"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -213,10 +213,36 @@
       "approval_refs": []
     },
     {
-      "task_id": "ai-optimize-ai-cost-latency",
+      "task_id": "ai-monitor-ai-application",
       "owner": "",
       "depends_on": [
         "ai-test-prompt-injection-resistance"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-create-human-review-workflow",
+      "owner": "",
+      "depends_on": [
+        "ai-monitor-ai-application"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-optimize-ai-cost-latency",
+      "owner": "",
+      "depends_on": [
+        "ai-create-human-review-workflow"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -229,36 +255,10 @@
       "task_id": "ai-release-ai-version",
       "owner": "",
       "depends_on": [
-        "ai-test-prompt-injection-resistance"
+        "ai-optimize-ai-cost-latency"
       ],
       "status": "planned",
       "risk_tier": "R3-controlled",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "ai-create-human-review-workflow",
-      "owner": "",
-      "depends_on": [
-        "ai-test-prompt-injection-resistance"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "ai-document-ai-system",
-      "owner": "",
-      "depends_on": [
-        "ai-test-prompt-injection-resistance"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],

@@ -1,15 +1,28 @@
 {
   "workflow_id": "metadata-engineering-and-catalog-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through metadata-engineering-and-catalog. Edges encode phase precedence from docs/skill-map.md (P0 metadata foundation; P1 catalog operations), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through metadata-engineering-and-catalog, 8 stages over 18 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/plan-design → P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/build-change/build-deliver → P1/advisory-analysis/build-deliver → P1/advisory-analysis/test-assure → P1/build-change/build-deliver → P1/production-release/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R3-controlled",
-  "current_task_id": "meta-inventory-data-assets",
+  "current_task_id": "meta-map-critical-data-elements",
   "tasks": [
+    {
+      "task_id": "meta-map-critical-data-elements",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
     {
       "task_id": "meta-inventory-data-assets",
       "owner": "",
-      "depends_on": [],
+      "depends_on": [
+        "meta-map-critical-data-elements"
+      ],
       "status": "planned",
       "risk_tier": "R0-light",
       "artifact_version": "",
@@ -57,26 +70,13 @@
       "approval_refs": []
     },
     {
-      "task_id": "meta-map-critical-data-elements",
+      "task_id": "meta-index-data-for-discovery",
       "owner": "",
       "depends_on": [
         "meta-inventory-data-assets"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "meta-build-data-lineage",
-      "owner": "",
-      "depends_on": [
-        "meta-inventory-data-assets"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -96,13 +96,13 @@
       "approval_refs": []
     },
     {
-      "task_id": "meta-index-data-for-discovery",
+      "task_id": "meta-build-data-lineage",
       "owner": "",
       "depends_on": [
-        "meta-inventory-data-assets"
+        "meta-validate-lineage"
       ],
       "status": "planned",
-      "risk_tier": "R0-light",
+      "risk_tier": "R2-standard",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -112,7 +112,7 @@
       "task_id": "meta-build-source-authority-matrix",
       "owner": "",
       "depends_on": [
-        "meta-inventory-data-assets"
+        "meta-build-data-lineage"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -125,36 +125,10 @@
       "task_id": "meta-synchronize-asset-ownership",
       "owner": "",
       "depends_on": [
-        "meta-inventory-data-assets"
+        "meta-build-data-lineage"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "meta-ingest-usage-metadata",
-      "owner": "",
-      "depends_on": [
-        "meta-inventory-data-assets"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "meta-detect-orphan-data-assets",
-      "owner": "",
-      "depends_on": [
-        "meta-ingest-usage-metadata"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -164,20 +138,7 @@
       "task_id": "meta-track-schema-version",
       "owner": "",
       "depends_on": [
-        "meta-ingest-usage-metadata"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "meta-measure-metadata-completeness",
-      "owner": "",
-      "depends_on": [
-        "meta-ingest-usage-metadata"
+        "meta-build-data-lineage"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -190,7 +151,7 @@
       "task_id": "meta-onboard-metadata-connector",
       "owner": "",
       "depends_on": [
-        "meta-ingest-usage-metadata"
+        "meta-track-schema-version"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -203,10 +164,62 @@
       "task_id": "meta-manage-catalog-tags",
       "owner": "",
       "depends_on": [
-        "meta-ingest-usage-metadata"
+        "meta-track-schema-version"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "meta-deprecate-catalog-asset",
+      "owner": "",
+      "depends_on": [
+        "meta-track-schema-version"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "meta-detect-orphan-data-assets",
+      "owner": "",
+      "depends_on": [
+        "meta-track-schema-version"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "meta-measure-metadata-completeness",
+      "owner": "",
+      "depends_on": [
+        "meta-detect-orphan-data-assets"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "meta-ingest-usage-metadata",
+      "owner": "",
+      "depends_on": [
+        "meta-detect-orphan-data-assets"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -220,19 +233,6 @@
       ],
       "status": "planned",
       "risk_tier": "R3-controlled",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "meta-deprecate-catalog-asset",
-      "owner": "",
-      "depends_on": [
-        "meta-ingest-usage-metadata"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],

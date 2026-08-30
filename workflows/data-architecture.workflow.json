@@ -1,7 +1,7 @@
 {
   "workflow_id": "data-architecture-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through data-architecture. Edges encode phase precedence from docs/skill-map.md (P0 kiến trúc nền tảng; P1 resilience và scale; P2 enterprise architecture), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through data-architecture, 7 stages over 22 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/test-assure → P0/design-specification/plan-design → P1/design-specification/plan-design → P1/incident-recovery/plan-design → P2/advisory-analysis/build-deliver → P2/advisory-analysis/test-assure → P2/design-specification/plan-design. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R3-controlled",
   "current_task_id": "arch-assess-current-data-architecture",
@@ -10,6 +10,19 @@
       "task_id": "arch-assess-current-data-architecture",
       "owner": "",
       "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "arch-review-solution-design",
+      "owner": "",
+      "depends_on": [
+        "arch-assess-current-data-architecture"
+      ],
       "status": "planned",
       "risk_tier": "R0-light",
       "artifact_version": "",
@@ -34,7 +47,7 @@
       "task_id": "arch-select-data-platform-pattern",
       "owner": "",
       "depends_on": [
-        "arch-assess-current-data-architecture"
+        "arch-define-target-data-architecture"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -47,7 +60,7 @@
       "task_id": "arch-design-data-domain-boundaries",
       "owner": "",
       "depends_on": [
-        "arch-assess-current-data-architecture"
+        "arch-define-target-data-architecture"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -60,7 +73,7 @@
       "task_id": "arch-design-data-flow",
       "owner": "",
       "depends_on": [
-        "arch-assess-current-data-architecture"
+        "arch-define-target-data-architecture"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -73,7 +86,7 @@
       "task_id": "arch-choose-integration-pattern",
       "owner": "",
       "depends_on": [
-        "arch-assess-current-data-architecture"
+        "arch-define-target-data-architecture"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -86,7 +99,7 @@
       "task_id": "arch-define-data-contract-standard",
       "owner": "",
       "depends_on": [
-        "arch-assess-current-data-architecture"
+        "arch-define-target-data-architecture"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -99,7 +112,7 @@
       "task_id": "arch-define-modeling-standard",
       "owner": "",
       "depends_on": [
-        "arch-assess-current-data-architecture"
+        "arch-define-target-data-architecture"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -112,7 +125,7 @@
       "task_id": "arch-write-architecture-decision-record",
       "owner": "",
       "depends_on": [
-        "arch-assess-current-data-architecture"
+        "arch-define-target-data-architecture"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -122,23 +135,10 @@
       "approval_refs": []
     },
     {
-      "task_id": "arch-review-solution-design",
-      "owner": "",
-      "depends_on": [
-        "arch-assess-current-data-architecture"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "arch-design-batch-architecture",
       "owner": "",
       "depends_on": [
-        "arch-assess-current-data-architecture"
+        "arch-define-target-data-architecture"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -175,19 +175,6 @@
     },
     {
       "task_id": "arch-design-data-security-architecture",
-      "owner": "",
-      "depends_on": [
-        "arch-design-batch-architecture"
-      ],
-      "status": "planned",
-      "risk_tier": "R3-controlled",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "arch-design-disaster-recovery",
       "owner": "",
       "depends_on": [
         "arch-design-batch-architecture"
@@ -239,10 +226,36 @@
       "approval_refs": []
     },
     {
-      "task_id": "arch-evaluate-technology-option",
+      "task_id": "arch-design-disaster-recovery",
       "owner": "",
       "depends_on": [
         "arch-design-batch-architecture"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "arch-manage-architecture-technical-debt",
+      "owner": "",
+      "depends_on": [
+        "arch-design-disaster-recovery"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "arch-evaluate-technology-option",
+      "owner": "",
+      "depends_on": [
+        "arch-manage-architecture-technical-debt"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -253,19 +266,6 @@
     },
     {
       "task_id": "arch-assess-architecture-compliance",
-      "owner": "",
-      "depends_on": [
-        "arch-evaluate-technology-option"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "arch-manage-architecture-technical-debt",
       "owner": "",
       "depends_on": [
         "arch-evaluate-technology-option"

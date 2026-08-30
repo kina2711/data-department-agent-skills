@@ -1,7 +1,7 @@
 {
   "workflow_id": "data-governance-and-stewardship-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through data-governance-and-stewardship. Edges encode phase precedence from docs/skill-map.md (P0 nền quản trị; P1 workflow và compliance; P2 maturity và assurance), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through data-governance-and-stewardship, 9 stages over 22 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/governance-assurance/plan-design → P0/governance-assurance/build-deliver → P0/governance-assurance/test-assure → P0/governance-assurance/operate-improve → P1/governance-assurance/plan-design → P1/governance-assurance/build-deliver → P1/governance-assurance/test-assure → P2/governance-assurance/test-assure → P2/production-release/plan-design. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R4-critical",
   "current_task_id": "dg-define-data-domain",
@@ -18,46 +18,7 @@
       "approval_refs": []
     },
     {
-      "task_id": "dg-assign-data-ownership",
-      "owner": "",
-      "depends_on": [
-        "dg-define-data-domain"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "dg-create-business-term",
-      "owner": "",
-      "depends_on": [
-        "dg-define-data-domain"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dg-resolve-business-term-conflict",
-      "owner": "",
-      "depends_on": [
-        "dg-define-data-domain"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dg-classify-data-asset",
       "owner": "",
       "depends_on": [
         "dg-define-data-domain"
@@ -96,10 +57,49 @@
       "approval_refs": []
     },
     {
-      "task_id": "dg-certify-data-asset",
+      "task_id": "dg-assign-data-ownership",
       "owner": "",
       "depends_on": [
         "dg-define-data-domain"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dg-classify-data-asset",
+      "owner": "",
+      "depends_on": [
+        "dg-assign-data-ownership"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dg-manage-data-issue",
+      "owner": "",
+      "depends_on": [
+        "dg-assign-data-ownership"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dg-certify-data-asset",
+      "owner": "",
+      "depends_on": [
+        "dg-assign-data-ownership"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -112,7 +112,7 @@
       "task_id": "dg-certify-business-metric",
       "owner": "",
       "depends_on": [
-        "dg-define-data-domain"
+        "dg-certify-data-asset"
       ],
       "status": "planned",
       "risk_tier": "R4-critical",
@@ -122,10 +122,75 @@
       "approval_refs": []
     },
     {
-      "task_id": "dg-manage-data-issue",
+      "task_id": "dg-resolve-business-term-conflict",
       "owner": "",
       "depends_on": [
-        "dg-define-data-domain"
+        "dg-certify-data-asset"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dg-define-data-quality-policy",
+      "owner": "",
+      "depends_on": [
+        "dg-resolve-business-term-conflict"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dg-define-metadata-requirements",
+      "owner": "",
+      "depends_on": [
+        "dg-define-data-quality-policy"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dg-collect-compliance-evidence",
+      "owner": "",
+      "depends_on": [
+        "dg-define-data-quality-policy"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dg-manage-policy-exception",
+      "owner": "",
+      "depends_on": [
+        "dg-define-data-quality-policy"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dg-run-governance-council",
+      "owner": "",
+      "depends_on": [
+        "dg-manage-policy-exception"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -138,7 +203,7 @@
       "task_id": "dg-review-data-access-request",
       "owner": "",
       "depends_on": [
-        "dg-define-data-domain"
+        "dg-manage-policy-exception"
       ],
       "status": "planned",
       "risk_tier": "R3-controlled",
@@ -161,72 +226,7 @@
       "approval_refs": []
     },
     {
-      "task_id": "dg-define-data-quality-policy",
-      "owner": "",
-      "depends_on": [
-        "dg-review-data-access-request"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dg-define-metadata-requirements",
-      "owner": "",
-      "depends_on": [
-        "dg-review-data-access-request"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "dg-review-lineage-completeness",
-      "owner": "",
-      "depends_on": [
-        "dg-review-data-access-request"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dg-manage-policy-exception",
-      "owner": "",
-      "depends_on": [
-        "dg-review-data-access-request"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dg-collect-compliance-evidence",
-      "owner": "",
-      "depends_on": [
-        "dg-review-data-access-request"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dg-run-governance-council",
       "owner": "",
       "depends_on": [
         "dg-review-data-access-request"
@@ -265,19 +265,6 @@
       "approval_refs": []
     },
     {
-      "task_id": "dg-plan-data-asset-retirement",
-      "owner": "",
-      "depends_on": [
-        "dg-assess-governance-maturity"
-      ],
-      "status": "planned",
-      "risk_tier": "R4-critical",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "dg-audit-policy-conformance",
       "owner": "",
       "depends_on": [
@@ -285,6 +272,19 @@
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dg-plan-data-asset-retirement",
+      "owner": "",
+      "depends_on": [
+        "dg-assess-governance-maturity"
+      ],
+      "status": "planned",
+      "risk_tier": "R4-critical",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],

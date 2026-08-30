@@ -1,28 +1,15 @@
 {
   "workflow_id": "data-academy-and-curriculum-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through data-academy-and-curriculum. Edges encode phase precedence from docs/skill-map.md (P0 learning architecture; P1 content production; P2 delivery, testing và certification), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through data-academy-and-curriculum, 9 stages over 49 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/learning/plan-design → P0/learning/build-deliver → P0/learning/test-assure → P1/learning/plan-design → P1/learning/build-deliver → P2/learning/plan-design → P2/learning/build-deliver → P2/learning/test-assure → P2/learning/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R2-standard",
-  "current_task_id": "academy-assess-organizational-learning-needs",
+  "current_task_id": "academy-define-role-learning-outcomes",
   "tasks": [
-    {
-      "task_id": "academy-assess-organizational-learning-needs",
-      "owner": "",
-      "depends_on": [],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
     {
       "task_id": "academy-define-role-learning-outcomes",
       "owner": "",
-      "depends_on": [
-        "academy-assess-organizational-learning-needs"
-      ],
+      "depends_on": [],
       "status": "planned",
       "risk_tier": "R1-reviewed",
       "artifact_version": "",
@@ -34,7 +21,7 @@
       "task_id": "academy-build-competency-curriculum-map",
       "owner": "",
       "depends_on": [
-        "academy-assess-organizational-learning-needs"
+        "academy-define-role-learning-outcomes"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -47,7 +34,7 @@
       "task_id": "academy-map-learning-prerequisites",
       "owner": "",
       "depends_on": [
-        "academy-assess-organizational-learning-needs"
+        "academy-define-role-learning-outcomes"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -60,7 +47,7 @@
       "task_id": "academy-design-role-syllabus",
       "owner": "",
       "depends_on": [
-        "academy-assess-organizational-learning-needs"
+        "academy-define-role-learning-outcomes"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -73,7 +60,7 @@
       "task_id": "academy-design-level-learning-path",
       "owner": "",
       "depends_on": [
-        "academy-assess-organizational-learning-needs"
+        "academy-define-role-learning-outcomes"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -86,20 +73,7 @@
       "task_id": "academy-build-role-theory-pack",
       "owner": "",
       "depends_on": [
-        "academy-assess-organizational-learning-needs"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "academy-build-concept-knowledge-graph",
-      "owner": "",
-      "depends_on": [
-        "academy-assess-organizational-learning-needs"
+        "academy-define-role-learning-outcomes"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -112,7 +86,7 @@
       "task_id": "academy-research-role-roadmap",
       "owner": "",
       "depends_on": [
-        "academy-assess-organizational-learning-needs"
+        "academy-define-role-learning-outcomes"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -125,7 +99,7 @@
       "task_id": "academy-build-skill-track-map",
       "owner": "",
       "depends_on": [
-        "academy-assess-organizational-learning-needs"
+        "academy-define-role-learning-outcomes"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -138,7 +112,7 @@
       "task_id": "academy-elicit-prior-knowledge",
       "owner": "",
       "depends_on": [
-        "academy-assess-organizational-learning-needs"
+        "academy-define-role-learning-outcomes"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -151,7 +125,7 @@
       "task_id": "academy-plan-note-corpus",
       "owner": "",
       "depends_on": [
-        "academy-assess-organizational-learning-needs"
+        "academy-define-role-learning-outcomes"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -164,7 +138,7 @@
       "task_id": "academy-prioritize-corpus-by-gap",
       "owner": "",
       "depends_on": [
-        "academy-assess-organizational-learning-needs"
+        "academy-define-role-learning-outcomes"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -177,7 +151,7 @@
       "task_id": "academy-map-questions-to-learning-objectives",
       "owner": "",
       "depends_on": [
-        "academy-assess-organizational-learning-needs"
+        "academy-define-role-learning-outcomes"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -190,7 +164,7 @@
       "task_id": "academy-design-learning-module",
       "owner": "",
       "depends_on": [
-        "academy-assess-organizational-learning-needs"
+        "academy-define-role-learning-outcomes"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -203,7 +177,33 @@
       "task_id": "academy-plan-learning-cohort",
       "owner": "",
       "depends_on": [
-        "academy-assess-organizational-learning-needs"
+        "academy-define-role-learning-outcomes"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-build-concept-knowledge-graph",
+      "owner": "",
+      "depends_on": [
+        "academy-define-role-learning-outcomes"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-assess-organizational-learning-needs",
+      "owner": "",
+      "depends_on": [
+        "academy-build-concept-knowledge-graph"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -233,19 +233,6 @@
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "academy-build-note-module",
-      "owner": "",
-      "depends_on": [
-        "academy-write-theory-lesson"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -356,19 +343,6 @@
       "approval_refs": []
     },
     {
-      "task_id": "academy-generate-training-dataset",
-      "owner": "",
-      "depends_on": [
-        "academy-write-theory-lesson"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "academy-write-assessment-rubric",
       "owner": "",
       "depends_on": [
@@ -421,10 +395,49 @@
       "approval_refs": []
     },
     {
-      "task_id": "academy-run-knowledge-diagnostic",
+      "task_id": "academy-build-note-module",
       "owner": "",
       "depends_on": [
         "academy-write-theory-lesson"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-generate-training-dataset",
+      "owner": "",
+      "depends_on": [
+        "academy-build-note-module"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-create-remediation-plan",
+      "owner": "",
+      "depends_on": [
+        "academy-build-note-module"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-run-knowledge-diagnostic",
+      "owner": "",
+      "depends_on": [
+        "academy-create-remediation-plan"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -512,6 +525,19 @@
       "approval_refs": []
     },
     {
+      "task_id": "academy-index-note-corpus",
+      "owner": "",
+      "depends_on": [
+        "academy-run-knowledge-diagnostic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
       "task_id": "academy-assess-learner-submission",
       "owner": "",
       "depends_on": [
@@ -528,20 +554,7 @@
       "task_id": "academy-analyze-learning-gaps",
       "owner": "",
       "depends_on": [
-        "academy-run-knowledge-diagnostic"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "academy-create-remediation-plan",
-      "owner": "",
-      "depends_on": [
-        "academy-run-knowledge-diagnostic"
+        "academy-assess-learner-submission"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -554,7 +567,7 @@
       "task_id": "academy-certify-role-competency",
       "owner": "",
       "depends_on": [
-        "academy-run-knowledge-diagnostic"
+        "academy-assess-learner-submission"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -567,7 +580,7 @@
       "task_id": "academy-calibrate-assessors",
       "owner": "",
       "depends_on": [
-        "academy-run-knowledge-diagnostic"
+        "academy-assess-learner-submission"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -580,7 +593,7 @@
       "task_id": "academy-audit-curriculum-quality",
       "owner": "",
       "depends_on": [
-        "academy-run-knowledge-diagnostic"
+        "academy-assess-learner-submission"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -593,20 +606,7 @@
       "task_id": "academy-audit-note-corpus",
       "owner": "",
       "depends_on": [
-        "academy-run-knowledge-diagnostic"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "academy-index-note-corpus",
-      "owner": "",
-      "depends_on": [
-        "academy-run-knowledge-diagnostic"
+        "academy-assess-learner-submission"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -619,7 +619,7 @@
       "task_id": "academy-measure-training-effectiveness",
       "owner": "",
       "depends_on": [
-        "academy-run-knowledge-diagnostic"
+        "academy-assess-learner-submission"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -632,7 +632,7 @@
       "task_id": "academy-refresh-curriculum",
       "owner": "",
       "depends_on": [
-        "academy-run-knowledge-diagnostic"
+        "academy-assess-learner-submission"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",

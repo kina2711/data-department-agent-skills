@@ -1,15 +1,28 @@
 {
   "workflow_id": "shared-data-core-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through shared-data-core. Edges encode phase precedence from docs/skill-map.md (P0 bắt buộc), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through shared-data-core, 5 stages over 18 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/plan-design → P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/design-specification/plan-design → P0/build-change/build-deliver. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R3-controlled",
-  "current_task_id": "core-classify-data-request",
+  "current_task_id": "core-document-data-deliverable",
   "tasks": [
+    {
+      "task_id": "core-document-data-deliverable",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
     {
       "task_id": "core-classify-data-request",
       "owner": "",
-      "depends_on": [],
+      "depends_on": [
+        "core-document-data-deliverable"
+      ],
       "status": "planned",
       "risk_tier": "R0-light",
       "artifact_version": "",
@@ -44,45 +57,6 @@
       "approval_refs": []
     },
     {
-      "task_id": "core-inspect-dataset-schema",
-      "owner": "",
-      "depends_on": [
-        "core-classify-data-request"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "core-profile-dataset",
-      "owner": "",
-      "depends_on": [
-        "core-classify-data-request"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "core-check-data-access",
-      "owner": "",
-      "depends_on": [
-        "core-classify-data-request"
-      ],
-      "status": "planned",
-      "risk_tier": "R3-controlled",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "core-handle-sensitive-data",
       "owner": "",
       "depends_on": [
@@ -96,72 +70,7 @@
       "approval_refs": []
     },
     {
-      "task_id": "core-validate-sql-safely",
-      "owner": "",
-      "depends_on": [
-        "core-classify-data-request"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "core-estimate-change-impact",
-      "owner": "",
-      "depends_on": [
-        "core-classify-data-request"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "core-create-data-work-ticket",
-      "owner": "",
-      "depends_on": [
-        "core-classify-data-request"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "core-define-success-contract",
-      "owner": "",
-      "depends_on": [
-        "core-classify-data-request"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "core-audit-change-scope",
-      "owner": "",
-      "depends_on": [
-        "core-classify-data-request"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "core-document-data-deliverable",
       "owner": "",
       "depends_on": [
         "core-classify-data-request"
@@ -213,7 +122,7 @@
       "approval_refs": []
     },
     {
-      "task_id": "core-verify-deliverable",
+      "task_id": "core-inspect-dataset-schema",
       "owner": "",
       "depends_on": [
         "core-classify-data-request"
@@ -226,10 +135,101 @@
       "approval_refs": []
     },
     {
+      "task_id": "core-profile-dataset",
+      "owner": "",
+      "depends_on": [
+        "core-inspect-dataset-schema"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-check-data-access",
+      "owner": "",
+      "depends_on": [
+        "core-inspect-dataset-schema"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-validate-sql-safely",
+      "owner": "",
+      "depends_on": [
+        "core-inspect-dataset-schema"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-audit-change-scope",
+      "owner": "",
+      "depends_on": [
+        "core-inspect-dataset-schema"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-verify-deliverable",
+      "owner": "",
+      "depends_on": [
+        "core-inspect-dataset-schema"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-create-data-work-ticket",
+      "owner": "",
+      "depends_on": [
+        "core-inspect-dataset-schema"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-define-success-contract",
+      "owner": "",
+      "depends_on": [
+        "core-create-data-work-ticket"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
       "task_id": "core-build-task-context-package",
       "owner": "",
       "depends_on": [
-        "core-classify-data-request"
+        "core-create-data-work-ticket"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",

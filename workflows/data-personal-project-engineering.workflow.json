@@ -1,7 +1,7 @@
 {
   "workflow_id": "data-personal-project-engineering-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through data-personal-project-engineering. Edges encode phase precedence from docs/skill-map.md (P0 intake, selection và project thesis; P0 starting modes; P1 deep assessment và execution design; P2 assurance, portfolio và evolution), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through data-personal-project-engineering, 14 stages over 42 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/design-specification/plan-design → P0/build-change/build-deliver → P0/advisory-analysis/build-deliver → P0/build-change/build-deliver → P0/incident-recovery/build-deliver → P1/advisory-analysis/build-deliver → P1/design-specification/plan-design → P1/build-change/build-deliver → P1/governance-assurance/test-assure → P2/advisory-analysis/test-assure → P2/design-specification/plan-design → P2/governance-assurance/test-assure. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R3-controlled",
   "current_task_id": "project-classify-starting-point",
@@ -12,19 +12,6 @@
       "depends_on": [],
       "status": "planned",
       "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "project-select-project-mode",
-      "owner": "",
-      "depends_on": [
-        "project-classify-starting-point"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -44,13 +31,13 @@
       "approval_refs": []
     },
     {
-      "task_id": "project-build-personal-project-thesis",
+      "task_id": "project-select-project-mode",
       "owner": "",
       "depends_on": [
-        "project-classify-starting-point"
+        "project-score-project-options"
       ],
       "status": "planned",
-      "risk_tier": "R2-standard",
+      "risk_tier": "R1-reviewed",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -60,7 +47,7 @@
       "task_id": "project-define-success-evidence",
       "owner": "",
       "depends_on": [
-        "project-classify-starting-point"
+        "project-select-project-mode"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -73,7 +60,7 @@
       "task_id": "project-plan-originality-and-attribution",
       "owner": "",
       "depends_on": [
-        "project-classify-starting-point"
+        "project-select-project-mode"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -86,7 +73,7 @@
       "task_id": "project-plan-project-roadmap",
       "owner": "",
       "depends_on": [
-        "project-classify-starting-point"
+        "project-select-project-mode"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -99,7 +86,7 @@
       "task_id": "project-plan-portfolio-evidence",
       "owner": "",
       "depends_on": [
-        "project-classify-starting-point"
+        "project-select-project-mode"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -109,10 +96,23 @@
       "approval_refs": []
     },
     {
+      "task_id": "project-build-personal-project-thesis",
+      "owner": "",
+      "depends_on": [
+        "project-select-project-mode"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
       "task_id": "project-bound-scope-and-constraints",
       "owner": "",
       "depends_on": [
-        "project-classify-starting-point"
+        "project-build-personal-project-thesis"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -125,7 +125,7 @@
       "task_id": "project-start-problem-first",
       "owner": "",
       "depends_on": [
-        "project-classify-starting-point"
+        "project-build-personal-project-thesis"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -317,32 +317,6 @@
       "approval_refs": []
     },
     {
-      "task_id": "project-start-incident-failure-first",
-      "owner": "",
-      "depends_on": [
-        "project-start-problem-first"
-      ],
-      "status": "planned",
-      "risk_tier": "R3-controlled",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "project-start-constraint-first",
-      "owner": "",
-      "depends_on": [
-        "project-start-problem-first"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "project-start-benchmark-first",
       "owner": "",
       "depends_on": [
@@ -382,23 +356,10 @@
       "approval_refs": []
     },
     {
-      "task_id": "project-audit-reference-repository",
+      "task_id": "project-start-constraint-first",
       "owner": "",
       "depends_on": [
         "project-start-problem-first"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "project-build-reuse-adapt-replace-matrix",
-      "owner": "",
-      "depends_on": [
-        "project-audit-reference-repository"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -408,10 +369,23 @@
       "approval_refs": []
     },
     {
+      "task_id": "project-start-incident-failure-first",
+      "owner": "",
+      "depends_on": [
+        "project-start-constraint-first"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
       "task_id": "project-transform-borrowed-source-to-original-thesis",
       "owner": "",
       "depends_on": [
-        "project-audit-reference-repository"
+        "project-start-incident-failure-first"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -424,7 +398,7 @@
       "task_id": "project-design-project-differentiation",
       "owner": "",
       "depends_on": [
-        "project-audit-reference-repository"
+        "project-transform-borrowed-source-to-original-thesis"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -437,7 +411,7 @@
       "task_id": "project-plan-execution-and-milestones",
       "owner": "",
       "depends_on": [
-        "project-audit-reference-repository"
+        "project-design-project-differentiation"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -447,10 +421,23 @@
       "approval_refs": []
     },
     {
-      "task_id": "project-build-project-blueprint",
+      "task_id": "project-plan-project-validation-strategy",
       "owner": "",
       "depends_on": [
-        "project-audit-reference-repository"
+        "project-design-project-differentiation"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "project-build-reuse-adapt-replace-matrix",
+      "owner": "",
+      "depends_on": [
+        "project-design-project-differentiation"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -460,10 +447,23 @@
       "approval_refs": []
     },
     {
-      "task_id": "project-plan-project-validation-strategy",
+      "task_id": "project-build-project-blueprint",
       "owner": "",
       "depends_on": [
-        "project-audit-reference-repository"
+        "project-build-reuse-adapt-replace-matrix"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "project-audit-reference-repository",
+      "owner": "",
+      "depends_on": [
+        "project-build-reuse-adapt-replace-matrix"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -480,19 +480,6 @@
       ],
       "status": "planned",
       "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "project-audit-originality-and-attribution",
-      "owner": "",
-      "depends_on": [
-        "project-review-project-readiness"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -541,7 +528,20 @@
       "task_id": "project-design-next-version-evolution",
       "owner": "",
       "depends_on": [
-        "project-review-project-readiness"
+        "project-plan-project-maintenance"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "project-audit-originality-and-attribution",
+      "owner": "",
+      "depends_on": [
+        "project-plan-project-maintenance"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",

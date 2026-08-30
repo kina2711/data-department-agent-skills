@@ -1,7 +1,7 @@
 {
   "workflow_id": "data-onboarding-and-integration-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through data-onboarding-and-integration. Edges encode phase precedence from docs/skill-map.md (P0 framework và preboarding; P1 orientation và guided integration; P2 checkpoints, certification và transitions), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through data-onboarding-and-integration, 8 stages over 34 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/onboarding/plan-design → P0/onboarding/build-deliver → P0/onboarding/test-assure → P1/onboarding/plan-design → P1/onboarding/build-deliver → P2/onboarding/build-deliver → P2/onboarding/test-assure → P2/onboarding/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R4-critical",
   "current_task_id": "onboard-define-data-onboarding-standard",
@@ -70,33 +70,7 @@
       "approval_refs": []
     },
     {
-      "task_id": "onboard-verify-access-readiness",
-      "owner": "",
-      "depends_on": [
-        "onboard-define-data-onboarding-standard"
-      ],
-      "status": "planned",
-      "risk_tier": "R3-controlled",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "onboard-prepare-workstation-environment",
-      "owner": "",
-      "depends_on": [
-        "onboard-define-data-onboarding-standard"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "onboard-assign-onboarding-buddy",
       "owner": "",
       "depends_on": [
         "onboard-define-data-onboarding-standard"
@@ -122,10 +96,49 @@
       "approval_refs": []
     },
     {
-      "task_id": "onboard-deliver-company-orientation",
+      "task_id": "onboard-assign-onboarding-buddy",
       "owner": "",
       "depends_on": [
         "onboard-define-data-onboarding-standard"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-verify-access-readiness",
+      "owner": "",
+      "depends_on": [
+        "onboard-assign-onboarding-buddy"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-create-first-week-plan",
+      "owner": "",
+      "depends_on": [
+        "onboard-verify-access-readiness"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-deliver-company-orientation",
+      "owner": "",
+      "depends_on": [
+        "onboard-create-first-week-plan"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -214,19 +227,6 @@
     },
     {
       "task_id": "onboard-guide-documentation-discovery",
-      "owner": "",
-      "depends_on": [
-        "onboard-deliver-company-orientation"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "onboard-create-first-week-plan",
       "owner": "",
       "depends_on": [
         "onboard-deliver-company-orientation"
@@ -330,7 +330,20 @@
       "approval_refs": []
     },
     {
-      "task_id": "onboard-resolve-onboarding-blocker",
+      "task_id": "onboard-capture-onboarding-feedback",
+      "owner": "",
+      "depends_on": [
+        "onboard-run-seven-day-checkpoint"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-onboard-data-contractor",
       "owner": "",
       "depends_on": [
         "onboard-run-seven-day-checkpoint"
@@ -359,20 +372,7 @@
       "task_id": "onboard-certify-onboarding-completion",
       "owner": "",
       "depends_on": [
-        "onboard-run-seven-day-checkpoint"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "onboard-capture-onboarding-feedback",
-      "owner": "",
-      "depends_on": [
-        "onboard-run-seven-day-checkpoint"
+        "onboard-assess-integration-health"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -385,7 +385,20 @@
       "task_id": "onboard-measure-onboarding-effectiveness",
       "owner": "",
       "depends_on": [
-        "onboard-run-seven-day-checkpoint"
+        "onboard-assess-integration-health"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-resolve-onboarding-blocker",
+      "owner": "",
+      "depends_on": [
+        "onboard-assess-integration-health"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -398,7 +411,7 @@
       "task_id": "onboard-crossboard-role-transfer",
       "owner": "",
       "depends_on": [
-        "onboard-run-seven-day-checkpoint"
+        "onboard-resolve-onboarding-blocker"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -411,20 +424,7 @@
       "task_id": "onboard-reboard-returning-employee",
       "owner": "",
       "depends_on": [
-        "onboard-run-seven-day-checkpoint"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "onboard-onboard-data-contractor",
-      "owner": "",
-      "depends_on": [
-        "onboard-run-seven-day-checkpoint"
+        "onboard-resolve-onboarding-blocker"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -437,7 +437,7 @@
       "task_id": "onboard-offboard-and-transfer-knowledge",
       "owner": "",
       "depends_on": [
-        "onboard-run-seven-day-checkpoint"
+        "onboard-resolve-onboarding-blocker"
       ],
       "status": "planned",
       "risk_tier": "R4-critical",

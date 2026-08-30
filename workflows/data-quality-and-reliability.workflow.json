@@ -1,7 +1,7 @@
 {
   "workflow_id": "data-quality-and-reliability-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through data-quality-and-reliability. Edges encode phase precedence from docs/skill-map.md (P0 preventive quality; P1 incident response; P2 proactive reliability), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through data-quality-and-reliability, 13 stages over 21 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/test-assure → P0/advisory-analysis/operate-improve → P0/design-specification/plan-design → P0/build-change/build-deliver → P0/governance-assurance/test-assure → P1/advisory-analysis/build-deliver → P1/advisory-analysis/test-assure → P1/design-specification/plan-design → P1/incident-recovery/build-deliver → P1/incident-recovery/test-assure → P1/incident-recovery/operate-improve → P2/advisory-analysis/build-deliver → P2/advisory-analysis/test-assure. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R3-controlled",
   "current_task_id": "dq-profile-critical-dataset",
@@ -12,32 +12,6 @@
       "depends_on": [],
       "status": "planned",
       "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dq-define-data-quality-rule",
-      "owner": "",
-      "depends_on": [
-        "dq-profile-critical-dataset"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dq-implement-data-quality-test",
-      "owner": "",
-      "depends_on": [
-        "dq-profile-critical-dataset"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -70,45 +44,6 @@
       "approval_refs": []
     },
     {
-      "task_id": "dq-build-data-quality-scorecard",
-      "owner": "",
-      "depends_on": [
-        "dq-profile-critical-dataset"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dq-certify-quality-readiness",
-      "owner": "",
-      "depends_on": [
-        "dq-profile-critical-dataset"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dre-define-data-slo",
-      "owner": "",
-      "depends_on": [
-        "dq-profile-critical-dataset"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "dre-monitor-data-freshness",
       "owner": "",
       "depends_on": [
@@ -125,7 +60,7 @@
       "task_id": "dre-monitor-data-volume",
       "owner": "",
       "depends_on": [
-        "dq-profile-critical-dataset"
+        "dre-monitor-data-freshness"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -138,7 +73,7 @@
       "task_id": "dre-monitor-schema-change",
       "owner": "",
       "depends_on": [
-        "dq-profile-critical-dataset"
+        "dre-monitor-data-freshness"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -151,7 +86,85 @@
       "task_id": "dre-monitor-data-distribution",
       "owner": "",
       "depends_on": [
-        "dq-profile-critical-dataset"
+        "dre-monitor-data-freshness"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dq-define-data-quality-rule",
+      "owner": "",
+      "depends_on": [
+        "dre-monitor-data-freshness"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dre-define-data-slo",
+      "owner": "",
+      "depends_on": [
+        "dq-define-data-quality-rule"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dq-implement-data-quality-test",
+      "owner": "",
+      "depends_on": [
+        "dq-define-data-quality-rule"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dq-build-data-quality-scorecard",
+      "owner": "",
+      "depends_on": [
+        "dq-implement-data-quality-test"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dq-certify-quality-readiness",
+      "owner": "",
+      "depends_on": [
+        "dq-implement-data-quality-test"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dre-track-reliability-actions",
+      "owner": "",
+      "depends_on": [
+        "dq-certify-quality-readiness"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -164,49 +177,10 @@
       "task_id": "dre-triage-data-alert",
       "owner": "",
       "depends_on": [
-        "dq-profile-critical-dataset"
+        "dre-track-reliability-actions"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dre-diagnose-data-incident",
-      "owner": "",
-      "depends_on": [
-        "dre-triage-data-alert"
-      ],
-      "status": "planned",
-      "risk_tier": "R3-controlled",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dre-coordinate-data-incident",
-      "owner": "",
-      "depends_on": [
-        "dre-triage-data-alert"
-      ],
-      "status": "planned",
-      "risk_tier": "R3-controlled",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dre-restore-corrupted-data",
-      "owner": "",
-      "depends_on": [
-        "dre-triage-data-alert"
-      ],
-      "status": "planned",
-      "risk_tier": "R3-controlled",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -226,10 +200,49 @@
       "approval_refs": []
     },
     {
-      "task_id": "dre-track-reliability-actions",
+      "task_id": "dre-coordinate-data-incident",
       "owner": "",
       "depends_on": [
-        "dre-triage-data-alert"
+        "dre-write-data-postmortem"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dre-diagnose-data-incident",
+      "owner": "",
+      "depends_on": [
+        "dre-coordinate-data-incident"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dre-restore-corrupted-data",
+      "owner": "",
+      "depends_on": [
+        "dre-diagnose-data-incident"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dre-run-data-game-day",
+      "owner": "",
+      "depends_on": [
+        "dre-restore-corrupted-data"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -242,7 +255,7 @@
       "task_id": "dq-detect-data-quality-anomaly",
       "owner": "",
       "depends_on": [
-        "dre-triage-data-alert"
+        "dre-run-data-game-day"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -253,19 +266,6 @@
     },
     {
       "task_id": "dre-assess-data-product-reliability",
-      "owner": "",
-      "depends_on": [
-        "dq-detect-data-quality-anomaly"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "dre-run-data-game-day",
       "owner": "",
       "depends_on": [
         "dq-detect-data-quality-anomaly"

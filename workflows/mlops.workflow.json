@@ -1,15 +1,80 @@
 {
   "workflow_id": "mlops-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through mlops. Edges encode phase precedence from docs/skill-map.md (P0 lifecycle platform; P1 governance và reliability; P2 platform evolution), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through mlops, 16 stages over 23 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/build-deliver → P0/advisory-analysis/operate-improve → P0/build-change/build-deliver → P0/production-release/build-deliver → P0/production-release/operate-improve → P1/advisory-analysis/build-deliver → P1/design-specification/plan-design → P1/build-change/build-deliver → P1/build-change/test-assure → P1/build-change/operate-improve → P1/governance-assurance/build-deliver → P1/production-release/operate-improve → P1/incident-recovery/build-deliver → P2/build-change/build-deliver → P2/governance-assurance/test-assure → P2/production-release/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R4-critical",
-  "current_task_id": "mlops-provision-ml-environment",
+  "current_task_id": "mlops-register-model-version",
   "tasks": [
+    {
+      "task_id": "mlops-register-model-version",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "mlops-monitor-model-service",
+      "owner": "",
+      "depends_on": [
+        "mlops-register-model-version"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "mlops-monitor-data-drift",
+      "owner": "",
+      "depends_on": [
+        "mlops-monitor-model-service"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "mlops-monitor-model-performance",
+      "owner": "",
+      "depends_on": [
+        "mlops-monitor-model-service"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "mlops-monitor-prediction-quality",
+      "owner": "",
+      "depends_on": [
+        "mlops-monitor-model-service"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
     {
       "task_id": "mlops-provision-ml-environment",
       "owner": "",
-      "depends_on": [],
+      "depends_on": [
+        "mlops-monitor-model-service"
+      ],
       "status": "planned",
       "risk_tier": "R2-standard",
       "artifact_version": "",
@@ -25,19 +90,6 @@
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "mlops-register-model-version",
-      "owner": "",
-      "depends_on": [
-        "mlops-provision-ml-environment"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -70,6 +122,19 @@
       "approval_refs": []
     },
     {
+      "task_id": "mlops-trigger-model-retraining",
+      "owner": "",
+      "depends_on": [
+        "mlops-provision-ml-environment"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
       "task_id": "mlops-promote-model-stage",
       "owner": "",
       "depends_on": [
@@ -86,7 +151,7 @@
       "task_id": "mlops-deploy-model-version",
       "owner": "",
       "depends_on": [
-        "mlops-provision-ml-environment"
+        "mlops-promote-model-stage"
       ],
       "status": "planned",
       "risk_tier": "R3-controlled",
@@ -96,10 +161,10 @@
       "approval_refs": []
     },
     {
-      "task_id": "mlops-monitor-model-service",
+      "task_id": "mlops-manage-feature-store",
       "owner": "",
       "depends_on": [
-        "mlops-provision-ml-environment"
+        "mlops-deploy-model-version"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -109,49 +174,23 @@
       "approval_refs": []
     },
     {
-      "task_id": "mlops-monitor-data-drift",
+      "task_id": "mlops-create-ml-runbook",
       "owner": "",
       "depends_on": [
-        "mlops-provision-ml-environment"
+        "mlops-manage-feature-store"
       ],
       "status": "planned",
-      "risk_tier": "R0-light",
+      "risk_tier": "R1-reviewed",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
       "approval_refs": []
     },
     {
-      "task_id": "mlops-monitor-model-performance",
+      "task_id": "mlops-build-model-lineage",
       "owner": "",
       "depends_on": [
-        "mlops-provision-ml-environment"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "mlops-monitor-prediction-quality",
-      "owner": "",
-      "depends_on": [
-        "mlops-provision-ml-environment"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "mlops-trigger-model-retraining",
-      "owner": "",
-      "depends_on": [
-        "mlops-provision-ml-environment"
+        "mlops-create-ml-runbook"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -164,88 +203,10 @@
       "task_id": "mlops-validate-retrained-model",
       "owner": "",
       "depends_on": [
-        "mlops-provision-ml-environment"
+        "mlops-build-model-lineage"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "mlops-rollback-production-model",
-      "owner": "",
-      "depends_on": [
-        "mlops-validate-retrained-model"
-      ],
-      "status": "planned",
-      "risk_tier": "R4-critical",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "mlops-build-model-lineage",
-      "owner": "",
-      "depends_on": [
-        "mlops-validate-retrained-model"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "mlops-enforce-model-approval-gate",
-      "owner": "",
-      "depends_on": [
-        "mlops-validate-retrained-model"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "mlops-manage-feature-store",
-      "owner": "",
-      "depends_on": [
-        "mlops-validate-retrained-model"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "mlops-handle-ml-incident",
-      "owner": "",
-      "depends_on": [
-        "mlops-validate-retrained-model"
-      ],
-      "status": "planned",
-      "risk_tier": "R3-controlled",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "mlops-create-ml-runbook",
-      "owner": "",
-      "depends_on": [
-        "mlops-validate-retrained-model"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -265,26 +226,52 @@
       "approval_refs": []
     },
     {
-      "task_id": "mlops-upgrade-ml-runtime",
+      "task_id": "mlops-enforce-model-approval-gate",
       "owner": "",
       "depends_on": [
-        "mlops-validate-retrained-model"
+        "mlops-optimize-ml-infrastructure-cost"
       ],
       "status": "planned",
-      "risk_tier": "R2-standard",
+      "risk_tier": "R1-reviewed",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
       "approval_refs": []
     },
     {
-      "task_id": "mlops-retire-model-version",
+      "task_id": "mlops-rollback-production-model",
       "owner": "",
       "depends_on": [
-        "mlops-upgrade-ml-runtime"
+        "mlops-enforce-model-approval-gate"
       ],
       "status": "planned",
       "risk_tier": "R4-critical",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "mlops-handle-ml-incident",
+      "owner": "",
+      "depends_on": [
+        "mlops-rollback-production-model"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "mlops-upgrade-ml-runtime",
+      "owner": "",
+      "depends_on": [
+        "mlops-handle-ml-incident"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -298,6 +285,19 @@
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "mlops-retire-model-version",
+      "owner": "",
+      "depends_on": [
+        "mlops-audit-model-controls"
+      ],
+      "status": "planned",
+      "risk_tier": "R4-critical",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],

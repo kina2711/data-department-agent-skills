@@ -1,15 +1,41 @@
 {
   "workflow_id": "data-platform-and-dataops-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through data-platform-and-dataops. Edges encode phase precedence from docs/skill-map.md (P0 platform foundation; P1 operations at scale; P2 ecosystem evolution), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through data-platform-and-dataops, 13 stages over 21 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/build-deliver → P0/build-change/build-deliver → P0/production-release/operate-improve → P1/advisory-analysis/build-deliver → P1/advisory-analysis/test-assure → P1/design-specification/plan-design → P1/build-change/build-deliver → P1/build-change/operate-improve → P1/incident-recovery/test-assure → P1/incident-recovery/operate-improve → P2/advisory-analysis/build-deliver → P2/advisory-analysis/test-assure → P2/build-change/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R3-controlled",
-  "current_task_id": "platform-provision-data-environment",
+  "current_task_id": "platform-manage-data-secrets",
   "tasks": [
+    {
+      "task_id": "platform-manage-data-secrets",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-backup-data-platform",
+      "owner": "",
+      "depends_on": [
+        "platform-manage-data-secrets"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
     {
       "task_id": "platform-provision-data-environment",
       "owner": "",
-      "depends_on": [],
+      "depends_on": [
+        "platform-manage-data-secrets"
+      ],
       "status": "planned",
       "risk_tier": "R2-standard",
       "artifact_version": "",
@@ -19,19 +45,6 @@
     },
     {
       "task_id": "platform-configure-data-iam",
-      "owner": "",
-      "depends_on": [
-        "platform-provision-data-environment"
-      ],
-      "status": "planned",
-      "risk_tier": "R3-controlled",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "platform-manage-data-secrets",
       "owner": "",
       "depends_on": [
         "platform-provision-data-environment"
@@ -64,19 +77,6 @@
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "platform-deploy-orchestrator",
-      "owner": "",
-      "depends_on": [
-        "platform-provision-data-environment"
-      ],
-      "status": "planned",
-      "risk_tier": "R3-controlled",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -122,20 +122,7 @@
       "approval_refs": []
     },
     {
-      "task_id": "platform-backup-data-platform",
-      "owner": "",
-      "depends_on": [
-        "platform-provision-data-environment"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "platform-test-disaster-recovery",
+      "task_id": "platform-deploy-orchestrator",
       "owner": "",
       "depends_on": [
         "platform-provision-data-environment"
@@ -148,23 +135,23 @@
       "approval_refs": []
     },
     {
-      "task_id": "platform-upgrade-data-service",
+      "task_id": "platform-manage-network-connectivity",
       "owner": "",
       "depends_on": [
-        "platform-test-disaster-recovery"
+        "platform-deploy-orchestrator"
       ],
       "status": "planned",
-      "risk_tier": "R2-standard",
+      "risk_tier": "R0-light",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
       "approval_refs": []
     },
     {
-      "task_id": "platform-manage-network-connectivity",
+      "task_id": "platform-measure-platform-slos",
       "owner": "",
       "depends_on": [
-        "platform-test-disaster-recovery"
+        "platform-manage-network-connectivity"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -177,7 +164,7 @@
       "task_id": "platform-create-self-service-template",
       "owner": "",
       "depends_on": [
-        "platform-test-disaster-recovery"
+        "platform-measure-platform-slos"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -187,13 +174,52 @@
       "approval_refs": []
     },
     {
-      "task_id": "platform-enforce-policy-as-code",
+      "task_id": "platform-upgrade-data-service",
       "owner": "",
       "depends_on": [
-        "platform-test-disaster-recovery"
+        "platform-create-self-service-template"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-enforce-policy-as-code",
+      "owner": "",
+      "depends_on": [
+        "platform-upgrade-data-service"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-optimize-platform-cost",
+      "owner": "",
+      "depends_on": [
+        "platform-upgrade-data-service"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-test-disaster-recovery",
+      "owner": "",
+      "depends_on": [
+        "platform-optimize-platform-cost"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -213,10 +239,10 @@
       "approval_refs": []
     },
     {
-      "task_id": "platform-measure-platform-slos",
+      "task_id": "platform-deprecate-platform-component",
       "owner": "",
       "depends_on": [
-        "platform-test-disaster-recovery"
+        "platform-troubleshoot-platform-incident"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -226,23 +252,10 @@
       "approval_refs": []
     },
     {
-      "task_id": "platform-optimize-platform-cost",
-      "owner": "",
-      "depends_on": [
-        "platform-test-disaster-recovery"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "platform-evaluate-platform-capacity",
       "owner": "",
       "depends_on": [
-        "platform-test-disaster-recovery"
+        "platform-deprecate-platform-component"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -259,19 +272,6 @@
       ],
       "status": "planned",
       "risk_tier": "R3-controlled",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "platform-deprecate-platform-component",
-      "owner": "",
-      "depends_on": [
-        "platform-evaluate-platform-capacity"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],

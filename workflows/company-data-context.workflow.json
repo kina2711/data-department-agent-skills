@@ -1,7 +1,7 @@
 {
   "workflow_id": "company-data-context-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through company-data-context. Edges encode phase precedence from docs/skill-map.md (P0), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through company-data-context, 3 stages over 9 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/design-specification/plan-design. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R2-standard",
   "current_task_id": "ctx-initialize-company-data-context",
@@ -112,7 +112,7 @@
       "task_id": "ctx-build-context-index",
       "owner": "",
       "depends_on": [
-        "ctx-initialize-company-data-context"
+        "ctx-validate-context-pack"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",

@@ -1,28 +1,15 @@
 {
   "workflow_id": "data-technical-content-and-social-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through data-technical-content-and-social. Edges encode phase precedence from docs/skill-map.md (P0 strategy, research và series architecture; P1 canonical production và channel adaptation; P2 quality, release và continuous improvement), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through data-technical-content-and-social, 12 stages over 27 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/design-specification/plan-design → P0/build-change/build-deliver → P1/advisory-analysis/build-deliver → P1/design-specification/plan-design → P1/build-change/build-deliver → P2/advisory-analysis/build-deliver → P2/advisory-analysis/test-assure → P2/advisory-analysis/operate-improve → P2/governance-assurance/test-assure → P2/production-release/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R3-controlled",
-  "current_task_id": "content-define-technical-content-strategy",
+  "current_task_id": "content-research-technical-topic",
   "tasks": [
-    {
-      "task_id": "content-define-technical-content-strategy",
-      "owner": "",
-      "depends_on": [],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
     {
       "task_id": "content-research-technical-topic",
       "owner": "",
-      "depends_on": [
-        "content-define-technical-content-strategy"
-      ],
+      "depends_on": [],
       "status": "planned",
       "risk_tier": "R0-light",
       "artifact_version": "",
@@ -34,7 +21,7 @@
       "task_id": "content-verify-technical-versions",
       "owner": "",
       "depends_on": [
-        "content-define-technical-content-strategy"
+        "content-research-technical-topic"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -44,10 +31,10 @@
       "approval_refs": []
     },
     {
-      "task_id": "content-build-series-knowledge-map",
+      "task_id": "content-define-technical-content-strategy",
       "owner": "",
       "depends_on": [
-        "content-define-technical-content-strategy"
+        "content-verify-technical-versions"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -58,19 +45,6 @@
     },
     {
       "task_id": "content-design-technical-series",
-      "owner": "",
-      "depends_on": [
-        "content-define-technical-content-strategy"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "content-build-editorial-calendar",
       "owner": "",
       "depends_on": [
         "content-define-technical-content-strategy"
@@ -109,7 +83,7 @@
       "approval_refs": []
     },
     {
-      "task_id": "content-write-canonical-technical-article",
+      "task_id": "content-build-series-knowledge-map",
       "owner": "",
       "depends_on": [
         "content-define-technical-content-strategy"
@@ -122,13 +96,39 @@
       "approval_refs": []
     },
     {
-      "task_id": "content-build-code-example-package",
+      "task_id": "content-build-editorial-calendar",
       "owner": "",
       "depends_on": [
-        "content-write-canonical-technical-article"
+        "content-build-series-knowledge-map"
       ],
       "status": "planned",
-      "risk_tier": "R2-standard",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-repurpose-technical-content",
+      "owner": "",
+      "depends_on": [
+        "content-build-series-knowledge-map"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-write-canonical-technical-article",
+      "owner": "",
+      "depends_on": [
+        "content-repurpose-technical-content"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -200,20 +200,7 @@
       "approval_refs": []
     },
     {
-      "task_id": "content-repurpose-technical-content",
-      "owner": "",
-      "depends_on": [
-        "content-write-canonical-technical-article"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "content-package-technical-series-repository",
+      "task_id": "content-build-code-example-package",
       "owner": "",
       "depends_on": [
         "content-write-canonical-technical-article"
@@ -226,10 +213,23 @@
       "approval_refs": []
     },
     {
-      "task_id": "content-review-technical-accuracy",
+      "task_id": "content-package-technical-series-repository",
       "owner": "",
       "depends_on": [
-        "content-write-canonical-technical-article"
+        "content-build-code-example-package"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-manage-content-backlog",
+      "owner": "",
+      "depends_on": [
+        "content-build-code-example-package"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -239,13 +239,13 @@
       "approval_refs": []
     },
     {
-      "task_id": "content-audit-claim-source-traceability",
+      "task_id": "content-review-technical-accuracy",
       "owner": "",
       "depends_on": [
-        "content-review-technical-accuracy"
+        "content-manage-content-backlog"
       ],
       "status": "planned",
-      "risk_tier": "R1-reviewed",
+      "risk_tier": "R0-light",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -265,32 +265,6 @@
       "approval_refs": []
     },
     {
-      "task_id": "content-audit-series-concept-coverage",
-      "owner": "",
-      "depends_on": [
-        "content-review-technical-accuracy"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "content-audit-author-voice-and-originality",
-      "owner": "",
-      "depends_on": [
-        "content-review-technical-accuracy"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "content-review-platform-fit",
       "owner": "",
       "depends_on": [
@@ -298,19 +272,6 @@
       ],
       "status": "planned",
       "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "content-publish-technical-content",
-      "owner": "",
-      "depends_on": [
-        "content-review-technical-accuracy"
-      ],
-      "status": "planned",
-      "risk_tier": "R3-controlled",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -343,13 +304,52 @@
       "approval_refs": []
     },
     {
-      "task_id": "content-manage-content-backlog",
+      "task_id": "content-audit-claim-source-traceability",
       "owner": "",
       "depends_on": [
-        "content-review-technical-accuracy"
+        "content-refresh-technical-series"
       ],
       "status": "planned",
-      "risk_tier": "R0-light",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-audit-series-concept-coverage",
+      "owner": "",
+      "depends_on": [
+        "content-audit-claim-source-traceability"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-audit-author-voice-and-originality",
+      "owner": "",
+      "depends_on": [
+        "content-audit-claim-source-traceability"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-publish-technical-content",
+      "owner": "",
+      "depends_on": [
+        "content-audit-claim-source-traceability"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],

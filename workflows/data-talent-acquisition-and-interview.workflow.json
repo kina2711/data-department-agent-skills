@@ -1,28 +1,15 @@
 {
   "workflow_id": "data-talent-acquisition-and-interview-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through data-talent-acquisition-and-interview. Edges encode phase precedence from docs/skill-map.md (P0 hiring architecture; P1 sourcing và assessment execution; P2 decision, fairness và optimization), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through data-talent-acquisition-and-interview, 10 stages over 41 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/hiring/plan-design → P0/hiring/build-deliver → P0/hiring/test-assure → P1/hiring/plan-design → P1/hiring/build-deliver → P1/hiring/test-assure → P2/hiring/plan-design → P2/hiring/build-deliver → P2/hiring/test-assure → P2/hiring/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R3-controlled",
-  "current_task_id": "talent-validate-workforce-need",
+  "current_task_id": "talent-define-data-role-profile",
   "tasks": [
-    {
-      "task_id": "talent-validate-workforce-need",
-      "owner": "",
-      "depends_on": [],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
     {
       "task_id": "talent-define-data-role-profile",
       "owner": "",
-      "depends_on": [
-        "talent-validate-workforce-need"
-      ],
+      "depends_on": [],
       "status": "planned",
       "risk_tier": "R2-standard",
       "artifact_version": "",
@@ -34,7 +21,7 @@
       "task_id": "talent-write-data-job-description",
       "owner": "",
       "depends_on": [
-        "talent-validate-workforce-need"
+        "talent-define-data-role-profile"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -47,7 +34,7 @@
       "task_id": "talent-build-role-hiring-scorecard",
       "owner": "",
       "depends_on": [
-        "talent-validate-workforce-need"
+        "talent-define-data-role-profile"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -60,7 +47,7 @@
       "task_id": "talent-plan-hiring-campaign",
       "owner": "",
       "depends_on": [
-        "talent-validate-workforce-need"
+        "talent-define-data-role-profile"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -73,7 +60,7 @@
       "task_id": "talent-design-structured-interview-loop",
       "owner": "",
       "depends_on": [
-        "talent-validate-workforce-need"
+        "talent-define-data-role-profile"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -86,7 +73,7 @@
       "task_id": "talent-build-role-question-bank",
       "owner": "",
       "depends_on": [
-        "talent-validate-workforce-need"
+        "talent-define-data-role-profile"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -99,7 +86,7 @@
       "task_id": "talent-map-question-to-competency-evidence",
       "owner": "",
       "depends_on": [
-        "talent-validate-workforce-need"
+        "talent-define-data-role-profile"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -112,20 +99,7 @@
       "task_id": "talent-write-interview-answer-anchors",
       "owner": "",
       "depends_on": [
-        "talent-validate-workforce-need"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "talent-audit-question-bank-coverage",
-      "owner": "",
-      "depends_on": [
-        "talent-validate-workforce-need"
+        "talent-define-data-role-profile"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -138,7 +112,7 @@
       "task_id": "talent-create-interviewer-guide",
       "owner": "",
       "depends_on": [
-        "talent-validate-workforce-need"
+        "talent-define-data-role-profile"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -149,6 +123,32 @@
     },
     {
       "task_id": "talent-train-data-interviewer",
+      "owner": "",
+      "depends_on": [
+        "talent-define-data-role-profile"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-validate-workforce-need",
+      "owner": "",
+      "depends_on": [
+        "talent-train-data-interviewer"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-audit-question-bank-coverage",
       "owner": "",
       "depends_on": [
         "talent-validate-workforce-need"
@@ -174,10 +174,23 @@
       "approval_refs": []
     },
     {
-      "task_id": "talent-source-data-candidates",
+      "task_id": "talent-design-take-home-assignment",
       "owner": "",
       "depends_on": [
         "talent-validate-workforce-need"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-source-data-candidates",
+      "owner": "",
+      "depends_on": [
+        "talent-design-take-home-assignment"
       ],
       "status": "planned",
       "risk_tier": "R3-controlled",
@@ -356,32 +369,6 @@
       "approval_refs": []
     },
     {
-      "task_id": "talent-design-take-home-assignment",
-      "owner": "",
-      "depends_on": [
-        "talent-source-data-candidates"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "talent-evaluate-take-home-assignment",
-      "owner": "",
-      "depends_on": [
-        "talent-source-data-candidates"
-      ],
-      "status": "planned",
-      "risk_tier": "R3-controlled",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "talent-run-behavioral-interview",
       "owner": "",
       "depends_on": [
@@ -421,7 +408,7 @@
       "approval_refs": []
     },
     {
-      "task_id": "talent-score-interview-evidence",
+      "task_id": "talent-evaluate-take-home-assignment",
       "owner": "",
       "depends_on": [
         "talent-source-data-candidates"
@@ -434,10 +421,23 @@
       "approval_refs": []
     },
     {
+      "task_id": "talent-create-candidate-feedback",
+      "owner": "",
+      "depends_on": [
+        "talent-evaluate-take-home-assignment"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
       "task_id": "talent-run-hiring-debrief",
       "owner": "",
       "depends_on": [
-        "talent-score-interview-evidence"
+        "talent-create-candidate-feedback"
       ],
       "status": "planned",
       "risk_tier": "R3-controlled",
@@ -450,7 +450,7 @@
       "task_id": "talent-make-hiring-recommendation",
       "owner": "",
       "depends_on": [
-        "talent-score-interview-evidence"
+        "talent-run-hiring-debrief"
       ],
       "status": "planned",
       "risk_tier": "R3-controlled",
@@ -463,7 +463,7 @@
       "task_id": "talent-run-reference-check",
       "owner": "",
       "depends_on": [
-        "talent-score-interview-evidence"
+        "talent-run-hiring-debrief"
       ],
       "status": "planned",
       "risk_tier": "R3-controlled",
@@ -473,10 +473,10 @@
       "approval_refs": []
     },
     {
-      "task_id": "talent-create-candidate-feedback",
+      "task_id": "talent-score-interview-evidence",
       "owner": "",
       "depends_on": [
-        "talent-score-interview-evidence"
+        "talent-run-hiring-debrief"
       ],
       "status": "planned",
       "risk_tier": "R3-controlled",

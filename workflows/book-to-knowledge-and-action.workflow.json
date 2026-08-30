@@ -1,13 +1,13 @@
 {
   "workflow_id": "book-to-knowledge-and-action-standard-path",
-  "version": "1.0.0",
-  "objective": "Standard path through book-to-knowledge-and-action. Edges encode phase precedence from docs/skill-map.md (P0 intake, rights và extraction; P1 structural knowledge distillation; P1 destination compilers; P2 validation, publication và evolution), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "version": "2.0.0",
+  "objective": "Standard path through book-to-knowledge-and-action, 13 stages over 45 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/plan-design → P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/build-change/build-deliver → P0/build-change/operate-improve → P1/advisory-analysis/build-deliver → P1/build-change/build-deliver → P1/build-change/operate-improve → P1/build-change/build-deliver → P2/advisory-analysis/test-assure → P2/build-change/build-deliver → P2/governance-assurance/test-assure → P2/production-release/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R4-critical",
-  "current_task_id": "book-classify-conversion-purpose",
+  "current_task_id": "book-map-chapters-and-sections",
   "tasks": [
     {
-      "task_id": "book-classify-conversion-purpose",
+      "task_id": "book-map-chapters-and-sections",
       "owner": "",
       "depends_on": [],
       "status": "planned",
@@ -18,10 +18,10 @@
       "approval_refs": []
     },
     {
-      "task_id": "book-assess-source-rights",
+      "task_id": "book-classify-conversion-purpose",
       "owner": "",
       "depends_on": [
-        "book-classify-conversion-purpose"
+        "book-map-chapters-and-sections"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -70,33 +70,7 @@
       "approval_refs": []
     },
     {
-      "task_id": "book-extract-source-text",
-      "owner": "",
-      "depends_on": [
-        "book-classify-conversion-purpose"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "book-recover-document-structure",
-      "owner": "",
-      "depends_on": [
-        "book-classify-conversion-purpose"
-      ],
-      "status": "planned",
-      "risk_tier": "R2-standard",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "book-map-chapters-and-sections",
+      "task_id": "book-assess-source-rights",
       "owner": "",
       "depends_on": [
         "book-classify-conversion-purpose"
@@ -112,7 +86,7 @@
       "task_id": "book-verify-extraction-quality",
       "owner": "",
       "depends_on": [
-        "book-classify-conversion-purpose"
+        "book-assess-source-rights"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -122,10 +96,10 @@
       "approval_refs": []
     },
     {
-      "task_id": "book-build-source-manifest",
+      "task_id": "book-extract-source-text",
       "owner": "",
       "depends_on": [
-        "book-classify-conversion-purpose"
+        "book-assess-source-rights"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -135,10 +109,49 @@
       "approval_refs": []
     },
     {
+      "task_id": "book-build-source-manifest",
+      "owner": "",
+      "depends_on": [
+        "book-extract-source-text"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-recover-document-structure",
+      "owner": "",
+      "depends_on": [
+        "book-extract-source-text"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-compare-multiple-books",
+      "owner": "",
+      "depends_on": [
+        "book-recover-document-structure"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
       "task_id": "book-extract-frameworks",
       "owner": "",
       "depends_on": [
-        "book-classify-conversion-purpose"
+        "book-compare-multiple-books"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -291,23 +304,10 @@
       "approval_refs": []
     },
     {
-      "task_id": "book-compare-multiple-books",
-      "owner": "",
-      "depends_on": [
-        "book-extract-frameworks"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "book-build-agent-skill",
       "owner": "",
       "depends_on": [
-        "book-extract-frameworks"
+        "book-resolve-author-claims"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -473,32 +473,6 @@
       "approval_refs": []
     },
     {
-      "task_id": "book-audit-source-traceability",
-      "owner": "",
-      "depends_on": [
-        "book-validate-derived-skill"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "book-audit-copyright-and-privacy",
-      "owner": "",
-      "depends_on": [
-        "book-validate-derived-skill"
-      ],
-      "status": "planned",
-      "risk_tier": "R3-controlled",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "book-test-retrieval-and-application",
       "owner": "",
       "depends_on": [
@@ -554,7 +528,7 @@
       "task_id": "book-merge-source-versions",
       "owner": "",
       "depends_on": [
-        "book-validate-derived-skill"
+        "book-update-from-new-edition"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
@@ -564,10 +538,36 @@
       "approval_refs": []
     },
     {
+      "task_id": "book-audit-source-traceability",
+      "owner": "",
+      "depends_on": [
+        "book-update-from-new-edition"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-audit-copyright-and-privacy",
+      "owner": "",
+      "depends_on": [
+        "book-audit-source-traceability"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
       "task_id": "book-publish-derived-skill",
       "owner": "",
       "depends_on": [
-        "book-validate-derived-skill"
+        "book-audit-source-traceability"
       ],
       "status": "planned",
       "risk_tier": "R3-controlled",
@@ -580,7 +580,7 @@
       "task_id": "book-retire-derived-knowledge",
       "owner": "",
       "depends_on": [
-        "book-validate-derived-skill"
+        "book-publish-derived-skill"
       ],
       "status": "planned",
       "risk_tier": "R4-critical",

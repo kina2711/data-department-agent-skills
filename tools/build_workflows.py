@@ -32,6 +32,36 @@ OUT_DIR = ROOT / "workflows"
 
 RISK_ORDER = ["R0-light", "R1-reviewed", "R2-standard", "R3-controlled", "R4-critical"]
 
+# Within one authored phase the suite's own lifecycle semantics still order the work: you analyse
+# before you specify, specify before you build, and assure or release after. Ordering by profile
+# and then by catalog verb turns two or three phases into ten-odd real stages without inventing a
+# single edge — every rank below comes from a field the catalog already carries.
+LIFECYCLE_ORDER = [
+    "advisory-analysis", "design-specification", "learning", "career-coaching",
+    "career-development", "onboarding", "hiring", "build-change",
+    "governance-assurance", "production-release", "incident-recovery",
+]
+GROUP_ORDER = ["plan-design", "build-deliver", "test-assure", "operate-improve"]
+
+
+def catalog_groups() -> dict[str, str]:
+    """Task to its verb group, read from the routing catalogs each skill ships."""
+    groups: dict[str, str] = {}
+    for path in SKILLS.glob("*/references/catalog-*.md"):
+        shard = path.stem.removeprefix("catalog-")
+        base = next((g for g in GROUP_ORDER if shard.startswith(g)), shard)
+        for task_id in re.findall(r"\(tasks/([a-z0-9-]+)\.md\)", path.read_text(encoding="utf-8")):
+            groups[task_id] = base
+    return groups
+
+
+def stage_rank(task: dict, group: str) -> tuple[int, int]:
+    life = task.get("lifecycle_profile", "")
+    return (
+        LIFECYCLE_ORDER.index(life) if life in LIFECYCLE_ORDER else len(LIFECYCLE_ORDER),
+        GROUP_ORDER.index(group) if group in GROUP_ORDER else len(GROUP_ORDER),
+    )
+
 
 def parse_phases() -> dict[str, list[dict]]:
     """Skill-map section title to its ordered phases and the tasks each lists."""
@@ -71,7 +101,8 @@ def tasks_by_skill() -> dict[str, set[str]]:
     return owned
 
 
-def build(skill: str, phases: list[dict], catalog: dict[str, dict], owned: set[str]) -> dict | None:
+def build(skill: str, phases: list[dict], catalog: dict[str, dict], owned: set[str],
+          groups: dict[str, str]) -> dict | None:
     """One manifest for one skill. Returns None when the skill owns nothing the map lists."""
     kept = [
         {**phase, "tasks": [t for t in phase["tasks"] if t in owned and t in catalog]}
@@ -81,19 +112,32 @@ def build(skill: str, phases: list[dict], catalog: dict[str, dict], owned: set[s
     if not kept:
         return None
 
+    # Stages are (phase, lifecycle rank, verb rank). Tasks sharing a stage are peers; the map and
+    # the catalog both decline to order them, so neither does this.
+    stages: list[dict] = []
+    for phase in kept:
+        by_rank: dict[tuple[int, int], list[str]] = {}
+        for task_id in phase["tasks"]:
+            rank = stage_rank(catalog[task_id], groups.get(task_id, ""))
+            by_rank.setdefault(rank, []).append(task_id)
+        for rank in sorted(by_rank):
+            stages.append({
+                "phase": phase["phase"],
+                "label": phase["label"],
+                "lifecycle": LIFECYCLE_ORDER[rank[0]] if rank[0] < len(LIFECYCLE_ORDER) else "other",
+                "group": GROUP_ORDER[rank[1]] if rank[1] < len(GROUP_ORDER) else "other",
+                "tasks": by_rank[rank],
+            })
+
     tasks: list[dict] = []
     previous_anchor: str | None = None
     highest = 0
-
-    for phase in kept:
-        anchor = phase["tasks"][0]
-        for index, task_id in enumerate(phase["tasks"]):
+    for stage in stages:
+        anchor = stage["tasks"][0]
+        for index, task_id in enumerate(stage["tasks"]):
             risk = catalog[task_id]["risk_tier"]
             highest = max(highest, RISK_ORDER.index(risk))
-            if index == 0:
-                depends = [previous_anchor] if previous_anchor else []
-            else:
-                depends = [anchor]
+            depends = ([previous_anchor] if previous_anchor else []) if index == 0 else [anchor]
             tasks.append({
                 "task_id": task_id,
                 "owner": "",
@@ -107,18 +151,20 @@ def build(skill: str, phases: list[dict], catalog: dict[str, dict], owned: set[s
             })
         previous_anchor = anchor
 
-    phase_note = "; ".join(f"{p['phase']} {p['label']}".strip() for p in kept)
+    trail = " → ".join(f"{s['phase']}/{s['lifecycle']}/{s['group']}" for s in stages)
     return {
         "workflow_id": f"{skill}-standard-path",
-        "version": "1.0.0",
+        "version": "2.0.0",
         "objective": (
-            f"Standard path through {skill}. Edges encode phase precedence from docs/skill-map.md "
-            f"({phase_note}), not task-level prerequisites: tasks inside one phase are peers. "
-            f"Delete what this engagement does not need before running it."
+            f"Standard path through {skill}, {len(stages)} stages over {len(tasks)} tasks. "
+            f"Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and "
+            f"then by catalog verb: {trail}. An edge encodes stage precedence, not a task-level "
+            f"prerequisite — tasks inside one stage are peers, because nothing in the suite orders "
+            f"them. Delete what this engagement does not need before running it."
         ),
         "status": "draft",
         "workflow_risk_tier": RISK_ORDER[highest],
-        "current_task_id": kept[0]["tasks"][0],
+        "current_task_id": stages[0]["tasks"][0],
         "tasks": tasks,
         "transitions": [],
         "claims": [],
@@ -134,6 +180,7 @@ def main() -> None:
     catalog = {t["id"]: t for t in json.loads(CATALOG.read_text(encoding="utf-8"))}
     owned = tasks_by_skill()
     phases = parse_phases()
+    groups = catalog_groups()
 
     # Map section titles are prose; resolve them to skills through the tasks they list.
     section_for_skill: dict[str, list[dict]] = {}
@@ -151,7 +198,7 @@ def main() -> None:
     written, changed, skipped = 0, [], []
     covered_tasks: set[str] = set()
     for skill in sorted(owned):
-        manifest = build(skill, section_for_skill.get(skill, []), catalog, owned[skill])
+        manifest = build(skill, section_for_skill.get(skill, []), catalog, owned[skill], groups)
         if manifest is None:
             skipped.append(skill)
             continue
