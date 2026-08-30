@@ -62,6 +62,9 @@ Block before mutation or a positive completion decision when a mandatory input, 
 5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
 
 Additional resources:
+- Read [zero-landing ingestion](../zero-landing-ingestion.md) when considering an in-memory columnar path straight to the warehouse; the storage saving is small, and removing a stage where partial writes go unnoticed is the actual reason.
+- The landing zone was doing four things — replay, evidence, debugging and backpressure — and each has to be replaced deliberately rather than dropped. Keep it where the source cannot be cheaply re-read, where the raw extract is itself a retention requirement, or where replay from file is routine.
+- Verify with a key-level reconciliation for the same window, peak memory under the largest real batch rather than the average, and a deliberate mid-stream failure that resumes without duplicating or skipping the batch in flight. An exit code is not verification.
 - Read [the execution discipline standard](../execution-discipline-standard.md).
 - Before Git-backed mutation, require a verified success contract and pre-change scope contract. After the final change, run `core-audit-change-scope` and `core-verify-deliverable`; release remains blocked if either control is absent or failed.
 

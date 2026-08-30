@@ -462,3 +462,25 @@ cases:
       - Label what the learner says they know as self-reported; it never becomes mastery and is never returned to Career as evidence.
       - Give each module a full, compress or skip treatment with its basis; a skipped module stays planned rather than being deleted.
       - Offer a diagnostic for load-bearing claims rather than requiring one, and record a declined offer as an assumed foundation.
+  - id: agent-sql-grounded-and-cached
+    query: Agent hay viết SQL sai tên cột, và mỗi báo cáo tốn quá nhiều token. Sửa cả hai.
+    expected_primary_skill: generative-ai-engineering
+    expected_tasks:
+      - ai-build-retrieval-pipeline
+      - ai-create-embeddings-index
+    expected_behavior:
+      - Retrieve the live schema immediately before generating, never from the system prompt or recall, and record which schema version grounded the query.
+      - A cache hit must clear both bars: the same question, and data that has not moved; key on table version or freshness watermark, not on a timer.
+      - Label a served answer as cached with its timestamp, and measure the false-hit rate separately from the hit rate.
+      - Attribute cost per session and per agent rather than per call.
+
+  - id: mart-an-agent-can-query
+    query: Dựng mart để agent tự viết SQL trả lời câu hỏi về laptop mà không join sai.
+    expected_primary_skill: analytics-engineering
+    expected_tasks:
+      - ae-design-dimensional-model
+      - ae-build-analytics-mart
+    expected_behavior:
+      - Choose one big table where a wrong join would produce a plausible wrong number, and a star schema where conformed dimensions make facts comparable.
+      - Compute derived rates and flags once in the mart with names precise enough to expose a contested definition.
+      - Publish grain, column meanings, categorical values and the partition and cluster keys where retrieval can reach them.

@@ -98,12 +98,12 @@ BENCHMARK_RESOURCES = {
         "scripts": ["scan_architecture_drift.py"],
     },
     "data-engineering": {
-        "references": ["execution-plan-and-pipeline-adapters.md", "stage-gated-data-validation.md"],
+        "references": ["execution-plan-and-pipeline-adapters.md", "stage-gated-data-validation.md", "zero-landing-ingestion.md"],
         "assets": ["execution-plan-review.yaml", "pipeline-validation-plan.yaml"],
         "scripts": ["inspect_execution_plan.py"],
     },
     "analytics-engineering": {
-        "references": ["execution-plan-and-pipeline-adapters.md"],
+        "references": ["execution-plan-and-pipeline-adapters.md", "agent-ready-marts.md"],
         "assets": ["execution-plan-review.yaml"],
         "scripts": ["inspect_execution_plan.py"],
     },
@@ -118,7 +118,7 @@ BENCHMARK_RESOURCES = {
         "scripts": ["validate_tabular_data.py"],
     },
     "business-intelligence": {
-        "references": ["dashboard-experience-quality.md"],
+        "references": ["dashboard-experience-quality.md", "dashboards-as-code.md"],
         "assets": ["dashboard-experience-audit.yaml"],
         "scripts": ["validate_dashboard_spec.py"],
     },

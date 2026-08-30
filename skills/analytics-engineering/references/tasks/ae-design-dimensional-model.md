@@ -33,6 +33,9 @@ If an absent input changes semantics, risk, cost, scope or acceptance, classify 
 5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
 
 Additional resources:
+- Read [marts an agent can consume](../agent-ready-marts.md); shape follows the consumer — one big table where a wrong join would produce a plausible wrong number, star schema where conformed dimensions are what make two facts comparable.
+- Compute derived rates, ratios, flags and scores once in the mart with a precise name. The same measure recomputed by three consumers produces three defensible numbers and no reconciliation, and `is_bounce_single_pageview_session` says what `is_bounce` only implies.
+- Publish the description with the data: grain in one sentence, column meanings, the values a categorical column actually takes, and the partition and cluster keys. A key absent from the published description is a key the generated query will omit, and the bill is the first sign.
 - Read [solution option framing](../solution-option-framing.md); frame three to five materially different approaches in `../../assets/design-option-set.yaml`, select one against the stated constraints in at most forty words, and derive the deliverable structure from that selection. Where this role already owns a scored selection artifact, use it instead of duplicating the decision.
 
 

@@ -162,7 +162,7 @@
         "de-profile-source-system",
         "de-design-ingestion-pipeline"
       ],
-      "luu_y": "Idempotency không phải tính năng thêm vào sau. Pipeline không idempotent thì mọi lần retry đều là một sự cố dữ liệu."
+      "luu_y": "Idempotency không phải tính năng thêm sau — pipeline không idempotent thì mọi lần retry là một sự cố dữ liệu. Bỏ landing zone thì phải thay thế bốn thứ nó đang làm: replay, bằng chứng, gỡ lỗi và backpressure."
     },
     "analytics-engineering": {
       "tom_tat": "Mô hình staging, intermediate, mart, dimensional và semantic có quản trị — kèm test, tài liệu, lineage, logic incremental và kiểm soát phát hành.",
@@ -177,7 +177,7 @@
         "ae-translate-business-logic",
         "ae-design-dimensional-model"
       ],
-      "luu_y": "Model không có test là một câu truy vấn được lưu lại, không phải một tài sản dữ liệu."
+      "luu_y": "Mart cho người và mart cho agent khác nhau: agent không biết cột nghĩa là gì nên join sai ra số hợp lý mà sai. Tính sẵn tỷ lệ và cờ ngay trong mart với tên chính xác, và công bố grain, partition key cùng dữ liệu. Model không có test là câu truy vấn được lưu lại, không phải tài sản dữ liệu."
     },
     "data-analysis": {
       "tom_tat": "EDA lập trình được, phân tích tái lập được, giải thích SQL sang ngôn ngữ nghiệp vụ, truyền đạt phương pháp, peer review và retrospective.",
@@ -207,7 +207,7 @@
         "bi-translate-dashboard-spec",
         "bi-build-semantic-model"
       ],
-      "luu_y": "Dashboard không ai mở là chi phí, không phải tài sản. Đo mức áp dụng, đừng chỉ đo lúc bàn giao."
+      "luu_y": "Dashboard không ai mở là chi phí. Sinh dashboard bằng API thì spec mới là artifact — viết trên semantic layer, vì dashboard vượt mặt định nghĩa metric đã quản trị sẽ đẻ ra định nghĩa thứ hai. Sinh ra không phải là xuất bản."
     },
     "product-analytics-and-experimentation": {
       "tom_tat": "Định nghĩa event và metric sản phẩm, phân tích funnel, activation, retention, tăng trưởng; thiết kế và đánh giá thử nghiệm.",
@@ -326,7 +326,7 @@
         "ai-frame-generative-ai-use-case",
         "ai-design-evaluation-dataset"
       ],
-      "luu_y": "Báo khoảng tin cậy chứ không phải tỷ lệ pass trần trụi. Lần chạy có khoảng tin cậy trùm lên baseline là chưa kết luận được."
+      "luu_y": "Agent viết SQL phải lấy schema thật ngay trước khi sinh, không lấy từ system prompt hay trí nhớ. Semantic cache tiết kiệm nhiều nhất nhưng hỏng lặng lẽ: một cache hit phải qua hai cửa — đúng cùng câu hỏi, và dữ liệu chưa đổi. Đo tỷ lệ hit sai riêng, không thì đó là khoản tiết kiệm giả định."
     },
     "data-documentation-and-diagrams": {
       "tom_tat": "Tài liệu dữ liệu đã kiểm chứng, ADR, runbook, postmortem, ERD, BPMN, sequence, state, lineage và sơ đồ kiến trúc.",

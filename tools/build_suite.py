@@ -1392,6 +1392,42 @@ def task_specific_resources(task_id: str) -> list[str]:
             "Name the skills and task IDs to route to, so a routing decision already made is not made again and differently. Reference specs, plans, ADRs, issues, commits, diffs and run state by path or hash instead of restating them; a handoff that restates the plan will drift from it.",
             "Write it to the OS temporary directory or a configured scratch location, never into the workspace unless the user asks. Redact secrets, credentials and personal data first. A handoff is not evidence and not an approval: list every gate the session left unpassed, and never describe unfinished work as done.",
         ]
+    if task_id.startswith("ai-"):
+        resources = [
+            "Read [grounded generation and agent economics](../grounded-generation-and-agent-economics.md); a generation step that touches a warehouse retrieves the live schema immediately before generating, never from the system prompt or from recall, and records which schema version grounded the query.",
+        ]
+        if any(w in task_id for w in ("cache", "retriev", "embedding", "index", "rerank")):
+            resources.append(
+                "A semantic cache hit must clear two bars, not one: the question is the same question, and the data has not moved. Key the cache on table version or freshness watermark as well as on the query, label a served answer as cached with its timestamp, and measure the false-hit rate separately from the hit rate — a hit rate without one is an assumed saving."
+            )
+        if any(w in task_id for w in ("agent", "orchestrat", "workflow", "prompt", "system")):
+            resources.append(
+                "Name the points where the graph stops — after the plan, before anything is written, before anything is published — and make each resumable from serialised state. An interrupt that can only be approved is a delay with extra steps, and a graph that runs to completion before asking has already spent the tokens."
+            )
+        if any(w in task_id for w in ("monitor", "evaluate", "analyze", "failure", "release", "observab")):
+            resources.append(
+                "Attribute cost per session and per agent rather than per call; a cheap agent invoked forty times is the expensive one and per-call figures hide it. Trace what context actually left the process, because prompt bloat accumulates invisibly."
+            )
+        return resources
+    if task_id in {"ae-design-dimensional-model", "ae-build-analytics-mart", "ae-implement-semantic-metric"}:
+        return [
+            "Read [marts an agent can consume](../agent-ready-marts.md); shape follows the consumer — one big table where a wrong join would produce a plausible wrong number, star schema where conformed dimensions are what make two facts comparable.",
+            "Compute derived rates, ratios, flags and scores once in the mart with a precise name. The same measure recomputed by three consumers produces three defensible numbers and no reconciliation, and `is_bounce_single_pageview_session` says what `is_bounce` only implies.",
+            "Publish the description with the data: grain in one sentence, column meanings, the values a categorical column actually takes, and the partition and cluster keys. A key absent from the published description is a key the generated query will omit, and the bill is the first sign.",
+        ]
+    if task_id in {"de-design-ingestion-pipeline", "de-build-batch-ingestion", "de-build-api-ingestion",
+                   "de-build-file-ingestion", "de-build-cdc-ingestion", "de-build-streaming-ingestion"}:
+        return [
+            "Read [zero-landing ingestion](../zero-landing-ingestion.md) when considering an in-memory columnar path straight to the warehouse; the storage saving is small, and removing a stage where partial writes go unnoticed is the actual reason.",
+            "The landing zone was doing four things — replay, evidence, debugging and backpressure — and each has to be replaced deliberately rather than dropped. Keep it where the source cannot be cheaply re-read, where the raw extract is itself a retention requirement, or where replay from file is routine.",
+            "Verify with a key-level reconciliation for the same window, peak memory under the largest real batch rather than the average, and a deliberate mid-stream failure that resumes without duplicating or skipping the batch in flight. An exit code is not verification.",
+        ]
+    if task_id in {"bi-translate-dashboard-spec", "bi-build-dashboard", "bi-implement-dashboard-measures"}:
+        return [
+            "Read [dashboards as code](../dashboards-as-code.md); the specification is the artifact and the API call is the mechanical step. Write it against the semantic layer — a generated dashboard that reaches past governed metric definitions reproduces them, and then two definitions of one number exist.",
+            "Platform APIs accept anything that renders. Carry the checks a reviewer would apply into the specification: expected cardinality per dimension, the grain each chart aggregates to, and the question each chart answers — a chart whose stated question its own configuration cannot answer is catchable before it is built.",
+            "Key charts and the dashboard on a stable identifier derived from the specification, not on a title people rename, so re-running updates rather than duplicating. Name the human owner; nobody owns a dashboard that appeared from an API call. Generating is not publishing, and publication is still a release gate.",
+        ]
     if task_id in DIAGRAM_FIDELITY_TASKS:
         return [
             "Read [the diagram fidelity standard](../diagram-fidelity-standard.md); declare the diagram `observed`, `proposed` or `illustrative` on the rendering itself, because a reader who sees the image in a slide has no access to its metadata.",
@@ -3955,6 +3991,140 @@ Completion gates: source/edition hashes, extraction coverage, chapter map, frame
 
 
 def build_benchmark_references() -> None:
+    grounded_generation = """# Grounded generation and agent economics
+
+An agent that writes SQL from the table names it remembers will produce syntactically perfect queries against columns that do not exist. An agent that skips the model when a question looks familiar will answer a new question with an old answer. Both failures are cheap to prevent and expensive to notice, because both produce output that looks exactly like success.
+
+## Retrieve the schema before writing the query
+
+A generation step that touches a warehouse retrieves the schema for the tables it intends to use, from a metadata index, immediately before generating. Not from the system prompt, which goes stale the moment a column is renamed; not from the conversation, which may be describing a different environment; and not from recall.
+
+What the retrieval must return is the grain, the column names and types, the partition and cluster keys, and whatever the warehouse enforces about them. A query written without the partition key on a partitioned table is not slow — it is a full scan the finance team notices before the analyst does.
+
+Record which schema version grounded which query. When a query later turns out to be wrong, the first question is whether the schema it was written against still describes the table, and that question needs an answer rather than an investigation.
+
+## Semantic cache, and the question it cannot answer
+
+Caching answers by vector distance to previous questions is the largest single cost reduction available to a reporting agent, because the expensive part is the reasoning and most reporting questions repeat. It is also the one optimisation that fails silently.
+
+Two things must hold before a hit is served:
+
+- **The question is the same question.** Vector distance measures phrasing, and two questions can be phrased almost identically while differing in the one clause that matters — last month versus this month, gross versus net, including refunds or not. Set the threshold from labelled pairs you have checked, and treat every near-threshold hit as a miss.
+- **The data has not moved underneath it.** A cached report is valid only for a warehouse state. Key the cache on the underlying table versions, partitions or a freshness watermark as well as on the question, and invalidate on load rather than on a timer that has no relationship to when the data changed.
+
+Serve a cached answer labelled as cached, with the timestamp it was produced. A user who can see that a number is four hours old will ask for a refresh when it matters; a user shown a stale number as if it were live will not.
+
+Measure the hit rate and the false-hit rate separately. A rising hit rate with no false-hit measurement is not a saving that has been demonstrated — it is one that has been assumed.
+
+## Interrupt points are part of the design
+
+A long agent graph that runs to completion and then asks for approval has already spent the tokens and already made the decisions. Name the points where it stops instead: after the plan, before anything is written, before anything is published. Each interrupt states what was decided, what happens next, and what the human is being asked to change.
+
+An interrupt is not a confirmation dialog. It exists so the plan can be edited and the graph resumed from that point, which means the state at each interrupt is serialisable and the resume path is tested. An interrupt that can only be approved is a delay with extra steps.
+
+## What observability has to answer
+
+Per-agent tracing on a multi-agent graph exists to answer three questions, and a trace that cannot answer them is decoration:
+
+- Which step spent the time, and which spent the tokens. These are rarely the same step, and the intuition about which is which is usually wrong.
+- What context was actually sent. Prompt bloat accumulates invisibly; the only way to find a supervisor forwarding the entire history to every child is to look at what left the process.
+- Whether a change helped. Compare prompt versions against the same recorded inputs, and report the difference with its uncertainty rather than the better single run.
+
+Attribute cost per session and per agent, not per call. A cheap agent invoked forty times is the expensive one, and per-call figures hide that completely.
+
+## What none of this makes true
+
+Grounded retrieval reduces invented columns; it does not make the query correct. A cache hit is not a verified answer. A trace shows what happened, not whether it should have. Every claim an agent makes about a business number still needs the evidence and approval the lifecycle standard requires — the agent economics here change what it costs to produce an answer, never what it takes to trust one.
+"""
+    agent_ready_marts = """# Marts an agent can consume
+
+A mart designed for a human analyst and a mart designed for an agent differ in one respect that decides everything else: the analyst knows what the columns mean and the agent does not. The analyst joins four tables without noticing; the agent writes a join it half-understands and produces a number nobody can trace.
+
+## Shape follows the consumer
+
+Neither shape is correct in general. Choose by who reads it and what they ask:
+
+| Consumer and question | Shape | Why |
+|---|---|---|
+| An agent answering open questions about one entity | One big table | Every attribute reachable without a join, so a wrong join is not a failure mode that exists |
+| Slice-and-dice across shared dimensions, many facts | Star schema | Conformed dimensions are what make two facts comparable; flattening destroys that |
+| A fixed dashboard with known questions | Purpose-built aggregate | Neither general shape earns its cost when the questions do not change |
+
+One big table trades storage and update cost for join safety. That trade is worth making where a wrong join produces a plausible wrong number, and not worth making where the attributes change independently and the table becomes a rewrite on every change.
+
+## Compute the derived measure once, in the mart
+
+A rate, a ratio, a flag or a score that an agent would otherwise compute in generated SQL belongs in the mart with a name and a definition. Bounce rate computed by three different agents produces three different numbers, all defensible, none reconcilable.
+
+This is the difference between a mart and a view over raw tables: the mart carries the judgment. Where the definition is contested, the mart holds the agreed one and names it precisely enough that the disagreement is visible — `is_bounce_single_pageview_session`, not `is_bounce`.
+
+## Publish the description with the data
+
+A mart an agent can consume has its schema published where retrieval can reach it: column names, types, grain, the meaning of each derived measure, the partition and cluster keys, and the values a categorical column actually takes. A column called `status` with six undocumented values is a mart the agent will guess about.
+
+State the grain in one sentence at the top of the model and make it true. Most agent-generated aggregation errors are grain errors, and a stated grain converts them from silent to checkable.
+
+## Physical layout is part of the contract
+
+Partition and cluster keys are not tuning applied afterwards. An agent writes the query it was grounded on, so a mart whose partition key is absent from its published description will be queried without it, and the first sign will be the bill. Publish them, and make the common query path the cheap one.
+
+## What this does not solve
+
+An AI-ready mart makes an agent's query more likely to be answerable and cheaper to run. It does not make the answer right, and a pre-computed measure is only as good as the definition it froze — a mart is the most durable place to embed a wrong definition, because everything downstream then agrees with it. Version the definitions, and treat changing one as a breaking change to every consumer rather than a model edit.
+"""
+    zero_landing = """# Zero-landing ingestion
+
+The usual extract writes rows to files in object storage, then loads the files into the warehouse. The intermediate copy costs storage, adds a hop that can fail on its own, and exists mainly because it always has. Streaming the extract through memory as a columnar buffer and writing straight to the warehouse removes it.
+
+## The pattern
+
+Read from the source in bounded batches, accumulate into a columnar buffer in memory, and stream that buffer to the warehouse as the batch fills. Columnar rather than row-oriented because the compression is what makes the memory footprint viable and the load fast; bounded batches because an unbounded read is a memory limit waiting to be found in production.
+
+The saving is real but it is not the main reason to do it. Removing the landing zone removes a stage where files accumulate, permissions drift, and a partial write becomes a partial load that nobody notices until reconciliation.
+
+## What the landing zone was doing for you
+
+It was not only a buffer, and everything it provided has to be replaced deliberately rather than dropped:
+
+- **Replay.** A landed file can be re-loaded after a downstream failure without touching the source. In-memory, the only replay is re-extraction, so the source must tolerate it and the extract must be idempotent by watermark or key.
+- **Evidence.** A file with a hash is proof of what was extracted. Without it, record row counts, key ranges and a checksum of the buffer at extraction time; reconciliation needs something to compare against.
+- **Debugging.** A malformed row in a file can be opened and read. In memory it is gone by the time the load fails, so the failure path must capture the offending batch rather than only the exception.
+- **Backpressure.** Object storage absorbs a fast producer. Memory does not: size the batch against the worker's real memory limit, not against the happy path, and fail the batch rather than the process.
+
+## When not to use it
+
+Keep the landing zone where the source cannot be re-read cheaply, where the raw extract is itself a retention requirement, or where the load target is unreliable enough that replay from file is a routine operation rather than an incident. The pattern optimises a cost that is small in absolute terms; it is not worth paying for it with an unrecoverable pipeline.
+
+## What to verify before claiming it works
+
+Row counts and a key-level reconciliation between source and warehouse for the same window, not a successful exit code. Peak memory measured under the largest real batch, not the average. A deliberate mid-stream failure, to confirm the pipeline resumes without duplicating and without silently skipping the batch it was holding.
+"""
+    dashboard_as_code = """# Dashboards as code
+
+A dashboard assembled by dragging is a dashboard that exists only in the tool. It cannot be reviewed as a diff, reproduced in another environment, or rebuilt after someone deletes it. Defining it as a specification and creating it through the platform's API changes all three, and introduces one failure mode of its own.
+
+## Specification first, API second
+
+The specification is the artifact: layout, each chart's dataset, metric, dimensions, filters, chart type, and the question the chart answers. It is reviewable before anything is created, diffable when it changes, and the thing kept in version control. The API call is the mechanical step that realises it.
+
+Write the specification against the semantic layer, not against raw tables. A dashboard-as-code that reaches past the governed metric definitions reproduces them, and then two definitions of the same number exist with no indication which the viewer is looking at.
+
+## What the API does not check
+
+Platform APIs accept a chart that renders and says nothing. They will happily create a time series over a dimension with four hundred values, a pie chart of a continuous measure, or a filter that silently excludes most of the data. Generating dashboards faster generates these faster.
+
+The specification therefore carries the checks a person would otherwise apply by looking: expected cardinality per dimension, the grain each chart aggregates to, and what the chart is for. A chart whose stated question cannot be answered by its own configuration is a defect the reviewer can catch in the specification, before it is built.
+
+## Idempotency and ownership
+
+Creating the same specification twice must update the dashboard, not produce a second one. Key each chart and the dashboard on a stable identifier derived from the specification rather than on its title, which people rename.
+
+A generated dashboard still has a human owner, and the specification names them. Nobody owns a dashboard that appeared from an API call, and unowned dashboards are what a catalog is full of two years later.
+
+## Publication is still a gate
+
+Generating is not publishing. A dashboard reaching an audience is a release: it needs the numbers verified against a known-good query, the access model checked against who can now see the data, and named approval. The speed gain is in construction and it stops at the point where someone else starts trusting the output.
+"""
     diagram_fidelity = """# Diagram fidelity
 
 `validate_diagram_source.py` says in its own docstring that it cannot confirm a diagram is true. Nothing else in the suite did either. A structurally perfect diagram that is quietly wrong is more dangerous than no diagram, because a reader acts on it: boxes drawn from memory get treated as an inventory, and an arrow someone assumed becomes a dependency in someone else's plan.
@@ -4266,12 +4436,14 @@ A redesign specification maps audit finding -> design decision -> affected page/
         "shared-data-core": {"context-engineering-standard.md": context_engineering},
         "data-department-orchestrator": {"context-engineering-standard.md": context_engineering},
         "data-documentation-and-diagrams": {"diagram-fidelity-standard.md": diagram_fidelity},
+        "generative-ai-engineering": {"grounded-generation-and-agent-economics.md": grounded_generation},
+        "business-intelligence": {"dashboards-as-code.md": dashboard_as_code},
         "company-data-context": {"context-engineering-standard.md": context_engineering},
         "data-analysis": {"analysis-rigor-and-communication.md": analysis_rigor},
         "data-developer-experience": {"evidence-based-repository-understanding.md": repository_understanding},
         "data-enablement-and-knowledge": {"evidence-based-repository-understanding.md": repository_understanding},
-        "data-engineering": {"execution-plan-and-pipeline-adapters.md": execution_plan, "stage-gated-data-validation.md": stage_validation},
-        "analytics-engineering": {"execution-plan-and-pipeline-adapters.md": execution_plan},
+        "data-engineering": {"execution-plan-and-pipeline-adapters.md": execution_plan, "stage-gated-data-validation.md": stage_validation, "zero-landing-ingestion.md": zero_landing},
+        "analytics-engineering": {"execution-plan-and-pipeline-adapters.md": execution_plan, "agent-ready-marts.md": agent_ready_marts},
         "data-quality-and-reliability": {"stage-gated-data-validation.md": stage_validation},
     }
     for skill, files in targets.items():

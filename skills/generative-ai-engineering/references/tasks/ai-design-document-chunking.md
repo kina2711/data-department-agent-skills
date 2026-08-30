@@ -33,6 +33,7 @@ If an absent input changes semantics, risk, cost, scope or acceptance, classify 
 5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
 
 Additional resources:
+- Read [grounded generation and agent economics](../grounded-generation-and-agent-economics.md); a generation step that touches a warehouse retrieves the live schema immediately before generating, never from the system prompt or from recall, and records which schema version grounded the query.
 - Read [solution option framing](../solution-option-framing.md); frame three to five materially different approaches in `../../assets/design-option-set.yaml`, select one against the stated constraints in at most forty words, and derive the deliverable structure from that selection. Where this role already owns a scored selection artifact, use it instead of duplicating the decision.
 
 

@@ -64,6 +64,7 @@ Block before mutation or a positive completion decision when a mandatory input, 
 5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
 
 Additional resources:
+- Read [grounded generation and agent economics](../grounded-generation-and-agent-economics.md); a generation step that touches a warehouse retrieves the live schema immediately before generating, never from the system prompt or from recall, and records which schema version grounded the query.
 - Read [the execution discipline standard](../execution-discipline-standard.md).
 - Before Git-backed mutation, require a verified success contract and pre-change scope contract. After the final change, run `core-audit-change-scope` and `core-verify-deliverable`; release remains blocked if either control is absent or failed.
 

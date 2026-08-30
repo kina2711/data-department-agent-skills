@@ -33,7 +33,9 @@ If an absent input changes semantics, risk, cost, scope or acceptance, classify 
 5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
 
 Additional resources:
-- None beyond the selected company, technology and industry context.
+- Read [dashboards as code](../dashboards-as-code.md); the specification is the artifact and the API call is the mechanical step. Write it against the semantic layer — a generated dashboard that reaches past governed metric definitions reproduces them, and then two definitions of one number exist.
+- Platform APIs accept anything that renders. Carry the checks a reviewer would apply into the specification: expected cardinality per dimension, the grain each chart aggregates to, and the question each chart answers — a chart whose stated question its own configuration cannot answer is catchable before it is built.
+- Key charts and the dashboard on a stable identifier derived from the specification, not on a title people rename, so re-running updates rather than duplicating. Name the human owner; nobody owns a dashboard that appeared from an API call. Generating is not publishing, and publication is still a release gate.
 
 
 ## Tests and evidence
