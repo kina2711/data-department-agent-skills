@@ -1,0 +1,441 @@
+'use strict';
+
+const state = {
+  suitePath: '',
+  suiteVersion: '',
+  skills: [],
+  filterTier: '',
+  query: '',
+  openSkill: null,
+  catalog: new Map(),
+  job: null,
+  jobPrompt: '',
+  jobMissing: [],
+  selectedTask: null,
+  folder: '',
+};
+
+const $ = (id) => document.getElementById(id);
+
+const BLOB_COUNT = 12;
+
+// Deterministic pastel per skill, so a card keeps the same colour between launches.
+// Returns a class index rather than a colour: inline styles are blocked by the page CSP.
+function blobClass(text) {
+  let h = 0;
+  for (let i = 0; i < text.length; i += 1) h = (h * 31 + text.charCodeAt(i)) % 4096;
+  return `blob blob-${h % BLOB_COUNT}`;
+}
+
+function initials(name) {
+  return name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+}
+
+function notice(text, kind) {
+  $('notice').innerHTML = '';
+  if (!text) return;
+  const el = document.createElement('div');
+  el.className = `notice notice-${kind || 'err'}`;
+  el.textContent = text;
+  $('notice').append(el);
+}
+
+function matches(skill) {
+  const q = state.query.trim().toLowerCase();
+  const tier = state.filterTier;
+  const tierOk = !tier || skill.tasks.some((t) => t.modelTier === tier);
+  if (!tierOk) return false;
+  if (!q) return true;
+  if (skill.name.toLowerCase().includes(q) || skill.id.includes(q)) return true;
+  return skill.tasks.some((t) => t.id.includes(q) || (t.goal || '').toLowerCase().includes(q));
+}
+
+function renderGrid() {
+  const grid = $('grid');
+  grid.innerHTML = '';
+  if (!state.suitePath) {
+    grid.innerHTML = '<div class="empty">Chưa nối suite. Bấm <b>Chọn thư mục suite</b> và trỏ tới thư mục chứa <code>suite-manifest.yaml</code>.</div>';
+    return;
+  }
+  const visible = state.skills.filter(matches);
+  if (!visible.length) {
+    grid.innerHTML = '<div class="empty">Không có skill nào khớp bộ lọc.</div>';
+    return;
+  }
+  for (const skill of visible) {
+    const card = document.createElement('button');
+    card.className = 'card';
+    card.type = 'button';
+
+    const blob = document.createElement('span');
+    blob.className = blobClass(skill.id);
+
+    const avatar = document.createElement('span');
+    avatar.className = 'avatar';
+    avatar.textContent = initials(skill.name);
+
+    const title = document.createElement('h3');
+    title.textContent = skill.name;
+
+    const desc = document.createElement('p');
+    desc.textContent = skill.description || 'Không có mô tả trong SKILL.md.';
+
+    const meta = document.createElement('div');
+    meta.className = 'meta';
+    const count = document.createElement('span');
+    count.textContent = `${skill.taskCount} task`;
+    meta.append(count);
+    const strong = skill.tasks.filter((t) => t.modelTier === 'strong').length;
+    if (strong) {
+      const sep = document.createElement('span');
+      sep.className = 'dot-sep';
+      const s = document.createElement('span');
+      s.textContent = `${strong} cần model mạnh`;
+      meta.append(sep, s);
+    }
+
+    card.append(blob, avatar, title, desc, meta);
+    card.addEventListener('click', () => openDrawer(skill));
+    grid.append(card);
+  }
+}
+
+function renderTasks() {
+  const box = $('dTasks');
+  box.innerHTML = '';
+  const skill = state.openSkill;
+  if (!skill) return;
+  const q = state.query.trim().toLowerCase();
+  const list = skill.tasks.filter((t) => {
+    if (state.filterTier && t.modelTier !== state.filterTier) return false;
+    if (!q) return true;
+    return t.id.includes(q) || (t.goal || '').toLowerCase().includes(q);
+  });
+  if (!list.length) {
+    box.innerHTML = '<div class="empty">Không có task nào khớp bộ lọc.</div>';
+    return;
+  }
+  for (const task of list) {
+    const row = document.createElement('div');
+    row.className = 'task';
+    row.setAttribute('role', 'option');
+    row.setAttribute('aria-selected', String(state.selectedTask === task.id));
+
+    const main = document.createElement('div');
+    main.className = 'task-main';
+    const code = document.createElement('code');
+    code.textContent = task.id;
+    const goal = document.createElement('div');
+    goal.className = 'goal';
+    // The catalog already carries a Vietnamese goal for 810 of 827 tasks; the English `output`
+    // is the fallback, not the default.
+    goal.textContent = task.goal || task.output || '';
+    if (task.goal && task.output) goal.title = task.output;
+    main.append(code, goal);
+
+    const tier = document.createElement('span');
+    tier.className = `tier tier-${task.modelTier || 'standard'}`;
+    tier.textContent = task.modelTier || '—';
+
+    row.append(main, tier);
+    row.addEventListener('click', () => {
+      state.selectedTask = state.selectedTask === task.id ? null : task.id;
+      renderTasks();
+    });
+    box.append(row);
+  }
+}
+
+function renderGuide(skill) {
+  const box = $('dGuide');
+  box.innerHTML = '';
+  const g = skill.guide;
+
+  const section = (label, node) => {
+    const h = document.createElement('h4');
+    h.textContent = label;
+    box.append(h, node);
+  };
+  const list = (items) => {
+    const ul = document.createElement('ul');
+    for (const it of items) {
+      const li = document.createElement('li');
+      li.textContent = it;
+      ul.append(li);
+    }
+    return ul;
+  };
+
+  if (!g) {
+    const p = document.createElement('p');
+    p.className = 'lead';
+    p.textContent = skill.description || '';
+    box.append(p);
+    return;
+  }
+
+  const lead = document.createElement('p');
+  lead.className = 'lead';
+  lead.textContent = g.tom_tat;
+  box.append(lead);
+
+  if (g.dung_khi && g.dung_khi.length) section('Dùng khi', list(g.dung_khi));
+
+  if (g.khong_dung_khi) {
+    const p = document.createElement('p');
+    p.className = 'note';
+    p.textContent = g.khong_dung_khi;
+    section('Không dùng khi', p);
+  }
+
+  if (g.bat_dau_tu && g.bat_dau_tu.length) {
+    const row = document.createElement('div');
+    row.className = 'starts';
+    for (const id of g.bat_dau_tu) {
+      const c = document.createElement('code');
+      c.textContent = id;
+      c.title = 'Chọn task này';
+      // Clicking a suggested entry point selects it, so the guide is a shortcut rather than
+      // a paragraph to read and then act on separately.
+      c.addEventListener('click', () => {
+        state.selectedTask = id;
+        renderTasks();
+      });
+      row.append(c);
+    }
+    section('Bắt đầu từ', row);
+  }
+
+  if (g.luu_y) {
+    const p = document.createElement('p');
+    p.className = 'warn';
+    p.textContent = g.luu_y;
+    section('Lưu ý', p);
+  }
+
+  const toggle = document.createElement('button');
+  toggle.className = 'guide-toggle';
+  toggle.type = 'button';
+  toggle.textContent = 'Xem mô tả gốc (tiếng Anh)';
+  const en = document.createElement('p');
+  en.className = 'desc-en';
+  en.textContent = skill.description || '';
+  en.hidden = true;
+  toggle.addEventListener('click', () => {
+    en.hidden = !en.hidden;
+    toggle.textContent = en.hidden ? 'Xem mô tả gốc (tiếng Anh)' : 'Ẩn mô tả gốc';
+  });
+  box.append(toggle, en);
+}
+
+function showPane(which) {
+  for (const id of ['paneJobs', 'paneForm', 'paneRun']) $(id).hidden = id !== which;
+}
+
+// A preset job and a hand-picked task are two ways to reach the same run; only one is active.
+function pickJob(job) {
+  state.job = job;
+  state.selectedTask = job.task_id;
+  window.jobsUI.renderJobForm(
+    job,
+    (_j, _v, text, missing) => {
+      state.jobPrompt = text;
+      state.jobMissing = missing;
+      updateLaunch();
+    },
+    () => {
+      state.job = null;
+      state.jobPrompt = '';
+      state.jobMissing = [];
+      showPane('paneJobs');
+      updateLaunch();
+    }
+  );
+  showPane('paneForm');
+  updateLaunch();
+}
+
+function openDrawer(skill) {
+  state.openSkill = skill;
+  state.selectedTask = null;
+  state.job = null;
+  state.jobPrompt = '';
+  state.jobMissing = [];
+  showPane('paneJobs');
+  window.jobsUI.renderJobList(skill, pickJob);
+  $('dTitle').textContent = skill.name;
+  renderGuide(skill);
+  $('drawer').dataset.open = 'true';
+  $('scrim').dataset.open = 'true';
+  renderTasks();
+  updateLaunch();
+}
+
+function closeDrawer() {
+  $('drawer').dataset.open = 'false';
+  $('scrim').dataset.open = 'false';
+  state.openSkill = null;
+}
+
+// Keep the tail of a long path: the last two segments identify a folder, the prefix rarely does.
+function shortPath(p, keep = 2) {
+  const parts = p.split('/').filter(Boolean);
+  if (parts.length <= keep) return p;
+  return '…/' + parts.slice(-keep).join('/');
+}
+
+function effectivePrompt() {
+  if (state.job) return state.jobPrompt;
+  if (!state.openSkill) return '';
+  return state.selectedTask
+    ? `Use the ${state.openSkill.id} skill and run the atomic task ${state.selectedTask} in this directory.`
+    : `Use the ${state.openSkill.id} skill for work in this directory. Route to the right atomic task by primary deliverable.`;
+}
+
+function updateLaunch() {
+  const ready = Boolean(state.openSkill && state.folder);
+  const blocked = state.job && state.jobMissing.length > 0;
+  $('launch').disabled = !ready;
+  $('runStart').disabled = !ready || blocked;
+  const line = $('folderLine');
+  if (blocked) {
+    line.textContent = `Còn thiếu: ${state.jobMissing.join(', ')}`;
+    line.title = '';
+  } else {
+    line.textContent = state.folder ? shortPath(state.folder) : 'Chưa chọn thư mục';
+    line.title = state.folder || '';
+  }
+}
+
+async function loadSuite(suitePath) {
+  const data = await window.studio.readSuite(suitePath);
+  if (data.error) {
+    notice(data.error, 'err');
+    state.suitePath = '';
+    renderGrid();
+    return;
+  }
+  state.suitePath = suitePath;
+  state.suiteVersion = data.suiteVersion;
+  state.skills = data.skills;
+  state.catalog = new Map();
+  for (const skill of data.skills) {
+    for (const t of skill.tasks) state.catalog.set(t.id, t);
+  }
+  const list = $('taskIds');
+  list.innerHTML = '';
+  for (const id of [...state.catalog.keys()].sort()) {
+    const o = document.createElement('option');
+    o.value = id;
+    list.append(o);
+  }
+  $('suiteChip').textContent = `v${data.suiteVersion} · ${data.skills.length} skill · ${data.taskTotal} task`;
+  $('subtitle').textContent = suitePath;
+  if (window.wfSetMeta) window.wfSetMeta(state.catalog);
+  if (window.wfLoadPresets) window.wfLoadPresets();
+  notice('');
+  renderGrid();
+}
+
+$('pickSuite').addEventListener('click', async () => {
+  const picked = await window.studio.pickSuite();
+  if (picked) loadSuite(picked);
+});
+
+$('pickFolder').addEventListener('click', async () => {
+  const folder = await window.studio.pickFolder();
+  if (folder) {
+    state.folder = folder;
+    updateLaunch();
+  }
+});
+
+$('runStart').addEventListener('click', async () => {
+  const prompt = effectivePrompt();
+  if (!prompt) return;
+  showPane('paneRun');
+  window.runUI.reset();
+  window.runUI.setRunning(true);
+  const runId = window.runUI.newId();
+  const res = await window.studio.startRun({
+    runId,
+    folder: state.folder,
+    prompt,
+    suitePath: state.suitePath,
+    permissionMode: $('permMode').value,
+  });
+  if (!res.ok) window.runUI.finish(-1, res.error);
+});
+
+$('runStop').addEventListener('click', () => window.studio.stopRun(window.runUI.currentId()));
+$('runBack').addEventListener('click', () => showPane(state.job ? 'paneForm' : 'paneJobs'));
+
+window.studio.onRunEvent(({ runId, event }) => {
+  if (runId === window.runUI.currentId()) window.runUI.handleEvent(event);
+});
+window.studio.onRunStderr(({ runId, text }) => {
+  if (runId === window.runUI.currentId() && text.trim()) window.runUI.handleEvent({ type: 'raw', text });
+});
+window.studio.onRunDone(({ runId, code, error }) => {
+  if (runId === window.runUI.currentId()) window.runUI.finish(code, error);
+});
+
+$('launch').addEventListener('click', async () => {
+  const result = await window.studio.launch({
+    folder: state.folder,
+    skillId: state.openSkill.id,
+    taskId: state.selectedTask,
+    suitePath: state.suitePath,
+  });
+  if (result.ok) {
+    notice(`Đã mở phiên trong ${state.folder} (${result.terminal}).`, 'ok');
+    closeDrawer();
+  } else {
+    notice(result.error, 'err');
+  }
+});
+
+$('closeDrawer').addEventListener('click', closeDrawer);
+$('scrim').addEventListener('click', closeDrawer);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeDrawer();
+});
+
+$('search').addEventListener('input', (e) => {
+  state.query = e.target.value;
+  renderGrid();
+  if (state.openSkill) renderTasks();
+});
+
+$('tierFilter').addEventListener('click', (e) => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  state.filterTier = btn.dataset.tier;
+  for (const b of $('tierFilter').querySelectorAll('button')) {
+    b.setAttribute('aria-pressed', String(b === btn));
+  }
+  renderGrid();
+  if (state.openSkill) renderTasks();
+});
+
+// Tabs: the grid launches sessions, the canvas edits the workflow those sessions run inside.
+function showView(which) {
+  const skills = which === 'skills';
+  $('viewSkills').hidden = !skills;
+  $('viewWorkflow').hidden = skills;
+  $('tabSkills').setAttribute('aria-selected', String(skills));
+  $('tabWorkflow').setAttribute('aria-selected', String(!skills));
+  document.querySelector('.toolbar').hidden = !skills;
+}
+$('tabSkills').addEventListener('click', () => showView('skills'));
+$('tabWorkflow').addEventListener('click', () => showView('workflow'));
+
+window.wfInit(() => state.suitePath, () => state.catalog);
+
+(async function boot() {
+  const cfg = await window.studio.getConfig();
+  state.folder = (cfg.recentFolders && cfg.recentFolders[0]) || '';
+  updateLaunch();
+  if (cfg.suitePath) loadSuite(cfg.suitePath);
+  else renderGrid();
+})();
