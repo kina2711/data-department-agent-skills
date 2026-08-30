@@ -160,3 +160,6 @@ cases:
   - id: orchestrator-write-session-handoff
     task: orchestrator-write-session-handoff
     expected_catalog: plan-design
+  - id: academy-elicit-prior-knowledge
+    task: academy-elicit-prior-knowledge
+    expected_catalog: plan-design

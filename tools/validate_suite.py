@@ -455,11 +455,84 @@ def check_vietnamese_guides(skills: set[str]) -> list[str]:
     return errors
 
 
+def check_preset_jobs(skills: set[str], task_ids: set[str]) -> list[str]:
+    """Preset jobs are prompts with parameters; a broken one sends work to a task that does not exist.
+
+    Each job names a skill and a task the suite really ships, gives every parameter a key its
+    template actually uses, and uses no placeholder it never declared. A template referring to a
+    key nobody fills renders the literal braces to the user.
+    """
+    import json as _json
+    import re as _re
+
+    path = ROOT / "docs" / "cong-viec.vi.json"
+    if not path.exists():
+        return [f"missing {path.relative_to(ROOT)}"]
+    try:
+        doc = _json.loads(path.read_text(encoding="utf-8"))
+    except _json.JSONDecodeError as exc:
+        return [f"{path.name}: unreadable: {exc}"]
+
+    jobs = doc.get("cong_viec")
+    if not isinstance(jobs, list) or not jobs:
+        return [f"{path.name}: no cong_viec list"]
+
+    errors: list[str] = []
+    seen: set[str] = set()
+    for job in jobs:
+        jid = str(job.get("id", "")).strip()
+        if not jid:
+            errors.append(f"{path.name}: a job has no id")
+            continue
+        if jid in seen:
+            errors.append(f"{path.name}: duplicate job id {jid}")
+        seen.add(jid)
+        if job.get("skill") not in skills:
+            errors.append(f"{path.name}: {jid} names unknown skill {job.get('skill')}")
+        if job.get("task_id") not in task_ids:
+            errors.append(f"{path.name}: {jid} names unknown task {job.get('task_id')}")
+        for field in ("ten", "mo_ta", "mau"):
+            if not job.get(field):
+                errors.append(f"{path.name}: {jid} has no {field}")
+
+        declared = set()
+        for param in job.get("thong_so") or []:
+            key = str(param.get("key", "")).strip()
+            if not key:
+                errors.append(f"{path.name}: {jid} has a parameter with no key")
+                continue
+            declared.add(key)
+            if not param.get("nhan"):
+                errors.append(f"{path.name}: {jid}.{key} has no label")
+            if param.get("kieu") == "chon" and not param.get("chon"):
+                errors.append(f"{path.name}: {jid}.{key} is a choice with no options")
+
+        used: set[str] = set()
+        for part in job.get("mau") or []:
+            text = part if isinstance(part, str) else str(part.get("text", ""))
+            used.update(_re.findall(r"\{([a-z0-9_]+)\}", text))
+            if isinstance(part, dict):
+                condition = str(part.get("neu", "")).strip()
+                if condition and condition not in declared:
+                    errors.append(f"{path.name}: {jid} template is conditional on undeclared {condition}")
+        for key in sorted(used - declared):
+            errors.append(f"{path.name}: {jid} template uses undeclared {{{key}}}")
+        for key in sorted(declared - used):
+            errors.append(f"{path.name}: {jid}.{key} is collected but never used in the template")
+    return errors
+
+
 def main() -> None:
     errors, stats = validate()
-    guide_errors = check_vietnamese_guides({d.name for d in SKILLS.iterdir() if d.is_dir()})
+    skill_names = {d.name for d in SKILLS.iterdir() if d.is_dir()}
+    guide_errors = check_vietnamese_guides(skill_names)
     errors.extend(guide_errors)
+    import json as _json
+    catalog_ids = {t["id"] for t in _json.loads((ROOT / "task-catalog.json").read_text(encoding="utf-8"))}
+    job_errors = check_preset_jobs(skill_names, catalog_ids)
+    errors.extend(job_errors)
     stats["vietnamese_guides"] = "ok" if not guide_errors else f"{len(guide_errors)} problem(s)"
+    stats["preset_jobs"] = "ok" if not job_errors else f"{len(job_errors)} problem(s)"
     if "errors" in stats:
         stats["errors"] = len(errors)
     for key, value in stats.items():

@@ -1,0 +1,33 @@
+profile_id: ""
+learner_ref: ""
+roadmap_ref: ""
+track_map_ref: ""
+asked_at: ""
+learner_memory_ref: ""
+memory_resolved: false
+from_memory:
+  - topic_id: ""
+    concept_keys: []
+    status: ""
+    evidence_refs: []
+    last_demonstrated_at: ""
+self_reported:
+  - module_id: ""
+    concept_keys: []
+    claim: ""
+    confidence: ""
+    is_mastery: false
+    verified: false
+module_treatment:
+  - module_id: ""
+    treatment: "full|compress|skip"
+    basis: "memory-evidence|self-reported|assumed"
+    reason: ""
+    load_bearing: false
+    diagnostic_offered: false
+    diagnostic_declined: false
+    diagnostic_ref: ""
+assumed_foundations: []
+returned_to_career: false
+owner: ""
+status: "draft"

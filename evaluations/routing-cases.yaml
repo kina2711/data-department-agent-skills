@@ -449,3 +449,16 @@ cases:
       - Record what was tried and rejected with the reason; that reasoning is what disappears when the session does.
       - Write to the OS temporary directory or a scratch location, never into the workspace unless asked.
       - Redact secrets and personal data, and list every gate the session left unpassed rather than describing unfinished work as done.
+  - id: build-corpus-without-reteaching-what-i-know
+    query: Dựng bộ note học SQL cho Data Analyst từ con số 0, nhưng tôi đã biết RDBMS rồi, đừng dạy lại phần đó.
+    expected_primary_skill: data-academy-and-curriculum
+    expected_tasks:
+      - academy-research-role-roadmap
+      - academy-elicit-prior-knowledge
+      - academy-plan-note-corpus
+    expected_behavior:
+      - Resolve the learner memory before asking, and do not ask again about topics already mastered with fresh evidence.
+      - Ask against the named tracks and modules rather than in general.
+      - Label what the learner says they know as self-reported; it never becomes mastery and is never returned to Career as evidence.
+      - Give each module a full, compress or skip treatment with its basis; a skipped module stays planned rather than being deleted.
+      - Offer a diagnostic for load-bearing claims rather than requiring one, and record a declined offer as an assumed foundation.

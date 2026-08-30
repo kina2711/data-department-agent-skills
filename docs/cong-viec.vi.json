@@ -1,0 +1,715 @@
+{
+  "_": "Thư viện công việc dựng sẵn. Mỗi mục là một prompt có tham số: chọn công việc, điền vài ô, prompt được ghép lại. Nó là lối tắt cho việc hay làm, không thay thế contract — task_id vẫn quyết định cách chạy.",
+  "cong_viec": [
+    {
+      "id": "academy-bo-note",
+      "skill": "data-academy-and-curriculum",
+      "ten": "Tạo bộ note học",
+      "mo_ta": "Dựng cả một bộ note cho một chủ đề: roadmap có nguồn, tách track, hỏi bạn đã biết gì, rồi viết từng module.",
+      "task_id": "academy-research-role-roadmap",
+      "thong_so": [
+        {
+          "key": "chu_de",
+          "nhan": "Cần học gì",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "SQL"
+        },
+        {
+          "key": "doi_tuong",
+          "nhan": "Đối tượng",
+          "kieu": "chon",
+          "bat_buoc": true,
+          "chon": [
+            "Data Analyst",
+            "Data Engineer",
+            "Analytics Engineer",
+            "BI Engineer",
+            "Data Scientist",
+            "ML Engineer",
+            "MLOps",
+            "Data Architect",
+            "Data Governance",
+            "Product Analyst"
+          ]
+        },
+        {
+          "key": "muc_do",
+          "nhan": "Mức độ",
+          "kieu": "chon",
+          "bat_buoc": true,
+          "chon": [
+            "Từ con số 0",
+            "Đã biết cơ bản",
+            "Đã làm thực tế, muốn sâu hơn",
+            "Chuẩn bị phỏng vấn"
+          ]
+        },
+        {
+          "key": "da_biet",
+          "nhan": "Đã biết sẵn những gì",
+          "kieu": "text",
+          "bat_buoc": false,
+          "goi_y": "RDBMS, JOIN cơ bản"
+        },
+        {
+          "key": "ghi_chu",
+          "nhan": "Ghi chú thêm",
+          "kieu": "text",
+          "bat_buoc": false,
+          "goi_y": "Bắt đầu từ nền tảng RDBMS",
+          "nhieu_dong": true
+        }
+      ],
+      "mau": [
+        "Dựng bộ note học {chu_de} cho {doi_tuong}, mức {muc_do}.",
+        {
+          "neu": "da_biet",
+          "text": "Tôi đã biết: {da_biet} — đừng dạy lại phần này, dùng nó làm nền."
+        },
+        {
+          "neu": "ghi_chu",
+          "text": "{ghi_chu}"
+        },
+        "Hỏi tôi đã nắm được gì trước khi lập kế hoạch, rồi mới dựng."
+      ]
+    },
+    {
+      "id": "academy-deep-dive",
+      "skill": "data-academy-and-curriculum",
+      "ten": "Viết deep dive một concept",
+      "mo_ta": "Một note đầy đủ cho một khái niệm: nỗi đau, cơ chế, bản đồ quyết định, case study, góc khuất và tự kiểm tra.",
+      "task_id": "academy-write-knowledge-deep-dive",
+      "thong_so": [
+        {
+          "key": "concept",
+          "nhan": "Concept",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "Window function"
+        },
+        {
+          "key": "doi_tuong",
+          "nhan": "Viết cho ai",
+          "kieu": "chon",
+          "bat_buoc": true,
+          "chon": [
+            "Data Analyst",
+            "Data Engineer",
+            "Analytics Engineer",
+            "BI Engineer",
+            "Data Scientist",
+            "ML Engineer",
+            "MLOps",
+            "Data Architect",
+            "Data Governance",
+            "Product Analyst"
+          ]
+        },
+        {
+          "key": "boi_canh",
+          "nhan": "Bối cảnh dùng",
+          "kieu": "text",
+          "bat_buoc": false,
+          "goi_y": "Tính running total theo khách hàng"
+        }
+      ],
+      "mau": [
+        "Viết deep dive về {concept} cho {doi_tuong}.",
+        {
+          "neu": "boi_canh",
+          "text": "Bối cảnh thực tế: {boi_canh}."
+        }
+      ]
+    },
+    {
+      "id": "academy-kiem-tra",
+      "skill": "data-academy-and-curriculum",
+      "ten": "Cho tôi làm bài kiểm tra",
+      "mo_ta": "Chạy kịch bản chẩn đoán từ note đã viết, theo vòng Socratic tối đa ba lượt rồi mới dạy thẳng.",
+      "task_id": "academy-run-note-diagnostic",
+      "thong_so": [
+        {
+          "key": "chu_de",
+          "nhan": "Chủ đề muốn kiểm tra",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "Idempotency"
+        },
+        {
+          "key": "do_kho",
+          "nhan": "Độ khó",
+          "kieu": "chon",
+          "bat_buoc": true,
+          "chon": [
+            "Dễ trước, tăng dần",
+            "Đúng mức tôi đang có",
+            "Khó hơn mức hiện tại"
+          ]
+        }
+      ],
+      "mau": [
+        "Cho tôi làm bài chẩn đoán về {chu_de}, {do_kho}.",
+        "Đừng lộ đáp án ngay khi tôi sai."
+      ]
+    },
+    {
+      "id": "de-pipeline",
+      "skill": "data-engineering",
+      "ten": "Thiết kế pipeline nạp dữ liệu",
+      "mo_ta": "Từ nguồn tới kho: profile nguồn, chọn cơ chế nạp, idempotency, xử lý schema đổi.",
+      "task_id": "de-design-ingestion-pipeline",
+      "thong_so": [
+        {
+          "key": "nguon",
+          "nhan": "Nguồn dữ liệu",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "Postgres bảng orders"
+        },
+        {
+          "key": "dich",
+          "nhan": "Đích",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "BigQuery"
+        },
+        {
+          "key": "tan_suat",
+          "nhan": "Tần suất",
+          "kieu": "chon",
+          "bat_buoc": true,
+          "chon": [
+            "Theo giờ",
+            "Hằng ngày",
+            "Gần thời gian thực",
+            "Một lần"
+          ]
+        },
+        {
+          "key": "rang_buoc",
+          "nhan": "Ràng buộc",
+          "kieu": "text",
+          "bat_buoc": false,
+          "goi_y": "Không được khoá bảng nguồn",
+          "nhieu_dong": true
+        }
+      ],
+      "mau": [
+        "Thiết kế pipeline nạp {nguon} sang {dich}, chạy {tan_suat}.",
+        {
+          "neu": "rang_buoc",
+          "text": "Ràng buộc: {rang_buoc}."
+        }
+      ]
+    },
+    {
+      "id": "de-chan-doan",
+      "skill": "data-engineering",
+      "ten": "Chẩn đoán pipeline hỏng",
+      "mo_ta": "Truy lineage và bằng chứng để tìm điểm gãy, không đoán.",
+      "task_id": "de-troubleshoot-failed-pipeline",
+      "thong_so": [
+        {
+          "key": "pipeline",
+          "nhan": "Pipeline nào",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "daily_orders_load"
+        },
+        {
+          "key": "trieu_chung",
+          "nhan": "Triệu chứng",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "Chạy xong nhưng thiếu 30% dòng",
+          "nhieu_dong": true
+        },
+        {
+          "key": "tu_khi",
+          "nhan": "Bắt đầu từ khi nào",
+          "kieu": "text",
+          "bat_buoc": false,
+          "goi_y": "Sau khi đổi schema nguồn hôm qua"
+        }
+      ],
+      "mau": [
+        "Pipeline {pipeline} đang lỗi: {trieu_chung}.",
+        {
+          "neu": "tu_khi",
+          "text": "Bắt đầu {tu_khi}."
+        },
+        "Tìm điểm gãy bằng bằng chứng, đừng đoán."
+      ]
+    },
+    {
+      "id": "ae-mart",
+      "skill": "analytics-engineering",
+      "ten": "Dựng mart phân tích",
+      "mo_ta": "Model dimensional có test, tài liệu và logic incremental.",
+      "task_id": "ae-build-analytics-mart",
+      "thong_so": [
+        {
+          "key": "chu_de_mart",
+          "nhan": "Mart về gì",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "Doanh thu theo vùng"
+        },
+        {
+          "key": "nguon_bang",
+          "nhan": "Bảng nguồn",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "stg_orders, stg_stores",
+          "nhieu_dong": true
+        },
+        {
+          "key": "hat",
+          "nhan": "Hạt (grain)",
+          "kieu": "text",
+          "bat_buoc": false,
+          "goi_y": "1 dòng = 1 đơn hàng"
+        }
+      ],
+      "mau": [
+        "Dựng mart {chu_de_mart} từ {nguon_bang}.",
+        {
+          "neu": "hat",
+          "text": "Hạt: {hat}."
+        }
+      ]
+    },
+    {
+      "id": "bi-dashboard",
+      "skill": "business-intelligence",
+      "ten": "Dựng dashboard",
+      "mo_ta": "Từ đặc tả tới semantic model, visual, RLS và lịch refresh.",
+      "task_id": "bi-build-dashboard",
+      "thong_so": [
+        {
+          "key": "chu_de_dash",
+          "nhan": "Dashboard về gì",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "Doanh thu theo vùng"
+        },
+        {
+          "key": "nguoi_xem",
+          "nhan": "Ai xem",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "Quản lý vùng"
+        },
+        {
+          "key": "quyet_dinh",
+          "nhan": "Họ cần quyết định gì",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "Vùng nào cần can thiệp tháng này"
+        },
+        {
+          "key": "rls",
+          "nhan": "Cần phân quyền theo người xem",
+          "kieu": "chon",
+          "bat_buoc": false,
+          "chon": [
+            "Có",
+            "Không"
+          ]
+        }
+      ],
+      "mau": [
+        "Dựng dashboard {chu_de_dash} cho {nguoi_xem}, phục vụ quyết định: {quyet_dinh}.",
+        {
+          "neu": "rls",
+          "text": "Phân quyền theo người xem: {rls}."
+        }
+      ]
+    },
+    {
+      "id": "da-tra-loi",
+      "skill": "data-analysis",
+      "ten": "Trả lời một câu hỏi từ dữ liệu",
+      "mo_ta": "Làm rõ câu hỏi trước, lập kế hoạch phân tích, rồi mới chạy số.",
+      "task_id": "da-clarify-business-question",
+      "thong_so": [
+        {
+          "key": "cau_hoi",
+          "nhan": "Câu hỏi",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "Vì sao tỷ lệ chuyển đổi giảm tháng trước",
+          "nhieu_dong": true
+        },
+        {
+          "key": "du_lieu",
+          "nhan": "Dữ liệu có sẵn",
+          "kieu": "text",
+          "bat_buoc": false,
+          "goi_y": "Bảng events, orders"
+        },
+        {
+          "key": "han",
+          "nhan": "Cần trả lời cho ai / khi nào",
+          "kieu": "text",
+          "bat_buoc": false,
+          "goi_y": "Họp ban giám đốc thứ Sáu"
+        }
+      ],
+      "mau": [
+        "Câu hỏi cần trả lời: {cau_hoi}",
+        {
+          "neu": "du_lieu",
+          "text": "Dữ liệu có: {du_lieu}."
+        },
+        {
+          "neu": "han",
+          "text": "Bối cảnh: {han}."
+        },
+        "Làm rõ câu hỏi trước khi chạm vào dữ liệu."
+      ]
+    },
+    {
+      "id": "da-giai-thich-sql",
+      "skill": "data-analysis",
+      "ten": "Giải thích SQL cho người không kỹ thuật",
+      "mo_ta": "Dịch một truy vấn sang logic nghiệp vụ, nêu rõ giả định và cạm bẫy.",
+      "task_id": "da-explain-sql-business-logic",
+      "thong_so": [
+        {
+          "key": "sql",
+          "nhan": "Dán SQL vào đây",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "SELECT ...",
+          "nhieu_dong": true
+        },
+        {
+          "key": "nguoi_nghe",
+          "nhan": "Giải thích cho ai",
+          "kieu": "text",
+          "bat_buoc": false,
+          "goi_y": "Trưởng phòng kinh doanh"
+        }
+      ],
+      "mau": [
+        "Giải thích đoạn SQL này bằng ngôn ngữ nghiệp vụ:",
+        "{sql}",
+        {
+          "neu": "nguoi_nghe",
+          "text": "Người nghe: {nguoi_nghe}."
+        }
+      ]
+    },
+    {
+      "id": "dq-su-co",
+      "skill": "data-quality-and-reliability",
+      "ten": "Điều tra sự cố dữ liệu",
+      "mo_ta": "Phân loại, khoanh vùng ảnh hưởng, tìm nguyên nhân gốc và hành động phòng ngừa có chủ sở hữu.",
+      "task_id": "dre-diagnose-data-incident",
+      "thong_so": [
+        {
+          "key": "hien_tuong",
+          "nhan": "Hiện tượng",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "Doanh thu hôm nay bằng 0",
+          "nhieu_dong": true
+        },
+        {
+          "key": "anh_huong",
+          "nhan": "Ai đang bị ảnh hưởng",
+          "kieu": "text",
+          "bat_buoc": false,
+          "goi_y": "Dashboard ban giám đốc"
+        },
+        {
+          "key": "thay_doi",
+          "nhan": "Có thay đổi gì gần đây không",
+          "kieu": "text",
+          "bat_buoc": false
+        }
+      ],
+      "mau": [
+        "Sự cố dữ liệu: {hien_tuong}",
+        {
+          "neu": "anh_huong",
+          "text": "Ảnh hưởng: {anh_huong}."
+        },
+        {
+          "neu": "thay_doi",
+          "text": "Thay đổi gần đây: {thay_doi}."
+        }
+      ]
+    },
+    {
+      "id": "career-gap",
+      "skill": "data-career-and-interview-coach",
+      "ten": "Tôi còn thiếu gì cho vai này",
+      "mo_ta": "Đối chiếu năng lực hiện có với vai mục tiêu, ra kế hoạch lấp khoảng trống.",
+      "task_id": "career-assess-role-readiness",
+      "thong_so": [
+        {
+          "key": "vai",
+          "nhan": "Vai mục tiêu",
+          "kieu": "chon",
+          "bat_buoc": true,
+          "chon": [
+            "Data Analyst",
+            "Data Engineer",
+            "Analytics Engineer",
+            "BI Engineer",
+            "Data Scientist",
+            "ML Engineer",
+            "MLOps",
+            "Data Architect",
+            "Data Governance",
+            "Product Analyst"
+          ]
+        },
+        {
+          "key": "cap",
+          "nhan": "Cấp",
+          "kieu": "chon",
+          "bat_buoc": true,
+          "chon": [
+            "Junior",
+            "Middle",
+            "Senior",
+            "Lead"
+          ]
+        },
+        {
+          "key": "hien_tai",
+          "nhan": "Hiện tại tôi đang làm gì",
+          "kieu": "text",
+          "bat_buoc": false,
+          "goi_y": "Đang làm BI 2 năm",
+          "nhieu_dong": true
+        }
+      ],
+      "mau": [
+        "Đánh giá tôi còn thiếu gì để đạt {vai} cấp {cap}.",
+        {
+          "neu": "hien_tai",
+          "text": "Hiện tại: {hien_tai}."
+        }
+      ]
+    },
+    {
+      "id": "career-mock",
+      "skill": "data-career-and-interview-coach",
+      "ten": "Luyện phỏng vấn",
+      "mo_ta": "Mock có chấm điểm theo rubric, phản hồi cụ thể, rồi retest bằng tình huống mới.",
+      "task_id": "career-run-mock-sql-interview",
+      "thong_so": [
+        {
+          "key": "loai",
+          "nhan": "Loại phỏng vấn",
+          "kieu": "chon",
+          "bat_buoc": true,
+          "chon": [
+            "SQL",
+            "Python",
+            "Data modeling",
+            "DE system design",
+            "Analytics case",
+            "Behavioral"
+          ]
+        },
+        {
+          "key": "vai",
+          "nhan": "Vai ứng tuyển",
+          "kieu": "chon",
+          "bat_buoc": true,
+          "chon": [
+            "Data Analyst",
+            "Data Engineer",
+            "Analytics Engineer",
+            "BI Engineer",
+            "Data Scientist",
+            "ML Engineer",
+            "MLOps",
+            "Data Architect",
+            "Data Governance",
+            "Product Analyst"
+          ]
+        },
+        {
+          "key": "cap",
+          "nhan": "Cấp",
+          "kieu": "chon",
+          "bat_buoc": true,
+          "chon": [
+            "Junior",
+            "Middle",
+            "Senior",
+            "Lead"
+          ]
+        }
+      ],
+      "mau": [
+        "Cho tôi mock phỏng vấn {loai} cho vị trí {vai} cấp {cap}.",
+        "Chấm theo rubric và chỉ ra chỗ yếu cụ thể."
+      ]
+    },
+    {
+      "id": "docs-so-do",
+      "skill": "data-documentation-and-diagrams",
+      "ten": "Vẽ sơ đồ",
+      "mo_ta": "Chọn đúng loại sơ đồ, vẽ, và ghi nguồn từng phần tử để sơ đồ truy được về hệ thống thật.",
+      "task_id": "docs-select-diagram-type",
+      "thong_so": [
+        {
+          "key": "noi_dung",
+          "nhan": "Cần vẽ gì",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "Luồng dữ liệu từ Postgres tới Power BI",
+          "nhieu_dong": true
+        },
+        {
+          "key": "cau_hoi_tra_loi",
+          "nhan": "Sơ đồ trả lời câu hỏi gì",
+          "kieu": "text",
+          "bat_buoc": false,
+          "goi_y": "Dữ liệu đi qua đâu trước khi lên báo cáo"
+        },
+        {
+          "key": "loai_sd",
+          "nhan": "Loại",
+          "kieu": "chon",
+          "bat_buoc": false,
+          "chon": [
+            "Để hệ thống tự chọn",
+            "Kiến trúc",
+            "Luồng hoạt động",
+            "ERD",
+            "Sequence",
+            "BPMN"
+          ]
+        }
+      ],
+      "mau": [
+        "Vẽ sơ đồ: {noi_dung}",
+        {
+          "neu": "cau_hoi_tra_loi",
+          "text": "Sơ đồ cần trả lời: {cau_hoi_tra_loi}."
+        },
+        {
+          "neu": "loai_sd",
+          "text": "Loại sơ đồ: {loai_sd}."
+        }
+      ]
+    },
+    {
+      "id": "dx-hieu-repo",
+      "skill": "data-developer-experience",
+      "ten": "Hiểu một kho lạ",
+      "mo_ta": "Đọc kho thật rồi truy dữ liệu đi từ đâu tới đâu, không đoán từ README.",
+      "task_id": "dx-reverse-engineer-data-project",
+      "thong_so": [
+        {
+          "key": "muc_tieu",
+          "nhan": "Bạn cần hiểu để làm gì",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "Sắp phải sửa pipeline trong kho này",
+          "nhieu_dong": true
+        },
+        {
+          "key": "bat_dau",
+          "nhan": "Bắt đầu từ đâu nếu biết",
+          "kieu": "text",
+          "bat_buoc": false,
+          "goi_y": "thư mục dags/"
+        }
+      ],
+      "mau": [
+        "Giúp tôi hiểu kho này. Mục tiêu: {muc_tieu}",
+        {
+          "neu": "bat_dau",
+          "text": "Có thể bắt đầu từ {bat_dau}."
+        },
+        "Đọc file thật, đừng suy từ README."
+      ]
+    },
+    {
+      "id": "project-y-tuong",
+      "skill": "data-personal-project-engineering",
+      "ten": "Nghĩ dự án cho portfolio",
+      "mo_ta": "Chọn điểm xuất phát, chấm các phương án, ra luận điểm của riêng bạn có ghi nguồn.",
+      "task_id": "project-classify-starting-point",
+      "thong_so": [
+        {
+          "key": "xuat_phat",
+          "nhan": "Bạn đang có gì",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "Một dataset về bán lẻ",
+          "nhieu_dong": true
+        },
+        {
+          "key": "vai",
+          "nhan": "Muốn chứng minh năng lực vai nào",
+          "kieu": "chon",
+          "bat_buoc": true,
+          "chon": [
+            "Data Analyst",
+            "Data Engineer",
+            "Analytics Engineer",
+            "BI Engineer",
+            "Data Scientist",
+            "ML Engineer",
+            "MLOps",
+            "Data Architect",
+            "Data Governance",
+            "Product Analyst"
+          ]
+        },
+        {
+          "key": "thoi_gian",
+          "nhan": "Thời gian có",
+          "kieu": "chon",
+          "bat_buoc": false,
+          "chon": [
+            "Một cuối tuần",
+            "2 tuần",
+            "1 tháng",
+            "Dài hơi"
+          ]
+        }
+      ],
+      "mau": [
+        "Tôi muốn làm dự án portfolio. Đang có: {xuat_phat}",
+        "Muốn chứng minh năng lực cho vai {vai}.",
+        {
+          "neu": "thoi_gian",
+          "text": "Thời gian: {thoi_gian}."
+        }
+      ]
+    },
+    {
+      "id": "orch-mo-ho",
+      "skill": "data-department-orchestrator",
+      "ten": "Việc này thuộc ai làm",
+      "mo_ta": "Khi chưa rõ nên dùng skill nào, hoặc việc chạm nhiều vai cùng lúc.",
+      "task_id": "orchestrator-hydrate-context",
+      "thong_so": [
+        {
+          "key": "viec",
+          "nhan": "Mô tả việc cần làm",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "Số trên dashboard không khớp với báo cáo tài chính",
+          "nhieu_dong": true
+        }
+      ],
+      "mau": [
+        "{viec}",
+        "Phân tuyến giúp tôi việc này thuộc vai nào và cần chạy task gì."
+      ]
+    }
+  ]
+}

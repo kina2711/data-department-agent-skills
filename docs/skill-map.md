@@ -772,6 +772,7 @@ Ranh giới: Academy role thiết kế, giảng dạy, đánh giá và cải ti�
 - `academy-build-concept-knowledge-graph` — mô hình hóa concepts, prerequisites, dependencies, misconceptions và transfer paths; output: concept knowledge graph.
 - `academy-research-role-roadmap` — nghiên cứu roadmap hành nghề đang được dùng từ nguồn công khai, mỗi mục kèm nguồn và ngày truy cập; output: sourced role roadmap.
 - `academy-build-skill-track-map` — tách mỗi bước roadmap thành skill track có thứ tự học, module và tiêu chí ra; output: skill-track map.
+- `academy-elicit-prior-knowledge` — hỏi người học đã nắm được gì và giải quyết learner memory trước khi lập kế hoạch corpus; output: prior-knowledge profile.
 - `academy-plan-note-corpus` — liệt kê toàn bộ note dự kiến theo module kèm id, prerequisite và trạng thái build; output: note corpus plan.
 - `academy-prioritize-corpus-by-gap` — xếp thứ tự module theo khoảng cách năng lực đã đo thay vì theo thứ tự roadmap; output: gap-prioritized corpus plan.
 - `academy-map-questions-to-learning-objectives` — nối question tới competency, Bloom depth, prerequisites, learning objectives và assessments; output: question-to-learning traceability matrix.

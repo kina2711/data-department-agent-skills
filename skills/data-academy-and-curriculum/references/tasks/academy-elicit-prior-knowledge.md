@@ -1,8 +1,8 @@
-# academy-plan-note-corpus
+# academy-elicit-prior-knowledge
 
 ## Trigger
 
-Use when the user asks to plan note corpus, requests the stated deliverable, or supplies an artifact that requires this atomic workflow. Do not select by job title alone.
+Use when the user asks to elicit prior knowledge, requests the stated deliverable, or supplies an artifact that requires this atomic workflow. Do not select by job title alone.
 
 ## Contract
 
@@ -12,8 +12,8 @@ Use when the user asks to plan note corpus, requests the stated deliverable, or 
 - Contract version: `3.0`
 - Criticality: `standard`
 - Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
-- Goal: liệt kê toàn bộ note dự kiến theo module kèm id, prerequisite và trạng thái build.
-- Primary deliverable: **note corpus plan**.
+- Goal: hỏi người học đã nắm được gì và giải quyết learner memory trước khi lập kế hoạch corpus.
+- Primary deliverable: **prior-knowledge profile**.
 
 ## Inputs and readiness
 
@@ -38,8 +38,10 @@ Additional resources:
 - Read [the note-corpus operating system](../note-corpus-operating-system.md); the stages run in one direction, and `note-corpus-manifest.json` is the resume anchor rather than something to re-derive each session.
 - Read [the canonical concept registry](../concept-registry-standard.md); bind every note, module and scenario to a `ck.` key, coining it as `proposed` when none fits, and claim exactly one primary note per key. Only `registered` keys count toward coverage, so never report a corpus built on proposed keys as covered.
 - Reuse the role-roadmap, skill-track-map, note-corpus-manifest or note-corpus-audit asset from `../../assets/` that matches this stage.
-- Read [the knowledge deep-dive authoring standard](../knowledge-deep-dive-standard.md) and [the authored prose voice standard](../authored-prose-voice.md); planned IDs and `relationships` edges come from the first, and the second decides whether the batch reads as writing or as filler.
-- Consume the prior-knowledge profile from `academy-elicit-prior-knowledge` before enumerating notes. Planning a corpus without asking teaches the learner what they already hold, and the cost lands on them; carry each module's `full`, `compress` or `skip` treatment into the plan with its basis.
+- Resolve the learner memory first through [the learner-memory contract](../learning-memory-interoperability.md); a topic already `mastered` with fresh evidence is not asked about again. Only then ask, and ask against the named tracks and modules rather than in general.
+- Reuse `../../assets/prior-knowledge-profile.yaml`. What the learner says they know is self-reported and stays labelled that way: it changes what gets built, never what anyone has proven, and it is never returned to Career as evidence.
+- Give every module a treatment of `full`, `compress` or `skip` with its basis. A skipped module stays `planned` in the corpus rather than being deleted, because prerequisite edges still resolve to it and the learner may ask for it later.
+- Where a claim is load-bearing for everything downstream, offer a diagnostic from `academy-run-note-diagnostic` rather than taking it at face value. Offer it; never require it. A declined offer is recorded as an assumed foundation, not as a verified one.
 - Read [solution option framing](../solution-option-framing.md); frame three to five materially different approaches in `../../assets/design-option-set.yaml`, select one against the stated constraints in at most forty words, and derive the deliverable structure from that selection. Where this role already owns a scored selection artifact, use it instead of duplicating the decision.
 
 - Certification proves only the named, versioned competencies demonstrated by evidence; it never proves tenure, job title, automatic promotion or general seniority.

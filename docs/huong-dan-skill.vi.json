@@ -366,10 +366,10 @@
       ],
       "khong_dung_khi": "Vòng phỏng vấn, scorecard, đánh giá ứng viên → data-talent-acquisition-and-interview. Skill này dạy, không tuyển chọn.",
       "bat_dau_tu": [
-        "academy-assess-organizational-learning-needs",
-        "academy-research-role-roadmap"
+        "academy-research-role-roadmap",
+        "academy-elicit-prior-knowledge"
       ],
-      "luu_y": "Note đã viết không phải bằng chứng ai đó đã học. Academy đề xuất hạng bằng chứng, Career mới quyết định mastery."
+      "luu_y": "Nó hỏi bạn đã biết gì trước khi dựng, và không dạy lại phần bạn đã nắm. Điều bạn tự khai là self-reported — nó đổi thứ được dựng, không đổi thứ bạn đã chứng minh. Note đã viết không phải bằng chứng ai đó đã học."
     },
     "data-onboarding-and-integration": {
       "tom_tat": "Preboarding, sẵn sàng quyền truy cập, định hướng, shadowing, việc đầu tiên, checkpoint, chuyển vai, quay lại và rời đi.",

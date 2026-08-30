@@ -1,6 +1,6 @@
 ---
 name: dd-academy
-description: "Open the Data Academy and Curriculum department (reflect stage) and route the request to one of its 48 atomic tasks. Design, produce, teach, assess, certify, measure, and improve role-based Data Academy curricula from theory through labs and capstones."
+description: "Open the Data Academy and Curriculum department (reflect stage) and route the request to one of its 49 atomic tasks. Design, produce, teach, assess, certify, measure, and improve role-based Data Academy curricula from theory through labs and capstones."
 argument-hint: "<request>"
 disable-model-invocation: true
 ---
@@ -9,7 +9,7 @@ disable-model-invocation: true
 
 Open the **Data Academy and Curriculum** department for: $ARGUMENTS
 
-Sprint stage: `reflect`. This department owns 48 atomic tasks.
+Sprint stage: `reflect`. This department owns 49 atomic tasks.
 
 1. Read `skills/data-academy-and-curriculum/SKILL.md` and follow its operating contract.
 2. Confirm this department actually owns the primary deliverable. If another role owns it,

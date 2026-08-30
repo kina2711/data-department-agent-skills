@@ -6,18 +6,35 @@ Use this reference when the deliverable is not one note but a whole body of note
 
 1. `academy-research-role-roadmap` — what a practitioner of this role is actually expected to know, taken from cited public sources rather than from recall.
 2. `academy-build-skill-track-map` — each roadmap step becomes a track with an ordered module list and an exit criterion.
-3. `academy-plan-note-corpus` — every planned note is enumerated with its ID, module, prerequisites and status before any note is written.
-4. `academy-build-note-module` — one module at a time, to completion, updating the manifest as the checkpoint.
-5. `academy-audit-note-corpus` — duplication, dangling edges, prerequisite cycles, staleness and coverage.
-6. `academy-index-note-corpus` — the durable record of what exists.
+3. `academy-elicit-prior-knowledge` — ask the learner what they already hold before planning anything, and resolve their existing learner memory.
+4. `academy-plan-note-corpus` — every planned note is enumerated with its ID, module, prerequisites and status before any note is written.
+5. `academy-build-note-module` — one module at a time, to completion, updating the manifest as the checkpoint.
+6. `academy-audit-note-corpus` — duplication, dangling edges, prerequisite cycles, staleness and coverage.
+7. `academy-index-note-corpus` — the durable record of what exists.
 
-Do not begin stage 4 before stage 3 has an accepted plan. Notes written without a planned ID acquire prerequisite edges that point nowhere, and the graph cannot be repaired cheaply once several modules deep.
+Do not begin stage 5 before stage 4 has an accepted plan. Notes written without a planned ID acquire prerequisite edges that point nowhere, and the graph cannot be repaired cheaply once several modules deep.
 
 ## Sourcing the roadmap
 
 A roadmap presented as current must name where it came from. Every step carries a source with publisher, URL, publication or update date and access date. Where a step is included on the author's judgment rather than from a source, mark it as judgment and say why. `role-curricula.md` is the suite's own level matrix and may be used as one input, but it is a static table and is never itself evidence of what is current. An uncited step is recorded as an assumption, and the roadmap does not claim currency unless its sources are dated.
 
 Separate three things throughout: what sources state, what is conventional practice without a single authority, and what is the author's judgment. Do not assert version numbers, release dates or tool rankings that have not been verified.
+
+## Ask before building
+
+A corpus generated without asking teaches the learner things they already know, and the cost lands on them: they read modules they could have skipped, and lose trust in the rest of the corpus for having wasted their time. Stage 3 exists so the plan starts from what is already held.
+
+Resolve the learner memory first, through the learner-memory contract. It is the durable record, and a topic already marked `mastered` with fresh evidence does not need to be asked about again. Only then ask, and ask about what the roadmap actually contains rather than in general: name the tracks and modules and ask which are familiar.
+
+What a learner says they know is **self-reported**, and it stays labelled that way. It is not mastery, it never becomes mastery by being written down, and it is never returned to Career as evidence. Self-reported knowledge changes what gets built; it does not change what anyone has proven.
+
+Each module then carries one of three treatments:
+
+- **full** — build every planned note.
+- **compress** — build the notes that carry decision rules, failure modes and interfaces, and skip the introductory ones. Use this when the learner holds the concept but not its edges.
+- **skip** — plan the notes and leave them `planned`, with the reason recorded. A skipped module is not deleted from the plan: prerequisite edges still resolve to it, and the learner may ask for it later.
+
+Where a claim of prior knowledge is load-bearing — a module everything downstream depends on — offer a short diagnostic from `academy-run-note-diagnostic` rather than taking the claim at face value. Offer it; do not require it. A learner who declines has made a decision about their own time, and the plan records that the foundation is assumed rather than checked.
 
 ## The manifest is the resume anchor
 
@@ -42,6 +59,12 @@ A corpus outlives its sessions, so two of them will eventually run at once. The 
 Claim a module before building it and release it when the batch closes. Two sessions may work in parallel only on modules that share no notes, and neither rewrites a manifest entry belonging to the other's module. On a collision, the module that has not yet written any note yields; re-running a module that produced nothing is cheap, and reconciling two divergent manifests is not.
 
 Where the corpus spans enough stages to need gates, represent it as `corpus-workflow-manifest.json` and validate it with `data-department-orchestrator/scripts/validate_workflow.py`. The dependency edges are the stage order: research before tracks, tracks before plan, plan before any module. One workflow carries one `academy-build-note-module` entry, because the validator keys tasks by `task_id` and rejects a duplicate; `instance_id` labels which module that entry is currently on, and a corpus with many modules advances that one entry rather than fanning out into one entry per module. Resume through `orchestrator-resume-workflow` reading that manifest alongside the corpus manifest.
+
+## Persisting what happened
+
+Every stage writes its outcome down before the session ends: the roadmap and its sources, the prior-knowledge profile, the plan, each module as it closes, and every diagnostic result. A corpus built across many sessions has no other continuity, and reconstructing a decision from a transcript that no longer exists is not possible.
+
+Learning evidence goes to `data-career-and-interview-coach` as a learning event; the corpus manifest keeps only what exists. These are separate records with separate owners, and the split is what keeps a written note from quietly becoming a claim that someone learned it.
 
 ## What the corpus index does not record
 

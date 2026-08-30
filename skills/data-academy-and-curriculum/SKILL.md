@@ -48,11 +48,12 @@ Resume from `note-corpus-manifest.json` rather than re-deriving the plan; regene
 
 - **Plan, define, design, map, specify or create a proposed artifact — learning deliverables** (6 tasks): read [references/catalog-plan-design-learning.md](references/catalog-plan-design-learning.md).
 - **Plan, define, design, map, specify or create a proposed artifact — role deliverables** (3 tasks): read [references/catalog-plan-design-role.md](references/catalog-plan-design-role.md).
+- **Plan, define, design, map, specify or create a proposed artifact — knowledge deliverables** (2 tasks): read [references/catalog-plan-design-knowledge.md](references/catalog-plan-design-knowledge.md).
 - **Plan, define, design, map, specify or create a proposed artifact — specification deliverables** (2 tasks): read [references/catalog-plan-design-specification.md](references/catalog-plan-design-specification.md).
 - **Plan, define, design, map, specify or create a proposed artifact — assessment deliverables** (2 tasks): read [references/catalog-plan-design-assessment.md](references/catalog-plan-design-assessment.md).
 - **Plan, define, design, map, specify or create a proposed artifact — corpus deliverables** (2 tasks): read [references/catalog-plan-design-corpus.md](references/catalog-plan-design-corpus.md).
 - **Plan, define, design, map, specify or create a proposed artifact — learner deliverables** (2 tasks): read [references/catalog-plan-design-learner.md](references/catalog-plan-design-learner.md).
-- **Plan, define, design, map, specify or create a proposed artifact — remaining deliverables** (11 tasks): read [references/catalog-plan-design-other.md](references/catalog-plan-design-other.md).
+- **Plan, define, design, map, specify or create a proposed artifact — remaining deliverables** (10 tasks): read [references/catalog-plan-design-other.md](references/catalog-plan-design-other.md).
 - **Build, implement, configure, teach, interview or deliver an artifact** (11 tasks): read [references/catalog-build-deliver.md](references/catalog-build-deliver.md).
 - **Inspect, analyze, test, review, validate, assess, certify or audit** (8 tasks): read [references/catalog-test-assure.md](references/catalog-test-assure.md).
 - **Deploy, release, monitor, recover, migrate, optimize, retire or improve** (1 task): read [references/catalog-operate-improve.md](references/catalog-operate-improve.md).

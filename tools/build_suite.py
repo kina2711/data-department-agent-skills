@@ -984,6 +984,7 @@ def catalog_group(task_id: str) -> str:
         "career-register-canonical-concept": "plan-design",
         "academy-prioritize-corpus-by-gap": "plan-design",
         "career-bootstrap-concept-registry": "plan-design",
+        "academy-elicit-prior-knowledge": "plan-design",
         "academy-build-skill-track-map": "plan-design",
         "core-build-task-context-package": "build-deliver",
         "ctx-build-context-index": "plan-design",
@@ -1301,6 +1302,7 @@ def task_specific_resources(task_id: str) -> list[str]:
             "academy-prioritize-corpus-by-gap",
             "academy-run-note-diagnostic",
             "academy-apply-misconception-feedback",
+            "academy-elicit-prior-knowledge",
         },
         "talent": {
             "talent-map-question-to-competency-evidence",
@@ -1410,6 +1412,10 @@ def task_specific_resources(task_id: str) -> list[str]:
             resources.append(
                 "Read [the knowledge deep-dive authoring standard](../knowledge-deep-dive-standard.md) and [the authored prose voice standard](../authored-prose-voice.md); planned IDs and `relationships` edges come from the first, and the second decides whether the batch reads as writing or as filler."
             )
+        if task_id == "academy-plan-note-corpus":
+            resources.append(
+                "Consume the prior-knowledge profile from `academy-elicit-prior-knowledge` before enumerating notes. Planning a corpus without asking teaches the learner what they already hold, and the cost lands on them; carry each module's `full`, `compress` or `skip` treatment into the plan with its basis."
+            )
         if task_id == "academy-build-note-module":
             resources.append(
                 "Build one module to completion and checkpoint the manifest before starting the next. `drafted` means a file exists at the expected path; only `reviewed` records a note as usable, and neither is evidence that anyone learned it."
@@ -1422,6 +1428,13 @@ def task_specific_resources(task_id: str) -> list[str]:
             resources.append(
                 "The index records what exists, never what the learner has mastered. Note count is not progress; route learning evidence to `data-career-and-interview-coach` under [the learner-memory contract](../learning-memory-interoperability.md) instead of inferring mastery here."
             )
+        if task_id == "academy-elicit-prior-knowledge":
+            resources.extend([
+                "Resolve the learner memory first through [the learner-memory contract](../learning-memory-interoperability.md); a topic already `mastered` with fresh evidence is not asked about again. Only then ask, and ask against the named tracks and modules rather than in general.",
+                "Reuse `../../assets/prior-knowledge-profile.yaml`. What the learner says they know is self-reported and stays labelled that way: it changes what gets built, never what anyone has proven, and it is never returned to Career as evidence.",
+                "Give every module a treatment of `full`, `compress` or `skip` with its basis. A skipped module stays `planned` in the corpus rather than being deleted, because prerequisite edges still resolve to it and the learner may ask for it later.",
+                "Where a claim is load-bearing for everything downstream, offer a diagnostic from `academy-run-note-diagnostic` rather than taking it at face value. Offer it; never require it. A declined offer is recorded as an assumed foundation, not as a verified one.",
+            ])
         if task_id == "academy-prioritize-corpus-by-gap":
             resources.append(
                 "Reuse `../../assets/corpus-priority-plan.yaml`. Rank modules against a measured gap artifact from `data-career-and-interview-coach`, and label every module `measured`, `self-reported` or `assumed`; a self-reported gap never outranks a measured one. Where no assessment exists, say so and fall back to roadmap order rather than inventing a severity."
@@ -2528,6 +2541,7 @@ def build_shared_assets(risk_of: dict[str, str] | None = None) -> None:
             "note-diagnostic-session.yaml": {"session_id": "", "corpus_ref": "", "learner_ref": "", "run_at": "", "entry_level": "", "scenarios": [{"scenario_id": "", "concept_key": "", "source_note_id": "", "surface_varied_from": "", "previously_seen": False, "prediction_recorded": "", "resolving_round": 0, "taught_directly": False, "misconceptions_observed": []}], "proposed_evidence": [{"concept_key": "", "class": "exposed|practiced|demonstrated", "scenario_ids": [], "rationale": "", "limitations": ""}], "rounds_cap": 3, "learning_event_ref": "", "handoff": {"target_skill": "data-career-and-interview-coach", "task": "career-record-learning-event", "status": "not-sent"}, "mastery_claimed": False, "owner": "", "status": "draft"},
             "corpus-workflow-manifest.json": corpus_workflow_manifest(risk_of or {}),
             "misconception-feedback.yaml": {"rollup_id": "", "corpus_ref": "", "sessions_considered": [], "window": "", "threshold_sessions": 3, "findings": [{"concept_key": "", "misconception": "", "learner_framing": [], "session_ids": [], "occurrences": 0, "primary_note_id": "", "note_status": "", "eligible_for_edit": False, "ineligible_reason": "", "proposed_entry": {"misconception": "", "reality": "", "why_it_sounds_plausible": ""}}], "edits_applied": [{"note_id": "", "concept_key": "", "appended_entry": "", "status_before": "", "status_after": "needs-review", "updated_to": "", "applied_at": "", "revert_ref": ""}], "edits_skipped": [], "version_control_verified": False, "content_removed": False, "owner": "", "status": "draft"},
+            "prior-knowledge-profile.yaml": {"profile_id": "", "learner_ref": "", "roadmap_ref": "", "track_map_ref": "", "asked_at": "", "learner_memory_ref": "", "memory_resolved": False, "from_memory": [{"topic_id": "", "concept_keys": [], "status": "", "evidence_refs": [], "last_demonstrated_at": ""}], "self_reported": [{"module_id": "", "concept_keys": [], "claim": "", "confidence": "", "is_mastery": False, "verified": False}], "module_treatment": [{"module_id": "", "treatment": "full|compress|skip", "basis": "memory-evidence|self-reported|assumed", "reason": "", "load_bearing": False, "diagnostic_offered": False, "diagnostic_declined": False, "diagnostic_ref": ""}], "assumed_foundations": [], "returned_to_career": False, "owner": "", "status": "draft"},
             "corpus-priority-plan.yaml": {"plan_id": "", "corpus_ref": "", "roadmap_ref": "", "gap_source": {"skill": "data-career-and-interview-coach", "artifact": "", "assessed_at": ""}, "modules": [{"module_id": "", "concept_keys": [], "gap_severity": "", "evidence_basis": "measured|self-reported|assumed", "blocking_for": [], "priority_rank": 0, "rationale": ""}], "deferred_modules": [], "coverage_before": {}, "assumptions": [], "owner": "", "status": "draft"},
             "note-corpus-audit.yaml": {"audit_id": "", "corpus_ref": "", "checked_at": "", "duplicate_ids": [], "unregistered_concept_keys": [], "duplicate_primary_keys": [], "keys_without_primary": [], "duplicate_candidates": [], "dangling_edges": [], "prerequisite_cycles": [], "planned_missing_files": [], "files_not_in_manifest": [], "stale_notes": [], "roadmap_coverage": {"steps_total": 0, "steps_with_notes": 0, "uncovered_steps": []}, "depth_inconsistencies": [], "script_run": {"command": "", "exit_status": "not-run", "observed": ""}, "limitations": [], "owner": "", "status": "draft"},
             "question-learning-traceability.yaml": {"question_id": "", "question": "", "role": "", "level": "", "concept_keys": [], "competencies": [], "learning_objectives": [], "bloom_depth": "", "prerequisites": [], "concepts": [], "expected_reasoning": [], "assessment_method": "", "critical_failures": [], "coverage_status": "", "reviewer": "", "version": ""},
@@ -3242,18 +3256,35 @@ Use this reference when the deliverable is not one note but a whole body of note
 
 1. `academy-research-role-roadmap` — what a practitioner of this role is actually expected to know, taken from cited public sources rather than from recall.
 2. `academy-build-skill-track-map` — each roadmap step becomes a track with an ordered module list and an exit criterion.
-3. `academy-plan-note-corpus` — every planned note is enumerated with its ID, module, prerequisites and status before any note is written.
-4. `academy-build-note-module` — one module at a time, to completion, updating the manifest as the checkpoint.
-5. `academy-audit-note-corpus` — duplication, dangling edges, prerequisite cycles, staleness and coverage.
-6. `academy-index-note-corpus` — the durable record of what exists.
+3. `academy-elicit-prior-knowledge` — ask the learner what they already hold before planning anything, and resolve their existing learner memory.
+4. `academy-plan-note-corpus` — every planned note is enumerated with its ID, module, prerequisites and status before any note is written.
+5. `academy-build-note-module` — one module at a time, to completion, updating the manifest as the checkpoint.
+6. `academy-audit-note-corpus` — duplication, dangling edges, prerequisite cycles, staleness and coverage.
+7. `academy-index-note-corpus` — the durable record of what exists.
 
-Do not begin stage 4 before stage 3 has an accepted plan. Notes written without a planned ID acquire prerequisite edges that point nowhere, and the graph cannot be repaired cheaply once several modules deep.
+Do not begin stage 5 before stage 4 has an accepted plan. Notes written without a planned ID acquire prerequisite edges that point nowhere, and the graph cannot be repaired cheaply once several modules deep.
 
 ## Sourcing the roadmap
 
 A roadmap presented as current must name where it came from. Every step carries a source with publisher, URL, publication or update date and access date. Where a step is included on the author's judgment rather than from a source, mark it as judgment and say why. `role-curricula.md` is the suite's own level matrix and may be used as one input, but it is a static table and is never itself evidence of what is current. An uncited step is recorded as an assumption, and the roadmap does not claim currency unless its sources are dated.
 
 Separate three things throughout: what sources state, what is conventional practice without a single authority, and what is the author's judgment. Do not assert version numbers, release dates or tool rankings that have not been verified.
+
+## Ask before building
+
+A corpus generated without asking teaches the learner things they already know, and the cost lands on them: they read modules they could have skipped, and lose trust in the rest of the corpus for having wasted their time. Stage 3 exists so the plan starts from what is already held.
+
+Resolve the learner memory first, through the learner-memory contract. It is the durable record, and a topic already marked `mastered` with fresh evidence does not need to be asked about again. Only then ask, and ask about what the roadmap actually contains rather than in general: name the tracks and modules and ask which are familiar.
+
+What a learner says they know is **self-reported**, and it stays labelled that way. It is not mastery, it never becomes mastery by being written down, and it is never returned to Career as evidence. Self-reported knowledge changes what gets built; it does not change what anyone has proven.
+
+Each module then carries one of three treatments:
+
+- **full** — build every planned note.
+- **compress** — build the notes that carry decision rules, failure modes and interfaces, and skip the introductory ones. Use this when the learner holds the concept but not its edges.
+- **skip** — plan the notes and leave them `planned`, with the reason recorded. A skipped module is not deleted from the plan: prerequisite edges still resolve to it, and the learner may ask for it later.
+
+Where a claim of prior knowledge is load-bearing — a module everything downstream depends on — offer a short diagnostic from `academy-run-note-diagnostic` rather than taking the claim at face value. Offer it; do not require it. A learner who declines has made a decision about their own time, and the plan records that the foundation is assumed rather than checked.
 
 ## The manifest is the resume anchor
 
@@ -3278,6 +3309,12 @@ A corpus outlives its sessions, so two of them will eventually run at once. The 
 Claim a module before building it and release it when the batch closes. Two sessions may work in parallel only on modules that share no notes, and neither rewrites a manifest entry belonging to the other's module. On a collision, the module that has not yet written any note yields; re-running a module that produced nothing is cheap, and reconciling two divergent manifests is not.
 
 Where the corpus spans enough stages to need gates, represent it as `corpus-workflow-manifest.json` and validate it with `data-department-orchestrator/scripts/validate_workflow.py`. The dependency edges are the stage order: research before tracks, tracks before plan, plan before any module. One workflow carries one `academy-build-note-module` entry, because the validator keys tasks by `task_id` and rejects a duplicate; `instance_id` labels which module that entry is currently on, and a corpus with many modules advances that one entry rather than fanning out into one entry per module. Resume through `orchestrator-resume-workflow` reading that manifest alongside the corpus manifest.
+
+## Persisting what happened
+
+Every stage writes its outcome down before the session ends: the roadmap and its sources, the prior-knowledge profile, the plan, each module as it closes, and every diagnostic result. A corpus built across many sessions has no other continuity, and reconstructing a decision from a transcript that no longer exists is not possible.
+
+Learning evidence goes to `data-career-and-interview-coach` as a learning event; the corpus manifest keeps only what exists. These are separate records with separate owners, and the split is what keeps a written note from quietly becoming a claim that someone learned it.
 
 ## What the corpus index does not record
 
