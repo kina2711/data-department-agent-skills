@@ -36,6 +36,7 @@ Additional resources:
 - Read [the universal professional-series rules](../universal-professional-series-rules.md) for the capability journey, teaching contract, human voice, REAL/ILLUSTRATION/CODE asset contract and non-publication gates.
 - Read [the platform format playbooks](../platform-format-playbooks.md); adapt from the canonical evidence pack without copying one channel verbatim into another.
 - When the artifact is published and measured, populate `../../assets/content-evidence-return.yaml` and hand it to `career-build-career-evidence-portfolio` in `data-career-and-interview-coach`. Content owns the artifact; Career decides whether it counts as competency evidence. Reach, reactions and post count are audience signals, never mastery.
+- Where topic selection or generation is driven by behavioural data, read [demand-driven content at scale](../demand-driven-content.md); the demand signal is a query with a recorded threshold, not a hunch, and the mining itself belongs to `product-analytics-and-experimentation`. At volume the controls move from the artifact to the generator: gate emission on every placeholder resolving, bind each artifact to the source version, and decide the retirement rule before generating.
 - Reuse only the matching template from `../../assets/`; run `../../scripts/validate_content_manifest.py` when a content manifest is available.
 
 

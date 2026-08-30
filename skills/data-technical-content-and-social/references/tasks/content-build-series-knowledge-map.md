@@ -65,6 +65,7 @@ Block before mutation or a positive completion decision when a mandatory input, 
 Additional resources:
 - Read [the universal professional-series rules](../universal-professional-series-rules.md) for the capability journey, teaching contract, human voice, REAL/ILLUSTRATION/CODE asset contract and non-publication gates.
 - Read [the technical-series method](../technical-series-method.md) and reuse the series-plan, episode-brief or editorial-calendar asset that matches the deliverable.
+- Where topic selection or generation is driven by behavioural data, read [demand-driven content at scale](../demand-driven-content.md); the demand signal is a query with a recorded threshold, not a hunch, and the mining itself belongs to `product-analytics-and-experimentation`. At volume the controls move from the artifact to the generator: gate emission on every placeholder resolving, bind each artifact to the source version, and decide the retirement rule before generating.
 - Reuse only the matching template from `../../assets/`; run `../../scripts/validate_content_manifest.py` when a content manifest is available.
 - Read [the execution discipline standard](../execution-discipline-standard.md).
 - Before Git-backed mutation, require a verified success contract and pre-change scope contract. After the final change, run `core-audit-change-scope` and `core-verify-deliverable`; release remains blocked if either control is absent or failed.

@@ -50,7 +50,7 @@ PEOPLE_RESOURCES = {
         "scripts": ["validate_learning_memory.py", "build_skill_transition_context.py", "validate_concept_registry.py", "schedule_topic_review.py"],
     },
     "data-technical-content-and-social": {
-        "references": ["technical-series-method.md", "platform-format-playbooks.md", "technical-content-quality-standard.md"],
+        "references": ["technical-series-method.md", "platform-format-playbooks.md", "technical-content-quality-standard.md", "demand-driven-content.md"],
         "assets": ["technical-series-plan.yaml", "episode-brief.yaml", "source-pack.yaml", "content-manifest.json", "editorial-calendar.yaml", "content-quality-review.yaml"],
         "scripts": ["validate_content_manifest.py"],
     },
@@ -63,6 +63,10 @@ PEOPLE_RESOURCES = {
         "references": ["book-conversion-operating-system.md", "source-extraction-and-structure.md", "knowledge-distillation-and-application.md", "destination-packs.md", "copyright-security-and-quality.md"],
         "assets": ["book-conversion-manifest.json", "book-source-manifest.yaml", "framework-card.yaml", "chapter-note.yaml", "destination-plan.yaml", "application-experiment.yaml", "conversion-evidence.yaml", "book-conversion-manifest.schema.json"],
         "scripts": ["extract_book_sources.py", "validate_book_conversion.py"],
+    },
+    "generative-ai-engineering": {
+        "references": ["grounded-generation-and-agent-economics.md", "external-tool-access.md"],
+        "assets": [],
     },
 }
 
