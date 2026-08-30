@@ -33,6 +33,17 @@ function readSuite(suitePath) {
   }
   const { suiteVersion, roles } = parseSuiteManifest(fs.readFileSync(manifestPath, 'utf8'));
 
+  // Vietnamese guides are the human routing layer. They are optional: an older suite still
+  // renders, just without them.
+  let guides = {};
+  try {
+    guides = JSON.parse(
+      fs.readFileSync(path.join(suitePath, 'docs', 'huong-dan-skill.vi.json'), 'utf8')
+    ).skills || {};
+  } catch {
+    guides = {};
+  }
+
   // Task-level metadata is optional; the grid degrades to names and counts without it.
   let tasks = [];
   if (fs.existsSync(catalogPath)) {
@@ -64,6 +75,7 @@ function readSuite(suitePath) {
       id: role.skill,
       name: role.display_name || role.skill,
       description,
+      guide: guides[role.skill] || null,
       taskCount: role.task_count || owned.length,
       tasks: owned.map((t) => ({
         id: t.id,

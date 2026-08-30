@@ -124,7 +124,10 @@ function renderTasks() {
     code.textContent = task.id;
     const goal = document.createElement('div');
     goal.className = 'goal';
-    goal.textContent = task.output || task.goal || '';
+    // The catalog already carries a Vietnamese goal for 810 of 827 tasks; the English `output`
+    // is the fallback, not the default.
+    goal.textContent = task.goal || task.output || '';
+    if (task.goal && task.output) goal.title = task.output;
     main.append(code, goal);
 
     const tier = document.createElement('span');
@@ -140,11 +143,93 @@ function renderTasks() {
   }
 }
 
+function renderGuide(skill) {
+  const box = $('dGuide');
+  box.innerHTML = '';
+  const g = skill.guide;
+
+  const section = (label, node) => {
+    const h = document.createElement('h4');
+    h.textContent = label;
+    box.append(h, node);
+  };
+  const list = (items) => {
+    const ul = document.createElement('ul');
+    for (const it of items) {
+      const li = document.createElement('li');
+      li.textContent = it;
+      ul.append(li);
+    }
+    return ul;
+  };
+
+  if (!g) {
+    const p = document.createElement('p');
+    p.className = 'lead';
+    p.textContent = skill.description || '';
+    box.append(p);
+    return;
+  }
+
+  const lead = document.createElement('p');
+  lead.className = 'lead';
+  lead.textContent = g.tom_tat;
+  box.append(lead);
+
+  if (g.dung_khi && g.dung_khi.length) section('Dùng khi', list(g.dung_khi));
+
+  if (g.khong_dung_khi) {
+    const p = document.createElement('p');
+    p.className = 'note';
+    p.textContent = g.khong_dung_khi;
+    section('Không dùng khi', p);
+  }
+
+  if (g.bat_dau_tu && g.bat_dau_tu.length) {
+    const row = document.createElement('div');
+    row.className = 'starts';
+    for (const id of g.bat_dau_tu) {
+      const c = document.createElement('code');
+      c.textContent = id;
+      c.title = 'Chọn task này';
+      // Clicking a suggested entry point selects it, so the guide is a shortcut rather than
+      // a paragraph to read and then act on separately.
+      c.addEventListener('click', () => {
+        state.selectedTask = id;
+        renderTasks();
+      });
+      row.append(c);
+    }
+    section('Bắt đầu từ', row);
+  }
+
+  if (g.luu_y) {
+    const p = document.createElement('p');
+    p.className = 'warn';
+    p.textContent = g.luu_y;
+    section('Lưu ý', p);
+  }
+
+  const toggle = document.createElement('button');
+  toggle.className = 'guide-toggle';
+  toggle.type = 'button';
+  toggle.textContent = 'Xem mô tả gốc (tiếng Anh)';
+  const en = document.createElement('p');
+  en.className = 'desc-en';
+  en.textContent = skill.description || '';
+  en.hidden = true;
+  toggle.addEventListener('click', () => {
+    en.hidden = !en.hidden;
+    toggle.textContent = en.hidden ? 'Xem mô tả gốc (tiếng Anh)' : 'Ẩn mô tả gốc';
+  });
+  box.append(toggle, en);
+}
+
 function openDrawer(skill) {
   state.openSkill = skill;
   state.selectedTask = null;
   $('dTitle').textContent = skill.name;
-  $('dDesc').textContent = skill.description || '';
+  renderGuide(skill);
   $('drawer').dataset.open = 'true';
   $('scrim').dataset.open = 'true';
   renderTasks();
