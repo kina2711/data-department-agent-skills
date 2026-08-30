@@ -538,6 +538,10 @@ Airflow, Spark, Kafka, Power BI, Tableau, Looker, Metabase, Superset and more.
 │       │   └── adapter-*.md      stack-native adapter packs
 │       ├── assets/               record templates and JSON Schemas
 │       └── scripts/              executable evidence  ← hand-written
+├── workflows/            one executable manifest per skill  ← GENERATED
+├── app/                  Data Agent, the desktop launcher and workflow canvas
+│   ├── src/              Electron main, preload and renderer
+│   └── build/            application icon
 ├── schemas/              12 canonical Draft 2020-12 schemas
 ├── evaluations/          routing, lifecycle, confusion-pair and contract cases
 ├── tools/                deterministic build, validation, audit and packaging

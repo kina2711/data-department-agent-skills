@@ -533,6 +533,8 @@ Power BI, Tableau, Looker, Metabase, Superset và nhiều hơn.
 │       │   └── adapter-*.md      gói adapter theo stack
 │       ├── assets/               template bản ghi và JSON Schema
 │       └── scripts/              evidence chạy được  ← viết tay
+├── workflows/            một manifest chạy được cho mỗi skill  ← SINH RA
+├── app/                  Data Agent — app desktop chọn skill và canvas workflow
 ├── schemas/              12 JSON Schema Draft 2020-12
 ├── evaluations/          case routing, lifecycle, confusion-pair và contract
 ├── tools/                build, validate, audit và đóng gói tất định
