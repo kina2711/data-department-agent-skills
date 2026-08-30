@@ -1,4 +1,4 @@
-# Data Department Studio
+# Data Agent
 
 A local launcher for the [Data Department agent skills](../data-department-agent-skills) suite.
 Pick a skill, pick a working folder, and it opens a Claude Code session in that folder primed
@@ -43,12 +43,12 @@ env -u ELECTRON_RUN_AS_NODE npm start
 npm run dist    # AppImage + .deb in dist/
 ```
 
-`dist/Data Department Studio-0.1.0.AppImage` runs with no install — mark it executable and
-double-click. `dist/data-department-studio_0.1.0_amd64.deb` installs to `/opt` and registers a
+`dist/Data Agent-0.1.0.AppImage` runs with no install — mark it executable and
+double-click. `dist/app-data-agent_0.1.0_amd64.deb` installs to `/opt` and registers a
 desktop entry, so the app appears in the applications menu with its icon:
 
 ```bash
-sudo dpkg -i dist/data-department-studio_0.1.0_amd64.deb
+sudo dpkg -i dist/app-data-agent_0.1.0_amd64.deb
 ```
 
 Both are Linux x64. macOS and Windows targets need their own build hosts and are untested.

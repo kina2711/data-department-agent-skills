@@ -1,5 +1,5 @@
 {
-  "name": "data-department-studio",
+  "name": "app-data-agent",
   "version": "0.1.0",
   "description": "Local launcher for the Data Department agent skills suite",
   "main": "src/main.js",
@@ -17,8 +17,8 @@
     "electron-builder": "^25.0.0"
   },
   "build": {
-    "appId": "vn.kina2711.ddstudio",
-    "productName": "Data Department Studio",
+    "appId": "vn.kina2711.dataagent",
+    "productName": "Data Agent",
     "files": [
       "src/**/*",
       "package.json"
@@ -39,5 +39,6 @@
       "buildResources": "build"
     }
   },
-  "homepage": "https://github.com/kina2711/data-department-agent-skills"
+  "homepage": "https://github.com/kina2711/app-data-agent",
+  "productName": "Data Agent"
 }
