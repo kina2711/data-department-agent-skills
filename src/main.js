@@ -159,6 +159,28 @@ ipcMain.handle('os:tmpdir', () => os.tmpdir());
 // positions are never persisted. The canvas lays the graph out from depends_on every time,
 // which means the picture cannot drift away from the data it draws.
 
+// The suite ships one generated workflow per skill; list them so the canvas opens without a
+// file dialog for the common case.
+ipcMain.handle('workflow:list', (_e, suitePath) => {
+  const dir = path.join(suitePath || '', 'workflows');
+  try {
+    return fs.readdirSync(dir)
+      .filter((f) => f.endsWith('.workflow.json'))
+      .sort()
+      .map((f) => ({ file: path.join(dir, f), skill: f.replace(/\.workflow\.json$/, '') }));
+  } catch {
+    return [];
+  }
+});
+
+ipcMain.handle('workflow:openPath', (_e, file) => {
+  try {
+    return { file, manifest: JSON.parse(fs.readFileSync(file, 'utf8')) };
+  } catch (err) {
+    return { file, error: `JSON không đọc được: ${err.message}` };
+  }
+});
+
 ipcMain.handle('workflow:open', async (_e, suitePath) => {
   const result = await dialog.showOpenDialog({
     title: 'Mở workflow manifest',

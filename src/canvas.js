@@ -299,6 +299,22 @@ function loaded(payload) {
 
 window.wfInit = function wfInit(getSuitePath, getCatalog) {
   q('wfOpen').addEventListener('click', async () => loaded(await window.studio.openWorkflow(getSuitePath())));
+
+  window.wfLoadPresets = async () => {
+    const list = await window.studio.listWorkflows(getSuitePath());
+    const sel = q('wfPreset');
+    sel.innerHTML = '<option value="">Workflow theo skill…</option>';
+    for (const item of list) {
+      const o = document.createElement('option');
+      o.value = item.file;
+      o.textContent = item.skill;
+      sel.append(o);
+    }
+  };
+  q('wfPreset').addEventListener('change', async (e) => {
+    if (!e.target.value) return;
+    loaded(await window.studio.openWorkflowPath(e.target.value));
+  });
   q('wfNew').addEventListener('click', async () => loaded(await window.studio.newWorkflow(getSuitePath())));
 
   q('wfAdd').addEventListener('click', () => {

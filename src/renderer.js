@@ -331,6 +331,7 @@ async function loadSuite(suitePath) {
   }
   $('suiteChip').textContent = `v${data.suiteVersion} · ${data.skills.length} skill · ${data.taskTotal} task`;
   $('subtitle').textContent = suitePath;
+  if (window.wfLoadPresets) window.wfLoadPresets();
   notice('');
   renderGrid();
 }

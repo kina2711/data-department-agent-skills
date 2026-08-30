@@ -10,6 +10,8 @@ contextBridge.exposeInMainWorld('studio', {
   launch: (payload) => ipcRenderer.invoke('session:launch', payload),
   openPath: (target) => ipcRenderer.invoke('shell:openPath', target),
   openWorkflow: (suitePath) => ipcRenderer.invoke('workflow:open', suitePath),
+  listWorkflows: (suitePath) => ipcRenderer.invoke('workflow:list', suitePath),
+  openWorkflowPath: (file) => ipcRenderer.invoke('workflow:openPath', file),
   newWorkflow: (suitePath) => ipcRenderer.invoke('workflow:new', suitePath),
   saveWorkflow: (payload) => ipcRenderer.invoke('workflow:save', payload),
   validateWorkflow: (payload) => ipcRenderer.invoke('workflow:validate', payload),
