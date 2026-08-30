@@ -343,3 +343,24 @@ h4.sec:first-child { margin-top: 0; }
 .drawer .foot .row .perm { flex: 0 0 auto; max-width: 200px; }
 .btn-quiet { color: var(--ink-muted); border-style: dashed; }
 .drawer .foot .row .btn { white-space: nowrap; }
+
+/* ---- Workflow progress and node metadata ---- */
+.wf-progress { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.wf-bar-track { display: block; flex: 0 0 auto; }
+.wf-seg-empty { fill: var(--line); }
+.wf-seg-done { fill: var(--ok); }
+.wf-seg-active { fill: var(--accent); }
+.wf-seg-stuck { fill: var(--danger); }
+.wf-progress-text { font-size: 12.5px; color: var(--ink-muted); }
+
+.wf-node-goal { font: 11.5px ui-sans-serif, system-ui, sans-serif; fill: var(--ink-muted); }
+.wf-node-risk, .wf-node-tier {
+  font: 600 9.5px ui-sans-serif, system-ui, sans-serif; letter-spacing: .04em; text-transform: uppercase;
+}
+.wf-node-risk { fill: var(--ink-faint); }
+.wf-node-risk.risk-R3, .wf-node-risk.risk-R4 { fill: var(--danger); }
+.wf-node-risk.risk-R2 { fill: var(--warn); }
+.wf-node-tier.tier-strong { fill: var(--danger); }
+.wf-node-tier.tier-standard { fill: var(--accent); }
+.wf-node-tier.tier-light { fill: var(--ok); }
+.wf-svg.is-fit { max-width: 100%; }

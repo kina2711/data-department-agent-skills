@@ -6,8 +6,8 @@
  * persisted as a position. The graph is laid out from `depends_on` on every render, which costs
  * free arrangement and buys a picture that cannot disagree with the file it came from. */
 
-const NODE_W = 216;
-const NODE_H = 74;
+const NODE_W = 232;
+const NODE_H = 92;
 const GAP_X = 78;
 const GAP_Y = 22;
 const PAD = 28;
@@ -17,7 +17,12 @@ const wf = {
   manifest: null,
   selected: null,
   dirty: false,
+  meta: new Map(),
+  fit: false,
 };
+
+const DONE = new Set(['implemented', 'tested', 'approved', 'released', 'complete']);
+const OPEN = new Set(['ready', 'in-progress']);
 
 const STATUSES = ['planned', 'ready', 'in-progress', 'blocked', 'failed', 'implemented', 'tested', 'approved', 'released', 'complete'];
 const RISKS = ['R0-light', 'R1-reviewed', 'R2-standard', 'R3-controlled', 'R4-critical'];
@@ -104,7 +109,20 @@ function render() {
   };
   // Nodes are drawn as SVG, not positioned HTML: the page CSP forbids inline styles, and SVG
   // geometry lives in attributes rather than in a style declaration.
-  const svg = el('svg', { class: 'wf-svg', width, height, viewBox: `0 0 ${width} ${height}` });
+  // A fourteen-stage graph is wider than any panel. Fit scales through the viewBox — an
+  // attribute, so it survives the page CSP that forbids inline styles.
+  let drawW = width;
+  let drawH = height;
+  if (wf.fit) {
+    const avail = Math.max(320, host.clientWidth - 10);
+    const scale = Math.min(1, avail / width);
+    drawW = Math.round(width * scale);
+    drawH = Math.round(height * scale);
+  }
+  const svg = el('svg', {
+    class: `wf-svg${wf.fit ? ' is-fit' : ''}`,
+    width: drawW, height: drawH, viewBox: `0 0 ${width} ${height}`,
+  });
 
   const defs = el('defs');
   const marker = el('marker', {
@@ -148,13 +166,31 @@ function render() {
     g.append(tip);
     g.append(el('rect', { class: 'wf-node-box', width: NODE_W, height: NODE_H, rx: 11 }));
 
-    const id = el('text', { class: 'wf-node-title', x: 13, y: 24 });
-    id.textContent = clip(t.task_id, 27);
-    const sub = el('text', { class: 'wf-node-sub', x: 13, y: 42 });
-    sub.textContent = clip(t.instance_id ? `${t.instance_id} · ${t.owner || 'chưa có owner'}` : (t.owner || 'chưa có owner'), 30);
-    const st = el('text', { class: 'wf-node-status', x: 13, y: 61 });
+    // The manifest schema forbids extra fields, so display metadata is joined from the catalog
+    // rather than copied into the file. The picture stays derived; the file stays valid.
+    const meta = (wf.meta && wf.meta.get(t.task_id)) || {};
+
+    const id = el('text', { class: 'wf-node-title', x: 13, y: 22 });
+    id.textContent = clip(t.task_id, 28);
+    const goal = el('text', { class: 'wf-node-goal', x: 13, y: 40 });
+    goal.textContent = clip(meta.goal || meta.output || '', 34);
+    const sub = el('text', { class: 'wf-node-sub', x: 13, y: 58 });
+    sub.textContent = clip(t.instance_id ? `${t.instance_id} · ${t.owner || 'chưa có owner'}` : (t.owner || 'chưa có owner'), 32);
+    const st = el('text', { class: 'wf-node-status', x: 13, y: 78 });
     st.textContent = t.status || 'planned';
-    g.append(id, sub, st);
+    g.append(id, goal, sub, st);
+
+    // Risk and model tier are the two things that change how a task must be run.
+    if (t.risk_tier) {
+      const r = el('text', { class: `wf-node-risk risk-${t.risk_tier.split('-')[0]}`, x: NODE_W - 13, y: 22, 'text-anchor': 'end' });
+      r.textContent = t.risk_tier.split('-')[0];
+      g.append(r);
+    }
+    if (meta.modelTier) {
+      const m = el('text', { class: `wf-node-tier tier-${meta.modelTier}`, x: NODE_W - 13, y: 78, 'text-anchor': 'end' });
+      m.textContent = meta.modelTier;
+      g.append(m);
+    }
 
     const activate = () => {
       wf.selected = wf.selected === keyOf(t) ? null : keyOf(t);
@@ -168,6 +204,54 @@ function render() {
     svg.append(g);
   }
   host.append(svg);
+  renderProgress(tasks, depth);
+}
+
+/** Progress is counted from status, and blocked work is never folded into "remaining".
+ *  Drawn as SVG: segment widths are geometry, which the page CSP allows, unlike the inline style
+ *  a div-based bar would need. */
+function renderProgress(tasks, depth) {
+  const box = q('wfProgress');
+  if (!box) return;
+  box.innerHTML = '';
+  const total = tasks.length;
+  if (!total) return;
+  const done = tasks.filter((t) => DONE.has(t.status)).length;
+  const active = tasks.filter((t) => OPEN.has(t.status)).length;
+  const stuck = tasks.filter((t) => t.status === 'blocked' || t.status === 'failed').length;
+
+  const NS = 'http://www.w3.org/2000/svg';
+  const W = 220;
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('class', 'wf-bar-track');
+  svg.setAttribute('width', String(W));
+  svg.setAttribute('height', '8');
+  const track = document.createElementNS(NS, 'rect');
+  for (const [k, v] of Object.entries({ class: 'wf-seg-empty', width: W, height: 8, rx: 4 })) {
+    track.setAttribute(k, String(v));
+  }
+  svg.append(track);
+  let x = 0;
+  for (const [cls, n] of [['done', done], ['active', active], ['stuck', stuck]]) {
+    if (!n) continue;
+    const w = (n / total) * W;
+    const seg = document.createElementNS(NS, 'rect');
+    for (const [k, v] of Object.entries({ class: `wf-seg-${cls}`, x, width: w, height: 8, rx: 4 })) {
+      seg.setAttribute(k, String(v));
+    }
+    svg.append(seg);
+    x += w;
+  }
+  box.append(svg);
+
+  const line = document.createElement('span');
+  line.className = 'wf-progress-text';
+  const parts = [`${done}/${total} xong`];
+  if (active) parts.push(`${active} đang chạy`);
+  if (stuck) parts.push(`${stuck} tắc`);
+  parts.push(`${new Set([...depth.values()]).size} tầng`);
+  line.textContent = parts.join(' · ');
+  box.append(line);
 }
 
 function renderInspector() {
@@ -297,6 +381,8 @@ function loaded(payload) {
   renderInspector();
 }
 
+window.wfSetMeta = (map) => { wf.meta = map; };
+
 window.wfInit = function wfInit(getSuitePath, getCatalog) {
   q('wfOpen').addEventListener('click', async () => loaded(await window.studio.openWorkflow(getSuitePath())));
 
@@ -311,6 +397,12 @@ window.wfInit = function wfInit(getSuitePath, getCatalog) {
       sel.append(o);
     }
   };
+  q('wfFit').addEventListener('click', () => {
+    wf.fit = !wf.fit;
+    q('wfFit').setAttribute('aria-pressed', String(wf.fit));
+    q('wfFit').textContent = wf.fit ? 'Cỡ thật' : 'Vừa khung';
+    render();
+  });
   q('wfPreset').addEventListener('change', async (e) => {
     if (!e.target.value) return;
     loaded(await window.studio.openWorkflowPath(e.target.value));
