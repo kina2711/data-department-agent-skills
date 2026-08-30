@@ -420,8 +420,48 @@ def validate() -> tuple[list[str], dict[str, int]]:
     return errors, stats
 
 
+def check_vietnamese_guides(skills: set[str]) -> list[str]:
+    """Every skill needs a Vietnamese guide, and every guide needs a skill.
+
+    The guide is the human routing layer: it says which skill to reach for and, more usefully,
+    which one to reach for instead. A skill with no guide is invisible to a reader who does not
+    read the English description, and a guide for a skill that no longer exists routes nowhere.
+    """
+    import json as _json
+
+    path = ROOT / "docs" / "huong-dan-skill.vi.json"
+    if not path.exists():
+        return [f"missing {path.relative_to(ROOT)}"]
+    try:
+        doc = _json.loads(path.read_text(encoding="utf-8"))
+    except _json.JSONDecodeError as exc:
+        return [f"{path.name}: unreadable: {exc}"]
+
+    guides = doc.get("skills")
+    if not isinstance(guides, dict):
+        return [f"{path.name}: no skills object"]
+
+    errors = []
+    for skill in sorted(skills - set(guides)):
+        errors.append(f"{path.name}: no Vietnamese guide for {skill}")
+    for extra in sorted(set(guides) - skills):
+        errors.append(f"{path.name}: guide for unknown skill {extra}")
+    required = ("tom_tat", "dung_khi", "khong_dung_khi", "bat_dau_tu", "luu_y")
+    for skill, guide in sorted(guides.items()):
+        for field in required:
+            value = guide.get(field)
+            if not value:
+                errors.append(f"{path.name}: {skill} guide has no {field}")
+    return errors
+
+
 def main() -> None:
     errors, stats = validate()
+    guide_errors = check_vietnamese_guides({d.name for d in SKILLS.iterdir() if d.is_dir()})
+    errors.extend(guide_errors)
+    stats["vietnamese_guides"] = "ok" if not guide_errors else f"{len(guide_errors)} problem(s)"
+    if "errors" in stats:
+        stats["errors"] = len(errors)
     for key, value in stats.items():
         print(f"{key}: {value}")
     if errors:

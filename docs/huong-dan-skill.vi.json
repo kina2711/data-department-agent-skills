@@ -1,0 +1,477 @@
+{
+  "_": "Hướng dẫn tiếng Việt cho từng skill. Đây là lớp điều hướng cho con người: nó nói khi nào dùng skill nào và khi nào đi chỗ khác. Nó không thay thế contract — contract vẫn là nguồn sự thật về cách chạy một task.",
+  "suite_version": "3.0",
+  "skills": {
+    "data-department-orchestrator": {
+      "tom_tat": "Cửa vào khi yêu cầu mơ hồ hoặc chạm nhiều vai. Nó không tự làm việc chuyên môn — nó phân tuyến, dựng workflow có chủ sở hữu, phụ thuộc, cổng kiểm và bàn giao.",
+      "dung_khi": [
+        "Yêu cầu chưa rõ thuộc vai nào",
+        "Việc cần từ 2 vai trở lên phối hợp",
+        "Cần dựng lại cả một kho hoặc chạy một sáng kiến đầu-cuối",
+        "Nối lại một workflow đang dở"
+      ],
+      "khong_dung_khi": "Việc học cá nhân hay dự án portfolio → data-personal-project-engineering. Việc đã rõ vai thì gọi thẳng skill đó, đừng qua orchestrator.",
+      "bat_dau_tu": [
+        "orchestrator-hydrate-context",
+        "orchestrator-compose-workflow"
+      ],
+      "luu_y": "Nó điều phối chứ không phê duyệt thay bạn. Nhánh được giao việc không bao giờ tự nâng risk tier của mình."
+    },
+    "shared-data-core": {
+      "tom_tat": "Bộ kiểm soát dùng chung cho mọi vai: đóng gói context có giới hạn, dò tìm tài sản, soi schema, profiling, kiểm chứng, bằng chứng, phê duyệt và bàn giao.",
+      "dung_khi": [
+        "Cần một gói context gọn cho một task cụ thể",
+        "Muốn soi schema hay profile dữ liệu trước khi làm gì",
+        "Cần chốt hợp đồng thành công trước khi sửa",
+        "Cần kiểm scope thay đổi sau khi sửa"
+      ],
+      "khong_dung_khi": "Đây là lớp nền, không phải nơi ra deliverable chuyên môn. Việc thuộc một vai cụ thể thì vào skill của vai đó.",
+      "bat_dau_tu": [
+        "core-classify-data-request",
+        "core-define-success-contract"
+      ],
+      "luu_y": "`core-define-success-contract` trước và `core-audit-change-scope` sau là bắt buộc cho mọi thay đổi có Git, bất kể task thuộc vai nào."
+    },
+    "company-data-context": {
+      "tom_tat": "Bộ nhớ tổ chức: thuật ngữ, metric, dataset, hệ thống, chủ sở hữu, chính sách, nền tảng. Để Claude biết công ty bạn gọi thứ đó là gì.",
+      "dung_khi": [
+        "Lần đầu dựng context cho một tổ chức",
+        "Đăng ký nguồn, dataset, metric mới",
+        "Cần tra xem ai sở hữu cái gì"
+      ],
+      "khong_dung_khi": "Ghi chú cá nhân → personal-second-brain-and-knowledge-os. Đây là context tổ chức, dùng chung.",
+      "bat_dau_tu": [
+        "ctx-initialize-company-data-context",
+        "ctx-register-source-system"
+      ],
+      "luu_y": "Không bao giờ lưu secret ở đây. Nó là chỉ mục trỏ tới nguồn, không phải bản sao của nguồn."
+    },
+    "head-of-data-and-data-product": {
+      "tom_tat": "Tầng lãnh đạo: chiến lược dữ liệu, mô hình vận hành, danh mục, lộ trình, ưu tiên, giá trị, mức độ áp dụng và quản trị cấp điều hành.",
+      "dung_khi": [
+        "Cần định hướng hoặc lộ trình dữ liệu",
+        "Phải ưu tiên giữa nhiều sáng kiến",
+        "Đo giá trị và mức áp dụng của sản phẩm dữ liệu",
+        "Chuẩn bị báo cáo cho ban điều hành"
+      ],
+      "khong_dung_khi": "Yêu cầu nghiệp vụ chi tiết → data-business-analysis. Kiến trúc kỹ thuật → data-architecture.",
+      "bat_dau_tu": [
+        "hod-assess-data-maturity",
+        "hod-define-data-strategy"
+      ],
+      "luu_y": "Cổng cứng loại một sáng kiến khỏi bảng xếp hạng, không phải bị đánh đổi bên trong phép tính điểm."
+    },
+    "data-business-analysis": {
+      "tom_tat": "Biến một yêu cầu nghiệp vụ mơ hồ thành đặc tả triển khai được: quy tắc nghiệp vụ, quy trình, use case, tiêu chí chấp nhận và truy vết.",
+      "dung_khi": [
+        "Bên nghiệp vụ nói muốn gì đó nhưng chưa rõ",
+        "Cần viết tiêu chí chấp nhận kiểm được",
+        "Cần truy vết từ nhu cầu tới thứ sẽ xây"
+      ],
+      "khong_dung_khi": "Trả lời một câu hỏi từ dữ liệu có sẵn → data-analysis. Đây là làm rõ yêu cầu, không phải phân tích số liệu.",
+      "bat_dau_tu": [
+        "ba-frame-business-problem",
+        "ba-map-stakeholders"
+      ],
+      "luu_y": "Tiêu chí chấp nhận phải kiểm được. \"Dashboard phải dễ dùng\" không phải tiêu chí."
+    },
+    "data-architecture": {
+      "tom_tat": "Trạng thái đích, miền dữ liệu, mô hình, mẫu tích hợp, hợp đồng dữ liệu, quyết định công nghệ, di trú và rà soát kiến trúc.",
+      "dung_khi": [
+        "Cần thiết kế trạng thái đích",
+        "Chọn giữa các mẫu nền tảng",
+        "Viết ADR",
+        "Lập kế hoạch di trú"
+      ],
+      "khong_dung_khi": "Vận hành nền tảng đó → data-platform-and-dataops. Đây là quyết định hình dạng, không phải chạy nó.",
+      "bat_dau_tu": [
+        "arch-assess-current-data-architecture",
+        "arch-define-target-data-architecture"
+      ],
+      "luu_y": "Mọi quyết định phải nêu phương án đã loại và lý do thua. ADR không có phương án bị loại là bản ghi chép, không phải quyết định."
+    },
+    "data-governance-and-stewardship": {
+      "tom_tat": "Quyền sở hữu, chính sách, từ điển nghiệp vụ, phân loại, quản trị truy cập, lưu trữ, chứng nhận và bằng chứng kiểm soát.",
+      "dung_khi": [
+        "Cần gán chủ sở hữu cho dữ liệu",
+        "Xây từ điển thuật ngữ",
+        "Phân loại độ nhạy cảm",
+        "Chứng nhận một dataset"
+      ],
+      "khong_dung_khi": "Bảo vệ kỹ thuật (mã hoá, masking, threat model) → data-security-and-privacy.",
+      "bat_dau_tu": [
+        "dg-define-data-domain",
+        "dg-assign-data-ownership"
+      ],
+      "luu_y": "Chứng nhận chỉ chứng minh đúng phạm vi và phiên bản đã kiểm. Nó không chứng minh dataset sẽ còn đúng tháng sau."
+    },
+    "metadata-engineering-and-catalog": {
+      "tom_tat": "Thu thập metadata, catalog, tìm kiếm, lineage, quyền sở hữu, mức sử dụng và chất lượng metadata.",
+      "dung_khi": [
+        "Dựng catalog dữ liệu",
+        "Cần lineage giữa các bảng",
+        "Metadata kỹ thuật cần được thu hoạch tự động"
+      ],
+      "khong_dung_khi": "Skill này mô tả tài sản chứ không xây chúng: dựng pipeline → data-engineering, mô hình hoá → analytics-engineering.",
+      "bat_dau_tu": [
+        "meta-inventory-data-assets",
+        "meta-harvest-technical-metadata"
+      ],
+      "luu_y": "Lineage vẽ từ tài liệu không phải lineage. Nó phải sinh từ chính hệ thống."
+    },
+    "data-platform-and-dataops": {
+      "tom_tat": "Nền tảng dữ liệu, môi trường, orchestration, CI/CD, observability, năng lực, độ tin cậy, chi phí và khôi phục thảm hoạ.",
+      "dung_khi": [
+        "Cấp môi trường mới",
+        "Dựng CI/CD cho dữ liệu",
+        "Cần observability hoặc kiểm soát chi phí",
+        "Diễn tập khôi phục"
+      ],
+      "khong_dung_khi": "Vòng đời model (registry, drift, retrain) → mlops. Đây là nền tảng mà các workload đó chạy trên.",
+      "bat_dau_tu": [
+        "platform-provision-data-environment",
+        "platform-configure-data-iam"
+      ],
+      "luu_y": "Rollback chưa từng chạy thử là một kế hoạch, không phải một biện pháp kiểm soát."
+    },
+    "data-developer-experience": {
+      "tom_tat": "Trải nghiệm lập trình viên dữ liệu: thiết lập máy, cấu trúc kho, hiểu đường đi dữ liệu đầu-cuối, template, môi trường local, phản hồi CI và golden path.",
+      "dung_khi": [
+        "Người mới mất quá lâu để chạy được dự án",
+        "Cần đọc hiểu một kho lạ",
+        "Muốn truy vết dữ liệu đi từ đâu tới đâu",
+        "Cần chuẩn hoá template"
+      ],
+      "khong_dung_khi": "Onboarding con người theo lộ trình → data-onboarding-and-integration. Đây là về kho và công cụ.",
+      "bat_dau_tu": [
+        "dx-audit-data-repository",
+        "dx-reverse-engineer-data-project"
+      ],
+      "luu_y": "Kết luận về một kho phải dựa trên file đã đọc thật. Sự tồn tại của file không chứng minh nó đang hoạt động."
+    },
+    "data-engineering": {
+      "tom_tat": "Thiết kế, xây, kiểm thử, chẩn đoán execution plan và vận hành pipeline batch, API, file, CDC, streaming — kèm idempotency, tiến hoá schema, đối soát, khôi phục và runbook.",
+      "dung_khi": [
+        "Nạp dữ liệu từ nguồn về kho",
+        "Pipeline chạy lại bị nhân bản dữ liệu",
+        "Schema nguồn đổi",
+        "Pipeline chậm hoặc chết cần chẩn đoán"
+      ],
+      "khong_dung_khi": "Pipeline sinh feature và serving model → machine-learning-engineering. Mô hình hoá kiểu dbt → analytics-engineering. Thu hoạch catalog/lineage → metadata-engineering-and-catalog.",
+      "bat_dau_tu": [
+        "de-profile-source-system",
+        "de-design-ingestion-pipeline"
+      ],
+      "luu_y": "Idempotency không phải tính năng thêm vào sau. Pipeline không idempotent thì mọi lần retry đều là một sự cố dữ liệu."
+    },
+    "analytics-engineering": {
+      "tom_tat": "Mô hình staging, intermediate, mart, dimensional và semantic có quản trị — kèm test, tài liệu, lineage, logic incremental và kiểm soát phát hành.",
+      "dung_khi": [
+        "Dựng mart bằng dbt",
+        "Cần mô hình dimensional",
+        "Metric cần một định nghĩa duy nhất",
+        "Model chạy chậm cần tối ưu"
+      ],
+      "khong_dung_khi": "Nạp dữ liệu từ nguồn → data-engineering. Catalog và lineage → metadata-engineering-and-catalog.",
+      "bat_dau_tu": [
+        "ae-translate-business-logic",
+        "ae-design-dimensional-model"
+      ],
+      "luu_y": "Model không có test là một câu truy vấn được lưu lại, không phải một tài sản dữ liệu."
+    },
+    "data-analysis": {
+      "tom_tat": "EDA lập trình được, phân tích tái lập được, giải thích SQL sang ngôn ngữ nghiệp vụ, truyền đạt phương pháp, peer review và retrospective.",
+      "dung_khi": [
+        "Cần trả lời một câu hỏi từ dữ liệu",
+        "Giải thích một đoạn SQL phức tạp cho người không kỹ thuật",
+        "Ước lượng cơ hội kinh doanh",
+        "Rà soát phân tích của người khác"
+      ],
+      "khong_dung_khi": "Biến yêu cầu mơ hồ thành đặc tả → data-business-analysis. Sự kiện sản phẩm, funnel, thử nghiệm → product-analytics-and-experimentation.",
+      "bat_dau_tu": [
+        "da-clarify-business-question",
+        "da-write-analysis-plan"
+      ],
+      "luu_y": "Làm rõ câu hỏi trước khi chạm vào dữ liệu. Phân tích đúng cho câu hỏi sai vẫn là vô dụng."
+    },
+    "business-intelligence": {
+      "tom_tat": "Semantic model, KPI, dashboard, báo cáo, tương tác, row-level security, refresh, khả năng tiếp cận và mức độ áp dụng.",
+      "dung_khi": [
+        "Dựng dashboard",
+        "Cần RLS phân quyền theo người xem",
+        "Dashboard chậm hoặc không ai dùng",
+        "Cần UAT với người dùng thật"
+      ],
+      "khong_dung_khi": "Xây pipeline → data-engineering. Mô hình hoá kho → analytics-engineering. Skill này sở hữu từ tầng semantic trở lên.",
+      "bat_dau_tu": [
+        "bi-translate-dashboard-spec",
+        "bi-build-semantic-model"
+      ],
+      "luu_y": "Dashboard không ai mở là chi phí, không phải tài sản. Đo mức áp dụng, đừng chỉ đo lúc bàn giao."
+    },
+    "product-analytics-and-experimentation": {
+      "tom_tat": "Định nghĩa event và metric sản phẩm, phân tích funnel, activation, retention, tăng trưởng; thiết kế và đánh giá thử nghiệm.",
+      "dung_khi": [
+        "Cần thiết kế event taxonomy",
+        "Phân tích funnel hoặc retention",
+        "Thiết kế A/B test",
+        "Đọc kết quả một thử nghiệm"
+      ],
+      "khong_dung_khi": "Phân tích tổng quát trên dữ liệu có sẵn → data-analysis.",
+      "bat_dau_tu": [
+        "pa-define-product-event",
+        "pa-design-event-taxonomy"
+      ],
+      "luu_y": "Tính cỡ mẫu trước khi mở traffic. Đọc kết quả rồi mới quyết định dừng là cách tự lừa mình."
+    },
+    "data-science": {
+      "tom_tat": "Nghiên cứu thống kê, nhân quả, dự báo, tối ưu và học máy — kèm kiểm soát rò rỉ, validation, khả năng giải thích và bằng chứng rủi ro mô hình.",
+      "dung_khi": [
+        "Cần khung hoá một bài toán mô hình",
+        "Suy luận nhân quả chứ không chỉ tương quan",
+        "Dự báo hoặc tối ưu",
+        "Cần model card và đánh giá công bằng"
+      ],
+      "khong_dung_khi": "Đưa model lên production → machine-learning-engineering. Vận hành vòng đời → mlops.",
+      "bat_dau_tu": [
+        "ds-frame-modeling-problem",
+        "ds-design-modeling-dataset"
+      ],
+      "luu_y": "Rò rỉ dữ liệu là lỗi phổ biến nhất và khó thấy nhất. Chặn nó ở bước thiết kế dataset, không phải ở bước đánh giá."
+    },
+    "machine-learning-engineering": {
+      "tom_tat": "Pipeline huấn luyện, feature, artifact model, serving batch hoặc online, hiệu năng, kiểm thử, giao diện triển khai và khả năng chịu lỗi.",
+      "dung_khi": [
+        "Đưa code model từ notebook lên production",
+        "Xây feature pipeline",
+        "Serving online cần độ trễ thấp",
+        "Lo lệch train/serve"
+      ],
+      "khong_dung_khi": "Nạp dữ liệu chung → data-engineering. Registry, drift, rollout → mlops.",
+      "bat_dau_tu": [
+        "mle-productionize-model-code",
+        "mle-build-feature-pipeline"
+      ],
+      "luu_y": "Một feature thiếu, đổi dtype hay category lạ đang mang traffic thật là lỗi cấu trúc, không phải drift để theo dõi sau."
+    },
+    "mlops": {
+      "tom_tat": "Vòng đời ML: theo dõi thí nghiệm, registry, CI/CD, triển khai, giám sát, drift, retrain, rollback, lineage và quản trị.",
+      "dung_khi": [
+        "Cần registry và quản lý phiên bản model",
+        "Triển khai model mới",
+        "Phát hiện drift và quyết định retrain",
+        "Cần rollback được"
+      ],
+      "khong_dung_khi": "Môi trường, orchestration và CI/CD chung của nền tảng → data-platform-and-dataops.",
+      "bat_dau_tu": [
+        "mlops-provision-ml-environment",
+        "mlops-register-model-version"
+      ],
+      "luu_y": "Phê duyệt phải gắn với đúng hash artifact và đúng stage. Đổi phiên bản là phê duyệt hết hiệu lực."
+    },
+    "data-quality-and-reliability": {
+      "tom_tat": "Quy tắc chất lượng và SLO, observability, đối soát, phân loại sự cố, game day và phòng ngừa tái diễn.",
+      "dung_khi": [
+        "Cần định nghĩa quy tắc chất lượng",
+        "Số liệu lệch giữa hai hệ thống",
+        "Có sự cố dữ liệu cần chẩn đoán",
+        "Muốn diễn tập sự cố"
+      ],
+      "khong_dung_khi": "Sửa chính pipeline gây lỗi → data-engineering. Skill này định nghĩa và phát hiện, việc sửa thuộc chủ sở hữu pipeline.",
+      "bat_dau_tu": [
+        "dq-profile-critical-dataset",
+        "dq-define-data-quality-rule"
+      ],
+      "luu_y": "Postmortem không có hành động phòng ngừa có chủ sở hữu chỉ là một bản tường thuật."
+    },
+    "data-security-and-privacy": {
+      "tom_tat": "Phân loại, threat model, đặc quyền tối thiểu, mã hoá, masking, audit, quy trình quyền riêng tư và ứng phó sự cố.",
+      "dung_khi": [
+        "Cần tìm và phân loại dữ liệu nhạy cảm",
+        "Thiết kế masking hoặc mã hoá",
+        "Xử lý yêu cầu của chủ thể dữ liệu",
+        "Có nghi ngờ rò rỉ"
+      ],
+      "khong_dung_khi": "Quyền sở hữu, từ điển và chính sách quản trị → data-governance-and-stewardship.",
+      "bat_dau_tu": [
+        "sec-discover-sensitive-data",
+        "sec-classify-sensitive-data"
+      ],
+      "luu_y": "Việc xoá và ứng phó rò rỉ là R4. Không có thẩm quyền bằng văn bản thì dừng, đừng làm trước rồi báo sau."
+    },
+    "master-data-management": {
+      "tom_tat": "Thực thể chủ, so khớp danh tính, survivorship, golden record, dữ liệu tham chiếu, phân cấp, stewardship và đồng bộ.",
+      "dung_khi": [
+        "Cùng một khách hàng tồn tại nhiều bản ghi",
+        "Cần quy tắc so khớp và gộp",
+        "Xây dữ liệu tham chiếu dùng chung"
+      ],
+      "khong_dung_khi": "Chất lượng dữ liệu nói chung → data-quality-and-reliability.",
+      "bat_dau_tu": [
+        "mdm-design-master-entity",
+        "mdm-profile-entity-duplicates"
+      ],
+      "luu_y": "Gộp sai hai người thành một khó phát hiện hơn nhiều so với để trùng. Ngưỡng so khớp phải chốt trước, không chỉnh sau khi nhìn kết quả."
+    },
+    "generative-ai-engineering": {
+      "tom_tat": "RAG, retrieval, prompt, agent dùng tool và hệ GenAI có quản trị — kèm guardrail, kiểm thử injection, giám sát và system card.",
+      "dung_khi": [
+        "Xây RAG hoặc agent",
+        "Cần bộ đánh giá cho hệ GenAI",
+        "Lo prompt injection",
+        "Model trả lời sai cần phân tích thất bại"
+      ],
+      "khong_dung_khi": "Model học máy truyền thống → data-science và machine-learning-engineering.",
+      "bat_dau_tu": [
+        "ai-frame-generative-ai-use-case",
+        "ai-design-evaluation-dataset"
+      ],
+      "luu_y": "Báo khoảng tin cậy chứ không phải tỷ lệ pass trần trụi. Lần chạy có khoảng tin cậy trùm lên baseline là chưa kết luận được."
+    },
+    "data-documentation-and-diagrams": {
+      "tom_tat": "Tài liệu dữ liệu đã kiểm chứng, ADR, runbook, postmortem, ERD, BPMN, sequence, state, lineage và sơ đồ kiến trúc.",
+      "dung_khi": [
+        "Cần một sơ đồ",
+        "Viết runbook hoặc ADR",
+        "Tài liệu hoá một hệ thống"
+      ],
+      "khong_dung_khi": "Nếu deliverable chính không phải tài liệu hay sơ đồ thì vào skill của vai đó; tài liệu là sản phẩm phụ ở đó.",
+      "bat_dau_tu": [
+        "docs-select-diagram-type",
+        "docs-create-mermaid-activity-diagram"
+      ],
+      "luu_y": "Sơ đồ phải khai `observed`, `proposed` hay `illustrative` ngay trên hình. Sơ đồ vẽ từ sơ đồ khác thừa hưởng mọi lỗi và không thừa hưởng độ tươi."
+    },
+    "data-enablement-and-knowledge": {
+      "tom_tat": "Onboarding kỹ thuật, kế hoạch học, giải thích, walkthrough, pairing, kiểm tra kiến thức, bài viết và chăm sóc kho tri thức nội bộ.",
+      "dung_khi": [
+        "Cần giải thích một hệ thống cho đồng nghiệp",
+        "Viết walkthrough code",
+        "Dọn kho tri thức bị trùng lặp và cũ"
+      ],
+      "khong_dung_khi": "Chương trình học chính quy có đánh giá và chứng nhận → data-academy-and-curriculum.",
+      "bat_dau_tu": [
+        "enable-create-role-onboarding",
+        "enable-create-system-onboarding"
+      ],
+      "luu_y": "Bài viết không có chủ sở hữu và ngày rà soát sẽ thành sai lệch mà không ai biết."
+    },
+    "data-academy-and-curriculum": {
+      "tom_tat": "Chương trình học theo vai: lý thuyết, lab, capstone, đánh giá, khắc phục, chứng nhận và đo hiệu quả. Cũng là nơi dựng bộ note kiến thức đầy đủ cho một domain.",
+      "dung_khi": [
+        "Thiết kế chương trình học cho một vai",
+        "Viết deep dive về một concept",
+        "Dựng cả một bộ note cho một lĩnh vực",
+        "Cần bài kiểm tra và rubric chấm"
+      ],
+      "khong_dung_khi": "Vòng phỏng vấn, scorecard, đánh giá ứng viên → data-talent-acquisition-and-interview. Skill này dạy, không tuyển chọn.",
+      "bat_dau_tu": [
+        "academy-assess-organizational-learning-needs",
+        "academy-research-role-roadmap"
+      ],
+      "luu_y": "Note đã viết không phải bằng chứng ai đó đã học. Academy đề xuất hạng bằng chứng, Career mới quyết định mastery."
+    },
+    "data-onboarding-and-integration": {
+      "tom_tat": "Preboarding, sẵn sàng quyền truy cập, định hướng, shadowing, việc đầu tiên, checkpoint, chuyển vai, quay lại và rời đi.",
+      "dung_khi": [
+        "Có người mới sắp vào",
+        "Ai đó chuyển vai trong nội bộ",
+        "Cần checkpoint 30/60/90 ngày",
+        "Có người nghỉ việc"
+      ],
+      "khong_dung_khi": "Trải nghiệm với kho và công cụ → data-developer-experience. Chương trình học → data-academy-and-curriculum.",
+      "bat_dau_tu": [
+        "onboard-define-data-onboarding-standard",
+        "onboard-plan-new-hire-onboarding"
+      ],
+      "luu_y": "Một chiều đánh giá dưới ngưỡng sẽ chặn quyết định sẵn sàng, không được lấy trung bình để xoá đi."
+    },
+    "data-talent-acquisition-and-interview": {
+      "tom_tat": "Tuyển dụng có cấu trúc: hồ sơ vai, scorecard, vòng phỏng vấn, work sample, rubric, hiệu chỉnh, debrief, kiểm soát công bằng và giá trị đo lường.",
+      "dung_khi": [
+        "Cần thiết kế vòng phỏng vấn",
+        "Viết scorecard và rubric",
+        "Hiệu chỉnh giữa các người phỏng vấn",
+        "Rà soát công bằng của ngân hàng câu hỏi"
+      ],
+      "khong_dung_khi": "Đào tạo nhân sự hiện có → data-academy-and-curriculum. Skill này quyết định tuyển ai, không dạy.",
+      "bat_dau_tu": [
+        "talent-validate-workforce-need",
+        "talent-define-data-role-profile"
+      ],
+      "luu_y": "Tỷ lệ chọn dưới 0.80 là tín hiệu để đi điều tra câu hỏi, không phải kết luận có phân biệt đối xử — và trên ngưỡng cũng không phải bằng chứng công bằng."
+    },
+    "data-career-and-interview-coach": {
+      "tom_tat": "Hệ thống nghề nghiệp có bằng chứng: bộ nhớ học xuyên skill, theo dõi mastery và suy giảm, context chuyển chủ đề, bản đồ năng lực, portfolio, sẵn sàng phỏng vấn.",
+      "dung_khi": [
+        "Muốn biết mình còn thiếu gì cho một vai",
+        "Chuyển từ chủ đề này sang chủ đề khác mà không học lại từ đầu",
+        "Luyện phỏng vấn có chấm điểm",
+        "Cập nhật trạng thái thành thạo sau khi học"
+      ],
+      "khong_dung_khi": "Thiết kế chương trình cho người khác → data-academy-and-curriculum. Skill này là bộ nhớ và đánh giá của riêng bạn.",
+      "bat_dau_tu": [
+        "career-clarify-target-data-role",
+        "career-assess-role-readiness"
+      ],
+      "luu_y": "Không bao giờ suy ra mastery từ việc đã đọc hay đã tham dự. `mastered` cần ứng dụng độc lập và một bài chuyển tình huống."
+    },
+    "data-technical-content-and-social": {
+      "tom_tat": "Chuỗi nội dung kỹ thuật có bằng chứng: nghiên cứu, bài viết chuẩn, code, sơ đồ, bản thích ứng theo kênh, QA, xuất bản và đo lường.",
+      "dung_khi": [
+        "Muốn làm một series kỹ thuật",
+        "Viết bài Facebook tiếng Việt hoặc LinkedIn/Substack tiếng Anh",
+        "Đóng gói kho code cho bài viết"
+      ],
+      "khong_dung_khi": "Ghi chú học tập riêng → personal-second-brain-and-knowledge-os hoặc data-academy-and-curriculum.",
+      "bat_dau_tu": [
+        "content-define-technical-content-strategy",
+        "content-research-technical-topic"
+      ],
+      "luu_y": "Reach và lượt tương tác là tín hiệu khán giả, không bao giờ là bằng chứng năng lực."
+    },
+    "data-personal-project-engineering": {
+      "tom_tat": "Dự án cá nhân có khác biệt cho portfolio, học tập hoặc capstone — từ một bài toán, dataset, kho tham khảo, khoảng trống năng lực, công nghệ, paper, khoá học, issue mã nguồn mở hay một sự cố.",
+      "dung_khi": [
+        "Cần ý tưởng dự án cho portfolio",
+        "Có một repo tham khảo muốn học theo mà không sao chép",
+        "Cần đánh giá dự án đã đủ làm bằng chứng chưa"
+      ],
+      "khong_dung_khi": "Việc của tổ chức có nhiều vai → data-department-orchestrator.",
+      "bat_dau_tu": [
+        "project-classify-starting-point",
+        "project-select-project-mode"
+      ],
+      "luu_y": "Cảm hứng vay mượn phải được chuyển thành luận điểm của chính bạn, có ghi nguồn. Kho tham khảo giấy phép NonCommercial hay NoDerivatives thì chỉ được dẫn link, không được dịch hay phóng tác."
+    },
+    "personal-second-brain-and-knowledge-os": {
+      "tom_tat": "Second Brain local-first với bốn tầng 1_Nguon, 2_Wiki, 3_Toi, 4_Ket-Qua. Cho Obsidian hoặc hệ file local.",
+      "dung_khi": [
+        "Muốn dựng hệ ghi chú cá nhân",
+        "Di trú từ Notion, Sheets hay Lark",
+        "Cần truy xuất có nguồn gốc từ ghi chú của mình",
+        "Lo về riêng tư, sao lưu, độ tươi"
+      ],
+      "khong_dung_khi": "Context dùng chung của tổ chức → company-data-context.",
+      "bat_dau_tu": [
+        "brain-assess-current-knowledge-system",
+        "brain-define-second-brain-purpose"
+      ],
+      "luu_y": "Ranh giới bốn tầng là điều quan trọng nhất. Không bao giờ bịa nội dung vào 3_Toi — đó là tầng của chính bạn."
+    },
+    "book-to-knowledge-and-action": {
+      "tom_tat": "Biến sách, PDF, EPUB hay bộ tài liệu thành skill, pack Second Brain, hệ thống nghề nghiệp, giáo trình, workflow hoặc nội dung kỹ thuật.",
+      "dung_khi": [
+        "Có một cuốn sách muốn biến thành thứ dùng được",
+        "Cần trích khung tư duy chứ không phải tóm tắt",
+        "Muốn nạp một bộ tài liệu vào hệ tri thức"
+      ],
+      "khong_dung_khi": "Nếu nguồn không phải sách hay tài liệu dài thì thường là skill khác.",
+      "bat_dau_tu": [
+        "book-classify-conversion-purpose",
+        "book-assess-source-rights"
+      ],
+      "luu_y": "Kiểm quyền và ấn bản trước khi xử lý. Cấu trúc quan trọng hơn tóm tắt, và trích dẫn phải giữ được locator để truy ngược."
+    }
+  }
+}
