@@ -1,0 +1,22 @@
+{
+  "name": "data-department-studio",
+  "version": "0.1.0",
+  "description": "Local launcher for the Data Department agent skills suite",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --linux AppImage deb"
+  },
+  "author": "kina2711",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "vn.kina2711.ddstudio",
+    "productName": "Data Department Studio",
+    "files": ["src/**/*", "package.json"],
+    "linux": { "category": "Development", "target": ["AppImage", "deb"] }
+  }
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self' data:;">
+<title>Data Department Studio</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="shell">
+  <header class="top">
+    <h1>Skills</h1>
+    <span class="chip" id="suiteChip">chưa nối suite</span>
+  </header>
+  <p class="subtitle" id="subtitle">Chọn một skill, chọn thư mục làm việc, rồi mở phiên Claude Code trong đó.</p>
+
+  <div class="tabs" role="tablist">
+    <button id="tabSkills" role="tab" aria-selected="true">Skills</button>
+    <button id="tabWorkflow" role="tab" aria-selected="false">Workflow</button>
+  </div>
+
+  <div id="notice"></div>
+
+  <div class="toolbar">
+    <input class="search" id="search" type="search" placeholder="Tìm skill hoặc task…" autocomplete="off">
+    <div class="seg" id="tierFilter" role="group" aria-label="Lọc theo model tier">
+      <button data-tier="" aria-pressed="true">Tất cả</button>
+      <button data-tier="strong" aria-pressed="false">Strong</button>
+      <button data-tier="standard" aria-pressed="false">Standard</button>
+      <button data-tier="light" aria-pressed="false">Light</button>
+    </div>
+    <button class="btn" id="pickSuite">Chọn thư mục suite</button>
+  </div>
+
+  <div id="viewSkills" class="view">
+    <div id="grid" class="grid"></div>
+  </div>
+
+  <div id="viewWorkflow" class="view" hidden>
+    <div class="wf-bar">
+      <button class="btn" id="wfOpen">Mở manifest…</button>
+      <button class="btn" id="wfNew">Tạo mới…</button>
+      <span class="wf-file" id="wfFile">Chưa mở workflow nào</span>
+      <select class="btn" id="wfMode" aria-label="Chế độ validate">
+        <option value="plan">plan</option>
+        <option value="execute">execute</option>
+        <option value="complete">complete</option>
+      </select>
+      <button class="btn" id="wfValidate">Validate</button>
+      <button class="btn btn-primary" id="wfSave" disabled>Lưu</button>
+    </div>
+    <div class="wf-add">
+      <input class="search" id="wfAddId" list="taskIds" placeholder="task_id từ catalog, ví dụ academy-plan-note-corpus" autocomplete="off">
+      <datalist id="taskIds"></datalist>
+      <button class="btn" id="wfAdd">Thêm task</button>
+    </div>
+    <div class="wf-split">
+      <div id="wfCanvas"></div>
+      <div id="wfInspector"></div>
+    </div>
+    <div id="wfResult"></div>
+  </div>
+</div>
+
+<div class="scrim" id="scrim" data-open="false"></div>
+<aside class="drawer" id="drawer" data-open="false" aria-label="Chi tiết skill">
+  <header>
+    <h2 id="dTitle">—</h2>
+    <p id="dDesc"></p>
+  </header>
+  <div class="body">
+    <p class="drawer-hint">
+      Chọn một task để chạy đúng contract đó, hoặc bỏ trống để Claude tự định tuyến theo primary deliverable.
+    </p>
+    <div id="dTasks"></div>
+  </div>
+  <div class="foot">
+    <span class="folder-line" id="folderLine">Chưa chọn thư mục</span>
+    <div class="row">
+      <button class="btn" id="pickFolder">Chọn thư mục…</button>
+      <button class="btn" id="closeDrawer">Đóng</button>
+      <span class="spacer"></span>
+      <button class="btn btn-primary" id="launch" disabled>Mở phiên</button>
+    </div>
+  </div>
+</aside>
+
+<script src="canvas.js"></script>
+<script src="renderer.js"></script>
+</body>
+</html>
