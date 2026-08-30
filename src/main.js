@@ -87,7 +87,16 @@ ipcMain.handle('folder:pick', async () => {
 });
 
 /** Launch Claude Code in a terminal, in the chosen folder, primed with the chosen skill.
- *  The app never runs the model itself and never edits the user's files. */
+ *  The app never runs the model itself and never edits the user's files.
+ *
+ *  The invocation goes into a generated script rather than onto the terminal's command line:
+ *  the prompt contains spaces and quotes, terminals disagree about how -e parses its remainder,
+ *  and a script can hold the window open so a failure to start is readable instead of a window
+ *  that blinks and disappears. */
+function shellQuote(value) {
+  return `'${String(value).replace(/'/g, `'\\''`)}'`;
+}
+
 ipcMain.handle('session:launch', (_e, { folder, skillId, taskId, suitePath }) => {
   if (!folder || !fs.existsSync(folder)) return { ok: false, error: 'Thư mục không tồn tại' };
 
@@ -95,29 +104,46 @@ ipcMain.handle('session:launch', (_e, { folder, skillId, taskId, suitePath }) =>
     ? `Use the ${skillId} skill and run the atomic task ${taskId} in this directory.`
     : `Use the ${skillId} skill for work in this directory. Route to the right atomic task by primary deliverable.`;
 
-  const args = [];
+  const argv = ['claude'];
   if (suitePath && fs.existsSync(path.join(suitePath, '.claude-plugin'))) {
-    args.push('--plugin-dir', suitePath);
+    argv.push('--plugin-dir', suitePath);
   }
-  args.push(prompt);
+  argv.push(prompt);
+
+  const scriptPath = path.join(os.tmpdir(), `dd-studio-${Date.now()}.sh`);
+  const script = [
+    '#!/usr/bin/env bash',
+    `cd ${shellQuote(folder)} || { echo "Không vào được thư mục"; read -rp "Enter để đóng"; exit 1; }`,
+    argv.map(shellQuote).join(' '),
+    'status=$?',
+    'echo',
+    'if [ "$status" -ne 0 ]; then echo "claude thoát với mã $status"; fi',
+    'read -rp "Enter để đóng cửa sổ này"',
+    `rm -f ${shellQuote(scriptPath)}`,
+    '',
+  ].join('\n');
+
+  try {
+    fs.writeFileSync(scriptPath, script, { mode: 0o700 });
+  } catch (err) {
+    return { ok: false, error: `Không ghi được script phóng: ${err.message}` };
+  }
 
   const terminals = [
     ['x-terminal-emulator', ['-e']],
-    ['gnome-terminal', ['--working-directory=' + folder, '--']],
+    ['gnome-terminal', [`--working-directory=${folder}`, '--']],
     ['konsole', ['--workdir', folder, '-e']],
-    ['xfce4-terminal', ['--working-directory=' + folder, '-x']],
+    ['xfce4-terminal', [`--working-directory=${folder}`, '-x']],
     ['xterm', ['-e']],
   ];
 
   for (const [bin, prefix] of terminals) {
     try {
-      const child = spawn(bin, [...prefix, 'claude', ...args], {
-        cwd: folder,
-        detached: true,
-        stdio: 'ignore',
+      const child = spawn(bin, [...prefix, 'bash', scriptPath], {
+        cwd: folder, detached: true, stdio: 'ignore',
       });
       child.unref();
-      return { ok: true, terminal: bin };
+      return { ok: true, terminal: bin, script: scriptPath };
     } catch {
       /* try the next terminal */
     }

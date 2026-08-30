@@ -43,6 +43,16 @@ env -u ELECTRON_RUN_AS_NODE npm start
 npm run dist    # AppImage + .deb in dist/
 ```
 
+`dist/Data Department Studio-0.1.0.AppImage` runs with no install — mark it executable and
+double-click. `dist/data-department-studio_0.1.0_amd64.deb` installs to `/opt` and registers a
+desktop entry, so the app appears in the applications menu with its icon:
+
+```bash
+sudo dpkg -i dist/data-department-studio_0.1.0_amd64.deb
+```
+
+Both are Linux x64. macOS and Windows targets need their own build hosts and are untested.
+
 ## First run
 
 Click **Chọn thư mục suite** and point it at the directory containing `suite-manifest.yaml`.
@@ -62,5 +72,9 @@ The choice is remembered in the app's user-data directory, alongside recent work
 
 - Linux only so far: the launcher looks for `x-terminal-emulator`, `gnome-terminal`, `konsole`,
   `xfce4-terminal` then `xterm`. macOS and Windows need their own branch.
+- Launching writes a short script to the OS temp directory and runs that, rather than putting the
+  prompt on the terminal's command line. Terminals disagree about how `-e` parses its remainder,
+  prompts contain quotes, and a script can hold the window open so a failure to start is readable
+  instead of a window that blinks and disappears.
 - Model tier comes from the suite's own catalog. It is a recommendation the contract carries,
   not something this app enforces at runtime.
