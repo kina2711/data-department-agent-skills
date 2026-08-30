@@ -1,0 +1,297 @@
+{
+  "workflow_id": "analytics-engineering-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through analytics-engineering. Edges encode phase precedence from docs/skill-map.md (P0 analytical modeling; P1 lifecycle và scale; P2 semantic governance), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R3-controlled",
+  "current_task_id": "ae-translate-business-logic",
+  "tasks": [
+    {
+      "task_id": "ae-translate-business-logic",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-design-dimensional-model",
+      "owner": "",
+      "depends_on": [
+        "ae-translate-business-logic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-build-staging-model",
+      "owner": "",
+      "depends_on": [
+        "ae-translate-business-logic"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-build-intermediate-model",
+      "owner": "",
+      "depends_on": [
+        "ae-translate-business-logic"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-build-analytics-mart",
+      "owner": "",
+      "depends_on": [
+        "ae-translate-business-logic"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-implement-incremental-model",
+      "owner": "",
+      "depends_on": [
+        "ae-translate-business-logic"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-implement-slowly-changing-dimension",
+      "owner": "",
+      "depends_on": [
+        "ae-translate-business-logic"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-create-analytics-snapshot",
+      "owner": "",
+      "depends_on": [
+        "ae-translate-business-logic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-write-model-tests",
+      "owner": "",
+      "depends_on": [
+        "ae-translate-business-logic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-document-analytics-model",
+      "owner": "",
+      "depends_on": [
+        "ae-translate-business-logic"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-implement-semantic-metric",
+      "owner": "",
+      "depends_on": [
+        "ae-translate-business-logic"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-certify-analytics-dataset",
+      "owner": "",
+      "depends_on": [
+        "ae-translate-business-logic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-assess-model-change-impact",
+      "owner": "",
+      "depends_on": [
+        "ae-translate-business-logic"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-refactor-analytics-model",
+      "owner": "",
+      "depends_on": [
+        "ae-assess-model-change-impact"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-optimize-analytics-query",
+      "owner": "",
+      "depends_on": [
+        "ae-assess-model-change-impact"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-backfill-analytics-model",
+      "owner": "",
+      "depends_on": [
+        "ae-assess-model-change-impact"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-troubleshoot-model-failure",
+      "owner": "",
+      "depends_on": [
+        "ae-assess-model-change-impact"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-review-analytics-pull-request",
+      "owner": "",
+      "depends_on": [
+        "ae-assess-model-change-impact"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-manage-metric-version",
+      "owner": "",
+      "depends_on": [
+        "ae-assess-model-change-impact"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-detect-duplicate-metrics",
+      "owner": "",
+      "depends_on": [
+        "ae-assess-model-change-impact"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-deprecate-analytics-model",
+      "owner": "",
+      "depends_on": [
+        "ae-detect-duplicate-metrics"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ae-design-self-service-data-product",
+      "owner": "",
+      "depends_on": [
+        "ae-detect-duplicate-metrics"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

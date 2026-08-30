@@ -1,0 +1,284 @@
+{
+  "workflow_id": "data-platform-and-dataops-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through data-platform-and-dataops. Edges encode phase precedence from docs/skill-map.md (P0 platform foundation; P1 operations at scale; P2 ecosystem evolution), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R3-controlled",
+  "current_task_id": "platform-provision-data-environment",
+  "tasks": [
+    {
+      "task_id": "platform-provision-data-environment",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-configure-data-iam",
+      "owner": "",
+      "depends_on": [
+        "platform-provision-data-environment"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-manage-data-secrets",
+      "owner": "",
+      "depends_on": [
+        "platform-provision-data-environment"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-provision-data-storage",
+      "owner": "",
+      "depends_on": [
+        "platform-provision-data-environment"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-provision-data-compute",
+      "owner": "",
+      "depends_on": [
+        "platform-provision-data-environment"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-deploy-orchestrator",
+      "owner": "",
+      "depends_on": [
+        "platform-provision-data-environment"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-build-data-ci-pipeline",
+      "owner": "",
+      "depends_on": [
+        "platform-provision-data-environment"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-build-data-cd-pipeline",
+      "owner": "",
+      "depends_on": [
+        "platform-provision-data-environment"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-configure-platform-observability",
+      "owner": "",
+      "depends_on": [
+        "platform-provision-data-environment"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-backup-data-platform",
+      "owner": "",
+      "depends_on": [
+        "platform-provision-data-environment"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-test-disaster-recovery",
+      "owner": "",
+      "depends_on": [
+        "platform-provision-data-environment"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-upgrade-data-service",
+      "owner": "",
+      "depends_on": [
+        "platform-test-disaster-recovery"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-manage-network-connectivity",
+      "owner": "",
+      "depends_on": [
+        "platform-test-disaster-recovery"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-create-self-service-template",
+      "owner": "",
+      "depends_on": [
+        "platform-test-disaster-recovery"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-enforce-policy-as-code",
+      "owner": "",
+      "depends_on": [
+        "platform-test-disaster-recovery"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-troubleshoot-platform-incident",
+      "owner": "",
+      "depends_on": [
+        "platform-test-disaster-recovery"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-measure-platform-slos",
+      "owner": "",
+      "depends_on": [
+        "platform-test-disaster-recovery"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-optimize-platform-cost",
+      "owner": "",
+      "depends_on": [
+        "platform-test-disaster-recovery"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-evaluate-platform-capacity",
+      "owner": "",
+      "depends_on": [
+        "platform-test-disaster-recovery"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-migrate-platform-workload",
+      "owner": "",
+      "depends_on": [
+        "platform-evaluate-platform-capacity"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "platform-deprecate-platform-component",
+      "owner": "",
+      "depends_on": [
+        "platform-evaluate-platform-capacity"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

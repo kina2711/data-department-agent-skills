@@ -1,0 +1,323 @@
+{
+  "workflow_id": "data-business-analysis-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through data-business-analysis. Edges encode phase precedence from docs/skill-map.md (P0 discovery và requirements; P1 process và traceability), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R2-standard",
+  "current_task_id": "ba-frame-business-problem",
+  "tasks": [
+    {
+      "task_id": "ba-frame-business-problem",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-map-stakeholders",
+      "owner": "",
+      "depends_on": [
+        "ba-frame-business-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-map-business-decision",
+      "owner": "",
+      "depends_on": [
+        "ba-frame-business-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-define-scope-contract",
+      "owner": "",
+      "depends_on": [
+        "ba-frame-business-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-plan-discovery-interview",
+      "owner": "",
+      "depends_on": [
+        "ba-frame-business-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-run-discovery-workshop",
+      "owner": "",
+      "depends_on": [
+        "ba-frame-business-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-elicit-business-requirements",
+      "owner": "",
+      "depends_on": [
+        "ba-frame-business-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-write-business-requirements-document",
+      "owner": "",
+      "depends_on": [
+        "ba-frame-business-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-write-functional-requirements",
+      "owner": "",
+      "depends_on": [
+        "ba-frame-business-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-write-nonfunctional-requirements",
+      "owner": "",
+      "depends_on": [
+        "ba-frame-business-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-define-business-rules",
+      "owner": "",
+      "depends_on": [
+        "ba-frame-business-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-write-acceptance-criteria",
+      "owner": "",
+      "depends_on": [
+        "ba-frame-business-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-document-as-is-process",
+      "owner": "",
+      "depends_on": [
+        "ba-frame-business-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-design-to-be-process",
+      "owner": "",
+      "depends_on": [
+        "ba-document-as-is-process"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-write-use-case-specification",
+      "owner": "",
+      "depends_on": [
+        "ba-document-as-is-process"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-map-user-journey",
+      "owner": "",
+      "depends_on": [
+        "ba-document-as-is-process"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-create-business-persona",
+      "owner": "",
+      "depends_on": [
+        "ba-document-as-is-process"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-build-requirement-traceability",
+      "owner": "",
+      "depends_on": [
+        "ba-document-as-is-process"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-prioritize-requirements",
+      "owner": "",
+      "depends_on": [
+        "ba-document-as-is-process"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-validate-requirements",
+      "owner": "",
+      "depends_on": [
+        "ba-document-as-is-process"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-manage-requirement-change",
+      "owner": "",
+      "depends_on": [
+        "ba-document-as-is-process"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-assess-solution-feasibility",
+      "owner": "",
+      "depends_on": [
+        "ba-document-as-is-process"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-seed-project-risk-register",
+      "owner": "",
+      "depends_on": [
+        "ba-document-as-is-process"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ba-handoff-requirements-to-delivery",
+      "owner": "",
+      "depends_on": [
+        "ba-document-as-is-process"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

@@ -1,0 +1,284 @@
+{
+  "workflow_id": "data-department-orchestrator-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through data-department-orchestrator. Edges encode phase precedence from docs/skill-map.md (P0), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R2-standard",
+  "current_task_id": "orchestrator-hydrate-context",
+  "tasks": [
+    {
+      "task_id": "orchestrator-hydrate-context",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-start-repo-first-project",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-start-idea-first-project",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-start-dataset-first-project",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-compose-workflow",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-run-sequential-workflow",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-run-parallel-workflow",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-run-conditional-workflow",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-run-fanout-fanin",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-run-producer-reviewer",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-maintain-run-state",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-resume-workflow",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-write-session-handoff",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-check-information-sufficiency",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-manage-question-register",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-manage-assumption-register",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-manage-conflict-register",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-manage-approval-ledger",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-manage-evidence-ledger",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-enforce-phase-gate",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-evaluate-workflow-completion",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

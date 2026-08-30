@@ -1,0 +1,284 @@
+{
+  "workflow_id": "head-of-data-and-data-product-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through head-of-data-and-data-product. Edges encode phase precedence from docs/skill-map.md (P0 vận hành cơ bản; P1 scale organization; P2 organization development), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R3-controlled",
+  "current_task_id": "hod-assess-data-maturity",
+  "tasks": [
+    {
+      "task_id": "hod-assess-data-maturity",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "hod-define-data-strategy",
+      "owner": "",
+      "depends_on": [
+        "hod-assess-data-maturity"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "hod-build-data-roadmap",
+      "owner": "",
+      "depends_on": [
+        "hod-assess-data-maturity"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "hod-define-data-okrs",
+      "owner": "",
+      "depends_on": [
+        "hod-assess-data-maturity"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dpm-intake-data-request",
+      "owner": "",
+      "depends_on": [
+        "hod-assess-data-maturity"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dpm-frame-data-product-opportunity",
+      "owner": "",
+      "depends_on": [
+        "hod-assess-data-maturity"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dpm-prioritize-data-backlog",
+      "owner": "",
+      "depends_on": [
+        "hod-assess-data-maturity"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dpm-write-data-product-requirements",
+      "owner": "",
+      "depends_on": [
+        "hod-assess-data-maturity"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dpm-plan-data-release",
+      "owner": "",
+      "depends_on": [
+        "hod-assess-data-maturity"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "dpm-accept-data-deliverable",
+      "owner": "",
+      "depends_on": [
+        "hod-assess-data-maturity"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "hod-design-data-operating-model",
+      "owner": "",
+      "depends_on": [
+        "hod-assess-data-maturity"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "hod-plan-data-capacity",
+      "owner": "",
+      "depends_on": [
+        "hod-design-data-operating-model"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "hod-manage-data-portfolio",
+      "owner": "",
+      "depends_on": [
+        "hod-design-data-operating-model"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "hod-define-data-service-slas",
+      "owner": "",
+      "depends_on": [
+        "hod-design-data-operating-model"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "hod-evaluate-data-vendor",
+      "owner": "",
+      "depends_on": [
+        "hod-design-data-operating-model"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "hod-measure-data-product-adoption",
+      "owner": "",
+      "depends_on": [
+        "hod-design-data-operating-model"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "hod-run-data-steering-review",
+      "owner": "",
+      "depends_on": [
+        "hod-design-data-operating-model"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "hod-design-data-team-topology",
+      "owner": "",
+      "depends_on": [
+        "hod-design-data-operating-model"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "hod-define-data-role-competencies",
+      "owner": "",
+      "depends_on": [
+        "hod-design-data-team-topology"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "hod-create-data-hiring-scorecard",
+      "owner": "",
+      "depends_on": [
+        "hod-design-data-team-topology"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "hod-build-data-training-roadmap",
+      "owner": "",
+      "depends_on": [
+        "hod-design-data-team-topology"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

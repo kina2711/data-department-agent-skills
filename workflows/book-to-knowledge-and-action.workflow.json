@@ -1,0 +1,596 @@
+{
+  "workflow_id": "book-to-knowledge-and-action-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through book-to-knowledge-and-action. Edges encode phase precedence from docs/skill-map.md (P0 intake, rights và extraction; P1 structural knowledge distillation; P1 destination compilers; P2 validation, publication và evolution), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R4-critical",
+  "current_task_id": "book-classify-conversion-purpose",
+  "tasks": [
+    {
+      "task_id": "book-classify-conversion-purpose",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-assess-source-rights",
+      "owner": "",
+      "depends_on": [
+        "book-classify-conversion-purpose"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-inventory-source-collection",
+      "owner": "",
+      "depends_on": [
+        "book-classify-conversion-purpose"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-identify-content-type",
+      "owner": "",
+      "depends_on": [
+        "book-classify-conversion-purpose"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-estimate-conversion-budget",
+      "owner": "",
+      "depends_on": [
+        "book-classify-conversion-purpose"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-source-text",
+      "owner": "",
+      "depends_on": [
+        "book-classify-conversion-purpose"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-recover-document-structure",
+      "owner": "",
+      "depends_on": [
+        "book-classify-conversion-purpose"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-map-chapters-and-sections",
+      "owner": "",
+      "depends_on": [
+        "book-classify-conversion-purpose"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-verify-extraction-quality",
+      "owner": "",
+      "depends_on": [
+        "book-classify-conversion-purpose"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-build-source-manifest",
+      "owner": "",
+      "depends_on": [
+        "book-classify-conversion-purpose"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-frameworks",
+      "owner": "",
+      "depends_on": [
+        "book-classify-conversion-purpose"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-mental-models",
+      "owner": "",
+      "depends_on": [
+        "book-extract-frameworks"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-principles",
+      "owner": "",
+      "depends_on": [
+        "book-extract-frameworks"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-techniques",
+      "owner": "",
+      "depends_on": [
+        "book-extract-frameworks"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-antipatterns",
+      "owner": "",
+      "depends_on": [
+        "book-extract-frameworks"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-decision-rules",
+      "owner": "",
+      "depends_on": [
+        "book-extract-frameworks"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-examples-and-cases",
+      "owner": "",
+      "depends_on": [
+        "book-extract-frameworks"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-technical-artifacts",
+      "owner": "",
+      "depends_on": [
+        "book-extract-frameworks"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-build-concept-glossary",
+      "owner": "",
+      "depends_on": [
+        "book-extract-frameworks"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-build-topic-index",
+      "owner": "",
+      "depends_on": [
+        "book-extract-frameworks"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-build-knowledge-graph",
+      "owner": "",
+      "depends_on": [
+        "book-extract-frameworks"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-resolve-author-claims",
+      "owner": "",
+      "depends_on": [
+        "book-extract-frameworks"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-compare-multiple-books",
+      "owner": "",
+      "depends_on": [
+        "book-extract-frameworks"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-build-agent-skill",
+      "owner": "",
+      "depends_on": [
+        "book-extract-frameworks"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-build-progressive-chapter-pack",
+      "owner": "",
+      "depends_on": [
+        "book-build-agent-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-build-decision-cheatsheet",
+      "owner": "",
+      "depends_on": [
+        "book-build-agent-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-build-second-brain-pack",
+      "owner": "",
+      "depends_on": [
+        "book-build-agent-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-build-career-application-pack",
+      "owner": "",
+      "depends_on": [
+        "book-build-agent-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-build-interview-knowledge-pack",
+      "owner": "",
+      "depends_on": [
+        "book-build-agent-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-build-project-application-pack",
+      "owner": "",
+      "depends_on": [
+        "book-build-agent-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-build-curriculum-pack",
+      "owner": "",
+      "depends_on": [
+        "book-build-agent-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-build-technical-content-series",
+      "owner": "",
+      "depends_on": [
+        "book-build-agent-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-build-action-experiment-plan",
+      "owner": "",
+      "depends_on": [
+        "book-build-agent-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-build-workflow-checklists",
+      "owner": "",
+      "depends_on": [
+        "book-build-agent-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-fold-into-existing-system",
+      "owner": "",
+      "depends_on": [
+        "book-build-agent-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-validate-derived-skill",
+      "owner": "",
+      "depends_on": [
+        "book-build-agent-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-audit-source-traceability",
+      "owner": "",
+      "depends_on": [
+        "book-validate-derived-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-audit-copyright-and-privacy",
+      "owner": "",
+      "depends_on": [
+        "book-validate-derived-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-test-retrieval-and-application",
+      "owner": "",
+      "depends_on": [
+        "book-validate-derived-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-detect-hallucinated-frameworks",
+      "owner": "",
+      "depends_on": [
+        "book-validate-derived-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-measure-knowledge-transfer",
+      "owner": "",
+      "depends_on": [
+        "book-validate-derived-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-update-from-new-edition",
+      "owner": "",
+      "depends_on": [
+        "book-validate-derived-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-merge-source-versions",
+      "owner": "",
+      "depends_on": [
+        "book-validate-derived-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-publish-derived-skill",
+      "owner": "",
+      "depends_on": [
+        "book-validate-derived-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-retire-derived-knowledge",
+      "owner": "",
+      "depends_on": [
+        "book-validate-derived-skill"
+      ],
+      "status": "planned",
+      "risk_tier": "R4-critical",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

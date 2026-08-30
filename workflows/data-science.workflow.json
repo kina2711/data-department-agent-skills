@@ -1,0 +1,297 @@
+{
+  "workflow_id": "data-science-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through data-science. Edges encode phase precedence from docs/skill-map.md (P0 modeling lifecycle; P1 advanced data science; P2 decision science), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R2-standard",
+  "current_task_id": "ds-frame-modeling-problem",
+  "tasks": [
+    {
+      "task_id": "ds-frame-modeling-problem",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-design-modeling-dataset",
+      "owner": "",
+      "depends_on": [
+        "ds-frame-modeling-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-prevent-data-leakage",
+      "owner": "",
+      "depends_on": [
+        "ds-frame-modeling-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-run-exploratory-analysis",
+      "owner": "",
+      "depends_on": [
+        "ds-frame-modeling-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-engineer-features",
+      "owner": "",
+      "depends_on": [
+        "ds-frame-modeling-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-build-baseline-model",
+      "owner": "",
+      "depends_on": [
+        "ds-frame-modeling-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-train-model",
+      "owner": "",
+      "depends_on": [
+        "ds-frame-modeling-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-tune-hyperparameters",
+      "owner": "",
+      "depends_on": [
+        "ds-frame-modeling-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-validate-model",
+      "owner": "",
+      "depends_on": [
+        "ds-frame-modeling-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-select-evaluation-metric",
+      "owner": "",
+      "depends_on": [
+        "ds-frame-modeling-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-explain-model",
+      "owner": "",
+      "depends_on": [
+        "ds-frame-modeling-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-create-model-card",
+      "owner": "",
+      "depends_on": [
+        "ds-frame-modeling-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-build-time-series-forecast",
+      "owner": "",
+      "depends_on": [
+        "ds-frame-modeling-problem"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-estimate-causal-effect",
+      "owner": "",
+      "depends_on": [
+        "ds-build-time-series-forecast"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-build-optimization-model",
+      "owner": "",
+      "depends_on": [
+        "ds-build-time-series-forecast"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-detect-anomalies",
+      "owner": "",
+      "depends_on": [
+        "ds-build-time-series-forecast"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-assess-model-fairness",
+      "owner": "",
+      "depends_on": [
+        "ds-build-time-series-forecast"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-design-offline-experiment",
+      "owner": "",
+      "depends_on": [
+        "ds-build-time-series-forecast"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-reproduce-model-result",
+      "owner": "",
+      "depends_on": [
+        "ds-build-time-series-forecast"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-handoff-model-to-engineering",
+      "owner": "",
+      "depends_on": [
+        "ds-build-time-series-forecast"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-run-scenario-simulation",
+      "owner": "",
+      "depends_on": [
+        "ds-build-time-series-forecast"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ds-monitor-model-business-value",
+      "owner": "",
+      "depends_on": [
+        "ds-run-scenario-simulation"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

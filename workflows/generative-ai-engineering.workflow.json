@@ -1,0 +1,271 @@
+{
+  "workflow_id": "generative-ai-engineering-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through generative-ai-engineering. Edges encode phase precedence from docs/skill-map.md (P0 RAG và agent foundation; P1 production quality), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R3-controlled",
+  "current_task_id": "ai-frame-generative-ai-use-case",
+  "tasks": [
+    {
+      "task_id": "ai-frame-generative-ai-use-case",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-design-evaluation-dataset",
+      "owner": "",
+      "depends_on": [
+        "ai-frame-generative-ai-use-case"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-ingest-knowledge-source",
+      "owner": "",
+      "depends_on": [
+        "ai-frame-generative-ai-use-case"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-design-document-chunking",
+      "owner": "",
+      "depends_on": [
+        "ai-frame-generative-ai-use-case"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-create-embeddings-index",
+      "owner": "",
+      "depends_on": [
+        "ai-frame-generative-ai-use-case"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-build-retrieval-pipeline",
+      "owner": "",
+      "depends_on": [
+        "ai-frame-generative-ai-use-case"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-build-reranking-pipeline",
+      "owner": "",
+      "depends_on": [
+        "ai-frame-generative-ai-use-case"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-design-system-prompt",
+      "owner": "",
+      "depends_on": [
+        "ai-frame-generative-ai-use-case"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-build-rag-answering-flow",
+      "owner": "",
+      "depends_on": [
+        "ai-frame-generative-ai-use-case"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-build-tool-using-agent",
+      "owner": "",
+      "depends_on": [
+        "ai-frame-generative-ai-use-case"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-implement-ai-guardrails",
+      "owner": "",
+      "depends_on": [
+        "ai-frame-generative-ai-use-case"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-evaluate-retrieval-quality",
+      "owner": "",
+      "depends_on": [
+        "ai-frame-generative-ai-use-case"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-evaluate-answer-quality",
+      "owner": "",
+      "depends_on": [
+        "ai-frame-generative-ai-use-case"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-test-prompt-injection-resistance",
+      "owner": "",
+      "depends_on": [
+        "ai-frame-generative-ai-use-case"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-monitor-ai-application",
+      "owner": "",
+      "depends_on": [
+        "ai-test-prompt-injection-resistance"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-analyze-ai-failures",
+      "owner": "",
+      "depends_on": [
+        "ai-test-prompt-injection-resistance"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-optimize-ai-cost-latency",
+      "owner": "",
+      "depends_on": [
+        "ai-test-prompt-injection-resistance"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-release-ai-version",
+      "owner": "",
+      "depends_on": [
+        "ai-test-prompt-injection-resistance"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-create-human-review-workflow",
+      "owner": "",
+      "depends_on": [
+        "ai-test-prompt-injection-resistance"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-document-ai-system",
+      "owner": "",
+      "depends_on": [
+        "ai-test-prompt-injection-resistance"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

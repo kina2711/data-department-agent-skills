@@ -1,0 +1,128 @@
+{
+  "workflow_id": "company-data-context-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through company-data-context. Edges encode phase precedence from docs/skill-map.md (P0), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R2-standard",
+  "current_task_id": "ctx-initialize-company-data-context",
+  "tasks": [
+    {
+      "task_id": "ctx-initialize-company-data-context",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ctx-register-source-system",
+      "owner": "",
+      "depends_on": [
+        "ctx-initialize-company-data-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ctx-register-dataset-schema",
+      "owner": "",
+      "depends_on": [
+        "ctx-initialize-company-data-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ctx-register-business-metric",
+      "owner": "",
+      "depends_on": [
+        "ctx-initialize-company-data-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ctx-register-data-owner",
+      "owner": "",
+      "depends_on": [
+        "ctx-initialize-company-data-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ctx-register-data-policy",
+      "owner": "",
+      "depends_on": [
+        "ctx-initialize-company-data-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ctx-record-platform-environment",
+      "owner": "",
+      "depends_on": [
+        "ctx-initialize-company-data-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ctx-validate-context-pack",
+      "owner": "",
+      "depends_on": [
+        "ctx-initialize-company-data-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ctx-build-context-index",
+      "owner": "",
+      "depends_on": [
+        "ctx-initialize-company-data-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

@@ -1,0 +1,427 @@
+{
+  "workflow_id": "business-intelligence-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through business-intelligence. Edges encode phase precedence from docs/skill-map.md (P0 dashboard delivery; P1 lifecycle; P0), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R4-critical",
+  "current_task_id": "bi-translate-dashboard-spec",
+  "tasks": [
+    {
+      "task_id": "bi-translate-dashboard-spec",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-build-semantic-model",
+      "owner": "",
+      "depends_on": [
+        "bi-translate-dashboard-spec"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-build-dashboard",
+      "owner": "",
+      "depends_on": [
+        "bi-translate-dashboard-spec"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-implement-dashboard-measures",
+      "owner": "",
+      "depends_on": [
+        "bi-translate-dashboard-spec"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-implement-row-level-security",
+      "owner": "",
+      "depends_on": [
+        "bi-translate-dashboard-spec"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-validate-dashboard-data",
+      "owner": "",
+      "depends_on": [
+        "bi-translate-dashboard-spec"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-test-dashboard-usability",
+      "owner": "",
+      "depends_on": [
+        "bi-translate-dashboard-spec"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-audit-dashboard-experience",
+      "owner": "",
+      "depends_on": [
+        "bi-translate-dashboard-spec"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-redesign-dashboard-experience",
+      "owner": "",
+      "depends_on": [
+        "bi-translate-dashboard-spec"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-optimize-dashboard-performance",
+      "owner": "",
+      "depends_on": [
+        "bi-translate-dashboard-spec"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-publish-dashboard",
+      "owner": "",
+      "depends_on": [
+        "bi-translate-dashboard-spec"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-configure-dashboard-refresh",
+      "owner": "",
+      "depends_on": [
+        "bi-translate-dashboard-spec"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-monitor-dashboard-usage",
+      "owner": "",
+      "depends_on": [
+        "bi-translate-dashboard-spec"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-troubleshoot-dashboard",
+      "owner": "",
+      "depends_on": [
+        "bi-monitor-dashboard-usage"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-certify-dashboard",
+      "owner": "",
+      "depends_on": [
+        "bi-monitor-dashboard-usage"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-version-dashboard-change",
+      "owner": "",
+      "depends_on": [
+        "bi-monitor-dashboard-usage"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-retire-dashboard",
+      "owner": "",
+      "depends_on": [
+        "bi-monitor-dashboard-usage"
+      ],
+      "status": "planned",
+      "risk_tier": "R4-critical",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-run-discovery-dialogue",
+      "owner": "",
+      "depends_on": [
+        "bi-monitor-dashboard-usage"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-assess-information-sufficiency",
+      "owner": "",
+      "depends_on": [
+        "bi-run-discovery-dialogue"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-build-business-domain-brief",
+      "owner": "",
+      "depends_on": [
+        "bi-run-discovery-dialogue"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-build-source-authority-matrix",
+      "owner": "",
+      "depends_on": [
+        "bi-run-discovery-dialogue"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-maintain-evidence-ledger",
+      "owner": "",
+      "depends_on": [
+        "bi-run-discovery-dialogue"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-create-cleaning-transformation-plan",
+      "owner": "",
+      "depends_on": [
+        "bi-run-discovery-dialogue"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-create-platform-neutral-report-spec",
+      "owner": "",
+      "depends_on": [
+        "bi-run-discovery-dialogue"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-author-analytical-report",
+      "owner": "",
+      "depends_on": [
+        "bi-run-discovery-dialogue"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-review-report-section",
+      "owner": "",
+      "depends_on": [
+        "bi-run-discovery-dialogue"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-validate-report-claims",
+      "owner": "",
+      "depends_on": [
+        "bi-run-discovery-dialogue"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-export-analytical-report",
+      "owner": "",
+      "depends_on": [
+        "bi-run-discovery-dialogue"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-run-independent-uat",
+      "owner": "",
+      "depends_on": [
+        "bi-run-discovery-dialogue"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-prepare-release-approval",
+      "owner": "",
+      "depends_on": [
+        "bi-run-discovery-dialogue"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-maintain-report-product",
+      "owner": "",
+      "depends_on": [
+        "bi-run-discovery-dialogue"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "bi-reconcile-dashboard-report",
+      "owner": "",
+      "depends_on": [
+        "bi-run-discovery-dialogue"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

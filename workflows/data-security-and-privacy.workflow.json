@@ -1,0 +1,219 @@
+{
+  "workflow_id": "data-security-and-privacy-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through data-security-and-privacy. Edges encode phase precedence from docs/skill-map.md (P0 protection controls; P1 lifecycle và assurance), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R4-critical",
+  "current_task_id": "sec-discover-sensitive-data",
+  "tasks": [
+    {
+      "task_id": "sec-discover-sensitive-data",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "sec-classify-sensitive-data",
+      "owner": "",
+      "depends_on": [
+        "sec-discover-sensitive-data"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "sec-threat-model-data-flow",
+      "owner": "",
+      "depends_on": [
+        "sec-discover-sensitive-data"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "sec-design-data-access-control",
+      "owner": "",
+      "depends_on": [
+        "sec-discover-sensitive-data"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "sec-implement-row-column-security",
+      "owner": "",
+      "depends_on": [
+        "sec-discover-sensitive-data"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "sec-implement-data-masking",
+      "owner": "",
+      "depends_on": [
+        "sec-discover-sensitive-data"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "sec-verify-data-encryption",
+      "owner": "",
+      "depends_on": [
+        "sec-discover-sensitive-data"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "sec-audit-data-access",
+      "owner": "",
+      "depends_on": [
+        "sec-discover-sensitive-data"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "privacy-assess-data-use-case",
+      "owner": "",
+      "depends_on": [
+        "sec-discover-sensitive-data"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "privacy-handle-data-subject-request",
+      "owner": "",
+      "depends_on": [
+        "sec-discover-sensitive-data"
+      ],
+      "status": "planned",
+      "risk_tier": "R4-critical",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "privacy-enforce-retention-deletion",
+      "owner": "",
+      "depends_on": [
+        "sec-discover-sensitive-data"
+      ],
+      "status": "planned",
+      "risk_tier": "R4-critical",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "sec-review-data-sharing-security",
+      "owner": "",
+      "depends_on": [
+        "privacy-enforce-retention-deletion"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "sec-rotate-compromised-credential",
+      "owner": "",
+      "depends_on": [
+        "privacy-enforce-retention-deletion"
+      ],
+      "status": "planned",
+      "risk_tier": "R4-critical",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "sec-investigate-data-access-anomaly",
+      "owner": "",
+      "depends_on": [
+        "privacy-enforce-retention-deletion"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "privacy-prepare-data-breach-assessment",
+      "owner": "",
+      "depends_on": [
+        "privacy-enforce-retention-deletion"
+      ],
+      "status": "planned",
+      "risk_tier": "R4-critical",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "sec-collect-control-evidence",
+      "owner": "",
+      "depends_on": [
+        "privacy-enforce-retention-deletion"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

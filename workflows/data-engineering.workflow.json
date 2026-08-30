@@ -1,0 +1,336 @@
+{
+  "workflow_id": "data-engineering-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through data-engineering. Edges encode phase precedence from docs/skill-map.md (P0 ingestion và pipeline; P1 reliability và lifecycle; P2 migration và optimization), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R4-critical",
+  "current_task_id": "de-profile-source-system",
+  "tasks": [
+    {
+      "task_id": "de-profile-source-system",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-design-ingestion-pipeline",
+      "owner": "",
+      "depends_on": [
+        "de-profile-source-system"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-build-batch-ingestion",
+      "owner": "",
+      "depends_on": [
+        "de-profile-source-system"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-build-api-ingestion",
+      "owner": "",
+      "depends_on": [
+        "de-profile-source-system"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-build-file-ingestion",
+      "owner": "",
+      "depends_on": [
+        "de-profile-source-system"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-build-cdc-ingestion",
+      "owner": "",
+      "depends_on": [
+        "de-profile-source-system"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-build-streaming-ingestion",
+      "owner": "",
+      "depends_on": [
+        "de-profile-source-system"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-normalize-raw-data",
+      "owner": "",
+      "depends_on": [
+        "de-profile-source-system"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-build-incremental-load",
+      "owner": "",
+      "depends_on": [
+        "de-profile-source-system"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-make-pipeline-idempotent",
+      "owner": "",
+      "depends_on": [
+        "de-profile-source-system"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-orchestrate-data-workflow",
+      "owner": "",
+      "depends_on": [
+        "de-profile-source-system"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-add-pipeline-data-checks",
+      "owner": "",
+      "depends_on": [
+        "de-profile-source-system"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-handle-schema-evolution",
+      "owner": "",
+      "depends_on": [
+        "de-profile-source-system"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-backfill-data-range",
+      "owner": "",
+      "depends_on": [
+        "de-handle-schema-evolution"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-replay-stream-events",
+      "owner": "",
+      "depends_on": [
+        "de-handle-schema-evolution"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-reconcile-source-target",
+      "owner": "",
+      "depends_on": [
+        "de-handle-schema-evolution"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-analyze-execution-plan",
+      "owner": "",
+      "depends_on": [
+        "de-handle-schema-evolution"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-optimize-pipeline-performance",
+      "owner": "",
+      "depends_on": [
+        "de-handle-schema-evolution"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-write-pipeline-tests",
+      "owner": "",
+      "depends_on": [
+        "de-handle-schema-evolution"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-deploy-data-pipeline",
+      "owner": "",
+      "depends_on": [
+        "de-handle-schema-evolution"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-troubleshoot-failed-pipeline",
+      "owner": "",
+      "depends_on": [
+        "de-handle-schema-evolution"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-create-pipeline-runbook",
+      "owner": "",
+      "depends_on": [
+        "de-handle-schema-evolution"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-migrate-data-pipeline",
+      "owner": "",
+      "depends_on": [
+        "de-handle-schema-evolution"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-retire-data-pipeline",
+      "owner": "",
+      "depends_on": [
+        "de-migrate-data-pipeline"
+      ],
+      "status": "planned",
+      "risk_tier": "R4-critical",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "de-review-data-engineering-change",
+      "owner": "",
+      "depends_on": [
+        "de-migrate-data-pipeline"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

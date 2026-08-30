@@ -1,0 +1,271 @@
+{
+  "workflow_id": "data-documentation-and-diagrams-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through data-documentation-and-diagrams. Edges encode phase precedence from docs/skill-map.md (P0 diagram selection và modeling; P1 document artifacts), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R3-controlled",
+  "current_task_id": "docs-select-diagram-type",
+  "tasks": [
+    {
+      "task_id": "docs-select-diagram-type",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "docs-create-mermaid-activity-diagram",
+      "owner": "",
+      "depends_on": [
+        "docs-select-diagram-type"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "docs-create-swimlane-activity-diagram",
+      "owner": "",
+      "depends_on": [
+        "docs-select-diagram-type"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "docs-create-bpmn-process",
+      "owner": "",
+      "depends_on": [
+        "docs-select-diagram-type"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "docs-create-d2-activity-diagram",
+      "owner": "",
+      "depends_on": [
+        "docs-select-diagram-type"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "docs-create-architecture-diagram",
+      "owner": "",
+      "depends_on": [
+        "docs-select-diagram-type"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "docs-create-mermaid-erd",
+      "owner": "",
+      "depends_on": [
+        "docs-select-diagram-type"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "docs-create-d2-erd",
+      "owner": "",
+      "depends_on": [
+        "docs-select-diagram-type"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "docs-create-dbml-schema",
+      "owner": "",
+      "depends_on": [
+        "docs-select-diagram-type"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "docs-create-sequence-diagram",
+      "owner": "",
+      "depends_on": [
+        "docs-select-diagram-type"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "docs-create-state-diagram",
+      "owner": "",
+      "depends_on": [
+        "docs-select-diagram-type"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "docs-create-usecase-diagram",
+      "owner": "",
+      "depends_on": [
+        "docs-select-diagram-type"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "docs-validate-diagram-semantics",
+      "owner": "",
+      "depends_on": [
+        "docs-select-diagram-type"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "docs-write-architecture-document",
+      "owner": "",
+      "depends_on": [
+        "docs-select-diagram-type"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "docs-write-api-documentation",
+      "owner": "",
+      "depends_on": [
+        "docs-write-architecture-document"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "docs-write-data-documentation",
+      "owner": "",
+      "depends_on": [
+        "docs-write-architecture-document"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "docs-write-operational-runbook",
+      "owner": "",
+      "depends_on": [
+        "docs-write-architecture-document"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "docs-write-postmortem",
+      "owner": "",
+      "depends_on": [
+        "docs-write-architecture-document"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "docs-write-release-notes",
+      "owner": "",
+      "depends_on": [
+        "docs-write-architecture-document"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "docs-maintain-changelog",
+      "owner": "",
+      "depends_on": [
+        "docs-write-architecture-document"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

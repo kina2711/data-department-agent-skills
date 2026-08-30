@@ -1,0 +1,687 @@
+{
+  "workflow_id": "data-career-and-interview-coach-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through data-career-and-interview-coach. Edges encode phase precedence from docs/skill-map.md (P0 readiness và planning; P1 simulations; P2 feedback và mastery), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R2-standard",
+  "current_task_id": "career-clarify-target-data-role",
+  "tasks": [
+    {
+      "task_id": "career-clarify-target-data-role",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-assess-role-readiness",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-build-competency-gap-plan",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-create-interview-preparation-plan",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-review-data-resume",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-review-data-portfolio",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-build-project-story",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-build-career-operating-system",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-initialize-learning-memory",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-map-cross-skill-prerequisites",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-build-skill-transition-context",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-map-career-stage-competencies",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-build-career-evidence-portfolio",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-design-career-capstone-program",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-design-technical-writing-strategy",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-plan-ethical-professional-visibility",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-generate-role-question-set",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-analyze-interview-question",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-map-question-knowledge-dependencies",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-build-question-deep-dive",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-design-answer-strategy",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-build-interview-knowledge-library",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-design-concept-visual-explainer",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-build-architecture-case-study",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-build-offer-evaluation-and-negotiation-plan",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-run-mock-recruiter-screen",
+      "owner": "",
+      "depends_on": [
+        "career-clarify-target-data-role"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-run-mock-sql-interview",
+      "owner": "",
+      "depends_on": [
+        "career-run-mock-recruiter-screen"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-run-mock-python-interview",
+      "owner": "",
+      "depends_on": [
+        "career-run-mock-recruiter-screen"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-run-mock-analytics-case",
+      "owner": "",
+      "depends_on": [
+        "career-run-mock-recruiter-screen"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-run-mock-data-modeling-interview",
+      "owner": "",
+      "depends_on": [
+        "career-run-mock-recruiter-screen"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-run-mock-data-engineering-design",
+      "owner": "",
+      "depends_on": [
+        "career-run-mock-recruiter-screen"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-run-mock-data-science-interview",
+      "owner": "",
+      "depends_on": [
+        "career-run-mock-recruiter-screen"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-run-mock-mlops-interview",
+      "owner": "",
+      "depends_on": [
+        "career-run-mock-recruiter-screen"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-run-mock-governance-architecture-interview",
+      "owner": "",
+      "depends_on": [
+        "career-run-mock-recruiter-screen"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-run-mock-behavioral-interview",
+      "owner": "",
+      "depends_on": [
+        "career-run-mock-recruiter-screen"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-run-mock-leadership-interview",
+      "owner": "",
+      "depends_on": [
+        "career-run-mock-recruiter-screen"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-evaluate-interview-answer",
+      "owner": "",
+      "depends_on": [
+        "career-run-mock-recruiter-screen"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-coach-star-story",
+      "owner": "",
+      "depends_on": [
+        "career-evaluate-interview-answer"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-coach-technical-communication",
+      "owner": "",
+      "depends_on": [
+        "career-evaluate-interview-answer"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-create-targeted-remediation",
+      "owner": "",
+      "depends_on": [
+        "career-evaluate-interview-answer"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-run-interview-retest",
+      "owner": "",
+      "depends_on": [
+        "career-evaluate-interview-answer"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-track-preparation-progress",
+      "owner": "",
+      "depends_on": [
+        "career-evaluate-interview-answer"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-record-learning-event",
+      "owner": "",
+      "depends_on": [
+        "career-evaluate-interview-answer"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-assess-topic-mastery",
+      "owner": "",
+      "depends_on": [
+        "career-evaluate-interview-answer"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-detect-learning-decay",
+      "owner": "",
+      "depends_on": [
+        "career-evaluate-interview-answer"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-reconcile-learning-memory",
+      "owner": "",
+      "depends_on": [
+        "career-evaluate-interview-answer"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-run-career-review-cycle",
+      "owner": "",
+      "depends_on": [
+        "career-evaluate-interview-answer"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-audit-career-claims-evidence",
+      "owner": "",
+      "depends_on": [
+        "career-evaluate-interview-answer"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-certify-interview-readiness",
+      "owner": "",
+      "depends_on": [
+        "career-evaluate-interview-answer"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-audit-knowledge-coverage",
+      "owner": "",
+      "depends_on": [
+        "career-evaluate-interview-answer"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-register-canonical-concept",
+      "owner": "",
+      "depends_on": [
+        "career-evaluate-interview-answer"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "career-bootstrap-concept-registry",
+      "owner": "",
+      "depends_on": [
+        "career-evaluate-interview-answer"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

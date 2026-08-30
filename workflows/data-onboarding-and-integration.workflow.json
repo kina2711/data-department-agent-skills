@@ -1,0 +1,453 @@
+{
+  "workflow_id": "data-onboarding-and-integration-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through data-onboarding-and-integration. Edges encode phase precedence from docs/skill-map.md (P0 framework và preboarding; P1 orientation và guided integration; P2 checkpoints, certification và transitions), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R4-critical",
+  "current_task_id": "onboard-define-data-onboarding-standard",
+  "tasks": [
+    {
+      "task_id": "onboard-define-data-onboarding-standard",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-plan-new-hire-onboarding",
+      "owner": "",
+      "depends_on": [
+        "onboard-define-data-onboarding-standard"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-collect-new-hire-context",
+      "owner": "",
+      "depends_on": [
+        "onboard-define-data-onboarding-standard"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-create-preboarding-checklist",
+      "owner": "",
+      "depends_on": [
+        "onboard-define-data-onboarding-standard"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-plan-access-provisioning",
+      "owner": "",
+      "depends_on": [
+        "onboard-define-data-onboarding-standard"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-verify-access-readiness",
+      "owner": "",
+      "depends_on": [
+        "onboard-define-data-onboarding-standard"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-prepare-workstation-environment",
+      "owner": "",
+      "depends_on": [
+        "onboard-define-data-onboarding-standard"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-assign-onboarding-buddy",
+      "owner": "",
+      "depends_on": [
+        "onboard-define-data-onboarding-standard"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-plan-stakeholder-introductions",
+      "owner": "",
+      "depends_on": [
+        "onboard-define-data-onboarding-standard"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-deliver-company-orientation",
+      "owner": "",
+      "depends_on": [
+        "onboard-define-data-onboarding-standard"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-deliver-data-organization-orientation",
+      "owner": "",
+      "depends_on": [
+        "onboard-deliver-company-orientation"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-deliver-role-orientation",
+      "owner": "",
+      "depends_on": [
+        "onboard-deliver-company-orientation"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-deliver-business-domain-orientation",
+      "owner": "",
+      "depends_on": [
+        "onboard-deliver-company-orientation"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-deliver-data-architecture-orientation",
+      "owner": "",
+      "depends_on": [
+        "onboard-deliver-company-orientation"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-deliver-governance-security-orientation",
+      "owner": "",
+      "depends_on": [
+        "onboard-deliver-company-orientation"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-deliver-toolchain-orientation",
+      "owner": "",
+      "depends_on": [
+        "onboard-deliver-company-orientation"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-guide-documentation-discovery",
+      "owner": "",
+      "depends_on": [
+        "onboard-deliver-company-orientation"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-create-first-week-plan",
+      "owner": "",
+      "depends_on": [
+        "onboard-deliver-company-orientation"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-run-role-shadowing",
+      "owner": "",
+      "depends_on": [
+        "onboard-deliver-company-orientation"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-run-guided-first-task",
+      "owner": "",
+      "depends_on": [
+        "onboard-deliver-company-orientation"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-run-first-independent-task",
+      "owner": "",
+      "depends_on": [
+        "onboard-deliver-company-orientation"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-run-seven-day-checkpoint",
+      "owner": "",
+      "depends_on": [
+        "onboard-deliver-company-orientation"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-run-thirty-day-checkpoint",
+      "owner": "",
+      "depends_on": [
+        "onboard-run-seven-day-checkpoint"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-run-sixty-day-checkpoint",
+      "owner": "",
+      "depends_on": [
+        "onboard-run-seven-day-checkpoint"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-run-ninety-day-checkpoint",
+      "owner": "",
+      "depends_on": [
+        "onboard-run-seven-day-checkpoint"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-resolve-onboarding-blocker",
+      "owner": "",
+      "depends_on": [
+        "onboard-run-seven-day-checkpoint"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-assess-integration-health",
+      "owner": "",
+      "depends_on": [
+        "onboard-run-seven-day-checkpoint"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-certify-onboarding-completion",
+      "owner": "",
+      "depends_on": [
+        "onboard-run-seven-day-checkpoint"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-capture-onboarding-feedback",
+      "owner": "",
+      "depends_on": [
+        "onboard-run-seven-day-checkpoint"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-measure-onboarding-effectiveness",
+      "owner": "",
+      "depends_on": [
+        "onboard-run-seven-day-checkpoint"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-crossboard-role-transfer",
+      "owner": "",
+      "depends_on": [
+        "onboard-run-seven-day-checkpoint"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-reboard-returning-employee",
+      "owner": "",
+      "depends_on": [
+        "onboard-run-seven-day-checkpoint"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-onboard-data-contractor",
+      "owner": "",
+      "depends_on": [
+        "onboard-run-seven-day-checkpoint"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "onboard-offboard-and-transfer-knowledge",
+      "owner": "",
+      "depends_on": [
+        "onboard-run-seven-day-checkpoint"
+      ],
+      "status": "planned",
+      "risk_tier": "R4-critical",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

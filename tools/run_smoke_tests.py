@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import re
 import subprocess
+import tempfile
 import sys
 from pathlib import Path
 
@@ -147,6 +148,44 @@ def main() -> None:
         for expected_text in expected_texts:
             if expected_text not in result.stdout:
                 errors.append(f"content validator {manifest_path.name}: missing regression signal {expected_text!r}")
+    # Generated per-skill workflows: check the structure the generator is responsible for.
+    # `owner` is deliberately empty in the shipped templates — nobody owns a template — so it is
+    # stubbed in a throwaway copy rather than written into the file to make a validator pass.
+    workflow_validator = SKILLS / "data-department-orchestrator" / "scripts" / "validate_workflow.py"
+    workflow_files = sorted((ROOT / "workflows").glob("*.workflow.json"))
+    if not workflow_files:
+        errors.append("no generated workflows in workflows/")
+    skill_dirs = {d.name for d in SKILLS.iterdir() if d.is_dir()}
+    for path in workflow_files:
+        manifest = json.loads(path.read_text(encoding="utf-8"))
+        if any(t.get("owner") for t in manifest.get("tasks", [])):
+            errors.append(f"{path.name}: a template must not claim an owner")
+        probe = json.loads(json.dumps(manifest))
+        for task in probe["tasks"]:
+            task["owner"] = "probe"
+        with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as tmp:
+            json.dump(probe, tmp, ensure_ascii=False)
+            probe_path = tmp.name
+        result = subprocess.run(
+            [sys.executable, str(workflow_validator), probe_path,
+             "--catalog", str(ROOT / "task-catalog.json"), "--mode", "plan"],
+            capture_output=True, text=True, check=False,
+        )
+        Path(probe_path).unlink(missing_ok=True)
+        if result.returncode != 0:
+            first = next((l for l in result.stdout.splitlines() if l.startswith("ERROR")), "unknown")
+            errors.append(f"{path.name}: {first}")
+    covered = {t["task_id"] for p in workflow_files
+               for t in json.loads(p.read_text(encoding="utf-8"))["tasks"]}
+    if covered != task_ids:
+        errors.append(
+            f"workflows cover {len(covered)} of {len(task_ids)} tasks; "
+            f"missing {sorted(task_ids - covered)[:3]}"
+        )
+    named = {p.name.removesuffix(".workflow.json") for p in workflow_files}
+    for missing in sorted(skill_dirs - named):
+        errors.append(f"no workflow for skill {missing}")
+
     diagram_validator = SKILLS / "data-documentation-and-diagrams" / "scripts" / "validate_diagram_source.py"
     diagram_dir = ROOT / "evaluations" / "fixtures" / "diagram-provenance"
     diagram_cases = [

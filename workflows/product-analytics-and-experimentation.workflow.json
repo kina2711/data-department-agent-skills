@@ -1,0 +1,232 @@
+{
+  "workflow_id": "product-analytics-and-experimentation-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through product-analytics-and-experimentation. Edges encode phase precedence from docs/skill-map.md (P0 product measurement; P1 experimentation), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R2-standard",
+  "current_task_id": "pa-define-product-event",
+  "tasks": [
+    {
+      "task_id": "pa-define-product-event",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "pa-design-event-taxonomy",
+      "owner": "",
+      "depends_on": [
+        "pa-define-product-event"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "pa-qa-product-instrumentation",
+      "owner": "",
+      "depends_on": [
+        "pa-define-product-event"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "pa-define-product-north-star",
+      "owner": "",
+      "depends_on": [
+        "pa-define-product-event"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "pa-analyze-user-journey",
+      "owner": "",
+      "depends_on": [
+        "pa-define-product-event"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "pa-analyze-activation",
+      "owner": "",
+      "depends_on": [
+        "pa-define-product-event"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "pa-analyze-feature-adoption",
+      "owner": "",
+      "depends_on": [
+        "pa-define-product-event"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "pa-analyze-product-retention",
+      "owner": "",
+      "depends_on": [
+        "pa-define-product-event"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "pa-analyze-product-churn",
+      "owner": "",
+      "depends_on": [
+        "pa-define-product-event"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "pa-build-growth-accounting",
+      "owner": "",
+      "depends_on": [
+        "pa-define-product-event"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "exp-frame-experiment-hypothesis",
+      "owner": "",
+      "depends_on": [
+        "pa-define-product-event"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "exp-design-ab-test",
+      "owner": "",
+      "depends_on": [
+        "exp-frame-experiment-hypothesis"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "exp-calculate-sample-size",
+      "owner": "",
+      "depends_on": [
+        "exp-frame-experiment-hypothesis"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "exp-check-randomization",
+      "owner": "",
+      "depends_on": [
+        "exp-frame-experiment-hypothesis"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "exp-analyze-experiment",
+      "owner": "",
+      "depends_on": [
+        "exp-frame-experiment-hypothesis"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "exp-handle-experiment-peeking",
+      "owner": "",
+      "depends_on": [
+        "exp-frame-experiment-hypothesis"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "exp-register-experiment",
+      "owner": "",
+      "depends_on": [
+        "exp-frame-experiment-hypothesis"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

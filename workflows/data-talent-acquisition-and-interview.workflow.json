@@ -1,0 +1,544 @@
+{
+  "workflow_id": "data-talent-acquisition-and-interview-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through data-talent-acquisition-and-interview. Edges encode phase precedence from docs/skill-map.md (P0 hiring architecture; P1 sourcing và assessment execution; P2 decision, fairness và optimization), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R3-controlled",
+  "current_task_id": "talent-validate-workforce-need",
+  "tasks": [
+    {
+      "task_id": "talent-validate-workforce-need",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-define-data-role-profile",
+      "owner": "",
+      "depends_on": [
+        "talent-validate-workforce-need"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-write-data-job-description",
+      "owner": "",
+      "depends_on": [
+        "talent-validate-workforce-need"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-build-role-hiring-scorecard",
+      "owner": "",
+      "depends_on": [
+        "talent-validate-workforce-need"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-plan-hiring-campaign",
+      "owner": "",
+      "depends_on": [
+        "talent-validate-workforce-need"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-design-structured-interview-loop",
+      "owner": "",
+      "depends_on": [
+        "talent-validate-workforce-need"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-build-role-question-bank",
+      "owner": "",
+      "depends_on": [
+        "talent-validate-workforce-need"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-map-question-to-competency-evidence",
+      "owner": "",
+      "depends_on": [
+        "talent-validate-workforce-need"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-write-interview-answer-anchors",
+      "owner": "",
+      "depends_on": [
+        "talent-validate-workforce-need"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-audit-question-bank-coverage",
+      "owner": "",
+      "depends_on": [
+        "talent-validate-workforce-need"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-create-interviewer-guide",
+      "owner": "",
+      "depends_on": [
+        "talent-validate-workforce-need"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-train-data-interviewer",
+      "owner": "",
+      "depends_on": [
+        "talent-validate-workforce-need"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-calibrate-interview-panel",
+      "owner": "",
+      "depends_on": [
+        "talent-validate-workforce-need"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-source-data-candidates",
+      "owner": "",
+      "depends_on": [
+        "talent-validate-workforce-need"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-screen-data-resume",
+      "owner": "",
+      "depends_on": [
+        "talent-source-data-candidates"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-run-recruiter-screen",
+      "owner": "",
+      "depends_on": [
+        "talent-source-data-candidates"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-run-technical-screen",
+      "owner": "",
+      "depends_on": [
+        "talent-source-data-candidates"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-run-sql-interview",
+      "owner": "",
+      "depends_on": [
+        "talent-source-data-candidates"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-run-python-interview",
+      "owner": "",
+      "depends_on": [
+        "talent-source-data-candidates"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-run-analytics-case-interview",
+      "owner": "",
+      "depends_on": [
+        "talent-source-data-candidates"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-run-data-modeling-interview",
+      "owner": "",
+      "depends_on": [
+        "talent-source-data-candidates"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-run-data-engineering-interview",
+      "owner": "",
+      "depends_on": [
+        "talent-source-data-candidates"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-run-data-architecture-interview",
+      "owner": "",
+      "depends_on": [
+        "talent-source-data-candidates"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-run-data-science-interview",
+      "owner": "",
+      "depends_on": [
+        "talent-source-data-candidates"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-run-mlops-interview",
+      "owner": "",
+      "depends_on": [
+        "talent-source-data-candidates"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-run-governance-privacy-interview",
+      "owner": "",
+      "depends_on": [
+        "talent-source-data-candidates"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-run-bi-product-sense-interview",
+      "owner": "",
+      "depends_on": [
+        "talent-source-data-candidates"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-design-take-home-assignment",
+      "owner": "",
+      "depends_on": [
+        "talent-source-data-candidates"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-evaluate-take-home-assignment",
+      "owner": "",
+      "depends_on": [
+        "talent-source-data-candidates"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-run-behavioral-interview",
+      "owner": "",
+      "depends_on": [
+        "talent-source-data-candidates"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-run-leadership-interview",
+      "owner": "",
+      "depends_on": [
+        "talent-source-data-candidates"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-run-candidate-question-session",
+      "owner": "",
+      "depends_on": [
+        "talent-source-data-candidates"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-score-interview-evidence",
+      "owner": "",
+      "depends_on": [
+        "talent-source-data-candidates"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-run-hiring-debrief",
+      "owner": "",
+      "depends_on": [
+        "talent-score-interview-evidence"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-make-hiring-recommendation",
+      "owner": "",
+      "depends_on": [
+        "talent-score-interview-evidence"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-run-reference-check",
+      "owner": "",
+      "depends_on": [
+        "talent-score-interview-evidence"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-create-candidate-feedback",
+      "owner": "",
+      "depends_on": [
+        "talent-score-interview-evidence"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-audit-interview-fairness",
+      "owner": "",
+      "depends_on": [
+        "talent-score-interview-evidence"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-audit-assessment-validity",
+      "owner": "",
+      "depends_on": [
+        "talent-score-interview-evidence"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-measure-quality-of-hire",
+      "owner": "",
+      "depends_on": [
+        "talent-score-interview-evidence"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "talent-optimize-interview-funnel",
+      "owner": "",
+      "depends_on": [
+        "talent-score-interview-evidence"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

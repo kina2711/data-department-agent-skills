@@ -1,0 +1,388 @@
+{
+  "workflow_id": "data-analysis-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through data-analysis. Edges encode phase precedence from docs/skill-map.md (P0 analysis lifecycle; P1 communication và monitoring; P2 advanced analysis), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R2-standard",
+  "current_task_id": "da-clarify-business-question",
+  "tasks": [
+    {
+      "task_id": "da-clarify-business-question",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-write-analysis-plan",
+      "owner": "",
+      "depends_on": [
+        "da-clarify-business-question"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-discover-analysis-data",
+      "owner": "",
+      "depends_on": [
+        "da-clarify-business-question"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-define-metric-requirement",
+      "owner": "",
+      "depends_on": [
+        "da-clarify-business-question"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-write-analysis-query",
+      "owner": "",
+      "depends_on": [
+        "da-clarify-business-question"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-validate-analysis-result",
+      "owner": "",
+      "depends_on": [
+        "da-clarify-business-question"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-run-programmatic-eda",
+      "owner": "",
+      "depends_on": [
+        "da-clarify-business-question"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-run-descriptive-analysis",
+      "owner": "",
+      "depends_on": [
+        "da-clarify-business-question"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-analyze-kpi-variance",
+      "owner": "",
+      "depends_on": [
+        "da-clarify-business-question"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-diagnose-metric-change",
+      "owner": "",
+      "depends_on": [
+        "da-clarify-business-question"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-segment-entities",
+      "owner": "",
+      "depends_on": [
+        "da-clarify-business-question"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-analyze-funnel",
+      "owner": "",
+      "depends_on": [
+        "da-clarify-business-question"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-analyze-cohort",
+      "owner": "",
+      "depends_on": [
+        "da-clarify-business-question"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-analyze-retention-churn",
+      "owner": "",
+      "depends_on": [
+        "da-clarify-business-question"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-answer-ad-hoc-question",
+      "owner": "",
+      "depends_on": [
+        "da-clarify-business-question"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-design-dashboard-requirement",
+      "owner": "",
+      "depends_on": [
+        "da-clarify-business-question"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-review-dashboard-accuracy",
+      "owner": "",
+      "depends_on": [
+        "da-design-dashboard-requirement"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-create-analysis-visualization",
+      "owner": "",
+      "depends_on": [
+        "da-design-dashboard-requirement"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-write-insight-narrative",
+      "owner": "",
+      "depends_on": [
+        "da-design-dashboard-requirement"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-present-analysis",
+      "owner": "",
+      "depends_on": [
+        "da-design-dashboard-requirement"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-monitor-business-metric",
+      "owner": "",
+      "depends_on": [
+        "da-design-dashboard-requirement"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-document-analysis",
+      "owner": "",
+      "depends_on": [
+        "da-design-dashboard-requirement"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-explain-sql-business-logic",
+      "owner": "",
+      "depends_on": [
+        "da-design-dashboard-requirement"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-explain-analysis-methodology",
+      "owner": "",
+      "depends_on": [
+        "da-design-dashboard-requirement"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-run-analysis-peer-review",
+      "owner": "",
+      "depends_on": [
+        "da-design-dashboard-requirement"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-run-analysis-retrospective",
+      "owner": "",
+      "depends_on": [
+        "da-design-dashboard-requirement"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-build-business-forecast",
+      "owner": "",
+      "depends_on": [
+        "da-design-dashboard-requirement"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-analyze-root-cause",
+      "owner": "",
+      "depends_on": [
+        "da-build-business-forecast"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "da-estimate-business-opportunity",
+      "owner": "",
+      "depends_on": [
+        "da-build-business-forecast"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

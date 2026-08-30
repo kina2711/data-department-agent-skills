@@ -1,0 +1,648 @@
+{
+  "workflow_id": "data-academy-and-curriculum-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through data-academy-and-curriculum. Edges encode phase precedence from docs/skill-map.md (P0 learning architecture; P1 content production; P2 delivery, testing và certification), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R2-standard",
+  "current_task_id": "academy-assess-organizational-learning-needs",
+  "tasks": [
+    {
+      "task_id": "academy-assess-organizational-learning-needs",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-define-role-learning-outcomes",
+      "owner": "",
+      "depends_on": [
+        "academy-assess-organizational-learning-needs"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-build-competency-curriculum-map",
+      "owner": "",
+      "depends_on": [
+        "academy-assess-organizational-learning-needs"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-map-learning-prerequisites",
+      "owner": "",
+      "depends_on": [
+        "academy-assess-organizational-learning-needs"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-design-role-syllabus",
+      "owner": "",
+      "depends_on": [
+        "academy-assess-organizational-learning-needs"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-design-level-learning-path",
+      "owner": "",
+      "depends_on": [
+        "academy-assess-organizational-learning-needs"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-build-role-theory-pack",
+      "owner": "",
+      "depends_on": [
+        "academy-assess-organizational-learning-needs"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-build-concept-knowledge-graph",
+      "owner": "",
+      "depends_on": [
+        "academy-assess-organizational-learning-needs"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-research-role-roadmap",
+      "owner": "",
+      "depends_on": [
+        "academy-assess-organizational-learning-needs"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-build-skill-track-map",
+      "owner": "",
+      "depends_on": [
+        "academy-assess-organizational-learning-needs"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-elicit-prior-knowledge",
+      "owner": "",
+      "depends_on": [
+        "academy-assess-organizational-learning-needs"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-plan-note-corpus",
+      "owner": "",
+      "depends_on": [
+        "academy-assess-organizational-learning-needs"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-prioritize-corpus-by-gap",
+      "owner": "",
+      "depends_on": [
+        "academy-assess-organizational-learning-needs"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-map-questions-to-learning-objectives",
+      "owner": "",
+      "depends_on": [
+        "academy-assess-organizational-learning-needs"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-design-learning-module",
+      "owner": "",
+      "depends_on": [
+        "academy-assess-organizational-learning-needs"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-plan-learning-cohort",
+      "owner": "",
+      "depends_on": [
+        "academy-assess-organizational-learning-needs"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-write-theory-lesson",
+      "owner": "",
+      "depends_on": [
+        "academy-assess-organizational-learning-needs"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-write-knowledge-deep-dive",
+      "owner": "",
+      "depends_on": [
+        "academy-write-theory-lesson"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-build-note-module",
+      "owner": "",
+      "depends_on": [
+        "academy-write-theory-lesson"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-create-lecture-deck",
+      "owner": "",
+      "depends_on": [
+        "academy-write-theory-lesson"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-create-instructor-guide",
+      "owner": "",
+      "depends_on": [
+        "academy-write-theory-lesson"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-create-learner-workbook",
+      "owner": "",
+      "depends_on": [
+        "academy-write-theory-lesson"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-create-worked-example",
+      "owner": "",
+      "depends_on": [
+        "academy-write-theory-lesson"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-design-hands-on-lab",
+      "owner": "",
+      "depends_on": [
+        "academy-write-theory-lesson"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-create-business-case-study",
+      "owner": "",
+      "depends_on": [
+        "academy-write-theory-lesson"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-design-capstone-project",
+      "owner": "",
+      "depends_on": [
+        "academy-write-theory-lesson"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-create-learning-sandbox",
+      "owner": "",
+      "depends_on": [
+        "academy-write-theory-lesson"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-generate-training-dataset",
+      "owner": "",
+      "depends_on": [
+        "academy-write-theory-lesson"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-write-assessment-rubric",
+      "owner": "",
+      "depends_on": [
+        "academy-write-theory-lesson"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-write-answer-key",
+      "owner": "",
+      "depends_on": [
+        "academy-write-theory-lesson"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-design-formative-assessment",
+      "owner": "",
+      "depends_on": [
+        "academy-write-theory-lesson"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-design-summative-exam",
+      "owner": "",
+      "depends_on": [
+        "academy-write-theory-lesson"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-run-knowledge-diagnostic",
+      "owner": "",
+      "depends_on": [
+        "academy-write-theory-lesson"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-run-note-diagnostic",
+      "owner": "",
+      "depends_on": [
+        "academy-run-knowledge-diagnostic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-apply-misconception-feedback",
+      "owner": "",
+      "depends_on": [
+        "academy-run-knowledge-diagnostic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-deliver-theory-session",
+      "owner": "",
+      "depends_on": [
+        "academy-run-knowledge-diagnostic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-facilitate-learning-workshop",
+      "owner": "",
+      "depends_on": [
+        "academy-run-knowledge-diagnostic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-run-lab-session",
+      "owner": "",
+      "depends_on": [
+        "academy-run-knowledge-diagnostic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-run-learning-office-hours",
+      "owner": "",
+      "depends_on": [
+        "academy-run-knowledge-diagnostic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-assess-learner-submission",
+      "owner": "",
+      "depends_on": [
+        "academy-run-knowledge-diagnostic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-analyze-learning-gaps",
+      "owner": "",
+      "depends_on": [
+        "academy-run-knowledge-diagnostic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-create-remediation-plan",
+      "owner": "",
+      "depends_on": [
+        "academy-run-knowledge-diagnostic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-certify-role-competency",
+      "owner": "",
+      "depends_on": [
+        "academy-run-knowledge-diagnostic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-calibrate-assessors",
+      "owner": "",
+      "depends_on": [
+        "academy-run-knowledge-diagnostic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-audit-curriculum-quality",
+      "owner": "",
+      "depends_on": [
+        "academy-run-knowledge-diagnostic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-audit-note-corpus",
+      "owner": "",
+      "depends_on": [
+        "academy-run-knowledge-diagnostic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-index-note-corpus",
+      "owner": "",
+      "depends_on": [
+        "academy-run-knowledge-diagnostic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-measure-training-effectiveness",
+      "owner": "",
+      "depends_on": [
+        "academy-run-knowledge-diagnostic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-refresh-curriculum",
+      "owner": "",
+      "depends_on": [
+        "academy-run-knowledge-diagnostic"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

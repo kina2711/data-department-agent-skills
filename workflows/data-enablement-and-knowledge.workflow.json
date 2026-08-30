@@ -1,0 +1,232 @@
+{
+  "workflow_id": "data-enablement-and-knowledge-standard-path",
+  "version": "1.0.0",
+  "objective": "Standard path through data-enablement-and-knowledge. Edges encode phase precedence from docs/skill-map.md (P0 onboarding và learning; P1 knowledge lifecycle), not task-level prerequisites: tasks inside one phase are peers. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R3-controlled",
+  "current_task_id": "enable-create-role-onboarding",
+  "tasks": [
+    {
+      "task_id": "enable-create-role-onboarding",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "enable-create-system-onboarding",
+      "owner": "",
+      "depends_on": [
+        "enable-create-role-onboarding"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "enable-create-learning-plan",
+      "owner": "",
+      "depends_on": [
+        "enable-create-role-onboarding"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "enable-explain-data-concept",
+      "owner": "",
+      "depends_on": [
+        "enable-create-role-onboarding"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "enable-create-code-walkthrough",
+      "owner": "",
+      "depends_on": [
+        "enable-create-role-onboarding"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "enable-run-pair-programming-session",
+      "owner": "",
+      "depends_on": [
+        "enable-create-role-onboarding"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "enable-generate-practice-exercise",
+      "owner": "",
+      "depends_on": [
+        "enable-create-role-onboarding"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "enable-generate-knowledge-check",
+      "owner": "",
+      "depends_on": [
+        "enable-create-role-onboarding"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "enable-run-skill-assessment",
+      "owner": "",
+      "depends_on": [
+        "enable-create-role-onboarding"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "enable-summarize-technical-source",
+      "owner": "",
+      "depends_on": [
+        "enable-create-role-onboarding"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "enable-capture-lessons-learned",
+      "owner": "",
+      "depends_on": [
+        "enable-summarize-technical-source"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "enable-create-knowledge-article",
+      "owner": "",
+      "depends_on": [
+        "enable-summarize-technical-source"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "enable-build-concept-knowledge-map",
+      "owner": "",
+      "depends_on": [
+        "enable-summarize-technical-source"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "enable-build-versioned-knowledge-library",
+      "owner": "",
+      "depends_on": [
+        "enable-summarize-technical-source"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "enable-publish-knowledge",
+      "owner": "",
+      "depends_on": [
+        "enable-summarize-technical-source"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "enable-curate-knowledge-base",
+      "owner": "",
+      "depends_on": [
+        "enable-summarize-technical-source"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "enable-measure-learning-progress",
+      "owner": "",
+      "depends_on": [
+        "enable-summarize-technical-source"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}
