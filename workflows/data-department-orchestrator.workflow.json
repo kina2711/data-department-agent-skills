@@ -1,15 +1,28 @@
 {
   "workflow_id": "data-department-orchestrator-standard-path",
   "version": "2.0.0",
-  "objective": "Standard path through data-department-orchestrator, 5 stages over 24 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/design-specification/plan-design → P0/build-change/build-deliver → P0/governance-assurance/test-assure. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Control boundaries, where risk first rises and authority beyond the previous stage is required: orchestrator-hydrate-context enters R2-standard. Delete what this engagement does not need before running it.",
+  "objective": "Standard path through data-department-orchestrator, 6 stages over 27 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/plan-design → P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/design-specification/plan-design → P0/build-change/build-deliver → P0/governance-assurance/test-assure. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Control boundaries, where risk first rises and authority beyond the previous stage is required: orchestrator-collect-plan-risk enters R2-standard. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R2-standard",
-  "current_task_id": "orchestrator-hydrate-context",
+  "current_task_id": "orchestrator-collect-plan-risk",
   "tasks": [
+    {
+      "task_id": "orchestrator-collect-plan-risk",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
     {
       "task_id": "orchestrator-hydrate-context",
       "owner": "",
-      "depends_on": [],
+      "depends_on": [
+        "orchestrator-collect-plan-risk"
+      ],
       "status": "planned",
       "risk_tier": "R0-light",
       "artifact_version": "",
@@ -149,6 +162,19 @@
     },
     {
       "task_id": "orchestrator-resume-workflow",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-run-delivery-loop",
       "owner": "",
       "depends_on": [
         "orchestrator-hydrate-context"
@@ -308,6 +334,19 @@
       "owner": "",
       "depends_on": [
         "orchestrator-package-agent-harness"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-audit-runtime-floor",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-audit-agent-harness"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",

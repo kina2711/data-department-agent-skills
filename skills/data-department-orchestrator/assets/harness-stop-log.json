@@ -1,0 +1,19 @@
+{
+  "log_id": "",
+  "append_only": true,
+  "entries": [
+    {
+      "at": "",
+      "rule_id": "",
+      "category": "runtime-floor|guardrail",
+      "floor_category": "billing|network-egress|secrets|production-access|off-worktree-destruction",
+      "operation": "",
+      "verdict": "blocked|allowed-with-approval",
+      "approval_ref": "",
+      "task_id": "",
+      "session": ""
+    }
+  ],
+  "never_edited": true,
+  "owner": ""
+}

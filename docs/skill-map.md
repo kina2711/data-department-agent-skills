@@ -1278,6 +1278,9 @@ Các task dưới đây mở rộng role BI/DA/DG hiện có bằng control-plan
 - `orchestrator-define-agent-harness` — khai báo phạm vi, grounding, tool surface, guardrail, eval và môi trường cho một agent theo vai; output: agent harness specification.
 - `orchestrator-package-agent-harness` — đóng gói harness đã khai báo thành thứ chạy lại được và bàn giao được, ghim mọi phiên bản đầu vào; output: packaged agent harness.
 - `orchestrator-audit-agent-harness` — đối chiếu harness đang chạy với bản khai báo, kiểm quyền thừa, gate bị nới và eval đã cũ; output: harness readiness audit.
+- `orchestrator-run-delivery-loop` — chạy vòng Plan/Work/Review/Ship với cổng chặn giữa mỗi chặng và ghi mọi lần bị chặn; output: delivery loop record.
+- `orchestrator-collect-plan-risk` — gom mọi thao tác rủi ro mà kế hoạch hàm ý để duyệt một lần lúc lập kế hoạch, kèm hạn dùng và số lần; output: plan-time risk approval set.
+- `orchestrator-audit-runtime-floor` — kiểm năm nhóm cấm tuyệt đối còn nguyên và không bị cấu hình nào tắt được; output: runtime floor audit.
 - `orchestrator-check-information-sufficiency` — xác định thiếu blocking/nonblocking và conflicts; output: proceed/ask/stop decision.
 - `orchestrator-manage-question-register` — deduplicate, prioritize và close questions bằng evidence; output: question register.
 - `orchestrator-manage-assumption-register` — ghi source, impact, expiry và confirmation status; output: assumption register.

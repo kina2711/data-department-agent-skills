@@ -1,0 +1,13 @@
+approval_id: ""
+granted_by: ""
+granted_at: ""
+task_id: ""
+scope: ""
+artifact_sha256: ""
+valid_until: ""
+uses_allowed: 1
+uses_consumed: 0
+expires_on_scope_change: true
+collected_at_plan_time: true
+risky_operations_disclosed: []
+status: "active|expired|exhausted|revoked"

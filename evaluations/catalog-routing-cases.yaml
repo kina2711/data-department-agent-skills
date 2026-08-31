@@ -184,3 +184,12 @@ cases:
   - id: orchestrator-audit-agent-harness
     task: orchestrator-audit-agent-harness
     expected_catalog: test-assure
+  - id: orchestrator-run-delivery-loop
+    task: orchestrator-run-delivery-loop
+    expected_catalog: build-deliver
+  - id: orchestrator-collect-plan-risk
+    task: orchestrator-collect-plan-risk
+    expected_catalog: plan-design
+  - id: orchestrator-audit-runtime-floor
+    task: orchestrator-audit-runtime-floor
+    expected_catalog: test-assure

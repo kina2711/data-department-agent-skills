@@ -1,7 +1,7 @@
 # Data Department Agent Skills
 
 A governed operating system for an entire Data Department, packaged as a Claude Code plugin.
-**32 role skills**, **827 atomic task contracts**, **45 slash commands**, **52 executable
+**32 role skills**, **827 atomic task contracts**, **49 slash commands**, **52 executable
 evidence scripts**, **12 JSON Schemas**, and a production guard hook.
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
@@ -527,7 +527,7 @@ Airflow, Spark, Kafka, Power BI, Tableau, Looker, Metabase, Superset and more.
 ├── .claude-plugin/       plugin manifest and marketplace entry
 ├── .github/workflows/    CI: build, validate, regress, audit, determinism check
 ├── .agents/agents/       Antigravity custom agents, one per department  ← GENERATED
-├── commands/             45 slash commands (13 controls + 32 generated departments)
+├── commands/             49 slash commands (13 controls + 32 generated departments)
 ├── hooks/                production, publishing and destructive-action guard
 ├── skills/               32 progressive-disclosure role skills  ← GENERATED
 │   └── <role>/
@@ -580,7 +580,7 @@ python tools/install_agent_harness.py <project> --dry-run   # multi-harness inst
 
 | Suite | Result |
 |---|---|
-| Skills / contracts / commands / agents | 32 / 827 / 45 / 32, 0 errors |
+| Skills / contracts / commands / agents | 32 / 827 / 49 / 32, 0 errors |
 | Natural-language routing | 35 cases |
 | Role-confusion pairs | 37 cases |
 | Catalog routing | 41 cases |

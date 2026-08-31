@@ -11,5 +11,4 @@ Build, implement, configure, teach, interview or deliver an artifact — remaini
 - `orchestrator-maintain-run-state` → **run-state record**; read [contract](tasks/orchestrator-maintain-run-state.md).
 - `orchestrator-resume-workflow` → **resumed execution plan**; read [contract](tasks/orchestrator-resume-workflow.md).
 - `orchestrator-package-agent-harness` → **packaged agent harness**; read [contract](tasks/orchestrator-package-agent-harness.md).
-- `orchestrator-manage-approval-ledger` → **approval ledger**; read [contract](tasks/orchestrator-manage-approval-ledger.md).
-- `orchestrator-manage-evidence-ledger` → **evidence ledger**; read [contract](tasks/orchestrator-manage-evidence-ledger.md).
+- `orchestrator-run-delivery-loop` → **delivery loop record**; read [contract](tasks/orchestrator-run-delivery-loop.md).
