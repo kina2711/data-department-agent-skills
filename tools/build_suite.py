@@ -4515,29 +4515,29 @@ Row counts and a key-level reconciliation between source and warehouse for the s
 """
     dashboard_as_code = """# Dashboards as code
 
-A dashboard assembled by dragging is a dashboard that exists only in the tool. It cannot be reviewed as a diff, reproduced in another environment, or rebuilt after someone deletes it. Defining it as a specification and creating it through the platform's API changes all three, and introduces one failure mode of its own.
+Drag a chart into place and it exists in one tool, in one workspace, in whatever state the last person left it. Nobody can review that as a diff. Nobody can rebuild it after someone deletes it, and moving it to staging means doing the whole thing again by hand. Writing the dashboard as a specification and creating it through the platform's API fixes all three — and adds one failure mode that did not exist before.
 
 ## Specification first, API second
 
-The specification is the artifact: layout, each chart's dataset, metric, dimensions, filters, chart type, and the question the chart answers. It is reviewable before anything is created, diffable when it changes, and the thing kept in version control. The API call is the mechanical step that realises it.
+What goes in version control is the specification: layout, and per chart its dataset, metric, dimensions, filters, chart type, and the question it answers. Review happens there, before anything is created. Diffs happen there too. Calling the API is the mechanical step afterwards, and it is the least interesting part.
 
-Write the specification against the semantic layer, not against raw tables. A dashboard-as-code that reaches past the governed metric definitions reproduces them, and then two definitions of the same number exist with no indication which the viewer is looking at.
+One rule decides whether this helps or hurts: write the specification against the semantic layer, never against raw tables. Reach past the governed metric definitions and you have just written a second definition of revenue — and no viewer can tell which one they are looking at.
 
-## What the API does not check
+## What the API will not catch
 
-Platform APIs accept a chart that renders and says nothing. They will happily create a time series over a dimension with four hundred values, a pie chart of a continuous measure, or a filter that silently excludes most of the data. Generating dashboards faster generates these faster.
+Platform APIs accept anything that renders. Superset will build you a time series across a dimension with four hundred distinct values; it will build a pie chart of a continuous measure; it will apply a filter that quietly drops 80% of the rows. None of that returns an error. Generate dashboards ten times faster and you generate these ten times faster.
 
-The specification therefore carries the checks a person would otherwise apply by looking: expected cardinality per dimension, the grain each chart aggregates to, and what the chart is for. A chart whose stated question cannot be answered by its own configuration is a defect the reviewer can catch in the specification, before it is built.
+So the specification carries the checks a person would otherwise apply by looking at the thing: expected cardinality per dimension, the grain each chart aggregates to, and what the chart is for. That last field does most of the work. When a chart's stated question cannot be answered by its own configuration, a reviewer catches it while it is still three lines of YAML.
 
 ## Idempotency and ownership
 
-Creating the same specification twice must update the dashboard, not produce a second one. Key each chart and the dashboard on a stable identifier derived from the specification rather than on its title, which people rename.
+Run the same specification twice and you should have one dashboard, updated. Key each chart on a stable identifier derived from the specification — never on its title, because titles get renamed and then you have two.
 
-A generated dashboard still has a human owner, and the specification names them. Nobody owns a dashboard that appeared from an API call, and unowned dashboards are what a catalog is full of two years later.
+Ownership is the quieter problem. Every generated dashboard still needs a named human owner, recorded in the specification itself. Nobody feels responsible for something that appeared from an API call, and that is what a catalog is full of two years later: four hundred dashboards, no owners, nobody willing to delete any of them.
 
 ## Publication is still a gate
 
-Generating is not publishing. A dashboard reaching an audience is a release: it needs the numbers verified against a known-good query, the access model checked against who can now see the data, and named approval. The speed gain is in construction and it stops at the point where someone else starts trusting the output.
+Generating is not publishing. When a dashboard reaches an audience it is a release, so the numbers get verified against a known-good query, the access model gets checked against who can now see the data, and someone named approves it. Construction got faster. Trust did not, and it stops exactly where someone else starts relying on the output.
 """
     harness_loop = """# Harness delivery loop
 

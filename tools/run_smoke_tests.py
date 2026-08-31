@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import re
+import importlib.util as _ilu_boot
 import subprocess
 import tempfile
 import sys
@@ -196,6 +197,25 @@ def main() -> None:
                     break
             if any(n.get("status") != "planned" for n in plan.get("notes", [])):
                 errors.append(f"{plan_path.name}: a generated plan must contain only planned notes")
+
+    # A floor on prose quality for the skill-local standards, set below where the suite already
+    # sits so it catches regression rather than demanding a rewrite. Shared references are
+    # excluded: they ship into many skills and would be scored once per copy.
+    _ps_spec = _ilu_boot.spec_from_file_location("_prose_score", ROOT / "tools" / "prose_score.py")
+    _ps = _ilu_boot.module_from_spec(_ps_spec)
+    _ps_spec.loader.exec_module(_ps)
+    _scored: dict[str, float] = {}
+    for _doc in sorted(SKILLS.glob("*/references/*.md")):
+        if _doc.name.startswith(("catalog-", "adapter-")) or _doc.name in _scored:
+            continue
+        _values = _ps.measure(_doc.read_text(encoding="utf-8"))
+        if _values is None:
+            continue
+        _scored[_doc.name] = _ps.score(_values)[0]
+    _floor = 0.50
+    for _name, _value in sorted(_scored.items()):
+        if _value < _floor:
+            errors.append(f"{_name}: prose score {_value:.2f} below the {_floor:.2f} floor")
 
     # The prose tells are advisory in the corpus validator, so nothing else would notice if the
     # detector stopped detecting. Exercise it against a deliberately machine-shaped fixture.
