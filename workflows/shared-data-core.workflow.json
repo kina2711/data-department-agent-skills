@@ -1,7 +1,7 @@
 {
   "workflow_id": "shared-data-core-standard-path",
   "version": "2.0.0",
-  "objective": "Standard path through shared-data-core, 5 stages over 18 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/plan-design → P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/design-specification/plan-design → P0/build-change/build-deliver. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
+  "objective": "Standard path through shared-data-core, 5 stages over 18 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/plan-design → P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/design-specification/plan-design → P0/build-change/build-deliver. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Control boundaries, where risk first rises and authority beyond the previous stage is required: core-inspect-dataset-schema enters R3-controlled. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R3-controlled",
   "current_task_id": "core-document-data-deliverable",

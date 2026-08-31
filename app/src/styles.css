@@ -364,3 +364,9 @@ h4.sec:first-child { margin-top: 0; }
 .wf-node-tier.tier-standard { fill: var(--accent); }
 .wf-node-tier.tier-light { fill: var(--ok); }
 .wf-svg.is-fit { max-width: 100%; }
+
+.wf-gate { stroke: var(--warn); stroke-width: 1.5; stroke-dasharray: 5 4; opacity: .8; }
+.wf-gate-label {
+  font: 600 9.5px ui-sans-serif, system-ui, sans-serif; fill: var(--warn);
+  letter-spacing: .04em; text-transform: uppercase;
+}

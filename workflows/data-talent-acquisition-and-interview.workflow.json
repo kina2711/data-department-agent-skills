@@ -1,7 +1,7 @@
 {
   "workflow_id": "data-talent-acquisition-and-interview-standard-path",
   "version": "2.0.0",
-  "objective": "Standard path through data-talent-acquisition-and-interview, 10 stages over 41 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/hiring/plan-design → P0/hiring/build-deliver → P0/hiring/test-assure → P1/hiring/plan-design → P1/hiring/build-deliver → P1/hiring/test-assure → P2/hiring/plan-design → P2/hiring/build-deliver → P2/hiring/test-assure → P2/hiring/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
+  "objective": "Standard path through data-talent-acquisition-and-interview, 10 stages over 41 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/hiring/plan-design → P0/hiring/build-deliver → P0/hiring/test-assure → P1/hiring/plan-design → P1/hiring/build-deliver → P1/hiring/test-assure → P2/hiring/plan-design → P2/hiring/build-deliver → P2/hiring/test-assure → P2/hiring/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Control boundaries, where risk first rises and authority beyond the previous stage is required: talent-define-data-role-profile enters R2-standard; talent-source-data-candidates enters R3-controlled. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R3-controlled",
   "current_task_id": "talent-define-data-role-profile",

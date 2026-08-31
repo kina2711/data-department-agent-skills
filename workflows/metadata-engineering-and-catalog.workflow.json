@@ -1,7 +1,7 @@
 {
   "workflow_id": "metadata-engineering-and-catalog-standard-path",
   "version": "2.0.0",
-  "objective": "Standard path through metadata-engineering-and-catalog, 8 stages over 18 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/plan-design → P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/build-change/build-deliver → P1/advisory-analysis/build-deliver → P1/advisory-analysis/test-assure → P1/build-change/build-deliver → P1/production-release/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
+  "objective": "Standard path through metadata-engineering-and-catalog, 8 stages over 18 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/plan-design → P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/build-change/build-deliver → P1/advisory-analysis/build-deliver → P1/advisory-analysis/test-assure → P1/build-change/build-deliver → P1/production-release/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Control boundaries, where risk first rises and authority beyond the previous stage is required: meta-build-data-lineage enters R2-standard; meta-publish-metadata-api enters R3-controlled. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R3-controlled",
   "current_task_id": "meta-map-critical-data-elements",

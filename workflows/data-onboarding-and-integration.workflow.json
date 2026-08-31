@@ -1,7 +1,7 @@
 {
   "workflow_id": "data-onboarding-and-integration-standard-path",
   "version": "2.0.0",
-  "objective": "Standard path through data-onboarding-and-integration, 8 stages over 34 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/onboarding/plan-design → P0/onboarding/build-deliver → P0/onboarding/test-assure → P1/onboarding/plan-design → P1/onboarding/build-deliver → P2/onboarding/build-deliver → P2/onboarding/test-assure → P2/onboarding/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
+  "objective": "Standard path through data-onboarding-and-integration, 8 stages over 34 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/onboarding/plan-design → P0/onboarding/build-deliver → P0/onboarding/test-assure → P1/onboarding/plan-design → P1/onboarding/build-deliver → P2/onboarding/build-deliver → P2/onboarding/test-assure → P2/onboarding/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Control boundaries, where risk first rises and authority beyond the previous stage is required: onboard-define-data-onboarding-standard enters R3-controlled; onboard-resolve-onboarding-blocker enters R4-critical. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R4-critical",
   "current_task_id": "onboard-define-data-onboarding-standard",

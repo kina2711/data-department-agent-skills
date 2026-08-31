@@ -1,7 +1,7 @@
 {
   "workflow_id": "master-data-management-standard-path",
   "version": "2.0.0",
-  "objective": "Standard path through master-data-management, 8 stages over 13 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/advisory-analysis/operate-improve → P0/design-specification/plan-design → P0/build-change/build-deliver → P1/advisory-analysis/build-deliver → P1/advisory-analysis/operate-improve → P1/governance-assurance/test-assure. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
+  "objective": "Standard path through master-data-management, 8 stages over 13 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/build-deliver → P0/advisory-analysis/test-assure → P0/advisory-analysis/operate-improve → P0/design-specification/plan-design → P0/build-change/build-deliver → P1/advisory-analysis/build-deliver → P1/advisory-analysis/operate-improve → P1/governance-assurance/test-assure. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Control boundaries, where risk first rises and authority beyond the previous stage is required: mdm-build-golden-record enters R2-standard. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R2-standard",
   "current_task_id": "mdm-manage-stewardship-queue",

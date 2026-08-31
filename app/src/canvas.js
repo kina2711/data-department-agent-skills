@@ -152,6 +152,31 @@ function render() {
 
   const clip = (text, max) => (text.length > max ? `${text.slice(0, max - 1)}…` : text);
 
+  // A control boundary is where risk first rises above everything before it — the point the work
+  // needs authority the earlier stages did not. Derived from the same risk data the nodes show,
+  // never stored, so it cannot disagree with the manifest.
+  const RANK = { 'R0-light': 0, 'R1-reviewed': 1, 'R2-standard': 2, 'R3-controlled': 3, 'R4-critical': 4 };
+  const gates = new Set();
+  {
+    const byCol = new Map();
+    for (const t of tasks) {
+      const c = depth.get(keyOf(t)) || 0;
+      byCol.set(c, Math.max(byCol.get(c) || 0, RANK[t.risk_tier] ?? 0));
+    }
+    let seen = 0;
+    for (const c of [...byCol.keys()].sort((a, b) => a - b)) {
+      if (byCol.get(c) > seen && byCol.get(c) >= 2) gates.add(c);
+      seen = Math.max(seen, byCol.get(c));
+    }
+  }
+  for (const col of gates) {
+    const x = PAD + col * (NODE_W + GAP_X) - GAP_X / 2;
+    svg.append(el('line', { class: 'wf-gate', x1: x, y1: 4, x2: x, y2: height - 4 }));
+    const label = el('text', { class: 'wf-gate-label', x: x + 5, y: 14 });
+    label.textContent = 'cần phê duyệt';
+    svg.append(label);
+  }
+
   for (const t of tasks) {
     const p = pos.get(keyOf(t));
     const selected = wf.selected === keyOf(t);

@@ -151,6 +151,18 @@ def build(skill: str, phases: list[dict], catalog: dict[str, dict], owned: set[s
             })
         previous_anchor = anchor
 
+    # Where a stage's risk exceeds everything before it, the work crosses a control boundary and
+    # needs authority that earlier stages did not. The schema has nowhere to store a gate node, so
+    # the objective names them and the canvas derives the markers from the same risk data.
+    gates: list[str] = []
+    seen_risk = 0
+    for stage in stages:
+        top = max(RISK_ORDER.index(catalog[t]["risk_tier"]) for t in stage["tasks"])
+        if top > seen_risk:
+            seen_risk = top
+            if RISK_ORDER[top] in {"R2-standard", "R3-controlled", "R4-critical"}:
+                gates.append(f"{stage['tasks'][0]} enters {RISK_ORDER[top]}")
+
     trail = " → ".join(f"{s['phase']}/{s['lifecycle']}/{s['group']}" for s in stages)
     return {
         "workflow_id": f"{skill}-standard-path",
@@ -160,7 +172,9 @@ def build(skill: str, phases: list[dict], catalog: dict[str, dict], owned: set[s
             f"Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and "
             f"then by catalog verb: {trail}. An edge encodes stage precedence, not a task-level "
             f"prerequisite — tasks inside one stage are peers, because nothing in the suite orders "
-            f"them. Delete what this engagement does not need before running it."
+            f"them. Control boundaries, where risk first rises and authority beyond the previous "
+            f"stage is required: {'; '.join(gates) if gates else 'none'}. "
+            f"Delete what this engagement does not need before running it."
         ),
         "status": "draft",
         "workflow_risk_tier": RISK_ORDER[highest],
