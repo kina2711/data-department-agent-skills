@@ -62,6 +62,19 @@ PROSE_TELLS = [
 # One hedge is precision; three stacked is avoidance.
 HEDGE_WORDS = r"(có thể|có lẽ|thường|đôi khi|dường như|khá là|might|maybe|possibly|potentially|somewhat)"
 EM_DASH_PER_1000_LIMIT = 4.0
+# Uniform sentence length is the strongest structural tell of generated prose, and unlike a word
+# list it cannot be evaded by swapping vocabulary. Calibrated against 260 documents of this repo's
+# own prose, whose coefficient of variation runs 0.32 to 0.66; the floor sits below the most even
+# of them so real writing is never flagged.
+SENTENCE_VARIATION_FLOOR = 0.29
+MIN_SENTENCES_FOR_VARIATION = 12
+# Intensifiers that sound concrete and cannot be checked.
+UNFALSIFIABLE = (
+    r"\b(đáng kể|rất nhiều|vô cùng|hàng loạt|tối ưu hơn nhiều)\b",
+    r"\b(significantly|substantially|a wide range of|a variety of|greatly improves)\b",
+)
+# Balanced construction where reality is usually lopsided.
+SYMMETRY = (r"\b(mặt khác|một mặt.{0,40}mặt khác)\b", r"\bon the one hand\b.{0,80}\bon the other hand\b")
 
 
 def load(path: Path) -> Any:
@@ -119,6 +132,13 @@ def check_prose_tells(text: str) -> list[str]:
         line for line in body.splitlines()
         if not line.lstrip().startswith(("|", "#"))
     )
+    # A bulleted list is uniform by design and says nothing about prose rhythm; measuring its
+    # variation measures the list format. Sentence statistics run on paragraphs only.
+    paragraphs_only = "\n".join(
+        line for line in body.splitlines()
+        if not line.lstrip().startswith(("|", "#", "-", "*", ">"))
+        and not re.match(r"^\s*\d+[.)]\s", line)
+    )
     for pattern, advice in PROSE_TELLS:
         found = re.search(pattern, body)
         if found:
@@ -142,6 +162,31 @@ def check_prose_tells(text: str) -> list[str]:
         if len(re.findall(HEDGE_WORDS, sentence, re.IGNORECASE)) >= 3:
             tells.append(f"prose: three hedges in one sentence — {sentence.strip()[:70]!r}")
             break
+
+    for pattern in UNFALSIFIABLE:
+        found = re.search(pattern, prose_only, re.IGNORECASE)
+        if found:
+            tells.append(f"prose: {found.group(0)!r} sounds concrete and cannot be checked — give a number, a version or a case")
+            break
+    for pattern in SYMMETRY:
+        if re.search(pattern, prose_only, re.IGNORECASE | re.DOTALL):
+            tells.append("prose: balanced two-handed construction; most trade-offs have a side that usually wins — say which, and the condition where it does not")
+            break
+
+    # Length variation, measured rather than judged.
+    lengths = [
+        len(s.split()) for s in re.split(r"(?<=[.!?])\s+", paragraphs_only)
+        if len(s.split()) >= 4
+    ]
+    if len(lengths) >= MIN_SENTENCES_FOR_VARIATION:
+        mean = sum(lengths) / len(lengths)
+        variance = sum((x - mean) ** 2 for x in lengths) / (len(lengths) - 1)
+        cv = (variance ** 0.5) / mean if mean else 0
+        if cv < SENTENCE_VARIATION_FLOOR:
+            tells.append(
+                f"prose: sentence lengths vary by {cv:.2f}, below {SENTENCE_VARIATION_FLOOR} — "
+                "let each point take the space it needs rather than adding variation for its own sake"
+            )
     return tells
 
 

@@ -197,6 +197,23 @@ def main() -> None:
             if any(n.get("status") != "planned" for n in plan.get("notes", [])):
                 errors.append(f"{plan_path.name}: a generated plan must contain only planned notes")
 
+    # The prose tells are advisory in the corpus validator, so nothing else would notice if the
+    # detector stopped detecting. Exercise it against a deliberately machine-shaped fixture.
+    sys.path.insert(0, str(SKILLS / "data-academy-and-curriculum" / "scripts"))
+    try:
+        import importlib.util as _ilu
+        _spec = _ilu.spec_from_file_location(
+            "_corpus_validator", SKILLS / "data-academy-and-curriculum" / "scripts" / "validate_note_corpus.py")
+        _mod = _ilu.module_from_spec(_spec)
+        _spec.loader.exec_module(_mod)
+        _sample = (ROOT / "evaluations" / "fixtures" / "prose-machine" / "machine.md").read_text(encoding="utf-8")
+        _tells = _mod.check_prose_tells(_sample)
+        for _want in ("structure announcement", "cannot be checked", "two-handed", "sentence lengths vary"):
+            if not any(_want in t for t in _tells):
+                errors.append(f"prose detector no longer reports {_want!r}")
+    except Exception as exc:  # a detector that cannot run is a detector that reports nothing
+        errors.append(f"prose detector failed to run: {exc}")
+
     # The eval harness owns case correctness; smoke only checks it still runs and stays green,
     # so the two do not drift into separate opinions about the same files.
     harness_run = subprocess.run(
