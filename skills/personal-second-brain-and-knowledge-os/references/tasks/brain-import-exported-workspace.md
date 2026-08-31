@@ -38,6 +38,7 @@ Additional resources:
 - Read [the knowledge note and lineage standard](../knowledge-note-and-lineage-standard.md); separate source fact, synthesis, inference, personal rule and unsupported claim.
 - Read [the migration and tool-interoperability standard](../migration-and-tool-interop.md); export first, preserve originals and validate representative retrieval before cutover.
 - Run `../../scripts/build_brain_index.py` for a privacy-minimized path/hash/title/ID inventory; it intentionally excludes note bodies and likely secret files.
+- Read [external tool access](../external-tool-access.md); this task acts on a system outside the warehouse, so reach it through the declared tool surface rather than ad-hoc credentials, keep read and write as separate grants, and record identity, authority and task on the call rather than only on the failure.
 - Read [the execution discipline standard](../execution-discipline-standard.md).
 - Before Git-backed mutation, require a verified success contract and pre-change scope contract. After the final change, run `core-audit-change-scope` and `core-verify-deliverable`; release remains blocked if either control is absent or failed.
 

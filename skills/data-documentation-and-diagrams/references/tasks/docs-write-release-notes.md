@@ -63,6 +63,7 @@ Block before mutation or a positive completion decision when a mandatory input, 
 5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
 
 Additional resources:
+- Read [external tool access](../external-tool-access.md); this task acts on a system outside the warehouse, so reach it through the declared tool surface rather than ad-hoc credentials, keep read and write as separate grants, and record identity, authority and task on the call rather than only on the failure.
 - Read [solution option framing](../solution-option-framing.md); frame three to five materially different approaches in `../../assets/design-option-set.yaml`, select one against the stated constraints in at most forty words, and derive the deliverable structure from that selection. Where this role already owns a scored selection artifact, use it instead of duplicating the decision.
 - Read [the Workflow Runtime and Evidence OS](../workflow-runtime-and-evidence-os.md); validate workflow, evidence and version-bound approvals instead of relying on narrative gate claims.
 - Read [the execution discipline standard](../execution-discipline-standard.md).

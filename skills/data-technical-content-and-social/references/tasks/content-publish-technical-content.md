@@ -68,6 +68,7 @@ Additional resources:
 - Read [the platform format playbooks](../platform-format-playbooks.md); adapt from the canonical evidence pack without copying one channel verbatim into another.
 - When the artifact is published and measured, populate `../../assets/content-evidence-return.yaml` and hand it to `career-build-career-evidence-portfolio` in `data-career-and-interview-coach`. Content owns the artifact; Career decides whether it counts as competency evidence. Reach, reactions and post count are audience signals, never mastery.
 - Reuse only the matching template from `../../assets/`; run `../../scripts/validate_content_manifest.py` when a content manifest is available.
+- Read [external tool access](../external-tool-access.md); this task acts on a system outside the warehouse, so reach it through the declared tool surface rather than ad-hoc credentials, keep read and write as separate grants, and record identity, authority and task on the call rather than only on the failure.
 - Read [the Workflow Runtime and Evidence OS](../workflow-runtime-and-evidence-os.md); validate workflow, evidence and version-bound approvals instead of relying on narrative gate claims.
 - Read [the execution discipline standard](../execution-discipline-standard.md).
 - Before Git-backed mutation, require a verified success contract and pre-change scope contract. After the final change, run `core-audit-change-scope` and `core-verify-deliverable`; release remains blocked if either control is absent or failed.

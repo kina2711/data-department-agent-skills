@@ -65,6 +65,7 @@ Block before mutation or a positive completion decision when a mandatory input, 
 Additional resources:
 - Read [role onboarding tracks](../role-onboarding-tracks.md) and tailor by role and level.
 - Reuse `../../assets/onboarding-plan.yaml`, `../../assets/access-readiness.yaml` and `../../assets/checkpoint.yaml`.
+- Read [external tool access](../external-tool-access.md); this task acts on a system outside the warehouse, so reach it through the declared tool surface rather than ad-hoc credentials, keep read and write as separate grants, and record identity, authority and task on the call rather than only on the failure.
 - Read [the Workflow Runtime and Evidence OS](../workflow-runtime-and-evidence-os.md); validate workflow, evidence and version-bound approvals instead of relying on narrative gate claims.
 
 - When readiness inputs are incomplete, a bounded assumption-based draft is allowed, but mark failed gates and never represent planned access, training or contribution as completed.

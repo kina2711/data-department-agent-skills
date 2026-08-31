@@ -66,6 +66,7 @@ Block before mutation or a positive completion decision when a mandatory input, 
 Additional resources:
 - Read [grounded generation and agent economics](../grounded-generation-and-agent-economics.md); a generation step that touches a warehouse retrieves the live schema immediately before generating, never from the system prompt or from recall, and records which schema version grounded the query.
 - Attribute cost per session and per agent rather than per call; a cheap agent invoked forty times is the expensive one and per-call figures hide it. Trace what context actually left the process, because prompt bloat accumulates invisibly.
+- Read [external tool access](../external-tool-access.md); this task acts on a system outside the warehouse, so reach it through the declared tool surface rather than ad-hoc credentials, keep read and write as separate grants, and record identity, authority and task on the call rather than only on the failure.
 - Summarize the run with `../../scripts/summarize_eval_run.py`; report the confidence interval, not the bare pass rate, and treat a run whose interval spans the baseline or the threshold as undecided rather than as a win.
 - Read [the Workflow Runtime and Evidence OS](../workflow-runtime-and-evidence-os.md); validate workflow, evidence and version-bound approvals instead of relying on narrative gate claims.
 - Read [the execution discipline standard](../execution-discipline-standard.md).

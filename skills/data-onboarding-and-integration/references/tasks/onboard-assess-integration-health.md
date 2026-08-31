@@ -35,6 +35,7 @@ If an absent input changes semantics, risk, cost, scope or acceptance, classify 
 Additional resources:
 - Read [role onboarding tracks](../role-onboarding-tracks.md) and tailor by role and level.
 - Reuse `../../assets/onboarding-plan.yaml`, `../../assets/access-readiness.yaml` and `../../assets/checkpoint.yaml`.
+- Read [external tool access](../external-tool-access.md); this task acts on a system outside the warehouse, so reach it through the declared tool surface rather than ad-hoc credentials, keep read and write as separate grants, and record identity, authority and task on the call rather than only on the failure.
 
 - When readiness inputs are incomplete, a bounded assumption-based draft is allowed, but mark failed gates and never represent planned access, training or contribution as completed.
 - Treat actual access provisioning or sensitive-data enablement as R3-controlled; treat offboarding and access revocation as R4-critical with independent verification.

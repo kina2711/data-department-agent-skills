@@ -62,6 +62,7 @@ Block before mutation or a positive completion decision when a mandatory input, 
 5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
 
 Additional resources:
+- Read [external tool access](../external-tool-access.md); this task acts on a system outside the warehouse, so reach it through the declared tool surface rather than ad-hoc credentials, keep read and write as separate grants, and record identity, authority and task on the call rather than only on the failure.
 - Compare feature statistics with `../../scripts/check_training_serving_skew.py`; a missing feature, a dtype change or an unseen category carrying real traffic is a structural failure, not drift to monitor later.
 - Read [the Workflow Runtime and Evidence OS](../workflow-runtime-and-evidence-os.md); validate workflow, evidence and version-bound approvals instead of relying on narrative gate claims.
 - Read [the execution discipline standard](../execution-discipline-standard.md).

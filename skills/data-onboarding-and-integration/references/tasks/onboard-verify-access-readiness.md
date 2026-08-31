@@ -65,6 +65,7 @@ Block before mutation or a positive completion decision when a mandatory input, 
 Additional resources:
 - Read [role onboarding tracks](../role-onboarding-tracks.md) and tailor by role and level.
 - Reuse `../../assets/onboarding-plan.yaml`, `../../assets/access-readiness.yaml` and `../../assets/checkpoint.yaml`.
+- Read [external tool access](../external-tool-access.md); this task acts on a system outside the warehouse, so reach it through the declared tool surface rather than ad-hoc credentials, keep read and write as separate grants, and record identity, authority and task on the call rather than only on the failure.
 - Score the checkpoint with `../../scripts/score_onboarding_checkpoint.py`; a critical dimension below the bar blocks the readiness decision and is never averaged away, and any score above exposure must name evidence.
 - Read [the Workflow Runtime and Evidence OS](../workflow-runtime-and-evidence-os.md); validate workflow, evidence and version-bound approvals instead of relying on narrative gate claims.
 

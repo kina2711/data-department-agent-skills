@@ -37,6 +37,7 @@ function readSuite(suitePath) {
   // renders, just without them.
   let guides = {};
   let jobs = [];
+  let searchIndex = new Map();
   try {
     guides = JSON.parse(
       fs.readFileSync(path.join(suitePath, 'docs', 'huong-dan-skill.vi.json'), 'utf8')
@@ -50,6 +51,16 @@ function readSuite(suitePath) {
     ).cong_viec || [];
   } catch {
     jobs = [];
+  }
+  // The generated retrieval index carries keywords per task, so search matches a task by what it
+  // is about rather than only by the characters in its id.
+  try {
+    const idx = JSON.parse(
+      fs.readFileSync(path.join(suitePath, 'docs', 'retrieval-index.json'), 'utf8')
+    );
+    for (const t of idx.tasks || []) searchIndex.set(t.id, t.keywords || []);
+  } catch {
+    searchIndex = new Map();
   }
 
   // Task-level metadata is optional; the grid degrades to names and counts without it.
@@ -88,6 +99,7 @@ function readSuite(suitePath) {
       taskCount: role.task_count || owned.length,
       tasks: owned.map((t) => ({
         id: t.id,
+        keywords: searchIndex.get(t.id) || [],
         goal: t.goal,
         output: t.output,
         risk: t.risk_tier,

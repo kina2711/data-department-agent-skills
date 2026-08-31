@@ -40,6 +40,15 @@ function notice(text, kind) {
   $('notice').append(el);
 }
 
+// A query matches a task by its id, its Vietnamese goal, or the keywords the retrieval index
+// derived from both — so "cache" finds the semantic cache task without knowing its id.
+function taskMatches(task, q) {
+  if (!q) return true;
+  if (task.id.includes(q)) return true;
+  if ((task.goal || '').toLowerCase().includes(q)) return true;
+  return (task.keywords || []).some((k) => k.includes(q));
+}
+
 function matches(skill) {
   const q = state.query.trim().toLowerCase();
   const tier = state.filterTier;
@@ -47,7 +56,7 @@ function matches(skill) {
   if (!tierOk) return false;
   if (!q) return true;
   if (skill.name.toLowerCase().includes(q) || skill.id.includes(q)) return true;
-  return skill.tasks.some((t) => t.id.includes(q) || (t.goal || '').toLowerCase().includes(q));
+  return skill.tasks.some((t) => taskMatches(t, q));
 }
 
 function renderGrid() {
@@ -108,8 +117,7 @@ function renderTasks() {
   const q = state.query.trim().toLowerCase();
   const list = skill.tasks.filter((t) => {
     if (state.filterTier && t.modelTier !== state.filterTier) return false;
-    if (!q) return true;
-    return t.id.includes(q) || (t.goal || '').toLowerCase().includes(q);
+    return taskMatches(t, q);
   });
   if (!list.length) {
     box.innerHTML = '<div class="empty">Không có task nào khớp bộ lọc.</div>';

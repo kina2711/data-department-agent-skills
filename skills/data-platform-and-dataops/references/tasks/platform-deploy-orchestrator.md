@@ -62,6 +62,7 @@ Block before mutation or a positive completion decision when a mandatory input, 
 5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
 
 Additional resources:
+- Read [external tool access](../external-tool-access.md); this task acts on a system outside the warehouse, so reach it through the declared tool surface rather than ad-hoc credentials, keep read and write as separate grants, and record identity, authority and task on the call rather than only on the failure.
 - Summarize the plan with `../../scripts/summarize_terraform_plan.py` from `terraform show -json`; destroy and replace are reported separately, stateful resource types are called out, and approval binds to that destructive set rather than to a diff count.
 - Read [the Workflow Runtime and Evidence OS](../workflow-runtime-and-evidence-os.md); validate workflow, evidence and version-bound approvals instead of relying on narrative gate claims.
 - Read [the execution discipline standard](../execution-discipline-standard.md).

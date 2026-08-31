@@ -33,7 +33,7 @@ If an absent input changes semantics, risk, cost, scope or acceptance, classify 
 5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
 
 Additional resources:
-- None beyond the selected company, technology and industry context.
+- Read [external tool access](../external-tool-access.md); this task acts on a system outside the warehouse, so reach it through the declared tool surface rather than ad-hoc credentials, keep read and write as separate grants, and record identity, authority and task on the call rather than only on the failure.
 
 
 ## Tests and evidence

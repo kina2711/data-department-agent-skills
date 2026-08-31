@@ -35,6 +35,7 @@ If an absent input changes semantics, risk, cost, scope or acceptance, classify 
 Additional resources:
 - Read [the personal-project operating system](../personal-project-operating-system.md) and reuse the matching intake, option-scorecard, thesis, roadmap or evidence-plan asset.
 - When a project manifest exists, run `../../scripts/validate_personal_project_manifest.py`; plan mode is not completion evidence.
+- Read [external tool access](../external-tool-access.md); this task acts on a system outside the warehouse, so reach it through the declared tool surface rather than ad-hoc credentials, keep read and write as separate grants, and record identity, authority and task on the call rather than only on the failure.
 
 
 ## Tests and evidence

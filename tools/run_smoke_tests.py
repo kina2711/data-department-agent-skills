@@ -151,6 +151,23 @@ def main() -> None:
     # Generated per-skill workflows: check the structure the generator is responsible for.
     # `owner` is deliberately empty in the shipped templates — nobody owns a template — so it is
     # stubbed in a throwaway copy rather than written into the file to make a validator pass.
+    # The retrieval index is generated; a stale one sends readers to contracts that moved.
+    index_path = ROOT / "docs" / "retrieval-index.json"
+    if not index_path.exists():
+        errors.append("missing docs/retrieval-index.json")
+    else:
+        index = json.loads(index_path.read_text(encoding="utf-8"))
+        indexed = {t["id"] for t in index.get("tasks", [])}
+        if indexed != task_ids:
+            errors.append(
+                f"retrieval index covers {len(indexed)} of {len(task_ids)} tasks; "
+                f"missing {sorted(task_ids - indexed)[:3]}"
+            )
+        for entry in index.get("tasks", []):
+            if not entry.get("keywords"):
+                errors.append(f"retrieval index: {entry['id']} has no keywords")
+                break
+
     workflow_validator = SKILLS / "data-department-orchestrator" / "scripts" / "validate_workflow.py"
     workflow_files = sorted((ROOT / "workflows").glob("*.workflow.json"))
     if not workflow_files:
