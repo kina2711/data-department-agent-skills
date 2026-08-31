@@ -105,6 +105,12 @@ The second matters more: the moves that lower a detector score are not the moves
 
 If the concern is that honest work will be wrongly flagged, the durable answer is provenance rather than evasion: keep the drafts, the log entries and the sources that show how the piece was made.
 
+## Running the check
+
+`tools/prose_score.py` measures five of these properties against percentiles of writing that already exists in this repository. Run it as the last step before a piece is called done, after the argument is settled: sentence-length variation, opener diversity, lexical diversity, paragraph variation and the density of details a reader could check.
+
+Act on the dimension it names rather than on the number. A low opener-diversity score means too many sentences begin the same way, and the fix is to vary what comes first — not to pad the text until the statistic moves.
+
 ## Where this stops
 
 Fluency is not accuracy. Prose that reads well and hedges nothing can be confidently wrong, and this standard does nothing about that — sourcing, evidence and review do. Never remove a qualifier because it reads as weak when the underlying claim genuinely is qualified, and never sharpen a number, a version or a limitation to make a sentence land. A stated uncertainty is content, not filler.

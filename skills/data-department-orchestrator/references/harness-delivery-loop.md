@@ -14,6 +14,8 @@ The suite's lifecycle standard already stages the work. This is the loop a sessi
 
 **Ship** packages the verified evidence — changelog, version, artifacts. The gate is preflight: every claim in the release has evidence behind it, and unrun checks are reported as unrun rather than omitted.
 
+Prose the release contains passes `tools/prose_score.py` before it ships. This is the last gate of every workflow that produces something a person reads, and it is last for a reason: the writing cannot be judged until the content is settled, and rewriting for rhythm before the argument is fixed is wasted work. Score against the floor, act on the specific weakness the tool names, and never satisfy it by inserting variation for its own sake — a document that scores well because randomness was sprinkled into it is worse than the one that scored badly honestly.
+
 Between plan and reality, drift accumulates. Compare what was planned against what exists, on demand and before shipping, and surface the difference rather than reconciling it silently.
 
 ## Two enforcement layers, and only one is negotiable

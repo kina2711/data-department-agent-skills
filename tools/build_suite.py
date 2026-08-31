@@ -1107,6 +1107,66 @@ An external call fails differently from a query: partially, slowly, and sometime
 Bound what one run can do. A limit on external writes per run turns a reasoning error into a small mess instead of a large one, and it costs nothing on the runs that were going to be fine.
 """
 
+EDGE_PROVENANCE = """# Edge provenance in knowledge graphs
+
+Any graph built from documents mixes two kinds of edge, and the mixing is what ruins it. Some were
+written down by a person who knew the relationship was real. Others came out of a rule — co-occurrence,
+section ordering, shared vocabulary — and the rule was a guess.
+Both look identical once they are arrows on a canvas. So the graph presents a guess with exactly
+the confidence of a fact, at whatever scale the pipeline happens to run.
+
+The fix is small. Every edge carries where it came from.
+
+## Three labels
+
+**Extracted.** A person asserted this relationship, or it was read verbatim from a file that
+asserts it — a `parents` link in the concept registry, a standard named in a task contract. Such
+an edge carries the authority of whoever wrote it. No more, and no less.
+
+**Inferred.** A rule produced this edge. Record the rule beside it, so that a reader can judge the
+derivation rather than trust it: a prerequisite between two notes, derived from the registry link
+between the concepts those notes teach, is inferred — sound enough, but one step removed from
+anything a human actually wrote.
+
+**Ambiguous.** The relationship is asserted, but it means less than the arrow suggests. Workflow
+stage precedence is the standing example: it says the earlier stage runs first, and says nothing
+whatever about whether one task consumes the other's output. Tasks inside a stage are peers.
+Drawing 832 of those as dependencies would be wrong 832 times.
+
+## What the labels are for
+
+Ambiguous edges are excluded from every structural claim — degree, clustering, anything about what
+depends on what. They stay in the graph, because deleting them would throw away information that
+somebody may want. They stay labelled for the harder reason: unlabelled, they lie.
+
+The same discipline answers the pressure that produces fabricated graphs. When a source has no edge
+to give, the output is fewer edges — never a weaker rule, quietly applied to fill the gap. An empty
+region is a finding. A region filled in by heuristic is a fiction nobody will be able to detect
+later, because by then it looks exactly like everything around it.
+
+## Hubs destroy structure
+
+A node nearly everything connects to tells you nothing about grouping. Worse: by joining every
+cluster to every other cluster it collapses them into one, which is precisely how the standards
+that all 865 tasks route to behave. Cluster over a graph that still contains them and the result
+is one blob plus a handful of orphans.
+
+Exclude ubiquitous nodes before clustering, the way stopwords are dropped before comparing
+documents. Their ubiquity is itself worth reporting, separately, as a fact about what the whole
+suite leans on.
+
+## Reading a cluster
+
+Clustering finds groups. It does not find meaning; whatever name a person attaches to a community
+is a hypothesis, nothing more. So treat a cluster that crosses skill boundaries as a question — do
+these two roles share more than the taxonomy admits, or do they merely share boilerplate? — and
+answer it by reading the members. Never by trusting the partition.
+
+Run `python3 tools/build_knowledge_graph.py --report` to regenerate the graph and print hubs,
+communities and cross-domain edges. `--check` fails when the committed graph is stale.
+"""
+
+
 OUTWARD_FACING_SKILLS = {
     "shared-data-core", "data-platform-and-dataops", "data-security-and-privacy",
     "metadata-engineering-and-catalog", "machine-learning-engineering", "mlops",
@@ -1117,6 +1177,14 @@ OUTWARD_FACING_SKILLS = {
     "data-engineering", "analytics-engineering", "business-intelligence",
     "data-documentation-and-diagrams", "data-governance-and-stewardship",
     "data-quality-and-reliability",
+}
+
+GRAPH_BUILDING_SKILLS = {
+    "shared-data-core",
+    "personal-second-brain-and-knowledge-os",
+    "data-academy-and-curriculum",
+    "book-to-knowledge-and-action",
+    "data-department-orchestrator",
 }
 
 PROSE_AUTHORING_SKILLS = {
@@ -1701,6 +1769,10 @@ def task_specific_resources(task_id: str) -> list[str]:
         if task_id == "academy-research-role-roadmap":
             resources.append(
                 "Every step carries publisher, URL and a published/updated plus accessed date, and each is labelled `sourced`, `convention` or `judgment`. Leave `currency_claim` at `not-claimed` while any step is uncited; `role-curricula.md` is an input, never evidence of what is current."
+            )
+        if task_id in {"academy-plan-note-corpus", "academy-index-note-corpus", "academy-audit-note-corpus"}:
+            resources.append(
+                "Label every relationship you record with [edge provenance](../edge-provenance.md): `extracted` when a person asserted it, `inferred` when a rule derived it — state the rule — and `ambiguous` when the arrow claims more than the source supports. A prerequisite you produced from reading order is not a prerequisite, and where a source gives no edge the corpus gets fewer edges, not a looser rule."
             )
         if task_id in {"academy-plan-note-corpus", "academy-build-note-module"}:
             resources.append(
@@ -3204,6 +3276,12 @@ The second matters more: the moves that lower a detector score are not the moves
 
 If the concern is that honest work will be wrongly flagged, the durable answer is provenance rather than evasion: keep the drafts, the log entries and the sources that show how the piece was made.
 
+## Running the check
+
+`tools/prose_score.py` measures five of these properties against percentiles of writing that already exists in this repository. Run it as the last step before a piece is called done, after the argument is settled: sentence-length variation, opener diversity, lexical diversity, paragraph variation and the density of details a reader could check.
+
+Act on the dimension it names rather than on the number. A low opener-diversity score means too many sentences begin the same way, and the fix is to vary what comes first — not to pad the text until the statistic moves.
+
 ## Where this stops
 
 Fluency is not accuracy. Prose that reads well and hedges nothing can be confidently wrong, and this standard does nothing about that — sourcing, evidence and review do. Never remove a qualifier because it reads as weak when the underlying claim genuinely is qualified, and never sharpen a number, a version or a limitation to make a sentence land. A stated uncertainty is content, not filler.
@@ -3365,6 +3443,8 @@ Record only routing/task metadata, outcome, duration, references loaded, token e
             (refs / "authored-prose-voice.md").write_text(authored_prose_voice, encoding="utf-8")
         if skill in OUTWARD_FACING_SKILLS:
             (refs / "external-tool-access.md").write_text(EXTERNAL_TOOL_ACCESS, encoding="utf-8")
+        if skill in GRAPH_BUILDING_SKILLS:
+            (refs / "edge-provenance.md").write_text(EDGE_PROVENANCE, encoding="utf-8")
         (refs / "solution-option-framing.md").write_text(solution_option_framing, encoding="utf-8")
         adapters = ROLE_STACK_ADAPTERS.get(skill, ())
         adapter_links = "\n".join(f"- [{name}](adapter-{name}.md)" for name in adapters)
@@ -4554,6 +4634,8 @@ The suite's lifecycle standard already stages the work. This is the loop a sessi
 **Review** is done by someone who did not do the work, against the acceptance criteria fixed during Plan. The gate is that significant findings block completion. A reviewer who has read the producer's reasoning is measuring agreement with it.
 
 **Ship** packages the verified evidence — changelog, version, artifacts. The gate is preflight: every claim in the release has evidence behind it, and unrun checks are reported as unrun rather than omitted.
+
+Prose the release contains passes `tools/prose_score.py` before it ships. This is the last gate of every workflow that produces something a person reads, and it is last for a reason: the writing cannot be judged until the content is settled, and rewriting for rhythm before the argument is fixed is wasted work. Score against the floor, act on the specific weakness the tool names, and never satisfy it by inserting variation for its own sake — a document that scores well because randomness was sprinkled into it is worse than the one that scored badly honestly.
 
 Between plan and reality, drift accumulates. Compare what was planned against what exists, on demand and before shipping, and surface the difference rather than reconciling it silently.
 

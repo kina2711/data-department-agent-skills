@@ -176,7 +176,8 @@ def main() -> None:
 
     # The registry and the corpus plans are generated; a stale plan points at keys that moved.
     for tool, label in [("build_concept_registry.py", "concept registry"),
-                        ("build_corpus_plans.py", "corpus plans")]:
+                        ("build_corpus_plans.py", "corpus plans"),
+                        ("build_knowledge_graph.py", "knowledge graph")]:
         result = subprocess.run(
             [sys.executable, str(ROOT / "tools" / tool), "--check"],
             capture_output=True, text=True, check=False,
