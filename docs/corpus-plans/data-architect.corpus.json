@@ -1,0 +1,446 @@
+{
+ "corpus_id": "data-architect-corpus",
+ "domain": "Data Architect",
+ "roadmap_ref": "",
+ "track_map_ref": "",
+ "note_root": "notes",
+ "standard": "knowledge-deep-dive-standard.md",
+ "concept_registry_ref": "docs/concept-registry.json",
+ "_": "Planned only: no note exists yet. Run academy-elicit-prior-knowledge before building, then academy-build-note-module one module at a time, checkpointing here.",
+ "notes": [
+  {
+   "id": "data-architect.arch.data-contract",
+   "title": "Data contract",
+   "module_id": "architecture-core",
+   "path": "data-architect/architecture-core/arch.data-contract.md",
+   "tags": [
+    "arch",
+    "architecture-core"
+   ],
+   "concept_keys": [
+    "ck.arch.data-contract"
+   ],
+   "primary_for_keys": [
+    "ck.arch.data-contract"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-architect.arch.coupling",
+   "title": "Coupling",
+   "module_id": "architecture-core",
+   "path": "data-architect/architecture-core/arch.coupling.md",
+   "tags": [
+    "arch",
+    "architecture-core"
+   ],
+   "concept_keys": [
+    "ck.arch.coupling"
+   ],
+   "primary_for_keys": [
+    "ck.arch.coupling"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-architect.arch.consistency-model",
+   "title": "Consistency model",
+   "module_id": "architecture-core",
+   "path": "data-architect/architecture-core/arch.consistency-model.md",
+   "tags": [
+    "arch",
+    "architecture-core"
+   ],
+   "concept_keys": [
+    "ck.arch.consistency-model"
+   ],
+   "primary_for_keys": [
+    "ck.arch.consistency-model"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-architect.arch.idempotent-interface",
+   "title": "Idempotent interface",
+   "module_id": "architecture-core",
+   "path": "data-architect/architecture-core/arch.idempotent-interface.md",
+   "tags": [
+    "arch",
+    "architecture-core"
+   ],
+   "concept_keys": [
+    "ck.arch.idempotent-interface"
+   ],
+   "primary_for_keys": [
+    "ck.arch.idempotent-interface"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-architect.arch.failure-domain",
+   "title": "Failure domain",
+   "module_id": "architecture-core",
+   "path": "data-architect/architecture-core/arch.failure-domain.md",
+   "tags": [
+    "arch",
+    "architecture-core"
+   ],
+   "concept_keys": [
+    "ck.arch.failure-domain"
+   ],
+   "primary_for_keys": [
+    "ck.arch.failure-domain"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-architect.arch.lineage",
+   "title": "Lineage",
+   "module_id": "architecture-core",
+   "path": "data-architect/architecture-core/arch.lineage.md",
+   "tags": [
+    "arch",
+    "architecture-core"
+   ],
+   "concept_keys": [
+    "ck.arch.lineage"
+   ],
+   "primary_for_keys": [
+    "ck.arch.lineage"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-architect.modelling.dimensional-model",
+   "title": "Dimensional model",
+   "module_id": "modelling-decisions",
+   "path": "data-architect/modelling-decisions/modelling.dimensional-model.md",
+   "tags": [
+    "modelling",
+    "modelling-decisions"
+   ],
+   "concept_keys": [
+    "ck.modelling.dimensional-model"
+   ],
+   "primary_for_keys": [
+    "ck.modelling.dimensional-model"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [
+    "data-architect.modelling.conformed-dimension"
+   ],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-architect.modelling.one-big-table",
+   "title": "One big table",
+   "module_id": "modelling-decisions",
+   "path": "data-architect/modelling-decisions/modelling.one-big-table.md",
+   "tags": [
+    "modelling",
+    "modelling-decisions"
+   ],
+   "concept_keys": [
+    "ck.modelling.one-big-table"
+   ],
+   "primary_for_keys": [
+    "ck.modelling.one-big-table"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-architect.modelling.conformed-dimension",
+   "title": "Conformed dimension",
+   "module_id": "modelling-decisions",
+   "path": "data-architect/modelling-decisions/modelling.conformed-dimension.md",
+   "tags": [
+    "modelling",
+    "modelling-decisions"
+   ],
+   "concept_keys": [
+    "ck.modelling.conformed-dimension"
+   ],
+   "primary_for_keys": [
+    "ck.modelling.conformed-dimension"
+   ],
+   "builds_on": [
+    "data-architect.modelling.dimensional-model"
+   ],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-architect.modelling.slowly-changing-dimension",
+   "title": "Slowly changing dimension",
+   "module_id": "modelling-decisions",
+   "path": "data-architect/modelling-decisions/modelling.slowly-changing-dimension.md",
+   "tags": [
+    "modelling",
+    "modelling-decisions"
+   ],
+   "concept_keys": [
+    "ck.modelling.slowly-changing-dimension"
+   ],
+   "primary_for_keys": [
+    "ck.modelling.slowly-changing-dimension"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-architect.warehouse.columnar-storage",
+   "title": "Columnar storage",
+   "module_id": "platform-physics",
+   "path": "data-architect/platform-physics/warehouse.columnar-storage.md",
+   "tags": [
+    "warehouse",
+    "platform-physics"
+   ],
+   "concept_keys": [
+    "ck.warehouse.columnar-storage"
+   ],
+   "primary_for_keys": [
+    "ck.warehouse.columnar-storage"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-architect.warehouse.partitioning",
+   "title": "Partitioning",
+   "module_id": "platform-physics",
+   "path": "data-architect/platform-physics/warehouse.partitioning.md",
+   "tags": [
+    "warehouse",
+    "platform-physics"
+   ],
+   "concept_keys": [
+    "ck.warehouse.partitioning"
+   ],
+   "primary_for_keys": [
+    "ck.warehouse.partitioning"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [
+    "data-architect.warehouse.clustering"
+   ],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-architect.warehouse.clustering",
+   "title": "Clustering",
+   "module_id": "platform-physics",
+   "path": "data-architect/platform-physics/warehouse.clustering.md",
+   "tags": [
+    "warehouse",
+    "platform-physics"
+   ],
+   "concept_keys": [
+    "ck.warehouse.clustering"
+   ],
+   "primary_for_keys": [
+    "ck.warehouse.clustering"
+   ],
+   "builds_on": [
+    "data-architect.warehouse.partitioning"
+   ],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-architect.warehouse.file-layout",
+   "title": "File layout and size",
+   "module_id": "platform-physics",
+   "path": "data-architect/platform-physics/warehouse.file-layout.md",
+   "tags": [
+    "warehouse",
+    "platform-physics"
+   ],
+   "concept_keys": [
+    "ck.warehouse.file-layout"
+   ],
+   "primary_for_keys": [
+    "ck.warehouse.file-layout"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-architect.warehouse.compute-storage-separation",
+   "title": "Compute and storage separation",
+   "module_id": "platform-physics",
+   "path": "data-architect/platform-physics/warehouse.compute-storage-separation.md",
+   "tags": [
+    "warehouse",
+    "platform-physics"
+   ],
+   "concept_keys": [
+    "ck.warehouse.compute-storage-separation"
+   ],
+   "primary_for_keys": [
+    "ck.warehouse.compute-storage-separation"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-architect.warehouse.scan-cost",
+   "title": "Scan cost",
+   "module_id": "platform-physics",
+   "path": "data-architect/platform-physics/warehouse.scan-cost.md",
+   "tags": [
+    "warehouse",
+    "platform-physics"
+   ],
+   "concept_keys": [
+    "ck.warehouse.scan-cost"
+   ],
+   "primary_for_keys": [
+    "ck.warehouse.scan-cost"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-architect.pipeline.delivery-semantics",
+   "title": "Delivery semantics",
+   "module_id": "integration-semantics",
+   "path": "data-architect/integration-semantics/pipeline.delivery-semantics.md",
+   "tags": [
+    "pipeline",
+    "integration-semantics"
+   ],
+   "concept_keys": [
+    "ck.pipeline.delivery-semantics"
+   ],
+   "primary_for_keys": [
+    "ck.pipeline.delivery-semantics"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-architect.pipeline.cdc",
+   "title": "Change data capture",
+   "module_id": "integration-semantics",
+   "path": "data-architect/integration-semantics/pipeline.cdc.md",
+   "tags": [
+    "pipeline",
+    "integration-semantics"
+   ],
+   "concept_keys": [
+    "ck.pipeline.cdc"
+   ],
+   "primary_for_keys": [
+    "ck.pipeline.cdc"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-architect.pipeline.schema-evolution",
+   "title": "Schema evolution",
+   "module_id": "integration-semantics",
+   "path": "data-architect/integration-semantics/pipeline.schema-evolution.md",
+   "tags": [
+    "pipeline",
+    "integration-semantics"
+   ],
+   "concept_keys": [
+    "ck.pipeline.schema-evolution"
+   ],
+   "primary_for_keys": [
+    "ck.pipeline.schema-evolution"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-architect.pipeline.watermark",
+   "title": "Watermark",
+   "module_id": "integration-semantics",
+   "path": "data-architect/integration-semantics/pipeline.watermark.md",
+   "tags": [
+    "pipeline",
+    "integration-semantics"
+   ],
+   "concept_keys": [
+    "ck.pipeline.watermark"
+   ],
+   "primary_for_keys": [
+    "ck.pipeline.watermark"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  }
+ ],
+ "modules_completed": [],
+ "next_module": "architecture-core",
+ "open_gaps": [],
+ "owner": "",
+ "version": "0.1.0",
+ "status": "draft"
+}

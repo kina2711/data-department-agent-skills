@@ -173,6 +173,30 @@ def main() -> None:
         except json.JSONDecodeError as exc:
             errors.append(f"{asset.parent.parent.name}/{asset.name}: not valid JSON ({exc.msg})")
 
+    # The registry and the corpus plans are generated; a stale plan points at keys that moved.
+    for tool, label in [("build_concept_registry.py", "concept registry"),
+                        ("build_corpus_plans.py", "corpus plans")]:
+        result = subprocess.run(
+            [sys.executable, str(ROOT / "tools" / tool), "--check"],
+            capture_output=True, text=True, check=False,
+        )
+        if result.returncode != 0:
+            errors.append(f"{label} out of date; regenerate with tools/{tool}")
+
+    # Every planned note must bind to a key the registry actually has.
+    registry_path = ROOT / "docs" / "concept-registry.json"
+    if registry_path.exists():
+        known = {k["concept_key"] for k in json.loads(registry_path.read_text(encoding="utf-8"))["keys"]}
+        for plan_path in sorted((ROOT / "docs" / "corpus-plans").glob("*.corpus.json")):
+            plan = json.loads(plan_path.read_text(encoding="utf-8"))
+            for note in plan.get("notes", []):
+                unknown = [k for k in note.get("concept_keys", []) if k not in known]
+                if unknown:
+                    errors.append(f"{plan_path.name}: {note['id']} binds unregistered {unknown[0]}")
+                    break
+            if any(n.get("status") != "planned" for n in plan.get("notes", [])):
+                errors.append(f"{plan_path.name}: a generated plan must contain only planned notes")
+
     # The eval harness owns case correctness; smoke only checks it still runs and stays green,
     # so the two do not drift into separate opinions about the same files.
     harness_run = subprocess.run(

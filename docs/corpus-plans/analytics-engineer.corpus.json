@@ -1,0 +1,474 @@
+{
+ "corpus_id": "analytics-engineer-corpus",
+ "domain": "Analytics Engineer",
+ "roadmap_ref": "",
+ "track_map_ref": "",
+ "note_root": "notes",
+ "standard": "knowledge-deep-dive-standard.md",
+ "concept_registry_ref": "docs/concept-registry.json",
+ "_": "Planned only: no note exists yet. Run academy-elicit-prior-knowledge before building, then academy-build-note-module one module at a time, checkpointing here.",
+ "notes": [
+  {
+   "id": "analytics-engineer.sql.grain",
+   "title": "Grain",
+   "module_id": "sql-depth",
+   "path": "analytics-engineer/sql-depth/sql.grain.md",
+   "tags": [
+    "sql",
+    "sql-depth"
+   ],
+   "concept_keys": [
+    "ck.sql.grain"
+   ],
+   "primary_for_keys": [
+    "ck.sql.grain"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [
+    "analytics-engineer.sql.aggregation-grain-error",
+    "analytics-engineer.modelling.fact-grain"
+   ],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.sql.fan-out",
+   "title": "Join fan-out",
+   "module_id": "sql-depth",
+   "path": "analytics-engineer/sql-depth/sql.fan-out.md",
+   "tags": [
+    "sql",
+    "sql-depth"
+   ],
+   "concept_keys": [
+    "ck.sql.fan-out"
+   ],
+   "primary_for_keys": [
+    "ck.sql.fan-out"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.sql.window-function",
+   "title": "Window function",
+   "module_id": "sql-depth",
+   "path": "analytics-engineer/sql-depth/sql.window-function.md",
+   "tags": [
+    "sql",
+    "sql-depth"
+   ],
+   "concept_keys": [
+    "ck.sql.window-function"
+   ],
+   "primary_for_keys": [
+    "ck.sql.window-function"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.sql.aggregation-grain-error",
+   "title": "Aggregation grain error",
+   "module_id": "sql-depth",
+   "path": "analytics-engineer/sql-depth/sql.aggregation-grain-error.md",
+   "tags": [
+    "sql",
+    "sql-depth"
+   ],
+   "concept_keys": [
+    "ck.sql.aggregation-grain-error"
+   ],
+   "primary_for_keys": [
+    "ck.sql.aggregation-grain-error"
+   ],
+   "builds_on": [
+    "analytics-engineer.sql.grain"
+   ],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.sql.normalization",
+   "title": "Normalization",
+   "module_id": "sql-depth",
+   "path": "analytics-engineer/sql-depth/sql.normalization.md",
+   "tags": [
+    "sql",
+    "sql-depth"
+   ],
+   "concept_keys": [
+    "ck.sql.normalization"
+   ],
+   "primary_for_keys": [
+    "ck.sql.normalization"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.modelling.dimensional-model",
+   "title": "Dimensional model",
+   "module_id": "modelling",
+   "path": "analytics-engineer/modelling/modelling.dimensional-model.md",
+   "tags": [
+    "modelling",
+    "modelling"
+   ],
+   "concept_keys": [
+    "ck.modelling.dimensional-model"
+   ],
+   "primary_for_keys": [
+    "ck.modelling.dimensional-model"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [
+    "analytics-engineer.modelling.conformed-dimension"
+   ],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.modelling.conformed-dimension",
+   "title": "Conformed dimension",
+   "module_id": "modelling",
+   "path": "analytics-engineer/modelling/modelling.conformed-dimension.md",
+   "tags": [
+    "modelling",
+    "modelling"
+   ],
+   "concept_keys": [
+    "ck.modelling.conformed-dimension"
+   ],
+   "primary_for_keys": [
+    "ck.modelling.conformed-dimension"
+   ],
+   "builds_on": [
+    "analytics-engineer.modelling.dimensional-model"
+   ],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.modelling.slowly-changing-dimension",
+   "title": "Slowly changing dimension",
+   "module_id": "modelling",
+   "path": "analytics-engineer/modelling/modelling.slowly-changing-dimension.md",
+   "tags": [
+    "modelling",
+    "modelling"
+   ],
+   "concept_keys": [
+    "ck.modelling.slowly-changing-dimension"
+   ],
+   "primary_for_keys": [
+    "ck.modelling.slowly-changing-dimension"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.modelling.one-big-table",
+   "title": "One big table",
+   "module_id": "modelling",
+   "path": "analytics-engineer/modelling/modelling.one-big-table.md",
+   "tags": [
+    "modelling",
+    "modelling"
+   ],
+   "concept_keys": [
+    "ck.modelling.one-big-table"
+   ],
+   "primary_for_keys": [
+    "ck.modelling.one-big-table"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.modelling.fact-grain",
+   "title": "Fact grain",
+   "module_id": "modelling",
+   "path": "analytics-engineer/modelling/modelling.fact-grain.md",
+   "tags": [
+    "modelling",
+    "modelling"
+   ],
+   "concept_keys": [
+    "ck.modelling.fact-grain"
+   ],
+   "primary_for_keys": [
+    "ck.modelling.fact-grain"
+   ],
+   "builds_on": [
+    "analytics-engineer.sql.grain"
+   ],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.modelling.semantic-layer",
+   "title": "Semantic layer",
+   "module_id": "modelling",
+   "path": "analytics-engineer/modelling/modelling.semantic-layer.md",
+   "tags": [
+    "modelling",
+    "modelling"
+   ],
+   "concept_keys": [
+    "ck.modelling.semantic-layer"
+   ],
+   "primary_for_keys": [
+    "ck.modelling.semantic-layer"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.modelling.surrogate-key",
+   "title": "Surrogate key",
+   "module_id": "modelling",
+   "path": "analytics-engineer/modelling/modelling.surrogate-key.md",
+   "tags": [
+    "modelling",
+    "modelling"
+   ],
+   "concept_keys": [
+    "ck.modelling.surrogate-key"
+   ],
+   "primary_for_keys": [
+    "ck.modelling.surrogate-key"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.pipeline.idempotency",
+   "title": "Pipeline idempotency",
+   "module_id": "incremental-and-cost",
+   "path": "analytics-engineer/incremental-and-cost/pipeline.idempotency.md",
+   "tags": [
+    "pipeline",
+    "incremental-and-cost"
+   ],
+   "concept_keys": [
+    "ck.pipeline.idempotency"
+   ],
+   "primary_for_keys": [
+    "ck.pipeline.idempotency"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.pipeline.backfill",
+   "title": "Backfill",
+   "module_id": "incremental-and-cost",
+   "path": "analytics-engineer/incremental-and-cost/pipeline.backfill.md",
+   "tags": [
+    "pipeline",
+    "incremental-and-cost"
+   ],
+   "concept_keys": [
+    "ck.pipeline.backfill"
+   ],
+   "primary_for_keys": [
+    "ck.pipeline.backfill"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.warehouse.partitioning",
+   "title": "Partitioning",
+   "module_id": "incremental-and-cost",
+   "path": "analytics-engineer/incremental-and-cost/warehouse.partitioning.md",
+   "tags": [
+    "warehouse",
+    "incremental-and-cost"
+   ],
+   "concept_keys": [
+    "ck.warehouse.partitioning"
+   ],
+   "primary_for_keys": [
+    "ck.warehouse.partitioning"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [
+    "analytics-engineer.warehouse.clustering"
+   ],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.warehouse.clustering",
+   "title": "Clustering",
+   "module_id": "incremental-and-cost",
+   "path": "analytics-engineer/incremental-and-cost/warehouse.clustering.md",
+   "tags": [
+    "warehouse",
+    "incremental-and-cost"
+   ],
+   "concept_keys": [
+    "ck.warehouse.clustering"
+   ],
+   "primary_for_keys": [
+    "ck.warehouse.clustering"
+   ],
+   "builds_on": [
+    "analytics-engineer.warehouse.partitioning"
+   ],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.warehouse.scan-cost",
+   "title": "Scan cost",
+   "module_id": "incremental-and-cost",
+   "path": "analytics-engineer/incremental-and-cost/warehouse.scan-cost.md",
+   "tags": [
+    "warehouse",
+    "incremental-and-cost"
+   ],
+   "concept_keys": [
+    "ck.warehouse.scan-cost"
+   ],
+   "primary_for_keys": [
+    "ck.warehouse.scan-cost"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.swe.version-control-hygiene",
+   "title": "Version control hygiene",
+   "module_id": "release-discipline",
+   "path": "analytics-engineer/release-discipline/swe.version-control-hygiene.md",
+   "tags": [
+    "swe",
+    "release-discipline"
+   ],
+   "concept_keys": [
+    "ck.swe.version-control-hygiene"
+   ],
+   "primary_for_keys": [
+    "ck.swe.version-control-hygiene"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.swe.code-review",
+   "title": "Code review",
+   "module_id": "release-discipline",
+   "path": "analytics-engineer/release-discipline/swe.code-review.md",
+   "tags": [
+    "swe",
+    "release-discipline"
+   ],
+   "concept_keys": [
+    "ck.swe.code-review"
+   ],
+   "primary_for_keys": [
+    "ck.swe.code-review"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.swe.test-isolation",
+   "title": "Test isolation",
+   "module_id": "release-discipline",
+   "path": "analytics-engineer/release-discipline/swe.test-isolation.md",
+   "tags": [
+    "swe",
+    "release-discipline"
+   ],
+   "concept_keys": [
+    "ck.swe.test-isolation"
+   ],
+   "primary_for_keys": [
+    "ck.swe.test-isolation"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "analytics-engineer.swe.ci-feedback-loop",
+   "title": "CI feedback loop",
+   "module_id": "release-discipline",
+   "path": "analytics-engineer/release-discipline/swe.ci-feedback-loop.md",
+   "tags": [
+    "swe",
+    "release-discipline"
+   ],
+   "concept_keys": [
+    "ck.swe.ci-feedback-loop"
+   ],
+   "primary_for_keys": [
+    "ck.swe.ci-feedback-loop"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  }
+ ],
+ "modules_completed": [],
+ "next_module": "sql-depth",
+ "open_gaps": [],
+ "owner": "",
+ "version": "0.1.0",
+ "status": "draft"
+}

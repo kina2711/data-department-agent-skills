@@ -1,0 +1,358 @@
+{
+ "corpus_id": "business-data-analyst-corpus",
+ "domain": "Business Data Analyst",
+ "roadmap_ref": "",
+ "track_map_ref": "",
+ "note_root": "notes",
+ "standard": "knowledge-deep-dive-standard.md",
+ "concept_registry_ref": "docs/concept-registry.json",
+ "_": "Planned only: no note exists yet. Run academy-elicit-prior-knowledge before building, then academy-build-note-module one module at a time, checkpointing here.",
+ "notes": [
+  {
+   "id": "business-data-analyst.sql.grain",
+   "title": "Grain",
+   "module_id": "sql-working-level",
+   "path": "business-data-analyst/sql-working-level/sql.grain.md",
+   "tags": [
+    "sql",
+    "sql-working-level"
+   ],
+   "concept_keys": [
+    "ck.sql.grain"
+   ],
+   "primary_for_keys": [
+    "ck.sql.grain"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "business-data-analyst.sql.join-semantics",
+   "title": "Join semantics",
+   "module_id": "sql-working-level",
+   "path": "business-data-analyst/sql-working-level/sql.join-semantics.md",
+   "tags": [
+    "sql",
+    "sql-working-level"
+   ],
+   "concept_keys": [
+    "ck.sql.join-semantics"
+   ],
+   "primary_for_keys": [
+    "ck.sql.join-semantics"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [
+    "business-data-analyst.sql.fan-out"
+   ],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "business-data-analyst.sql.fan-out",
+   "title": "Join fan-out",
+   "module_id": "sql-working-level",
+   "path": "business-data-analyst/sql-working-level/sql.fan-out.md",
+   "tags": [
+    "sql",
+    "sql-working-level"
+   ],
+   "concept_keys": [
+    "ck.sql.fan-out"
+   ],
+   "primary_for_keys": [
+    "ck.sql.fan-out"
+   ],
+   "builds_on": [
+    "business-data-analyst.sql.join-semantics"
+   ],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "business-data-analyst.sql.null-semantics",
+   "title": "Null semantics",
+   "module_id": "sql-working-level",
+   "path": "business-data-analyst/sql-working-level/sql.null-semantics.md",
+   "tags": [
+    "sql",
+    "sql-working-level"
+   ],
+   "concept_keys": [
+    "ck.sql.null-semantics"
+   ],
+   "primary_for_keys": [
+    "ck.sql.null-semantics"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "business-data-analyst.product.opportunity-sizing",
+   "title": "Opportunity sizing",
+   "module_id": "requirements",
+   "path": "business-data-analyst/requirements/product.opportunity-sizing.md",
+   "tags": [
+    "product",
+    "requirements"
+   ],
+   "concept_keys": [
+    "ck.product.opportunity-sizing"
+   ],
+   "primary_for_keys": [
+    "ck.product.opportunity-sizing"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "business-data-analyst.product.prioritisation-gate",
+   "title": "Prioritisation gate",
+   "module_id": "requirements",
+   "path": "business-data-analyst/requirements/product.prioritisation-gate.md",
+   "tags": [
+    "product",
+    "requirements"
+   ],
+   "concept_keys": [
+    "ck.product.prioritisation-gate"
+   ],
+   "primary_for_keys": [
+    "ck.product.prioritisation-gate"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "business-data-analyst.product.discovery-versus-delivery",
+   "title": "Discovery versus delivery",
+   "module_id": "requirements",
+   "path": "business-data-analyst/requirements/product.discovery-versus-delivery.md",
+   "tags": [
+    "product",
+    "requirements"
+   ],
+   "concept_keys": [
+    "ck.product.discovery-versus-delivery"
+   ],
+   "primary_for_keys": [
+    "ck.product.discovery-versus-delivery"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "business-data-analyst.product.acceptance-criteria",
+   "title": "Acceptance criteria",
+   "module_id": "requirements",
+   "path": "business-data-analyst/requirements/product.acceptance-criteria.md",
+   "tags": [
+    "product",
+    "requirements"
+   ],
+   "concept_keys": [
+    "ck.product.acceptance-criteria"
+   ],
+   "primary_for_keys": [
+    "ck.product.acceptance-criteria"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "business-data-analyst.product.stakeholder-decision",
+   "title": "Stakeholder decision",
+   "module_id": "requirements",
+   "path": "business-data-analyst/requirements/product.stakeholder-decision.md",
+   "tags": [
+    "product",
+    "requirements"
+   ],
+   "concept_keys": [
+    "ck.product.stakeholder-decision"
+   ],
+   "primary_for_keys": [
+    "ck.product.stakeholder-decision"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "business-data-analyst.product.requirement-traceability",
+   "title": "Requirement traceability",
+   "module_id": "requirements",
+   "path": "business-data-analyst/requirements/product.requirement-traceability.md",
+   "tags": [
+    "product",
+    "requirements"
+   ],
+   "concept_keys": [
+    "ck.product.requirement-traceability"
+   ],
+   "primary_for_keys": [
+    "ck.product.requirement-traceability"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "business-data-analyst.analytics.simpson-paradox",
+   "title": "Simpson's paradox",
+   "module_id": "analysis-traps",
+   "path": "business-data-analyst/analysis-traps/analytics.simpson-paradox.md",
+   "tags": [
+    "analytics",
+    "analysis-traps"
+   ],
+   "concept_keys": [
+    "ck.analytics.simpson-paradox"
+   ],
+   "primary_for_keys": [
+    "ck.analytics.simpson-paradox"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "business-data-analyst.analytics.survivorship-bias",
+   "title": "Survivorship bias",
+   "module_id": "analysis-traps",
+   "path": "business-data-analyst/analysis-traps/analytics.survivorship-bias.md",
+   "tags": [
+    "analytics",
+    "analysis-traps"
+   ],
+   "concept_keys": [
+    "ck.analytics.survivorship-bias"
+   ],
+   "primary_for_keys": [
+    "ck.analytics.survivorship-bias"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "business-data-analyst.analytics.sampling-bias",
+   "title": "Sampling bias",
+   "module_id": "analysis-traps",
+   "path": "business-data-analyst/analysis-traps/analytics.sampling-bias.md",
+   "tags": [
+    "analytics",
+    "analysis-traps"
+   ],
+   "concept_keys": [
+    "ck.analytics.sampling-bias"
+   ],
+   "primary_for_keys": [
+    "ck.analytics.sampling-bias"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "business-data-analyst.analytics.metric-definition-drift",
+   "title": "Metric definition drift",
+   "module_id": "analysis-traps",
+   "path": "business-data-analyst/analysis-traps/analytics.metric-definition-drift.md",
+   "tags": [
+    "analytics",
+    "analysis-traps"
+   ],
+   "concept_keys": [
+    "ck.analytics.metric-definition-drift"
+   ],
+   "primary_for_keys": [
+    "ck.analytics.metric-definition-drift"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "business-data-analyst.modelling.semantic-layer",
+   "title": "Semantic layer",
+   "module_id": "semantics-and-contracts",
+   "path": "business-data-analyst/semantics-and-contracts/modelling.semantic-layer.md",
+   "tags": [
+    "modelling",
+    "semantics-and-contracts"
+   ],
+   "concept_keys": [
+    "ck.modelling.semantic-layer"
+   ],
+   "primary_for_keys": [
+    "ck.modelling.semantic-layer"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "business-data-analyst.arch.data-contract",
+   "title": "Data contract",
+   "module_id": "semantics-and-contracts",
+   "path": "business-data-analyst/semantics-and-contracts/arch.data-contract.md",
+   "tags": [
+    "arch",
+    "semantics-and-contracts"
+   ],
+   "concept_keys": [
+    "ck.arch.data-contract"
+   ],
+   "primary_for_keys": [
+    "ck.arch.data-contract"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  }
+ ],
+ "modules_completed": [],
+ "next_module": "sql-working-level",
+ "open_gaps": [],
+ "owner": "",
+ "version": "0.1.0",
+ "status": "draft"
+}

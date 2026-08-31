@@ -1,0 +1,617 @@
+{
+ "corpus_id": "software-engineer-corpus",
+ "domain": "Software Engineer",
+ "roadmap_ref": "",
+ "track_map_ref": "",
+ "note_root": "notes",
+ "standard": "knowledge-deep-dive-standard.md",
+ "concept_registry_ref": "docs/concept-registry.json",
+ "_": "Planned only: no note exists yet. Run academy-elicit-prior-knowledge before building, then academy-build-note-module one module at a time, checkpointing here.",
+ "notes": [
+  {
+   "id": "software-engineer.swe.version-control-hygiene",
+   "title": "Version control hygiene",
+   "module_id": "practice",
+   "path": "software-engineer/practice/swe.version-control-hygiene.md",
+   "tags": [
+    "swe",
+    "practice"
+   ],
+   "concept_keys": [
+    "ck.swe.version-control-hygiene"
+   ],
+   "primary_for_keys": [
+    "ck.swe.version-control-hygiene"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.swe.code-review",
+   "title": "Code review",
+   "module_id": "practice",
+   "path": "software-engineer/practice/swe.code-review.md",
+   "tags": [
+    "swe",
+    "practice"
+   ],
+   "concept_keys": [
+    "ck.swe.code-review"
+   ],
+   "primary_for_keys": [
+    "ck.swe.code-review"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.swe.test-isolation",
+   "title": "Test isolation",
+   "module_id": "practice",
+   "path": "software-engineer/practice/swe.test-isolation.md",
+   "tags": [
+    "swe",
+    "practice"
+   ],
+   "concept_keys": [
+    "ck.swe.test-isolation"
+   ],
+   "primary_for_keys": [
+    "ck.swe.test-isolation"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.swe.ci-feedback-loop",
+   "title": "CI feedback loop",
+   "module_id": "practice",
+   "path": "software-engineer/practice/swe.ci-feedback-loop.md",
+   "tags": [
+    "swe",
+    "practice"
+   ],
+   "concept_keys": [
+    "ck.swe.ci-feedback-loop"
+   ],
+   "primary_for_keys": [
+    "ck.swe.ci-feedback-loop"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.swe.technical-debt",
+   "title": "Technical debt",
+   "module_id": "practice",
+   "path": "software-engineer/practice/swe.technical-debt.md",
+   "tags": [
+    "swe",
+    "practice"
+   ],
+   "concept_keys": [
+    "ck.swe.technical-debt"
+   ],
+   "primary_for_keys": [
+    "ck.swe.technical-debt"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.swe.observability",
+   "title": "Observability",
+   "module_id": "practice",
+   "path": "software-engineer/practice/swe.observability.md",
+   "tags": [
+    "swe",
+    "practice"
+   ],
+   "concept_keys": [
+    "ck.swe.observability"
+   ],
+   "primary_for_keys": [
+    "ck.swe.observability"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.python.data-model",
+   "title": "Python data model",
+   "module_id": "python",
+   "path": "software-engineer/python/python.data-model.md",
+   "tags": [
+    "python",
+    "python"
+   ],
+   "concept_keys": [
+    "ck.python.data-model"
+   ],
+   "primary_for_keys": [
+    "ck.python.data-model"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.python.mutability-aliasing",
+   "title": "Mutability and aliasing",
+   "module_id": "python",
+   "path": "software-engineer/python/python.mutability-aliasing.md",
+   "tags": [
+    "python",
+    "python"
+   ],
+   "concept_keys": [
+    "ck.python.mutability-aliasing"
+   ],
+   "primary_for_keys": [
+    "ck.python.mutability-aliasing"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.python.iterator-generator",
+   "title": "Iterator and generator",
+   "module_id": "python",
+   "path": "software-engineer/python/python.iterator-generator.md",
+   "tags": [
+    "python",
+    "python"
+   ],
+   "concept_keys": [
+    "ck.python.iterator-generator"
+   ],
+   "primary_for_keys": [
+    "ck.python.iterator-generator"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.python.comprehension",
+   "title": "Comprehension",
+   "module_id": "python",
+   "path": "software-engineer/python/python.comprehension.md",
+   "tags": [
+    "python",
+    "python"
+   ],
+   "concept_keys": [
+    "ck.python.comprehension"
+   ],
+   "primary_for_keys": [
+    "ck.python.comprehension"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.python.typing-and-hints",
+   "title": "Typing and hints",
+   "module_id": "python",
+   "path": "software-engineer/python/python.typing-and-hints.md",
+   "tags": [
+    "python",
+    "python"
+   ],
+   "concept_keys": [
+    "ck.python.typing-and-hints"
+   ],
+   "primary_for_keys": [
+    "ck.python.typing-and-hints"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.python.packaging-environment",
+   "title": "Packaging and environment",
+   "module_id": "python",
+   "path": "software-engineer/python/python.packaging-environment.md",
+   "tags": [
+    "python",
+    "python"
+   ],
+   "concept_keys": [
+    "ck.python.packaging-environment"
+   ],
+   "primary_for_keys": [
+    "ck.python.packaging-environment"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.python.exception-flow",
+   "title": "Exception flow",
+   "module_id": "python",
+   "path": "software-engineer/python/python.exception-flow.md",
+   "tags": [
+    "python",
+    "python"
+   ],
+   "concept_keys": [
+    "ck.python.exception-flow"
+   ],
+   "primary_for_keys": [
+    "ck.python.exception-flow"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.python.pandas-semantics",
+   "title": "Pandas semantics",
+   "module_id": "python",
+   "path": "software-engineer/python/python.pandas-semantics.md",
+   "tags": [
+    "python",
+    "python"
+   ],
+   "concept_keys": [
+    "ck.python.pandas-semantics"
+   ],
+   "primary_for_keys": [
+    "ck.python.pandas-semantics"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.python.vectorisation",
+   "title": "Vectorisation",
+   "module_id": "python",
+   "path": "software-engineer/python/python.vectorisation.md",
+   "tags": [
+    "python",
+    "python"
+   ],
+   "concept_keys": [
+    "ck.python.vectorisation"
+   ],
+   "primary_for_keys": [
+    "ck.python.vectorisation"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.python.async-concurrency",
+   "title": "Async concurrency",
+   "module_id": "python",
+   "path": "software-engineer/python/python.async-concurrency.md",
+   "tags": [
+    "python",
+    "python"
+   ],
+   "concept_keys": [
+    "ck.python.async-concurrency"
+   ],
+   "primary_for_keys": [
+    "ck.python.async-concurrency"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.python.testing-pyramid",
+   "title": "Testing in Python",
+   "module_id": "python",
+   "path": "software-engineer/python/python.testing-pyramid.md",
+   "tags": [
+    "python",
+    "python"
+   ],
+   "concept_keys": [
+    "ck.python.testing-pyramid"
+   ],
+   "primary_for_keys": [
+    "ck.python.testing-pyramid"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.rust.ownership",
+   "title": "Ownership",
+   "module_id": "rust",
+   "path": "software-engineer/rust/rust.ownership.md",
+   "tags": [
+    "rust",
+    "rust"
+   ],
+   "concept_keys": [
+    "ck.rust.ownership"
+   ],
+   "primary_for_keys": [
+    "ck.rust.ownership"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [
+    "software-engineer.rust.borrowing",
+    "software-engineer.rust.fearless-concurrency"
+   ],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.rust.borrowing",
+   "title": "Borrowing",
+   "module_id": "rust",
+   "path": "software-engineer/rust/rust.borrowing.md",
+   "tags": [
+    "rust",
+    "rust"
+   ],
+   "concept_keys": [
+    "ck.rust.borrowing"
+   ],
+   "primary_for_keys": [
+    "ck.rust.borrowing"
+   ],
+   "builds_on": [
+    "software-engineer.rust.ownership"
+   ],
+   "prerequisite_of": [
+    "software-engineer.rust.lifetime"
+   ],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.rust.lifetime",
+   "title": "Lifetime",
+   "module_id": "rust",
+   "path": "software-engineer/rust/rust.lifetime.md",
+   "tags": [
+    "rust",
+    "rust"
+   ],
+   "concept_keys": [
+    "ck.rust.lifetime"
+   ],
+   "primary_for_keys": [
+    "ck.rust.lifetime"
+   ],
+   "builds_on": [
+    "software-engineer.rust.borrowing"
+   ],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.rust.trait",
+   "title": "Trait",
+   "module_id": "rust",
+   "path": "software-engineer/rust/rust.trait.md",
+   "tags": [
+    "rust",
+    "rust"
+   ],
+   "concept_keys": [
+    "ck.rust.trait"
+   ],
+   "primary_for_keys": [
+    "ck.rust.trait"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.rust.error-handling",
+   "title": "Error handling",
+   "module_id": "rust",
+   "path": "software-engineer/rust/rust.error-handling.md",
+   "tags": [
+    "rust",
+    "rust"
+   ],
+   "concept_keys": [
+    "ck.rust.error-handling"
+   ],
+   "primary_for_keys": [
+    "ck.rust.error-handling"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.rust.fearless-concurrency",
+   "title": "Fearless concurrency",
+   "module_id": "rust",
+   "path": "software-engineer/rust/rust.fearless-concurrency.md",
+   "tags": [
+    "rust",
+    "rust"
+   ],
+   "concept_keys": [
+    "ck.rust.fearless-concurrency"
+   ],
+   "primary_for_keys": [
+    "ck.rust.fearless-concurrency"
+   ],
+   "builds_on": [
+    "software-engineer.rust.ownership"
+   ],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.rust.zero-cost-abstraction",
+   "title": "Zero-cost abstraction",
+   "module_id": "rust",
+   "path": "software-engineer/rust/rust.zero-cost-abstraction.md",
+   "tags": [
+    "rust",
+    "rust"
+   ],
+   "concept_keys": [
+    "ck.rust.zero-cost-abstraction"
+   ],
+   "primary_for_keys": [
+    "ck.rust.zero-cost-abstraction"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.arch.coupling",
+   "title": "Coupling",
+   "module_id": "systems-thinking",
+   "path": "software-engineer/systems-thinking/arch.coupling.md",
+   "tags": [
+    "arch",
+    "systems-thinking"
+   ],
+   "concept_keys": [
+    "ck.arch.coupling"
+   ],
+   "primary_for_keys": [
+    "ck.arch.coupling"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.arch.consistency-model",
+   "title": "Consistency model",
+   "module_id": "systems-thinking",
+   "path": "software-engineer/systems-thinking/arch.consistency-model.md",
+   "tags": [
+    "arch",
+    "systems-thinking"
+   ],
+   "concept_keys": [
+    "ck.arch.consistency-model"
+   ],
+   "primary_for_keys": [
+    "ck.arch.consistency-model"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.arch.failure-domain",
+   "title": "Failure domain",
+   "module_id": "systems-thinking",
+   "path": "software-engineer/systems-thinking/arch.failure-domain.md",
+   "tags": [
+    "arch",
+    "systems-thinking"
+   ],
+   "concept_keys": [
+    "ck.arch.failure-domain"
+   ],
+   "primary_for_keys": [
+    "ck.arch.failure-domain"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "software-engineer.arch.idempotent-interface",
+   "title": "Idempotent interface",
+   "module_id": "systems-thinking",
+   "path": "software-engineer/systems-thinking/arch.idempotent-interface.md",
+   "tags": [
+    "arch",
+    "systems-thinking"
+   ],
+   "concept_keys": [
+    "ck.arch.idempotent-interface"
+   ],
+   "primary_for_keys": [
+    "ck.arch.idempotent-interface"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  }
+ ],
+ "modules_completed": [],
+ "next_module": "practice",
+ "open_gaps": [],
+ "owner": "",
+ "version": "0.1.0",
+ "status": "draft"
+}

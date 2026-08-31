@@ -1,0 +1,1880 @@
+{
+ "registry_id": "dd-data-concepts",
+ "version": "0.1.0",
+ "owner": "data-department",
+ "_": "Source of truth is tools/build_concept_registry.py; regenerate rather than edit. Every key is `proposed`: a batch is promoted deliberately after review, and only `registered` keys count toward coverage.",
+ "keys": [
+  {
+   "concept_key": "ck.sql.grain",
+   "display_name": "Grain",
+   "definition": "What exactly one row of a table represents, stated as a sentence.",
+   "domain": "sql",
+   "aliases": [
+    "hạt",
+    "granularity"
+   ],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.sql.join-semantics",
+   "display_name": "Join semantics",
+   "definition": "Which rows survive a join and how many copies each produces, decided by key cardinality rather than by join keyword.",
+   "domain": "sql",
+   "aliases": [
+    "join"
+   ],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.sql.fan-out",
+   "display_name": "Join fan-out",
+   "definition": "Row multiplication caused by joining to a table whose key is not unique, silently inflating every downstream sum.",
+   "domain": "sql",
+   "aliases": [
+    "duplicate join"
+   ],
+   "parents": [
+    "ck.sql.join-semantics"
+   ],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.sql.null-semantics",
+   "display_name": "Null semantics",
+   "definition": "Null is unknown rather than empty, so it propagates through arithmetic and is never equal to anything including itself.",
+   "domain": "sql",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.sql.cte-vs-subquery",
+   "display_name": "CTE versus subquery",
+   "definition": "A named intermediate result that may or may not be materialised, changing readability always and performance sometimes.",
+   "domain": "sql",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.sql.window-function",
+   "display_name": "Window function",
+   "definition": "A calculation over a set of rows related to the current row, without collapsing them into one.",
+   "domain": "sql",
+   "aliases": [
+    "hàm cửa sổ"
+   ],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.sql.aggregation-grain-error",
+   "display_name": "Aggregation grain error",
+   "definition": "Aggregating at a grain finer or coarser than the question asked, producing a number that is arithmetically correct and answers nothing.",
+   "domain": "sql",
+   "aliases": [],
+   "parents": [
+    "ck.sql.grain"
+   ],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.sql.set-operations",
+   "display_name": "Set operations",
+   "definition": "Union, intersect and except treat rows as members of a set, which is why union removes duplicates and union all does not.",
+   "domain": "sql",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.sql.index-and-scan",
+   "display_name": "Index and scan",
+   "definition": "Whether the engine reads a targeted subset or every row, decided by predicates and physical layout rather than by query length.",
+   "domain": "sql",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.sql.query-plan",
+   "display_name": "Query plan",
+   "definition": "The engine's chosen execution strategy, which is what to read when a query is slow rather than the SQL text.",
+   "domain": "sql",
+   "aliases": [
+    "execution plan"
+   ],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.sql.transaction-isolation",
+   "display_name": "Transaction isolation",
+   "definition": "What one transaction may see of another's uncommitted work, and the anomalies each level permits.",
+   "domain": "sql",
+   "aliases": [
+    "isolation level"
+   ],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.sql.normalization",
+   "display_name": "Normalization",
+   "definition": "Removing redundancy so a fact is stored once, trading write simplicity for join cost at read time.",
+   "domain": "sql",
+   "aliases": [
+    "chuẩn hoá"
+   ],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.sql.idempotent-write",
+   "display_name": "Idempotent write",
+   "definition": "A write that produces the same end state when repeated, which is what makes a retry safe.",
+   "domain": "sql",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.python.data-model",
+   "display_name": "Python data model",
+   "definition": "The protocol methods that make an object behave like a builtin, which is why duck typing works.",
+   "domain": "python",
+   "aliases": [
+    "dunder"
+   ],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.python.mutability-aliasing",
+   "display_name": "Mutability and aliasing",
+   "definition": "Two names can refer to one mutable object, so a change through one is visible through the other.",
+   "domain": "python",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.python.iterator-generator",
+   "display_name": "Iterator and generator",
+   "definition": "Producing values one at a time rather than building a list, bounding memory by the item instead of the collection.",
+   "domain": "python",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.python.comprehension",
+   "display_name": "Comprehension",
+   "definition": "Expression-level construction of a collection, readable at small scale and unreadable past two clauses.",
+   "domain": "python",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.python.typing-and-hints",
+   "display_name": "Typing and hints",
+   "definition": "Annotations checked by a separate tool rather than at runtime, so they document intent and catch a class of error before execution.",
+   "domain": "python",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.python.packaging-environment",
+   "display_name": "Packaging and environment",
+   "definition": "Which interpreter and which dependency versions the code actually runs against, and how that is reproduced elsewhere.",
+   "domain": "python",
+   "aliases": [
+    "venv"
+   ],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.python.exception-flow",
+   "display_name": "Exception flow",
+   "definition": "Errors as control flow that unwinds to a handler, and the cost of catching too broadly.",
+   "domain": "python",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.python.pandas-semantics",
+   "display_name": "Pandas semantics",
+   "definition": "Index alignment, copy-versus-view and dtype coercion, which is where most silent wrong answers in pandas come from.",
+   "domain": "python",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.python.vectorisation",
+   "display_name": "Vectorisation",
+   "definition": "Expressing a loop as an array operation so the work happens in compiled code rather than in the interpreter.",
+   "domain": "python",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.python.async-concurrency",
+   "display_name": "Async concurrency",
+   "definition": "Interleaving on waiting rather than running in parallel, which helps IO-bound work and not CPU-bound work.",
+   "domain": "python",
+   "aliases": [
+    "asyncio"
+   ],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.python.testing-pyramid",
+   "display_name": "Testing in Python",
+   "definition": "Fast isolated tests as the base, with slower integrated ones above, and fixtures that make failures reproducible.",
+   "domain": "python",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.rust.ownership",
+   "display_name": "Ownership",
+   "definition": "Each value has exactly one owner, and it is dropped when the owner goes out of scope.",
+   "domain": "rust",
+   "aliases": [
+    "sở hữu"
+   ],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.rust.borrowing",
+   "display_name": "Borrowing",
+   "definition": "Taking a reference without taking ownership, with either many readers or one writer but never both.",
+   "domain": "rust",
+   "aliases": [
+    "mượn"
+   ],
+   "parents": [
+    "ck.rust.ownership"
+   ],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.rust.lifetime",
+   "display_name": "Lifetime",
+   "definition": "The compiler's proof that a reference cannot outlive what it points at.",
+   "domain": "rust",
+   "aliases": [],
+   "parents": [
+    "ck.rust.borrowing"
+   ],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.rust.trait",
+   "display_name": "Trait",
+   "definition": "Shared behaviour a type opts into, resolved statically by default so abstraction costs nothing at runtime.",
+   "domain": "rust",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.rust.error-handling",
+   "display_name": "Error handling",
+   "definition": "Errors as values in Result rather than as exceptions, making the failure path part of the signature.",
+   "domain": "rust",
+   "aliases": [
+    "result"
+   ],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.rust.fearless-concurrency",
+   "display_name": "Fearless concurrency",
+   "definition": "Data races prevented at compile time by the same ownership rules that manage memory.",
+   "domain": "rust",
+   "aliases": [],
+   "parents": [
+    "ck.rust.ownership"
+   ],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.rust.zero-cost-abstraction",
+   "display_name": "Zero-cost abstraction",
+   "definition": "Abstractions that compile to what hand-written code would produce, so structure does not cost speed.",
+   "domain": "rust",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.modelling.dimensional-model",
+   "display_name": "Dimensional model",
+   "definition": "Facts measured at a grain, described by conformed dimensions, arranged so a business question maps to a join path.",
+   "domain": "modelling",
+   "aliases": [
+    "star schema"
+   ],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.modelling.conformed-dimension",
+   "display_name": "Conformed dimension",
+   "definition": "One dimension shared by several facts, which is what makes two facts comparable at all.",
+   "domain": "modelling",
+   "aliases": [],
+   "parents": [
+    "ck.modelling.dimensional-model"
+   ],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.modelling.slowly-changing-dimension",
+   "display_name": "Slowly changing dimension",
+   "definition": "How a dimension records change over time, and whether history is overwritten, versioned or kept alongside.",
+   "domain": "modelling",
+   "aliases": [
+    "SCD"
+   ],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.modelling.one-big-table",
+   "display_name": "One big table",
+   "definition": "A denormalised table where every attribute is reachable without a join, trading storage and update cost for join safety.",
+   "domain": "modelling",
+   "aliases": [
+    "OBT"
+   ],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.modelling.fact-grain",
+   "display_name": "Fact grain",
+   "definition": "The event or state one fact row records, fixed before any measure is added to it.",
+   "domain": "modelling",
+   "aliases": [],
+   "parents": [
+    "ck.sql.grain"
+   ],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.modelling.semantic-layer",
+   "display_name": "Semantic layer",
+   "definition": "The single governed definition of a metric, so two dashboards asking the same question get the same number.",
+   "domain": "modelling",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.modelling.surrogate-key",
+   "display_name": "Surrogate key",
+   "definition": "A key owned by the warehouse rather than the source, so identity survives a source system changing its own.",
+   "domain": "modelling",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.pipeline.idempotency",
+   "display_name": "Pipeline idempotency",
+   "definition": "Re-running a step produces the same end state rather than additional rows, which is what makes retry safe.",
+   "domain": "pipeline",
+   "aliases": [],
+   "parents": [
+    "ck.sql.idempotent-write"
+   ],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.pipeline.cdc",
+   "display_name": "Change data capture",
+   "definition": "Reading a source's changes from its log or its timestamps rather than re-reading the whole table.",
+   "domain": "pipeline",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.pipeline.watermark",
+   "display_name": "Watermark",
+   "definition": "The boundary declaring which data is considered complete, and therefore what late arrivals will do to yesterday's numbers.",
+   "domain": "pipeline",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.pipeline.backfill",
+   "display_name": "Backfill",
+   "definition": "Reprocessing a historical window, which restates numbers people have already seen and acted on.",
+   "domain": "pipeline",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.pipeline.delivery-semantics",
+   "display_name": "Delivery semantics",
+   "definition": "At-most-once, at-least-once and exactly-once, and which of the three the pipeline can actually claim.",
+   "domain": "pipeline",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.pipeline.schema-evolution",
+   "display_name": "Schema evolution",
+   "definition": "How the pipeline behaves when the source adds, renames or retypes a column, decided before it happens.",
+   "domain": "pipeline",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.pipeline.reconciliation",
+   "display_name": "Reconciliation",
+   "definition": "Comparing source and destination at a key level for the same window, which is the only evidence a load worked.",
+   "domain": "pipeline",
+   "aliases": [
+    "đối soát"
+   ],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.pipeline.orchestration",
+   "display_name": "Orchestration",
+   "definition": "Declaring dependencies between steps so order, retry and failure behaviour are properties of the graph rather than of a script.",
+   "domain": "pipeline",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.pipeline.dead-letter",
+   "display_name": "Dead letter",
+   "definition": "A terminal destination for records that will never succeed, so a bad record does not stop the stream forever.",
+   "domain": "pipeline",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.warehouse.columnar-storage",
+   "display_name": "Columnar storage",
+   "definition": "Storing values of one column together, so a query reading three columns of two hundred pays for three.",
+   "domain": "warehouse",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.warehouse.partitioning",
+   "display_name": "Partitioning",
+   "definition": "Splitting a table by a column so a filtered query reads fewer files, and the reason a missing predicate costs a full scan.",
+   "domain": "warehouse",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.warehouse.clustering",
+   "display_name": "Clustering",
+   "definition": "Ordering data within partitions so related rows sit together, reducing the bytes a selective query touches.",
+   "domain": "warehouse",
+   "aliases": [
+    "sort key"
+   ],
+   "parents": [
+    "ck.warehouse.partitioning"
+   ],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.warehouse.file-layout",
+   "display_name": "File layout and size",
+   "definition": "How many files of what size a table is stored as, which decides scan overhead more often than total volume does.",
+   "domain": "warehouse",
+   "aliases": [
+    "small files"
+   ],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.warehouse.compute-storage-separation",
+   "display_name": "Compute and storage separation",
+   "definition": "Paying for scan and for storage independently, which changes what optimisation is worth doing.",
+   "domain": "warehouse",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.warehouse.scan-cost",
+   "display_name": "Scan cost",
+   "definition": "What a query costs is bytes read, not rows returned, which is why select star on a wide table is expensive.",
+   "domain": "warehouse",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.analytics.cohort",
+   "display_name": "Cohort analysis",
+   "definition": "Grouping users by when they started so behaviour is compared at the same age rather than on the same date.",
+   "domain": "analytics",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.analytics.funnel",
+   "display_name": "Funnel analysis",
+   "definition": "Ordered steps with drop-off between them, where the definition of a step decides the conversion rate.",
+   "domain": "analytics",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.analytics.retention-curve",
+   "display_name": "Retention curve",
+   "definition": "The share of a cohort still active at each period, and whether it flattens or goes to zero.",
+   "domain": "analytics",
+   "aliases": [],
+   "parents": [
+    "ck.analytics.cohort"
+   ],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.analytics.survivorship-bias",
+   "display_name": "Survivorship bias",
+   "definition": "Measuring only the entities that remained, which makes any average look better than the population.",
+   "domain": "analytics",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.analytics.simpson-paradox",
+   "display_name": "Simpson's paradox",
+   "definition": "A trend present in every subgroup that reverses when the groups are pooled, caused by uneven group sizes.",
+   "domain": "analytics",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.analytics.statistical-power",
+   "display_name": "Statistical power",
+   "definition": "The chance of detecting an effect that is really there, fixed by sample size before the test runs.",
+   "domain": "analytics",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.analytics.sampling-bias",
+   "display_name": "Sampling bias",
+   "definition": "A sample whose selection is related to the outcome, which no sample size fixes.",
+   "domain": "analytics",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.analytics.metric-definition-drift",
+   "display_name": "Metric definition drift",
+   "definition": "The same metric name computed differently over time, making a trend an artefact of its own definition.",
+   "domain": "analytics",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.ml.leakage",
+   "display_name": "Data leakage",
+   "definition": "Information in training that would not exist at prediction time, producing validation scores the model cannot reproduce.",
+   "domain": "ml",
+   "aliases": [
+    "rò rỉ dữ liệu"
+   ],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.ml.train-serve-skew",
+   "display_name": "Training-serving skew",
+   "definition": "Features computed differently in training and in serving, so the model in production is not the model that was evaluated.",
+   "domain": "ml",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.ml.validation-split",
+   "display_name": "Validation strategy",
+   "definition": "How data is split so the estimate generalises, which for time series means splitting by time and never at random.",
+   "domain": "ml",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.ml.overfitting",
+   "display_name": "Overfitting",
+   "definition": "Fitting noise in the training data, visible as a gap between training and held-out performance.",
+   "domain": "ml",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.ml.feature-store",
+   "display_name": "Feature store",
+   "definition": "One definition of a feature served to both training and inference, which is how skew is prevented rather than detected.",
+   "domain": "ml",
+   "aliases": [],
+   "parents": [
+    "ck.ml.train-serve-skew"
+   ],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.ml.drift",
+   "display_name": "Drift",
+   "definition": "The world moving away from the data the model was fitted on, in the inputs or in the relationship itself.",
+   "domain": "ml",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.ml.explainability",
+   "display_name": "Explainability",
+   "definition": "An account of why this prediction, at the fidelity the decision requires rather than at the fidelity available.",
+   "domain": "ml",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.arch.data-contract",
+   "display_name": "Data contract",
+   "definition": "An agreement about schema, grain, semantics and delivery between a producer and its consumers, versioned like an API.",
+   "domain": "arch",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.arch.coupling",
+   "display_name": "Coupling",
+   "definition": "How much one component must know about another's internals, which decides what a change costs.",
+   "domain": "arch",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.arch.consistency-model",
+   "display_name": "Consistency model",
+   "definition": "What a reader may see after a write, and therefore which questions the system can answer correctly.",
+   "domain": "arch",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.arch.idempotent-interface",
+   "display_name": "Idempotent interface",
+   "definition": "An operation safe to repeat, which is what makes retry a strategy rather than a risk.",
+   "domain": "arch",
+   "aliases": [],
+   "parents": [
+    "ck.pipeline.idempotency"
+   ],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.arch.failure-domain",
+   "display_name": "Failure domain",
+   "definition": "The blast radius of one component failing, and what continues working when it does.",
+   "domain": "arch",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.arch.lineage",
+   "display_name": "Lineage",
+   "definition": "Which upstream data produced which downstream artifact, generated from the systems rather than drawn by hand.",
+   "domain": "arch",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.swe.version-control-hygiene",
+   "display_name": "Version control hygiene",
+   "definition": "Commits that isolate one change and messages that say why, so history stays a usable record.",
+   "domain": "swe",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.swe.code-review",
+   "display_name": "Code review",
+   "definition": "A second reader checking against stated criteria, done before the author explains their reasoning.",
+   "domain": "swe",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.swe.test-isolation",
+   "display_name": "Test isolation",
+   "definition": "A test whose result depends on nothing outside itself, which is what makes a failure informative.",
+   "domain": "swe",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.swe.ci-feedback-loop",
+   "display_name": "CI feedback loop",
+   "definition": "How long between a mistake and knowing about it, which decides whether tests get run or worked around.",
+   "domain": "swe",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.swe.technical-debt",
+   "display_name": "Technical debt",
+   "definition": "Deliberately deferred work with an interest cost, distinguished from code that is merely unfamiliar.",
+   "domain": "swe",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.swe.observability",
+   "display_name": "Observability",
+   "definition": "Whether the running system can answer a question nobody thought to ask before deploying it.",
+   "domain": "swe",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.product.opportunity-sizing",
+   "display_name": "Opportunity sizing",
+   "definition": "An estimate of what a change is worth, with its assumptions stated so the estimate can be argued with.",
+   "domain": "product",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.product.prioritisation-gate",
+   "display_name": "Prioritisation gate",
+   "definition": "A hard constraint that removes an option from ranking rather than being traded off inside a score.",
+   "domain": "product",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.product.discovery-versus-delivery",
+   "display_name": "Discovery versus delivery",
+   "definition": "Deciding what to build against building it, and the cost of running them as one activity.",
+   "domain": "product",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.product.acceptance-criteria",
+   "display_name": "Acceptance criteria",
+   "definition": "Conditions checkable by someone who did not write them, fixed before implementation starts.",
+   "domain": "product",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.product.stakeholder-decision",
+   "display_name": "Stakeholder decision",
+   "definition": "The decision a piece of analysis or a product change actually serves, named before work begins.",
+   "domain": "product",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  },
+  {
+   "concept_key": "ck.product.requirement-traceability",
+   "display_name": "Requirement traceability",
+   "definition": "The chain from a stated need to the thing built and the test proving it, readable in both directions.",
+   "domain": "product",
+   "aliases": [],
+   "parents": [],
+   "related": [],
+   "binds": {
+    "canon_ids": [],
+    "note_ids": [],
+    "topic_ids": [],
+    "competency_ids": [],
+    "question_ids": []
+   },
+   "primary_note_id": "",
+   "status": "proposed",
+   "superseded_by": "",
+   "registered_at": "",
+   "registered_by": ""
+  }
+ ],
+ "status": "draft"
+}

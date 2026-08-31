@@ -1,0 +1,249 @@
+{
+ "corpus_id": "bridge-se-corpus",
+ "domain": "Bridge SE",
+ "roadmap_ref": "",
+ "track_map_ref": "",
+ "note_root": "notes",
+ "standard": "knowledge-deep-dive-standard.md",
+ "concept_registry_ref": "docs/concept-registry.json",
+ "_": "Planned only: no note exists yet. Run academy-elicit-prior-knowledge before building, then academy-build-note-module one module at a time, checkpointing here.",
+ "notes": [
+  {
+   "id": "bridge-se.product.acceptance-criteria",
+   "title": "Acceptance criteria",
+   "module_id": "requirements-and-traceability",
+   "path": "bridge-se/requirements-and-traceability/product.acceptance-criteria.md",
+   "tags": [
+    "product",
+    "requirements-and-traceability"
+   ],
+   "concept_keys": [
+    "ck.product.acceptance-criteria"
+   ],
+   "primary_for_keys": [
+    "ck.product.acceptance-criteria"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "bridge-se.product.requirement-traceability",
+   "title": "Requirement traceability",
+   "module_id": "requirements-and-traceability",
+   "path": "bridge-se/requirements-and-traceability/product.requirement-traceability.md",
+   "tags": [
+    "product",
+    "requirements-and-traceability"
+   ],
+   "concept_keys": [
+    "ck.product.requirement-traceability"
+   ],
+   "primary_for_keys": [
+    "ck.product.requirement-traceability"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "bridge-se.product.stakeholder-decision",
+   "title": "Stakeholder decision",
+   "module_id": "requirements-and-traceability",
+   "path": "bridge-se/requirements-and-traceability/product.stakeholder-decision.md",
+   "tags": [
+    "product",
+    "requirements-and-traceability"
+   ],
+   "concept_keys": [
+    "ck.product.stakeholder-decision"
+   ],
+   "primary_for_keys": [
+    "ck.product.stakeholder-decision"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "bridge-se.swe.version-control-hygiene",
+   "title": "Version control hygiene",
+   "module_id": "engineering-vocabulary",
+   "path": "bridge-se/engineering-vocabulary/swe.version-control-hygiene.md",
+   "tags": [
+    "swe",
+    "engineering-vocabulary"
+   ],
+   "concept_keys": [
+    "ck.swe.version-control-hygiene"
+   ],
+   "primary_for_keys": [
+    "ck.swe.version-control-hygiene"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "bridge-se.swe.code-review",
+   "title": "Code review",
+   "module_id": "engineering-vocabulary",
+   "path": "bridge-se/engineering-vocabulary/swe.code-review.md",
+   "tags": [
+    "swe",
+    "engineering-vocabulary"
+   ],
+   "concept_keys": [
+    "ck.swe.code-review"
+   ],
+   "primary_for_keys": [
+    "ck.swe.code-review"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "bridge-se.swe.ci-feedback-loop",
+   "title": "CI feedback loop",
+   "module_id": "engineering-vocabulary",
+   "path": "bridge-se/engineering-vocabulary/swe.ci-feedback-loop.md",
+   "tags": [
+    "swe",
+    "engineering-vocabulary"
+   ],
+   "concept_keys": [
+    "ck.swe.ci-feedback-loop"
+   ],
+   "primary_for_keys": [
+    "ck.swe.ci-feedback-loop"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "bridge-se.swe.technical-debt",
+   "title": "Technical debt",
+   "module_id": "engineering-vocabulary",
+   "path": "bridge-se/engineering-vocabulary/swe.technical-debt.md",
+   "tags": [
+    "swe",
+    "engineering-vocabulary"
+   ],
+   "concept_keys": [
+    "ck.swe.technical-debt"
+   ],
+   "primary_for_keys": [
+    "ck.swe.technical-debt"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "bridge-se.sql.grain",
+   "title": "Grain",
+   "module_id": "data-vocabulary",
+   "path": "bridge-se/data-vocabulary/sql.grain.md",
+   "tags": [
+    "sql",
+    "data-vocabulary"
+   ],
+   "concept_keys": [
+    "ck.sql.grain"
+   ],
+   "primary_for_keys": [
+    "ck.sql.grain"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "bridge-se.modelling.semantic-layer",
+   "title": "Semantic layer",
+   "module_id": "data-vocabulary",
+   "path": "bridge-se/data-vocabulary/modelling.semantic-layer.md",
+   "tags": [
+    "modelling",
+    "data-vocabulary"
+   ],
+   "concept_keys": [
+    "ck.modelling.semantic-layer"
+   ],
+   "primary_for_keys": [
+    "ck.modelling.semantic-layer"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "bridge-se.arch.data-contract",
+   "title": "Data contract",
+   "module_id": "data-vocabulary",
+   "path": "bridge-se/data-vocabulary/arch.data-contract.md",
+   "tags": [
+    "arch",
+    "data-vocabulary"
+   ],
+   "concept_keys": [
+    "ck.arch.data-contract"
+   ],
+   "primary_for_keys": [
+    "ck.arch.data-contract"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "bridge-se.arch.coupling",
+   "title": "Coupling",
+   "module_id": "data-vocabulary",
+   "path": "bridge-se/data-vocabulary/arch.coupling.md",
+   "tags": [
+    "arch",
+    "data-vocabulary"
+   ],
+   "concept_keys": [
+    "ck.arch.coupling"
+   ],
+   "primary_for_keys": [
+    "ck.arch.coupling"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  }
+ ],
+ "modules_completed": [],
+ "next_module": "requirements-and-traceability",
+ "open_gaps": [],
+ "owner": "",
+ "version": "0.1.0",
+ "status": "draft"
+}

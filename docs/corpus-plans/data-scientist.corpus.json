@@ -1,0 +1,551 @@
+{
+ "corpus_id": "data-scientist-corpus",
+ "domain": "Data Scientist",
+ "roadmap_ref": "",
+ "track_map_ref": "",
+ "note_root": "notes",
+ "standard": "knowledge-deep-dive-standard.md",
+ "concept_registry_ref": "docs/concept-registry.json",
+ "_": "Planned only: no note exists yet. Run academy-elicit-prior-knowledge before building, then academy-build-note-module one module at a time, checkpointing here.",
+ "notes": [
+  {
+   "id": "data-scientist.python.data-model",
+   "title": "Python data model",
+   "module_id": "python-core",
+   "path": "data-scientist/python-core/python.data-model.md",
+   "tags": [
+    "python",
+    "python-core"
+   ],
+   "concept_keys": [
+    "ck.python.data-model"
+   ],
+   "primary_for_keys": [
+    "ck.python.data-model"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.python.mutability-aliasing",
+   "title": "Mutability and aliasing",
+   "module_id": "python-core",
+   "path": "data-scientist/python-core/python.mutability-aliasing.md",
+   "tags": [
+    "python",
+    "python-core"
+   ],
+   "concept_keys": [
+    "ck.python.mutability-aliasing"
+   ],
+   "primary_for_keys": [
+    "ck.python.mutability-aliasing"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.python.iterator-generator",
+   "title": "Iterator and generator",
+   "module_id": "python-core",
+   "path": "data-scientist/python-core/python.iterator-generator.md",
+   "tags": [
+    "python",
+    "python-core"
+   ],
+   "concept_keys": [
+    "ck.python.iterator-generator"
+   ],
+   "primary_for_keys": [
+    "ck.python.iterator-generator"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.python.comprehension",
+   "title": "Comprehension",
+   "module_id": "python-core",
+   "path": "data-scientist/python-core/python.comprehension.md",
+   "tags": [
+    "python",
+    "python-core"
+   ],
+   "concept_keys": [
+    "ck.python.comprehension"
+   ],
+   "primary_for_keys": [
+    "ck.python.comprehension"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.python.typing-and-hints",
+   "title": "Typing and hints",
+   "module_id": "python-core",
+   "path": "data-scientist/python-core/python.typing-and-hints.md",
+   "tags": [
+    "python",
+    "python-core"
+   ],
+   "concept_keys": [
+    "ck.python.typing-and-hints"
+   ],
+   "primary_for_keys": [
+    "ck.python.typing-and-hints"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.python.packaging-environment",
+   "title": "Packaging and environment",
+   "module_id": "python-core",
+   "path": "data-scientist/python-core/python.packaging-environment.md",
+   "tags": [
+    "python",
+    "python-core"
+   ],
+   "concept_keys": [
+    "ck.python.packaging-environment"
+   ],
+   "primary_for_keys": [
+    "ck.python.packaging-environment"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.python.exception-flow",
+   "title": "Exception flow",
+   "module_id": "python-core",
+   "path": "data-scientist/python-core/python.exception-flow.md",
+   "tags": [
+    "python",
+    "python-core"
+   ],
+   "concept_keys": [
+    "ck.python.exception-flow"
+   ],
+   "primary_for_keys": [
+    "ck.python.exception-flow"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.python.pandas-semantics",
+   "title": "Pandas semantics",
+   "module_id": "python-core",
+   "path": "data-scientist/python-core/python.pandas-semantics.md",
+   "tags": [
+    "python",
+    "python-core"
+   ],
+   "concept_keys": [
+    "ck.python.pandas-semantics"
+   ],
+   "primary_for_keys": [
+    "ck.python.pandas-semantics"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.python.vectorisation",
+   "title": "Vectorisation",
+   "module_id": "python-core",
+   "path": "data-scientist/python-core/python.vectorisation.md",
+   "tags": [
+    "python",
+    "python-core"
+   ],
+   "concept_keys": [
+    "ck.python.vectorisation"
+   ],
+   "primary_for_keys": [
+    "ck.python.vectorisation"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.python.async-concurrency",
+   "title": "Async concurrency",
+   "module_id": "python-core",
+   "path": "data-scientist/python-core/python.async-concurrency.md",
+   "tags": [
+    "python",
+    "python-core"
+   ],
+   "concept_keys": [
+    "ck.python.async-concurrency"
+   ],
+   "primary_for_keys": [
+    "ck.python.async-concurrency"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.python.testing-pyramid",
+   "title": "Testing in Python",
+   "module_id": "python-core",
+   "path": "data-scientist/python-core/python.testing-pyramid.md",
+   "tags": [
+    "python",
+    "python-core"
+   ],
+   "concept_keys": [
+    "ck.python.testing-pyramid"
+   ],
+   "primary_for_keys": [
+    "ck.python.testing-pyramid"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.analytics.statistical-power",
+   "title": "Statistical power",
+   "module_id": "statistics-traps",
+   "path": "data-scientist/statistics-traps/analytics.statistical-power.md",
+   "tags": [
+    "analytics",
+    "statistics-traps"
+   ],
+   "concept_keys": [
+    "ck.analytics.statistical-power"
+   ],
+   "primary_for_keys": [
+    "ck.analytics.statistical-power"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.analytics.sampling-bias",
+   "title": "Sampling bias",
+   "module_id": "statistics-traps",
+   "path": "data-scientist/statistics-traps/analytics.sampling-bias.md",
+   "tags": [
+    "analytics",
+    "statistics-traps"
+   ],
+   "concept_keys": [
+    "ck.analytics.sampling-bias"
+   ],
+   "primary_for_keys": [
+    "ck.analytics.sampling-bias"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.analytics.simpson-paradox",
+   "title": "Simpson's paradox",
+   "module_id": "statistics-traps",
+   "path": "data-scientist/statistics-traps/analytics.simpson-paradox.md",
+   "tags": [
+    "analytics",
+    "statistics-traps"
+   ],
+   "concept_keys": [
+    "ck.analytics.simpson-paradox"
+   ],
+   "primary_for_keys": [
+    "ck.analytics.simpson-paradox"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.analytics.survivorship-bias",
+   "title": "Survivorship bias",
+   "module_id": "statistics-traps",
+   "path": "data-scientist/statistics-traps/analytics.survivorship-bias.md",
+   "tags": [
+    "analytics",
+    "statistics-traps"
+   ],
+   "concept_keys": [
+    "ck.analytics.survivorship-bias"
+   ],
+   "primary_for_keys": [
+    "ck.analytics.survivorship-bias"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.ml.leakage",
+   "title": "Data leakage",
+   "module_id": "modelling-discipline",
+   "path": "data-scientist/modelling-discipline/ml.leakage.md",
+   "tags": [
+    "ml",
+    "modelling-discipline"
+   ],
+   "concept_keys": [
+    "ck.ml.leakage"
+   ],
+   "primary_for_keys": [
+    "ck.ml.leakage"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.ml.train-serve-skew",
+   "title": "Training-serving skew",
+   "module_id": "modelling-discipline",
+   "path": "data-scientist/modelling-discipline/ml.train-serve-skew.md",
+   "tags": [
+    "ml",
+    "modelling-discipline"
+   ],
+   "concept_keys": [
+    "ck.ml.train-serve-skew"
+   ],
+   "primary_for_keys": [
+    "ck.ml.train-serve-skew"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [
+    "data-scientist.ml.feature-store"
+   ],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.ml.validation-split",
+   "title": "Validation strategy",
+   "module_id": "modelling-discipline",
+   "path": "data-scientist/modelling-discipline/ml.validation-split.md",
+   "tags": [
+    "ml",
+    "modelling-discipline"
+   ],
+   "concept_keys": [
+    "ck.ml.validation-split"
+   ],
+   "primary_for_keys": [
+    "ck.ml.validation-split"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.ml.overfitting",
+   "title": "Overfitting",
+   "module_id": "modelling-discipline",
+   "path": "data-scientist/modelling-discipline/ml.overfitting.md",
+   "tags": [
+    "ml",
+    "modelling-discipline"
+   ],
+   "concept_keys": [
+    "ck.ml.overfitting"
+   ],
+   "primary_for_keys": [
+    "ck.ml.overfitting"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.ml.feature-store",
+   "title": "Feature store",
+   "module_id": "modelling-discipline",
+   "path": "data-scientist/modelling-discipline/ml.feature-store.md",
+   "tags": [
+    "ml",
+    "modelling-discipline"
+   ],
+   "concept_keys": [
+    "ck.ml.feature-store"
+   ],
+   "primary_for_keys": [
+    "ck.ml.feature-store"
+   ],
+   "builds_on": [
+    "data-scientist.ml.train-serve-skew"
+   ],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.ml.drift",
+   "title": "Drift",
+   "module_id": "modelling-discipline",
+   "path": "data-scientist/modelling-discipline/ml.drift.md",
+   "tags": [
+    "ml",
+    "modelling-discipline"
+   ],
+   "concept_keys": [
+    "ck.ml.drift"
+   ],
+   "primary_for_keys": [
+    "ck.ml.drift"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.ml.explainability",
+   "title": "Explainability",
+   "module_id": "modelling-discipline",
+   "path": "data-scientist/modelling-discipline/ml.explainability.md",
+   "tags": [
+    "ml",
+    "modelling-discipline"
+   ],
+   "concept_keys": [
+    "ck.ml.explainability"
+   ],
+   "primary_for_keys": [
+    "ck.ml.explainability"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.sql.grain",
+   "title": "Grain",
+   "module_id": "data-access",
+   "path": "data-scientist/data-access/sql.grain.md",
+   "tags": [
+    "sql",
+    "data-access"
+   ],
+   "concept_keys": [
+    "ck.sql.grain"
+   ],
+   "primary_for_keys": [
+    "ck.sql.grain"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.sql.join-semantics",
+   "title": "Join semantics",
+   "module_id": "data-access",
+   "path": "data-scientist/data-access/sql.join-semantics.md",
+   "tags": [
+    "sql",
+    "data-access"
+   ],
+   "concept_keys": [
+    "ck.sql.join-semantics"
+   ],
+   "primary_for_keys": [
+    "ck.sql.join-semantics"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [
+    "data-scientist.sql.fan-out"
+   ],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-scientist.sql.fan-out",
+   "title": "Join fan-out",
+   "module_id": "data-access",
+   "path": "data-scientist/data-access/sql.fan-out.md",
+   "tags": [
+    "sql",
+    "data-access"
+   ],
+   "concept_keys": [
+    "ck.sql.fan-out"
+   ],
+   "primary_for_keys": [
+    "ck.sql.fan-out"
+   ],
+   "builds_on": [
+    "data-scientist.sql.join-semantics"
+   ],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  }
+ ],
+ "modules_completed": [],
+ "next_module": "python-core",
+ "open_gaps": [],
+ "owner": "",
+ "version": "0.1.0",
+ "status": "draft"
+}

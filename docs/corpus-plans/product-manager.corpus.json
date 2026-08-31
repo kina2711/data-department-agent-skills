@@ -1,0 +1,295 @@
+{
+ "corpus_id": "product-manager-corpus",
+ "domain": "Product Owner / Manager",
+ "roadmap_ref": "",
+ "track_map_ref": "",
+ "note_root": "notes",
+ "standard": "knowledge-deep-dive-standard.md",
+ "concept_registry_ref": "docs/concept-registry.json",
+ "_": "Planned only: no note exists yet. Run academy-elicit-prior-knowledge before building, then academy-build-note-module one module at a time, checkpointing here.",
+ "notes": [
+  {
+   "id": "product-manager.product.opportunity-sizing",
+   "title": "Opportunity sizing",
+   "module_id": "product-core",
+   "path": "product-manager/product-core/product.opportunity-sizing.md",
+   "tags": [
+    "product",
+    "product-core"
+   ],
+   "concept_keys": [
+    "ck.product.opportunity-sizing"
+   ],
+   "primary_for_keys": [
+    "ck.product.opportunity-sizing"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "product-manager.product.prioritisation-gate",
+   "title": "Prioritisation gate",
+   "module_id": "product-core",
+   "path": "product-manager/product-core/product.prioritisation-gate.md",
+   "tags": [
+    "product",
+    "product-core"
+   ],
+   "concept_keys": [
+    "ck.product.prioritisation-gate"
+   ],
+   "primary_for_keys": [
+    "ck.product.prioritisation-gate"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "product-manager.product.discovery-versus-delivery",
+   "title": "Discovery versus delivery",
+   "module_id": "product-core",
+   "path": "product-manager/product-core/product.discovery-versus-delivery.md",
+   "tags": [
+    "product",
+    "product-core"
+   ],
+   "concept_keys": [
+    "ck.product.discovery-versus-delivery"
+   ],
+   "primary_for_keys": [
+    "ck.product.discovery-versus-delivery"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "product-manager.product.acceptance-criteria",
+   "title": "Acceptance criteria",
+   "module_id": "product-core",
+   "path": "product-manager/product-core/product.acceptance-criteria.md",
+   "tags": [
+    "product",
+    "product-core"
+   ],
+   "concept_keys": [
+    "ck.product.acceptance-criteria"
+   ],
+   "primary_for_keys": [
+    "ck.product.acceptance-criteria"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "product-manager.product.stakeholder-decision",
+   "title": "Stakeholder decision",
+   "module_id": "product-core",
+   "path": "product-manager/product-core/product.stakeholder-decision.md",
+   "tags": [
+    "product",
+    "product-core"
+   ],
+   "concept_keys": [
+    "ck.product.stakeholder-decision"
+   ],
+   "primary_for_keys": [
+    "ck.product.stakeholder-decision"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "product-manager.product.requirement-traceability",
+   "title": "Requirement traceability",
+   "module_id": "product-core",
+   "path": "product-manager/product-core/product.requirement-traceability.md",
+   "tags": [
+    "product",
+    "product-core"
+   ],
+   "concept_keys": [
+    "ck.product.requirement-traceability"
+   ],
+   "primary_for_keys": [
+    "ck.product.requirement-traceability"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "product-manager.analytics.funnel",
+   "title": "Funnel analysis",
+   "module_id": "measurement",
+   "path": "product-manager/measurement/analytics.funnel.md",
+   "tags": [
+    "analytics",
+    "measurement"
+   ],
+   "concept_keys": [
+    "ck.analytics.funnel"
+   ],
+   "primary_for_keys": [
+    "ck.analytics.funnel"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "product-manager.analytics.cohort",
+   "title": "Cohort analysis",
+   "module_id": "measurement",
+   "path": "product-manager/measurement/analytics.cohort.md",
+   "tags": [
+    "analytics",
+    "measurement"
+   ],
+   "concept_keys": [
+    "ck.analytics.cohort"
+   ],
+   "primary_for_keys": [
+    "ck.analytics.cohort"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [
+    "product-manager.analytics.retention-curve"
+   ],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "product-manager.analytics.retention-curve",
+   "title": "Retention curve",
+   "module_id": "measurement",
+   "path": "product-manager/measurement/analytics.retention-curve.md",
+   "tags": [
+    "analytics",
+    "measurement"
+   ],
+   "concept_keys": [
+    "ck.analytics.retention-curve"
+   ],
+   "primary_for_keys": [
+    "ck.analytics.retention-curve"
+   ],
+   "builds_on": [
+    "product-manager.analytics.cohort"
+   ],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "product-manager.analytics.metric-definition-drift",
+   "title": "Metric definition drift",
+   "module_id": "measurement",
+   "path": "product-manager/measurement/analytics.metric-definition-drift.md",
+   "tags": [
+    "analytics",
+    "measurement"
+   ],
+   "concept_keys": [
+    "ck.analytics.metric-definition-drift"
+   ],
+   "primary_for_keys": [
+    "ck.analytics.metric-definition-drift"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "product-manager.analytics.statistical-power",
+   "title": "Statistical power",
+   "module_id": "evidence-limits",
+   "path": "product-manager/evidence-limits/analytics.statistical-power.md",
+   "tags": [
+    "analytics",
+    "evidence-limits"
+   ],
+   "concept_keys": [
+    "ck.analytics.statistical-power"
+   ],
+   "primary_for_keys": [
+    "ck.analytics.statistical-power"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "product-manager.analytics.sampling-bias",
+   "title": "Sampling bias",
+   "module_id": "evidence-limits",
+   "path": "product-manager/evidence-limits/analytics.sampling-bias.md",
+   "tags": [
+    "analytics",
+    "evidence-limits"
+   ],
+   "concept_keys": [
+    "ck.analytics.sampling-bias"
+   ],
+   "primary_for_keys": [
+    "ck.analytics.sampling-bias"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "product-manager.analytics.survivorship-bias",
+   "title": "Survivorship bias",
+   "module_id": "evidence-limits",
+   "path": "product-manager/evidence-limits/analytics.survivorship-bias.md",
+   "tags": [
+    "analytics",
+    "evidence-limits"
+   ],
+   "concept_keys": [
+    "ck.analytics.survivorship-bias"
+   ],
+   "primary_for_keys": [
+    "ck.analytics.survivorship-bias"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  }
+ ],
+ "modules_completed": [],
+ "next_module": "product-core",
+ "open_gaps": [],
+ "owner": "",
+ "version": "0.1.0",
+ "status": "draft"
+}

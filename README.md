@@ -540,6 +540,8 @@ Airflow, Spark, Kafka, Power BI, Tableau, Looker, Metabase, Superset and more.
 │       └── scripts/              executable evidence  ← hand-written
 ├── workflows/            one executable manifest per skill  ← GENERATED
 ├── docs/retrieval-index.json  keyword surface over all contracts  ← GENERATED
+├── docs/concept-registry.json  86 concept keys, one sentence each  ← GENERATED
+├── docs/corpus-plans/     206 planned notes across 10 roles  ← GENERATED
 ├── tools/eval_harness.py cases as data: ls, validate, run, show-prompt
 ├── app/                  Data Agent, the desktop launcher and workflow canvas
 │   ├── src/              Electron main, preload and renderer

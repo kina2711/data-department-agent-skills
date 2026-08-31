@@ -1,0 +1,677 @@
+{
+ "corpus_id": "data-engineer-corpus",
+ "domain": "Data Engineer",
+ "roadmap_ref": "",
+ "track_map_ref": "",
+ "note_root": "notes",
+ "standard": "knowledge-deep-dive-standard.md",
+ "concept_registry_ref": "docs/concept-registry.json",
+ "_": "Planned only: no note exists yet. Run academy-elicit-prior-knowledge before building, then academy-build-note-module one module at a time, checkpointing here.",
+ "notes": [
+  {
+   "id": "data-engineer.sql.grain",
+   "title": "Grain",
+   "module_id": "sql-and-storage",
+   "path": "data-engineer/sql-and-storage/sql.grain.md",
+   "tags": [
+    "sql",
+    "sql-and-storage"
+   ],
+   "concept_keys": [
+    "ck.sql.grain"
+   ],
+   "primary_for_keys": [
+    "ck.sql.grain"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.sql.join-semantics",
+   "title": "Join semantics",
+   "module_id": "sql-and-storage",
+   "path": "data-engineer/sql-and-storage/sql.join-semantics.md",
+   "tags": [
+    "sql",
+    "sql-and-storage"
+   ],
+   "concept_keys": [
+    "ck.sql.join-semantics"
+   ],
+   "primary_for_keys": [
+    "ck.sql.join-semantics"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.sql.index-and-scan",
+   "title": "Index and scan",
+   "module_id": "sql-and-storage",
+   "path": "data-engineer/sql-and-storage/sql.index-and-scan.md",
+   "tags": [
+    "sql",
+    "sql-and-storage"
+   ],
+   "concept_keys": [
+    "ck.sql.index-and-scan"
+   ],
+   "primary_for_keys": [
+    "ck.sql.index-and-scan"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.sql.query-plan",
+   "title": "Query plan",
+   "module_id": "sql-and-storage",
+   "path": "data-engineer/sql-and-storage/sql.query-plan.md",
+   "tags": [
+    "sql",
+    "sql-and-storage"
+   ],
+   "concept_keys": [
+    "ck.sql.query-plan"
+   ],
+   "primary_for_keys": [
+    "ck.sql.query-plan"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.sql.transaction-isolation",
+   "title": "Transaction isolation",
+   "module_id": "sql-and-storage",
+   "path": "data-engineer/sql-and-storage/sql.transaction-isolation.md",
+   "tags": [
+    "sql",
+    "sql-and-storage"
+   ],
+   "concept_keys": [
+    "ck.sql.transaction-isolation"
+   ],
+   "primary_for_keys": [
+    "ck.sql.transaction-isolation"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.sql.idempotent-write",
+   "title": "Idempotent write",
+   "module_id": "sql-and-storage",
+   "path": "data-engineer/sql-and-storage/sql.idempotent-write.md",
+   "tags": [
+    "sql",
+    "sql-and-storage"
+   ],
+   "concept_keys": [
+    "ck.sql.idempotent-write"
+   ],
+   "primary_for_keys": [
+    "ck.sql.idempotent-write"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [
+    "data-engineer.pipeline.idempotency"
+   ],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.python.iterator-generator",
+   "title": "Iterator and generator",
+   "module_id": "python-for-pipelines",
+   "path": "data-engineer/python-for-pipelines/python.iterator-generator.md",
+   "tags": [
+    "python",
+    "python-for-pipelines"
+   ],
+   "concept_keys": [
+    "ck.python.iterator-generator"
+   ],
+   "primary_for_keys": [
+    "ck.python.iterator-generator"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.python.exception-flow",
+   "title": "Exception flow",
+   "module_id": "python-for-pipelines",
+   "path": "data-engineer/python-for-pipelines/python.exception-flow.md",
+   "tags": [
+    "python",
+    "python-for-pipelines"
+   ],
+   "concept_keys": [
+    "ck.python.exception-flow"
+   ],
+   "primary_for_keys": [
+    "ck.python.exception-flow"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.python.packaging-environment",
+   "title": "Packaging and environment",
+   "module_id": "python-for-pipelines",
+   "path": "data-engineer/python-for-pipelines/python.packaging-environment.md",
+   "tags": [
+    "python",
+    "python-for-pipelines"
+   ],
+   "concept_keys": [
+    "ck.python.packaging-environment"
+   ],
+   "primary_for_keys": [
+    "ck.python.packaging-environment"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.python.testing-pyramid",
+   "title": "Testing in Python",
+   "module_id": "python-for-pipelines",
+   "path": "data-engineer/python-for-pipelines/python.testing-pyramid.md",
+   "tags": [
+    "python",
+    "python-for-pipelines"
+   ],
+   "concept_keys": [
+    "ck.python.testing-pyramid"
+   ],
+   "primary_for_keys": [
+    "ck.python.testing-pyramid"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.pipeline.idempotency",
+   "title": "Pipeline idempotency",
+   "module_id": "pipeline-core",
+   "path": "data-engineer/pipeline-core/pipeline.idempotency.md",
+   "tags": [
+    "pipeline",
+    "pipeline-core"
+   ],
+   "concept_keys": [
+    "ck.pipeline.idempotency"
+   ],
+   "primary_for_keys": [
+    "ck.pipeline.idempotency"
+   ],
+   "builds_on": [
+    "data-engineer.sql.idempotent-write"
+   ],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.pipeline.cdc",
+   "title": "Change data capture",
+   "module_id": "pipeline-core",
+   "path": "data-engineer/pipeline-core/pipeline.cdc.md",
+   "tags": [
+    "pipeline",
+    "pipeline-core"
+   ],
+   "concept_keys": [
+    "ck.pipeline.cdc"
+   ],
+   "primary_for_keys": [
+    "ck.pipeline.cdc"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.pipeline.watermark",
+   "title": "Watermark",
+   "module_id": "pipeline-core",
+   "path": "data-engineer/pipeline-core/pipeline.watermark.md",
+   "tags": [
+    "pipeline",
+    "pipeline-core"
+   ],
+   "concept_keys": [
+    "ck.pipeline.watermark"
+   ],
+   "primary_for_keys": [
+    "ck.pipeline.watermark"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.pipeline.backfill",
+   "title": "Backfill",
+   "module_id": "pipeline-core",
+   "path": "data-engineer/pipeline-core/pipeline.backfill.md",
+   "tags": [
+    "pipeline",
+    "pipeline-core"
+   ],
+   "concept_keys": [
+    "ck.pipeline.backfill"
+   ],
+   "primary_for_keys": [
+    "ck.pipeline.backfill"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.pipeline.delivery-semantics",
+   "title": "Delivery semantics",
+   "module_id": "pipeline-core",
+   "path": "data-engineer/pipeline-core/pipeline.delivery-semantics.md",
+   "tags": [
+    "pipeline",
+    "pipeline-core"
+   ],
+   "concept_keys": [
+    "ck.pipeline.delivery-semantics"
+   ],
+   "primary_for_keys": [
+    "ck.pipeline.delivery-semantics"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.pipeline.schema-evolution",
+   "title": "Schema evolution",
+   "module_id": "pipeline-core",
+   "path": "data-engineer/pipeline-core/pipeline.schema-evolution.md",
+   "tags": [
+    "pipeline",
+    "pipeline-core"
+   ],
+   "concept_keys": [
+    "ck.pipeline.schema-evolution"
+   ],
+   "primary_for_keys": [
+    "ck.pipeline.schema-evolution"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.pipeline.reconciliation",
+   "title": "Reconciliation",
+   "module_id": "pipeline-core",
+   "path": "data-engineer/pipeline-core/pipeline.reconciliation.md",
+   "tags": [
+    "pipeline",
+    "pipeline-core"
+   ],
+   "concept_keys": [
+    "ck.pipeline.reconciliation"
+   ],
+   "primary_for_keys": [
+    "ck.pipeline.reconciliation"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.pipeline.orchestration",
+   "title": "Orchestration",
+   "module_id": "pipeline-core",
+   "path": "data-engineer/pipeline-core/pipeline.orchestration.md",
+   "tags": [
+    "pipeline",
+    "pipeline-core"
+   ],
+   "concept_keys": [
+    "ck.pipeline.orchestration"
+   ],
+   "primary_for_keys": [
+    "ck.pipeline.orchestration"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.pipeline.dead-letter",
+   "title": "Dead letter",
+   "module_id": "pipeline-core",
+   "path": "data-engineer/pipeline-core/pipeline.dead-letter.md",
+   "tags": [
+    "pipeline",
+    "pipeline-core"
+   ],
+   "concept_keys": [
+    "ck.pipeline.dead-letter"
+   ],
+   "primary_for_keys": [
+    "ck.pipeline.dead-letter"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.warehouse.columnar-storage",
+   "title": "Columnar storage",
+   "module_id": "warehouse-physics",
+   "path": "data-engineer/warehouse-physics/warehouse.columnar-storage.md",
+   "tags": [
+    "warehouse",
+    "warehouse-physics"
+   ],
+   "concept_keys": [
+    "ck.warehouse.columnar-storage"
+   ],
+   "primary_for_keys": [
+    "ck.warehouse.columnar-storage"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.warehouse.partitioning",
+   "title": "Partitioning",
+   "module_id": "warehouse-physics",
+   "path": "data-engineer/warehouse-physics/warehouse.partitioning.md",
+   "tags": [
+    "warehouse",
+    "warehouse-physics"
+   ],
+   "concept_keys": [
+    "ck.warehouse.partitioning"
+   ],
+   "primary_for_keys": [
+    "ck.warehouse.partitioning"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [
+    "data-engineer.warehouse.clustering"
+   ],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.warehouse.clustering",
+   "title": "Clustering",
+   "module_id": "warehouse-physics",
+   "path": "data-engineer/warehouse-physics/warehouse.clustering.md",
+   "tags": [
+    "warehouse",
+    "warehouse-physics"
+   ],
+   "concept_keys": [
+    "ck.warehouse.clustering"
+   ],
+   "primary_for_keys": [
+    "ck.warehouse.clustering"
+   ],
+   "builds_on": [
+    "data-engineer.warehouse.partitioning"
+   ],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.warehouse.file-layout",
+   "title": "File layout and size",
+   "module_id": "warehouse-physics",
+   "path": "data-engineer/warehouse-physics/warehouse.file-layout.md",
+   "tags": [
+    "warehouse",
+    "warehouse-physics"
+   ],
+   "concept_keys": [
+    "ck.warehouse.file-layout"
+   ],
+   "primary_for_keys": [
+    "ck.warehouse.file-layout"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.warehouse.compute-storage-separation",
+   "title": "Compute and storage separation",
+   "module_id": "warehouse-physics",
+   "path": "data-engineer/warehouse-physics/warehouse.compute-storage-separation.md",
+   "tags": [
+    "warehouse",
+    "warehouse-physics"
+   ],
+   "concept_keys": [
+    "ck.warehouse.compute-storage-separation"
+   ],
+   "primary_for_keys": [
+    "ck.warehouse.compute-storage-separation"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.warehouse.scan-cost",
+   "title": "Scan cost",
+   "module_id": "warehouse-physics",
+   "path": "data-engineer/warehouse-physics/warehouse.scan-cost.md",
+   "tags": [
+    "warehouse",
+    "warehouse-physics"
+   ],
+   "concept_keys": [
+    "ck.warehouse.scan-cost"
+   ],
+   "primary_for_keys": [
+    "ck.warehouse.scan-cost"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.swe.version-control-hygiene",
+   "title": "Version control hygiene",
+   "module_id": "engineering-practice",
+   "path": "data-engineer/engineering-practice/swe.version-control-hygiene.md",
+   "tags": [
+    "swe",
+    "engineering-practice"
+   ],
+   "concept_keys": [
+    "ck.swe.version-control-hygiene"
+   ],
+   "primary_for_keys": [
+    "ck.swe.version-control-hygiene"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.swe.code-review",
+   "title": "Code review",
+   "module_id": "engineering-practice",
+   "path": "data-engineer/engineering-practice/swe.code-review.md",
+   "tags": [
+    "swe",
+    "engineering-practice"
+   ],
+   "concept_keys": [
+    "ck.swe.code-review"
+   ],
+   "primary_for_keys": [
+    "ck.swe.code-review"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.swe.test-isolation",
+   "title": "Test isolation",
+   "module_id": "engineering-practice",
+   "path": "data-engineer/engineering-practice/swe.test-isolation.md",
+   "tags": [
+    "swe",
+    "engineering-practice"
+   ],
+   "concept_keys": [
+    "ck.swe.test-isolation"
+   ],
+   "primary_for_keys": [
+    "ck.swe.test-isolation"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.swe.ci-feedback-loop",
+   "title": "CI feedback loop",
+   "module_id": "engineering-practice",
+   "path": "data-engineer/engineering-practice/swe.ci-feedback-loop.md",
+   "tags": [
+    "swe",
+    "engineering-practice"
+   ],
+   "concept_keys": [
+    "ck.swe.ci-feedback-loop"
+   ],
+   "primary_for_keys": [
+    "ck.swe.ci-feedback-loop"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.swe.technical-debt",
+   "title": "Technical debt",
+   "module_id": "engineering-practice",
+   "path": "data-engineer/engineering-practice/swe.technical-debt.md",
+   "tags": [
+    "swe",
+    "engineering-practice"
+   ],
+   "concept_keys": [
+    "ck.swe.technical-debt"
+   ],
+   "primary_for_keys": [
+    "ck.swe.technical-debt"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  },
+  {
+   "id": "data-engineer.swe.observability",
+   "title": "Observability",
+   "module_id": "engineering-practice",
+   "path": "data-engineer/engineering-practice/swe.observability.md",
+   "tags": [
+    "swe",
+    "engineering-practice"
+   ],
+   "concept_keys": [
+    "ck.swe.observability"
+   ],
+   "primary_for_keys": [
+    "ck.swe.observability"
+   ],
+   "builds_on": [],
+   "prerequisite_of": [],
+   "status": "planned",
+   "version_sensitive": false,
+   "updated": ""
+  }
+ ],
+ "modules_completed": [],
+ "next_module": "sql-and-storage",
+ "open_gaps": [],
+ "owner": "",
+ "version": "0.1.0",
+ "status": "draft"
+}
