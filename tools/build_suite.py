@@ -747,6 +747,10 @@ def model_tier(task_id: str, profile: str, risk: str, criticality: str) -> str:
         word in task_id for word in ("translate", "localize", "transcreate", "memory")
     ):
         return "standard"
+    # A recommendation is judged by the person reading it and by nothing else; a light model
+    # proposing what a team should automate is guessing at their constraints.
+    if task_id in {"dx-recommend-agent-automation"}:
+        return "standard"
 
     # A deterministic check downstream turns a mistake into one retry.
     mechanical = ("index-", "record-", "maintain-", "package-", "collect-", "inventory-", "list-")
@@ -1491,6 +1495,64 @@ def task_specific_resources(task_id: str) -> list[str]:
             "Read [the knowledge deep-dive authoring standard](../knowledge-deep-dive-standard.md); its fixed section order and front-matter contract are mandatory, and its `relationships` edges are what the concept graph and question mapping consume.",
             "Reuse the concept-graph, deep-dive or question-learning traceability template from `../../assets/`.",
         ]
+    if task_id in {"career-log-work-day", "career-extract-log-entities", "career-score-work-impact",
+                   "career-roll-up-work-period", "career-query-own-history"}:
+        resources = [
+            "Read [the career operating-system and evidence method](../career-operating-system.md); a work log is the raw material for evidence, never evidence by itself.",
+        ]
+        if task_id == "career-log-work-day":
+            resources.append(
+                "Reuse `../../assets/work-log-entry.yaml`. Record what happened, including the days where nothing shipped — a log that only contains wins produces a career story with no failures in it, which no interviewer believes. Write it the same day; a week later the detail that made it interesting is gone."
+            )
+        if task_id == "career-extract-log-entities":
+            resources.append(
+                "Reuse `../../assets/work-entities.yaml`. Separate what the log states from what you inferred, and have the author confirm the inferences. An extractor that upgrades \"helped with the dashboard\" into \"led dashboard delivery\" has invented experience the person will be asked about."
+            )
+        if task_id == "career-score-work-impact":
+            resources.append(
+                "Reuse `../../assets/impact-score.yaml`. A number in a log is not a measured number: score a metric the author measured differently from one they estimated. Impact is how many people the outcome reached and whether it shipped, not how hard the day felt."
+            )
+        if task_id == "career-roll-up-work-period":
+            resources.append(
+                "Roll-ups summarise; they do not promote. A week of practised work is a week of practised work, and the learner-memory contract still owns whether anything became mastery."
+            )
+        if task_id == "career-query-own-history":
+            resources.append(
+                "Answer only from the logs and cite the dates. \"I think you worked on that in March\" is the failure this feature exists to prevent, and an uncited recollection from an assistant is worse than the person's own uncertainty because it sounds settled."
+            )
+        resources.append(
+            "Nothing here converts a log into a CV claim on its own. A bullet drawn from a log carries the date it came from, and self-study or shadowing never becomes production experience by being written down."
+        )
+        return resources
+    if task_id == "dx-recommend-agent-automation":
+        return [
+            "This task is read-only. Analyse the repository and output recommendations; do not create hooks, subagents, skills or MCP configuration. The team implements what it chooses, and a recommender that writes files has decided for them.",
+            "Surface one or two per category rather than a list of everything possible — hooks for events worth reacting to, subagents for review that runs in parallel, skills for repeatable expertise, MCP servers for systems the work actually touches. Ten recommendations produce zero adoptions.",
+            "Ground each recommendation in something found in this repository: the orchestrator it runs, the test command it already has, the warehouse its config names. A recommendation that would fit any data repo tells the reader nothing about theirs.",
+            "Say what each automation would cost as well as what it saves. A hook that runs on every edit is a tax paid on every edit.",
+        ]
+    if task_id in {"brain-operate-capture-inbox", "brain-build-map-of-content",
+                   "brain-maintain-wikilink-graph", "brain-build-canvas-view"}:
+        resources = [
+            "Read [the Second Brain operating system](../second-brain-operating-system.md); the four-layer boundary decides where this artifact may write.",
+        ]
+        if task_id == "brain-operate-capture-inbox":
+            resources.append(
+                "The inbox is read-only and its contents are never edited in place. Keep the original beside whatever is derived from it, addressed by content hash, because a summary that outlives its source is an unverifiable claim."
+            )
+        if task_id == "brain-build-map-of-content":
+            resources.append(
+                "A map of content is a curated entry point, not a generated file listing. It states what the topic covers, in what order to read it, and what is deliberately absent; a MOC that lists everything is a directory with extra steps."
+            )
+        if task_id == "brain-maintain-wikilink-graph":
+            resources.append(
+                "Report dead links, orphan notes and one-way links separately: each calls for different work. A link that resolves is not evidence the target says what the linking note claims it says."
+            )
+        if task_id == "brain-build-canvas-view":
+            resources.append(
+                "Build a canvas only where the spatial relationship between notes carries meaning the reading order cannot. A canvas that duplicates a MOC is a second thing to maintain that says the same thing."
+            )
+        return resources
     if task_id.startswith("trans-"):
         resources = [
             "Read [Vietnamese technical translation](../vietnamese-technical-translation.md); the reader cannot check this work against the source, which is why they needed it, so the usual feedback loop is missing and every rule compensates for that.",
@@ -2848,6 +2910,9 @@ def build_shared_assets(risk_of: dict[str, str] | None = None) -> None:
             "architecture-case-study.yaml": {"case_id": "", "system_name": "", "organization": "", "study_type": "third-party-public-source", "as_of": "", "business_context": "", "decision_the_system_serves": "", "given_constraints": [], "assumed_constraints": [], "data_contract": {"grain": "", "keys": [], "delivery_semantics": "", "schema_evolution": ""}, "components": [{"stage": "ingest|store|process|serve", "choice": "", "alternative_rejected": "", "reason": "", "concept_ids": [], "evidence_ref": ""}], "consistency_model": "", "failure_modes": [], "cost_profile": {}, "trade_offs": [], "what_would_change_the_design": [], "follow_up_questions": [], "concept_ids": [], "sources": [{"title": "", "url": "", "publisher": "", "published_or_updated_at": "", "accessed_at": "", "license": "", "reuse_allowed": "unknown"}], "claims": [{"claim": "", "classification": "documented|measured|inferred", "evidence_ref": ""}], "personal_experience_claim": False, "limitations": [], "owner": "", "version": "", "status": "draft"},
             "concept-visual-explainer.yaml": {"explainer_id": "", "concept_id": "", "concept_name": "", "audience_level": "", "question_ids": [], "mental_model_sentence": "", "visual_type": "flow|state|sequence|comparison|layered|timeline", "elements": [], "relationships": [], "annotations": [], "what_the_reader_should_observe": "", "common_misreading": "", "takeaway": "", "alt_text": "", "rendering_handoff": {"target_skill": "data-documentation-and-diagrams", "preferred_notation": "mermaid", "status": "not-requested"}, "sources": [], "originality_statement": "Specification authored from primary sources; no third-party diagram copied or adapted.", "limitations": [], "status": "draft"},
             "content-evidence-return.yaml": {"return_id": "", "person_id": "", "series_id": "", "episode_id": "", "artifact_id": "", "artifact_version": "", "artifact_sha256": "", "channels": [], "published_at": "", "publication_evidence_ref": "", "claim_ids": [], "capabilities_demonstrated": [], "evidence_type": "external", "review_outcomes": [], "correction_history": [], "audience_signals": {"note": "Reach, reactions and post count are audience signals, not competency evidence.", "metrics": []}, "proposed_portfolio_claims": [], "career_task": "career-build-career-evidence-portfolio", "verification_status": "unverified", "owner": "", "status": "draft"},
+            "work-log-entry.yaml": {"entry_id": "", "date": "", "company": "", "role": "", "tasks_done": [], "tools_used": [], "datasets": [], "problem": "", "how_solved": "", "time_spent_minutes": 0, "deliverable": "", "outcome_metric": "", "metric_is_measured": False, "learned": "", "tags": [], "raw_note": "", "status": "draft"},
+            "work-entities.yaml": {"extraction_id": "", "entry_ref": "", "extracted_at": "", "projects": [], "tools": [], "skills": [], "metrics": [{"value": "", "measured_or_inferred": "measured|inferred", "source": ""}], "domains": [], "soft_skills": [], "inferred_not_stated": [], "confirmed_by_author": False},
+            "impact-score.yaml": {"score_id": "", "entry_ref": "", "scored_at": "", "score": 0, "basis": {"has_quantified_metric": False, "metric_is_measured": False, "people_affected": "", "is_final_deliverable": False, "stakeholder_level": ""}, "rationale": "", "self_reported": True, "is_production_experience": False},
             "learner-memory.json": {"memory_id": "", "person_id": "", "version": "", "privacy_classification": "private", "authority": {"owner": "", "canonical_path": "", "storage_scope": "user"}, "current_focus": [], "topics": [], "evidence_registry": [], "learning_events": [], "updated_at": "", "status": "draft"},
             "learning-event.yaml": {"event_id": "", "topic_id": "", "event_type": "learned|practiced|applied|assessed|reviewed|forgotten|version-changed", "skill_id": "", "source_or_artifact_ref": "", "evidence_refs": [], "observed_result": "", "limitations": [], "occurred_at": "", "recorded_at": "", "status": "recorded"},
             "cross-skill-prerequisite-map.yaml": {"from_topics": [], "to_topic": "", "direct_prerequisites": [], "interfaces_to_reuse": [], "decision_rules_to_reuse": [], "failure_modes_to_reuse": [], "safe_to_summarize": [], "must_expand": [], "version_conflicts": [], "evidence_refs": [], "status": "draft"},

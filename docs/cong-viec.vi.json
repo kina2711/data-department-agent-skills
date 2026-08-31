@@ -923,6 +923,49 @@
         },
         "Chốt glossary và style guide trước khi dịch câu nào."
       ]
+    },
+    {
+      "id": "career-nhat-ky",
+      "skill": "data-career-and-interview-coach",
+      "ten": "Ghi nhật ký ngày làm việc",
+      "mo_ta": "Ghi việc hôm nay, để sau này rút thành bullet CV có dẫn nguồn theo ngày.",
+      "task_id": "career-log-work-day",
+      "thong_so": [
+        {
+          "key": "viec",
+          "nhan": "Hôm nay làm gì",
+          "kieu": "text",
+          "goi_y": "fix dashboard sai số do join trùng khoá",
+          "bat_buoc": true,
+          "nhieu_dong": true
+        },
+        {
+          "key": "cong_cu",
+          "nhan": "Dùng công cụ gì",
+          "kieu": "text",
+          "goi_y": "SQL, Power BI",
+          "bat_buoc": false
+        },
+        {
+          "key": "ket_qua",
+          "nhan": "Kết quả đo được",
+          "kieu": "text",
+          "goi_y": "số khớp lại với finance",
+          "bat_buoc": false
+        }
+      ],
+      "mau": [
+        "Ghi nhật ký hôm nay: {viec}",
+        {
+          "neu": "cong_cu",
+          "text": "Công cụ: {cong_cu}."
+        },
+        {
+          "neu": "ket_qua",
+          "text": "Kết quả: {ket_qua}."
+        },
+        "Ghi cả ngày không ra được gì, đừng chỉ ghi ngày thắng."
+      ]
     }
   ]
 }

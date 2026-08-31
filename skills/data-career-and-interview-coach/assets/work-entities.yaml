@@ -1,0 +1,14 @@
+extraction_id: ""
+entry_ref: ""
+extracted_at: ""
+projects: []
+tools: []
+skills: []
+metrics:
+  - value: ""
+    measured_or_inferred: "measured|inferred"
+    source: ""
+domains: []
+soft_skills: []
+inferred_not_stated: []
+confirmed_by_author: false

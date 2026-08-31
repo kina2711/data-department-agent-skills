@@ -202,3 +202,18 @@ cases:
   - id: trans-review-translation-fidelity
     task: trans-review-translation-fidelity
     expected_catalog: test-assure
+  - id: dx-recommend-agent-automation
+    task: dx-recommend-agent-automation
+    expected_catalog: build-deliver
+  - id: brain-operate-capture-inbox
+    task: brain-operate-capture-inbox
+    expected_catalog: operate-improve
+  - id: brain-build-map-of-content
+    task: brain-build-map-of-content
+    expected_catalog: build-deliver
+  - id: career-log-work-day
+    task: career-log-work-day
+    expected_catalog: build-deliver
+  - id: career-score-work-impact
+    task: career-score-work-impact
+    expected_catalog: test-assure

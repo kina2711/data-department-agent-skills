@@ -46,7 +46,7 @@ PEOPLE_RESOURCES = {
     },
     "data-career-and-interview-coach": {
         "references": ["coaching-ethics-and-method.md", "role-curricula.md", "interview-knowledge-system.md", "career-operating-system.md", "career-learning-memory.md", "concept-registry-standard.md", "system-design-canon.md"],
-        "assets": ["readiness-profile.yaml", "mock-assessment.yaml", "remediation-plan.yaml", "interview-question-dossier.yaml", "question-knowledge-map.yaml", "interview-knowledge-library.yaml", "career-operating-system.yaml", "career-evidence-portfolio.yaml", "career-review.yaml", "career-content-handoff.yaml", "learner-memory.json", "learning-event.yaml", "cross-skill-prerequisite-map.yaml", "skill-transition-context.json", "learner-memory.schema.json", "concept-registry.json"],
+        "assets": ["readiness-profile.yaml", "mock-assessment.yaml", "remediation-plan.yaml", "interview-question-dossier.yaml", "question-knowledge-map.yaml", "interview-knowledge-library.yaml", "career-operating-system.yaml", "career-evidence-portfolio.yaml", "career-review.yaml", "career-content-handoff.yaml", "learner-memory.json", "learning-event.yaml", "cross-skill-prerequisite-map.yaml", "skill-transition-context.json", "learner-memory.schema.json", "concept-registry.json", "work-log-entry.yaml", "work-entities.yaml", "impact-score.yaml"],
         "scripts": ["validate_learning_memory.py", "build_skill_transition_context.py", "validate_concept_registry.py", "schedule_topic_review.py"],
     },
     "data-technical-content-and-social": {

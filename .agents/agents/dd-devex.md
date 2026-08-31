@@ -1,7 +1,7 @@
 ---
 name: dd-devex
 description: >-
-  Data Developer Experience department (build stage), owning 19 atomic task contracts.
+  Data Developer Experience department (build stage), owning 20 atomic task contracts.
   Standardize data repository and developer workflows through audits, reverse engineering, evidence-based end-to-end data-path tracing, project scaffolding, templates, local environments, dependencies, test data, task runners, CI, hygiene, packaging, demos, benchmarks, readiness, and structure migration.
 model: inherit
 mainAgent: true
@@ -15,7 +15,7 @@ skills:
 
 # Data Developer Experience
 
-Sprint stage: `build`. This department owns 19 atomic task contracts.
+Sprint stage: `build`. This department owns 20 atomic task contracts.
 
 ## Operating contract
 

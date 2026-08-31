@@ -1,6 +1,6 @@
 # Chi tiết toàn bộ Data Department Skills và Atomic Tasks
 
-> Phiên bản `3.10.0` · `33` Claude role skills · `855` atomic workflows.
+> Phiên bản `3.10.0` · `33` Claude role skills · `865` atomic workflows.
 > Đây là catalog tra cứu đầy đủ được sinh từ `suite-manifest.yaml`, `task-catalog.json` và task contracts; không phải nội dung luôn được nạp vào context của Claude.
 
 ## Mục lục
@@ -107,7 +107,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | 7 | [`data-governance-and-stewardship`](#skill-data-governance-and-stewardship) | Data Governance and Stewardship | 22 |
 | 8 | [`metadata-engineering-and-catalog`](#skill-metadata-engineering-and-catalog) | Metadata Engineering and Catalog | 18 |
 | 9 | [`data-platform-and-dataops`](#skill-data-platform-and-dataops) | Data Platform and DataOps | 21 |
-| 10 | [`data-developer-experience`](#skill-data-developer-experience) | Data Developer Experience | 19 |
+| 10 | [`data-developer-experience`](#skill-data-developer-experience) | Data Developer Experience | 20 |
 | 11 | [`data-engineering`](#skill-data-engineering) | Data Engineering | 25 |
 | 12 | [`analytics-engineering`](#skill-analytics-engineering) | Analytics Engineering | 22 |
 | 13 | [`data-analysis`](#skill-data-analysis) | Data Analysis | 29 |
@@ -126,10 +126,10 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | 26 | [`data-academy-and-curriculum`](#skill-data-academy-and-curriculum) | Data Academy and Curriculum | 49 |
 | 27 | [`data-onboarding-and-integration`](#skill-data-onboarding-and-integration) | Data Onboarding and Integration | 34 |
 | 28 | [`data-talent-acquisition-and-interview`](#skill-data-talent-acquisition-and-interview) | Data Talent and Interviewing | 41 |
-| 29 | [`data-career-and-interview-coach`](#skill-data-career-and-interview-coach) | Data Career and Interview Coach | 52 |
+| 29 | [`data-career-and-interview-coach`](#skill-data-career-and-interview-coach) | Data Career and Interview Coach | 57 |
 | 30 | [`data-technical-content-and-social`](#skill-data-technical-content-and-social) | Technical Content and Social | 27 |
 | 31 | [`data-personal-project-engineering`](#skill-data-personal-project-engineering) | Personal Data Project Engineering | 42 |
-| 32 | [`personal-second-brain-and-knowledge-os`](#skill-personal-second-brain-and-knowledge-os) | Personal Second Brain and Knowledge OS | 46 |
+| 32 | [`personal-second-brain-and-knowledge-os`](#skill-personal-second-brain-and-knowledge-os) | Personal Second Brain and Knowledge OS | 50 |
 | 33 | [`book-to-knowledge-and-action`](#skill-book-to-knowledge-and-action) | Book to Knowledge and Action | 45 |
 
 ## 5. Chi tiết từng skill và toàn bộ task
@@ -656,7 +656,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Ranh giới và handoff:** Không tối ưu DX bằng cách bỏ security, quality hay governance gates; đo hiệu quả bằng adoption, lead time và escaped defects.
 
-**Quy mô:** 19 tasks — Plan / Design 3; Build / Deliver 10; Test / Assure 5; Operate / Improve 1.
+**Quy mô:** 20 tasks — Plan / Design 3; Build / Deliver 11; Test / Assure 5; Operate / Improve 1.
 
 **Domain references tải khi cần:** `adapter-airflow.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-microsoft-fabric.md`, `adapter-spark.md`, `evidence-based-repository-understanding.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
@@ -672,7 +672,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`dx-create-test-data-fixture`](skills/data-developer-experience/references/tasks/dx-create-test-data-fixture.md) | tạo deterministic edge-case records cho automated tests | test fixture | `design-specification` | `R1-reviewed` / `standard-path` |
 | [`dx-select-project-template`](skills/data-developer-experience/references/tasks/dx-select-project-template.md) | chọn template theo stack, deployment và governance needs | template decision | `design-specification` | `R1-reviewed` / `standard-path` |
 
-#### Build / Deliver (10 tasks)
+#### Build / Deliver (11 tasks)
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
@@ -684,6 +684,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`dx-generate-synthetic-dataset`](skills/data-developer-experience/references/tasks/dx-generate-synthetic-dataset.md) | sinh data giả theo schema, distribution và privacy constraints | synthetic dataset | `advisory-analysis` | `R0-light` / `fast-path` |
 | [`dx-manage-project-dependencies`](skills/data-developer-experience/references/tasks/dx-manage-project-dependencies.md) | lock, update, vulnerability-check và document dependencies | reproducible dependency set | `advisory-analysis` | `R0-light` / `fast-path` |
 | [`dx-package-data-project`](skills/data-developer-experience/references/tasks/dx-package-data-project.md) | tạo artifact/container/package có version và provenance | deployable project artifact | `build-change` | `R2-standard` / `standard-path` |
+| [`dx-recommend-agent-automation`](skills/data-developer-experience/references/tasks/dx-recommend-agent-automation.md) | soi repo data rồi đề xuất hook, subagent, skill và MCP server đáng tự động hoá, chỉ đọc không tạo file | automation recommendation | `advisory-analysis` | `R0-light` / `fast-path` |
 | [`dx-reverse-engineer-data-project`](skills/data-developer-experience/references/tasks/dx-reverse-engineer-data-project.md) | trace entry points, pipeline, dependencies và outputs | evidence-based project map | `advisory-analysis` | `R0-light` / `fast-path` |
 | [`dx-scaffold-data-project`](skills/data-developer-experience/references/tasks/dx-scaffold-data-project.md) | sinh cấu trúc repo theo workload và standards | runnable project skeleton | `build-change` | `R2-standard` / `standard-path` |
 
@@ -1852,11 +1853,11 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Ranh giới và handoff:** Không bịa kinh nghiệm, hứa title/promotion, đánh đồng self-study với production hay biến public visibility thành proxy cho năng lực.
 
-**Quy mô:** 52 tasks — Plan / Design 16; Build / Deliver 25; Test / Assure 11; Operate / Improve 0.
+**Quy mô:** 57 tasks — Plan / Design 16; Build / Deliver 29; Test / Assure 12; Operate / Improve 0.
 
 **Domain references tải khi cần:** `authored-prose-voice.md`, `career-learning-memory.md`, `career-operating-system.md`, `coaching-ethics-and-method.md`, `concept-registry-standard.md`, `interview-knowledge-system.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `system-design-canon.md`, `workflow-runtime-and-evidence-os.md`.
 
-**Templates/assets có thể tái sử dụng:** `architecture-case-study.yaml`, `atomic-task-output.yaml`, `career-content-handoff.yaml`, `career-evidence-portfolio.yaml`, `career-operating-system.yaml`, `career-review.yaml`, `concept-registry.json`, `concept-visual-explainer.yaml`, `content-evidence-return.yaml`, `cross-skill-prerequisite-map.yaml`, `design-option-set.yaml`, `interview-knowledge-library.yaml`, `interview-question-dossier.yaml`, `knowledge-coverage-audit.yaml`, `learner-memory.json`, `learner-memory.schema.json`, `learning-event.yaml`, `mock-assessment.yaml`, `offer-evaluation.yaml`, `question-knowledge-map.yaml`, `readiness-profile.yaml`, `remediation-plan.yaml`, `skill-transition-context.json`.
+**Templates/assets có thể tái sử dụng:** `architecture-case-study.yaml`, `atomic-task-output.yaml`, `career-content-handoff.yaml`, `career-evidence-portfolio.yaml`, `career-operating-system.yaml`, `career-review.yaml`, `concept-registry.json`, `concept-visual-explainer.yaml`, `content-evidence-return.yaml`, `cross-skill-prerequisite-map.yaml`, `design-option-set.yaml`, `impact-score.yaml`, `interview-knowledge-library.yaml`, `interview-question-dossier.yaml`, `knowledge-coverage-audit.yaml`, `learner-memory.json`, `learner-memory.schema.json`, `learning-event.yaml`, `mock-assessment.yaml`, `offer-evaluation.yaml`, `question-knowledge-map.yaml`, `readiness-profile.yaml`, `remediation-plan.yaml`, `skill-transition-context.json`, `work-entities.yaml`, `work-log-entry.yaml`.
 
 **Scripts:** `build_skill_transition_context.py`, `schedule_topic_review.py`, `validate_concept_registry.py`, `validate_learning_memory.py`.
 
@@ -1881,7 +1882,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`career-plan-ethical-professional-visibility`](skills/data-career-and-interview-coach/references/tasks/career-plan-ethical-professional-visibility.md) | xây kế hoạch contribution, community, mentoring và public expertise không khoe title hoặc biến self-promotion thành proxy cho năng lực | ethical professional-visibility plan | `career-development` | `R1-reviewed` / `standard-path` |
 | [`career-register-canonical-concept`](skills/data-career-and-interview-coach/references/tasks/career-register-canonical-concept.md) | cấp và quản lý concept key nối canon, note, topic và competency về một danh tính | canonical concept registry entry | `career-coaching` | `R1-reviewed` / `standard-path` |
 
-#### Build / Deliver (25 tasks)
+#### Build / Deliver (29 tasks)
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
@@ -1893,9 +1894,13 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`career-build-skill-transition-context`](skills/data-career-and-interview-coach/references/tasks/career-build-skill-transition-context.md) | nén phần đã mastered thành bridge summary và chỉ mở rộng phần stale, uncertain hoặc trực tiếp cần cho skill mới | bounded skill-transition context pack | `career-development` | `R1-reviewed` / `standard-path` |
 | [`career-coach-star-story`](skills/data-career-and-interview-coach/references/tasks/career-coach-star-story.md) | cải thiện situation/task/action/result mà không bịa evidence | refined STAR story | `career-coaching` | `R1-reviewed` / `standard-path` |
 | [`career-coach-technical-communication`](skills/data-career-and-interview-coach/references/tasks/career-coach-technical-communication.md) | luyện clarification, assumptions, trade-offs và concise explanation | communication coaching record | `career-coaching` | `R1-reviewed` / `standard-path` |
+| [`career-extract-log-entities`](skills/data-career-and-interview-coach/references/tasks/career-extract-log-entities.md) | trích project, tool, skill, metric và outcome từ nhật ký thô, đánh dấu cái nào là suy đoán | extracted work entities | `career-coaching` | `R1-reviewed` / `standard-path` |
 | [`career-generate-role-question-set`](skills/data-career-and-interview-coach/references/tasks/career-generate-role-question-set.md) | tạo question set theo role, level, company style và gaps | personalized question set | `career-coaching` | `R1-reviewed` / `standard-path` |
 | [`career-initialize-learning-memory`](skills/data-career-and-interview-coach/references/tasks/career-initialize-learning-memory.md) | tạo learner identity, topic taxonomy, baseline, storage pointer, privacy và evidence policy dùng xuyên các role skill | versioned learner-memory baseline | `career-development` | `R1-reviewed` / `standard-path` |
+| [`career-log-work-day`](skills/data-career-and-interview-coach/references/tasks/career-log-work-day.md) | ghi nhật ký một ngày làm việc theo mẫu: việc đã làm, vấn đề gặp, cách giải, output và điều học được | daily work log entry | `career-coaching` | `R1-reviewed` / `standard-path` |
+| [`career-query-own-history`](skills/data-career-and-interview-coach/references/tasks/career-query-own-history.md) | trả lời câu hỏi về chính công việc đã làm bằng nhật ký và knowledge base của mình, có trích dẫn ngày | grounded history answer | `career-coaching` | `R1-reviewed` / `standard-path` |
 | [`career-record-learning-event`](skills/data-career-and-interview-coach/references/tasks/career-record-learning-event.md) | ghi append-only nội dung đã học, practice, artifact, feedback, assessment và source/version mà không tự nâng mastery | learning event record | `career-development` | `R1-reviewed` / `standard-path` |
+| [`career-roll-up-work-period`](skills/data-career-and-interview-coach/references/tasks/career-roll-up-work-period.md) | tổng hợp nhật ký một tuần hoặc một tháng thành tường thuật tiến bộ có bằng chứng | work period roll-up | `career-coaching` | `R1-reviewed` / `standard-path` |
 | [`career-run-career-review-cycle`](skills/data-career-and-interview-coach/references/tasks/career-run-career-review-cycle.md) | review tuần/tháng/quý/năm dựa trên evidence, feedback, energy, bottleneck và thay đổi bối cảnh | career review record | `career-development` | `R1-reviewed` / `standard-path` |
 | [`career-run-interview-retest`](skills/data-career-and-interview-coach/references/tasks/career-run-interview-retest.md) | kiểm tra lại cùng competency bằng scenario mới | retest assessment | `career-coaching` | `R1-reviewed` / `standard-path` |
 | [`career-run-mock-analytics-case`](skills/data-career-and-interview-coach/references/tasks/career-run-mock-analytics-case.md) | mô phỏng ambiguous business case từ framing tới recommendation | analytics-case mock assessment | `career-coaching` | `R1-reviewed` / `standard-path` |
@@ -1911,7 +1916,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`career-run-mock-sql-interview`](skills/data-career-and-interview-coach/references/tasks/career-run-mock-sql-interview.md) | mô phỏng SQL live có probing, edge cases và feedback | SQL mock assessment | `career-coaching` | `R1-reviewed` / `standard-path` |
 | [`career-track-preparation-progress`](skills/data-career-and-interview-coach/references/tasks/career-track-preparation-progress.md) | theo dõi evidence, scores, consistency và remaining risks | preparation progress report | `career-coaching` | `R1-reviewed` / `standard-path` |
 
-#### Test / Assure (11 tasks)
+#### Test / Assure (12 tasks)
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
@@ -1926,6 +1931,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`career-reconcile-learning-memory`](skills/data-career-and-interview-coach/references/tasks/career-reconcile-learning-memory.md) | hợp nhất learning history từ nhiều repo/skill, giữ lineage, xử lý conflict và ngăn silent status regression | reconciled learner-memory version | `career-development` | `R1-reviewed` / `standard-path` |
 | [`career-review-data-portfolio`](skills/data-career-and-interview-coach/references/tasks/career-review-data-portfolio.md) | đánh giá project depth, reproducibility, decisions, impact và presentation | portfolio review | `career-development` | `R1-reviewed` / `standard-path` |
 | [`career-review-data-resume`](skills/data-career-and-interview-coach/references/tasks/career-review-data-resume.md) | kiểm tra relevance, evidence, clarity, claims và role alignment | resume review | `career-development` | `R1-reviewed` / `standard-path` |
+| [`career-score-work-impact`](skills/data-career-and-interview-coach/references/tasks/career-score-work-impact.md) | chấm mức ảnh hưởng của một mục nhật ký dựa trên chỉ số định lượng và phạm vi người bị ảnh hưởng | impact score record | `career-coaching` | `R1-reviewed` / `standard-path` |
 
 <a id="skill-data-technical-content-and-social"></a>
 
@@ -2083,7 +2089,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Ranh giới và handoff:** Không trộn nguồn với suy luận hoặc chất riêng, không nạp secret mặc định, không coi output AI là Wiki fact và không đánh giá thành công bằng số lượng note.
 
-**Quy mô:** 46 tasks — Plan / Design 12; Build / Deliver 27; Test / Assure 4; Operate / Improve 3.
+**Quy mô:** 50 tasks — Plan / Design 12; Build / Deliver 30; Test / Assure 4; Operate / Improve 4.
 
 **Domain references tải khi cần:** `external-tool-access.md`, `knowledge-note-and-lineage-standard.md`, `learning-memory-interoperability.md`, `migration-and-tool-interop.md`, `model-selection.md`, `response-compression.md`, `retrieval-and-output-grounding.md`, `second-brain-operating-system.md`, `second-brain-quality-and-safety.md`, `solution-option-framing.md`, `workflow-runtime-and-evidence-os.md`.
 
@@ -2108,7 +2114,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`brain-design-vault-taxonomy`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-design-vault-taxonomy.md) | thiết kế folders, note types, tags, links, IDs, status và naming mà không tạo taxonomy quá sâu | vault taxonomy | `design-specification` | `R1-reviewed` / `standard-path` |
 | [`brain-plan-tool-migration`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-plan-tool-migration.md) | lập kế hoạch export, inventory, transform, verify và cutover từ Notion, Sheets, Lark hoặc tool khác sang local-first vault | reversible knowledge migration plan | `design-specification` | `R1-reviewed` / `standard-path` |
 
-#### Build / Deliver (27 tasks)
+#### Build / Deliver (30 tasks)
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
@@ -2116,9 +2122,11 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`brain-build-atomic-knowledge-note`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-build-atomic-knowledge-note.md) | tạo một note cho một concept hoặc decision có stable ID, aliases, status, source links và related notes | atomic knowledge note | `build-change` | `R2-standard` / `standard-path` |
 | [`brain-build-audience-context`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-build-audience-context.md) | ghi audience problems, sophistication, language, objections, desired outcomes và sensitive boundaries | audience-context pack | `build-change` | `R2-standard` / `standard-path` |
 | [`brain-build-author-voice-profile`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-build-author-voice-profile.md) | mô hình hóa tone, rhythm, vocabulary, evidence style, prohibited patterns và channel variations mà không copy mẫu | author-voice profile | `build-change` | `R2-standard` / `standard-path` |
+| [`brain-build-canvas-view`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-build-canvas-view.md) | dựng canvas không gian cho một chủ đề khi quan hệ giữa các note quan trọng hơn thứ tự đọc | canvas view | `build-change` | `R2-standard` / `standard-path` |
 | [`brain-build-concept-map`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-build-concept-map.md) | nối prerequisites, concepts, mechanisms, contrasts, failures và applications | concept map | `build-change` | `R2-standard` / `standard-path` |
 | [`brain-build-domain-second-brain`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-build-domain-second-brain.md) | cấu hình four-layer system cho một domain cụ thể và chỉ nạp rules/references phù hợp | domain-specific second-brain package | `build-change` | `R2-standard` / `standard-path` |
 | [`brain-build-grounded-context-pack`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-build-grounded-context-pack.md) | đóng gói context có source locators, facts, inferences, personal rules, conflicts, omissions và expiry | prompt-ready grounded context pack | `build-change` | `R2-standard` / `standard-path` |
+| [`brain-build-map-of-content`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-build-map-of-content.md) | dựng trang MOC điều hướng một chủ đề thay vì để người đọc dò thư mục | map of content | `build-change` | `R2-standard` / `standard-path` |
 | [`brain-build-source-provenance-record`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-build-source-provenance-record.md) | nối source ID tới origin, locator, snapshot hash, rights, ingestion method và transformations | source provenance record | `build-change` | `R2-standard` / `standard-path` |
 | [`brain-build-topic-map`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-build-topic-map.md) | tạo map-of-content điều hướng một domain bằng questions và relationships thay vì folder dump | topic map | `build-change` | `R2-standard` / `standard-path` |
 | [`brain-build-work-rule-library`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-build-work-rule-library.md) | mã hóa preferences, quality bars, decision rules, templates, exceptions và escalation | personal work-rule library | `build-change` | `R2-standard` / `standard-path` |
@@ -2132,6 +2140,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`brain-import-exported-workspace`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-import-exported-workspace.md) | import bounded exports từ Notion, Google Drive, Sheets, Lark hoặc bookmarks mà giữ links, attachments và source identity | imported workspace package | `build-change` | `R2-standard` / `standard-path` |
 | [`brain-inventory-distributed-sources`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-inventory-distributed-sources.md) | inventory file, URL, export, note, image, video, transcript và spreadsheet theo owner, format, sensitivity, authority và last-used | distributed-source inventory | `advisory-analysis` | `R0-light` / `fast-path` |
 | [`brain-link-knowledge-graph`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-link-knowledge-graph.md) | tạo typed links giữa source, concept, person, project, decision và output đồng thời phát hiện orphan links | linked knowledge graph | `build-change` | `R2-standard` / `standard-path` |
+| [`brain-maintain-wikilink-graph`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-maintain-wikilink-graph.md) | giữ wikilink và backlink hai chiều đúng, phát hiện link chết và trang mồ côi | wikilink graph report | `advisory-analysis` | `R0-light` / `fast-path` |
 | [`brain-normalize-source-metadata`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-normalize-source-metadata.md) | chuẩn hóa title, author, date, source type, canonical URL, edition, tags, sensitivity và authority | normalized source metadata | `build-change` | `R2-standard` / `standard-path` |
 | [`brain-process-image-and-diagram-source`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-process-image-and-diagram-source.md) | mô tả OCR, labels, relationships, uncertainty và link về ảnh gốc thay vì coi visual inference là fact | image knowledge record | `build-change` | `R2-standard` / `standard-path` |
 | [`brain-retrieve-task-context`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-retrieve-task-context.md) | lấy minimum sufficient sources, Wiki notes và 3_Toi rules cho một task với authority, freshness và token budget | routed task context | `advisory-analysis` | `R0-light` / `fast-path` |
@@ -2149,10 +2158,11 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`brain-measure-reuse-value`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-measure-reuse-value.md) | đo time-to-find, reuse rate, grounded-output rate, search failure và avoided rework mà không chạy theo note count | second-brain value review | `advisory-analysis` | `R0-light` / `fast-path` |
 | [`brain-test-retrieval-quality`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-test-retrieval-quality.md) | đo relevance, coverage, source authority, freshness, context precision và abstention trên representative query set | retrieval evaluation | `advisory-analysis` | `R0-light` / `fast-path` |
 
-#### Operate / Improve (3 tasks)
+#### Operate / Improve (4 tasks)
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
+| [`brain-operate-capture-inbox`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-operate-capture-inbox.md) | nhận mọi thứ mới vào một inbox chỉ-đọc và giữ bản gốc bất biến trước khi tổng hợp | capture inbox record | `advisory-analysis` | `R0-light` / `fast-path` |
 | [`brain-resolve-knowledge-conflict`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-resolve-knowledge-conflict.md) | giữ lại competing claims, editions, authority, dates và resolution owner thay vì silent overwrite | knowledge-conflict record | `build-change` | `R2-standard` / `standard-path` |
 | [`brain-restore-second-brain`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-restore-second-brain.md) | phục hồi vào location tách biệt, kiểm tra integrity, links, indexes và representative retrieval trước cutover | verified restore record | `incident-recovery` | `R3-controlled` / `controlled-path` |
 | [`brain-retire-stale-knowledge`](skills/personal-second-brain-and-knowledge-os/references/tasks/brain-retire-stale-knowledge.md) | deprecate hoặc archive note/source/output với reason, successor, retention và backlink repair | knowledge retirement record | `production-release` | `R4-critical` / `controlled-path` |
@@ -2265,4 +2275,4 @@ Hãy phân tích yêu cầu và báo trước khi làm:
 Sau đó thực hiện task hiện tại, test, báo evidence, approval status, residual risks và next owner.
 ```
 
-Tổng kiểm: **33 skills / 855 tasks** đã được liệt kê, không thiếu và không trùng ownership trong catalog này.
+Tổng kiểm: **33 skills / 865 tasks** đã được liệt kê, không thiếu và không trùng ownership trong catalog này.

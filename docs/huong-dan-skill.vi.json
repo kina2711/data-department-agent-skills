@@ -141,7 +141,8 @@
         "Người mới mất quá lâu để chạy được dự án",
         "Cần đọc hiểu một kho lạ",
         "Muốn truy vết dữ liệu đi từ đâu tới đâu",
-        "Cần chuẩn hoá template"
+        "Cần chuẩn hoá template",
+        "Muốn biết repo này nên tự động hoá gì với Claude Code"
       ],
       "khong_dung_khi": "Onboarding con người theo lộ trình → data-onboarding-and-integration. Đây là về kho và công cụ.",
       "bat_dau_tu": [
@@ -409,7 +410,8 @@
         "Muốn biết mình còn thiếu gì cho một vai",
         "Chuyển từ chủ đề này sang chủ đề khác mà không học lại từ đầu",
         "Luyện phỏng vấn có chấm điểm",
-        "Cập nhật trạng thái thành thạo sau khi học"
+        "Cập nhật trạng thái thành thạo sau khi học",
+        "Ghi nhật ký công việc hằng ngày để sau này rút thành CV có dẫn nguồn"
       ],
       "khong_dung_khi": "Thiết kế chương trình cho người khác → data-academy-and-curriculum. Skill này là bộ nhớ và đánh giá của riêng bạn.",
       "bat_dau_tu": [
@@ -453,7 +455,8 @@
         "Muốn dựng hệ ghi chú cá nhân",
         "Di trú từ Notion, Sheets hay Lark",
         "Cần truy xuất có nguồn gốc từ ghi chú của mình",
-        "Lo về riêng tư, sao lưu, độ tươi"
+        "Lo về riêng tư, sao lưu, độ tươi",
+        "Cần inbox, MOC, wikilink hai chiều hoặc canvas cho vault"
       ],
       "khong_dung_khi": "Context dùng chung của tổ chức → company-data-context.",
       "bat_dau_tu": [

@@ -1,6 +1,6 @@
 ---
 name: dd-devex
-description: "Open the Data Developer Experience department (build stage) and route the request to one of its 19 atomic tasks. Standardize data repository and developer workflows through audits, reverse engineering, evidence-based end-to-end data-path tracing, project scaffolding, templates, local environments, dependencies, test data, task runners, CI, hygiene, packaging, demos, benchmarks, readiness, and structure migration."
+description: "Open the Data Developer Experience department (build stage) and route the request to one of its 20 atomic tasks. Standardize data repository and developer workflows through audits, reverse engineering, evidence-based end-to-end data-path tracing, project scaffolding, templates, local environments, dependencies, test data, task runners, CI, hygiene, packaging, demos, benchmarks, readiness, and structure migration."
 argument-hint: "<request>"
 disable-model-invocation: true
 ---
@@ -9,7 +9,7 @@ disable-model-invocation: true
 
 Open the **Data Developer Experience** department for: $ARGUMENTS
 
-Sprint stage: `build`. This department owns 19 atomic tasks.
+Sprint stage: `build`. This department owns 20 atomic tasks.
 
 1. Read `skills/data-developer-experience/SKILL.md` and follow its operating contract.
 2. Confirm this department actually owns the primary deliverable. If another role owns it,

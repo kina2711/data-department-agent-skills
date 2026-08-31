@@ -64,8 +64,11 @@ If the request asks for the complete Career OS bundle, route through `orchestrat
 - **Plan, define, design, map, specify or create a proposed artifact — remaining deliverables** (9 tasks): read [references/catalog-plan-design-other.md](references/catalog-plan-design-other.md).
 - **Build, implement, configure, teach, interview or deliver an artifact — assessment deliverables** (11 tasks): read [references/catalog-build-deliver-assessment.md](references/catalog-build-deliver-assessment.md).
 - **Build, implement, configure, teach, interview or deliver an artifact — career deliverables** (3 tasks): read [references/catalog-build-deliver-career.md](references/catalog-build-deliver-career.md).
-- **Build, implement, configure, teach, interview or deliver an artifact — remaining deliverables** (11 tasks): read [references/catalog-build-deliver-other.md](references/catalog-build-deliver-other.md).
-- **Inspect, analyze, test, review, validate, assess, certify or audit** (11 tasks): read [references/catalog-test-assure.md](references/catalog-test-assure.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — work deliverables** (3 tasks): read [references/catalog-build-deliver-work.md](references/catalog-build-deliver-work.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — remaining deliverables (part 1)** (6 tasks): read [references/catalog-build-deliver-other-1.md](references/catalog-build-deliver-other-1.md).
+- **Build, implement, configure, teach, interview or deliver an artifact — remaining deliverables (part 2)** (6 tasks): read [references/catalog-build-deliver-other-2.md](references/catalog-build-deliver-other-2.md).
+- **Inspect, analyze, test, review, validate, assess, certify or audit — interview deliverables** (3 tasks): read [references/catalog-test-assure-interview.md](references/catalog-test-assure-interview.md).
+- **Inspect, analyze, test, review, validate, assess, certify or audit — remaining deliverables** (9 tasks): read [references/catalog-test-assure-other.md](references/catalog-test-assure-other.md).
 
 Read only the best-matching catalog. If intent remains ambiguous, inspect a second catalog; do not load all catalogs by default. Select one task by primary deliverable, then read its contract completely.
 

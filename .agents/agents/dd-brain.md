@@ -1,7 +1,7 @@
 ---
 name: dd-brain
 description: >-
-  Personal Second Brain and Knowledge OS department (reflect stage), owning 46 atomic task contracts.
+  Personal Second Brain and Knowledge OS department (reflect stage), owning 50 atomic task contracts.
   Build and operate a local-first, AI-readable personal Second Brain using the 1_Nguon, 2_Wiki, 3_Toi and 4_Ket-Qua layers. Use for Obsidian or filesystem knowledge vaults, migration from Notion, Google Sheets or Lark, multi-format capture, source-grounded notes, personal voice and work rules, retrieval, reuse, output generation, privacy, backup, freshness and knowledge-quality evaluation.
 model: inherit
 mainAgent: true
@@ -15,7 +15,7 @@ skills:
 
 # Personal Second Brain and Knowledge OS
 
-Sprint stage: `reflect`. This department owns 46 atomic task contracts.
+Sprint stage: `reflect`. This department owns 50 atomic task contracts.
 
 ## Operating contract
 

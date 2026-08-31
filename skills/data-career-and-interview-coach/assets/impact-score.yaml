@@ -1,0 +1,13 @@
+score_id: ""
+entry_ref: ""
+scored_at: ""
+score: 0
+basis:
+  has_quantified_metric: false
+  metric_is_measured: false
+  people_affected: ""
+  is_final_deliverable: false
+  stakeholder_level: ""
+rationale: ""
+self_reported: true
+is_production_experience: false

@@ -10,5 +10,6 @@ Build, implement, configure, teach, interview or deliver an artifact. Select exa
 - `dx-build-project-task-runner` → **task runner**; read [contract](tasks/dx-build-project-task-runner.md).
 - `dx-configure-precommit-quality-gates` → **pre-commit workflow**; read [contract](tasks/dx-configure-precommit-quality-gates.md).
 - `dx-configure-repository-ci` → **repository CI**; read [contract](tasks/dx-configure-repository-ci.md).
+- `dx-recommend-agent-automation` → **automation recommendation**; read [contract](tasks/dx-recommend-agent-automation.md).
 - `dx-package-data-project` → **deployable project artifact**; read [contract](tasks/dx-package-data-project.md).
 - `dx-benchmark-data-project` → **benchmark scorecard**; read [contract](tasks/dx-benchmark-data-project.md).

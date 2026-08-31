@@ -1,6 +1,6 @@
 ---
 name: dd-brain
-description: "Open the Personal Second Brain and Knowledge OS department (reflect stage) and route the request to one of its 46 atomic tasks. Build and operate a local-first, AI-readable personal Second Brain using the 1_Nguon, 2_Wiki, 3_Toi and 4_Ket-Qua layers."
+description: "Open the Personal Second Brain and Knowledge OS department (reflect stage) and route the request to one of its 50 atomic tasks. Build and operate a local-first, AI-readable personal Second Brain using the 1_Nguon, 2_Wiki, 3_Toi and 4_Ket-Qua layers."
 argument-hint: "<request>"
 disable-model-invocation: true
 ---
@@ -9,7 +9,7 @@ disable-model-invocation: true
 
 Open the **Personal Second Brain and Knowledge OS** department for: $ARGUMENTS
 
-Sprint stage: `reflect`. This department owns 46 atomic tasks.
+Sprint stage: `reflect`. This department owns 50 atomic tasks.
 
 1. Read `skills/personal-second-brain-and-knowledge-os/SKILL.md` and follow its operating contract.
 2. Confirm this department actually owns the primary deliverable. If another role owns it,

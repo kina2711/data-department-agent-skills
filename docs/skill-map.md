@@ -725,6 +725,7 @@ Ranh giới: role này chuẩn hóa repository, project bootstrap, local develop
 ### P1 — project quality và delivery
 
 - `dx-configure-repository-ci` — chạy tests, scans, validation và packaging theo pull request; output: repository CI.
+- `dx-recommend-agent-automation` — soi repo data rồi đề xuất hook, subagent, skill và MCP server đáng tự động hoá, chỉ đọc không tạo file; output: automation recommendation.
 - `dx-review-repository-hygiene` — kiểm tra naming, generated files, data leakage và dead code; output: hygiene report.
 - `dx-detect-repository-secrets` — scan current tree/history và tạo remediation plan; output: secret exposure report.
 - `dx-package-data-project` — tạo artifact/container/package có version và provenance; output: deployable project artifact.
@@ -978,6 +979,11 @@ Ranh giới: Coach hỗ trợ nhân viên hoặc ứng viên chuẩn bị và ph
 - `career-run-interview-retest` — kiểm tra lại cùng competency bằng scenario mới; output: retest assessment.
 - `career-track-preparation-progress` — theo dõi evidence, scores, consistency và remaining risks; output: preparation progress report.
 - `career-record-learning-event` — ghi append-only nội dung đã học, practice, artifact, feedback, assessment và source/version mà không tự nâng mastery; output: learning event record.
+- `career-log-work-day` — ghi nhật ký một ngày làm việc theo mẫu: việc đã làm, vấn đề gặp, cách giải, output và điều học được; output: daily work log entry.
+- `career-extract-log-entities` — trích project, tool, skill, metric và outcome từ nhật ký thô, đánh dấu cái nào là suy đoán; output: extracted work entities.
+- `career-score-work-impact` — chấm mức ảnh hưởng của một mục nhật ký dựa trên chỉ số định lượng và phạm vi người bị ảnh hưởng; output: impact score record.
+- `career-roll-up-work-period` — tổng hợp nhật ký một tuần hoặc một tháng thành tường thuật tiến bộ có bằng chứng; output: work period roll-up.
+- `career-query-own-history` — trả lời câu hỏi về chính công việc đã làm bằng nhật ký và knowledge base của mình, có trích dẫn ngày; output: grounded history answer.
 - `career-assess-topic-mastery` — đánh giá recall, application, changed-scenario transfer, failure handling, evidence và freshness trước khi đổi mastery state; output: topic mastery assessment.
 - `career-detect-learning-decay` — phát hiện knowledge stale, ít dùng, version drift, evidence hết hạn hoặc confidence giảm và chọn refresh tối thiểu; output: learning-decay and refresh report.
 - `career-reconcile-learning-memory` — hợp nhất learning history từ nhiều repo/skill, giữ lineage, xử lý conflict và ngăn silent status regression; output: reconciled learner-memory version.
@@ -1093,6 +1099,10 @@ Ranh giới: skill này sở hữu việc khám phá, lựa chọn, biến đổ
 - `brain-assess-current-knowledge-system` — đánh giá nơi lưu, retrieval friction, duplication, portability, AI access, privacy và reuse baseline; output: current knowledge-system assessment.
 - `brain-define-second-brain-purpose` — khóa users, decisions, recurring jobs, desired outputs, non-goals và success signals; output: second-brain purpose contract.
 - `brain-classify-knowledge-domain` — xác định personal, career, technical, business, marketing, medical, creator hoặc mixed domain cùng risk boundary; output: knowledge-domain classification.
+- `brain-operate-capture-inbox` — nhận mọi thứ mới vào một inbox chỉ-đọc và giữ bản gốc bất biến trước khi tổng hợp; output: capture inbox record.
+- `brain-build-map-of-content` — dựng trang MOC điều hướng một chủ đề thay vì để người đọc dò thư mục; output: map of content.
+- `brain-maintain-wikilink-graph` — giữ wikilink và backlink hai chiều đúng, phát hiện link chết và trang mồ côi; output: wikilink graph report.
+- `brain-build-canvas-view` — dựng canvas không gian cho một chủ đề khi quan hệ giữa các note quan trọng hơn thứ tự đọc; output: canvas view.
 - `brain-design-four-layer-architecture` — thiết kế 1_Nguon, 2_Wiki, 3_Toi và 4_Ket-Qua với identity, flow và invariants; output: four-layer brain architecture.
 - `brain-design-vault-taxonomy` — thiết kế folders, note types, tags, links, IDs, status và naming mà không tạo taxonomy quá sâu; output: vault taxonomy.
 - `brain-define-source-rights-policy` — định nghĩa ownership, license, allowed processing, quotation, redistribution, retention và deletion; output: source-rights policy.
