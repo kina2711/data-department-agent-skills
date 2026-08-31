@@ -175,3 +175,12 @@ cases:
   - id: ai-audit-tool-surface
     task: ai-audit-tool-surface
     expected_catalog: test-assure
+  - id: orchestrator-define-agent-harness
+    task: orchestrator-define-agent-harness
+    expected_catalog: plan-design
+  - id: orchestrator-package-agent-harness
+    task: orchestrator-package-agent-harness
+    expected_catalog: build-deliver
+  - id: orchestrator-audit-agent-harness
+    task: orchestrator-audit-agent-harness
+    expected_catalog: test-assure

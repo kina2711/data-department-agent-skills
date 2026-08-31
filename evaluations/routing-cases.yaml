@@ -506,3 +506,15 @@ cases:
       - At volume the controls move to the generator: emission gated on every placeholder resolving, claims supported by the row, a read sample including the strangest rows.
       - Structured markup states facts machines will not check, so it must match both the page and the data.
       - Bind each artifact to its source version and decide the retirement rule before generating.
+  - id: package-an-agent-for-a-role
+    query: "Đóng gói agent phân tích cho BA thành thứ chạy lại được và bàn giao cho team khác."
+    expected_primary_skill: data-department-orchestrator
+    expected_tasks:
+      - orchestrator-define-agent-harness
+      - orchestrator-package-agent-harness
+    expected_behavior:
+      - Declare a scope that names the tasks left out; "everything the skill offers" is the absence of a scope.
+      - Pin every input that is not the user's request and record the pinned versions with the run.
+      - Ship the guardrails with the package: what it may write, what it may spend, what it stops for, and a named owner.
+      - Re-run the evaluation against the version being shipped; a score attached to a version nobody can reconstruct is decoration.
+      - Every lifecycle gate applies inside a harness exactly as outside it.

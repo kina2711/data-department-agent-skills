@@ -823,6 +823,56 @@
         "Khai báo tool surface cho agent chạm vào {dich_vu}. Việc cần làm: {viec}",
         "Quyền: {duoc_ghi}."
       ]
+    },
+    {
+      "id": "orch-harness",
+      "skill": "data-department-orchestrator",
+      "ten": "Đóng gói agent thành harness",
+      "mo_ta": "Khai báo phạm vi, grounding đã ghim, tool surface, guardrail và eval — rồi đóng gói để bàn giao.",
+      "task_id": "orchestrator-define-agent-harness",
+      "thong_so": [
+        {
+          "key": "vai",
+          "nhan": "Agent cho vai nào",
+          "kieu": "text",
+          "goi_y": "Business Data Analyst",
+          "bat_buoc": true
+        },
+        {
+          "key": "lam_gi",
+          "nhan": "Agent làm những việc gì",
+          "kieu": "text",
+          "goi_y": "sinh SQL, vẽ chart, viết báo cáo",
+          "bat_buoc": true,
+          "nhieu_dong": true
+        },
+        {
+          "key": "khong_lam",
+          "nhan": "Dứt khoát không làm gì",
+          "kieu": "text",
+          "goi_y": "không tự publish dashboard",
+          "bat_buoc": false
+        },
+        {
+          "key": "ban_giao",
+          "nhan": "Bàn giao cho ai",
+          "kieu": "text",
+          "goi_y": "team BI",
+          "bat_buoc": false
+        }
+      ],
+      "mau": [
+        "Đóng gói agent harness cho vai {vai}. Việc agent làm: {lam_gi}",
+        {
+          "neu": "khong_lam",
+          "text": "Ngoài phạm vi: {khong_lam}."
+        },
+        {
+          "neu": "ban_giao",
+          "text": "Sẽ bàn giao cho {ban_giao}."
+        },
+        "Nêu rõ phần bị loại khỏi phạm vi, ghim phiên bản mọi nguồn grounding."
+      ]
     }
   ]
 }

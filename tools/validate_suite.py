@@ -85,8 +85,8 @@ BENCHMARK_RESOURCES = {
         "scripts": ["build_context_package.py", "audit_change_scope.py", "validate_evidence_bundle.py", "validate_task_result.py", "verify_deliverable.py", "validate_constitution.py"],
     },
     "data-department-orchestrator": {
-        "references": ["lifecycle-standard.md", "parallel-execution-and-agent-teams.md", "producer-reviewer-method.md", "context-engineering-standard.md"],
-        "assets": ["workflow-manifest.json", "run-state.yaml", "run-state.schema.json", "approval-record.json", "approval-record.schema.json", "task-catalog.json", "instinct-ledger.json", "instinct-record.schema.json"],
+        "references": ["lifecycle-standard.md", "parallel-execution-and-agent-teams.md", "producer-reviewer-method.md", "context-engineering-standard.md", "agent-harness-standard.md"],
+        "assets": ["workflow-manifest.json", "run-state.yaml", "run-state.schema.json", "approval-record.json", "approval-record.schema.json", "task-catalog.json", "instinct-ledger.json", "instinct-record.schema.json", "agent-harness.yaml", "harness-readiness-audit.yaml"],
         "scripts": ["validate_workflow.py", "validate_approval_record.py", "validate_run_state.py", "manage_instincts.py", "score_skill_quality.py"],
     },
     "company-data-context": {

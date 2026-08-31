@@ -8,14 +8,15 @@
         "Yêu cầu chưa rõ thuộc vai nào",
         "Việc cần từ 2 vai trở lên phối hợp",
         "Cần dựng lại cả một kho hoặc chạy một sáng kiến đầu-cuối",
-        "Nối lại một workflow đang dở"
+        "Nối lại một workflow đang dở",
+        "Đóng gói một agent theo vai thành harness bàn giao được"
       ],
       "khong_dung_khi": "Việc học cá nhân hay dự án portfolio → data-personal-project-engineering. Việc đã rõ vai thì gọi thẳng skill đó, đừng qua orchestrator.",
       "bat_dau_tu": [
         "orchestrator-hydrate-context",
         "orchestrator-compose-workflow"
       ],
-      "luu_y": "Nó điều phối chứ không phê duyệt thay bạn. Nhánh được giao việc không bao giờ tự nâng risk tier của mình."
+      "luu_y": "Nó điều phối chứ không phê duyệt thay bạn. Nhánh được giao việc không bao giờ tự nâng risk tier của mình. Harness là ranh giới chứ không phải gói: giá trị của nó nằm ở phần bị loại ra. Ghim mọi đầu vào không phải yêu cầu người dùng, và guardrail phải đi theo gói — người nhận không suy ra được blast radius từ việc đọc prompt."
     },
     "shared-data-core": {
       "tom_tat": "Bộ kiểm soát dùng chung cho mọi vai: đóng gói context có giới hạn, dò tìm tài sản, soi schema, profiling, kiểm chứng, bằng chứng, phê duyệt và bàn giao.",

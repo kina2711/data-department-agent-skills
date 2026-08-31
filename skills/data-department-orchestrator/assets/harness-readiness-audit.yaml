@@ -1,0 +1,15 @@
+audit_id: ""
+harness_ref: ""
+declared_version: ""
+running_version: ""
+checked_at: ""
+scope_drift: []
+unpinned_grounding: []
+excess_tool_permissions: []
+relaxed_gates: []
+evaluation_stale: false
+evaluation_version_mismatch: false
+unowned: false
+limitations: []
+owner: ""
+status: "draft"

@@ -1462,6 +1462,23 @@ def task_specific_resources(task_id: str) -> list[str]:
             "Read [the knowledge deep-dive authoring standard](../knowledge-deep-dive-standard.md); its fixed section order and front-matter contract are mandatory, and its `relationships` edges are what the concept graph and question mapping consume.",
             "Reuse the concept-graph, deep-dive or question-learning traceability template from `../../assets/`.",
         ]
+    if task_id in {"orchestrator-define-agent-harness", "orchestrator-package-agent-harness", "orchestrator-audit-agent-harness"}:
+        resources = [
+            "Read [the agent harness standard](../agent-harness-standard.md); a harness is a boundary rather than a bundle, and most of its value is in what it excludes. \"Everything the skill offers\" is the absence of a scope, not a scope.",
+            "Reuse `../../assets/agent-harness.yaml`. Pin every input that is not the user's request — schema index, corpus, registry, prompt — and record the pinned versions with the run; a harness that cannot say what it was working from turns every investigation into archaeology.",
+        ]
+        if task_id == "orchestrator-package-agent-harness":
+            resources.append(
+                "Guardrails travel with the package or the recipient did not receive the harness: state plainly what it may write, what it may spend, and what it stops for, and name an accountable owner. An unowned harness in production is a set of permissions nobody is watching."
+            )
+        if task_id == "orchestrator-audit-agent-harness":
+            resources.append(
+                "Reuse `../../assets/harness-readiness-audit.yaml`. Compare what is running against what was declared: scope drift, unpinned grounding, tool permissions beyond the declared surface, gates quietly relaxed, and an evaluation score attached to a version nobody can reconstruct."
+            )
+        resources.append(
+            "Packaging changes how work is done and never what it must clear. Every lifecycle gate applies inside a harness exactly as outside it, and a clean evaluation on ten cases is an agent that passed ten cases."
+        )
+        return resources
     if task_id == "orchestrator-write-session-handoff":
         return [
             "Read the session-boundary section of [the context-engineering standard](../context-engineering-standard.md); this document carries only what no durable artifact already holds.",
@@ -2417,6 +2434,8 @@ def build_shared_assets(risk_of: dict[str, str] | None = None) -> None:
         "conflict-register.yaml": {"conflicts": []},
         "approval-ledger.yaml": {"approvals": [{"gate": "", "task_id": "", "scope": "", "artifact_version": "", "contract_sha256": "", "final_diff_sha256": "", "decision": "pending", "approver": "", "approved_at": "", "expires_at": ""}]},
         "evidence-ledger.yaml": {"evidence": []},
+        "agent-harness.yaml": {"harness_id": "", "role": "", "version": "", "owner": "", "scope": {"tasks_in": [], "tasks_out": [], "out_reason": ""}, "grounding": [{"source": "", "kind": "schema-index|company-context|corpus|concept-registry", "version": "", "pinned_at": ""}], "tool_surface_ref": "", "guardrails": {"permission_mode": "plan", "writes_per_run_limit": 0, "stops_at_risk_tier": "R3-controlled", "gates_requiring_authority": []}, "evaluation": {"cases_ref": "", "run_at": "", "score": 0.0, "cases_total": 0, "cases_passed": 0, "score_is_for_version": ""}, "environment": {"services": [], "credential_names": [], "versions": {}}, "reproducible": {"inputs_pinned": False, "pinned_versions_recorded_with_run": False}, "handover": {"recipient": "", "blast_radius_stated": "", "may_write": [], "may_spend": "", "stops_for": []}, "status": "draft"},
+        "harness-readiness-audit.yaml": {"audit_id": "", "harness_ref": "", "declared_version": "", "running_version": "", "checked_at": "", "scope_drift": [], "unpinned_grounding": [], "excess_tool_permissions": [], "relaxed_gates": [], "evaluation_stale": False, "evaluation_version_mismatch": False, "unowned": False, "limitations": [], "owner": "", "status": "draft"},
         "session-handoff.yaml": {"handoff_id": "", "written_at": "", "written_to": "", "next_session_focus": "", "workflow_ref": "", "run_state_ref": "", "task": {"id": "", "plan_says": "", "actually_stands": ""}, "tried_and_rejected": [{"approach": "", "why_rejected": "", "evidence_ref": ""}], "load_bearing_assumption": {"assumption": "", "if_wrong": "", "how_to_check": ""}, "next_action": {"action": "", "why_this_one": "", "alternatives_already_considered": []}, "route_to": [{"skill": "", "task_id": "", "why": ""}], "open_questions": [{"question": "", "waiting_on": ""}], "referenced_artifacts": [{"kind": "spec|plan|adr|issue|commit|diff|run-state", "locator": "", "sha256": ""}], "redaction_checked": False, "is_evidence": False, "is_approval": False, "unpassed_gates": [], "owner": "", "status": "draft"},
         "handoff-package.yaml": {
             "from_role": "",
@@ -4309,6 +4328,43 @@ A generated dashboard still has a human owner, and the specification names them.
 
 Generating is not publishing. A dashboard reaching an audience is a release: it needs the numbers verified against a known-good query, the access model checked against who can now see the data, and named approval. The speed gain is in construction and it stops at the point where someone else starts trusting the output.
 """
+    agent_harness = """# Agent harness
+
+A harness is everything one agent needs to do one role's work, packaged so it behaves the same way twice and can be handed to somebody else. It is not a bundle of skills. It is a boundary, and most of its value is in what it excludes.
+
+The suite already has the parts — task contracts, a context package, a tool surface, evaluation cases, run state. A harness is the declaration that says which of them apply, and that declaration is the artifact.
+
+## What a harness declares
+
+- **Scope.** The tasks this agent may select, and the ones deliberately left out. "Everything the skill offers" is not a scope; it is the absence of one.
+- **Grounding.** The schema index, company context, corpus or registry the agent retrieves from, each pinned to a version. An agent grounded on whatever happened to be current is not reproducible.
+- **Tool surface.** What it may reach outside the warehouse, read and write separately, per the external tool access standard.
+- **Guardrails.** Permission mode, write ceiling per run, the gates that require named authority, and the risk tier above which it stops and asks.
+- **Evaluation.** The cases that decide whether this harness works, and the score it reached on them. Without these, "it works" is an opinion held by whoever built it.
+- **Environment.** What must exist for it to run at all: credentials by name not value, services, versions.
+
+## Reproducible, or it cannot be debugged
+
+Two runs of the same harness on the same input should differ only where the model is non-deterministic — never because a prompt, a corpus or a schema moved underneath it. Pin every input that is not the user's request, and record the pinned versions with the run.
+
+When an agent produces something wrong, the first question is what it was working from. A harness that cannot answer that turns every investigation into an archaeology exercise, and the answer is usually that something changed and nobody knows what.
+
+## Version it, because a changed harness is a different agent
+
+Swapping the model, editing the system prompt, adding a tool or widening the scope produces an agent with different behaviour and a stale evaluation. Version the harness, re-run its cases, and record both. An evaluation score attached to a version nobody can reconstruct is decoration.
+
+## Handing one over transfers risk as well as capability
+
+A harness given to another team runs under their credentials, in their environment, against their data. The guardrails travel with it or the harness is not what they received. State plainly what it may write, what it may spend, and what it stops for; a recipient who has to infer the blast radius from reading prompts will infer it wrong.
+
+Name an accountable owner. An unowned harness in production is a set of permissions nobody is watching.
+
+## What the harness does not change
+
+It packages how work is done; it does not lower what the work must clear. Every gate in the lifecycle standard applies inside a harness exactly as outside it: evidence for material claims, named authority for R3 and above, and no claim of production execution without it. A harness that quietly relaxes a gate has not made the agent more capable, only less accountable.
+
+Nor does packaging make an agent correct. A harness with a clean evaluation on ten cases is an agent that passed ten cases.
+"""
     diagram_fidelity = """# Diagram fidelity
 
 `validate_diagram_source.py` says in its own docstring that it cannot confirm a diagram is true. Nothing else in the suite did either. A structurally perfect diagram that is quietly wrong is more dangerous than no diagram, because a reader acts on it: boxes drawn from memory get treated as an inventory, and an arrow someone assumed becomes a dependency in someone else's plan.
@@ -4618,8 +4674,8 @@ A redesign specification maps audit finding -> design decision -> affected page/
 
     targets = {
         "shared-data-core": {"context-engineering-standard.md": context_engineering},
-        "data-department-orchestrator": {"context-engineering-standard.md": context_engineering},
         "data-documentation-and-diagrams": {"diagram-fidelity-standard.md": diagram_fidelity},
+        "data-department-orchestrator": {"agent-harness-standard.md": agent_harness, "context-engineering-standard.md": context_engineering},
         "generative-ai-engineering": {"grounded-generation-and-agent-economics.md": grounded_generation, "external-tool-access.md": EXTERNAL_TOOL_ACCESS},
         "business-intelligence": {"dashboards-as-code.md": dashboard_as_code},
         "company-data-context": {"context-engineering-standard.md": context_engineering},

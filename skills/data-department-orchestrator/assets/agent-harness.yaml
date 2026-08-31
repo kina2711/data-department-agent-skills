@@ -1,0 +1,40 @@
+harness_id: ""
+role: ""
+version: ""
+owner: ""
+scope:
+  tasks_in: []
+  tasks_out: []
+  out_reason: ""
+grounding:
+  - source: ""
+    kind: "schema-index|company-context|corpus|concept-registry"
+    version: ""
+    pinned_at: ""
+tool_surface_ref: ""
+guardrails:
+  permission_mode: "plan"
+  writes_per_run_limit: 0
+  stops_at_risk_tier: "R3-controlled"
+  gates_requiring_authority: []
+evaluation:
+  cases_ref: ""
+  run_at: ""
+  score: 0.0
+  cases_total: 0
+  cases_passed: 0
+  score_is_for_version: ""
+environment:
+  services: []
+  credential_names: []
+  versions: {}
+reproducible:
+  inputs_pinned: false
+  pinned_versions_recorded_with_run: false
+handover:
+  recipient: ""
+  blast_radius_stated: ""
+  may_write: []
+  may_spend: ""
+  stops_for: []
+status: "draft"
