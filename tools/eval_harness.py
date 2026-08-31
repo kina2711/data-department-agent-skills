@@ -29,6 +29,10 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
+import eval_properties
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS = ROOT / "skills"
 CASES = ROOT / "evaluations"
@@ -152,10 +156,15 @@ def cmd_ls(args: argparse.Namespace) -> int:
     cov = coverage(entries, all_cases)
     for name, cases in all_cases.items():
         print(f"{name:11} {len(cases):4} cases  — {SUITES[name][1]}")
-    print(f"\ntasks referenced by at least one case: {cov['tasks_covered']}/{cov['tasks_total']} "
+    print(f"property    {len(eval_properties.PROPERTIES):4} rules  — invariants every contract must satisfy")
+    print(f"\ntasks referenced by at least one named case: {cov['tasks_covered']}/{cov['tasks_total']} "
           f"({cov['task_coverage']:.1%})")
+    print(f"tasks under at least one property:           {cov['tasks_total']}/{cov['tasks_total']} (100.0%)")
     if cov["uncovered_sample"]:
-        print("uncovered, first ten: " + ", ".join(cov["uncovered_sample"]))
+        print("no named case, first ten: " + ", ".join(cov["uncovered_sample"]))
+    print("\nThe two numbers measure different things. A named case pins one task's expected answer; a "
+          "property states a rule the whole catalog obeys. Neither substitutes for the other, and both "
+          "check structure rather than behaviour.")
     return 0
 
 
@@ -173,7 +182,12 @@ def cmd_validate(args: argparse.Namespace) -> int:
             for issue in check(case, name, entries, skills, group):
                 print(f"ERROR: {name}/{case['id']}: {issue}")
                 problems += 1
-    print(f"cases: {sum(len(c) for c in all_cases.values())}  problems: {problems}")
+    toothless = eval_properties.self_test(eval_properties.load())
+    for note in toothless:
+        print(f"ERROR: property {note}")
+    problems += len(toothless)
+    print(f"cases: {sum(len(c) for c in all_cases.values())}  "
+          f"properties: {len(eval_properties.PROPERTIES)}  problems: {problems}")
     return 1 if problems else 0
 
 
@@ -199,10 +213,34 @@ def cmd_run(args: argparse.Namespace) -> int:
         print(f"{mark} {name:11} {len(selected) - len(failed):4}/{len(selected):<4} score {score:.0%}")
         for case_id, issues in failed[:5]:
             print(f"       {case_id}: {issues[0]}")
+    if not args.suite or args.suite == "property":
+        pairs = eval_properties.load()
+        results = eval_properties.evaluate(pairs)
+        broken = [r for r in results if r["failures"]]
+        for r in results:
+            report["cases"].append({"suite": "property", "id": r["id"],
+                                    "passed": not r["failures"], "scope": r["scope"],
+                                    "issues": [f"{len(r['failures'])} tasks violate: {r['failures'][:5]}"]
+                                    if r["failures"] else []})
+        score = round((len(results) - len(broken)) / len(results), 4) if results else 1.0
+        report["suites"]["property"] = {"cases": len(results), "failed": len(broken), "score": score}
+        failed_total += len(broken)
+        print(f"{'PASS' if not broken else 'FAIL'} {'property':11} "
+              f"{len(results) - len(broken):4}/{len(results):<4} score {score:.0%}")
+        for r in broken[:5]:
+            print(f"       {r['id']}: {len(r['failures'])} tasks — {', '.join(r['failures'][:3])}")
+        toothless = eval_properties.self_test(pairs)
+        for note in toothless:
+            print(f"       TOOTHLESS {note}")
+        failed_total += len(toothless)
+
     cov = coverage(entries, all_cases)
+    cov["tasks_under_property"] = cov["tasks_total"]
     report["coverage"] = cov
     print(f"\ncoverage: {cov['tasks_covered']}/{cov['tasks_total']} contracts referenced "
-          f"({cov['task_coverage']:.1%}) — a pass rate over cases nobody wrote is not coverage")
+          f"({cov['task_coverage']:.1%}) — a pass rate over cases nobody wrote is not coverage.\n"
+          f"          {cov['tasks_total']}/{cov['tasks_total']} contracts are under at least one property, which is a "
+          f"weaker claim per task and a complete one across them.")
     if args.json:
         Path(args.json).write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print(f"report written: {args.json}")
