@@ -1,0 +1,11 @@
+memory_id: ""
+language_pair: "en-vi"
+domain: ""
+pairs:
+  - source: ""
+    target: ""
+    approved_by: ""
+    approved_at: ""
+    document_refs: []
+reuse_policy: "exact-and-reviewed-fuzzy"
+status: "draft"

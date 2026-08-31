@@ -286,3 +286,13 @@ cases:
     expected_primary_skill: generative-ai-engineering
     rejected_skill: data-security-and-privacy
     expected_task: ai-declare-tool-surface
+  - id: translate-vs-author-vietnamese
+    query: "Dịch chương 5 cuốn sách hệ phân tán này sang tiếng Việt cho kỹ sư đã có nền."
+    expected_primary_skill: technical-translation
+    rejected_skill: data-technical-content-and-social
+    expected_task: trans-translate-technical-book
+  - id: author-vietnamese-vs-translate
+    query: "Viết một series bài kỹ thuật tiếng Việt về Airflow cho Facebook, từ nghiên cứu của tôi."
+    expected_primary_skill: data-technical-content-and-social
+    rejected_skill: technical-translation
+    expected_task: content-define-technical-content-strategy

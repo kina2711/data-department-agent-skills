@@ -873,6 +873,56 @@
         },
         "Nêu rõ phần bị loại khỏi phạm vi, ghim phiên bản mọi nguồn grounding."
       ]
+    },
+    {
+      "id": "trans-sach",
+      "skill": "technical-translation",
+      "ten": "Dịch sách / tài liệu kỹ thuật",
+      "mo_ta": "Chốt thuật ngữ và văn phong trước, rồi dịch giữ nhất quán xuyên chương.",
+      "task_id": "trans-clarify-translation-brief",
+      "thong_so": [
+        {
+          "key": "nguon",
+          "nhan": "Tài liệu nguồn",
+          "kieu": "text",
+          "goi_y": "Designing Data-Intensive Applications, chương 5",
+          "bat_buoc": true
+        },
+        {
+          "key": "nganh",
+          "nhan": "Chuyên ngành",
+          "kieu": "text",
+          "goi_y": "hệ phân tán",
+          "bat_buoc": true
+        },
+        {
+          "key": "doc_gia",
+          "nhan": "Người đọc",
+          "kieu": "chon",
+          "chon": [
+            "Kỹ sư đã có nền",
+            "Người mới vào nghề",
+            "Quản lý không chuyên sâu",
+            "Sinh viên"
+          ],
+          "bat_buoc": true
+        },
+        {
+          "key": "giu_anh",
+          "nhan": "Thuật ngữ muốn giữ tiếng Anh",
+          "kieu": "text",
+          "goi_y": "partition, replication, consensus",
+          "bat_buoc": false
+        }
+      ],
+      "mau": [
+        "Dịch sang tiếng Việt: {nguon}. Chuyên ngành {nganh}, người đọc là {doc_gia}.",
+        {
+          "neu": "giu_anh",
+          "text": "Giữ nguyên tiếng Anh: {giu_anh}."
+        },
+        "Chốt glossary và style guide trước khi dịch câu nào."
+      ]
     }
   ]
 }

@@ -50,6 +50,7 @@ PREFIX_TO_SKILL = {
     "mdm": "master-data-management",
     "ai": "generative-ai-engineering",
     "docs": "data-documentation-and-diagrams",
+    "trans": "technical-translation",
     "enable": "data-enablement-and-knowledge",
     "academy": "data-academy-and-curriculum",
     "onboard": "data-onboarding-and-integration",
@@ -163,6 +164,11 @@ SKILL_META = {
         "Data Security and Privacy",
         "Protect sensitive data and privacy",
     ),
+    "technical-translation": (
+        "Translate foreign-language books, technical documentation, web content and code documentation into Vietnamese with a fixed bilingual glossary, a house style guide, culture-bound localisation, transcreation where literal translation defeats the purpose, fidelity review against the source, translationese detection, reader comprehension testing, translation memory and source-change refresh.",
+        "Technical Translation",
+        "Translate technical material into Vietnamese",
+    ),
     "master-data-management": (
         "Design and operate master entities, duplicate profiling, matching, merge and survivorship, golden records, stewardship queues, reference data, hierarchies, quality, synchronization, governed changes, identity conflict resolution, and lineage audits. Use for MDM and reference-data work.",
         "Master Data Management",
@@ -253,6 +259,7 @@ ROLE_COMMANDS = {
     "dd-mdm": ("master-data-management", "build"),
     "dd-genai": ("generative-ai-engineering", "build"),
     "dd-docs": ("data-documentation-and-diagrams", "reflect"),
+    "dd-translate": ("technical-translation", "build"),
     "dd-enable": ("data-enablement-and-knowledge", "reflect"),
     "dd-academy": ("data-academy-and-curriculum", "reflect"),
     "dd-onboard": ("data-onboarding-and-integration", "think"),
@@ -289,6 +296,7 @@ CLAUDE_TRIGGER_DESCRIPTIONS = {
     "data-security-and-privacy": "Protect data through classification, threat modeling, least privilege, encryption, masking, audit, privacy workflows and incident response. Use for Data Security, Privacy, DSR or sensitive-data risk work.",
     "master-data-management": "Design and operate master entities, identity matching, survivorship, golden records, reference data, hierarchies, stewardship and synchronization. Use for MDM, entity resolution or reference-data work.",
     "generative-ai-engineering": "Build and evaluate governed RAG, retrieval, prompt, tool-using agent and GenAI systems with guardrails, injection testing, monitoring and system cards. Use for production GenAI data products or agents.",
+    "technical-translation": "Translate foreign-language books, documentation, web content and technical material into Vietnamese that reads as a domain expert wrote it, with a fixed glossary, style guide, fidelity review and translation memory. Use for translation or localisation into Vietnamese; route the authoring of new Vietnamese technical content to data-technical-content-and-social.",
     "data-documentation-and-diagrams": "Create validated data documentation, ADRs, runbooks, postmortems, ERDs, BPMN, sequence, state, lineage and architecture diagrams. Use when the primary deliverable is a data document or technical diagram.",
     "data-enablement-and-knowledge": "Enable data teams through technical onboarding, learning plans, explanations, walkthroughs, pairing, knowledge checks, articles and knowledge-base curation. Use for internal data enablement or knowledge-transfer work.",
     "data-academy-and-curriculum": "Design and deliver role-based Data Academy curricula with theory, labs, capstones, assessments, remediation, certification and effectiveness measurement. Use for structured learning programs across Data roles and levels. Route hiring loops, scorecards and candidate evaluation to data-talent-acquisition-and-interview; this skill teaches, never selects.",
@@ -373,6 +381,7 @@ DOMAIN_EXECUTION_CONTROLS = {
     "data-security-and-privacy": ("data classification and flow; threat/legal purpose; identities, authority and retention boundary", "least privilege and purpose limitation; sensitive evidence is minimized; destructive/privacy actions are independently verified", "discover/classify; threat model; choose control; test access/privacy; approve; monitor and respond", "classification/flow; control tests; access logs; authority, exception and incident/deletion evidence"),
     "master-data-management": ("entity definition and source authority; match attributes and error costs; survivorship/distribution consumers", "source records remain traceable; merge decisions are explainable; golden changes are governed and reversible", "profile duplicates; design match/survivorship; evaluate pairs; steward exceptions; publish and reconcile", "labeled-pair metrics; merge lineage; stewardship decisions; downstream synchronization reconciliation"),
     "generative-ai-engineering": ("use case and allowed actions; corpus/model/prompt versions; eval set and threat boundary", "answers/actions are grounded and attributable; prompt injection is assumed; release requires failure-class evidence", "frame; build versioned corpus/eval; retrieve/compose; evaluate quality/safety; red-team; release with monitoring", "dataset/index/prompt hashes; retrieval/answer/tool evals; injection tests; cost/latency and system card"),
+    "technical-translation": ("source, audience, purpose and what faithful means here; domain glossary and terms that stay English; house style and register", "every claim survives the move; terminology is one word per concept; nothing is invented where the source was silent", "brief; analyse source; fix glossary and style; translate; review fidelity; test comprehension", "source-to-target claim map; glossary adherence; translationese findings; reviewer sign-off"),
     "data-documentation-and-diagrams": ("audience and question; verified source artifacts; notation/rendering and sensitivity constraints", "relationships are evidence-backed; diagram scope and confidence are explicit; source remains editable/versioned", "inspect sources; choose view/notation; draft; validate nodes/edges and readability; render safely and review freshness", "source links; syntax/render result; reviewer corrections; owner/version/freshness metadata"),
     "data-enablement-and-knowledge": ("learner/user need; authoritative knowledge sources; current misconception and usage channel", "knowledge has stable identity/provenance; publication does not overstate authority; feedback updates the source", "diagnose; map concepts; author with examples; validate accuracy/comprehension; publish and measure reuse", "source/version map; knowledge checks; reviewer approval; adoption and freshness signals"),
     "data-academy-and-curriculum": ("role-level outcomes; prerequisites and learner baseline; delivery constraints and transfer target", "assessment aligns to outcomes; attendance is not mastery; certification scope matches demonstrated evidence", "map outcomes; sequence theory/practice; design authentic assessment; teach; calibrate; retest transfer and improve", "blueprint traceability; learner artifacts; calibrated scores; remediation, retention and workplace-transfer evidence"),
@@ -685,6 +694,13 @@ def classify_risk(task_id: str, profile: str) -> str:
     # list wrong is how an approval covers more than the approver read.
     if task_id == "orchestrator-collect-plan-risk":
         return "R2-standard"
+    # Producing prose in another language is judgment work whose errors are invisible to the
+    # reader who needed the translation — they cannot check it against a source they cannot read.
+    # The verb heuristics score "translate" and "localize" as routine transformation; they are not.
+    if task_id.startswith("trans-") and any(
+        word in task_id for word in ("translate", "localize", "transcreate", "refresh-translation")
+    ):
+        return "R1-reviewed"
     critical = ("delete", "deletion", "subject-request", "breach", "compromised", "retire", "offboard", "production-model", "certify-business-metric")
     controlled = ("deploy", "publish", "promote", "rollback", "backfill", "migrate", "access", "iam", "secret", "privacy", "security", "sharing", "credential", "restore")
     moderate = ("build", "implement", "configure", "provision", "train-model", "ingest", "pipeline", "assessment", "hiring-recommendation", "onboarding-completion")
@@ -725,6 +741,13 @@ def model_tier(task_id: str, profile: str, risk: str, criticality: str) -> str:
         return "strong"
     if profile in {"production-release", "incident-recovery", "governance-assurance"}:
         return "strong"
+    # A translation is read by someone who cannot check it against the source; the reviewer is the
+    # only gate, which puts it above light regardless of how routine the verb looks.
+    if task_id.startswith("trans-") and any(
+        word in task_id for word in ("translate", "localize", "transcreate", "memory")
+    ):
+        return "standard"
+
     # A deterministic check downstream turns a mistake into one retry.
     mechanical = ("index-", "record-", "maintain-", "package-", "collect-", "inventory-", "list-")
     if risk == "R0-light" and action.startswith(mechanical):
@@ -995,6 +1018,7 @@ def catalog_group(task_id: str) -> str:
         "academy-prioritize-corpus-by-gap": "plan-design",
         "career-bootstrap-concept-registry": "plan-design",
         "academy-elicit-prior-knowledge": "plan-design",
+        "trans-build-terminology-glossary": "plan-design",
         "ai-declare-tool-surface": "plan-design",
         "academy-build-skill-track-map": "plan-design",
         "core-build-task-context-package": "build-deliver",
@@ -1467,6 +1491,29 @@ def task_specific_resources(task_id: str) -> list[str]:
             "Read [the knowledge deep-dive authoring standard](../knowledge-deep-dive-standard.md); its fixed section order and front-matter contract are mandatory, and its `relationships` edges are what the concept graph and question mapping consume.",
             "Reuse the concept-graph, deep-dive or question-learning traceability template from `../../assets/`.",
         ]
+    if task_id.startswith("trans-"):
+        resources = [
+            "Read [Vietnamese technical translation](../vietnamese-technical-translation.md); the reader cannot check this work against the source, which is why they needed it, so the usual feedback loop is missing and every rule compensates for that.",
+        ]
+        action = task_id.removeprefix("trans-")
+        if action.startswith(("clarify", "analyze", "build-term", "define-vietnamese", "plan-long")):
+            resources.append(
+                "Reuse the translation-brief, terminology-glossary or vietnamese-style-guide asset. One concept gets one Vietnamese term for the whole document, decided before translating; over-translation is the more common failure, because an audience that reads `deadlock` and `idempotent` daily will not recognise the invented Vietnamese for them."
+            )
+        if any(w in action for w in ("translate", "localize", "transcreate", "refresh")):
+            resources.extend([
+                "The unit of fidelity is the claim, not the sentence. English technical prose hedges constantly, and a translation that drops `typically` or `may` turns a qualified statement into a rule.",
+                "Never translate code identifiers, API and class names, product names, searchable error strings or citation titles. Where the source is wrong or contradicts itself, translate what it says and record the defect separately — a translation that silently corrects its source disagrees with the original and nobody can tell why.",
+            ])
+        if any(w in action for w in ("review", "audit", "detect", "test")):
+            resources.append(
+                "Read the output alone, without the source, and ask whether it reads as written rather than converted; side by side the English is still shaping how you read the Vietnamese. A domain expert confirms terminology — fluency in both languages does not confer authority over what a term means in a field."
+            )
+        if "memory" in action or "refresh" in action:
+            resources.append(
+                "Translate only the changed spans on a source update. A full re-translation churns wording the reviewer already accepted and buries the real change in the diff."
+            )
+        return resources
     if task_id in {"orchestrator-run-delivery-loop", "orchestrator-collect-plan-risk", "orchestrator-audit-runtime-floor"}:
         resources = [
             "Read [the harness delivery loop](../harness-delivery-loop.md); Plan, Work, Review and Ship each end at a gate, and Review is done by someone who did not do the work.",
@@ -2746,6 +2793,14 @@ def build_shared_assets(risk_of: dict[str, str] | None = None) -> None:
             "corpus-priority-plan.yaml": {"plan_id": "", "corpus_ref": "", "roadmap_ref": "", "gap_source": {"skill": "data-career-and-interview-coach", "artifact": "", "assessed_at": ""}, "modules": [{"module_id": "", "concept_keys": [], "gap_severity": "", "evidence_basis": "measured|self-reported|assumed", "blocking_for": [], "priority_rank": 0, "rationale": ""}], "deferred_modules": [], "coverage_before": {}, "assumptions": [], "owner": "", "status": "draft"},
             "note-corpus-audit.yaml": {"audit_id": "", "corpus_ref": "", "checked_at": "", "duplicate_ids": [], "unregistered_concept_keys": [], "duplicate_primary_keys": [], "keys_without_primary": [], "duplicate_candidates": [], "dangling_edges": [], "prerequisite_cycles": [], "planned_missing_files": [], "files_not_in_manifest": [], "stale_notes": [], "roadmap_coverage": {"steps_total": 0, "steps_with_notes": 0, "uncovered_steps": []}, "depth_inconsistencies": [], "script_run": {"command": "", "exit_status": "not-run", "observed": ""}, "limitations": [], "owner": "", "status": "draft"},
             "question-learning-traceability.yaml": {"question_id": "", "question": "", "role": "", "level": "", "concept_keys": [], "competencies": [], "learning_objectives": [], "bloom_depth": "", "prerequisites": [], "concepts": [], "expected_reasoning": [], "assessment_method": "", "critical_failures": [], "coverage_status": "", "reviewer": "", "version": ""},
+        },
+        "technical-translation": {
+            "translation-brief.yaml": {"brief_id": "", "source": {"title": "", "language": "", "genre": "", "version": "", "author": ""}, "audience": "", "purpose": "", "faithful_means": "", "register": "", "address_form": "", "convert_units": False, "keep_english_terms": [], "publisher": "", "deadline": "", "owner": "", "status": "draft"},
+            "terminology-glossary.yaml": {"glossary_id": "", "domain": "", "decided_by": "", "terms": [{"source_term": "", "vietnamese": "", "policy": "translate|keep-english|vietnamese-with-english-first-use", "why": "", "do_not_use": [], "expert_confirmed": False}], "never_translate": ["code identifiers", "API and class names", "product names", "searchable error strings", "citation titles"], "status": "draft"},
+            "vietnamese-style-guide.yaml": {"guide_id": "", "register": "", "reader_address": "", "pronoun_policy": "", "number_format": "", "date_format": "", "unit_policy": "", "currency_policy": "", "proper_noun_policy": "", "sentence_length_target": "", "examples_good": [], "examples_bad": [], "status": "draft"},
+            "fidelity-review.yaml": {"review_id": "", "translation_ref": "", "source_ref": "", "reviewer": "", "domain_expert": "", "claims": [{"source_span": "", "target_span": "", "same_claim": True, "hedging_preserved": True, "scope_preserved": True, "note": ""}], "glossary_violations": [], "register_breaks": [], "source_defects_found": [], "source_defects_silently_fixed": False, "verdict": "accept|revise|reject", "status": "draft"},
+            "translationese-report.yaml": {"report_id": "", "translation_ref": "", "read_without_source": True, "findings": [{"span": "", "pattern": "english-clause-order|carried-passive|inserted-pronoun|literal-idiom|register-slip|over-translated-term", "suggestion": ""}], "reads_as_written_not_converted": False, "status": "draft"},
+            "translation-memory.yaml": {"memory_id": "", "language_pair": "en-vi", "domain": "", "pairs": [{"source": "", "target": "", "approved_by": "", "approved_at": "", "document_refs": []}], "reuse_policy": "exact-and-reviewed-fuzzy", "status": "draft"},
         },
         "generative-ai-engineering": {
             "schema-retrieval-index.yaml": {"index_id": "", "warehouse": "", "built_at": "", "source_of_truth": "", "entries": [{"table": "", "grain": "", "columns": [{"name": "", "type": "", "meaning": "", "categorical_values": []}], "partition_key": "", "cluster_keys": [], "row_estimate": 0, "schema_version": ""}], "refresh_trigger": "", "staleness_check": "", "grounded_queries_record_version": True, "owner": "", "status": "draft"},
@@ -4405,6 +4460,56 @@ Claims another session makes about files, commits or repository state are verifi
 
 It does not make the work correct. Passing four gates means four things were checked, and a specification that was wrong at Plan produces a defect that arrives at Ship with a clean record behind it. Nor does the loop replace the lifecycle standard's risk tiers: a task at R3 needs named authority whether or not the loop's gates passed.
 """
+    translation_standard = """# Technical translation into Vietnamese
+
+The reader of a translation cannot check it. That is the whole reason they needed one, and it is why every rule here exists: the usual feedback loop, where a wrong output is noticed by the person receiving it, is missing.
+
+## Faithful is not literal
+
+The unit of fidelity is the claim, not the sentence. A sentence rendered word by word into Vietnamese that leaves the reader with a different belief than the source left its reader is a mistranslation, however defensible each word was.
+
+So the check is a back-translation of meaning, not of wording: for each claim, does the Vietnamese say the same thing, with the same strength, the same hedging and the same scope? English technical prose hedges constantly — *typically*, *in most cases*, *may* — and a translation that drops those turns a qualified statement into a rule.
+
+## Fix the terminology before translating, not after
+
+One concept gets one Vietnamese term for the whole document, decided up front and written down. The alternative is what always happens otherwise: `partition` becomes *phân vùng* in chapter two and *phân mảnh* in chapter nine, and the reader concludes they are two things.
+
+Decide per term whether it is translated, kept in English, or given in Vietnamese with the English in brackets on first use. Getting this wrong in the direction of over-translation is the more common failure: an audience of Vietnamese engineers reads `deadlock`, `partition key` and `idempotent` daily and does not recognise the invented Vietnamese for them. Translate the explanation; keep the term the field actually uses.
+
+Never translate: identifiers in code, API and class names, product names, error strings the reader will search for, and citation titles.
+
+## Register is a decision, made once
+
+Vietnamese forces choices English does not: how the text addresses the reader, how formal it is, whether it uses *bạn* or avoids address entirely. Pick one for the document and hold it. A chapter that switches from neutral technical prose to conversational second person reads as two translators, because it usually was.
+
+Match the source's register rather than improving it. A blunt source stays blunt.
+
+## Numbers, units and dates are claims
+
+Converting a unit changes what the text asserts and introduces a rounding the source did not make. Convert only when the brief says to, state the original alongside, and never convert currency without a date. Dates written `03/04` mean different days in different places; write them unambiguously.
+
+## Do not fix the source
+
+Where the source is wrong, outdated, or contradicts itself, translate what it says and record the problem separately. A translation that silently corrects its source produces a document that disagrees with the original and nobody can tell why. Where the source is genuinely ambiguous, pick the reading the context supports and note the other; do not resolve it by inventing precision.
+
+Where something has no Vietnamese equivalent, a translator's note is the honest answer. Coining a term and using it as though it were established is not.
+
+## What translationese looks like
+
+The failure mode of machine and hurried translation is grammatical Vietnamese that no Vietnamese writer would produce: English clause order preserved, passive constructions carried over where Vietnamese would use an active or a topic-comment structure, subject pronouns inserted where Vietnamese omits them, and idioms rendered by their words.
+
+Read the output alone, without the source, and ask whether it reads as written rather than converted. That check catches what a side-by-side comparison hides, because side by side the English is still shaping how you read the Vietnamese.
+
+## Reuse what was approved, and re-translate only what changed
+
+Approved sentence pairs carry across documents and keep terminology stable. When the source changes, translate the changed spans and leave the rest; a full re-translation silently churns wording the reviewer already accepted and hides the real change in the diff.
+
+## What review has to establish
+
+That every claim survived, that terminology matches the glossary, that the register held, and that a reader in the target audience takes the intended meaning — tested by asking one, not by asking whether the text reads smoothly. Fluent and wrong is the outcome this whole discipline exists to prevent.
+
+A domain expert confirms the terminology. Fluency in both languages does not confer authority over what a term means in a field.
+"""
     agent_harness = """# Agent harness
 
 A harness is everything one agent needs to do one role's work, packaged so it behaves the same way twice and can be handed to somebody else. It is not a bundle of skills. It is a boundary, and most of its value is in what it excludes.
@@ -4752,6 +4857,7 @@ A redesign specification maps audit finding -> design decision -> affected page/
     targets = {
         "shared-data-core": {"context-engineering-standard.md": context_engineering},
         "data-documentation-and-diagrams": {"diagram-fidelity-standard.md": diagram_fidelity},
+        "technical-translation": {"vietnamese-technical-translation.md": translation_standard},
         "data-department-orchestrator": {"agent-harness-standard.md": agent_harness, "harness-delivery-loop.md": harness_loop, "context-engineering-standard.md": context_engineering},
         "generative-ai-engineering": {"grounded-generation-and-agent-economics.md": grounded_generation, "external-tool-access.md": EXTERNAL_TOOL_ACCESS},
         "business-intelligence": {"dashboards-as-code.md": dashboard_as_code},

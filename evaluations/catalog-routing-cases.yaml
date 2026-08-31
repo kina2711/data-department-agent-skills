@@ -193,3 +193,12 @@ cases:
   - id: orchestrator-audit-runtime-floor
     task: orchestrator-audit-runtime-floor
     expected_catalog: test-assure
+  - id: trans-translate-technical-book
+    task: trans-translate-technical-book
+    expected_catalog: build-deliver
+  - id: trans-build-terminology-glossary
+    task: trans-build-terminology-glossary
+    expected_catalog: plan-design
+  - id: trans-review-translation-fidelity
+    task: trans-review-translation-fidelity
+    expected_catalog: test-assure

@@ -1,7 +1,7 @@
 suite: "data-department-agent-skills"
 version: "3.10.0"
-top_level_skills: 32
-atomic_tasks: 838
+top_level_skills: 33
+atomic_tasks: 855
 roles:
   - skill: "data-department-orchestrator"
     display_name: "Data Department Orchestrator"
@@ -63,6 +63,9 @@ roles:
   - skill: "data-security-and-privacy"
     display_name: "Data Security and Privacy"
     task_count: 16
+  - skill: "technical-translation"
+    display_name: "Technical Translation"
+    task_count: 17
   - skill: "master-data-management"
     display_name: "Master Data Management"
     task_count: 13

@@ -1,0 +1,17 @@
+glossary_id: ""
+domain: ""
+decided_by: ""
+terms:
+  - source_term: ""
+    vietnamese: ""
+    policy: "translate|keep-english|vietnamese-with-english-first-use"
+    why: ""
+    do_not_use: []
+    expert_confirmed: false
+never_translate:
+  - "code identifiers"
+  - "API and class names"
+  - "product names"
+  - "searchable error strings"
+  - "citation titles"
+status: "draft"

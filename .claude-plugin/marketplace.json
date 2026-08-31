@@ -10,7 +10,7 @@
       "name": "data-department-agent-skills",
       "displayName": "Data Department Agent Skills",
       "version": "3.10.0",
-      "description": "Executable Data Department Operating System with 32 role skills, governed atomic task contracts, cross-skill Learning Memory, Workflow and Evidence OS, stack-native adapters, Second Brain, Book-to-Knowledge, People OS, personal projects and continuous improvement.",
+      "description": "Executable Data Department Operating System with 33 role skills, governed atomic task contracts, cross-skill Learning Memory, Workflow and Evidence OS, stack-native adapters, Second Brain, Book-to-Knowledge, People OS, personal projects and continuous improvement.",
       "license": "Proprietary",
       "source": "./"
     }

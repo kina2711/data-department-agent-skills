@@ -76,6 +76,10 @@ PEOPLE_RESOURCES = {
         "references": ["personal-project-operating-system.md", "personal-project-quality-standard.md", "repository-assessment-and-originality.md"],
         "assets": [],
     },
+    "technical-translation": {
+        "references": ["vietnamese-technical-translation.md"],
+        "assets": ["translation-brief.yaml", "terminology-glossary.yaml", "vietnamese-style-guide.yaml", "fidelity-review.yaml", "translationese-report.yaml", "translation-memory.yaml"],
+    },
 }
 
 BENCHMARK_RESOURCES = {

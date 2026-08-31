@@ -1,0 +1,13 @@
+guide_id: ""
+register: ""
+reader_address: ""
+pronoun_policy: ""
+number_format: ""
+date_format: ""
+unit_policy: ""
+currency_policy: ""
+proper_noun_policy: ""
+sentence_length_target: ""
+examples_good: []
+examples_bad: []
+status: "draft"

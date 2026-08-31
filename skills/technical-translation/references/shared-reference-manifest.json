@@ -1,0 +1,50 @@
+{
+  "suite_version": "3.10.0",
+  "references": [
+    {
+      "logical_id": "lifecycle-standard",
+      "filename": "lifecycle-standard.md",
+      "sha256": "7d91d2fd2b8c3fb1c0f004797de6b574fa3e38ae569c44c663e8c2eb9fb648db"
+    },
+    {
+      "logical_id": "response-compression",
+      "filename": "response-compression.md",
+      "sha256": "675e2c57505cf83c50662de9153023e272068afe483672e9794d52640517aae5"
+    },
+    {
+      "logical_id": "solution-option-framing",
+      "filename": "solution-option-framing.md",
+      "sha256": "6c17ba2cba1e7fbe27c90f001b5201313fc01f9ee1bedab9135f6a187ae79649"
+    },
+    {
+      "logical_id": "safety-and-approvals",
+      "filename": "safety-and-approvals.md",
+      "sha256": "b6b5604db61c55cc6b24e20c7152681bdaa633657af78f3909536a428f4a012e"
+    },
+    {
+      "logical_id": "industry-and-metrics",
+      "filename": "industry-and-metrics.md",
+      "sha256": "e6d055d0556cca48494d38f173758f343fb0439fbbf0868c043291836883f682"
+    },
+    {
+      "logical_id": "execution-discipline-standard",
+      "filename": "execution-discipline-standard.md",
+      "sha256": "829a54279991dbd7bc2e625ea41a7f41f49312981b977479774926e6ef0e0c41"
+    },
+    {
+      "logical_id": "workflow-runtime-and-evidence-os",
+      "filename": "workflow-runtime-and-evidence-os.md",
+      "sha256": "70e317b85a1c54e08742880d72183a31e61b66394e3a15152282fa33a3982d03"
+    },
+    {
+      "logical_id": "learning-memory-interoperability",
+      "filename": "learning-memory-interoperability.md",
+      "sha256": "f2c464a64cc1c1c38dac47e6c1fbb368e8766b851658765a408a10b923a27fc0"
+    },
+    {
+      "logical_id": "model-selection",
+      "filename": "model-selection.md",
+      "sha256": "eef7583f033ba477135c05911ba6168c3593d9e20631b5e738db19915e30430a"
+    }
+  ]
+}

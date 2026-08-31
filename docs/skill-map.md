@@ -1208,6 +1208,36 @@ Ranh giới: skill này sở hữu việc khám phá, lựa chọn, biến đổ
 - `book-publish-derived-skill` — publish exact scanned version chỉ khi rights và explicit public/private authority hợp lệ; output: derived-skill publication record.
 - `book-retire-derived-knowledge` — deprecate stale framework hoặc generated pack với reason, successor, archive và backlink repair; output: derived-knowledge retirement record.
 
+## 32B. Technical Translation / Localisation to Vietnamese
+
+Ranh giới: Translation role chuyển tài liệu, sách, web và nội dung kỹ thuật nước ngoài sang tiếng Việt đúng ngữ cảnh chuyên ngành; chuyên gia lĩnh vực phê duyệt tính đúng thuật ngữ, chủ sở hữu nội dung quyết định xuất bản.
+
+### P0 — brief, thuật ngữ và văn phong
+
+- `trans-clarify-translation-brief` — chốt người đọc, mục đích, mức trang trọng và "trung thành" ở đây nghĩa là gì; output: translation brief.
+- `trans-analyze-source-document` — đọc thể loại, cấu trúc, giọng, và các bẫy dịch trước khi dịch câu nào; output: source analysis.
+- `trans-build-terminology-glossary` — chốt thuật ngữ chuyên ngành và thuật ngữ nào giữ nguyên tiếng Anh; output: bilingual terminology glossary.
+- `trans-define-vietnamese-style-guide` — xưng hô, mức trang trọng, quy ước số, đơn vị, ngày tháng và tên riêng; output: Vietnamese style guide.
+- `trans-plan-long-form-translation` — chia tập, thứ tự, điểm kiểm nhất quán cho sách hoặc tài liệu dài; output: long-form translation plan.
+
+### P1 — dịch và bản địa hoá
+
+- `trans-translate-document` — dịch một tài liệu theo brief, glossary và style guide; output: translated document.
+- `trans-translate-technical-book` — dịch sách kỹ thuật giữ nhất quán thuật ngữ và giọng xuyên chương; output: translated book manuscript.
+- `trans-translate-web-content` — dịch trang web giữ nguyên markup, link, alt text và cấu trúc; output: translated web content.
+- `trans-translate-code-documentation` — dịch tài liệu kỹ thuật giữ nguyên định danh mã, API và output mẫu; output: translated code documentation.
+- `trans-localize-culture-bound-content` — xử lý ví dụ, ẩn dụ, đơn vị và tham chiếu văn hoá không chuyển thẳng được; output: localised content.
+- `trans-transcreate-persuasive-copy` — viết lại nội dung thuyết phục khi dịch sát nghĩa làm hỏng mục đích; output: transcreated copy.
+
+### P2 — kiểm chứng và duy trì
+
+- `trans-review-translation-fidelity` — đối chiếu ngược từng khẳng định với bản gốc, không đối chiếu từng câu; output: fidelity review.
+- `trans-audit-terminology-consistency` — soát một thuật ngữ có bị dịch nhiều kiểu trong cùng tài liệu không; output: terminology consistency audit.
+- `trans-detect-translationese` — tìm cú pháp dịch máy, sai mức trang trọng và thành ngữ dịch sát chữ; output: translationese report.
+- `trans-test-reader-comprehension` — kiểm người đọc đích hiểu đúng, không chỉ đọc trôi; output: comprehension test result.
+- `trans-maintain-translation-memory` — giữ cặp câu đã duyệt để tái dùng và giữ nhất quán giữa các tài liệu; output: translation memory.
+- `trans-refresh-translation-on-source-change` — cập nhật bản dịch khi bản gốc đổi, chỉ dịch lại phần đã đổi; output: refreshed translation.
+
 ## 32. Data Documentation / Diagram Engineering
 
 Ranh giới: đây là shared service cho BA, Architect, DE, AE, BI và ML; source of truth vẫn thuộc role tạo ra nghiệp vụ/thiết kế.

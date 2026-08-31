@@ -1,0 +1,18 @@
+review_id: ""
+translation_ref: ""
+source_ref: ""
+reviewer: ""
+domain_expert: ""
+claims:
+  - source_span: ""
+    target_span: ""
+    same_claim: true
+    hedging_preserved: true
+    scope_preserved: true
+    note: ""
+glossary_violations: []
+register_breaks: []
+source_defects_found: []
+source_defects_silently_fixed: false
+verdict: "accept|revise|reject"
+status: "draft"

@@ -475,6 +475,21 @@
         "book-assess-source-rights"
       ],
       "luu_y": "Kiểm quyền và ấn bản trước khi xử lý. Cấu trúc quan trọng hơn tóm tắt, và trích dẫn phải giữ được locator để truy ngược."
+    },
+    "technical-translation": {
+      "tom_tat": "Dịch sách, tài liệu kỹ thuật, web và tài liệu mã nguồn sang tiếng Việt đọc như người trong ngành viết, không phải như bản dịch.",
+      "dung_khi": [
+        "Có sách hoặc tài liệu nước ngoài cần dịch",
+        "Cần chốt thuật ngữ chuyên ngành trước khi dịch",
+        "Bản dịch đọc trôi nhưng nghi sai nghĩa",
+        "Bản gốc cập nhật, cần dịch lại phần đã đổi"
+      ],
+      "khong_dung_khi": "Viết nội dung kỹ thuật tiếng Việt mới → data-technical-content-and-social. Skill này chuyển ngữ, không sáng tác.",
+      "bat_dau_tu": [
+        "trans-clarify-translation-brief",
+        "trans-build-terminology-glossary"
+      ],
+      "luu_y": "Người đọc bản dịch không kiểm được nó — đó là lý do họ cần nó. Đơn vị trung thành là khẳng định, không phải câu: bỏ mất chữ 'thường' hay 'có thể' là biến một câu có điều kiện thành một quy tắc. Dịch quá tay là lỗi phổ biến hơn — kỹ sư Việt đọc deadlock và idempotent hằng ngày, không nhận ra tiếng Việt bịa ra cho chúng. Và không bao giờ sửa bản gốc trong lúc dịch."
     }
   }
 }

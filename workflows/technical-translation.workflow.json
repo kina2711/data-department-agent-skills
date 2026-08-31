@@ -1,0 +1,232 @@
+{
+  "workflow_id": "technical-translation-standard-path",
+  "version": "2.0.0",
+  "objective": "Standard path through technical-translation, 9 stages over 17 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/plan-design → P0/advisory-analysis/test-assure → P0/design-specification/plan-design → P0/build-change/plan-design → P1/advisory-analysis/build-deliver → P2/advisory-analysis/build-deliver → P2/advisory-analysis/test-assure → P2/advisory-analysis/operate-improve → P2/governance-assurance/test-assure. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Control boundaries, where risk first rises and authority beyond the previous stage is required: trans-build-terminology-glossary enters R2-standard. Delete what this engagement does not need before running it.",
+  "status": "draft",
+  "workflow_risk_tier": "R2-standard",
+  "current_task_id": "trans-clarify-translation-brief",
+  "tasks": [
+    {
+      "task_id": "trans-clarify-translation-brief",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "trans-analyze-source-document",
+      "owner": "",
+      "depends_on": [
+        "trans-clarify-translation-brief"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "trans-define-vietnamese-style-guide",
+      "owner": "",
+      "depends_on": [
+        "trans-analyze-source-document"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "trans-plan-long-form-translation",
+      "owner": "",
+      "depends_on": [
+        "trans-define-vietnamese-style-guide"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "trans-build-terminology-glossary",
+      "owner": "",
+      "depends_on": [
+        "trans-define-vietnamese-style-guide"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "trans-translate-document",
+      "owner": "",
+      "depends_on": [
+        "trans-build-terminology-glossary"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "trans-translate-technical-book",
+      "owner": "",
+      "depends_on": [
+        "trans-translate-document"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "trans-translate-web-content",
+      "owner": "",
+      "depends_on": [
+        "trans-translate-document"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "trans-translate-code-documentation",
+      "owner": "",
+      "depends_on": [
+        "trans-translate-document"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "trans-localize-culture-bound-content",
+      "owner": "",
+      "depends_on": [
+        "trans-translate-document"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "trans-transcreate-persuasive-copy",
+      "owner": "",
+      "depends_on": [
+        "trans-translate-document"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "trans-maintain-translation-memory",
+      "owner": "",
+      "depends_on": [
+        "trans-translate-document"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "trans-review-translation-fidelity",
+      "owner": "",
+      "depends_on": [
+        "trans-maintain-translation-memory"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "trans-detect-translationese",
+      "owner": "",
+      "depends_on": [
+        "trans-review-translation-fidelity"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "trans-test-reader-comprehension",
+      "owner": "",
+      "depends_on": [
+        "trans-review-translation-fidelity"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "trans-refresh-translation-on-source-change",
+      "owner": "",
+      "depends_on": [
+        "trans-review-translation-fidelity"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "trans-audit-terminology-consistency",
+      "owner": "",
+      "depends_on": [
+        "trans-refresh-translation-on-source-change"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": ""
+}

@@ -1,7 +1,7 @@
 # Data Department Agent Skills
 
 Hệ điều hành có kiểm soát cho toàn bộ một phòng Data, đóng gói dưới dạng plugin Claude Code.
-**32 role skill**, **827 atomic task contract**, **49 slash command**, **52 script evidence
+**33 role skill**, **827 atomic task contract**, **50 slash command**, **52 script evidence
 chạy được**, **12 JSON Schema**, và một production guard hook.
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
@@ -524,7 +524,7 @@ Power BI, Tableau, Looker, Metabase, Superset và nhiều hơn.
 ├── .github/workflows/    CI: build, validate, regress, audit, kiểm determinism
 ├── commands/             45 slash command (13 control + 32 phòng ban sinh ra)
 ├── hooks/                guard cho production, publishing và hành động phá hủy
-├── skills/               32 role skill progressive-disclosure  ← SINH RA
+├── skills/               33 role skill progressive-disclosure  ← SINH RA
 │   └── <role>/
 │       ├── SKILL.md              entry point, chỉ metadata luôn hiển thị
 │       ├── references/
@@ -571,7 +571,7 @@ python tools/audit_skills.py           # bảng điểm cấu trúc từng skill
 
 | Bộ kiểm | Kết quả |
 |---|---|
-| Skill / contract / command / agent | 32 / 827 / 49 / 32, 0 lỗi |
+| Skill / contract / command / agent | 32 / 827 / 50 / 33, 0 lỗi |
 | Routing ngôn ngữ tự nhiên | 35 case |
 | Role-confusion pair | 37 case |
 | Catalog routing | 41 case |

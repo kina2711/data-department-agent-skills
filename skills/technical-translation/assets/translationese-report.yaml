@@ -1,0 +1,9 @@
+report_id: ""
+translation_ref: ""
+read_without_source: true
+findings:
+  - span: ""
+    pattern: "english-clause-order|carried-passive|inserted-pronoun|literal-idiom|register-slip|over-translated-term"
+    suggestion: ""
+reads_as_written_not_converted: false
+status: "draft"
