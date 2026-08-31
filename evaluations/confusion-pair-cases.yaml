@@ -247,12 +247,12 @@ cases:
     rejected_skill: data-engineering
     expected_task: bi-build-dashboard
   - id: platform-vs-mlops-operate
-    query: Vận hành nền tảng dữ liệu: môi trường, orchestration, CI/CD, observability và chi phí.
+    query: "Vận hành nền tảng dữ liệu: môi trường, orchestration, CI/CD, observability và chi phí."
     expected_primary_skill: data-platform-and-dataops
     rejected_skill: mlops
     expected_task: platform-build-data-ci-pipeline
   - id: mlops-vs-platform-operate
-    query: Vận hành vòng đời model: registry, triển khai phiên bản, drift, retrain và rollback.
+    query: "Vận hành vòng đời model: registry, triển khai phiên bản, drift, retrain và rollback."
     expected_primary_skill: mlops
     rejected_skill: data-platform-and-dataops
     expected_task: mlops-deploy-model-version

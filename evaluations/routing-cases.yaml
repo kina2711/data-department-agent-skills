@@ -292,7 +292,7 @@ cases:
       - Preserve correctness and reconciliation as acceptance criteria for the benchmark.
 
   - id: explain-existing-sql-to-business
-    query: Explain this existing SQL to a product manager: sources, joins, filters, grain, calculations, output columns and the business questions we still need to validate.
+    query: "Explain this existing SQL to a product manager: sources, joins, filters, grain, calculations, output columns and the business questions we still need to validate."
     expected_primary_skill: data-analysis
     expected_tasks:
       - da-explain-sql-business-logic

@@ -344,7 +344,6 @@ def validate() -> tuple[list[str], dict[str, int]]:
                 fail(errors, f"{item.get('id')}: invalid criticality")
             if item.get("criticality") in {"deep", "enforced"}:
                 deep_count += 1
-                prefix = str(item.get("id", "")).split("-", 1)[0]
                 task_path = next(SKILLS.glob(f"*/references/tasks/{item.get('id')}.md"), None)
                 if not task_path or "## Deep execution contract\n" not in task_path.read_text(encoding="utf-8"):
                     fail(errors, f"{item.get('id')}: deep/enforced task lacks deep execution contract")

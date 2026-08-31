@@ -1,32 +1,42 @@
-workflow_id: ""
-wave: 1
-supervisor_risk_ceiling: "R2-standard"
-dispatch_mode: "sequential"
-branches:
-  - branch_id: ""
-    task_id: ""
-    instance_id: ""
-    owner: ""
-    risk_tier: ""
-    objective: ""
-    inputs: []
-    read_paths: []
-    write_paths: []
-    forbidden_actions:
-      - "approve"
-      - "publish"
-      - "mutate production"
-      - "grant access"
-      - "raise own risk tier"
-    expected_artifacts:
-      - path: ""
-        sha256: ""
-    evidence_required: []
-    token_budget: 0
-    depends_on: []
-    status: "planned"
-merge:
-  order: []
-  on_conflict: "conflict-register"
-  on_branch_failure: "block"
-status: "draft"
+{
+  "workflow_id": "",
+  "wave": 1,
+  "supervisor_risk_ceiling": "R2-standard",
+  "dispatch_mode": "sequential",
+  "branches": [
+    {
+      "branch_id": "",
+      "task_id": "",
+      "instance_id": "",
+      "owner": "",
+      "risk_tier": "",
+      "objective": "",
+      "inputs": [],
+      "read_paths": [],
+      "write_paths": [],
+      "forbidden_actions": [
+        "approve",
+        "publish",
+        "mutate production",
+        "grant access",
+        "raise own risk tier"
+      ],
+      "expected_artifacts": [
+        {
+          "path": "",
+          "sha256": ""
+        }
+      ],
+      "evidence_required": [],
+      "token_budget": 0,
+      "depends_on": [],
+      "status": "planned"
+    }
+  ],
+  "merge": {
+    "order": [],
+    "on_conflict": "conflict-register",
+    "on_branch_failure": "block"
+  },
+  "status": "draft"
+}

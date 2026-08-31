@@ -2331,7 +2331,15 @@ def yaml_dump(data: object, indent: int = 0) -> list[str]:
 
 
 def write_yaml(path: Path, data: object) -> None:
+    """Write an asset template in the format its extension promises.
+
+    A `.json` template holding YAML parses nowhere, and the reader who opens it to fill it in has
+    no reason to suspect the extension is wrong.
+    """
     path.parent.mkdir(parents=True, exist_ok=True)
+    if path.suffix == ".json":
+        path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        return
     path.write_text("\n".join(yaml_dump(data)) + "\n", encoding="utf-8")
 
 

@@ -151,6 +151,28 @@ def main() -> None:
     # Generated per-skill workflows: check the structure the generator is responsible for.
     # `owner` is deliberately empty in the shipped templates — nobody owns a template — so it is
     # stubbed in a throwaway copy rather than written into the file to make a validator pass.
+    # The eval files are parsed here by a hand-rolled reader that tolerates unquoted colons, so a
+    # file can be valid to this suite and invalid to every other YAML consumer. Check them as YAML.
+    try:
+        import yaml as _yaml
+    except ImportError:
+        _yaml = None
+    if _yaml is not None:
+        for case_file in sorted((ROOT / "evaluations").glob("*.yaml")):
+            try:
+                _yaml.safe_load(case_file.read_text(encoding="utf-8"))
+            except _yaml.YAMLError as exc:
+                mark = getattr(exc, "problem_mark", None)
+                where = f" line {mark.line + 1}" if mark else ""
+                errors.append(f"{case_file.name}: not valid YAML{where}")
+
+    # Asset templates must parse as the format their extension promises.
+    for asset in sorted(SKILLS.glob("*/assets/*.json")):
+        try:
+            json.loads(asset.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            errors.append(f"{asset.parent.parent.name}/{asset.name}: not valid JSON ({exc.msg})")
+
     # The retrieval index is generated; a stale one sends readers to contracts that moved.
     index_path = ROOT / "docs" / "retrieval-index.json"
     if not index_path.exists():
