@@ -540,6 +540,7 @@ Airflow, Spark, Kafka, Power BI, Tableau, Looker, Metabase, Superset and more.
 │       └── scripts/              executable evidence  ← hand-written
 ├── workflows/            one executable manifest per skill  ← GENERATED
 ├── docs/retrieval-index.json  keyword surface over all contracts  ← GENERATED
+├── tools/eval_harness.py cases as data: ls, validate, run, show-prompt
 ├── app/                  Data Agent, the desktop launcher and workflow canvas
 │   ├── src/              Electron main, preload and renderer
 │   └── build/            application icon

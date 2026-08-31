@@ -173,6 +173,16 @@ def main() -> None:
         except json.JSONDecodeError as exc:
             errors.append(f"{asset.parent.parent.name}/{asset.name}: not valid JSON ({exc.msg})")
 
+    # The eval harness owns case correctness; smoke only checks it still runs and stays green,
+    # so the two do not drift into separate opinions about the same files.
+    harness_run = subprocess.run(
+        [sys.executable, str(ROOT / "tools" / "eval_harness.py"), "run"],
+        capture_output=True, text=True, check=False,
+    )
+    if harness_run.returncode != 0:
+        first = next((l for l in harness_run.stdout.splitlines() if l.startswith("FAIL")), "unknown")
+        errors.append(f"eval harness: {first}")
+
     # The retrieval index is generated; a stale one sends readers to contracts that moved.
     index_path = ROOT / "docs" / "retrieval-index.json"
     if not index_path.exists():
