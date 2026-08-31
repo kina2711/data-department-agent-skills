@@ -1,0 +1,120 @@
+{
+ "profile_id": "da-2026-08-31",
+ "learner_ref": "kina2711",
+ "roadmap_ref": "",
+ "track_map_ref": "docs/corpus-plans/data-analyst.corpus.json",
+ "asked_at": "2026-08-31",
+ "learner_memory_ref": "",
+ "memory_resolved": false,
+ "_memory_note": "No learner memory exists — only the schema file. Nothing here may be read as mastery.",
+ "from_memory": [],
+ "self_reported": [
+  {
+   "module_id": "sql-foundation",
+   "concept_keys": [
+    "ck.sql.grain",
+    "ck.sql.aggregation-grain-error",
+    "ck.sql.join-semantics",
+    "ck.sql.fan-out"
+   ],
+   "claim": "nắm chắc grain, lỗi tổng hợp sai hạt, join semantics và fan-out",
+   "confidence": "high",
+   "is_mastery": false,
+   "verified": false
+  },
+  {
+   "module_id": "sql-analysis",
+   "concept_keys": [
+    "ck.sql.window-function",
+    "ck.sql.cte-vs-subquery"
+   ],
+   "claim": "nắm chắc window function và CTE",
+   "confidence": "high",
+   "is_mastery": false,
+   "verified": false
+  },
+  {
+   "module_id": "sql-foundation",
+   "concept_keys": [
+    "ck.sql.query-plan",
+    "ck.sql.index-and-scan",
+    "ck.sql.transaction-isolation"
+   ],
+   "claim": "nắm chắc query plan, index và isolation",
+   "confidence": "high",
+   "is_mastery": false,
+   "verified": false
+  }
+ ],
+ "module_treatment": [
+  {
+   "module_id": "sql-foundation",
+   "treatment": "full",
+   "basis": "self-reported",
+   "reason": "Learner chose full: the corpus is also for teaching others, not only for their own learning.",
+   "load_bearing": true,
+   "diagnostic_offered": true,
+   "diagnostic_declined": true,
+   "diagnostic_ref": ""
+  },
+  {
+   "module_id": "sql-analysis",
+   "treatment": "full",
+   "basis": "self-reported",
+   "reason": "Learner chose full: the corpus is also for teaching others, not only for their own learning.",
+   "load_bearing": false,
+   "diagnostic_offered": true,
+   "diagnostic_declined": true,
+   "diagnostic_ref": ""
+  },
+  {
+   "module_id": "analysis-method",
+   "treatment": "full",
+   "basis": "self-reported",
+   "reason": "Learner chose full: the corpus is also for teaching others, not only for their own learning.",
+   "load_bearing": false,
+   "diagnostic_offered": true,
+   "diagnostic_declined": true,
+   "diagnostic_ref": ""
+  },
+  {
+   "module_id": "reading-the-model",
+   "treatment": "full",
+   "basis": "self-reported",
+   "reason": "Learner chose full: the corpus is also for teaching others, not only for their own learning.",
+   "load_bearing": false,
+   "diagnostic_offered": true,
+   "diagnostic_declined": true,
+   "diagnostic_ref": ""
+  },
+  {
+   "module_id": "stakeholder-work",
+   "treatment": "full",
+   "basis": "self-reported",
+   "reason": "Learner chose full: the corpus is also for teaching others, not only for their own learning.",
+   "load_bearing": false,
+   "diagnostic_offered": true,
+   "diagnostic_declined": true,
+   "diagnostic_ref": ""
+  }
+ ],
+ "assumed_foundations": [
+  {
+   "concept_keys": [
+    "ck.sql.grain",
+    "ck.sql.join-semantics",
+    "ck.sql.fan-out",
+    "ck.sql.aggregation-grain-error"
+   ],
+   "basis": "self-reported",
+   "verified": false,
+   "note": "Diagnostic was offered and started, then stopped by the learner before any scenario was answered. Nothing was verified; treat this foundation as assumed if any later work depends on it."
+  }
+ ],
+ "_diagnostic_basis": "The corpus dependency graph shows only one dependent per concept, so it does not establish which are load-bearing. Targets were chosen from what the registry definitions say other concepts rest on — grain and join-semantics — and that reasoning is recorded rather than presented as graph evidence.",
+ "_scenario_source": "No note is `reviewed` yet, so scenarios cannot be drawn from the corpus as the diagnostic method requires. They are grounded in the registry definitions instead, which is a weaker basis and is recorded as such.",
+ "returned_to_career": false,
+ "owner": "kina2711",
+ "status": "paused",
+ "_status_note": "Corpus build deferred by the learner. The plan and registry stand; no note was written, no scenario was answered, and no evidence was produced. Resume with academy-elicit-prior-knowledge rather than from this file, since a claim made a month ago is not a claim made today."
+}
