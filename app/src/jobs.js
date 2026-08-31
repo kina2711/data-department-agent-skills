@@ -13,20 +13,27 @@ const jobState = {
 
 const jq = (id) => document.getElementById(id);
 
-function fill(text, values) {
-  return text.replace(/\{([a-z0-9_]+)\}/g, (_m, key) => String(values[key] || '').trim());
+// An unfilled slot collapsing to nothing leaves "cho , mức ." — a sentence that reads as broken
+// rather than as incomplete. In the preview the slot keeps its label so the gap is legible; in
+// the prompt actually sent it resolves, because a run is blocked until every required slot is set.
+function fill(text, values, labels) {
+  return text.replace(/\{([a-z0-9_]+)\}/g, (_m, key) => {
+    const value = String(values[key] || '').trim();
+    if (value) return value;
+    return labels ? `⟨${labels.get(key) || key}⟩` : '';
+  });
 }
 
-function composePrompt(job, values) {
+function composePrompt(job, values, labels) {
   const parts = [];
   for (const part of job.mau || []) {
     if (typeof part === 'string') {
-      parts.push(fill(part, values));
+      parts.push(fill(part, values, labels));
       continue;
     }
     const condition = String(part.neu || '').trim();
     if (condition && !String(values[condition] || '').trim()) continue;
-    parts.push(fill(part.text || '', values));
+    parts.push(fill(part.text || '', values, labels));
   }
   // A user-typed value rarely ends in punctuation, and two fragments joined by a space read as
   // one run-on sentence. Terminate each part rather than asking every template author to remember.
@@ -93,10 +100,12 @@ function renderJobForm(job, onChange, onBack) {
   const preview = document.createElement('div');
   preview.className = 'job-preview';
 
+  const labels = new Map((job.thong_so || []).map((x) => [x.key, x.nhan]));
   const update = () => {
-    const text = composePrompt(job, jobState.values);
-    preview.textContent = text || '—';
-    onChange(job, jobState.values, text, missingRequired(job, jobState.values));
+    const missing = missingRequired(job, jobState.values);
+    // Preview keeps the labels so the gaps are readable; what would be sent has none.
+    preview.textContent = composePrompt(job, jobState.values, labels) || '—';
+    onChange(job, jobState.values, composePrompt(job, jobState.values), missing);
   };
 
   for (const param of job.thong_so || []) {

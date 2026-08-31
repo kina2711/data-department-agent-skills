@@ -130,29 +130,17 @@ header.top h1 { font-size: 26px; letter-spacing: -.02em; margin: 0; }
 }
 
 /* Drawer: the task list for one skill, and the folder choice. */
-.scrim {
-  position: fixed; inset: 0; background: rgba(24, 24, 27, .28);
-  opacity: 0; pointer-events: none; transition: opacity .18s ease;
-}
-.scrim[data-open="true"] { opacity: 1; pointer-events: auto; }
-.drawer {
-  position: fixed; top: 0; right: 0; bottom: 0; width: min(560px, 94vw);
-  background: var(--surface); border-left: 1px solid var(--line);
-  box-shadow: -8px 0 30px rgba(24, 24, 27, .12);
-  transform: translateX(100%); transition: transform .2s ease;
-  display: flex; flex-direction: column;
-}
-.drawer[data-open="true"] { transform: none; }
-.drawer header { padding: 20px 22px 14px; border-bottom: 1px solid var(--line); }
-.drawer header h2 { margin: 0 0 6px; font-size: 18px; letter-spacing: -.01em; }
-.drawer header p { margin: 0; color: var(--ink-muted); font-size: 13px; }
-.drawer .body { padding: 16px 22px; overflow: auto; flex: 1; }
-.drawer .foot {
-  padding: 14px 22px 18px; border-top: 1px solid var(--line);
-  display: grid; gap: 10px;
-}
-.drawer .foot .row { display: flex; gap: 10px; align-items: center; }
-.drawer .foot .row .spacer { flex: 1; }
+
+
+
+
+
+
+
+
+
+
+
 
 .folder-line {
   font-size: 12.5px; color: var(--ink-muted);
@@ -339,10 +327,10 @@ h4.sec:first-child { margin-top: 0; }
 .run-err .run-label { color: var(--danger); border-color: currentColor; }
 .run-err .run-body { color: var(--danger); }
 
-.drawer .foot .row .grow { flex: 1; }
-.drawer .foot .row .perm { flex: 0 0 auto; max-width: 200px; }
+
+
 .btn-quiet { color: var(--ink-muted); border-style: dashed; }
-.drawer .foot .row .btn { white-space: nowrap; }
+
 
 /* ---- Workflow progress and node metadata ---- */
 .wf-progress { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
@@ -370,3 +358,63 @@ h4.sec:first-child { margin-top: 0; }
   font: 600 9.5px ui-sans-serif, system-ui, sans-serif; fill: var(--warn);
   letter-spacing: .04em; text-transform: uppercase;
 }
+
+/* ---- Full-window skill detail ---- */
+.detail-bar {
+  display: flex; gap: 9px; align-items: center; flex-wrap: wrap;
+  padding-bottom: 14px; margin-bottom: 16px; border-bottom: 1px solid var(--line);
+}
+.detail-title { margin: 0; font-size: 19px; letter-spacing: -.01em; }
+.detail-bar .spacer { flex: 1; }
+.detail-bar .folder-line { max-width: 240px; }
+.detail-bar .perm { max-width: 190px; }
+.detail-bar .btn { white-space: nowrap; }
+
+.detail-split { display: grid; grid-template-columns: 340px 1fr; gap: 26px; align-items: start; }
+@media (max-width: 1000px) { .detail-split { grid-template-columns: 1fr; } }
+.detail-side {
+  position: sticky; top: 16px;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--surface); padding: 18px;
+}
+.detail-side .guide { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }
+.detail-main { min-width: 0; }
+
+.job-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
+.job-grid .job-card { margin-bottom: 0; }
+
+#paneForm { max-width: 640px; }
+.run-log { max-height: none; min-height: 340px; }
+
+/* ---- Purpose-driven skill suggestion ---- */
+.suggest {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--surface); padding: 16px 18px; margin-bottom: 18px;
+}
+.suggest-label {
+  display: block; font-size: 11px; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--ink-faint); margin-bottom: 7px; font-weight: 600;
+}
+.suggest-row { display: flex; gap: 9px; }
+.suggest-row .search { flex: 1; }
+.suggest-out { margin-top: 12px; display: grid; gap: 8px; }
+.suggest-hit {
+  display: flex; gap: 11px; align-items: baseline; width: 100%; text-align: left;
+  border: 1px solid var(--line); border-radius: 10px; background: var(--bg);
+  padding: 10px 12px; font: inherit; color: inherit; cursor: pointer;
+}
+.suggest-hit:hover { border-color: var(--ink-faint); }
+.suggest-rank {
+  font: 600 11px ui-sans-serif, system-ui, sans-serif; color: var(--accent);
+  border: 1px solid currentColor; border-radius: 999px; padding: 1px 7px; flex: 0 0 auto;
+}
+.suggest-name { font-weight: 600; font-size: 13.5px; }
+.suggest-why { color: var(--ink-muted); font-size: 12.5px; }
+.suggest-empty { color: var(--ink-muted); font-size: 12.5px; }
+
+.slot-missing { color: var(--warn); }
+
+/* The grid keeps a readable measure; the detail view has a canvas-like job of its own and uses
+   the window. :has avoids a class the renderer would have to remember to toggle. */
+.shell:has(#viewDetail:not([hidden])),
+.shell:has(#viewWorkflow:not([hidden])) { max-width: 1700px; }

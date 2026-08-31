@@ -59,6 +59,82 @@ function matches(skill) {
   return skill.tasks.some((t) => taskMatches(t, q));
 }
 
+
+// Suggest a skill from a plain-language purpose, scored against the retrieval index's keywords.
+// Every skill's tasks carry them, so "pipeline chạy lại bị trùng" reaches data-engineering
+// through the words in its task goals rather than through its English description.
+const SUGGEST_STOP = new Set(
+  ('tôi muốn cần làm gì cho về của và với một các là có không thì nào bị ra vào theo khi ' +
+   'the for and with from into that this a an of to my i want need make').split(' ')
+);
+
+function purposeTerms(text) {
+  return [...new Set(
+    text.toLowerCase().split(/[^\p{L}\p{N}]+/u).filter((w) => w.length >= 3 && !SUGGEST_STOP.has(w))
+  )];
+}
+
+function suggestSkills(text, limit = 4) {
+  const terms = purposeTerms(text);
+  if (!terms.length) return [];
+  const scored = [];
+  for (const skill of state.skills) {
+    let score = 0;
+    const why = new Map();
+    for (const task of skill.tasks) {
+      const hay = [task.id, (task.goal || '').toLowerCase(), ...(task.keywords || [])];
+      let taskScore = 0;
+      for (const term of terms) {
+        if (hay.some((h) => h.includes(term))) {
+          taskScore += 1;
+          why.set(term, (why.get(term) || 0) + 1);
+        }
+      }
+      // A task matching several terms is stronger evidence than several matching one.
+      score += taskScore * taskScore;
+    }
+    if (score > 0) scored.push({ skill, score, terms: [...why.keys()].slice(0, 4) });
+  }
+  scored.sort((a, b) => b.score - a.score);
+  return scored.slice(0, limit);
+}
+
+function renderSuggestions() {
+  const box = $('suggestions');
+  const text = $('purpose').value.trim();
+  $('purposeClear').hidden = !text;
+  box.innerHTML = '';
+  if (!text) return;
+  if (!state.skills.length) {
+    box.innerHTML = '<p class="suggest-empty">Chưa nối suite.</p>';
+    return;
+  }
+  const hits = suggestSkills(text);
+  if (!hits.length) {
+    box.innerHTML = '<p class="suggest-empty">Không khớp skill nào. Thử mô tả bằng từ khác, hoặc chọn thẳng ở lưới bên dưới.</p>';
+    return;
+  }
+  hits.forEach((hit, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'suggest-hit';
+    const rank = document.createElement('span');
+    rank.className = 'suggest-rank';
+    rank.textContent = `#${i + 1}`;
+    const wrap = document.createElement('span');
+    const name = document.createElement('span');
+    name.className = 'suggest-name';
+    name.textContent = hit.skill.name;
+    const why = document.createElement('span');
+    why.className = 'suggest-why';
+    why.textContent = hit.terms.length ? ` khớp: ${hit.terms.join(', ')}` : '';
+    wrap.append(name, why);
+    b.append(rank, wrap);
+    b.addEventListener('click', () => openDrawer(hit.skill));
+    box.append(b);
+  });
+}
+
 function renderGrid() {
   const grid = $('grid');
   grid.innerHTML = '';
@@ -270,19 +346,12 @@ function openDrawer(skill) {
   state.jobPrompt = '';
   state.jobMissing = [];
   showPane('paneJobs');
+  showView('viewDetail');
   window.jobsUI.renderJobList(skill, pickJob);
   $('dTitle').textContent = skill.name;
   renderGuide(skill);
-  $('drawer').dataset.open = 'true';
-  $('scrim').dataset.open = 'true';
   renderTasks();
   updateLaunch();
-}
-
-function closeDrawer() {
-  $('drawer').dataset.open = 'false';
-  $('scrim').dataset.open = 'false';
-  state.openSkill = null;
 }
 
 // Keep the tail of a long path: the last two segments identify a folder, the prefix rarely does.
@@ -397,16 +466,25 @@ $('launch').addEventListener('click', async () => {
   });
   if (result.ok) {
     notice(`Đã mở phiên trong ${state.folder} (${result.terminal}).`, 'ok');
-    closeDrawer();
+    showView('viewSkills');
   } else {
     notice(result.error, 'err');
   }
 });
 
-$('closeDrawer').addEventListener('click', closeDrawer);
-$('scrim').addEventListener('click', closeDrawer);
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeDrawer();
+  if (e.key !== 'Escape') return;
+  if (!$('viewDetail').hidden) {
+    state.openSkill = null;
+    state.job = null;
+    showView('viewSkills');
+  }
+});
+
+$('purpose').addEventListener('input', renderSuggestions);
+$('purposeClear').addEventListener('click', () => {
+  $('purpose').value = '';
+  renderSuggestions();
 });
 
 $('search').addEventListener('input', (e) => {
@@ -428,15 +506,22 @@ $('tierFilter').addEventListener('click', (e) => {
 
 // Tabs: the grid launches sessions, the canvas edits the workflow those sessions run inside.
 function showView(which) {
-  const skills = which === 'skills';
-  $('viewSkills').hidden = !skills;
-  $('viewWorkflow').hidden = skills;
-  $('tabSkills').setAttribute('aria-selected', String(skills));
-  $('tabWorkflow').setAttribute('aria-selected', String(!skills));
-  document.querySelector('.toolbar').hidden = !skills;
+  for (const id of ['viewSkills', 'viewDetail', 'viewWorkflow']) {
+    $(id).hidden = id !== which;
+  }
+  // The toolbar filters the grid, so it belongs to the grid view only.
+  document.querySelector('.toolbar').hidden = which !== 'viewSkills';
+  $('tabSkills').setAttribute('aria-selected', String(which !== 'viewWorkflow'));
+  $('tabWorkflow').setAttribute('aria-selected', String(which === 'viewWorkflow'));
+  window.scrollTo(0, 0);
 }
-$('tabSkills').addEventListener('click', () => showView('skills'));
-$('tabWorkflow').addEventListener('click', () => showView('workflow'));
+$('tabSkills').addEventListener('click', () => showView(state.openSkill ? 'viewDetail' : 'viewSkills'));
+$('tabWorkflow').addEventListener('click', () => showView('viewWorkflow'));
+$('backToSkills').addEventListener('click', () => {
+  state.openSkill = null;
+  state.job = null;
+  showView('viewSkills');
+});
 
 window.wfInit(() => state.suitePath, () => state.catalog);
 

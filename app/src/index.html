@@ -12,7 +12,7 @@
     <h1>Skills</h1>
     <span class="chip" id="suiteChip">chưa nối suite</span>
   </header>
-  <p class="subtitle" id="subtitle">Chọn một skill, chọn thư mục làm việc, rồi mở phiên Claude Code trong đó.</p>
+  <p class="subtitle" id="subtitle">Chọn một skill, chọn thư mục làm việc, rồi chạy.</p>
 
   <div class="tabs" role="tablist">
     <button id="tabSkills" role="tab" aria-selected="true">Skills</button>
@@ -33,7 +33,58 @@
   </div>
 
   <div id="viewSkills" class="view">
+    <div class="suggest">
+      <label class="suggest-label" for="purpose">Bạn đang muốn làm gì?</label>
+      <div class="suggest-row">
+        <input class="search" id="purpose" type="text" autocomplete="off"
+               placeholder="vd: dựng bộ note học SQL · pipeline chạy lại bị trùng dữ liệu · dashboard doanh thu theo vùng">
+        <button class="btn" id="purposeClear" hidden>Xoá</button>
+      </div>
+      <div id="suggestions" class="suggest-out"></div>
+    </div>
     <div id="grid" class="grid"></div>
+  </div>
+
+  <div id="viewDetail" class="view" hidden>
+    <div class="detail-bar">
+      <button class="btn" id="backToSkills">← Tất cả skill</button>
+      <h2 id="dTitle" class="detail-title">—</h2>
+      <span class="spacer"></span>
+      <span class="folder-line" id="folderLine">Chưa chọn thư mục</span>
+      <button class="btn" id="pickFolder">Chọn thư mục…</button>
+      <select class="btn perm" id="permMode" aria-label="Chế độ quyền"
+              title="Chỉ lên kế hoạch: Claude nói sẽ làm gì và không sửa file nào">
+        <option value="plan">Chỉ lên kế hoạch</option>
+        <option value="acceptEdits">Cho sửa file</option>
+        <option value="bypassPermissions">Bỏ mọi kiểm tra quyền</option>
+      </select>
+      <button class="btn btn-quiet" id="launch" disabled>Mở terminal</button>
+      <button class="btn btn-primary" id="runStart" disabled>Chạy trong app</button>
+    </div>
+
+    <div class="detail-split">
+      <aside class="detail-side">
+        <div id="dGuide" class="guide"></div>
+      </aside>
+      <main class="detail-main">
+        <div id="paneJobs">
+          <h4 class="sec">Công việc dựng sẵn</h4>
+          <div id="dJobs" class="job-grid"></div>
+          <h4 class="sec">Hoặc chọn task trực tiếp</h4>
+          <p class="drawer-hint">Bỏ trống để Claude tự định tuyến theo primary deliverable.</p>
+          <div id="dTasks"></div>
+        </div>
+        <div id="paneForm" hidden></div>
+        <div id="paneRun" hidden>
+          <div class="run-head">
+            <span id="runStatus" class="run-status"></span>
+            <button class="btn" id="runStop" disabled>Dừng</button>
+            <button class="btn" id="runBack">← Quay lại</button>
+          </div>
+          <div id="runLog" class="run-log"></div>
+        </div>
+      </main>
+    </div>
   </div>
 
   <div id="viewWorkflow" class="view" hidden>
@@ -64,49 +115,6 @@
     <div id="wfResult"></div>
   </div>
 </div>
-
-<div class="scrim" id="scrim" data-open="false"></div>
-<aside class="drawer" id="drawer" data-open="false" aria-label="Chi tiết skill">
-  <header>
-    <h2 id="dTitle">—</h2>
-    <div id="dGuide" class="guide"></div>
-  </header>
-  <div class="body">
-    <div id="paneJobs">
-      <h4 class="sec">Công việc dựng sẵn</h4>
-      <div id="dJobs"></div>
-      <h4 class="sec">Hoặc chọn task trực tiếp</h4>
-      <p class="drawer-hint">Bỏ trống để Claude tự định tuyến theo primary deliverable.</p>
-      <div id="dTasks"></div>
-    </div>
-    <div id="paneForm" hidden></div>
-    <div id="paneRun" hidden>
-      <div class="run-head">
-        <span id="runStatus" class="run-status"></span>
-        <button class="btn" id="runStop" disabled>Dừng</button>
-        <button class="btn" id="runBack">← Quay lại</button>
-      </div>
-      <div id="runLog" class="run-log"></div>
-    </div>
-  </div>
-  <div class="foot">
-    <span class="folder-line" id="folderLine">Chưa chọn thư mục</span>
-    <div class="row">
-      <button class="btn" id="pickFolder">Chọn thư mục…</button>
-      <button class="btn" id="closeDrawer">Đóng</button>
-      <span class="spacer"></span>
-      <button class="btn btn-quiet" id="launch" disabled>Mở terminal</button>
-    </div>
-    <div class="row">
-      <select class="btn perm" id="permMode" aria-label="Chế độ quyền" title="Chỉ lên kế hoạch: Claude nói sẽ làm gì và không sửa file nào">
-        <option value="plan">Chỉ lên kế hoạch</option>
-        <option value="acceptEdits">Cho sửa file</option>
-        <option value="bypassPermissions">Bỏ mọi kiểm tra quyền</option>
-      </select>
-      <button class="btn btn-primary grow" id="runStart" disabled>Chạy trong app</button>
-    </div>
-  </div>
-</aside>
 
 <script src="jobs.js"></script>
 <script src="run.js"></script>
