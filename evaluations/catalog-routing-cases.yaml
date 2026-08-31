@@ -163,3 +163,15 @@ cases:
   - id: academy-elicit-prior-knowledge
     task: academy-elicit-prior-knowledge
     expected_catalog: plan-design
+  - id: ai-build-schema-retrieval-index
+    task: ai-build-schema-retrieval-index
+    expected_catalog: build-deliver
+  - id: ai-build-semantic-cache
+    task: ai-build-semantic-cache
+    expected_catalog: build-deliver
+  - id: ai-declare-tool-surface
+    task: ai-declare-tool-surface
+    expected_catalog: plan-design
+  - id: ai-audit-tool-surface
+    task: ai-audit-tool-surface
+    expected_catalog: test-assure

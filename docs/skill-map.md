@@ -620,10 +620,14 @@ Ranh giới: AI Engineer xây AI data product; DS hỗ trợ evaluation/modeling
 - `ai-design-document-chunking` — chọn boundaries, overlap và metadata theo retrieval need; output: chunking strategy.
 - `ai-create-embeddings-index` — embed, store, version và validate coverage; output: searchable index.
 - `ai-build-retrieval-pipeline` — query transform, filters, hybrid search và top-k; output: retriever.
+- `ai-build-schema-retrieval-index` — index cấu trúc bảng, cột, grain và partition key để agent lấy schema thật ngay trước khi sinh SQL; output: schema retrieval index.
+- `ai-build-semantic-cache` — cache câu trả lời theo khoảng cách vector kèm khoá phiên bản dữ liệu và đo tỷ lệ hit sai; output: semantic answer cache.
 - `ai-build-reranking-pipeline` — rerank candidates và tune latency/quality; output: reranker.
 - `ai-design-system-prompt` — định nghĩa role, constraints, evidence và refusal behavior; output: versioned prompt.
 - `ai-build-rag-answering-flow` — nối retrieval, prompt, citations và fallback; output: RAG workflow.
 - `ai-build-tool-using-agent` — định nghĩa tools, permissions, state và termination; output: bounded agent workflow.
+- `ai-declare-tool-surface` — khai báo một bề mặt tool liệt kê được cho dịch vụ ngoài, tách quyền đọc và ghi; output: declared tool surface.
+- `ai-audit-tool-surface` — đối chiếu quyền agent thật sự có với quyền contract cho phép và dấu vết truy cập; output: tool surface access audit.
 - `ai-implement-ai-guardrails` — kiểm tra input/output, tool permission và policy; output: guardrail layer.
 - `ai-evaluate-retrieval-quality` — đo recall/precision/ranking theo gold set; output: retrieval evaluation.
 - `ai-evaluate-answer-quality` — đo correctness, groundedness, relevance và refusal; output: answer evaluation.

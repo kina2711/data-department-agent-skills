@@ -1,0 +1,18 @@
+cache_id: ""
+embedding_model: ""
+distance_metric: ""
+hit_threshold: 0.0
+threshold_source: "labelled-pairs"
+labelled_pairs_ref: ""
+data_version_key: []
+invalidate_on: "load"
+served_answer_labelled_cached: true
+served_with_timestamp: true
+measured:
+  hit_rate: 0.0
+  false_hit_rate: 0.0
+  sample_size: 0
+  measured_at: ""
+near_threshold_treated_as_miss: true
+owner: ""
+status: "draft"

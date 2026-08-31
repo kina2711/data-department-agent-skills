@@ -45,12 +45,12 @@ PEOPLE_RESOURCES = {
         "assets": ["hiring-workflow-state.yaml", "role-scorecard.yaml", "interview-loop.yaml", "candidate-packet.yaml", "assessment-rubric.yaml", "interviewer-guide.yaml", "calibration-record.yaml", "interview-evidence.yaml", "debrief.yaml", "fairness-validity-audit.yaml", "question-competency-evidence.yaml", "answer-anchor-pack.yaml", "question-bank-coverage-audit.yaml"],
     },
     "data-career-and-interview-coach": {
-        "references": ["coaching-ethics-and-method.md", "role-curricula.md", "interview-knowledge-system.md", "career-operating-system.md", "career-learning-memory.md", "concept-registry-standard.md"],
+        "references": ["coaching-ethics-and-method.md", "role-curricula.md", "interview-knowledge-system.md", "career-operating-system.md", "career-learning-memory.md", "concept-registry-standard.md", "system-design-canon.md"],
         "assets": ["readiness-profile.yaml", "mock-assessment.yaml", "remediation-plan.yaml", "interview-question-dossier.yaml", "question-knowledge-map.yaml", "interview-knowledge-library.yaml", "career-operating-system.yaml", "career-evidence-portfolio.yaml", "career-review.yaml", "career-content-handoff.yaml", "learner-memory.json", "learning-event.yaml", "cross-skill-prerequisite-map.yaml", "skill-transition-context.json", "learner-memory.schema.json", "concept-registry.json"],
         "scripts": ["validate_learning_memory.py", "build_skill_transition_context.py", "validate_concept_registry.py", "schedule_topic_review.py"],
     },
     "data-technical-content-and-social": {
-        "references": ["technical-series-method.md", "platform-format-playbooks.md", "technical-content-quality-standard.md", "demand-driven-content.md"],
+        "references": ["technical-series-method.md", "platform-format-playbooks.md", "technical-content-quality-standard.md", "demand-driven-content.md", "universal-professional-series-rules.md"],
         "assets": ["technical-series-plan.yaml", "episode-brief.yaml", "source-pack.yaml", "content-manifest.json", "editorial-calendar.yaml", "content-quality-review.yaml"],
         "scripts": ["validate_content_manifest.py"],
     },
@@ -66,6 +66,14 @@ PEOPLE_RESOURCES = {
     },
     "generative-ai-engineering": {
         "references": ["grounded-generation-and-agent-economics.md", "external-tool-access.md"],
+        "assets": ["schema-retrieval-index.yaml", "semantic-cache.yaml", "tool-surface.yaml", "tool-surface-audit.yaml"],
+    },
+    "data-documentation-and-diagrams": {
+        "references": ["diagram-fidelity-standard.md"],
+        "assets": [],
+    },
+    "data-personal-project-engineering": {
+        "references": ["personal-project-operating-system.md", "personal-project-quality-standard.md", "repository-assessment-and-originality.md"],
         "assets": [],
     },
 }
@@ -77,7 +85,7 @@ BENCHMARK_RESOURCES = {
         "scripts": ["build_context_package.py", "audit_change_scope.py", "validate_evidence_bundle.py", "validate_task_result.py", "verify_deliverable.py", "validate_constitution.py"],
     },
     "data-department-orchestrator": {
-        "references": ["lifecycle-standard.md"],
+        "references": ["lifecycle-standard.md", "parallel-execution-and-agent-teams.md", "producer-reviewer-method.md", "context-engineering-standard.md"],
         "assets": ["workflow-manifest.json", "run-state.yaml", "run-state.schema.json", "approval-record.json", "approval-record.schema.json", "task-catalog.json", "instinct-ledger.json", "instinct-record.schema.json"],
         "scripts": ["validate_workflow.py", "validate_approval_record.py", "validate_run_state.py", "manage_instincts.py", "score_skill_quality.py"],
     },

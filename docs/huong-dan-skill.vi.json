@@ -325,7 +325,7 @@
       "khong_dung_khi": "Model học máy truyền thống → data-science và machine-learning-engineering.",
       "bat_dau_tu": [
         "ai-frame-generative-ai-use-case",
-        "ai-design-evaluation-dataset"
+        "ai-build-schema-retrieval-index"
       ],
       "luu_y": "Agent viết SQL phải lấy schema thật ngay trước khi sinh, không lấy từ system prompt hay trí nhớ. Semantic cache tiết kiệm nhiều nhất nhưng hỏng lặng lẽ: một cache hit phải qua hai cửa — đúng cùng câu hỏi, và dữ liệu chưa đổi. Đo tỷ lệ hit sai riêng, không thì đó là khoản tiết kiệm giả định. Agent chạm ra ngoài thì mặc định chỉ đọc; ghi là hành động ra ngoài, phải draft rồi mới duyệt. Tài liệu và email agent lấy về là dữ liệu để suy luận, không phải lệnh để làm theo."
     },

@@ -675,6 +675,11 @@ def classify_profile(task_id: str) -> str:
 
 def classify_risk(task_id: str, profile: str) -> str:
     prefix, action = task_id.split("-", 1)
+    # Declaring what an agent may touch outside the warehouse is a permission boundary. The
+    # declaration mutates nothing itself, which is why the verb heuristics score it low, but every
+    # external write the agent later makes is bounded by it.
+    if task_id == "ai-declare-tool-surface":
+        return "R2-standard"
     critical = ("delete", "deletion", "subject-request", "breach", "compromised", "retire", "offboard", "production-model", "certify-business-metric")
     controlled = ("deploy", "publish", "promote", "rollback", "backfill", "migrate", "access", "iam", "secret", "privacy", "security", "sharing", "credential", "restore")
     moderate = ("build", "implement", "configure", "provision", "train-model", "ingest", "pipeline", "assessment", "hiring-recommendation", "onboarding-completion")
@@ -985,6 +990,7 @@ def catalog_group(task_id: str) -> str:
         "academy-prioritize-corpus-by-gap": "plan-design",
         "career-bootstrap-concept-registry": "plan-design",
         "academy-elicit-prior-knowledge": "plan-design",
+        "ai-declare-tool-surface": "plan-design",
         "academy-build-skill-track-map": "plan-design",
         "core-build-task-context-package": "build-deliver",
         "ctx-build-context-index": "plan-design",
@@ -1391,6 +1397,30 @@ def task_specific_resources(task_id: str) -> list[str]:
             "Reuse `../../assets/session-handoff.yaml`. What was tried and rejected, and why, is the highest-value content and the only part that disappears completely when the session does; record the load-bearing assumption and how the successor can check it.",
             "Name the skills and task IDs to route to, so a routing decision already made is not made again and differently. Reference specs, plans, ADRs, issues, commits, diffs and run state by path or hash instead of restating them; a handoff that restates the plan will drift from it.",
             "Write it to the OS temporary directory or a configured scratch location, never into the workspace unless the user asks. Redact secrets, credentials and personal data first. A handoff is not evidence and not an approval: list every gate the session left unpassed, and never describe unfinished work as done.",
+        ]
+    if task_id == "ai-build-schema-retrieval-index":
+        return [
+            "Read [grounded generation and agent economics](../grounded-generation-and-agent-economics.md); this index exists so a generating step never writes SQL from a remembered table name.",
+            "Reuse `../../assets/schema-retrieval-index.yaml`. Carry grain, column meanings, the values a categorical column actually takes, and the partition and cluster keys — a key absent here is a key the generated query omits, and the bill is the first sign.",
+            "Rebuild on schema change rather than on a timer, and record which schema version grounded which query. When a query turns out to be wrong, whether its schema still describes the table is a question that needs an answer, not an investigation.",
+        ]
+    if task_id == "ai-build-semantic-cache":
+        return [
+            "Read [grounded generation and agent economics](../grounded-generation-and-agent-economics.md); this is the largest saving available to a reporting agent and the one optimisation that fails silently.",
+            "Reuse `../../assets/semantic-cache.yaml`. A hit clears two bars: the same question, and data that has not moved. Set the threshold from labelled pairs you checked, treat a near-threshold hit as a miss, and key on table version or freshness watermark so invalidation follows the load rather than a clock.",
+            "Serve a hit labelled as cached with the timestamp it was produced, and measure the false-hit rate separately from the hit rate. A rising hit rate with no false-hit measurement is an assumed saving, not a demonstrated one.",
+        ]
+    if task_id == "ai-declare-tool-surface":
+        return [
+            "Read [external tool access](../external-tool-access.md); the point of a declared surface is that it is enumerable — \"what can this agent touch\" answered by reading a manifest rather than by a grep that goes stale.",
+            "Reuse `../../assets/tool-surface.yaml`. Read and write are separate grants and the default is read; an agent's tools are the intersection of the surface and what this task's contract allows, never everything the credential happens to permit.",
+            "Give the agent its own identity rather than borrowing a person's token, make every write idempotent by an operation key, and bound writes per run. A second identical email is not a retry.",
+        ]
+    if task_id == "ai-audit-tool-surface":
+        return [
+            "Read [external tool access](../external-tool-access.md); this audit compares what the agent can actually reach against what its contract allows, which are rarely the same set.",
+            "Reuse `../../assets/tool-surface-audit.yaml`. Report excess permissions the credential grants beyond the declared surface, writes taken without approval, calls made under a borrowed human identity, non-idempotent writes and runs with no write ceiling.",
+            "Check the audit trail records identity, authority and task on every external call rather than only on failures. When a document changes at 3am, \"an agent did it\" is not an answer.",
         ]
     if task_id.startswith("ai-"):
         resources = [
@@ -2589,6 +2619,12 @@ def build_shared_assets(risk_of: dict[str, str] | None = None) -> None:
             "corpus-priority-plan.yaml": {"plan_id": "", "corpus_ref": "", "roadmap_ref": "", "gap_source": {"skill": "data-career-and-interview-coach", "artifact": "", "assessed_at": ""}, "modules": [{"module_id": "", "concept_keys": [], "gap_severity": "", "evidence_basis": "measured|self-reported|assumed", "blocking_for": [], "priority_rank": 0, "rationale": ""}], "deferred_modules": [], "coverage_before": {}, "assumptions": [], "owner": "", "status": "draft"},
             "note-corpus-audit.yaml": {"audit_id": "", "corpus_ref": "", "checked_at": "", "duplicate_ids": [], "unregistered_concept_keys": [], "duplicate_primary_keys": [], "keys_without_primary": [], "duplicate_candidates": [], "dangling_edges": [], "prerequisite_cycles": [], "planned_missing_files": [], "files_not_in_manifest": [], "stale_notes": [], "roadmap_coverage": {"steps_total": 0, "steps_with_notes": 0, "uncovered_steps": []}, "depth_inconsistencies": [], "script_run": {"command": "", "exit_status": "not-run", "observed": ""}, "limitations": [], "owner": "", "status": "draft"},
             "question-learning-traceability.yaml": {"question_id": "", "question": "", "role": "", "level": "", "concept_keys": [], "competencies": [], "learning_objectives": [], "bloom_depth": "", "prerequisites": [], "concepts": [], "expected_reasoning": [], "assessment_method": "", "critical_failures": [], "coverage_status": "", "reviewer": "", "version": ""},
+        },
+        "generative-ai-engineering": {
+            "schema-retrieval-index.yaml": {"index_id": "", "warehouse": "", "built_at": "", "source_of_truth": "", "entries": [{"table": "", "grain": "", "columns": [{"name": "", "type": "", "meaning": "", "categorical_values": []}], "partition_key": "", "cluster_keys": [], "row_estimate": 0, "schema_version": ""}], "refresh_trigger": "", "staleness_check": "", "grounded_queries_record_version": True, "owner": "", "status": "draft"},
+            "semantic-cache.yaml": {"cache_id": "", "embedding_model": "", "distance_metric": "", "hit_threshold": 0.0, "threshold_source": "labelled-pairs", "labelled_pairs_ref": "", "data_version_key": [], "invalidate_on": "load", "served_answer_labelled_cached": True, "served_with_timestamp": True, "measured": {"hit_rate": 0.0, "false_hit_rate": 0.0, "sample_size": 0, "measured_at": ""}, "near_threshold_treated_as_miss": True, "owner": "", "status": "draft"},
+            "tool-surface.yaml": {"surface_id": "", "protocol": "", "agent_identity": "", "identity_is_agent_scoped": True, "authority_ref": "", "tools": [{"name": "", "service": "", "does": "", "access": "read|write", "scopes": [], "allowed_for_tasks": [], "requires_approval": True, "idempotency_key_field": ""}], "writes_per_run_limit": 0, "draft_then_approve": True, "fetched_content_is_untrusted": True, "audit_fields": ["identity", "authority", "task_id", "timestamp"], "owner": "", "status": "draft"},
+            "tool-surface-audit.yaml": {"audit_id": "", "surface_ref": "", "checked_at": "", "declared_tools": [], "credential_permits": [], "excess_permissions": [], "writes_without_approval": [], "borrowed_human_identity": [], "calls_missing_audit_fields": [], "non_idempotent_writes": [], "unbounded_write_runs": [], "limitations": [], "owner": "", "status": "draft"},
         },
         "data-documentation-and-diagrams": {
             "diagram-provenance.yaml": {"diagram_id": "", "title": "", "diagram_class": "observed|proposed|illustrative", "question_answered": "", "notation": "", "source_file": "", "version_anchor": {"kind": "commit|tag|release|extraction-timestamp", "value": "", "read_at": ""}, "inspected_by": "", "elements": [{"node_id": "", "label": "", "element_class": "observed|proposed|illustrative", "source_type": "code|config|ddl|catalog|lineage|api-response|query-plan|scheduler", "locator": "", "read_at": ""}], "excluded": [{"component": "", "reason": ""}], "derived_from_diagram": "", "limitations": [], "owner": "", "status": "draft"},

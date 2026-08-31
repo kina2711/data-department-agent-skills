@@ -1,6 +1,6 @@
 ---
 name: dd-genai
-description: "Open the Generative AI Engineering department (build stage) and route the request to one of its 20 atomic tasks. Build governed generative AI data products including use-case framing, evaluation datasets, knowledge ingestion, chunking, indexes, retrieval, reranking, prompts, RAG, tool-using agents, guardrails, retrieval and answer evaluation, injection testing, monitoring, failure analysis, optimization, release, human review, and system cards."
+description: "Open the Generative AI Engineering department (build stage) and route the request to one of its 24 atomic tasks. Build governed generative AI data products including use-case framing, evaluation datasets, knowledge ingestion, chunking, indexes, retrieval, reranking, prompts, RAG, tool-using agents, guardrails, retrieval and answer evaluation, injection testing, monitoring, failure analysis, optimization, release, human review, and system cards."
 argument-hint: "<request>"
 disable-model-invocation: true
 ---
@@ -9,7 +9,7 @@ disable-model-invocation: true
 
 Open the **Generative AI Engineering** department for: $ARGUMENTS
 
-Sprint stage: `build`. This department owns 20 atomic tasks.
+Sprint stage: `build`. This department owns 24 atomic tasks.
 
 1. Read `skills/generative-ai-engineering/SKILL.md` and follow its operating contract.
 2. Confirm this department actually owns the primary deliverable. If another role owns it,

@@ -1,7 +1,7 @@
 ---
 name: dd-genai
 description: >-
-  Generative AI Engineering department (build stage), owning 20 atomic task contracts.
+  Generative AI Engineering department (build stage), owning 24 atomic task contracts.
   Build governed generative AI data products including use-case framing, evaluation datasets, knowledge ingestion, chunking, indexes, retrieval, reranking, prompts, RAG, tool-using agents, guardrails, retrieval and answer evaluation, injection testing, monitoring, failure analysis, optimization, release, human review, and system cards.
 model: inherit
 mainAgent: true
@@ -15,7 +15,7 @@ skills:
 
 # Generative AI Engineering
 
-Sprint stage: `build`. This department owns 20 atomic task contracts.
+Sprint stage: `build`. This department owns 24 atomic task contracts.
 
 ## Operating contract
 

@@ -1,0 +1,14 @@
+audit_id: ""
+surface_ref: ""
+checked_at: ""
+declared_tools: []
+credential_permits: []
+excess_permissions: []
+writes_without_approval: []
+borrowed_human_identity: []
+calls_missing_audit_fields: []
+non_idempotent_writes: []
+unbounded_write_runs: []
+limitations: []
+owner: ""
+status: "draft"

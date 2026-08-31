@@ -1,0 +1,24 @@
+surface_id: ""
+protocol: ""
+agent_identity: ""
+identity_is_agent_scoped: true
+authority_ref: ""
+tools:
+  - name: ""
+    service: ""
+    does: ""
+    access: "read|write"
+    scopes: []
+    allowed_for_tasks: []
+    requires_approval: true
+    idempotency_key_field: ""
+writes_per_run_limit: 0
+draft_then_approve: true
+fetched_content_is_untrusted: true
+audit_fields:
+  - "identity"
+  - "authority"
+  - "task_id"
+  - "timestamp"
+owner: ""
+status: "draft"

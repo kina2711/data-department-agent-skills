@@ -1,7 +1,7 @@
 suite: "data-department-agent-skills"
 version: "3.10.0"
 top_level_skills: 32
-atomic_tasks: 828
+atomic_tasks: 832
 roles:
   - skill: "data-department-orchestrator"
     display_name: "Data Department Orchestrator"
@@ -68,7 +68,7 @@ roles:
     task_count: 13
   - skill: "generative-ai-engineering"
     display_name: "Generative AI Engineering"
-    task_count: 20
+    task_count: 24
   - skill: "data-documentation-and-diagrams"
     display_name: "Data Documentation and Diagrams"
     task_count: 20

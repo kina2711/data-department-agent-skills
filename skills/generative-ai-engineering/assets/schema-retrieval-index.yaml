@@ -1,0 +1,21 @@
+index_id: ""
+warehouse: ""
+built_at: ""
+source_of_truth: ""
+entries:
+  - table: ""
+    grain: ""
+    columns:
+      - name: ""
+        type: ""
+        meaning: ""
+        categorical_values: []
+    partition_key: ""
+    cluster_keys: []
+    row_estimate: 0
+    schema_version: ""
+refresh_trigger: ""
+staleness_check: ""
+grounded_queries_record_version: true
+owner: ""
+status: "draft"

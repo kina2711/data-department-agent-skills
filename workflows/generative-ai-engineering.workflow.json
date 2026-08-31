@@ -1,15 +1,28 @@
 {
   "workflow_id": "generative-ai-engineering-standard-path",
   "version": "2.0.0",
-  "objective": "Standard path through generative-ai-engineering, 9 stages over 20 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/test-assure → P0/design-specification/plan-design → P0/build-change/build-deliver → P1/advisory-analysis/plan-design → P1/advisory-analysis/test-assure → P1/advisory-analysis/operate-improve → P1/design-specification/plan-design → P1/build-change/operate-improve → P1/production-release/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
+  "objective": "Standard path through generative-ai-engineering, 11 stages over 24 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/advisory-analysis/plan-design → P0/advisory-analysis/test-assure → P0/design-specification/plan-design → P0/build-change/build-deliver → P0/governance-assurance/test-assure → P1/advisory-analysis/plan-design → P1/advisory-analysis/test-assure → P1/advisory-analysis/operate-improve → P1/design-specification/plan-design → P1/build-change/operate-improve → P1/production-release/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R3-controlled",
-  "current_task_id": "ai-evaluate-retrieval-quality",
+  "current_task_id": "ai-declare-tool-surface",
   "tasks": [
+    {
+      "task_id": "ai-declare-tool-surface",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
     {
       "task_id": "ai-evaluate-retrieval-quality",
       "owner": "",
-      "depends_on": [],
+      "depends_on": [
+        "ai-declare-tool-surface"
+      ],
       "status": "planned",
       "risk_tier": "R0-light",
       "artifact_version": "",
@@ -122,6 +135,32 @@
       "approval_refs": []
     },
     {
+      "task_id": "ai-build-schema-retrieval-index",
+      "owner": "",
+      "depends_on": [
+        "ai-ingest-knowledge-source"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-build-semantic-cache",
+      "owner": "",
+      "depends_on": [
+        "ai-ingest-knowledge-source"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
       "task_id": "ai-build-reranking-pipeline",
       "owner": "",
       "depends_on": [
@@ -174,10 +213,23 @@
       "approval_refs": []
     },
     {
-      "task_id": "ai-document-ai-system",
+      "task_id": "ai-audit-tool-surface",
       "owner": "",
       "depends_on": [
         "ai-ingest-knowledge-source"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "ai-document-ai-system",
+      "owner": "",
+      "depends_on": [
+        "ai-audit-tool-surface"
       ],
       "status": "planned",
       "risk_tier": "R0-light",

@@ -271,3 +271,18 @@ cases:
     expected_primary_skill: metadata-engineering-and-catalog
     rejected_skill: data-engineering
     expected_task: meta-harvest-technical-metadata
+  - id: schema-rag-vs-metadata-catalog
+    query: Index cấu trúc bảng BigQuery để agent lấy schema thật ngay trước khi sinh SQL.
+    expected_primary_skill: generative-ai-engineering
+    rejected_skill: metadata-engineering-and-catalog
+    expected_task: ai-build-schema-retrieval-index
+  - id: metadata-catalog-vs-schema-rag
+    query: Thu hoạch metadata kỹ thuật từ warehouse vào catalog cho người tìm kiếm và xem lineage.
+    expected_primary_skill: metadata-engineering-and-catalog
+    rejected_skill: generative-ai-engineering
+    expected_task: meta-harvest-technical-metadata
+  - id: tool-surface-vs-security-access
+    query: Khai báo agent được chạm vào Gmail và Docs ở mức nào, tách quyền đọc và ghi.
+    expected_primary_skill: generative-ai-engineering
+    rejected_skill: data-security-and-privacy
+    expected_task: ai-declare-tool-surface

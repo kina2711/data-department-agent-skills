@@ -710,6 +710,119 @@
         "{viec}",
         "Phân tuyến giúp tôi việc này thuộc vai nào và cần chạy task gì."
       ]
+    },
+    {
+      "id": "ai-schema-rag",
+      "skill": "generative-ai-engineering",
+      "ten": "Cho agent lấy schema thật trước khi viết SQL",
+      "mo_ta": "Index bảng, cột, grain, partition key để agent không viết SQL từ trí nhớ.",
+      "task_id": "ai-build-schema-retrieval-index",
+      "thong_so": [
+        {
+          "key": "warehouse",
+          "nhan": "Warehouse",
+          "kieu": "chon",
+          "chon": [
+            "BigQuery",
+            "Snowflake",
+            "ClickHouse",
+            "Postgres",
+            "Databricks"
+          ],
+          "bat_buoc": true
+        },
+        {
+          "key": "pham_vi",
+          "nhan": "Phạm vi bảng",
+          "kieu": "text",
+          "goi_y": "dataset marketing và hardware",
+          "bat_buoc": true
+        },
+        {
+          "key": "van_de",
+          "nhan": "Đang gặp lỗi gì",
+          "kieu": "text",
+          "goi_y": "agent hay bịa tên cột",
+          "bat_buoc": false,
+          "nhieu_dong": true
+        }
+      ],
+      "mau": [
+        "Dựng schema retrieval index trên {warehouse} cho {pham_vi}.",
+        {
+          "neu": "van_de",
+          "text": "Vấn đề đang gặp: {van_de}"
+        }
+      ]
+    },
+    {
+      "id": "ai-cache",
+      "skill": "generative-ai-engineering",
+      "ten": "Giảm token bằng semantic cache",
+      "mo_ta": "Cache câu trả lời theo khoảng cách vector, khoá theo phiên bản dữ liệu, đo cả tỷ lệ hit sai.",
+      "task_id": "ai-build-semantic-cache",
+      "thong_so": [
+        {
+          "key": "loai_hoi",
+          "nhan": "Loại câu hỏi hay lặp",
+          "kieu": "text",
+          "goi_y": "báo cáo doanh thu theo tuần",
+          "bat_buoc": true
+        },
+        {
+          "key": "tuoi",
+          "nhan": "Chấp nhận dữ liệu cũ tới mức nào",
+          "kieu": "chon",
+          "chon": [
+            "Phải luôn mới nhất",
+            "Cũ trong ngày được",
+            "Cũ trong tuần được"
+          ],
+          "bat_buoc": true
+        }
+      ],
+      "mau": [
+        "Dựng semantic cache cho {loai_hoi}. Độ tươi yêu cầu: {tuoi}.",
+        "Đo tỷ lệ hit sai riêng, đừng chỉ báo tỷ lệ hit."
+      ]
+    },
+    {
+      "id": "ai-tool-surface",
+      "skill": "generative-ai-engineering",
+      "ten": "Cho agent chạm ra dịch vụ ngoài",
+      "mo_ta": "Khai báo một bề mặt tool liệt kê được, tách quyền đọc và ghi, ghi lại danh tính.",
+      "task_id": "ai-declare-tool-surface",
+      "thong_so": [
+        {
+          "key": "dich_vu",
+          "nhan": "Dịch vụ nào",
+          "kieu": "text",
+          "goi_y": "Gmail, Google Docs",
+          "bat_buoc": true
+        },
+        {
+          "key": "viec",
+          "nhan": "Agent cần làm gì ở đó",
+          "kieu": "text",
+          "goi_y": "đọc thread rồi soạn báo cáo",
+          "bat_buoc": true,
+          "nhieu_dong": true
+        },
+        {
+          "key": "duoc_ghi",
+          "nhan": "Có cần quyền ghi không",
+          "kieu": "chon",
+          "chon": [
+            "Chỉ đọc",
+            "Ghi nhưng phải duyệt trước"
+          ],
+          "bat_buoc": true
+        }
+      ],
+      "mau": [
+        "Khai báo tool surface cho agent chạm vào {dich_vu}. Việc cần làm: {viec}",
+        "Quyền: {duoc_ghi}."
+      ]
     }
   ]
 }
