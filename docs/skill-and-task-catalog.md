@@ -1,6 +1,6 @@
 # Chi tiết toàn bộ Data Department Skills và Atomic Tasks
 
-> Phiên bản `3.10.0` · `32` Claude role skills · `838` atomic workflows.
+> Phiên bản `3.10.0` · `33` Claude role skills · `855` atomic workflows.
 > Đây là catalog tra cứu đầy đủ được sinh từ `suite-manifest.yaml`, `task-catalog.json` và task contracts; không phải nội dung luôn được nạp vào context của Claude.
 
 ## Mục lục
@@ -8,7 +8,7 @@
 - [1. Bộ skill này là gì](#1-bộ-skill-này-là-gì)
 - [2. Cách đọc catalog](#2-cách-đọc-catalog)
 - [3. Lifecycle và kiểm soát chung](#3-lifecycle-và-kiểm-soát-chung)
-- [4. Bản đồ 32 skills](#4-bản-đồ-32-skills)
+- [4. Bản đồ 33 skills](#4-bản-đồ-33-skills)
 - [5. Chi tiết từng skill và toàn bộ task](#5-chi-tiết-từng-skill-và-toàn-bộ-task)
 - [6. Cách chọn skill/task](#6-cách-chọn-skilltask)
 
@@ -94,7 +94,7 @@ Mười ba lệnh điều khiển cộng 32 lệnh phòng ban (mỗi role một 
 
 Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định thuộc về người dùng. Nếu payload không đọc được hoặc Python không khả dụng, guard thoát im lặng và luồng permission mặc định của Claude Code được giữ nguyên — một lỗi môi trường không bao giờ được âm thầm nới quyền.
 
-## 4. Bản đồ 32 skills
+## 4. Bản đồ 33 skills
 
 | # | Skill | Role | Tasks |
 |---:|---|---|---:|
@@ -118,18 +118,19 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | 18 | [`mlops`](#skill-mlops) | MLOps | 23 |
 | 19 | [`data-quality-and-reliability`](#skill-data-quality-and-reliability) | Data Quality and Reliability | 21 |
 | 20 | [`data-security-and-privacy`](#skill-data-security-and-privacy) | Data Security and Privacy | 16 |
-| 21 | [`master-data-management`](#skill-master-data-management) | Master Data Management | 13 |
-| 22 | [`generative-ai-engineering`](#skill-generative-ai-engineering) | Generative AI Engineering | 24 |
-| 23 | [`data-documentation-and-diagrams`](#skill-data-documentation-and-diagrams) | Data Documentation and Diagrams | 20 |
-| 24 | [`data-enablement-and-knowledge`](#skill-data-enablement-and-knowledge) | Data Enablement and Knowledge | 17 |
-| 25 | [`data-academy-and-curriculum`](#skill-data-academy-and-curriculum) | Data Academy and Curriculum | 49 |
-| 26 | [`data-onboarding-and-integration`](#skill-data-onboarding-and-integration) | Data Onboarding and Integration | 34 |
-| 27 | [`data-talent-acquisition-and-interview`](#skill-data-talent-acquisition-and-interview) | Data Talent and Interviewing | 41 |
-| 28 | [`data-career-and-interview-coach`](#skill-data-career-and-interview-coach) | Data Career and Interview Coach | 52 |
-| 29 | [`data-technical-content-and-social`](#skill-data-technical-content-and-social) | Technical Content and Social | 27 |
-| 30 | [`data-personal-project-engineering`](#skill-data-personal-project-engineering) | Personal Data Project Engineering | 42 |
-| 31 | [`personal-second-brain-and-knowledge-os`](#skill-personal-second-brain-and-knowledge-os) | Personal Second Brain and Knowledge OS | 46 |
-| 32 | [`book-to-knowledge-and-action`](#skill-book-to-knowledge-and-action) | Book to Knowledge and Action | 45 |
+| 21 | [`technical-translation`](#skill-technical-translation) | Technical Translation | 17 |
+| 22 | [`master-data-management`](#skill-master-data-management) | Master Data Management | 13 |
+| 23 | [`generative-ai-engineering`](#skill-generative-ai-engineering) | Generative AI Engineering | 24 |
+| 24 | [`data-documentation-and-diagrams`](#skill-data-documentation-and-diagrams) | Data Documentation and Diagrams | 20 |
+| 25 | [`data-enablement-and-knowledge`](#skill-data-enablement-and-knowledge) | Data Enablement and Knowledge | 17 |
+| 26 | [`data-academy-and-curriculum`](#skill-data-academy-and-curriculum) | Data Academy and Curriculum | 49 |
+| 27 | [`data-onboarding-and-integration`](#skill-data-onboarding-and-integration) | Data Onboarding and Integration | 34 |
+| 28 | [`data-talent-acquisition-and-interview`](#skill-data-talent-acquisition-and-interview) | Data Talent and Interviewing | 41 |
+| 29 | [`data-career-and-interview-coach`](#skill-data-career-and-interview-coach) | Data Career and Interview Coach | 52 |
+| 30 | [`data-technical-content-and-social`](#skill-data-technical-content-and-social) | Technical Content and Social | 27 |
+| 31 | [`data-personal-project-engineering`](#skill-data-personal-project-engineering) | Personal Data Project Engineering | 42 |
+| 32 | [`personal-second-brain-and-knowledge-os`](#skill-personal-second-brain-and-knowledge-os) | Personal Second Brain and Knowledge OS | 46 |
+| 33 | [`book-to-knowledge-and-action`](#skill-book-to-knowledge-and-action) | Book to Knowledge and Action | 45 |
 
 ## 5. Chi tiết từng skill và toàn bộ task
 
@@ -1315,9 +1316,64 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`sec-review-data-sharing-security`](skills/data-security-and-privacy/references/tasks/sec-review-data-sharing-security.md) | đánh giá recipient, transport, controls và expiry | security recommendation | `governance-assurance` | `R3-controlled` / `controlled-path` |
 | [`sec-verify-data-encryption`](skills/data-security-and-privacy/references/tasks/sec-verify-data-encryption.md) | kiểm tra at-rest/in-transit/key management | encryption evidence | `governance-assurance` | `R1-reviewed` / `standard-path` |
 
+<a id="skill-technical-translation"></a>
+
+### 21. `technical-translation` — Technical Translation
+
+**Claude trigger description:** Translate foreign-language books, documentation, web content and technical material into Vietnamese that reads as a domain expert wrote it, with a fixed glossary, style guide, fidelity review and translation memory. Use for translation or localisation into Vietnamese; route the authoring of new Vietnamese technical content to data-technical-content-and-social.
+
+**Ownership:** Dịch sách, tài liệu kỹ thuật, nội dung web và tài liệu mã nguồn nước ngoài sang tiếng Việt đúng ngữ cảnh chuyên ngành.
+
+**Khi nên dùng:** Dùng khi cần chuyển ngữ, chốt glossary và style guide trước, rồi kiểm trung thành theo từng khẳng định.
+
+**Ranh giới và handoff:** Đơn vị trung thành là khẳng định chứ không phải câu; không dịch định danh mã, tên API và tên sản phẩm; không sửa bản gốc trong lúc dịch.
+
+**Quy mô:** 17 tasks — Plan / Design 4; Build / Deliver 7; Test / Assure 5; Operate / Improve 1.
+
+**Domain references tải khi cần:** `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `vietnamese-technical-translation.md`, `workflow-runtime-and-evidence-os.md`.
+
+**Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`, `fidelity-review.yaml`, `terminology-glossary.yaml`, `translation-brief.yaml`, `translation-memory.yaml`, `translationese-report.yaml`, `vietnamese-style-guide.yaml`.
+
+#### Plan / Design (4 tasks)
+
+| Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
+|---|---|---|---|---|
+| [`trans-build-terminology-glossary`](skills/technical-translation/references/tasks/trans-build-terminology-glossary.md) | chốt thuật ngữ chuyên ngành và thuật ngữ nào giữ nguyên tiếng Anh | bilingual terminology glossary | `build-change` | `R2-standard` / `standard-path` |
+| [`trans-clarify-translation-brief`](skills/technical-translation/references/tasks/trans-clarify-translation-brief.md) | chốt người đọc, mục đích, mức trang trọng và "trung thành" ở đây nghĩa là gì | translation brief | `advisory-analysis` | `R0-light` / `fast-path` |
+| [`trans-define-vietnamese-style-guide`](skills/technical-translation/references/tasks/trans-define-vietnamese-style-guide.md) | xưng hô, mức trang trọng, quy ước số, đơn vị, ngày tháng và tên riêng | Vietnamese style guide | `design-specification` | `R1-reviewed` / `standard-path` |
+| [`trans-plan-long-form-translation`](skills/technical-translation/references/tasks/trans-plan-long-form-translation.md) | chia tập, thứ tự, điểm kiểm nhất quán cho sách hoặc tài liệu dài | long-form translation plan | `design-specification` | `R1-reviewed` / `standard-path` |
+
+#### Build / Deliver (7 tasks)
+
+| Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
+|---|---|---|---|---|
+| [`trans-localize-culture-bound-content`](skills/technical-translation/references/tasks/trans-localize-culture-bound-content.md) | xử lý ví dụ, ẩn dụ, đơn vị và tham chiếu văn hoá không chuyển thẳng được | localised content | `advisory-analysis` | `R1-reviewed` / `standard-path` |
+| [`trans-maintain-translation-memory`](skills/technical-translation/references/tasks/trans-maintain-translation-memory.md) | giữ cặp câu đã duyệt để tái dùng và giữ nhất quán giữa các tài liệu | translation memory | `advisory-analysis` | `R0-light` / `fast-path` |
+| [`trans-transcreate-persuasive-copy`](skills/technical-translation/references/tasks/trans-transcreate-persuasive-copy.md) | viết lại nội dung thuyết phục khi dịch sát nghĩa làm hỏng mục đích | transcreated copy | `advisory-analysis` | `R1-reviewed` / `standard-path` |
+| [`trans-translate-code-documentation`](skills/technical-translation/references/tasks/trans-translate-code-documentation.md) | dịch tài liệu kỹ thuật giữ nguyên định danh mã, API và output mẫu | translated code documentation | `advisory-analysis` | `R1-reviewed` / `standard-path` |
+| [`trans-translate-document`](skills/technical-translation/references/tasks/trans-translate-document.md) | dịch một tài liệu theo brief, glossary và style guide | translated document | `advisory-analysis` | `R1-reviewed` / `standard-path` |
+| [`trans-translate-technical-book`](skills/technical-translation/references/tasks/trans-translate-technical-book.md) | dịch sách kỹ thuật giữ nhất quán thuật ngữ và giọng xuyên chương | translated book manuscript | `advisory-analysis` | `R1-reviewed` / `standard-path` |
+| [`trans-translate-web-content`](skills/technical-translation/references/tasks/trans-translate-web-content.md) | dịch trang web giữ nguyên markup, link, alt text và cấu trúc | translated web content | `advisory-analysis` | `R1-reviewed` / `standard-path` |
+
+#### Test / Assure (5 tasks)
+
+| Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
+|---|---|---|---|---|
+| [`trans-analyze-source-document`](skills/technical-translation/references/tasks/trans-analyze-source-document.md) | đọc thể loại, cấu trúc, giọng, và các bẫy dịch trước khi dịch câu nào | source analysis | `advisory-analysis` | `R0-light` / `fast-path` |
+| [`trans-audit-terminology-consistency`](skills/technical-translation/references/tasks/trans-audit-terminology-consistency.md) | soát một thuật ngữ có bị dịch nhiều kiểu trong cùng tài liệu không | terminology consistency audit | `governance-assurance` | `R1-reviewed` / `standard-path` |
+| [`trans-detect-translationese`](skills/technical-translation/references/tasks/trans-detect-translationese.md) | tìm cú pháp dịch máy, sai mức trang trọng và thành ngữ dịch sát chữ | translationese report | `advisory-analysis` | `R0-light` / `fast-path` |
+| [`trans-review-translation-fidelity`](skills/technical-translation/references/tasks/trans-review-translation-fidelity.md) | đối chiếu ngược từng khẳng định với bản gốc, không đối chiếu từng câu | fidelity review | `advisory-analysis` | `R0-light` / `fast-path` |
+| [`trans-test-reader-comprehension`](skills/technical-translation/references/tasks/trans-test-reader-comprehension.md) | kiểm người đọc đích hiểu đúng, không chỉ đọc trôi | comprehension test result | `advisory-analysis` | `R0-light` / `fast-path` |
+
+#### Operate / Improve (1 tasks)
+
+| Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
+|---|---|---|---|---|
+| [`trans-refresh-translation-on-source-change`](skills/technical-translation/references/tasks/trans-refresh-translation-on-source-change.md) | cập nhật bản dịch khi bản gốc đổi, chỉ dịch lại phần đã đổi | refreshed translation | `advisory-analysis` | `R1-reviewed` / `standard-path` |
+
 <a id="skill-master-data-management"></a>
 
-### 21. `master-data-management` — Master Data Management
+### 22. `master-data-management` — Master Data Management
 
 **Claude trigger description:** Design and operate master entities, identity matching, survivorship, golden records, reference data, hierarchies, stewardship and synchronization. Use for MDM, entity resolution or reference-data work.
 
@@ -1368,7 +1424,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 <a id="skill-generative-ai-engineering"></a>
 
-### 22. `generative-ai-engineering` — Generative AI Engineering
+### 23. `generative-ai-engineering` — Generative AI Engineering
 
 **Claude trigger description:** Build and evaluate governed RAG, retrieval, prompt, tool-using agent and GenAI systems with guardrails, injection testing, monitoring and system cards. Use for production GenAI data products or agents.
 
@@ -1432,7 +1488,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 <a id="skill-data-documentation-and-diagrams"></a>
 
-### 23. `data-documentation-and-diagrams` — Data Documentation and Diagrams
+### 24. `data-documentation-and-diagrams` — Data Documentation and Diagrams
 
 **Claude trigger description:** Create validated data documentation, ADRs, runbooks, postmortems, ERDs, BPMN, sequence, state, lineage and architecture diagrams. Use when the primary deliverable is a data document or technical diagram.
 
@@ -1487,7 +1543,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 <a id="skill-data-enablement-and-knowledge"></a>
 
-### 24. `data-enablement-and-knowledge` — Data Enablement and Knowledge
+### 25. `data-enablement-and-knowledge` — Data Enablement and Knowledge
 
 **Claude trigger description:** Enable data teams through technical onboarding, learning plans, explanations, walkthroughs, pairing, knowledge checks, articles and knowledge-base curation. Use for internal data enablement or knowledge-transfer work.
 
@@ -1542,7 +1598,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 <a id="skill-data-academy-and-curriculum"></a>
 
-### 25. `data-academy-and-curriculum` — Data Academy and Curriculum
+### 26. `data-academy-and-curriculum` — Data Academy and Curriculum
 
 **Claude trigger description:** Design and deliver role-based Data Academy curricula with theory, labs, capstones, assessments, remediation, certification and effectiveness measurement. Use for structured learning programs across Data roles and levels. Route hiring loops, scorecards and candidate evaluation to data-talent-acquisition-and-interview; this skill teaches, never selects.
 
@@ -1631,7 +1687,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 <a id="skill-data-onboarding-and-integration"></a>
 
-### 26. `data-onboarding-and-integration` — Data Onboarding and Integration
+### 27. `data-onboarding-and-integration` — Data Onboarding and Integration
 
 **Claude trigger description:** Plan and operate Data Department preboarding, access readiness, orientation, shadowing, first work, checkpoints, crossboarding, reboarding and offboarding. Use for new-hire or role-transition integration.
 
@@ -1705,7 +1761,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 <a id="skill-data-talent-acquisition-and-interview"></a>
 
-### 27. `data-talent-acquisition-and-interview` — Data Talent and Interviewing
+### 28. `data-talent-acquisition-and-interview` — Data Talent and Interviewing
 
 **Claude trigger description:** Design and run structured Data hiring with role profiles, scorecards, interview loops, work samples, rubrics, calibration, debriefs, fairness and validity controls. Use for recruiting or interviewing Data roles. Route curriculum, labs and certification of existing staff to data-academy-and-curriculum; this skill decides who to hire, never how to train.
 
@@ -1786,7 +1842,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 <a id="skill-data-career-and-interview-coach"></a>
 
-### 28. `data-career-and-interview-coach` — Data Career and Interview Coach
+### 29. `data-career-and-interview-coach` — Data Career and Interview Coach
 
 **Claude trigger description:** Build evidence-based Data career systems, persistent cross-skill learner memory, mastery/decay tracking, compact transition context, competency maps, portfolios, interview readiness, remediation and review cycles. Use when prior learning should be reused without reteaching; never infer mastery from exposure or fabricate experience.
 
@@ -1873,7 +1929,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 <a id="skill-data-technical-content-and-social"></a>
 
-### 29. `data-technical-content-and-social` — Technical Content and Social
+### 30. `data-technical-content-and-social` — Technical Content and Social
 
 **Claude trigger description:** Build evidence-backed technical series for Facebook in Vietnamese, LinkedIn and Substack in English, and GitHub from research and a canonical article through code, diagrams, channel-native adaptations, QA, publishing and measurement. Use for Airflow, dbt, Spark, Kafka or other technical-content programs.
 
@@ -1940,7 +1996,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 <a id="skill-data-personal-project-engineering"></a>
 
-### 30. `data-personal-project-engineering` — Personal Data Project Engineering
+### 31. `data-personal-project-engineering` — Personal Data Project Engineering
 
 **Claude trigger description:** Create differentiated personal Data projects for portfolios, learning or capstones from a problem, dataset, repository, role gap, technology, paper, course, open-source issue, incident, constraint or mixed evidence. Use when Claude must select a project mode, assess a reference repo, transform borrowed inspiration into an attributed user-owned thesis, plan execution, or evaluate portfolio proof.
 
@@ -2017,7 +2073,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 <a id="skill-personal-second-brain-and-knowledge-os"></a>
 
-### 31. `personal-second-brain-and-knowledge-os` — Personal Second Brain and Knowledge OS
+### 32. `personal-second-brain-and-knowledge-os` — Personal Second Brain and Knowledge OS
 
 **Claude trigger description:** Build or operate a local-first AI Second Brain with 1_Nguon, 2_Wiki, 3_Toi and 4_Ket-Qua layers. Use for Obsidian or local-file knowledge systems, migration from Notion/Sheets/Lark, source ingestion, linked notes, personal context, grounded retrieval, reusable outputs, privacy, backup and freshness.
 
@@ -2103,7 +2159,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 <a id="skill-book-to-knowledge-and-action"></a>
 
-### 32. `book-to-knowledge-and-action` — Book to Knowledge and Action
+### 33. `book-to-knowledge-and-action` — Book to Knowledge and Action
 
 **Claude trigger description:** Turn books, PDFs, EPUBs, documents or source collections into reusable agent skills, Second Brain packs, career/interview/project systems, curricula, workflows or technical content. Use when structure, frameworks, decisions, citations, copyright controls and progressive loading matter more than a summary.
 
@@ -2209,4 +2265,4 @@ Hãy phân tích yêu cầu và báo trước khi làm:
 Sau đó thực hiện task hiện tại, test, báo evidence, approval status, residual risks và next owner.
 ```
 
-Tổng kiểm: **32 skills / 838 tasks** đã được liệt kê, không thiếu và không trùng ownership trong catalog này.
+Tổng kiểm: **33 skills / 855 tasks** đã được liệt kê, không thiếu và không trùng ownership trong catalog này.

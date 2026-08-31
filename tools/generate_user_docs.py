@@ -139,6 +139,11 @@ ROLE_GUIDANCE = {
         "Dùng khi deliverable là hệ thống GenAI hoặc quy trình đánh giá chất lượng, safety và groundedness.",
         "Không đánh giá bằng demo đẹp hoặc một vài câu hỏi; cần eval set, failure taxonomy, red-team và production monitoring phù hợp.",
     ),
+    "technical-translation": (
+        "Dịch sách, tài liệu kỹ thuật, nội dung web và tài liệu mã nguồn nước ngoài sang tiếng Việt đúng ngữ cảnh chuyên ngành.",
+        "Dùng khi cần chuyển ngữ, chốt glossary và style guide trước, rồi kiểm trung thành theo từng khẳng định.",
+        "Đơn vị trung thành là khẳng định chứ không phải câu; không dịch định danh mã, tên API và tên sản phẩm; không sửa bản gốc trong lúc dịch.",
+    ),
     "data-documentation-and-diagrams": (
         "Tạo và duy trì architecture diagrams, data flows, lineage views, runbooks, SOPs, dictionaries và documentation packages.",
         "Dùng khi primary deliverable là tài liệu/diagram có audience, scope, source và review cycle rõ ràng.",
