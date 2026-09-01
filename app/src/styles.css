@@ -418,3 +418,11 @@ h4.sec:first-child { margin-top: 0; }
    the window. :has avoids a class the renderer would have to remember to toggle. */
 .shell:has(#viewDetail:not([hidden])),
 .shell:has(#viewWorkflow:not([hidden])) { max-width: 1700px; }
+
+/* The app had no way to tell the user anything; every failure was silent. */
+.toolbar-status {
+  flex-basis: 100%;
+  margin: 6px 0 0;
+  font-size: 12.5px;
+  color: var(--warn);
+}

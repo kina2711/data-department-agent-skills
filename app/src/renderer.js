@@ -414,6 +414,32 @@ async function loadSuite(suitePath) {
   renderGrid();
 }
 
+// One place to say something went wrong. Before this, a button that could not do its job did
+// nothing at all and the user had no way to tell that from a slow disk.
+let statusTimer = 0;
+function setStatus(message) {
+  const el = $('status');
+  el.textContent = message;
+  el.hidden = !message;
+  clearTimeout(statusTimer);
+  if (message) statusTimer = setTimeout(() => { el.hidden = true; }, 6000);
+}
+
+// The atlas is a generated page inside the suite, so it needs a suite before it can be opened,
+// and it can be absent on an older checkout. Say which of the two happened rather than doing
+// nothing when the button is pressed.
+$('openAtlas').addEventListener('click', async () => {
+  if (!state.suitePath) {
+    setStatus('Chọn thư mục suite trước khi mở bản đồ.');
+    return;
+  }
+  const page = `${state.suitePath}/docs/skill-atlas.html`;
+  const problem = await window.studio.openPath(page);
+  if (problem) {
+    setStatus('Chưa có docs/skill-atlas.html — chạy tools/build_skill_atlas.py trong suite.');
+  }
+});
+
 $('pickSuite').addEventListener('click', async () => {
   const picked = await window.studio.pickSuite();
   if (picked) loadSuite(picked);
