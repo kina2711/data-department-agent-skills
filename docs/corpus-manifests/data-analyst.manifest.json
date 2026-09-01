@@ -181,11 +181,15 @@
    "primary_for_keys": [
     "ck.sql.window-function"
    ],
-   "builds_on": [],
-   "prerequisite_of": [],
-   "status": "planned",
+   "builds_on": [
+    "data-analyst.sql.grain"
+   ],
+   "prerequisite_of": [
+    "data-analyst.sql.aggregation-grain-error"
+   ],
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": "",
+   "updated": "2026-09-01",
    "superseded_by": "",
    "stale_reason": ""
   },
@@ -207,11 +211,13 @@
    "primary_for_keys": [
     "ck.sql.cte-vs-subquery"
    ],
-   "builds_on": [],
+   "builds_on": [
+    "data-analyst.sql.window-function"
+   ],
    "prerequisite_of": [],
-   "status": "planned",
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": "",
+   "updated": "2026-09-01",
    "superseded_by": "",
    "stale_reason": ""
   },
@@ -234,12 +240,13 @@
     "ck.sql.aggregation-grain-error"
    ],
    "builds_on": [
-    "data-analyst.sql.grain"
+    "data-analyst.sql.grain",
+    "data-analyst.sql.window-function"
    ],
    "prerequisite_of": [],
-   "status": "planned",
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": "",
+   "updated": "2026-09-01",
    "superseded_by": "",
    "stale_reason": ""
   },
@@ -602,9 +609,10 @@
   }
  ],
  "modules_completed": [
-  "sql-foundation"
+  "sql-foundation",
+  "sql-analysis"
  ],
- "next_module": "sql-analysis",
+ "next_module": "analysis-method",
  "open_gaps": [
   {
    "gap": "Every note in a module shares the same two tags, so the validator's tag-overlap duplicate check reports every pair at 100% and detects nothing. The tags come from the generated plan; fixing it means tagging by concept, not by module.",
@@ -620,9 +628,14 @@
    "gap": "Two prerequisite edges (null-semantics -> set-operations) were derived while writing rather than taken from the registry, because the plan left both notes with no edge at all and the standard requires at least one. They are recorded in this manifest, not back-written into the registry.",
    "owner": "",
    "raised": "2026-09-01"
+  },
+  {
+   "gap": "The plan gives window-function and cte-vs-subquery no edge at all, so both were derived while writing: window-function builds on grain, cte-vs-subquery builds on window-function. Recorded here rather than back-written into the registry, which has no parent for either key.",
+   "owner": "",
+   "raised": "2026-09-01"
   }
  ],
  "owner": "kina2711",
- "version": "0.2.0",
+ "version": "0.3.0",
  "status": "in-progress"
 }

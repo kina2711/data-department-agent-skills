@@ -190,6 +190,21 @@ def check_prose_tells(text: str) -> list[str]:
     return tells
 
 
+# Content and instruction separation is a rule in the authoring standard, and tool-call markup is
+# the sharpest version of what it prohibits: a knowledge base that can accept outside contributions
+# must never carry text shaped like an instruction to an agent. It also catches the accident that
+# put this here -- an authoring session leaking its own call syntax into a note body.
+AGENT_MARKUP = re.compile(
+    r"<\s*/?\s*(?:invoke|function_calls|function_results|antml:[a-z_]+)\b"
+    r"|<\s*parameter\s+name\s*=",
+    re.I,
+)
+
+
+def check_agent_markup(text: str) -> list[str]:
+    return [f"agent/tool markup in note body: {m.group(0)!r}" for m in AGENT_MARKUP.finditer(text)]
+
+
 def check_note_file(path: Path) -> list[str]:
     """Structural faults inside one note file, not a judgment about its content."""
     faults: list[str] = []
@@ -348,12 +363,16 @@ def validate(manifest: Any, note_root: Path | None) -> tuple[list[str], list[str
                     planned_missing.append(note_id)
                     errors.append(f"{note_id}: status {status} but no file at {rel}")
                 elif target.is_file() and kind == "reference":
+                    for bad in check_agent_markup(target.read_text(encoding="utf-8")):
+                        errors.append(f"{note_id}: {bad}")
                     # The authoring standard requires a canonical location for a running example's
                     # schema, and such a file is not a deep dive. Checking it against the deep-dive
                     # headings reported six missing sections for a file that must not have them.
                     for tell in check_prose_tells(target.read_text(encoding="utf-8")):
                         warnings.append(f"{note_id}: {tell}")
                 elif target.is_file():
+                    for bad in check_agent_markup(target.read_text(encoding="utf-8")):
+                        errors.append(f"{note_id}: {bad}")
                     faults = check_note_file(target)
                     if faults:
                         file_faults[note_id] = faults
