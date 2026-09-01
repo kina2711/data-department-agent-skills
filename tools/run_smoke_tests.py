@@ -53,6 +53,7 @@ def parse_simple_eval(path: Path) -> list[dict[str, object]]:
 
 def main() -> None:
     errors: list[str] = []
+    skipped: list[str] = []
     catalog = json.loads((ROOT / "task-catalog.json").read_text(encoding="utf-8"))
     task_ids = {item["id"] for item in catalog}
     task_by_id = {item["id"]: item for item in catalog}
@@ -245,6 +246,21 @@ def main() -> None:
     if harness_run.returncode != 0:
         first = next((l for l in harness_run.stdout.splitlines() if l.startswith("FAIL")), "unknown")
         errors.append(f"eval harness: {first}")
+
+    # The desktop app has its own tests, including screenshots compared against baselines. They
+    # need Electron, so a checkout that never ran `npm install` skips them rather than failing —
+    # but the skip is reported, because a silent skip and a pass look identical in a log.
+    app_dir = ROOT / "app"
+    if not (app_dir / "node_modules" / "electron").exists():
+        skipped.append("app tests: app/node_modules/electron is absent; run npm install in app/")
+    else:
+        app_run = subprocess.run(
+            ["npm", "test", "--silent"], cwd=app_dir,
+            capture_output=True, text=True, check=False, timeout=600,
+        )
+        if app_run.returncode != 0:
+            failing = [l.strip() for l in app_run.stdout.splitlines() if l.strip().startswith("not ok")]
+            errors.append(f"app tests failed: {failing[0] if failing else 'see npm test in app/'}")
 
     # The retrieval index is generated; a stale one sends readers to contracts that moved.
     index_path = ROOT / "docs" / "retrieval-index.json"
@@ -495,6 +511,9 @@ def main() -> None:
     print(f"enforced_contracts: {criticality['enforced']}")
     print(f"stack_adapter_packs: {adapter_count}")
     print(f"errors: {len(errors)}")
+    # A skip and a pass look identical in a log unless the skip says so out loud.
+    for note in skipped:
+        print(f"SKIPPED: {note}")
     if errors:
         for error in errors:
             print(f"ERROR: {error}")

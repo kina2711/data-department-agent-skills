@@ -5,7 +5,10 @@
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder --linux AppImage deb"
+    "dist": "electron-builder --linux AppImage deb",
+    "test": "node --test --test-concurrency=1 'test/*.test.js'",
+    "test:unit": "node --test test/graph.test.js test/suite.test.js",
+    "shots:accept": "DA_ACCEPT_SHOTS=1 node --test test/visual.test.js"
   },
   "author": {
     "name": "kina2711",

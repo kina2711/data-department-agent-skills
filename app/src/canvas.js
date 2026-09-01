@@ -6,11 +6,9 @@
  * persisted as a position. The graph is laid out from `depends_on` on every render, which costs
  * free arrangement and buys a picture that cannot disagree with the file it came from. */
 
-const NODE_W = 232;
-const NODE_H = 92;
-const GAP_X = 78;
-const GAP_Y = 22;
-const PAD = 28;
+// Layering, layout and the run-order helpers live in lib/graph.js so tests can call them without
+// a DOM. Two copies of a layering rule is one copy too many.
+const { NODE_W, NODE_H, GAP_X, GAP_Y, PAD, layout } = self.WfGraph;
 
 const wf = {
   file: '',
@@ -32,35 +30,6 @@ const q = (id) => document.getElementById(id);
 // never an identity. depends_on entries resolve against task_id.
 const keyOf = (t) => t.task_id;
 
-/** Longest-path layering: a node sits one column right of its deepest dependency.
- *  Returns null when the graph has a cycle, because no layering exists inside one. */
-function layer(tasks) {
-  const byKey = new Map(tasks.map((t) => [keyOf(t), t]));
-  const depth = new Map();
-  const state = new Map();
-  let cyclic = false;
-
-  const visit = (key) => {
-    if (state.get(key) === 2) return depth.get(key);
-    if (state.get(key) === 1) {
-      cyclic = true;
-      return 0;
-    }
-    state.set(key, 1);
-    const task = byKey.get(key);
-    let d = 0;
-    for (const dep of (task && task.depends_on) || []) {
-      if (byKey.has(dep)) d = Math.max(d, visit(dep) + 1);
-    }
-    state.set(key, 2);
-    depth.set(key, d);
-    return d;
-  };
-
-  for (const key of byKey.keys()) visit(key);
-  return cyclic ? null : depth;
-}
-
 function render() {
   const host = q('wfCanvas');
   host.innerHTML = '';
@@ -74,32 +43,14 @@ function render() {
     return;
   }
 
-  const depth = layer(tasks);
-  if (!depth) {
+  const laid = layout(tasks);
+  const depth = laid && laid.depth;
+  if (!laid) {
     host.innerHTML = '<div class="notice notice-err">Đồ thị có chu trình trong <code>depends_on</code>; không tồn tại thứ tự nào để vẽ. Sửa phụ thuộc rồi mở lại.</div>';
     return;
   }
 
-  const columns = new Map();
-  for (const t of tasks) {
-    const d = depth.get(keyOf(t)) || 0;
-    if (!columns.has(d)) columns.set(d, []);
-    columns.get(d).push(t);
-  }
-
-  const pos = new Map();
-  let maxRows = 0;
-  for (const [col, items] of [...columns].sort((a, b) => a[0] - b[0])) {
-    maxRows = Math.max(maxRows, items.length);
-    items.forEach((t, row) => {
-      pos.set(keyOf(t), {
-        x: PAD + col * (NODE_W + GAP_X),
-        y: PAD + row * (NODE_H + GAP_Y),
-      });
-    });
-  }
-  const width = PAD * 2 + (columns.size) * NODE_W + (columns.size - 1) * GAP_X;
-  const height = PAD * 2 + maxRows * NODE_H + (maxRows - 1) * GAP_Y;
+  const { pos, width, height } = laid;
 
   const NS = 'http://www.w3.org/2000/svg';
   const el = (tag, attrs) => {

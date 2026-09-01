@@ -157,4 +157,8 @@ function renderJobForm(job, onChange, onBack) {
   update();
 }
 
-window.jobsUI = { renderJobList, renderJobForm, composePrompt, missingRequired };
+const jobsUI = { renderJobList, renderJobForm, composePrompt, missingRequired };
+// The composing and validation halves are pure; the tests reach them through require, the app
+// through the global. Neither half touches the DOM until it is called.
+if (typeof window !== 'undefined') window.jobsUI = jobsUI;
+if (typeof module === 'object' && module.exports) module.exports = jobsUI;

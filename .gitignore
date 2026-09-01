@@ -33,3 +33,4 @@ Thumbs.db
 # Input media dropped in the repo root during a session; never part of the suite.
 *.mp4
 .cache/
+app/test/__shots__/*.actual.png
