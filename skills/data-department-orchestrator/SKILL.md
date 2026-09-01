@@ -1,6 +1,6 @@
 ---
 name: data-department-orchestrator
-description: Route ambiguous, organizational or multi-role Data Department requests and compose governed workflows with owners, dependencies, gates and handoffs. Use for cross-role repository rebuilds or end-to-end initiatives combining discovery, implementation and proof; route personal learning or portfolio projects to Personal Data Project Engineering.
+description: Route ambiguous, organizational or multi-role Data Department requests and compose governed workflows with owners, dependencies, gates and handoffs. Use when the named deliverable cannot be built until another role sources, models or certifies its inputs — a dashboard from systems not yet ingested, an incident spanning monitoring, diagnosis and revalidation, a rebuild combining discovery, implementation and proof. The deliverable named last does not decide the owner; the work standing in front of it does. Route personal learning or portfolio projects to Personal Data Project Engineering.
 ---
 
 # Data Department Orchestrator

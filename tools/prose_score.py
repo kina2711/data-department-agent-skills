@@ -45,6 +45,33 @@ ADVICE = {
 }
 
 
+def python_prose(text: str) -> str:
+    """Docstrings and full-line comments only.
+
+    The bands were calibrated on 220 markdown documents. Run them over a .py file whole and every
+    identifier counts as a word, so `parser.add_argument` repeated eleven times reads as a writer
+    who restates — which is a fact about Python, not about the writing. Take the prose a person
+    actually composed and leave the code alone.
+    """
+    import ast
+
+    parts: list[str] = []
+    try:
+        tree = ast.parse(text)
+    except SyntaxError:
+        return text
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.Module, ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+            doc = ast.get_docstring(node)
+            if doc:
+                parts.append(doc)
+    for line in text.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("# ") and not stripped.startswith("#!"):
+            parts.append(stripped[2:])
+    return "\n\n".join(parts)
+
+
 def prose_only(text: str) -> str:
     body = text.split("---\n", 2)[-1] if text.startswith("---\n") else text
     return "\n".join(
@@ -111,7 +138,8 @@ def main() -> None:
         if not path.is_file():
             print(f"SKIP {path}: not a file")
             continue
-        values = measure(path.read_text(encoding="utf-8"))
+        raw = path.read_text(encoding="utf-8")
+        values = measure(python_prose(raw) if path.suffix == ".py" else raw)
         if values is None:
             print(f"SKIP {path.name}: under twelve sentences of prose, nothing to measure")
             continue

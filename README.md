@@ -544,6 +544,7 @@ Airflow, Spark, Kafka, Power BI, Tableau, Looker, Metabase, Superset and more.
 ├── docs/corpus-plans/     206 planned notes across 10 roles  ← GENERATED
 ├── tools/eval_harness.py cases as data: ls, validate, run, show-prompt
 ├── tools/eval_properties.py 12 invariants over all 865 contracts, each with a mutation
+├── tools/eval_behavioural.py sends routing cases to a model and scores the answers
 ├── docs/knowledge-graph.json  1215 nodes, every edge labelled by origin  ← GENERATED
 ├── app/                  Data Agent, the desktop launcher and workflow canvas
 │   ├── src/              Electron main, preload and renderer
