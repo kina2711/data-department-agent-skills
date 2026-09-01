@@ -266,13 +266,15 @@
    "primary_for_keys": [
     "ck.analytics.cohort"
    ],
-   "builds_on": [],
+   "builds_on": [
+    "data-analyst.sql.grain"
+   ],
    "prerequisite_of": [
     "data-analyst.analytics.retention-curve"
    ],
-   "status": "planned",
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": "",
+   "updated": "2026-09-01",
    "superseded_by": "",
    "stale_reason": ""
   },
@@ -292,11 +294,13 @@
    "primary_for_keys": [
     "ck.analytics.funnel"
    ],
-   "builds_on": [],
+   "builds_on": [
+    "data-analyst.sql.window-function"
+   ],
    "prerequisite_of": [],
-   "status": "planned",
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": "",
+   "updated": "2026-09-01",
    "superseded_by": "",
    "stale_reason": ""
   },
@@ -321,9 +325,9 @@
     "data-analyst.analytics.cohort"
    ],
    "prerequisite_of": [],
-   "status": "planned",
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": "",
+   "updated": "2026-09-01",
    "superseded_by": "",
    "stale_reason": ""
   },
@@ -344,11 +348,13 @@
    "primary_for_keys": [
     "ck.analytics.survivorship-bias"
    ],
-   "builds_on": [],
+   "builds_on": [
+    "data-analyst.analytics.retention-curve"
+   ],
    "prerequisite_of": [],
-   "status": "planned",
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": "",
+   "updated": "2026-09-01",
    "superseded_by": "",
    "stale_reason": ""
   },
@@ -369,11 +375,13 @@
    "primary_for_keys": [
     "ck.analytics.simpson-paradox"
    ],
-   "builds_on": [],
+   "builds_on": [
+    "data-analyst.sql.aggregation-grain-error"
+   ],
    "prerequisite_of": [],
-   "status": "planned",
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": "",
+   "updated": "2026-09-01",
    "superseded_by": "",
    "stale_reason": ""
   },
@@ -394,11 +402,13 @@
    "primary_for_keys": [
     "ck.analytics.statistical-power"
    ],
-   "builds_on": [],
+   "builds_on": [
+    "data-analyst.analytics.simpson-paradox"
+   ],
    "prerequisite_of": [],
-   "status": "planned",
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": "",
+   "updated": "2026-09-01",
    "superseded_by": "",
    "stale_reason": ""
   },
@@ -419,11 +429,13 @@
    "primary_for_keys": [
     "ck.analytics.sampling-bias"
    ],
-   "builds_on": [],
+   "builds_on": [
+    "data-analyst.analytics.statistical-power"
+   ],
    "prerequisite_of": [],
-   "status": "planned",
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": "",
+   "updated": "2026-09-01",
    "superseded_by": "",
    "stale_reason": ""
   },
@@ -445,11 +457,13 @@
    "primary_for_keys": [
     "ck.analytics.metric-definition-drift"
    ],
-   "builds_on": [],
+   "builds_on": [
+    "data-analyst.analytics.sampling-bias"
+   ],
    "prerequisite_of": [],
-   "status": "planned",
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": "",
+   "updated": "2026-09-01",
    "superseded_by": "",
    "stale_reason": ""
   },
@@ -610,9 +624,10 @@
  ],
  "modules_completed": [
   "sql-foundation",
-  "sql-analysis"
+  "sql-analysis",
+  "analysis-method"
  ],
- "next_module": "analysis-method",
+ "next_module": "reading-the-model",
  "open_gaps": [
   {
    "gap": "Every note in a module shares the same two tags, so the validator's tag-overlap duplicate check reports every pair at 100% and detects nothing. The tags come from the generated plan; fixing it means tagging by concept, not by module.",
@@ -633,9 +648,14 @@
    "gap": "The plan gives window-function and cte-vs-subquery no edge at all, so both were derived while writing: window-function builds on grain, cte-vs-subquery builds on window-function. Recorded here rather than back-written into the registry, which has no parent for either key.",
    "owner": "",
    "raised": "2026-09-01"
+  },
+  {
+   "gap": "Seven of the eight analysis-method notes had no edge in the plan, because the registry records a parent only for retention-curve. The reading order used here -- cohort under grain, the bias notes chained after simpson-paradox -- is a teaching sequence chosen while writing, not a dependency the registry asserts.",
+   "owner": "",
+   "raised": "2026-09-01"
   }
  ],
  "owner": "kina2711",
- "version": "0.3.0",
+ "version": "0.4.0",
  "status": "in-progress"
 }

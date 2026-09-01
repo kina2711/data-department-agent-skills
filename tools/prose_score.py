@@ -77,6 +77,7 @@ def prose_only(text: str) -> str:
     # The deep-dive standard requires a <details> block around every self-check answer, so every
     # conforming note carried three sentences opening with "</details>" and lost points for a
     # repetition the standard itself mandates.
+    body = re.sub(r"<summary>.*?</summary>", " ", body, flags=re.S)
     body = re.sub(r"</?(?:details|summary)>", " ", body)
     return "\n".join(
         line for line in body.splitlines()
