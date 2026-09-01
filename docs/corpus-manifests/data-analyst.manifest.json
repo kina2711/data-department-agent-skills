@@ -484,13 +484,15 @@
    "primary_for_keys": [
     "ck.modelling.dimensional-model"
    ],
-   "builds_on": [],
+   "builds_on": [
+    "data-analyst.sql.grain"
+   ],
    "prerequisite_of": [
     "data-analyst.modelling.conformed-dimension"
    ],
-   "status": "planned",
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": "",
+   "updated": "2026-09-01",
    "superseded_by": "",
    "stale_reason": ""
   },
@@ -514,10 +516,12 @@
    "builds_on": [
     "data-analyst.modelling.dimensional-model"
    ],
-   "prerequisite_of": [],
-   "status": "planned",
+   "prerequisite_of": [
+    "data-analyst.modelling.semantic-layer"
+   ],
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": "",
+   "updated": "2026-09-01",
    "superseded_by": "",
    "stale_reason": ""
   },
@@ -538,11 +542,15 @@
    "primary_for_keys": [
     "ck.modelling.semantic-layer"
    ],
-   "builds_on": [],
-   "prerequisite_of": [],
-   "status": "planned",
+   "builds_on": [
+    "data-analyst.modelling.conformed-dimension"
+   ],
+   "prerequisite_of": [
+    "data-analyst.product.stakeholder-decision"
+   ],
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": "",
+   "updated": "2026-09-01",
    "superseded_by": "",
    "stale_reason": ""
   },
@@ -563,11 +571,15 @@
    "primary_for_keys": [
     "ck.product.stakeholder-decision"
    ],
-   "builds_on": [],
-   "prerequisite_of": [],
-   "status": "planned",
+   "builds_on": [
+    "data-analyst.modelling.semantic-layer"
+   ],
+   "prerequisite_of": [
+    "data-analyst.product.opportunity-sizing"
+   ],
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": "",
+   "updated": "2026-09-01",
    "superseded_by": "",
    "stale_reason": ""
   },
@@ -588,11 +600,15 @@
    "primary_for_keys": [
     "ck.product.opportunity-sizing"
    ],
-   "builds_on": [],
-   "prerequisite_of": [],
-   "status": "planned",
+   "builds_on": [
+    "data-analyst.product.stakeholder-decision"
+   ],
+   "prerequisite_of": [
+    "data-analyst.product.acceptance-criteria"
+   ],
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": "",
+   "updated": "2026-09-01",
    "superseded_by": "",
    "stale_reason": ""
   },
@@ -613,11 +629,13 @@
    "primary_for_keys": [
     "ck.product.acceptance-criteria"
    ],
-   "builds_on": [],
+   "builds_on": [
+    "data-analyst.product.opportunity-sizing"
+   ],
    "prerequisite_of": [],
-   "status": "planned",
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": "",
+   "updated": "2026-09-01",
    "superseded_by": "",
    "stale_reason": ""
   }
@@ -625,9 +643,11 @@
  "modules_completed": [
   "sql-foundation",
   "sql-analysis",
-  "analysis-method"
+  "analysis-method",
+  "reading-the-model",
+  "stakeholder-work"
  ],
- "next_module": "reading-the-model",
+ "next_module": "",
  "open_gaps": [
   {
    "gap": "Every note in a module shares the same two tags, so the validator's tag-overlap duplicate check reports every pair at 100% and detects nothing. The tags come from the generated plan; fixing it means tagging by concept, not by module.",
@@ -653,9 +673,15 @@
    "gap": "Seven of the eight analysis-method notes had no edge in the plan, because the registry records a parent only for retention-curve. The reading order used here -- cohort under grain, the bias notes chained after simpson-paradox -- is a teaching sequence chosen while writing, not a dependency the registry asserts.",
    "owner": "",
    "raised": "2026-09-01"
+  },
+  {
+   "gap": "Two tag-overlap warnings remain and both were checked and dismissed: null-semantics against join-semantics share the token 'semantics', survivorship-bias against sampling-bias share 'bias'. Distinct concepts; the overlap is an artefact of splitting slugs into tokens. The validator has no way to record a dismissal, so it is recorded here.",
+   "owner": "kina2711",
+   "raised": "2026-09-01"
   }
  ],
  "owner": "kina2711",
- "version": "0.4.0",
- "status": "in-progress"
+ "version": "1.0.0",
+ "status": "drafted-complete",
+ "_status_note": "Every planned note exists and passes structure and prose checks. Not one is `reviewed`: no person with the domain has read any of them, so this corpus is not yet evidence that anything in it is correct."
 }
