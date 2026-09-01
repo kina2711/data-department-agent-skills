@@ -15,7 +15,8 @@
    "path": "data-engineer/sql-and-storage/sql.grain.md",
    "tags": [
     "sql",
-    "sql-and-storage"
+    "sql-and-storage",
+    "grain"
    ],
    "concept_keys": [
     "ck.sql.grain"
@@ -36,7 +37,9 @@
    "path": "data-engineer/sql-and-storage/sql.join-semantics.md",
    "tags": [
     "sql",
-    "sql-and-storage"
+    "sql-and-storage",
+    "join",
+    "semantics"
    ],
    "concept_keys": [
     "ck.sql.join-semantics"
@@ -57,7 +60,10 @@
    "path": "data-engineer/sql-and-storage/sql.index-and-scan.md",
    "tags": [
     "sql",
-    "sql-and-storage"
+    "sql-and-storage",
+    "index",
+    "and",
+    "scan"
    ],
    "concept_keys": [
     "ck.sql.index-and-scan"
@@ -78,7 +84,9 @@
    "path": "data-engineer/sql-and-storage/sql.query-plan.md",
    "tags": [
     "sql",
-    "sql-and-storage"
+    "sql-and-storage",
+    "query",
+    "plan"
    ],
    "concept_keys": [
     "ck.sql.query-plan"
@@ -99,7 +107,9 @@
    "path": "data-engineer/sql-and-storage/sql.transaction-isolation.md",
    "tags": [
     "sql",
-    "sql-and-storage"
+    "sql-and-storage",
+    "transaction",
+    "isolation"
    ],
    "concept_keys": [
     "ck.sql.transaction-isolation"
@@ -120,7 +130,9 @@
    "path": "data-engineer/sql-and-storage/sql.idempotent-write.md",
    "tags": [
     "sql",
-    "sql-and-storage"
+    "sql-and-storage",
+    "idempotent",
+    "write"
    ],
    "concept_keys": [
     "ck.sql.idempotent-write"
@@ -143,7 +155,9 @@
    "path": "data-engineer/python-for-pipelines/python.iterator-generator.md",
    "tags": [
     "python",
-    "python-for-pipelines"
+    "python-for-pipelines",
+    "iterator",
+    "generator"
    ],
    "concept_keys": [
     "ck.python.iterator-generator"
@@ -164,7 +178,9 @@
    "path": "data-engineer/python-for-pipelines/python.exception-flow.md",
    "tags": [
     "python",
-    "python-for-pipelines"
+    "python-for-pipelines",
+    "exception",
+    "flow"
    ],
    "concept_keys": [
     "ck.python.exception-flow"
@@ -185,7 +201,9 @@
    "path": "data-engineer/python-for-pipelines/python.packaging-environment.md",
    "tags": [
     "python",
-    "python-for-pipelines"
+    "python-for-pipelines",
+    "packaging",
+    "environment"
    ],
    "concept_keys": [
     "ck.python.packaging-environment"
@@ -206,7 +224,9 @@
    "path": "data-engineer/python-for-pipelines/python.testing-pyramid.md",
    "tags": [
     "python",
-    "python-for-pipelines"
+    "python-for-pipelines",
+    "testing",
+    "pyramid"
    ],
    "concept_keys": [
     "ck.python.testing-pyramid"
@@ -227,7 +247,8 @@
    "path": "data-engineer/pipeline-core/pipeline.idempotency.md",
    "tags": [
     "pipeline",
-    "pipeline-core"
+    "pipeline-core",
+    "idempotency"
    ],
    "concept_keys": [
     "ck.pipeline.idempotency"
@@ -250,7 +271,8 @@
    "path": "data-engineer/pipeline-core/pipeline.cdc.md",
    "tags": [
     "pipeline",
-    "pipeline-core"
+    "pipeline-core",
+    "cdc"
    ],
    "concept_keys": [
     "ck.pipeline.cdc"
@@ -271,7 +293,8 @@
    "path": "data-engineer/pipeline-core/pipeline.watermark.md",
    "tags": [
     "pipeline",
-    "pipeline-core"
+    "pipeline-core",
+    "watermark"
    ],
    "concept_keys": [
     "ck.pipeline.watermark"
@@ -292,7 +315,8 @@
    "path": "data-engineer/pipeline-core/pipeline.backfill.md",
    "tags": [
     "pipeline",
-    "pipeline-core"
+    "pipeline-core",
+    "backfill"
    ],
    "concept_keys": [
     "ck.pipeline.backfill"
@@ -313,7 +337,9 @@
    "path": "data-engineer/pipeline-core/pipeline.delivery-semantics.md",
    "tags": [
     "pipeline",
-    "pipeline-core"
+    "pipeline-core",
+    "delivery",
+    "semantics"
    ],
    "concept_keys": [
     "ck.pipeline.delivery-semantics"
@@ -334,7 +360,9 @@
    "path": "data-engineer/pipeline-core/pipeline.schema-evolution.md",
    "tags": [
     "pipeline",
-    "pipeline-core"
+    "pipeline-core",
+    "schema",
+    "evolution"
    ],
    "concept_keys": [
     "ck.pipeline.schema-evolution"
@@ -355,7 +383,8 @@
    "path": "data-engineer/pipeline-core/pipeline.reconciliation.md",
    "tags": [
     "pipeline",
-    "pipeline-core"
+    "pipeline-core",
+    "reconciliation"
    ],
    "concept_keys": [
     "ck.pipeline.reconciliation"
@@ -376,7 +405,8 @@
    "path": "data-engineer/pipeline-core/pipeline.orchestration.md",
    "tags": [
     "pipeline",
-    "pipeline-core"
+    "pipeline-core",
+    "orchestration"
    ],
    "concept_keys": [
     "ck.pipeline.orchestration"
@@ -397,7 +427,9 @@
    "path": "data-engineer/pipeline-core/pipeline.dead-letter.md",
    "tags": [
     "pipeline",
-    "pipeline-core"
+    "pipeline-core",
+    "dead",
+    "letter"
    ],
    "concept_keys": [
     "ck.pipeline.dead-letter"
@@ -418,7 +450,9 @@
    "path": "data-engineer/warehouse-physics/warehouse.columnar-storage.md",
    "tags": [
     "warehouse",
-    "warehouse-physics"
+    "warehouse-physics",
+    "columnar",
+    "storage"
    ],
    "concept_keys": [
     "ck.warehouse.columnar-storage"
@@ -439,7 +473,8 @@
    "path": "data-engineer/warehouse-physics/warehouse.partitioning.md",
    "tags": [
     "warehouse",
-    "warehouse-physics"
+    "warehouse-physics",
+    "partitioning"
    ],
    "concept_keys": [
     "ck.warehouse.partitioning"
@@ -462,7 +497,8 @@
    "path": "data-engineer/warehouse-physics/warehouse.clustering.md",
    "tags": [
     "warehouse",
-    "warehouse-physics"
+    "warehouse-physics",
+    "clustering"
    ],
    "concept_keys": [
     "ck.warehouse.clustering"
@@ -485,7 +521,9 @@
    "path": "data-engineer/warehouse-physics/warehouse.file-layout.md",
    "tags": [
     "warehouse",
-    "warehouse-physics"
+    "warehouse-physics",
+    "file",
+    "layout"
    ],
    "concept_keys": [
     "ck.warehouse.file-layout"
@@ -506,7 +544,10 @@
    "path": "data-engineer/warehouse-physics/warehouse.compute-storage-separation.md",
    "tags": [
     "warehouse",
-    "warehouse-physics"
+    "warehouse-physics",
+    "compute",
+    "storage",
+    "separation"
    ],
    "concept_keys": [
     "ck.warehouse.compute-storage-separation"
@@ -527,7 +568,9 @@
    "path": "data-engineer/warehouse-physics/warehouse.scan-cost.md",
    "tags": [
     "warehouse",
-    "warehouse-physics"
+    "warehouse-physics",
+    "scan",
+    "cost"
    ],
    "concept_keys": [
     "ck.warehouse.scan-cost"
@@ -548,7 +591,10 @@
    "path": "data-engineer/engineering-practice/swe.version-control-hygiene.md",
    "tags": [
     "swe",
-    "engineering-practice"
+    "engineering-practice",
+    "version",
+    "control",
+    "hygiene"
    ],
    "concept_keys": [
     "ck.swe.version-control-hygiene"
@@ -569,7 +615,9 @@
    "path": "data-engineer/engineering-practice/swe.code-review.md",
    "tags": [
     "swe",
-    "engineering-practice"
+    "engineering-practice",
+    "code",
+    "review"
    ],
    "concept_keys": [
     "ck.swe.code-review"
@@ -590,7 +638,9 @@
    "path": "data-engineer/engineering-practice/swe.test-isolation.md",
    "tags": [
     "swe",
-    "engineering-practice"
+    "engineering-practice",
+    "test",
+    "isolation"
    ],
    "concept_keys": [
     "ck.swe.test-isolation"
@@ -611,7 +661,10 @@
    "path": "data-engineer/engineering-practice/swe.ci-feedback-loop.md",
    "tags": [
     "swe",
-    "engineering-practice"
+    "engineering-practice",
+    "ci",
+    "feedback",
+    "loop"
    ],
    "concept_keys": [
     "ck.swe.ci-feedback-loop"
@@ -632,7 +685,9 @@
    "path": "data-engineer/engineering-practice/swe.technical-debt.md",
    "tags": [
     "swe",
-    "engineering-practice"
+    "engineering-practice",
+    "technical",
+    "debt"
    ],
    "concept_keys": [
     "ck.swe.technical-debt"
@@ -653,7 +708,8 @@
    "path": "data-engineer/engineering-practice/swe.observability.md",
    "tags": [
     "swe",
-    "engineering-practice"
+    "engineering-practice",
+    "observability"
    ],
    "concept_keys": [
     "ck.swe.observability"

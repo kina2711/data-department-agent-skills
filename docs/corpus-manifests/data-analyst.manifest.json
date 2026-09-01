@@ -1,13 +1,35 @@
 {
+ "_": "Observed state of the corpus. The plan under docs/corpus-plans/ is generated and stays `planned` by design; progress belongs here so a rebuild of the plan never overwrites it.",
  "corpus_id": "data-analyst-corpus",
  "domain": "Data Analyst",
  "roadmap_ref": "",
- "track_map_ref": "",
+ "track_map_ref": "docs/corpus-plans/data-analyst.corpus.json",
  "note_root": "notes",
  "standard": "knowledge-deep-dive-standard.md",
- "concept_registry_ref": "docs/concept-registry.json",
- "_": "Planned only: no note exists yet. Run academy-elicit-prior-knowledge before building, then academy-build-note-module one module at a time, checkpointing here.",
+ "prior_knowledge_ref": "docs/corpus-runs/da-prior-knowledge.yaml",
  "notes": [
+  {
+   "id": "data-analyst._schema",
+   "title": "Lược đồ ví dụ chạy xuyên suốt",
+   "module_id": "",
+   "path": "data-analyst/_schema.md",
+   "tags": [
+    "schema",
+    "canonical"
+   ],
+   "concept_keys": [],
+   "primary_for_keys": [],
+   "builds_on": [],
+   "prerequisite_of": [
+    "data-analyst.sql.grain"
+   ],
+   "status": "drafted",
+   "version_sensitive": false,
+   "updated": "2026-09-01",
+   "superseded_by": "",
+   "stale_reason": "",
+   "kind": "reference"
+  },
   {
    "id": "data-analyst.sql.grain",
    "title": "Grain",
@@ -28,9 +50,11 @@
    "prerequisite_of": [
     "data-analyst.sql.aggregation-grain-error"
    ],
-   "status": "planned",
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "2026-09-01",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.sql.null-semantics",
@@ -50,10 +74,14 @@
     "ck.sql.null-semantics"
    ],
    "builds_on": [],
-   "prerequisite_of": [],
-   "status": "planned",
+   "prerequisite_of": [
+    "data-analyst.sql.set-operations"
+   ],
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "2026-09-01",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.sql.join-semantics",
@@ -76,9 +104,11 @@
    "prerequisite_of": [
     "data-analyst.sql.fan-out"
    ],
-   "status": "planned",
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "2026-09-01",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.sql.fan-out",
@@ -101,9 +131,11 @@
     "data-analyst.sql.join-semantics"
    ],
    "prerequisite_of": [],
-   "status": "planned",
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "2026-09-01",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.sql.set-operations",
@@ -122,11 +154,15 @@
    "primary_for_keys": [
     "ck.sql.set-operations"
    ],
-   "builds_on": [],
+   "builds_on": [
+    "data-analyst.sql.null-semantics"
+   ],
    "prerequisite_of": [],
-   "status": "planned",
+   "status": "drafted",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "2026-09-01",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.sql.window-function",
@@ -149,7 +185,9 @@
    "prerequisite_of": [],
    "status": "planned",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.sql.cte-vs-subquery",
@@ -173,7 +211,9 @@
    "prerequisite_of": [],
    "status": "planned",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.sql.aggregation-grain-error",
@@ -199,7 +239,9 @@
    "prerequisite_of": [],
    "status": "planned",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.analytics.cohort",
@@ -223,7 +265,9 @@
    ],
    "status": "planned",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.analytics.funnel",
@@ -245,7 +289,9 @@
    "prerequisite_of": [],
    "status": "planned",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.analytics.retention-curve",
@@ -270,7 +316,9 @@
    "prerequisite_of": [],
    "status": "planned",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.analytics.survivorship-bias",
@@ -293,7 +341,9 @@
    "prerequisite_of": [],
    "status": "planned",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.analytics.simpson-paradox",
@@ -316,7 +366,9 @@
    "prerequisite_of": [],
    "status": "planned",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.analytics.statistical-power",
@@ -339,7 +391,9 @@
    "prerequisite_of": [],
    "status": "planned",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.analytics.sampling-bias",
@@ -362,7 +416,9 @@
    "prerequisite_of": [],
    "status": "planned",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.analytics.metric-definition-drift",
@@ -386,7 +442,9 @@
    "prerequisite_of": [],
    "status": "planned",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.modelling.dimensional-model",
@@ -411,7 +469,9 @@
    ],
    "status": "planned",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.modelling.conformed-dimension",
@@ -436,7 +496,9 @@
    "prerequisite_of": [],
    "status": "planned",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.modelling.semantic-layer",
@@ -459,7 +521,9 @@
    "prerequisite_of": [],
    "status": "planned",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.product.stakeholder-decision",
@@ -482,7 +546,9 @@
    "prerequisite_of": [],
    "status": "planned",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.product.opportunity-sizing",
@@ -505,7 +571,9 @@
    "prerequisite_of": [],
    "status": "planned",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "",
+   "superseded_by": "",
+   "stale_reason": ""
   },
   {
    "id": "data-analyst.product.acceptance-criteria",
@@ -528,13 +596,33 @@
    "prerequisite_of": [],
    "status": "planned",
    "version_sensitive": false,
-   "updated": ""
+   "updated": "",
+   "superseded_by": "",
+   "stale_reason": ""
   }
  ],
- "modules_completed": [],
- "next_module": "sql-foundation",
- "open_gaps": [],
- "owner": "",
- "version": "0.1.0",
- "status": "draft"
+ "modules_completed": [
+  "sql-foundation"
+ ],
+ "next_module": "sql-analysis",
+ "open_gaps": [
+  {
+   "gap": "Every note in a module shares the same two tags, so the validator's tag-overlap duplicate check reports every pair at 100% and detects nothing. The tags come from the generated plan; fixing it means tagging by concept, not by module.",
+   "owner": "",
+   "raised": "2026-09-01"
+  },
+  {
+   "gap": "`drafted` means the file exists and passes structure and prose checks. No note here is `reviewed`: nobody with the domain has read one, and until that happens none of this is evidence that anything is correct.",
+   "owner": "",
+   "raised": "2026-09-01"
+  },
+  {
+   "gap": "Two prerequisite edges (null-semantics -> set-operations) were derived while writing rather than taken from the registry, because the plan left both notes with no edge at all and the standard requires at least one. They are recorded in this manifest, not back-written into the registry.",
+   "owner": "",
+   "raised": "2026-09-01"
+  }
+ ],
+ "owner": "kina2711",
+ "version": "0.2.0",
+ "status": "in-progress"
 }

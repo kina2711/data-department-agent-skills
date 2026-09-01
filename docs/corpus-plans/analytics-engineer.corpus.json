@@ -15,7 +15,8 @@
    "path": "analytics-engineer/sql-depth/sql.grain.md",
    "tags": [
     "sql",
-    "sql-depth"
+    "sql-depth",
+    "grain"
    ],
    "concept_keys": [
     "ck.sql.grain"
@@ -39,7 +40,9 @@
    "path": "analytics-engineer/sql-depth/sql.fan-out.md",
    "tags": [
     "sql",
-    "sql-depth"
+    "sql-depth",
+    "fan",
+    "out"
    ],
    "concept_keys": [
     "ck.sql.fan-out"
@@ -60,7 +63,9 @@
    "path": "analytics-engineer/sql-depth/sql.window-function.md",
    "tags": [
     "sql",
-    "sql-depth"
+    "sql-depth",
+    "window",
+    "function"
    ],
    "concept_keys": [
     "ck.sql.window-function"
@@ -81,7 +86,10 @@
    "path": "analytics-engineer/sql-depth/sql.aggregation-grain-error.md",
    "tags": [
     "sql",
-    "sql-depth"
+    "sql-depth",
+    "aggregation",
+    "grain",
+    "error"
    ],
    "concept_keys": [
     "ck.sql.aggregation-grain-error"
@@ -104,7 +112,8 @@
    "path": "analytics-engineer/sql-depth/sql.normalization.md",
    "tags": [
     "sql",
-    "sql-depth"
+    "sql-depth",
+    "normalization"
    ],
    "concept_keys": [
     "ck.sql.normalization"
@@ -125,7 +134,9 @@
    "path": "analytics-engineer/modelling/modelling.dimensional-model.md",
    "tags": [
     "modelling",
-    "modelling"
+    "modelling",
+    "dimensional",
+    "model"
    ],
    "concept_keys": [
     "ck.modelling.dimensional-model"
@@ -148,7 +159,9 @@
    "path": "analytics-engineer/modelling/modelling.conformed-dimension.md",
    "tags": [
     "modelling",
-    "modelling"
+    "modelling",
+    "conformed",
+    "dimension"
    ],
    "concept_keys": [
     "ck.modelling.conformed-dimension"
@@ -171,7 +184,10 @@
    "path": "analytics-engineer/modelling/modelling.slowly-changing-dimension.md",
    "tags": [
     "modelling",
-    "modelling"
+    "modelling",
+    "slowly",
+    "changing",
+    "dimension"
    ],
    "concept_keys": [
     "ck.modelling.slowly-changing-dimension"
@@ -192,7 +208,10 @@
    "path": "analytics-engineer/modelling/modelling.one-big-table.md",
    "tags": [
     "modelling",
-    "modelling"
+    "modelling",
+    "one",
+    "big",
+    "table"
    ],
    "concept_keys": [
     "ck.modelling.one-big-table"
@@ -213,7 +232,9 @@
    "path": "analytics-engineer/modelling/modelling.fact-grain.md",
    "tags": [
     "modelling",
-    "modelling"
+    "modelling",
+    "fact",
+    "grain"
    ],
    "concept_keys": [
     "ck.modelling.fact-grain"
@@ -236,7 +257,9 @@
    "path": "analytics-engineer/modelling/modelling.semantic-layer.md",
    "tags": [
     "modelling",
-    "modelling"
+    "modelling",
+    "semantic",
+    "layer"
    ],
    "concept_keys": [
     "ck.modelling.semantic-layer"
@@ -257,7 +280,9 @@
    "path": "analytics-engineer/modelling/modelling.surrogate-key.md",
    "tags": [
     "modelling",
-    "modelling"
+    "modelling",
+    "surrogate",
+    "key"
    ],
    "concept_keys": [
     "ck.modelling.surrogate-key"
@@ -278,7 +303,8 @@
    "path": "analytics-engineer/incremental-and-cost/pipeline.idempotency.md",
    "tags": [
     "pipeline",
-    "incremental-and-cost"
+    "incremental-and-cost",
+    "idempotency"
    ],
    "concept_keys": [
     "ck.pipeline.idempotency"
@@ -299,7 +325,8 @@
    "path": "analytics-engineer/incremental-and-cost/pipeline.backfill.md",
    "tags": [
     "pipeline",
-    "incremental-and-cost"
+    "incremental-and-cost",
+    "backfill"
    ],
    "concept_keys": [
     "ck.pipeline.backfill"
@@ -320,7 +347,8 @@
    "path": "analytics-engineer/incremental-and-cost/warehouse.partitioning.md",
    "tags": [
     "warehouse",
-    "incremental-and-cost"
+    "incremental-and-cost",
+    "partitioning"
    ],
    "concept_keys": [
     "ck.warehouse.partitioning"
@@ -343,7 +371,8 @@
    "path": "analytics-engineer/incremental-and-cost/warehouse.clustering.md",
    "tags": [
     "warehouse",
-    "incremental-and-cost"
+    "incremental-and-cost",
+    "clustering"
    ],
    "concept_keys": [
     "ck.warehouse.clustering"
@@ -366,7 +395,9 @@
    "path": "analytics-engineer/incremental-and-cost/warehouse.scan-cost.md",
    "tags": [
     "warehouse",
-    "incremental-and-cost"
+    "incremental-and-cost",
+    "scan",
+    "cost"
    ],
    "concept_keys": [
     "ck.warehouse.scan-cost"
@@ -387,7 +418,10 @@
    "path": "analytics-engineer/release-discipline/swe.version-control-hygiene.md",
    "tags": [
     "swe",
-    "release-discipline"
+    "release-discipline",
+    "version",
+    "control",
+    "hygiene"
    ],
    "concept_keys": [
     "ck.swe.version-control-hygiene"
@@ -408,7 +442,9 @@
    "path": "analytics-engineer/release-discipline/swe.code-review.md",
    "tags": [
     "swe",
-    "release-discipline"
+    "release-discipline",
+    "code",
+    "review"
    ],
    "concept_keys": [
     "ck.swe.code-review"
@@ -429,7 +465,9 @@
    "path": "analytics-engineer/release-discipline/swe.test-isolation.md",
    "tags": [
     "swe",
-    "release-discipline"
+    "release-discipline",
+    "test",
+    "isolation"
    ],
    "concept_keys": [
     "ck.swe.test-isolation"
@@ -450,7 +488,10 @@
    "path": "analytics-engineer/release-discipline/swe.ci-feedback-loop.md",
    "tags": [
     "swe",
-    "release-discipline"
+    "release-discipline",
+    "ci",
+    "feedback",
+    "loop"
    ],
    "concept_keys": [
     "ck.swe.ci-feedback-loop"

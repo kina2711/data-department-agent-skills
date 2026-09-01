@@ -132,7 +132,10 @@ def build(role: str, display: str, modules: list, registry: dict[str, dict]) -> 
                 "title": entry["display_name"],
                 "module_id": module_id,
                 "path": f"{role}/{module_id}/{key.split('.', 1)[1]}.md",
-                "tags": [entry["domain"], module_id],
+                # Domain and module alone made every note in a module carry an identical tag set,
+                # so the validator's tag-overlap duplicate check reported all 47 pairs of the SQL
+                # module at 100% and found nothing. The concept slug is what distinguishes them.
+                "tags": [entry["domain"], module_id, *key.split(".")[-1].split("-")],
                 "concept_keys": [key],
                 "primary_for_keys": [key],
                 "builds_on": [d for d in depends if d],

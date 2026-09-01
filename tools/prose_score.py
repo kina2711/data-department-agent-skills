@@ -74,6 +74,10 @@ def python_prose(text: str) -> str:
 
 def prose_only(text: str) -> str:
     body = text.split("---\n", 2)[-1] if text.startswith("---\n") else text
+    # The deep-dive standard requires a <details> block around every self-check answer, so every
+    # conforming note carried three sentences opening with "</details>" and lost points for a
+    # repetition the standard itself mandates.
+    body = re.sub(r"</?(?:details|summary)>", " ", body)
     return "\n".join(
         line for line in body.splitlines()
         if not line.lstrip().startswith(("|", "#", "-", "*", ">"))

@@ -15,7 +15,9 @@
    "path": "data-architect/architecture-core/arch.data-contract.md",
    "tags": [
     "arch",
-    "architecture-core"
+    "architecture-core",
+    "data",
+    "contract"
    ],
    "concept_keys": [
     "ck.arch.data-contract"
@@ -36,7 +38,8 @@
    "path": "data-architect/architecture-core/arch.coupling.md",
    "tags": [
     "arch",
-    "architecture-core"
+    "architecture-core",
+    "coupling"
    ],
    "concept_keys": [
     "ck.arch.coupling"
@@ -57,7 +60,9 @@
    "path": "data-architect/architecture-core/arch.consistency-model.md",
    "tags": [
     "arch",
-    "architecture-core"
+    "architecture-core",
+    "consistency",
+    "model"
    ],
    "concept_keys": [
     "ck.arch.consistency-model"
@@ -78,7 +83,9 @@
    "path": "data-architect/architecture-core/arch.idempotent-interface.md",
    "tags": [
     "arch",
-    "architecture-core"
+    "architecture-core",
+    "idempotent",
+    "interface"
    ],
    "concept_keys": [
     "ck.arch.idempotent-interface"
@@ -99,7 +106,9 @@
    "path": "data-architect/architecture-core/arch.failure-domain.md",
    "tags": [
     "arch",
-    "architecture-core"
+    "architecture-core",
+    "failure",
+    "domain"
    ],
    "concept_keys": [
     "ck.arch.failure-domain"
@@ -120,7 +129,8 @@
    "path": "data-architect/architecture-core/arch.lineage.md",
    "tags": [
     "arch",
-    "architecture-core"
+    "architecture-core",
+    "lineage"
    ],
    "concept_keys": [
     "ck.arch.lineage"
@@ -141,7 +151,9 @@
    "path": "data-architect/modelling-decisions/modelling.dimensional-model.md",
    "tags": [
     "modelling",
-    "modelling-decisions"
+    "modelling-decisions",
+    "dimensional",
+    "model"
    ],
    "concept_keys": [
     "ck.modelling.dimensional-model"
@@ -164,7 +176,10 @@
    "path": "data-architect/modelling-decisions/modelling.one-big-table.md",
    "tags": [
     "modelling",
-    "modelling-decisions"
+    "modelling-decisions",
+    "one",
+    "big",
+    "table"
    ],
    "concept_keys": [
     "ck.modelling.one-big-table"
@@ -185,7 +200,9 @@
    "path": "data-architect/modelling-decisions/modelling.conformed-dimension.md",
    "tags": [
     "modelling",
-    "modelling-decisions"
+    "modelling-decisions",
+    "conformed",
+    "dimension"
    ],
    "concept_keys": [
     "ck.modelling.conformed-dimension"
@@ -208,7 +225,10 @@
    "path": "data-architect/modelling-decisions/modelling.slowly-changing-dimension.md",
    "tags": [
     "modelling",
-    "modelling-decisions"
+    "modelling-decisions",
+    "slowly",
+    "changing",
+    "dimension"
    ],
    "concept_keys": [
     "ck.modelling.slowly-changing-dimension"
@@ -229,7 +249,9 @@
    "path": "data-architect/platform-physics/warehouse.columnar-storage.md",
    "tags": [
     "warehouse",
-    "platform-physics"
+    "platform-physics",
+    "columnar",
+    "storage"
    ],
    "concept_keys": [
     "ck.warehouse.columnar-storage"
@@ -250,7 +272,8 @@
    "path": "data-architect/platform-physics/warehouse.partitioning.md",
    "tags": [
     "warehouse",
-    "platform-physics"
+    "platform-physics",
+    "partitioning"
    ],
    "concept_keys": [
     "ck.warehouse.partitioning"
@@ -273,7 +296,8 @@
    "path": "data-architect/platform-physics/warehouse.clustering.md",
    "tags": [
     "warehouse",
-    "platform-physics"
+    "platform-physics",
+    "clustering"
    ],
    "concept_keys": [
     "ck.warehouse.clustering"
@@ -296,7 +320,9 @@
    "path": "data-architect/platform-physics/warehouse.file-layout.md",
    "tags": [
     "warehouse",
-    "platform-physics"
+    "platform-physics",
+    "file",
+    "layout"
    ],
    "concept_keys": [
     "ck.warehouse.file-layout"
@@ -317,7 +343,10 @@
    "path": "data-architect/platform-physics/warehouse.compute-storage-separation.md",
    "tags": [
     "warehouse",
-    "platform-physics"
+    "platform-physics",
+    "compute",
+    "storage",
+    "separation"
    ],
    "concept_keys": [
     "ck.warehouse.compute-storage-separation"
@@ -338,7 +367,9 @@
    "path": "data-architect/platform-physics/warehouse.scan-cost.md",
    "tags": [
     "warehouse",
-    "platform-physics"
+    "platform-physics",
+    "scan",
+    "cost"
    ],
    "concept_keys": [
     "ck.warehouse.scan-cost"
@@ -359,7 +390,9 @@
    "path": "data-architect/integration-semantics/pipeline.delivery-semantics.md",
    "tags": [
     "pipeline",
-    "integration-semantics"
+    "integration-semantics",
+    "delivery",
+    "semantics"
    ],
    "concept_keys": [
     "ck.pipeline.delivery-semantics"
@@ -380,7 +413,8 @@
    "path": "data-architect/integration-semantics/pipeline.cdc.md",
    "tags": [
     "pipeline",
-    "integration-semantics"
+    "integration-semantics",
+    "cdc"
    ],
    "concept_keys": [
     "ck.pipeline.cdc"
@@ -401,7 +435,9 @@
    "path": "data-architect/integration-semantics/pipeline.schema-evolution.md",
    "tags": [
     "pipeline",
-    "integration-semantics"
+    "integration-semantics",
+    "schema",
+    "evolution"
    ],
    "concept_keys": [
     "ck.pipeline.schema-evolution"
@@ -422,7 +458,8 @@
    "path": "data-architect/integration-semantics/pipeline.watermark.md",
    "tags": [
     "pipeline",
-    "integration-semantics"
+    "integration-semantics",
+    "watermark"
    ],
    "concept_keys": [
     "ck.pipeline.watermark"

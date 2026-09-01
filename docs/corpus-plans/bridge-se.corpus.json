@@ -15,7 +15,9 @@
    "path": "bridge-se/requirements-and-traceability/product.acceptance-criteria.md",
    "tags": [
     "product",
-    "requirements-and-traceability"
+    "requirements-and-traceability",
+    "acceptance",
+    "criteria"
    ],
    "concept_keys": [
     "ck.product.acceptance-criteria"
@@ -36,7 +38,9 @@
    "path": "bridge-se/requirements-and-traceability/product.requirement-traceability.md",
    "tags": [
     "product",
-    "requirements-and-traceability"
+    "requirements-and-traceability",
+    "requirement",
+    "traceability"
    ],
    "concept_keys": [
     "ck.product.requirement-traceability"
@@ -57,7 +61,9 @@
    "path": "bridge-se/requirements-and-traceability/product.stakeholder-decision.md",
    "tags": [
     "product",
-    "requirements-and-traceability"
+    "requirements-and-traceability",
+    "stakeholder",
+    "decision"
    ],
    "concept_keys": [
     "ck.product.stakeholder-decision"
@@ -78,7 +84,10 @@
    "path": "bridge-se/engineering-vocabulary/swe.version-control-hygiene.md",
    "tags": [
     "swe",
-    "engineering-vocabulary"
+    "engineering-vocabulary",
+    "version",
+    "control",
+    "hygiene"
    ],
    "concept_keys": [
     "ck.swe.version-control-hygiene"
@@ -99,7 +108,9 @@
    "path": "bridge-se/engineering-vocabulary/swe.code-review.md",
    "tags": [
     "swe",
-    "engineering-vocabulary"
+    "engineering-vocabulary",
+    "code",
+    "review"
    ],
    "concept_keys": [
     "ck.swe.code-review"
@@ -120,7 +131,10 @@
    "path": "bridge-se/engineering-vocabulary/swe.ci-feedback-loop.md",
    "tags": [
     "swe",
-    "engineering-vocabulary"
+    "engineering-vocabulary",
+    "ci",
+    "feedback",
+    "loop"
    ],
    "concept_keys": [
     "ck.swe.ci-feedback-loop"
@@ -141,7 +155,9 @@
    "path": "bridge-se/engineering-vocabulary/swe.technical-debt.md",
    "tags": [
     "swe",
-    "engineering-vocabulary"
+    "engineering-vocabulary",
+    "technical",
+    "debt"
    ],
    "concept_keys": [
     "ck.swe.technical-debt"
@@ -162,7 +178,8 @@
    "path": "bridge-se/data-vocabulary/sql.grain.md",
    "tags": [
     "sql",
-    "data-vocabulary"
+    "data-vocabulary",
+    "grain"
    ],
    "concept_keys": [
     "ck.sql.grain"
@@ -183,7 +200,9 @@
    "path": "bridge-se/data-vocabulary/modelling.semantic-layer.md",
    "tags": [
     "modelling",
-    "data-vocabulary"
+    "data-vocabulary",
+    "semantic",
+    "layer"
    ],
    "concept_keys": [
     "ck.modelling.semantic-layer"
@@ -204,7 +223,9 @@
    "path": "bridge-se/data-vocabulary/arch.data-contract.md",
    "tags": [
     "arch",
-    "data-vocabulary"
+    "data-vocabulary",
+    "data",
+    "contract"
    ],
    "concept_keys": [
     "ck.arch.data-contract"
@@ -225,7 +246,8 @@
    "path": "bridge-se/data-vocabulary/arch.coupling.md",
    "tags": [
     "arch",
-    "data-vocabulary"
+    "data-vocabulary",
+    "coupling"
    ],
    "concept_keys": [
     "ck.arch.coupling"

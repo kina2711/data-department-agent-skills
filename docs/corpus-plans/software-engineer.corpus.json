@@ -15,7 +15,10 @@
    "path": "software-engineer/practice/swe.version-control-hygiene.md",
    "tags": [
     "swe",
-    "practice"
+    "practice",
+    "version",
+    "control",
+    "hygiene"
    ],
    "concept_keys": [
     "ck.swe.version-control-hygiene"
@@ -36,7 +39,9 @@
    "path": "software-engineer/practice/swe.code-review.md",
    "tags": [
     "swe",
-    "practice"
+    "practice",
+    "code",
+    "review"
    ],
    "concept_keys": [
     "ck.swe.code-review"
@@ -57,7 +62,9 @@
    "path": "software-engineer/practice/swe.test-isolation.md",
    "tags": [
     "swe",
-    "practice"
+    "practice",
+    "test",
+    "isolation"
    ],
    "concept_keys": [
     "ck.swe.test-isolation"
@@ -78,7 +85,10 @@
    "path": "software-engineer/practice/swe.ci-feedback-loop.md",
    "tags": [
     "swe",
-    "practice"
+    "practice",
+    "ci",
+    "feedback",
+    "loop"
    ],
    "concept_keys": [
     "ck.swe.ci-feedback-loop"
@@ -99,7 +109,9 @@
    "path": "software-engineer/practice/swe.technical-debt.md",
    "tags": [
     "swe",
-    "practice"
+    "practice",
+    "technical",
+    "debt"
    ],
    "concept_keys": [
     "ck.swe.technical-debt"
@@ -120,7 +132,8 @@
    "path": "software-engineer/practice/swe.observability.md",
    "tags": [
     "swe",
-    "practice"
+    "practice",
+    "observability"
    ],
    "concept_keys": [
     "ck.swe.observability"
@@ -141,7 +154,9 @@
    "path": "software-engineer/python/python.data-model.md",
    "tags": [
     "python",
-    "python"
+    "python",
+    "data",
+    "model"
    ],
    "concept_keys": [
     "ck.python.data-model"
@@ -162,7 +177,9 @@
    "path": "software-engineer/python/python.mutability-aliasing.md",
    "tags": [
     "python",
-    "python"
+    "python",
+    "mutability",
+    "aliasing"
    ],
    "concept_keys": [
     "ck.python.mutability-aliasing"
@@ -183,7 +200,9 @@
    "path": "software-engineer/python/python.iterator-generator.md",
    "tags": [
     "python",
-    "python"
+    "python",
+    "iterator",
+    "generator"
    ],
    "concept_keys": [
     "ck.python.iterator-generator"
@@ -204,7 +223,8 @@
    "path": "software-engineer/python/python.comprehension.md",
    "tags": [
     "python",
-    "python"
+    "python",
+    "comprehension"
    ],
    "concept_keys": [
     "ck.python.comprehension"
@@ -225,7 +245,10 @@
    "path": "software-engineer/python/python.typing-and-hints.md",
    "tags": [
     "python",
-    "python"
+    "python",
+    "typing",
+    "and",
+    "hints"
    ],
    "concept_keys": [
     "ck.python.typing-and-hints"
@@ -246,7 +269,9 @@
    "path": "software-engineer/python/python.packaging-environment.md",
    "tags": [
     "python",
-    "python"
+    "python",
+    "packaging",
+    "environment"
    ],
    "concept_keys": [
     "ck.python.packaging-environment"
@@ -267,7 +292,9 @@
    "path": "software-engineer/python/python.exception-flow.md",
    "tags": [
     "python",
-    "python"
+    "python",
+    "exception",
+    "flow"
    ],
    "concept_keys": [
     "ck.python.exception-flow"
@@ -288,7 +315,9 @@
    "path": "software-engineer/python/python.pandas-semantics.md",
    "tags": [
     "python",
-    "python"
+    "python",
+    "pandas",
+    "semantics"
    ],
    "concept_keys": [
     "ck.python.pandas-semantics"
@@ -309,7 +338,8 @@
    "path": "software-engineer/python/python.vectorisation.md",
    "tags": [
     "python",
-    "python"
+    "python",
+    "vectorisation"
    ],
    "concept_keys": [
     "ck.python.vectorisation"
@@ -330,7 +360,9 @@
    "path": "software-engineer/python/python.async-concurrency.md",
    "tags": [
     "python",
-    "python"
+    "python",
+    "async",
+    "concurrency"
    ],
    "concept_keys": [
     "ck.python.async-concurrency"
@@ -351,7 +383,9 @@
    "path": "software-engineer/python/python.testing-pyramid.md",
    "tags": [
     "python",
-    "python"
+    "python",
+    "testing",
+    "pyramid"
    ],
    "concept_keys": [
     "ck.python.testing-pyramid"
@@ -372,7 +406,8 @@
    "path": "software-engineer/rust/rust.ownership.md",
    "tags": [
     "rust",
-    "rust"
+    "rust",
+    "ownership"
    ],
    "concept_keys": [
     "ck.rust.ownership"
@@ -396,7 +431,8 @@
    "path": "software-engineer/rust/rust.borrowing.md",
    "tags": [
     "rust",
-    "rust"
+    "rust",
+    "borrowing"
    ],
    "concept_keys": [
     "ck.rust.borrowing"
@@ -421,7 +457,8 @@
    "path": "software-engineer/rust/rust.lifetime.md",
    "tags": [
     "rust",
-    "rust"
+    "rust",
+    "lifetime"
    ],
    "concept_keys": [
     "ck.rust.lifetime"
@@ -444,7 +481,8 @@
    "path": "software-engineer/rust/rust.trait.md",
    "tags": [
     "rust",
-    "rust"
+    "rust",
+    "trait"
    ],
    "concept_keys": [
     "ck.rust.trait"
@@ -465,7 +503,9 @@
    "path": "software-engineer/rust/rust.error-handling.md",
    "tags": [
     "rust",
-    "rust"
+    "rust",
+    "error",
+    "handling"
    ],
    "concept_keys": [
     "ck.rust.error-handling"
@@ -486,7 +526,9 @@
    "path": "software-engineer/rust/rust.fearless-concurrency.md",
    "tags": [
     "rust",
-    "rust"
+    "rust",
+    "fearless",
+    "concurrency"
    ],
    "concept_keys": [
     "ck.rust.fearless-concurrency"
@@ -509,7 +551,10 @@
    "path": "software-engineer/rust/rust.zero-cost-abstraction.md",
    "tags": [
     "rust",
-    "rust"
+    "rust",
+    "zero",
+    "cost",
+    "abstraction"
    ],
    "concept_keys": [
     "ck.rust.zero-cost-abstraction"
@@ -530,7 +575,8 @@
    "path": "software-engineer/systems-thinking/arch.coupling.md",
    "tags": [
     "arch",
-    "systems-thinking"
+    "systems-thinking",
+    "coupling"
    ],
    "concept_keys": [
     "ck.arch.coupling"
@@ -551,7 +597,9 @@
    "path": "software-engineer/systems-thinking/arch.consistency-model.md",
    "tags": [
     "arch",
-    "systems-thinking"
+    "systems-thinking",
+    "consistency",
+    "model"
    ],
    "concept_keys": [
     "ck.arch.consistency-model"
@@ -572,7 +620,9 @@
    "path": "software-engineer/systems-thinking/arch.failure-domain.md",
    "tags": [
     "arch",
-    "systems-thinking"
+    "systems-thinking",
+    "failure",
+    "domain"
    ],
    "concept_keys": [
     "ck.arch.failure-domain"
@@ -593,7 +643,9 @@
    "path": "software-engineer/systems-thinking/arch.idempotent-interface.md",
    "tags": [
     "arch",
-    "systems-thinking"
+    "systems-thinking",
+    "idempotent",
+    "interface"
    ],
    "concept_keys": [
     "ck.arch.idempotent-interface"

@@ -15,7 +15,9 @@
    "path": "product-manager/product-core/product.opportunity-sizing.md",
    "tags": [
     "product",
-    "product-core"
+    "product-core",
+    "opportunity",
+    "sizing"
    ],
    "concept_keys": [
     "ck.product.opportunity-sizing"
@@ -36,7 +38,9 @@
    "path": "product-manager/product-core/product.prioritisation-gate.md",
    "tags": [
     "product",
-    "product-core"
+    "product-core",
+    "prioritisation",
+    "gate"
    ],
    "concept_keys": [
     "ck.product.prioritisation-gate"
@@ -57,7 +61,10 @@
    "path": "product-manager/product-core/product.discovery-versus-delivery.md",
    "tags": [
     "product",
-    "product-core"
+    "product-core",
+    "discovery",
+    "versus",
+    "delivery"
    ],
    "concept_keys": [
     "ck.product.discovery-versus-delivery"
@@ -78,7 +85,9 @@
    "path": "product-manager/product-core/product.acceptance-criteria.md",
    "tags": [
     "product",
-    "product-core"
+    "product-core",
+    "acceptance",
+    "criteria"
    ],
    "concept_keys": [
     "ck.product.acceptance-criteria"
@@ -99,7 +108,9 @@
    "path": "product-manager/product-core/product.stakeholder-decision.md",
    "tags": [
     "product",
-    "product-core"
+    "product-core",
+    "stakeholder",
+    "decision"
    ],
    "concept_keys": [
     "ck.product.stakeholder-decision"
@@ -120,7 +131,9 @@
    "path": "product-manager/product-core/product.requirement-traceability.md",
    "tags": [
     "product",
-    "product-core"
+    "product-core",
+    "requirement",
+    "traceability"
    ],
    "concept_keys": [
     "ck.product.requirement-traceability"
@@ -141,7 +154,8 @@
    "path": "product-manager/measurement/analytics.funnel.md",
    "tags": [
     "analytics",
-    "measurement"
+    "measurement",
+    "funnel"
    ],
    "concept_keys": [
     "ck.analytics.funnel"
@@ -162,7 +176,8 @@
    "path": "product-manager/measurement/analytics.cohort.md",
    "tags": [
     "analytics",
-    "measurement"
+    "measurement",
+    "cohort"
    ],
    "concept_keys": [
     "ck.analytics.cohort"
@@ -185,7 +200,9 @@
    "path": "product-manager/measurement/analytics.retention-curve.md",
    "tags": [
     "analytics",
-    "measurement"
+    "measurement",
+    "retention",
+    "curve"
    ],
    "concept_keys": [
     "ck.analytics.retention-curve"
@@ -208,7 +225,10 @@
    "path": "product-manager/measurement/analytics.metric-definition-drift.md",
    "tags": [
     "analytics",
-    "measurement"
+    "measurement",
+    "metric",
+    "definition",
+    "drift"
    ],
    "concept_keys": [
     "ck.analytics.metric-definition-drift"
@@ -229,7 +249,9 @@
    "path": "product-manager/evidence-limits/analytics.statistical-power.md",
    "tags": [
     "analytics",
-    "evidence-limits"
+    "evidence-limits",
+    "statistical",
+    "power"
    ],
    "concept_keys": [
     "ck.analytics.statistical-power"
@@ -250,7 +272,9 @@
    "path": "product-manager/evidence-limits/analytics.sampling-bias.md",
    "tags": [
     "analytics",
-    "evidence-limits"
+    "evidence-limits",
+    "sampling",
+    "bias"
    ],
    "concept_keys": [
     "ck.analytics.sampling-bias"
@@ -271,7 +295,9 @@
    "path": "product-manager/evidence-limits/analytics.survivorship-bias.md",
    "tags": [
     "analytics",
-    "evidence-limits"
+    "evidence-limits",
+    "survivorship",
+    "bias"
    ],
    "concept_keys": [
     "ck.analytics.survivorship-bias"

@@ -15,7 +15,8 @@
    "path": "business-data-analyst/sql-working-level/sql.grain.md",
    "tags": [
     "sql",
-    "sql-working-level"
+    "sql-working-level",
+    "grain"
    ],
    "concept_keys": [
     "ck.sql.grain"
@@ -36,7 +37,9 @@
    "path": "business-data-analyst/sql-working-level/sql.join-semantics.md",
    "tags": [
     "sql",
-    "sql-working-level"
+    "sql-working-level",
+    "join",
+    "semantics"
    ],
    "concept_keys": [
     "ck.sql.join-semantics"
@@ -59,7 +62,9 @@
    "path": "business-data-analyst/sql-working-level/sql.fan-out.md",
    "tags": [
     "sql",
-    "sql-working-level"
+    "sql-working-level",
+    "fan",
+    "out"
    ],
    "concept_keys": [
     "ck.sql.fan-out"
@@ -82,7 +87,9 @@
    "path": "business-data-analyst/sql-working-level/sql.null-semantics.md",
    "tags": [
     "sql",
-    "sql-working-level"
+    "sql-working-level",
+    "null",
+    "semantics"
    ],
    "concept_keys": [
     "ck.sql.null-semantics"
@@ -103,7 +110,9 @@
    "path": "business-data-analyst/requirements/product.opportunity-sizing.md",
    "tags": [
     "product",
-    "requirements"
+    "requirements",
+    "opportunity",
+    "sizing"
    ],
    "concept_keys": [
     "ck.product.opportunity-sizing"
@@ -124,7 +133,9 @@
    "path": "business-data-analyst/requirements/product.prioritisation-gate.md",
    "tags": [
     "product",
-    "requirements"
+    "requirements",
+    "prioritisation",
+    "gate"
    ],
    "concept_keys": [
     "ck.product.prioritisation-gate"
@@ -145,7 +156,10 @@
    "path": "business-data-analyst/requirements/product.discovery-versus-delivery.md",
    "tags": [
     "product",
-    "requirements"
+    "requirements",
+    "discovery",
+    "versus",
+    "delivery"
    ],
    "concept_keys": [
     "ck.product.discovery-versus-delivery"
@@ -166,7 +180,9 @@
    "path": "business-data-analyst/requirements/product.acceptance-criteria.md",
    "tags": [
     "product",
-    "requirements"
+    "requirements",
+    "acceptance",
+    "criteria"
    ],
    "concept_keys": [
     "ck.product.acceptance-criteria"
@@ -187,7 +203,9 @@
    "path": "business-data-analyst/requirements/product.stakeholder-decision.md",
    "tags": [
     "product",
-    "requirements"
+    "requirements",
+    "stakeholder",
+    "decision"
    ],
    "concept_keys": [
     "ck.product.stakeholder-decision"
@@ -208,7 +226,9 @@
    "path": "business-data-analyst/requirements/product.requirement-traceability.md",
    "tags": [
     "product",
-    "requirements"
+    "requirements",
+    "requirement",
+    "traceability"
    ],
    "concept_keys": [
     "ck.product.requirement-traceability"
@@ -229,7 +249,9 @@
    "path": "business-data-analyst/analysis-traps/analytics.simpson-paradox.md",
    "tags": [
     "analytics",
-    "analysis-traps"
+    "analysis-traps",
+    "simpson",
+    "paradox"
    ],
    "concept_keys": [
     "ck.analytics.simpson-paradox"
@@ -250,7 +272,9 @@
    "path": "business-data-analyst/analysis-traps/analytics.survivorship-bias.md",
    "tags": [
     "analytics",
-    "analysis-traps"
+    "analysis-traps",
+    "survivorship",
+    "bias"
    ],
    "concept_keys": [
     "ck.analytics.survivorship-bias"
@@ -271,7 +295,9 @@
    "path": "business-data-analyst/analysis-traps/analytics.sampling-bias.md",
    "tags": [
     "analytics",
-    "analysis-traps"
+    "analysis-traps",
+    "sampling",
+    "bias"
    ],
    "concept_keys": [
     "ck.analytics.sampling-bias"
@@ -292,7 +318,10 @@
    "path": "business-data-analyst/analysis-traps/analytics.metric-definition-drift.md",
    "tags": [
     "analytics",
-    "analysis-traps"
+    "analysis-traps",
+    "metric",
+    "definition",
+    "drift"
    ],
    "concept_keys": [
     "ck.analytics.metric-definition-drift"
@@ -313,7 +342,9 @@
    "path": "business-data-analyst/semantics-and-contracts/modelling.semantic-layer.md",
    "tags": [
     "modelling",
-    "semantics-and-contracts"
+    "semantics-and-contracts",
+    "semantic",
+    "layer"
    ],
    "concept_keys": [
     "ck.modelling.semantic-layer"
@@ -334,7 +365,9 @@
    "path": "business-data-analyst/semantics-and-contracts/arch.data-contract.md",
    "tags": [
     "arch",
-    "semantics-and-contracts"
+    "semantics-and-contracts",
+    "data",
+    "contract"
    ],
    "concept_keys": [
     "ck.arch.data-contract"

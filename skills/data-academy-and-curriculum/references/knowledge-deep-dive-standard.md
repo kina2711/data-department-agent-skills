@@ -13,7 +13,7 @@ Use these headings verbatim, in this order. The fixed phrase is itself the retri
 | Operation | `## Cơ Chế Tác Động` | mechanism and syntax step by step; state evaluation order where one exists |
 | Options | `## Bản Đồ Quyết Định` | an explicit decision table or tree, plus the consequence of choosing wrong |
 | Thread | `## Case Study Thực Chiến: <situation>` | one concrete worked situation, plus a harder variant where the concept misleads once extended |
-| Edge cases and misconceptions | `## Góc Khuất & Ngộ Nhận` | edge-case and performance behaviour that does not repeat the mechanism section, plus at least two entries in the form misconception, reality, and why the misconception sounds plausible |
+| Edge cases and misconceptions | `## Góc Khuất & Ngộ Nhận` | edge-case and performance behaviour that does not repeat the mechanism section, plus at least two entries opening with the literal marker `**Hiểu lầm:**` and carrying `**Thực tế:**` and `**Vì sao nghe hợp lý:**` — the marker is what `validate_note_corpus.py` counts, and a correctly written entry under any other label fails the check |
 | Teaching seed *(optional)* | `## Nếu Bạn Dạy Lại Điều Này...` | one opening hook and one exercise seed |
 | Self-check | `## Tự Kiểm Tra Nhanh` | 2-3 static questions, each answer wrapped in `<details><summary>Đáp án</summary>` so the reader must retrieve before checking |
 | Diagnostic scenarios *(optional)* | `## Bài Tập Chẩn Đoán (AI Assessment)` | a local mini-schema and neutrally described scenarios carrying no answers |

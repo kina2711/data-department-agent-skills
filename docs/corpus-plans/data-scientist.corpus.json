@@ -15,7 +15,9 @@
    "path": "data-scientist/python-core/python.data-model.md",
    "tags": [
     "python",
-    "python-core"
+    "python-core",
+    "data",
+    "model"
    ],
    "concept_keys": [
     "ck.python.data-model"
@@ -36,7 +38,9 @@
    "path": "data-scientist/python-core/python.mutability-aliasing.md",
    "tags": [
     "python",
-    "python-core"
+    "python-core",
+    "mutability",
+    "aliasing"
    ],
    "concept_keys": [
     "ck.python.mutability-aliasing"
@@ -57,7 +61,9 @@
    "path": "data-scientist/python-core/python.iterator-generator.md",
    "tags": [
     "python",
-    "python-core"
+    "python-core",
+    "iterator",
+    "generator"
    ],
    "concept_keys": [
     "ck.python.iterator-generator"
@@ -78,7 +84,8 @@
    "path": "data-scientist/python-core/python.comprehension.md",
    "tags": [
     "python",
-    "python-core"
+    "python-core",
+    "comprehension"
    ],
    "concept_keys": [
     "ck.python.comprehension"
@@ -99,7 +106,10 @@
    "path": "data-scientist/python-core/python.typing-and-hints.md",
    "tags": [
     "python",
-    "python-core"
+    "python-core",
+    "typing",
+    "and",
+    "hints"
    ],
    "concept_keys": [
     "ck.python.typing-and-hints"
@@ -120,7 +130,9 @@
    "path": "data-scientist/python-core/python.packaging-environment.md",
    "tags": [
     "python",
-    "python-core"
+    "python-core",
+    "packaging",
+    "environment"
    ],
    "concept_keys": [
     "ck.python.packaging-environment"
@@ -141,7 +153,9 @@
    "path": "data-scientist/python-core/python.exception-flow.md",
    "tags": [
     "python",
-    "python-core"
+    "python-core",
+    "exception",
+    "flow"
    ],
    "concept_keys": [
     "ck.python.exception-flow"
@@ -162,7 +176,9 @@
    "path": "data-scientist/python-core/python.pandas-semantics.md",
    "tags": [
     "python",
-    "python-core"
+    "python-core",
+    "pandas",
+    "semantics"
    ],
    "concept_keys": [
     "ck.python.pandas-semantics"
@@ -183,7 +199,8 @@
    "path": "data-scientist/python-core/python.vectorisation.md",
    "tags": [
     "python",
-    "python-core"
+    "python-core",
+    "vectorisation"
    ],
    "concept_keys": [
     "ck.python.vectorisation"
@@ -204,7 +221,9 @@
    "path": "data-scientist/python-core/python.async-concurrency.md",
    "tags": [
     "python",
-    "python-core"
+    "python-core",
+    "async",
+    "concurrency"
    ],
    "concept_keys": [
     "ck.python.async-concurrency"
@@ -225,7 +244,9 @@
    "path": "data-scientist/python-core/python.testing-pyramid.md",
    "tags": [
     "python",
-    "python-core"
+    "python-core",
+    "testing",
+    "pyramid"
    ],
    "concept_keys": [
     "ck.python.testing-pyramid"
@@ -246,7 +267,9 @@
    "path": "data-scientist/statistics-traps/analytics.statistical-power.md",
    "tags": [
     "analytics",
-    "statistics-traps"
+    "statistics-traps",
+    "statistical",
+    "power"
    ],
    "concept_keys": [
     "ck.analytics.statistical-power"
@@ -267,7 +290,9 @@
    "path": "data-scientist/statistics-traps/analytics.sampling-bias.md",
    "tags": [
     "analytics",
-    "statistics-traps"
+    "statistics-traps",
+    "sampling",
+    "bias"
    ],
    "concept_keys": [
     "ck.analytics.sampling-bias"
@@ -288,7 +313,9 @@
    "path": "data-scientist/statistics-traps/analytics.simpson-paradox.md",
    "tags": [
     "analytics",
-    "statistics-traps"
+    "statistics-traps",
+    "simpson",
+    "paradox"
    ],
    "concept_keys": [
     "ck.analytics.simpson-paradox"
@@ -309,7 +336,9 @@
    "path": "data-scientist/statistics-traps/analytics.survivorship-bias.md",
    "tags": [
     "analytics",
-    "statistics-traps"
+    "statistics-traps",
+    "survivorship",
+    "bias"
    ],
    "concept_keys": [
     "ck.analytics.survivorship-bias"
@@ -330,7 +359,8 @@
    "path": "data-scientist/modelling-discipline/ml.leakage.md",
    "tags": [
     "ml",
-    "modelling-discipline"
+    "modelling-discipline",
+    "leakage"
    ],
    "concept_keys": [
     "ck.ml.leakage"
@@ -351,7 +381,10 @@
    "path": "data-scientist/modelling-discipline/ml.train-serve-skew.md",
    "tags": [
     "ml",
-    "modelling-discipline"
+    "modelling-discipline",
+    "train",
+    "serve",
+    "skew"
    ],
    "concept_keys": [
     "ck.ml.train-serve-skew"
@@ -374,7 +407,9 @@
    "path": "data-scientist/modelling-discipline/ml.validation-split.md",
    "tags": [
     "ml",
-    "modelling-discipline"
+    "modelling-discipline",
+    "validation",
+    "split"
    ],
    "concept_keys": [
     "ck.ml.validation-split"
@@ -395,7 +430,8 @@
    "path": "data-scientist/modelling-discipline/ml.overfitting.md",
    "tags": [
     "ml",
-    "modelling-discipline"
+    "modelling-discipline",
+    "overfitting"
    ],
    "concept_keys": [
     "ck.ml.overfitting"
@@ -416,7 +452,9 @@
    "path": "data-scientist/modelling-discipline/ml.feature-store.md",
    "tags": [
     "ml",
-    "modelling-discipline"
+    "modelling-discipline",
+    "feature",
+    "store"
    ],
    "concept_keys": [
     "ck.ml.feature-store"
@@ -439,7 +477,8 @@
    "path": "data-scientist/modelling-discipline/ml.drift.md",
    "tags": [
     "ml",
-    "modelling-discipline"
+    "modelling-discipline",
+    "drift"
    ],
    "concept_keys": [
     "ck.ml.drift"
@@ -460,7 +499,8 @@
    "path": "data-scientist/modelling-discipline/ml.explainability.md",
    "tags": [
     "ml",
-    "modelling-discipline"
+    "modelling-discipline",
+    "explainability"
    ],
    "concept_keys": [
     "ck.ml.explainability"
@@ -481,7 +521,8 @@
    "path": "data-scientist/data-access/sql.grain.md",
    "tags": [
     "sql",
-    "data-access"
+    "data-access",
+    "grain"
    ],
    "concept_keys": [
     "ck.sql.grain"
@@ -502,7 +543,9 @@
    "path": "data-scientist/data-access/sql.join-semantics.md",
    "tags": [
     "sql",
-    "data-access"
+    "data-access",
+    "join",
+    "semantics"
    ],
    "concept_keys": [
     "ck.sql.join-semantics"
@@ -525,7 +568,9 @@
    "path": "data-scientist/data-access/sql.fan-out.md",
    "tags": [
     "sql",
-    "data-access"
+    "data-access",
+    "fan",
+    "out"
    ],
    "concept_keys": [
     "ck.sql.fan-out"

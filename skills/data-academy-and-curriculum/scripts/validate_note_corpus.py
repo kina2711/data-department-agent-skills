@@ -341,11 +341,18 @@ def validate(manifest: Any, note_root: Path | None) -> tuple[list[str], list[str
                     if status in BUILT_STATUS:
                         errors.append(f"{note_id}: status {status} but no path")
                     continue
+                kind = str(note.get("kind", "deep-dive")).strip() or "deep-dive"
                 target = (note_root / rel).resolve()
                 declared.add(target)
                 if status in BUILT_STATUS and not target.is_file():
                     planned_missing.append(note_id)
                     errors.append(f"{note_id}: status {status} but no file at {rel}")
+                elif target.is_file() and kind == "reference":
+                    # The authoring standard requires a canonical location for a running example's
+                    # schema, and such a file is not a deep dive. Checking it against the deep-dive
+                    # headings reported six missing sections for a file that must not have them.
+                    for tell in check_prose_tells(target.read_text(encoding="utf-8")):
+                        warnings.append(f"{note_id}: {tell}")
                 elif target.is_file():
                     faults = check_note_file(target)
                     if faults:
@@ -361,13 +368,15 @@ def validate(manifest: Any, note_root: Path | None) -> tuple[list[str], list[str
 
     built = [n for n in by_id.values() if str(n.get("status", "")) in BUILT_STATUS]
     reviewed = [n for n in by_id.values() if str(n.get("status", "")) == "reviewed"]
-    modules = {str(n.get("module_id", "")).strip() for n in by_id.values() if n.get("module_id")}
+    # Supporting files belong to no module; counting them made a corpus of five modules report six.
+    deep_dives = [n for n in by_id.values() if str(n.get("kind", "deep-dive")) != "reference"]
+    modules = {str(n.get("module_id", "")).strip() for n in deep_dives if n.get("module_id")}
     modules_done = {
         module
         for module in modules
         if all(
             str(n.get("status", "")) in BUILT_STATUS
-            for n in by_id.values()
+            for n in deep_dives
             if str(n.get("module_id", "")).strip() == module
         )
     }
