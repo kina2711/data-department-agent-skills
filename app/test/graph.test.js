@@ -88,3 +88,66 @@ test('the critical path is the longest chain, not merely a path', () => {
 test('a cyclic graph has no critical path', () => {
   assert.equal(g.criticalPath([t('x', 'y'), t('y', 'x')]), null);
 });
+
+/* The dry run. Its whole point is to be trustworthy before anything is executed, so the cases
+ * below are the ones where a plan could look complete and not be. */
+
+test('a chain plans one task per wave, a fan plans them together', () => {
+  assert.equal(g.runPlan([t('a'), t('b', 'a'), t('c', 'b')]).waves.length, 3);
+  const fan = g.runPlan([t('a'), t('b'), t('c')]);
+  assert.equal(fan.waves.length, 1);
+  assert.equal(fan.widest, 3);
+});
+
+test('a diamond takes three waves and the join is alone in the last', () => {
+  const plan = g.runPlan([t('a'), t('b', 'a'), t('c', 'a'), t('d', 'b', 'c')]);
+  assert.equal(plan.waves.length, 3);
+  assert.deepEqual(plan.waves[1].tasks, ['b', 'c']);
+  assert.deepEqual(plan.waves[2].tasks, ['d']);
+});
+
+test('finished tasks are not replanned and are counted separately', () => {
+  const tasks = [t('a'), t('b', 'a')];
+  tasks[0].status = 'complete';
+  const plan = g.runPlan(tasks);
+  assert.equal(plan.already, 1);
+  assert.equal(plan.planned, 1);
+  assert.deepEqual(plan.waves.map((w) => w.tasks), [['b']]);
+});
+
+test('a cycle strands its members instead of being left out of the plan', () => {
+  const plan = g.runPlan([t('a'), t('x', 'y'), t('y', 'x')]);
+  assert.deepEqual(plan.waves.map((w) => w.tasks), [['a']]);
+  assert.deepEqual(plan.stranded.sort(), ['x', 'y']);
+  assert.equal(plan.planned, 1);
+});
+
+test('a dependency outside the manifest does not strand the task', () => {
+  const plan = g.runPlan([t('a', 'lives-elsewhere')]);
+  assert.deepEqual(plan.stranded, []);
+  assert.deepEqual(plan.waves[0].tasks, ['a']);
+});
+
+test('gates are reported in the wave they occur in, not as a stage of their own', () => {
+  const tasks = [t('a'), t('b', 'a'), t('c', 'a')];
+  tasks[1].risk_tier = 'R3-controlled';
+  tasks[2].risk_tier = 'R1-reviewed';
+  const plan = g.runPlan(tasks);
+  assert.equal(plan.gates, 1);
+  assert.deepEqual(plan.waves[1].gates, ['b']);
+  assert.deepEqual(plan.waves[1].tasks, ['b', 'c']);
+});
+
+test('R4 counts as a gate and R2 does not', () => {
+  const mk = (tier) => { const x = t('only'); x.risk_tier = tier; return g.runPlan([x]).gates; };
+  assert.equal(mk('R4-critical'), 1);
+  assert.equal(mk('R3-controlled'), 1);
+  assert.equal(mk('R2-standard'), 0);
+  assert.equal(mk(undefined), 0);
+});
+
+test('an empty manifest plans nothing rather than looping', () => {
+  const plan = g.runPlan([]);
+  assert.deepEqual(plan.waves, []);
+  assert.deepEqual(plan.stranded, []);
+});

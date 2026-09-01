@@ -136,5 +136,52 @@
     return chain;
   }
 
-  return { NODE_W, NODE_H, GAP_X, GAP_Y, PAD, FINISHED, keyOf, layer, layout, readyNow, criticalPath };
+  /* A dry run: the waves a run would go through, computed without calling anything.
+   *
+   * Each wave is the set of tasks whose dependencies are satisfied by the waves before it, so the
+   * wave count is the least number of rounds the work can take and the width of a wave is how much
+   * could go in parallel. Tasks already finished in the manifest are not replanned.
+   *
+   * A gate is a task at R3 or R4. It is reported inside its wave rather than as a separate stage,
+   * because approval is a condition on that task and not a step of its own — a run stops there and
+   * waits for a person, and the plan should say so where it will actually happen.
+   *
+   * When a wave comes back empty while work remains, the rest is unreachable: a cycle, or a
+   * dependency on a task the manifest does not contain. Those tasks are returned as `stranded`
+   * rather than quietly dropped, because a plan that omits them looks complete. */
+  const GATE = new Set(['R3-controlled', 'R4-critical']);
+
+  function runPlan(tasks, { limit = 200 } = {}) {
+    const done = new Set(
+      tasks.filter((t) => FINISHED.has(t.status || 'planned')).map(keyOf));
+    const already = done.size;
+    const byKey = new Map(tasks.map((t) => [keyOf(t), t]));
+    const waves = [];
+
+    while (done.size < tasks.length && waves.length < limit) {
+      const ready = tasks
+        .filter((t) => !done.has(keyOf(t)))
+        .filter((t) => (t.depends_on || []).every((d) => !byKey.has(d) || done.has(d)))
+        .map(keyOf);
+      if (!ready.length) break;
+      waves.push({
+        wave: waves.length + 1,
+        tasks: ready,
+        gates: ready.filter((k) => GATE.has((byKey.get(k) || {}).risk_tier)),
+      });
+      for (const k of ready) done.add(k);
+    }
+
+    const stranded = tasks.filter((t) => !done.has(keyOf(t))).map(keyOf);
+    return {
+      waves,
+      stranded,
+      already,
+      planned: tasks.length - already - stranded.length,
+      gates: waves.reduce((n, w) => n + w.gates.length, 0),
+      widest: waves.reduce((n, w) => Math.max(n, w.tasks.length), 0),
+    };
+  }
+
+  return { NODE_W, NODE_H, GAP_X, GAP_Y, PAD, FINISHED, GATE, keyOf, layer, layout, readyNow, criticalPath, runPlan };
 });

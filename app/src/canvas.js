@@ -8,7 +8,7 @@
 
 // Layering, layout and the run-order helpers live in lib/graph.js so tests can call them without
 // a DOM. Two copies of a layering rule is one copy too many.
-const { NODE_W, NODE_H, GAP_X, GAP_Y, PAD, layout } = self.WfGraph;
+const { NODE_W, NODE_H, GAP_X, GAP_Y, PAD, layout, runPlan } = self.WfGraph;
 
 const wf = {
   file: '',
@@ -332,6 +332,86 @@ function renderInspector() {
   box.append(del);
 }
 
+
+/* The dry run, drawn.
+ *
+ * It answers three questions before anything is executed: how many rounds this takes, how much
+ * runs at once in each round, and where a person has to sign before the next round can start.
+ * Nothing here calls the model or the validator — it reads the manifest already open.
+ *
+ * Stranded tasks get their own row rather than being left out. A plan that silently omits the work
+ * it cannot order looks complete, and that is the failure this row exists to prevent. */
+function renderPlan() {
+  const host = q('wfPlan');
+  host.textContent = '';
+  if (!wf.manifest) {
+    host.hidden = true;
+    return;
+  }
+  const tasks = wf.manifest.tasks || [];
+  const plan = runPlan(tasks);
+  host.hidden = false;
+
+  const head = document.createElement('div');
+  head.className = 'wf-plan-head';
+  const bits = [`${plan.waves.length} đợt`, `rộng nhất ${plan.widest} task`, `${plan.planned} task sẽ chạy`];
+  if (plan.already) bits.push(`${plan.already} đã xong`);
+  if (plan.gates) bits.push(`${plan.gates} cổng duyệt`);
+  head.textContent = bits.join(' · ');
+  host.append(head);
+
+  if (!plan.waves.length && !plan.stranded.length) {
+    const none = document.createElement('p');
+    none.className = 'wf-plan-none';
+    none.textContent = 'Không còn task nào để chạy.';
+    host.append(none);
+    return;
+  }
+
+  for (const wave of plan.waves) {
+    const row = document.createElement('div');
+    row.className = 'wf-wave';
+    const label = document.createElement('span');
+    label.className = 'wf-wave-n';
+    label.textContent = `Đợt ${wave.wave}`;
+    row.append(label);
+    const list = document.createElement('div');
+    list.className = 'wf-wave-tasks';
+    for (const id of wave.tasks) {
+      const chip = document.createElement('span');
+      const gate = wave.gates.includes(id);
+      chip.className = `wf-chip${gate ? ' is-gate' : ''}`;
+      chip.textContent = gate ? `${id} · cần duyệt` : id;
+      list.append(chip);
+    }
+    row.append(list);
+    host.append(row);
+  }
+
+  if (plan.stranded.length) {
+    const row = document.createElement('div');
+    row.className = 'wf-wave is-stranded';
+    const label = document.createElement('span');
+    label.className = 'wf-wave-n';
+    label.textContent = 'Không tới được';
+    row.append(label);
+    const list = document.createElement('div');
+    list.className = 'wf-wave-tasks';
+    for (const id of plan.stranded) {
+      const chip = document.createElement('span');
+      chip.className = 'wf-chip is-stranded';
+      chip.textContent = id;
+      list.append(chip);
+    }
+    row.append(list);
+    host.append(row);
+    const why = document.createElement('p');
+    why.className = 'wf-plan-none';
+    why.textContent = 'Các task này không có thứ tự nào chạy được: hoặc có chu trình trong depends_on, hoặc phụ thuộc vào task không nằm trong manifest.';
+    host.append(why);
+  }
+}
+
 function markDirty() {
   wf.dirty = true;
   q('wfSave').disabled = false;
@@ -426,6 +506,20 @@ window.wfInit = function wfInit(getSuitePath, getCatalog) {
     }
   });
 
+  q('wfDryRun').addEventListener('click', () => {
+    const host = q('wfPlan');
+    q('wfDryRun').setAttribute('aria-pressed', host.hidden ? 'true' : 'false');
+    if (!host.hidden) {
+      host.hidden = true;
+      host.textContent = '';
+      return;
+    }
+    renderPlan();
+    // The canvas fills the window, so a panel appended after it lands a screen below the fold and
+    // the button looks broken. Bring the answer to the person who asked for it.
+    host.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  });
+
   q('wfValidate').addEventListener('click', async () => {
     if (!wf.file) return;
     if (wf.dirty) {
@@ -443,4 +537,5 @@ window.wfInit = function wfInit(getSuitePath, getCatalog) {
 
   render();
   renderInspector();
+  if (!q('wfPlan').hidden) renderPlan();
 };

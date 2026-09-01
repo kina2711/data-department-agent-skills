@@ -79,6 +79,14 @@ async function open({ stubs = {}, width = 1280, height = 900 } = {}) {
     visible: (selector) => send({ op: 'eval', expression:
       `(() => { const el = document.querySelector(${JSON.stringify(selector)});
         return !!el && !el.hidden && el.offsetParent !== null; })()` }),
+    // Rendered is not the same as seen. This one asks whether the element is actually inside the
+    // viewport, which is what a person means by "did the button do anything" -- an earlier version
+    // of this helper answered yes for a panel that had rendered a full screen below the fold.
+    onScreen: (selector) => send({ op: 'eval', expression:
+      `(() => { const el = document.querySelector(${JSON.stringify(selector)});
+        if (!el || el.hidden || el.offsetParent === null) return false;
+        const r = el.getBoundingClientRect();
+        return r.height > 0 && r.top < innerHeight && r.bottom > 0; })()` }),
     shot: (file) => send({ op: 'shot', file }),
     compare: (baseline) => send({ op: 'compare', baseline }),
     resize: (w, h) => send({ op: 'resize', width: w, height: h }),

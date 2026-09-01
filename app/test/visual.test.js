@@ -61,6 +61,27 @@ test('the grid, a skill detail, and the workflow canvas', async (t) => {
   await check(page, 'detail');
 });
 
+test('the workflow canvas and the dry-run plan', async (t) => {
+  const page = await open({ stubs: { 'suite:pick': SUITE } });
+  t.after(() => page.close());
+  await page.resize(1280, 900);
+  await page.click('#pickSuite');
+  await page.settle(800);
+  await page.eval(`(() => { const tabs = [...document.querySelectorAll('button,[role=tab]')]
+    .filter((b) => /workflow|quy trình/i.test(b.textContent || ''));
+    if (tabs.length) tabs[0].click(); })()`);
+  await page.settle(250);
+  await page.eval(`(() => { const s = document.getElementById('wfPreset');
+    const opt = [...s.options].find((o) => /data-analysis/.test(o.value || o.textContent));
+    s.value = opt.value; s.dispatchEvent(new Event('change', {bubbles: true})); })()`);
+  await page.settle(700);
+  await check(page, 'workflow');
+
+  await page.click('#wfDryRun');
+  await page.settle(400);
+  await check(page, 'dry-run');
+});
+
 test('the grid holds together at a narrow width', async (t) => {
   const page = await open({ stubs: { 'suite:pick': SUITE } });
   t.after(() => page.close());

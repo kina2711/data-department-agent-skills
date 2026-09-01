@@ -426,3 +426,50 @@ h4.sec:first-child { margin-top: 0; }
   font-size: 12.5px;
   color: var(--warn);
 }
+
+/* Dry run: the waves a run would go through, before anything is executed. */
+.wf-plan {
+  border: 1px solid var(--line);
+  scroll-margin-bottom: 16px;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-top: 10px;
+  background: var(--surface);
+}
+.wf-plan-head {
+  font-size: 12.5px;
+  color: var(--ink-muted);
+  margin-bottom: 10px;
+}
+.wf-plan-none {
+  font-size: 12.5px;
+  color: var(--ink-muted);
+  margin: 8px 0 0;
+}
+.wf-wave {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  padding: 6px 0;
+  border-top: 1px solid var(--line);
+}
+.wf-wave:first-of-type { border-top: 0; }
+.wf-wave-n {
+  flex: 0 0 92px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+.wf-wave-tasks { display: flex; flex-wrap: wrap; gap: 5px; }
+.wf-chip {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11.5px;
+  border: 1px solid var(--line-strong);
+  border-radius: 5px;
+  padding: 2px 7px;
+  color: var(--ink);
+}
+/* A gate is where the run stops for a person, so it is marked where it happens. */
+.wf-chip.is-gate { border-color: var(--warn); color: var(--warn); }
+.wf-chip.is-stranded { border-color: var(--danger); color: var(--danger); }
+.wf-wave.is-stranded .wf-wave-n { color: var(--danger); }
