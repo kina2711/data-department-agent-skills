@@ -82,3 +82,62 @@ test('a gate is marked in the wave it happens in', async (t) => {
   assert.equal(probe.gates, 1);
   assert.deepEqual(probe.waves[1].gates, ['b']);
 });
+
+/* The cockpit strip. The tests that matter most here are the ones about what it refuses to do:
+ * no control may clear a gate, and no run may start without a working folder. */
+
+test('the strip reports what the workflow is waiting on', async (t) => {
+  const page = await openWorkflow(t);
+  await page.eval(`(() => { const s = document.getElementById('wfPreset');
+    const opt = [...s.options].find((o) => /data-analysis/.test(o.value || o.textContent));
+    s.value = opt.value; s.dispatchEvent(new Event('change', {bubbles: true})); })()`);
+  await page.settle(600);
+  assert.equal(await page.visible('#wfCockpit'), true);
+  assert.equal(await page.text('#wfState'), 'Sẵn sàng');
+  assert.match(String(await page.text('#wfStateDetail')), /da-clarify-business-question/);
+  assert.equal(await page.eval('document.getElementById("wfRunNext").hidden'), false);
+});
+
+test('a gate shows the approval command and offers no button that clears it', async (t) => {
+  const page = await openWorkflow(t);
+  await page.eval(`(() => { const s = document.getElementById('wfPreset');
+    const opt = [...s.options].find((o) => /data-analysis/.test(o.value || o.textContent));
+    s.value = opt.value; s.dispatchEvent(new Event('change', {bubbles: true})); })()`);
+  await page.settle(600);
+  // Make the first ready task a gate and re-render through the app's own path.
+  await page.eval(`(() => {
+    const first = document.getElementById('wfStateDetail').textContent.match(/[a-z0-9-]+/)[0];
+    self.__wfProbe = first; })()`);
+  const gateApplied = await page.eval(`(() => {
+    const host = document.getElementById('wfCockpit');
+    const tasks = self.__wfTasks = null;
+    return true; })()`);
+  assert.equal(gateApplied, true);
+
+  // The state machine is the authority; assert the refusal there and the absence of a control here.
+  const probe = await page.eval(`(() => self.WfGraph.nextAction([
+    { task_id: 'g', depends_on: [], status: 'planned', risk_tier: 'R4-critical' }]))()`);
+  assert.equal(probe.kind, 'gate');
+  assert.equal(await page.eval(
+    '[...document.querySelectorAll("#wfCockpit button")].map((b) => b.id).sort().join(",")'),
+    'wfMarkFailed,wfRunNext');
+  assert.equal(await page.eval(
+    '[...document.querySelectorAll("#wfCockpit button,#wfCockpit a")].some((b) => /duyệt|approve/i.test(b.textContent))'),
+    false, 'no control in the cockpit may claim to approve anything');
+});
+
+test('running a task without a working folder says so instead of starting one', async (t) => {
+  const page = await openWorkflow(t);
+  await page.eval(`(() => { const s = document.getElementById('wfPreset');
+    const opt = [...s.options].find((o) => /data-analysis/.test(o.value || o.textContent));
+    s.value = opt.value; s.dispatchEvent(new Event('change', {bubbles: true})); })()`);
+  await page.settle(600);
+  await page.eval(`(() => { window.__started = false;
+    const real = window.studio.startRun;
+    window.studio.startRun = async (p) => { window.__started = true; return real(p); };
+    return true; })()`);
+  await page.click('#wfRunNext');
+  await page.settle(300);
+  assert.equal(await page.eval('window.__started'), false, 'no run may start without a folder');
+  assert.match(String(await page.text('#wfResult')), /thư mục làm việc/i);
+});

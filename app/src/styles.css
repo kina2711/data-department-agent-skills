@@ -473,3 +473,32 @@ h4.sec:first-child { margin-top: 0; }
 .wf-chip.is-gate { border-color: var(--warn); color: var(--warn); }
 .wf-chip.is-stranded { border-color: var(--danger); color: var(--danger); }
 .wf-wave.is-stranded .wf-wave-n { color: var(--danger); }
+
+/* Cockpit strip: what the workflow is waiting on, and only the controls that apply to it. */
+.wf-cockpit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--ink-muted);
+  border-radius: 10px;
+  padding: 9px 13px;
+  margin-top: 10px;
+  background: var(--surface);
+}
+.wf-cockpit-state { font-weight: 600; font-size: 13px; }
+.wf-cockpit-detail { color: var(--ink-muted); font-size: 12.5px; flex: 1 1 240px; }
+.wf-cockpit-cmd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11.5px;
+  border: 1px solid var(--line-strong);
+  border-radius: 5px;
+  padding: 3px 8px;
+  color: var(--ink-muted);
+}
+.wf-cockpit.is-run { border-left-color: var(--accent); }
+.wf-cockpit.is-gate { border-left-color: var(--warn); }
+.wf-cockpit.is-failed,
+.wf-cockpit.is-stranded { border-left-color: var(--danger); }
+.wf-cockpit.is-done { border-left-color: #16a34a; }

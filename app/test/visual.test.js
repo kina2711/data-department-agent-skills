@@ -76,6 +76,10 @@ test('the workflow canvas and the dry-run plan', async (t) => {
     s.value = opt.value; s.dispatchEvent(new Event('change', {bubbles: true})); })()`);
   await page.settle(700);
   await check(page, 'workflow');
+  await page.eval(`(() => { document.getElementById('wfCockpit')
+    .scrollIntoView({ block: 'center' }); return true; })()`);
+  await page.settle(300);
+  await check(page, 'cockpit');
 
   await page.click('#wfDryRun');
   await page.settle(400);

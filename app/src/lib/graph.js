@@ -183,5 +183,41 @@
     };
   }
 
-  return { NODE_W, NODE_H, GAP_X, GAP_Y, PAD, FINISHED, GATE, keyOf, layer, layout, readyNow, criticalPath, runPlan };
+  /* What the cockpit should do next, as one decision rather than a loop the UI writes itself.
+   *
+   * The order matters and is deliberate. A failure outranks everything: a run that walks past a
+   * failed task to keep making progress is a run that hides the failure. A gate outranks ready
+   * work, because the whole point of a gate is that nothing beyond it proceeds on the agent's own
+   * authority; the cockpit surfaces it and stops, and only a person moves it. Stranded work is
+   * reported after the reachable work is exhausted, since it is a defect in the manifest rather
+   * than a step.
+   *
+   * The cockpit never marks a gate approved. It can only show that one is waiting. */
+  const FAILED = new Set(['failed', 'blocked']);
+
+  function nextAction(tasks) {
+    const list = tasks || [];
+    if (!list.length) return { kind: 'empty' };
+
+    const failed = list.filter((t) => FAILED.has(t.status || ''));
+    if (failed.length) return { kind: 'failed', tasks: failed.map(keyOf) };
+
+    const ready = readyNow(list);
+    if (!ready.length) {
+      const left = list.filter((t) => !FINISHED.has(t.status || 'planned'));
+      if (!left.length) return { kind: 'done' };
+      return { kind: 'stranded', tasks: left.map(keyOf) };
+    }
+
+    const byKey = new Map(list.map((t) => [keyOf(t), t]));
+    const running = list.find((t) => t.status === 'in-progress');
+    if (running) return { kind: 'running', task: keyOf(running) };
+
+    const gate = ready.find((k) => GATE.has((byKey.get(k) || {}).risk_tier));
+    if (gate) return { kind: 'gate', task: gate, risk: byKey.get(gate).risk_tier, alsoReady: ready.filter((k) => k !== gate) };
+
+    return { kind: 'run', task: ready[0], alsoReady: ready.slice(1) };
+  }
+
+  return { NODE_W, NODE_H, GAP_X, GAP_Y, PAD, FINISHED, FAILED, GATE, keyOf, layer, layout, readyNow, criticalPath, runPlan, nextAction };
 });

@@ -68,7 +68,17 @@ app.whenReady().then(async () => {
 });
 
 async function handle(cmd, win) {
-  if (cmd.op === 'eval') return win.webContents.executeJavaScript(cmd.expression, true);
+  if (cmd.op === 'eval') {
+    // executeJavaScript hands back the expression's value over IPC, and anything that is not
+    // structured-cloneable — a function, a DOM node — fails with "An object could not be cloned",
+    // which points at the transport rather than at the test. Serialising inside the page turns
+    // that into a value the test can read, or an explicit marker when there is nothing to read.
+    const wrapped = `(() => { const v = (${cmd.expression});
+      try { return JSON.stringify(v === undefined ? null : v); }
+      catch { return JSON.stringify(String(v)); } })()`;
+    const raw = await win.webContents.executeJavaScript(wrapped, true);
+    return JSON.parse(raw);
+  }
   if (cmd.op === 'settle') return new Promise((r) => setTimeout(() => r(true), cmd.ms));
   if (cmd.op === 'resize') { win.setSize(cmd.width, cmd.height); return true; }
   if (cmd.op === 'shot') {

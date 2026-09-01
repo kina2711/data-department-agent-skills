@@ -8,7 +8,7 @@
 
 // Layering, layout and the run-order helpers live in lib/graph.js so tests can call them without
 // a DOM. Two copies of a layering rule is one copy too many.
-const { NODE_W, NODE_H, GAP_X, GAP_Y, PAD, layout, runPlan } = self.WfGraph;
+const { NODE_W, NODE_H, GAP_X, GAP_Y, PAD, layout, runPlan, nextAction } = self.WfGraph;
 
 const wf = {
   file: '',
@@ -412,6 +412,76 @@ function renderPlan() {
   }
 }
 
+
+/* The cockpit strip: one line saying what the workflow is waiting on, and the one or two controls
+ * that apply to it. It is deliberately not a play button for the whole graph. Every task costs a
+ * model call, gates exist so that a person decides, and a control that runs 29 tasks unattended
+ * would be the wrong default no matter how convenient. */
+const COCKPIT = {
+  empty: () => ['Manifest chưa có task nào', ''],
+  done: () => ['Hoàn tất', 'Mọi task trong manifest đã ở trạng thái kết thúc.'],
+  running: (a) => ['Đang chạy', `${a.task} đang ở trạng thái in-progress.`],
+  failed: (a) => ['Có task hỏng', `${a.tasks.join(', ')} — sửa hoặc đặt lại trạng thái trước khi đi tiếp.`],
+  stranded: (a) => ['Không tới được', `${a.tasks.join(', ')} — chu trình trong depends_on, hoặc phụ thuộc ngoài manifest.`],
+  gate: (a) => ['Cổng duyệt', `${a.task} ở mức ${a.risk}. Cần người duyệt; app không tự vượt cổng.`],
+  run: (a) => ['Sẵn sàng', a.alsoReady.length
+    ? `${a.task} chạy được ngay, cùng ${a.alsoReady.length} task khác trong đợt này.`
+    : `${a.task} chạy được ngay.`],
+};
+
+function renderCockpit() {
+  const host = q('wfCockpit');
+  if (!wf.manifest) {
+    host.hidden = true;
+    return;
+  }
+  const action = nextAction(wf.manifest.tasks || []);
+  const [state, detail] = (COCKPIT[action.kind] || (() => [action.kind, '']))(action);
+  host.hidden = false;
+  host.className = `wf-cockpit is-${action.kind}`;
+  q('wfState').textContent = state;
+  q('wfStateDetail').textContent = detail;
+
+  // Running a task is offered only where it is the agent's to run. There is deliberately no
+  // control that clears a gate: approval needs a signed record checked by the suite's own
+  // validator, and a button in this app would be a claim it has no standing to make. The gate row
+  // shows the command that checks the record instead.
+  const runnable = action.kind === 'run';
+  q('wfRunNext').hidden = !runnable;
+  if (runnable) q('wfRunNext').dataset.task = action.task;
+
+  q('wfMarkFailed').hidden = action.kind !== 'running';
+  if (action.kind === 'running') q('wfMarkFailed').dataset.task = action.task;
+
+  const gate = action.kind === 'gate';
+  q('wfGateCmd').hidden = !gate;
+  if (gate) q('wfGateCmd').textContent = `/dd-approve <hồ sơ duyệt> ${wf.file || ''}`.trim();
+  wf.action = action;
+}
+
+
+/** Write a status and persist it, so the picture and the file never disagree. */
+async function setStatusAndSave(task, status) {
+  task.status = status;
+  if (wf.file) await window.studio.saveWorkflow({ file: wf.file, manifest: wf.manifest });
+  wf.dirty = false;
+  q('wfSave').disabled = true;
+  render();
+  renderInspector();
+  renderCockpit();
+  if (!q('wfPlan').hidden) renderPlan();
+}
+
+/** The cockpit reports the outcome of a run it started, and ignores runs it did not. */
+function cockpitRunFinished(runId, code) {
+  if (!wf.awaiting || wf.awaiting.runId !== runId) return;
+  const { taskId } = wf.awaiting;
+  wf.awaiting = null;
+  const task = (wf.manifest.tasks || []).find((x) => x.task_id === taskId);
+  if (task) setStatusAndSave(task, code === 0 ? 'implemented' : 'failed');
+}
+self.cockpitRunFinished = cockpitRunFinished;
+
 function markDirty() {
   wf.dirty = true;
   q('wfSave').disabled = false;
@@ -435,11 +505,13 @@ function loaded(payload) {
   q('wfResult').className = '';
   render();
   renderInspector();
+  renderCockpit();
+  if (!q('wfPlan').hidden) renderPlan();
 }
 
 window.wfSetMeta = (map) => { wf.meta = map; };
 
-window.wfInit = function wfInit(getSuitePath, getCatalog) {
+window.wfInit = function wfInit(getSuitePath, getCatalog, getRunFolder) {
   q('wfOpen').addEventListener('click', async () => loaded(await window.studio.openWorkflow(getSuitePath())));
 
   window.wfLoadPresets = async () => {
@@ -506,6 +578,50 @@ window.wfInit = function wfInit(getSuitePath, getCatalog) {
     }
   });
 
+  /* Run one task from the cockpit.
+   *
+   * The status is written to the manifest before the run starts and again when it ends, so a run
+   * that dies with the app still leaves in-progress behind rather than a task that looks planned.
+   * An exit code of zero marks the task implemented, not complete: the run produced something, and
+   * whether it is correct is what the test and review stages are for. */
+  q('wfRunNext').addEventListener('click', async () => {
+    const id = q('wfRunNext').dataset.task;
+    const task = (wf.manifest.tasks || []).find((x) => x.task_id === id);
+    if (!task) return;
+
+    const folder = getRunFolder();
+    if (!folder) {
+      q('wfResult').className = 'notice notice-err';
+      q('wfResult').textContent = 'Chọn thư mục làm việc ở tab Skills trước khi chạy task.';
+      return;
+    }
+
+    await setStatusAndSave(task, 'in-progress');
+    const runId = window.runUI.newId();
+    window.runUI.reset();
+    window.runUI.setRunning(true);
+    wf.awaiting = { runId, taskId: id };
+    const res = await window.studio.startRun({
+      runId,
+      folder,
+      prompt: `Chạy task ${id} theo contract của nó trong suite. Dừng lại và báo cáo nếu contract yêu cầu approval.`,
+      suitePath: getSuitePath(),
+      permissionMode: q('wfMode').value === 'execute' ? 'acceptEdits' : 'plan',
+    });
+    if (!res.ok) {
+      wf.awaiting = null;
+      await setStatusAndSave(task, 'failed');
+      q('wfResult').className = 'notice notice-err';
+      q('wfResult').textContent = res.error || 'Không chạy được.';
+    }
+  });
+
+  q('wfMarkFailed').addEventListener('click', async () => {
+    const id = q('wfMarkFailed').dataset.task;
+    const task = (wf.manifest.tasks || []).find((x) => x.task_id === id);
+    if (task) await setStatusAndSave(task, 'failed');
+  });
+
   q('wfDryRun').addEventListener('click', () => {
     const host = q('wfPlan');
     q('wfDryRun').setAttribute('aria-pressed', host.hidden ? 'true' : 'false');
@@ -537,5 +653,6 @@ window.wfInit = function wfInit(getSuitePath, getCatalog) {
 
   render();
   renderInspector();
+  renderCockpit();
   if (!q('wfPlan').hidden) renderPlan();
 };

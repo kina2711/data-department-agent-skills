@@ -481,6 +481,8 @@ window.studio.onRunStderr(({ runId, text }) => {
 });
 window.studio.onRunDone(({ runId, code, error }) => {
   if (runId === window.runUI.currentId()) window.runUI.finish(code, error);
+  // A run the cockpit started writes its outcome back into the manifest.
+  if (self.cockpitRunFinished) self.cockpitRunFinished(runId, code);
 });
 
 $('launch').addEventListener('click', async () => {
@@ -549,7 +551,7 @@ $('backToSkills').addEventListener('click', () => {
   showView('viewSkills');
 });
 
-window.wfInit(() => state.suitePath, () => state.catalog);
+window.wfInit(() => state.suitePath, () => state.catalog, () => state.folder);
 
 (async function boot() {
   const cfg = await window.studio.getConfig();

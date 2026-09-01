@@ -151,3 +151,72 @@ test('an empty manifest plans nothing rather than looping', () => {
   assert.deepEqual(plan.waves, []);
   assert.deepEqual(plan.stranded, []);
 });
+
+/* nextAction is the cockpit's whole control flow. Each case below is an order-of-precedence
+ * question: when two things are true at once, which one wins. */
+
+test('an empty manifest has nothing to do', () => {
+  assert.deepEqual(g.nextAction([]), { kind: 'empty' });
+  assert.deepEqual(g.nextAction(undefined), { kind: 'empty' });
+});
+
+test('the first ready task is offered to run', () => {
+  const action = g.nextAction([t('a'), t('b', 'a')]);
+  assert.equal(action.kind, 'run');
+  assert.equal(action.task, 'a');
+  assert.deepEqual(action.alsoReady, []);
+});
+
+test('a gate is surfaced and stops the run rather than being executed', () => {
+  const tasks = [t('a')];
+  tasks[0].risk_tier = 'R3-controlled';
+  const action = g.nextAction(tasks);
+  assert.equal(action.kind, 'gate');
+  assert.equal(action.task, 'a');
+  assert.equal(action.risk, 'R3-controlled');
+});
+
+test('a gate outranks ordinary ready work in the same wave', () => {
+  const tasks = [t('plain'), t('locked')];
+  tasks[1].risk_tier = 'R4-critical';
+  const action = g.nextAction(tasks);
+  assert.equal(action.kind, 'gate');
+  assert.equal(action.task, 'locked');
+  assert.deepEqual(action.alsoReady, ['plain']);
+});
+
+test('a failure outranks everything, including a gate', () => {
+  const tasks = [t('broken'), t('locked')];
+  tasks[0].status = 'failed';
+  tasks[1].risk_tier = 'R4-critical';
+  const action = g.nextAction(tasks);
+  assert.equal(action.kind, 'failed');
+  assert.deepEqual(action.tasks, ['broken']);
+});
+
+test('blocked counts as a failure to surface, not as work to skip past', () => {
+  const tasks = [t('a')];
+  tasks[0].status = 'blocked';
+  assert.equal(g.nextAction(tasks).kind, 'failed');
+});
+
+test('a task already running is reported rather than a second one started', () => {
+  const tasks = [t('a'), t('b')];
+  tasks[0].status = 'in-progress';
+  const action = g.nextAction(tasks);
+  assert.equal(action.kind, 'running');
+  assert.equal(action.task, 'a');
+});
+
+test('all finished means done', () => {
+  const tasks = [t('a'), t('b', 'a')];
+  tasks[0].status = 'complete';
+  tasks[1].status = 'released';
+  assert.deepEqual(g.nextAction(tasks), { kind: 'done' });
+});
+
+test('unreachable work is reported as stranded once nothing is ready', () => {
+  const action = g.nextAction([t('x', 'y'), t('y', 'x')]);
+  assert.equal(action.kind, 'stranded');
+  assert.deepEqual(action.tasks.sort(), ['x', 'y']);
+});
