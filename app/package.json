@@ -1,6 +1,6 @@
 {
   "name": "app-data-agent",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Local launcher for the Data Department agent skills suite",
   "main": "src/main.js",
   "scripts": {
