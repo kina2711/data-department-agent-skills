@@ -1,0 +1,2792 @@
+{
+ "_": "Sinh tự động bởi tools/build_skill_tutorials.py. Mỗi bước trỏ tới một task có thật, kèm mục tiêu và kết quả mà chính catalog khai báo. Đừng sửa tay: chạy lại generator.",
+ "suite_version": "3.11.0",
+ "skills": {
+  "analytics-engineering": {
+   "tom_tat": "Mô hình staging, intermediate, mart, dimensional và semantic có quản trị — kèm test, tài liệu, lineage, logic incremental và kiểm soát phát hành.",
+   "so_task": 22,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "ae-translate-business-logic",
+       "muc_tieu": "chuyển rule nghiệp vụ thành transformation specification",
+       "ket_qua": "logic spec",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "ae-design-dimensional-model",
+       "muc_tieu": "xác định grain, facts, dimensions và keys",
+       "ket_qua": "dimensional design",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — kiểm chứng",
+     "vi_sao": "Skill này có 4 task ở nhóm test-assure; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "ae-assess-model-change-impact",
+       "muc_tieu": "tìm consumers, metric changes và migration needs",
+       "ket_qua": "impact assessment",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "ae-certify-analytics-dataset",
+       "muc_tieu": "thu test, freshness, documentation và ownership evidence",
+       "ket_qua": "certification package",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "ae-detect-duplicate-metrics",
+       "muc_tieu": "so sánh definitions và usage để đề xuất consolidation",
+       "ket_qua": "duplication report",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "ae-backfill-analytics-model",
+       "muc_tieu": "chạy history rebuild và reconcile metrics",
+       "ket_qua": "verified backfill",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "ae-troubleshoot-model-failure",
+       "muc_tieu": "phân biệt source, logic, dependency và warehouse faults",
+       "ket_qua": "restored model",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "ae-assess-model-change-impact",
+       "muc_tieu": "tìm consumers, metric changes và migration needs",
+       "ket_qua": "impact assessment",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "ae-certify-analytics-dataset",
+       "muc_tieu": "thu test, freshness, documentation và ownership evidence",
+       "ket_qua": "certification package",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "ae-detect-duplicate-metrics",
+       "muc_tieu": "so sánh definitions và usage để đề xuất consolidation",
+       "ket_qua": "duplication report",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  },
+  "book-to-knowledge-and-action": {
+   "tom_tat": "Biến sách, PDF, EPUB hay bộ tài liệu thành skill, pack Second Brain, hệ thống nghề nghiệp, giáo trình, workflow hoặc nội dung kỹ thuật.",
+   "so_task": 45,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "book-classify-conversion-purpose",
+       "muc_tieu": "chọn primary destination là skill, second brain, career, interview, project, curriculum, workflow, content hoặc mixed có one primary output",
+       "ket_qua": "book-conversion purpose decision",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "book-assess-source-rights",
+       "muc_tieu": "kiểm tra ownership, license, edition, quotation, processing, storage và publication rights trước conversion",
+       "ket_qua": "source-rights decision",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — lập kế hoạch và thiết kế",
+     "vi_sao": "Skill này có 1 task ở nhóm plan-design; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "book-map-chapters-and-sections",
+       "muc_tieu": "map table of contents, chapter boundaries, themes, source offsets và destination slices",
+       "ket_qua": "chapter-source map",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "book-audit-copyright-and-privacy",
+       "muc_tieu": "kiểm tra quotation length, redistribution, internal/confidential content, personal data và public/private boundary",
+       "ket_qua": "copyright-and-privacy audit",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "book-publish-derived-skill",
+       "muc_tieu": "publish exact scanned version chỉ khi rights và explicit public/private authority hợp lệ",
+       "ket_qua": "derived-skill publication record",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "book-retire-derived-knowledge",
+       "muc_tieu": "deprecate stale framework hoặc generated pack với reason, successor, archive và backlink repair",
+       "ket_qua": "derived-knowledge retirement record",
+       "rui_ro": "R4-critical"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "book-assess-source-rights",
+       "muc_tieu": "kiểm tra ownership, license, edition, quotation, processing, storage và publication rights trước conversion",
+       "ket_qua": "source-rights decision",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "book-audit-copyright-and-privacy",
+       "muc_tieu": "kiểm tra quotation length, redistribution, internal/confidential content, personal data và public/private boundary",
+       "ket_qua": "copyright-and-privacy audit",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "book-audit-source-traceability",
+       "muc_tieu": "sample và đối chiếu frameworks, rules, examples, technical artifacts với source locators và hashes",
+       "ket_qua": "book traceability audit",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    }
+   ]
+  },
+  "business-intelligence": {
+   "tom_tat": "Semantic model, KPI, dashboard, báo cáo, tương tác, row-level security, refresh, khả năng tiếp cận và mức độ áp dụng.",
+   "so_task": 32,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "bi-translate-dashboard-spec",
+       "muc_tieu": "chuyển requirement thành dataset, measures, pages và interactions",
+       "ket_qua": "BI design",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "bi-build-semantic-model",
+       "muc_tieu": "cấu hình relationships, measures, hierarchies và date logic",
+       "ket_qua": "BI semantic model",
+       "rui_ro": "R2-standard"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — lập kế hoạch và thiết kế",
+     "vi_sao": "Skill này có 4 task ở nhóm plan-design; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "bi-create-cleaning-transformation-plan",
+       "muc_tieu": "thiết kế reversible, idempotent cleaning và reconciliation",
+       "ket_qua": "transformation plan",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "bi-create-platform-neutral-report-spec",
+       "muc_tieu": "định nghĩa pages, visuals, filters, interactions và accessibility",
+       "ket_qua": "neutral report spec",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "bi-prepare-release-approval",
+       "muc_tieu": "gom approved gates, open risks, version và target environment",
+       "ket_qua": "release package",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "bi-implement-row-level-security",
+       "muc_tieu": "ánh xạ identity tới access filters",
+       "ket_qua": "tested RLS",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "bi-prepare-release-approval",
+       "muc_tieu": "gom approved gates, open risks, version và target environment",
+       "ket_qua": "release package",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "bi-publish-dashboard",
+       "muc_tieu": "deploy workspace/app, permissions và refresh",
+       "ket_qua": "published dashboard",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "bi-retire-dashboard",
+       "muc_tieu": "tìm consumers, cung cấp replacement và archive",
+       "ket_qua": "retired dashboard",
+       "rui_ro": "R4-critical"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "bi-assess-information-sufficiency",
+       "muc_tieu": "phân loại confirmed/inferred/blocking/conflicting",
+       "ket_qua": "sufficiency decision",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "bi-audit-dashboard-experience",
+       "muc_tieu": "đánh giá read-only decision fit, hierarchy, metric truth, information density, interaction states, accessibility, responsiveness và dấu hiệu dashboard generic",
+       "ket_qua": "prioritized dashboard experience audit",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "bi-certify-dashboard",
+       "muc_tieu": "kiểm tra source, owner, quality, documentation và access",
+       "ket_qua": "certification package",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    }
+   ]
+  },
+  "company-data-context": {
+   "tom_tat": "Bộ nhớ tổ chức: thuật ngữ, metric, dataset, hệ thống, chủ sở hữu, chính sách, nền tảng. Để Claude biết công ty bạn gọi thứ đó là gì.",
+   "so_task": 9,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "ctx-initialize-company-data-context",
+       "muc_tieu": "tạo cấu trúc context chuẩn cho business, data, platform, policy và ownership",
+       "ket_qua": "initialized context pack",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "ctx-register-source-system",
+       "muc_tieu": "ghi purpose, owner, interface, cadence, keys và constraints của source",
+       "ket_qua": "source-system entry",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — lập kế hoạch và thiết kế",
+     "vi_sao": "Skill này có 1 task ở nhóm plan-design; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "ctx-build-context-index",
+       "muc_tieu": "tạo index phân tầng chỉ rõ nguồn context, authority, scope, trigger đọc, owner và freshness cho Claude/agent sessions",
+       "ket_qua": "governed context index",
+       "rui_ro": "R2-standard"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Skill này không có task nào ở mức R3 hoặc R4. Không có nghĩa là không cần rà soát — chỉ là không có cổng phê duyệt bắt buộc.",
+     "tasks": []
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "ctx-validate-context-pack",
+       "muc_tieu": "kiểm tra completeness, conflicts, staleness, provenance và broken references",
+       "ket_qua": "context validation report",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  },
+  "data-academy-and-curriculum": {
+   "tom_tat": "Chương trình học theo vai: lý thuyết, lab, capstone, đánh giá, khắc phục, chứng nhận và đo hiệu quả. Cũng là nơi dựng bộ note kiến thức đầy đủ cho một domain.",
+   "so_task": 51,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "academy-research-role-roadmap",
+       "muc_tieu": "nghiên cứu roadmap hành nghề đang được dùng từ nguồn công khai, mỗi mục kèm nguồn và ngày truy cập",
+       "ket_qua": "sourced role roadmap",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "academy-elicit-prior-knowledge",
+       "muc_tieu": "hỏi người học đã nắm được gì và giải quyết learner memory trước khi lập kế hoạch corpus",
+       "ket_qua": "prior-knowledge profile",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — dựng và bàn giao",
+     "vi_sao": "Skill này có 13 task ở nhóm build-deliver; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "academy-apply-misconception-feedback",
+       "muc_tieu": "gom ngộ nhận lặp lại theo concept key rồi bổ sung vào chính note dạy sai mô hình đó",
+       "ket_qua": "revised note batch",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "academy-build-concept-knowledge-graph",
+       "muc_tieu": "mô hình hóa concepts, prerequisites, dependencies, misconceptions và transfer paths",
+       "ket_qua": "concept knowledge graph",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "academy-build-note-module",
+       "muc_tieu": "dựng trọn bộ note của một module theo cùng một chuẩn rồi cập nhật corpus manifest",
+       "ket_qua": "module note batch",
+       "rui_ro": "R2-standard"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Skill này không có task nào ở mức R3 hoặc R4. Không có nghĩa là không cần rà soát — chỉ là không có cổng phê duyệt bắt buộc.",
+     "tasks": []
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "academy-analyze-learning-gaps",
+       "muc_tieu": "tổng hợp item, cohort và role-level failure patterns",
+       "ket_qua": "learning-gap analysis",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "academy-assess-learner-submission",
+       "muc_tieu": "chấm artifact theo rubric với evidence và actionable feedback",
+       "ket_qua": "assessed submission",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "academy-assess-organizational-learning-needs",
+       "muc_tieu": "phân tích strategy, competency gaps, incidents và delivery demand",
+       "ket_qua": "organizational learning-needs assessment",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    }
+   ]
+  },
+  "data-analysis": {
+   "tom_tat": "EDA lập trình được, phân tích tái lập được, giải thích SQL sang ngôn ngữ nghiệp vụ, truyền đạt phương pháp, peer review và retrospective.",
+   "so_task": 29,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "da-clarify-business-question",
+       "muc_tieu": "chuyển yêu cầu mơ hồ thành decision, population, period và success criteria",
+       "ket_qua": "analysis brief",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "da-write-analysis-plan",
+       "muc_tieu": "xác định hypotheses, metrics, dimensions, method và limitations",
+       "ket_qua": "analysis plan",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — dựng và bàn giao",
+     "vi_sao": "Skill này có 9 task ở nhóm build-deliver; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "da-answer-ad-hoc-question",
+       "muc_tieu": "thực hiện analysis nhỏ có query, evidence và caveats",
+       "ket_qua": "decision-ready answer",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "da-build-business-forecast",
+       "muc_tieu": "tạo forecast phục vụ planning kèm uncertainty",
+       "ket_qua": "forecast and assumptions",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "da-discover-analysis-data",
+       "muc_tieu": "tìm datasets/metrics phù hợp và đánh giá fitness",
+       "ket_qua": "selected data sources",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Skill này không có task nào ở mức R3 hoặc R4. Không có nghĩa là không cần rà soát — chỉ là không có cổng phê duyệt bắt buộc.",
+     "tasks": []
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "da-analyze-cohort",
+       "muc_tieu": "xây cohort matrix và so sánh behavior theo start period",
+       "ket_qua": "cohort findings",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "da-analyze-funnel",
+       "muc_tieu": "tính stage conversion, drop-off và segment differences",
+       "ket_qua": "funnel findings",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "da-analyze-kpi-variance",
+       "muc_tieu": "tách change theo volume/rate/mix/time/segment",
+       "ket_qua": "variance decomposition",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  },
+  "data-architecture": {
+   "tom_tat": "Trạng thái đích, miền dữ liệu, mô hình, mẫu tích hợp, hợp đồng dữ liệu, quyết định công nghệ, di trú và rà soát kiến trúc.",
+   "so_task": 22,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "arch-assess-current-data-architecture",
+       "muc_tieu": "lập inventory, bottleneck, risk và technical debt",
+       "ket_qua": "current-state assessment",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "arch-define-target-data-architecture",
+       "muc_tieu": "mô tả target state, boundaries, flows và quality attributes",
+       "ket_qua": "target architecture",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — dựng và bàn giao",
+     "vi_sao": "Skill này có 1 task ở nhóm build-deliver; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "arch-manage-architecture-technical-debt",
+       "muc_tieu": "lượng hóa debt, risk và remediation sequence",
+       "ket_qua": "debt register",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "arch-design-data-security-architecture",
+       "muc_tieu": "thiết kế trust boundaries, IAM, encryption và policy enforcement",
+       "ket_qua": "security architecture",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "arch-design-data-sharing-architecture",
+       "muc_tieu": "thiết kế clean room/exchange/API/share có governance",
+       "ket_qua": "sharing architecture",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "arch-design-disaster-recovery",
+       "muc_tieu": "xác định RTO/RPO, backup, failover và test plan",
+       "ket_qua": "DR architecture",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "arch-assess-architecture-compliance",
+       "muc_tieu": "đối chiếu implementation với standards và waiver",
+       "ket_qua": "compliance report",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "arch-assess-current-data-architecture",
+       "muc_tieu": "lập inventory, bottleneck, risk và technical debt",
+       "ket_qua": "current-state assessment",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "arch-evaluate-technology-option",
+       "muc_tieu": "proof-of-fit theo weighted criteria",
+       "ket_qua": "technology recommendation",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  },
+  "data-business-analysis": {
+   "tom_tat": "Biến một yêu cầu nghiệp vụ mơ hồ thành đặc tả triển khai được: quy tắc nghiệp vụ, quy trình, use case, tiêu chí chấp nhận và truy vết.",
+   "so_task": 24,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "ba-frame-business-problem",
+       "muc_tieu": "xác định hiện trạng, pain point, affected users và desired outcome",
+       "ket_qua": "problem statement",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "ba-map-stakeholders",
+       "muc_tieu": "xác định sponsor, decision maker, users, SMEs và approvers",
+       "ket_qua": "stakeholder map",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — dựng và bàn giao",
+     "vi_sao": "Skill này có 7 task ở nhóm build-deliver; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "ba-build-requirement-traceability",
+       "muc_tieu": "nối requirement tới design, data, test và release",
+       "ket_qua": "traceability matrix",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "ba-elicit-business-requirements",
+       "muc_tieu": "thu thập goal, process, rule, data và acceptance needs",
+       "ket_qua": "requirement set",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "ba-handoff-requirements-to-delivery",
+       "muc_tieu": "đóng gói baselined requirements, decisions và open questions",
+       "ket_qua": "delivery handoff",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Skill này không có task nào ở mức R3 hoặc R4. Không có nghĩa là không cần rà soát — chỉ là không có cổng phê duyệt bắt buộc.",
+     "tasks": []
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "ba-assess-solution-feasibility",
+       "muc_tieu": "đánh giá data, technology, operations, risk và value",
+       "ket_qua": "feasibility report",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "ba-validate-requirements",
+       "muc_tieu": "kiểm tra completeness, consistency, feasibility và testability",
+       "ket_qua": "validation report",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  },
+  "data-career-and-interview-coach": {
+   "tom_tat": "Hệ thống nghề nghiệp có bằng chứng: bộ nhớ học xuyên skill, theo dõi mastery và suy giảm, context chuyển chủ đề, bản đồ năng lực, portfolio, sẵn sàng phỏng vấn.",
+   "so_task": 57,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "career-clarify-target-data-role",
+       "muc_tieu": "xác định role, level, company context và timeline mục tiêu",
+       "ket_qua": "target-role brief",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "career-assess-role-readiness",
+       "muc_tieu": "đánh giá theory, practical evidence, communication và gaps theo scorecard",
+       "ket_qua": "readiness assessment",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — dựng và bàn giao",
+     "vi_sao": "Skill này có 29 task ở nhóm build-deliver; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "career-build-architecture-case-study",
+       "muc_tieu": "bóc tách một kiến trúc public thành constraints, decisions, rejected alternatives, consistency, cost, failure modes và follow-up questions có trích dẫn nguồn",
+       "ket_qua": "architecture case-study dossier",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "career-build-career-evidence-portfolio",
+       "muc_tieu": "lập evidence inventory theo learning, practice, project, production, leadership, business và organizational impact",
+       "ket_qua": "career evidence portfolio",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "career-build-career-operating-system",
+       "muc_tieu": "nối current state, target capability, gaps, practice, real work, evidence, feedback và review cadence thành hệ thống phát triển bền vững",
+       "ket_qua": "career operating system",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Skill này không có task nào ở mức R3 hoặc R4. Không có nghĩa là không cần rà soát — chỉ là không có cổng phê duyệt bắt buộc.",
+     "tasks": []
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "career-analyze-interview-question",
+       "muc_tieu": "bóc tách interviewer intent, competency, scope, ambiguity, expected depth và failure traps",
+       "ket_qua": "interview question analysis",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "career-assess-role-readiness",
+       "muc_tieu": "đánh giá theory, practical evidence, communication và gaps theo scorecard",
+       "ket_qua": "readiness assessment",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "career-assess-topic-mastery",
+       "muc_tieu": "đánh giá recall, application, changed-scenario transfer, failure handling, evidence và freshness trước khi đổi mastery state",
+       "ket_qua": "topic mastery assessment",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    }
+   ]
+  },
+  "data-department-orchestrator": {
+   "tom_tat": "Cửa vào khi yêu cầu mơ hồ hoặc chạm nhiều vai. Nó không tự làm việc chuyên môn — nó phân tuyến, dựng workflow có chủ sở hữu, phụ thuộc, cổng kiểm và bàn giao.",
+   "so_task": 27,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "orchestrator-hydrate-context",
+       "muc_tieu": "nạp project, role, decisions, constraints, stack và permissions",
+       "ket_qua": "hydrated context",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "orchestrator-compose-workflow",
+       "muc_tieu": "chuyển intent thành steps, dependencies, gates và handoffs",
+       "ket_qua": "workflow plan",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — lập kế hoạch và thiết kế",
+     "vi_sao": "Skill này có 3 task ở nhóm plan-design; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "orchestrator-collect-plan-risk",
+       "muc_tieu": "gom mọi thao tác rủi ro mà kế hoạch hàm ý để duyệt một lần lúc lập kế hoạch, kèm hạn dùng và số lần",
+       "ket_qua": "plan-time risk approval set",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "orchestrator-define-agent-harness",
+       "muc_tieu": "khai báo phạm vi, grounding, tool surface, guardrail, eval và môi trường cho một agent theo vai",
+       "ket_qua": "agent harness specification",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "orchestrator-write-session-handoff",
+       "muc_tieu": "ghi lại suy luận mà run state không giữ được khi một phiên kết thúc dở dang",
+       "ket_qua": "session handoff note",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Skill này không có task nào ở mức R3 hoặc R4. Không có nghĩa là không cần rà soát — chỉ là không có cổng phê duyệt bắt buộc.",
+     "tasks": []
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "orchestrator-audit-agent-harness",
+       "muc_tieu": "đối chiếu harness đang chạy với bản khai báo, kiểm quyền thừa, gate bị nới và eval đã cũ",
+       "ket_qua": "harness readiness audit",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "orchestrator-audit-runtime-floor",
+       "muc_tieu": "kiểm năm nhóm cấm tuyệt đối còn nguyên và không bị cấu hình nào tắt được",
+       "ket_qua": "runtime floor audit",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "orchestrator-check-information-sufficiency",
+       "muc_tieu": "xác định thiếu blocking/nonblocking và conflicts",
+       "ket_qua": "proceed/ask/stop decision",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  },
+  "data-developer-experience": {
+   "tom_tat": "Trải nghiệm lập trình viên dữ liệu: thiết lập máy, cấu trúc kho, hiểu đường đi dữ liệu đầu-cuối, template, môi trường local, phản hồi CI và golden path.",
+   "so_task": 20,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "dx-audit-data-repository",
+       "muc_tieu": "phân loại code, configs, tests, docs, data và risks",
+       "ket_qua": "repository assessment",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "dx-reverse-engineer-data-project",
+       "muc_tieu": "trace entry points, pipeline, dependencies và outputs",
+       "ket_qua": "evidence-based project map",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — lập kế hoạch và thiết kế",
+     "vi_sao": "Skill này có 3 task ở nhóm plan-design; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "dx-create-project-demo",
+       "muc_tieu": "tạo safe sample data, scripted walkthrough và expected outputs",
+       "ket_qua": "reproducible demo",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "dx-create-test-data-fixture",
+       "muc_tieu": "tạo deterministic edge-case records cho automated tests",
+       "ket_qua": "test fixture",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "dx-select-project-template",
+       "muc_tieu": "chọn template theo stack, deployment và governance needs",
+       "ket_qua": "template decision",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "dx-detect-repository-secrets",
+       "muc_tieu": "scan current tree/history và tạo remediation plan",
+       "ket_qua": "secret exposure report",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "dx-migrate-project-structure",
+       "muc_tieu": "chuyển layout/config có compatibility plan và verification",
+       "ket_qua": "migrated repository",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "dx-assess-production-readiness",
+       "muc_tieu": "kiểm tra documentation, tests, deployment, observability và controls",
+       "ket_qua": "readiness decision",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "dx-audit-data-repository",
+       "muc_tieu": "phân loại code, configs, tests, docs, data và risks",
+       "ket_qua": "repository assessment",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "dx-detect-repository-secrets",
+       "muc_tieu": "scan current tree/history và tạo remediation plan",
+       "ket_qua": "secret exposure report",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    }
+   ]
+  },
+  "data-documentation-and-diagrams": {
+   "tom_tat": "Tài liệu dữ liệu đã kiểm chứng, ADR, runbook, postmortem, ERD, BPMN, sequence, state, lineage và sơ đồ kiến trúc.",
+   "so_task": 20,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "docs-select-diagram-type",
+       "muc_tieu": "chọn ERD, sequence, state, activity, swimlane, BPMN, use case hoặc architecture theo question",
+       "ket_qua": "diagram decision",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "docs-create-mermaid-activity-diagram",
+       "muc_tieu": "mô hình hóa flow có branches/loops nhỏ",
+       "ket_qua": "validated Mermaid activity diagram",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — dựng và bàn giao",
+     "vi_sao": "Skill này có 1 task ở nhóm build-deliver; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "docs-maintain-changelog",
+       "muc_tieu": "cập nhật versioned change history từ release evidence",
+       "ket_qua": "changelog",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "docs-write-release-notes",
+       "muc_tieu": "tóm tắt changes, impact, migration và known issues",
+       "ket_qua": "release notes",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "docs-validate-diagram-semantics",
+       "muc_tieu": "kiểm tra missing node, dead end, cardinality, direction và domain correctness",
+       "ket_qua": "diagram QA report",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  },
+  "data-enablement-and-knowledge": {
+   "tom_tat": "Onboarding kỹ thuật, kế hoạch học, giải thích, walkthrough, pairing, kiểm tra kiến thức, bài viết và chăm sóc kho tri thức nội bộ.",
+   "so_task": 17,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "enable-create-role-onboarding",
+       "muc_tieu": "tạo lộ trình 30/60/90 ngày theo role và access needs",
+       "ket_qua": "role onboarding plan",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "enable-create-system-onboarding",
+       "muc_tieu": "giải thích architecture, workflows, environments và runbooks",
+       "ket_qua": "system onboarding guide",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — dựng và bàn giao",
+     "vi_sao": "Skill này có 10 task ở nhóm build-deliver; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "enable-build-concept-knowledge-map",
+       "muc_tieu": "liên kết concept, prerequisite, contrast, application, misconception và related questions",
+       "ket_qua": "linked concept knowledge map",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "enable-build-versioned-knowledge-library",
+       "muc_tieu": "tổ chức deep dives, question dossiers, tags, backlinks, owner, freshness và review status",
+       "ket_qua": "governed knowledge library",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "enable-capture-lessons-learned",
+       "muc_tieu": "rút decisions, surprises, patterns và anti-patterns từ project",
+       "ket_qua": "lessons-learned record",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "enable-publish-knowledge",
+       "muc_tieu": "kiểm tra owner, sensitivity, discoverability và version trước publish",
+       "ket_qua": "published knowledge asset",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "enable-measure-learning-progress",
+       "muc_tieu": "theo dõi completion, assessment và application evidence",
+       "ket_qua": "learning-progress report",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  },
+  "data-engineering": {
+   "tom_tat": "Thiết kế, xây, kiểm thử, chẩn đoán execution plan và vận hành pipeline batch, API, file, CDC, streaming — kèm idempotency, tiến hoá schema, đối soát, khôi phục và runbook.",
+   "so_task": 25,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "de-profile-source-system",
+       "muc_tieu": "xác định schema, keys, volume, change pattern và limits",
+       "ket_qua": "source profile",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "de-design-ingestion-pipeline",
+       "muc_tieu": "chọn method, cadence, watermark, recovery và controls",
+       "ket_qua": "ingestion design",
+       "rui_ro": "R2-standard"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — dựng và bàn giao",
+     "vi_sao": "Skill này có 11 task ở nhóm build-deliver; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "de-add-pipeline-data-checks",
+       "muc_tieu": "kiểm tra schema, count, duplicate và reconciliation",
+       "ket_qua": "guarded pipeline",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "de-build-api-ingestion",
+       "muc_tieu": "xử lý auth, pagination, rate limit và incremental sync",
+       "ket_qua": "API pipeline",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "de-build-batch-ingestion",
+       "muc_tieu": "nạp batch có checkpoint, audit và retry",
+       "ket_qua": "production-ready batch pipeline",
+       "rui_ro": "R2-standard"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "de-backfill-data-range",
+       "muc_tieu": "ước lượng scope/cost, chạy chunked backfill và reconcile",
+       "ket_qua": "verified backfill",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "de-deploy-data-pipeline",
+       "muc_tieu": "promote config/code, smoke test và monitor",
+       "ket_qua": "deployed pipeline",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "de-migrate-data-pipeline",
+       "muc_tieu": "dual-run, reconcile, cutover và rollback",
+       "ket_qua": "migrated pipeline",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "de-retire-data-pipeline",
+       "muc_tieu": "confirm consumers, archive và disable safely",
+       "ket_qua": "retired pipeline",
+       "rui_ro": "R4-critical"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "de-analyze-execution-plan",
+       "muc_tieu": "đọc SQL/Spark execution plan trước khi tối ưu để xác định scan, join, shuffle, skew, partition và bottleneck có evidence",
+       "ket_qua": "execution-plan diagnosis",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "de-profile-source-system",
+       "muc_tieu": "xác định schema, keys, volume, change pattern và limits",
+       "ket_qua": "source profile",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "de-reconcile-source-target",
+       "muc_tieu": "so sánh counts, totals, hashes và sample records",
+       "ket_qua": "reconciliation report",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  },
+  "data-governance-and-stewardship": {
+   "tom_tat": "Quyền sở hữu, chính sách, từ điển nghiệp vụ, phân loại, quản trị truy cập, lưu trữ, chứng nhận và bằng chứng kiểm soát.",
+   "so_task": 22,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "dg-define-data-domain",
+       "muc_tieu": "xác định scope, assets, owner và stewardship boundary",
+       "ket_qua": "domain charter",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "dg-assign-data-ownership",
+       "muc_tieu": "thiết lập accountable owner, steward và custodian",
+       "ket_qua": "ownership matrix",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — kiểm chứng",
+     "vi_sao": "Skill này có 8 task ở nhóm test-assure; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "dg-assess-governance-maturity",
+       "muc_tieu": "chấm maturity và xác định improvement backlog",
+       "ket_qua": "governance assessment",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "dg-audit-policy-conformance",
+       "muc_tieu": "lấy mẫu evidence và ghi exceptions/remediation",
+       "ket_qua": "conformance audit",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "dg-certify-business-metric",
+       "muc_tieu": "phê duyệt definition, formula, grain, filters và source",
+       "ket_qua": "certified metric",
+       "rui_ro": "R4-critical"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "dg-certify-business-metric",
+       "muc_tieu": "phê duyệt definition, formula, grain, filters và source",
+       "ket_qua": "certified metric",
+       "rui_ro": "R4-critical"
+      },
+      {
+       "task": "dg-plan-data-asset-retirement",
+       "muc_tieu": "xác định consumers, archive, replacement và deletion approvals",
+       "ket_qua": "retirement plan",
+       "rui_ro": "R4-critical"
+      },
+      {
+       "task": "dg-review-data-access-request",
+       "muc_tieu": "đánh giá purpose, minimization, sensitivity và duration",
+       "ket_qua": "governance recommendation",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "dg-review-data-sharing-request",
+       "muc_tieu": "đánh giá recipient, purpose, contract, controls và revocation",
+       "ket_qua": "sharing decision package",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "dg-assess-governance-maturity",
+       "muc_tieu": "chấm maturity và xác định improvement backlog",
+       "ket_qua": "governance assessment",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "dg-audit-policy-conformance",
+       "muc_tieu": "lấy mẫu evidence và ghi exceptions/remediation",
+       "ket_qua": "conformance audit",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "dg-certify-business-metric",
+       "muc_tieu": "phê duyệt definition, formula, grain, filters và source",
+       "ket_qua": "certified metric",
+       "rui_ro": "R4-critical"
+      }
+     ]
+    }
+   ]
+  },
+  "data-onboarding-and-integration": {
+   "tom_tat": "Preboarding, sẵn sàng quyền truy cập, định hướng, shadowing, việc đầu tiên, checkpoint, chuyển vai, quay lại và rời đi.",
+   "so_task": 34,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "onboard-define-data-onboarding-standard",
+       "muc_tieu": "định nghĩa lifecycle, mandatory content, gates, owners và SLAs",
+       "ket_qua": "data onboarding standard",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "onboard-plan-new-hire-onboarding",
+       "muc_tieu": "cá nhân hóa theo role, level, location, employment type và start date",
+       "ket_qua": "individual onboarding plan",
+       "rui_ro": "R2-standard"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — dựng và bàn giao",
+     "vi_sao": "Skill này có 18 task ở nhóm build-deliver; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "onboard-assign-onboarding-buddy",
+       "muc_tieu": "chọn buddy, expectations, cadence và escalation path",
+       "ket_qua": "buddy agreement",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "onboard-capture-onboarding-feedback",
+       "muc_tieu": "thu anonymous và attributable feedback có action routing",
+       "ket_qua": "onboarding feedback report",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "onboard-deliver-business-domain-orientation",
+       "muc_tieu": "dạy processes, entities, KPIs, rules và stakeholders",
+       "ket_qua": "domain-orientation record",
+       "rui_ro": "R2-standard"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "onboard-deliver-governance-security-orientation",
+       "muc_tieu": "dạy policies, classifications, access, privacy và incident duties",
+       "ket_qua": "governance-security training record",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "onboard-offboard-and-transfer-knowledge",
+       "muc_tieu": "thu hồi access, bàn giao ownership, knowledge và open risks",
+       "ket_qua": "offboarding evidence package",
+       "rui_ro": "R4-critical"
+      },
+      {
+       "task": "onboard-plan-access-provisioning",
+       "muc_tieu": "map role tới least-privilege access và approvers",
+       "ket_qua": "access provisioning plan",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "onboard-verify-access-readiness",
+       "muc_tieu": "test accounts, MFA, environments, repositories và data permissions",
+       "ket_qua": "access-readiness report",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "onboard-assess-integration-health",
+       "muc_tieu": "đo role clarity, access, network, learning, contribution và belonging",
+       "ket_qua": "integration-health assessment",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "onboard-certify-onboarding-completion",
+       "muc_tieu": "kiểm tra mandatory evidence và manager/new-hire signoff",
+       "ket_qua": "onboarding completion decision",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "onboard-measure-onboarding-effectiveness",
+       "muc_tieu": "đo time-to-access, time-to-first-value, retention và readiness",
+       "ket_qua": "onboarding effectiveness report",
+       "rui_ro": "R2-standard"
+      }
+     ]
+    }
+   ]
+  },
+  "data-personal-project-engineering": {
+   "tom_tat": "Dự án cá nhân có khác biệt cho portfolio, học tập hoặc capstone — từ một bài toán, dataset, kho tham khảo, khoảng trống năng lực, công nghệ, paper, khoá học, issue mã nguồn mở hay một sự cố.",
+   "so_task": 42,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "project-classify-starting-point",
+       "muc_tieu": "phân loại evidence đầu vào, mức sở hữu, độ chắc chắn và project entry mode phù hợp",
+       "ket_qua": "project starting-point classification",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "project-select-project-mode",
+       "muc_tieu": "chọn một primary mode và secondary inputs bằng routing rules có giải thích",
+       "ket_qua": "personal-project mode decision",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — kiểm chứng",
+     "vi_sao": "Skill này có 6 task ở nhóm test-assure; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "project-audit-originality-and-attribution",
+       "muc_tieu": "đối chiếu final artifacts với source origins, license, borrowed elements, differentiators và public claims",
+       "ket_qua": "originality and attribution audit",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "project-audit-reference-repository",
+       "muc_tieu": "nhận xét và đánh giá repo theo purpose, architecture, data flow, runtime, correctness, tests, security, dependencies, CI/CD, observability, performance, cost, documentation, maintainability, activity và license",
+       "ket_qua": "evidence-backed repository assessment",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "project-evaluate-portfolio-strength",
+       "muc_tieu": "đánh giá depth, reproducibility, decisions, failures, trade-offs, operations, communication và role evidence",
+       "ket_qua": "project portfolio-strength assessment",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "project-start-incident-failure-first",
+       "muc_tieu": "bắt đầu từ failure scenario, tạo reproduction, detection, diagnosis, recovery và prevention evidence",
+       "ket_qua": "reliability project charter",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "project-audit-originality-and-attribution",
+       "muc_tieu": "đối chiếu final artifacts với source origins, license, borrowed elements, differentiators và public claims",
+       "ket_qua": "originality and attribution audit",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "project-audit-reference-repository",
+       "muc_tieu": "nhận xét và đánh giá repo theo purpose, architecture, data flow, runtime, correctness, tests, security, dependencies, CI/CD, observability, performance, cost, documentation, maintainability, activity và license",
+       "ket_qua": "evidence-backed repository assessment",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "project-evaluate-portfolio-strength",
+       "muc_tieu": "đánh giá depth, reproducibility, decisions, failures, trade-offs, operations, communication và role evidence",
+       "ket_qua": "project portfolio-strength assessment",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  },
+  "data-platform-and-dataops": {
+   "tom_tat": "Nền tảng dữ liệu, môi trường, orchestration, CI/CD, observability, năng lực, độ tin cậy, chi phí và khôi phục thảm hoạ.",
+   "so_task": 21,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "platform-provision-data-environment",
+       "muc_tieu": "tạo dev/test/prod resources theo baseline",
+       "ket_qua": "usable environment",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "platform-configure-data-iam",
+       "muc_tieu": "triển khai role/service account/least privilege",
+       "ket_qua": "access configuration",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — lập kế hoạch và thiết kế",
+     "vi_sao": "Skill này có 1 task ở nhóm plan-design; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "platform-create-self-service-template",
+       "muc_tieu": "tạo golden path cho pipeline/model/environment",
+       "ket_qua": "reusable template",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "platform-configure-data-iam",
+       "muc_tieu": "triển khai role/service account/least privilege",
+       "ket_qua": "access configuration",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "platform-deploy-orchestrator",
+       "muc_tieu": "cài đặt, cấu hình và kiểm tra orchestration runtime",
+       "ket_qua": "operational orchestrator",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "platform-manage-data-secrets",
+       "muc_tieu": "tạo, rotate và audit secrets",
+       "ket_qua": "managed secret lifecycle",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "platform-migrate-platform-workload",
+       "muc_tieu": "di chuyển workload có dual-run và rollback",
+       "ket_qua": "migrated workload",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "platform-evaluate-platform-capacity",
+       "muc_tieu": "stress test concurrency, throughput và saturation",
+       "ket_qua": "capacity report",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "platform-measure-platform-slos",
+       "muc_tieu": "tính availability, latency và failure budget",
+       "ket_qua": "SLO report",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "platform-test-disaster-recovery",
+       "muc_tieu": "diễn tập restore/failover và đo RTO/RPO",
+       "ket_qua": "DR test report",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    }
+   ]
+  },
+  "data-quality-and-reliability": {
+   "tom_tat": "Quy tắc chất lượng và SLO, observability, đối soát, phân loại sự cố, game day và phòng ngừa tái diễn.",
+   "so_task": 21,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "dq-profile-critical-dataset",
+       "muc_tieu": "lập baseline completeness, validity, uniqueness và distribution",
+       "ket_qua": "DQ profile",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "dq-define-data-quality-rule",
+       "muc_tieu": "chuyển expectation thành executable rule, threshold và owner",
+       "ket_qua": "DQ rule spec",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — dựng và bàn giao",
+     "vi_sao": "Skill này có 5 task ở nhóm build-deliver; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "dq-build-data-quality-scorecard",
+       "muc_tieu": "tổng hợp dimensions, criticality và issue status",
+       "ket_qua": "DQ scorecard",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "dq-implement-data-quality-test",
+       "muc_tieu": "mã hóa và tích hợp rule vào pipeline/model",
+       "ket_qua": "automated test",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "dre-coordinate-data-incident",
+       "muc_tieu": "quản lý roles, communication, timeline và mitigation",
+       "ket_qua": "incident log",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "dre-coordinate-data-incident",
+       "muc_tieu": "quản lý roles, communication, timeline và mitigation",
+       "ket_qua": "incident log",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "dre-diagnose-data-incident",
+       "muc_tieu": "trace lineage và evidence để tìm failure point",
+       "ket_qua": "root-cause diagnosis",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "dre-restore-corrupted-data",
+       "muc_tieu": "quarantine, restore/reprocess và reconcile",
+       "ket_qua": "recovered dataset",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "dq-certify-quality-readiness",
+       "muc_tieu": "kiểm tra coverage, thresholds và open issues",
+       "ket_qua": "quality gate decision",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "dq-detect-data-quality-anomaly",
+       "muc_tieu": "xây baseline và calibrated anomaly logic",
+       "ket_qua": "anomaly detector",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "dq-profile-critical-dataset",
+       "muc_tieu": "lập baseline completeness, validity, uniqueness và distribution",
+       "ket_qua": "DQ profile",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  },
+  "data-science": {
+   "tom_tat": "Nghiên cứu thống kê, nhân quả, dự báo, tối ưu và học máy — kèm kiểm soát rò rỉ, validation, khả năng giải thích và bằng chứng rủi ro mô hình.",
+   "so_task": 22,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "ds-frame-modeling-problem",
+       "muc_tieu": "chuyển business decision thành target, unit, horizon và constraints",
+       "ket_qua": "modeling brief",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "ds-design-modeling-dataset",
+       "muc_tieu": "định nghĩa observation unit, labels, cutoff và sampling",
+       "ket_qua": "dataset specification",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — dựng và bàn giao",
+     "vi_sao": "Skill này có 13 task ở nhóm build-deliver; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "ds-build-baseline-model",
+       "muc_tieu": "thiết lập heuristic/simple model benchmark",
+       "ket_qua": "baseline metrics",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "ds-build-optimization-model",
+       "muc_tieu": "định nghĩa objective, constraints và scenario evaluation",
+       "ket_qua": "optimization solution",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "ds-build-time-series-forecast",
+       "muc_tieu": "xử lý seasonality, hierarchy, backtest và intervals",
+       "ket_qua": "forecast model",
+       "rui_ro": "R2-standard"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Skill này không có task nào ở mức R3 hoặc R4. Không có nghĩa là không cần rà soát — chỉ là không có cổng phê duyệt bắt buộc.",
+     "tasks": []
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "ds-assess-model-fairness",
+       "muc_tieu": "đo subgroup performance, disparity và mitigation",
+       "ket_qua": "fairness assessment",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "ds-detect-anomalies",
+       "muc_tieu": "xây expected behavior và calibrated anomaly threshold",
+       "ket_qua": "anomaly model",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "ds-validate-model",
+       "muc_tieu": "đánh giá holdout, stability, uncertainty và business metric",
+       "ket_qua": "validation report",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  },
+  "data-security-and-privacy": {
+   "tom_tat": "Phân loại, threat model, đặc quyền tối thiểu, mã hoá, masking, audit, quy trình quyền riêng tư và ứng phó sự cố.",
+   "so_task": 16,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "sec-discover-sensitive-data",
+       "muc_tieu": "scan và xác minh PII/secrets/confidential fields",
+       "ket_qua": "sensitive-data inventory",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "sec-classify-sensitive-data",
+       "muc_tieu": "gắn class theo policy và regulation",
+       "ket_qua": "security classification",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — lập kế hoạch và thiết kế",
+     "vi_sao": "Skill này có 3 task ở nhóm plan-design; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "privacy-prepare-data-breach-assessment",
+       "muc_tieu": "xác định affected data, subjects, scope và notifications",
+       "ket_qua": "breach assessment",
+       "rui_ro": "R4-critical"
+      },
+      {
+       "task": "sec-collect-control-evidence",
+       "muc_tieu": "gom configurations, logs, tests và approvals",
+       "ket_qua": "audit evidence",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "sec-design-data-access-control",
+       "muc_tieu": "định nghĩa RBAC/ABAC, segregation và break-glass",
+       "ket_qua": "access-control design",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "privacy-assess-data-use-case",
+       "muc_tieu": "đánh giá purpose, minimization, legal basis và risk",
+       "ket_qua": "privacy assessment",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "privacy-enforce-retention-deletion",
+       "muc_tieu": "map assets, execute approved deletion và verify",
+       "ket_qua": "deletion evidence",
+       "rui_ro": "R4-critical"
+      },
+      {
+       "task": "privacy-handle-data-subject-request",
+       "muc_tieu": "discover, verify, export/delete và record evidence",
+       "ket_qua": "completed DSR package",
+       "rui_ro": "R4-critical"
+      },
+      {
+       "task": "privacy-prepare-data-breach-assessment",
+       "muc_tieu": "xác định affected data, subjects, scope và notifications",
+       "ket_qua": "breach assessment",
+       "rui_ro": "R4-critical"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "privacy-assess-data-use-case",
+       "muc_tieu": "đánh giá purpose, minimization, legal basis và risk",
+       "ket_qua": "privacy assessment",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "sec-audit-data-access",
+       "muc_tieu": "phân tích grants, usage, dormant access và anomalies",
+       "ket_qua": "access audit",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "sec-review-data-sharing-security",
+       "muc_tieu": "đánh giá recipient, transport, controls và expiry",
+       "ket_qua": "security recommendation",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    }
+   ]
+  },
+  "data-talent-acquisition-and-interview": {
+   "tom_tat": "Tuyển dụng có cấu trúc: hồ sơ vai, scorecard, vòng phỏng vấn, work sample, rubric, hiệu chỉnh, debrief, kiểm soát công bằng và giá trị đo lường.",
+   "so_task": 41,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "talent-validate-workforce-need",
+       "muc_tieu": "kiểm tra outcome, capacity gap, alternatives, budget và urgency",
+       "ket_qua": "validated hiring request",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "talent-define-data-role-profile",
+       "muc_tieu": "định nghĩa mission, outcomes, responsibilities, boundaries và level",
+       "ket_qua": "role profile",
+       "rui_ro": "R2-standard"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — dựng và bàn giao",
+     "vi_sao": "Skill này có 21 task ở nhóm build-deliver; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "talent-make-hiring-recommendation",
+       "muc_tieu": "cân must-have evidence, risks và development assumptions",
+       "ket_qua": "hiring recommendation",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "talent-run-analytics-case-interview",
+       "muc_tieu": "đánh giá framing, metrics, analysis, insight và decision communication",
+       "ket_qua": "analytics-case assessment",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "talent-run-behavioral-interview",
+       "muc_tieu": "đánh giá past evidence về ownership, collaboration, learning và conflict",
+       "ket_qua": "behavioral assessment",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "talent-create-candidate-feedback",
+       "muc_tieu": "tạo feedback lawful, respectful và evidence-grounded",
+       "ket_qua": "candidate feedback package",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "talent-evaluate-take-home-assignment",
+       "muc_tieu": "chấm correctness, reasoning, trade-offs, testing và authorship discussion",
+       "ket_qua": "take-home assessment",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "talent-make-hiring-recommendation",
+       "muc_tieu": "cân must-have evidence, risks và development assumptions",
+       "ket_qua": "hiring recommendation",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "talent-run-analytics-case-interview",
+       "muc_tieu": "đánh giá framing, metrics, analysis, insight và decision communication",
+       "ket_qua": "analytics-case assessment",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "talent-audit-assessment-validity",
+       "muc_tieu": "đo alignment, reliability và predictive usefulness của assessments",
+       "ket_qua": "assessment-validity report",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "talent-audit-interview-fairness",
+       "muc_tieu": "kiểm tra adverse patterns, inconsistent scoring và prohibited signals",
+       "ket_qua": "interview fairness audit",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "talent-audit-question-bank-coverage",
+       "muc_tieu": "kiểm tra coverage, redundancy, difficulty, bias, leakage và validity của question bank",
+       "ket_qua": "question-bank coverage audit",
+       "rui_ro": "R2-standard"
+      }
+     ]
+    }
+   ]
+  },
+  "data-technical-content-and-social": {
+   "tom_tat": "Chuỗi nội dung kỹ thuật có bằng chứng: nghiên cứu, bài viết chuẩn, code, sơ đồ, bản thích ứng theo kênh, QA, xuất bản và đo lường.",
+   "so_task": 27,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "content-define-technical-content-strategy",
+       "muc_tieu": "xác định audience, problem space, positioning, outcomes, channels, constraints và success signals",
+       "ket_qua": "technical-content strategy brief",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "content-research-technical-topic",
+       "muc_tieu": "thu thập official sources, versioned facts, examples, controversies, failure modes và source limitations",
+       "ket_qua": "technical-topic research pack",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — kiểm chứng",
+     "vi_sao": "Skill này có 8 task ở nhóm test-assure; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "content-audit-author-voice-and-originality",
+       "muc_tieu": "kiểm tra consistency, AI tells, cliché, copied phrasing, invented authority và channel duplication",
+       "ket_qua": "voice and originality audit",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "content-audit-claim-source-traceability",
+       "muc_tieu": "nối từng material claim tới source, test, runtime evidence hoặc nhãn opinion/hypothesis",
+       "ket_qua": "content claim-traceability audit",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "content-audit-series-concept-coverage",
+       "muc_tieu": "map episode đã publish tới canonical concept ID để tách concept đã dạy khỏi concept chỉ nhắc tới, tìm prerequisite hở và trùng lặp",
+       "ket_qua": "series concept coverage audit",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "content-publish-technical-content",
+       "muc_tieu": "phát hành đúng approved version, metadata, links, alt text và schedule lên kênh đã được ủy quyền",
+       "ket_qua": "technical-content publication record",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "content-audit-author-voice-and-originality",
+       "muc_tieu": "kiểm tra consistency, AI tells, cliché, copied phrasing, invented authority và channel duplication",
+       "ket_qua": "voice and originality audit",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "content-audit-claim-source-traceability",
+       "muc_tieu": "nối từng material claim tới source, test, runtime evidence hoặc nhãn opinion/hypothesis",
+       "ket_qua": "content claim-traceability audit",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "content-audit-series-concept-coverage",
+       "muc_tieu": "map episode đã publish tới canonical concept ID để tách concept đã dạy khỏi concept chỉ nhắc tới, tìm prerequisite hở và trùng lặp",
+       "ket_qua": "series concept coverage audit",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    }
+   ]
+  },
+  "generative-ai-engineering": {
+   "tom_tat": "RAG, retrieval, prompt, agent dùng tool và hệ GenAI có quản trị — kèm guardrail, kiểm thử injection, giám sát và system card.",
+   "so_task": 24,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "ai-frame-generative-ai-use-case",
+       "muc_tieu": "xác định user task, value, risk và non-AI baseline",
+       "ket_qua": "AI use-case brief",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "ai-build-schema-retrieval-index",
+       "muc_tieu": "index cấu trúc bảng, cột, grain và partition key để agent lấy schema thật ngay trước khi sinh SQL",
+       "ket_qua": "schema retrieval index",
+       "rui_ro": "R2-standard"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — kiểm chứng",
+     "vi_sao": "Skill này có 5 task ở nhóm test-assure; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "ai-analyze-ai-failures",
+       "muc_tieu": "cluster failure modes và propose fixes",
+       "ket_qua": "failure taxonomy",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "ai-audit-tool-surface",
+       "muc_tieu": "đối chiếu quyền agent thật sự có với quyền contract cho phép và dấu vết truy cập",
+       "ket_qua": "tool surface access audit",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "ai-evaluate-answer-quality",
+       "muc_tieu": "đo correctness, groundedness, relevance và refusal",
+       "ket_qua": "answer evaluation",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "ai-release-ai-version",
+       "muc_tieu": "evaluate, approve, canary và rollback",
+       "ket_qua": "controlled release",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "ai-analyze-ai-failures",
+       "muc_tieu": "cluster failure modes và propose fixes",
+       "ket_qua": "failure taxonomy",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "ai-audit-tool-surface",
+       "muc_tieu": "đối chiếu quyền agent thật sự có với quyền contract cho phép và dấu vết truy cập",
+       "ket_qua": "tool surface access audit",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "ai-evaluate-answer-quality",
+       "muc_tieu": "đo correctness, groundedness, relevance và refusal",
+       "ket_qua": "answer evaluation",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  },
+  "head-of-data-and-data-product": {
+   "tom_tat": "Tầng lãnh đạo: chiến lược dữ liệu, mô hình vận hành, danh mục, lộ trình, ưu tiên, giá trị, mức độ áp dụng và quản trị cấp điều hành.",
+   "so_task": 21,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "hod-assess-data-maturity",
+       "muc_tieu": "đánh giá maturity theo people/process/technology/governance",
+       "ket_qua": "maturity baseline",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "hod-define-data-strategy",
+       "muc_tieu": "chuyển business strategy thành data themes và measurable outcomes",
+       "ket_qua": "data strategy",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — dựng và bàn giao",
+     "vi_sao": "Skill này có 7 task ở nhóm build-deliver; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "dpm-accept-data-deliverable",
+       "muc_tieu": "kiểm chứng acceptance criteria và business usability",
+       "ket_qua": "acceptance decision",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "dpm-intake-data-request",
+       "muc_tieu": "chuẩn hóa problem, requester, urgency và expected decision",
+       "ket_qua": "intake record",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "dpm-prioritize-data-backlog",
+       "muc_tieu": "chấm điểm value, effort, risk và dependency",
+       "ket_qua": "ranked backlog",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "dpm-plan-data-release",
+       "muc_tieu": "xác định milestones, dependency, rollout và communication",
+       "ket_qua": "release plan",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "hod-assess-data-maturity",
+       "muc_tieu": "đánh giá maturity theo people/process/technology/governance",
+       "ket_qua": "maturity baseline",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "hod-evaluate-data-vendor",
+       "muc_tieu": "so sánh fit, TCO, lock-in, security và exit path",
+       "ket_qua": "vendor decision memo",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "hod-measure-data-product-adoption",
+       "muc_tieu": "theo dõi usage, satisfaction, decision impact và retirement signal",
+       "ket_qua": "adoption report",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  },
+  "machine-learning-engineering": {
+   "tom_tat": "Pipeline huấn luyện, feature, artifact model, serving batch hoặc online, hiệu năng, kiểm thử, giao diện triển khai và khả năng chịu lỗi.",
+   "so_task": 20,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "mle-productionize-model-code",
+       "muc_tieu": "refactor notebook thành package/module deterministic",
+       "ket_qua": "production codebase",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "mle-build-feature-pipeline",
+       "muc_tieu": "tạo online/offline consistent feature computation",
+       "ket_qua": "feature pipeline",
+       "rui_ro": "R2-standard"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — lập kế hoạch và thiết kế",
+     "vi_sao": "Skill này có 4 task ở nhóm plan-design; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "mle-define-inference-contract",
+       "muc_tieu": "định nghĩa request/response, validation, version và error behavior",
+       "ket_qua": "inference contract",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "mle-document-model-service",
+       "muc_tieu": "viết contract, limits, SLO, runbook và owner",
+       "ket_qua": "service documentation",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "mle-write-model-integration-tests",
+       "muc_tieu": "test feature/model/service/downstream compatibility",
+       "ket_qua": "integration tests",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "mle-build-canary-release",
+       "muc_tieu": "route small traffic và define abort thresholds",
+       "ket_qua": "canary rollout",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "mle-build-shadow-deployment",
+       "muc_tieu": "chạy model mới không ảnh hưởng decision",
+       "ket_qua": "shadow comparison",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "mle-rollback-model-release",
+       "muc_tieu": "revert artifact/config/traffic và verify",
+       "ket_qua": "restored stable version",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "mle-troubleshoot-inference-error",
+       "muc_tieu": "isolate input, feature, artifact, runtime hoặc dependency cause",
+       "ket_qua": "restored inference",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "mle-review-ml-engineering-change",
+       "muc_tieu": "review correctness, performance, security và operability",
+       "ket_qua": "review findings",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "mle-validate-model-compatibility",
+       "muc_tieu": "kiểm tra schema, runtime, feature và consumer compatibility",
+       "ket_qua": "compatibility report",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "mle-validate-training-serving-skew",
+       "muc_tieu": "so sánh feature logic và distributions",
+       "ket_qua": "skew report",
+       "rui_ro": "R2-standard"
+      }
+     ]
+    }
+   ]
+  },
+  "master-data-management": {
+   "tom_tat": "Thực thể chủ, so khớp danh tính, survivorship, golden record, dữ liệu tham chiếu, phân cấp, stewardship và đồng bộ.",
+   "so_task": 13,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "mdm-design-master-entity",
+       "muc_tieu": "xác định attributes, identifiers, relationships và owners",
+       "ket_qua": "master model",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "mdm-profile-entity-duplicates",
+       "muc_tieu": "đo duplicate patterns và root causes",
+       "ket_qua": "duplicate assessment",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — dựng và bàn giao",
+     "vi_sao": "Skill này có 6 task ở nhóm build-deliver; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "mdm-build-golden-record",
+       "muc_tieu": "match, merge, preserve lineage và publish identity",
+       "ket_qua": "golden dataset",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "mdm-handle-master-data-change",
+       "muc_tieu": "validate request, approval, effective date và audit",
+       "ket_qua": "approved master change",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "mdm-manage-master-hierarchy",
+       "muc_tieu": "duy trì parent-child, validity và cycle checks",
+       "ket_qua": "valid hierarchy",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Skill này không có task nào ở mức R3 hoặc R4. Không có nghĩa là không cần rà soát — chỉ là không có cổng phê duyệt bắt buộc.",
+     "tasks": []
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "mdm-audit-master-data-lineage",
+       "muc_tieu": "trace attribute về source, rule và steward action",
+       "ket_qua": "lineage evidence",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "mdm-profile-entity-duplicates",
+       "muc_tieu": "đo duplicate patterns và root causes",
+       "ket_qua": "duplicate assessment",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  },
+  "metadata-engineering-and-catalog": {
+   "tom_tat": "Thu thập metadata, catalog, tìm kiếm, lineage, quyền sở hữu, mức sử dụng và chất lượng metadata.",
+   "so_task": 18,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "meta-inventory-data-assets",
+       "muc_tieu": "lập inventory source, table, model, metric, report và owner",
+       "ket_qua": "asset inventory",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "meta-harvest-technical-metadata",
+       "muc_tieu": "thu schema, type, keys, jobs và dependencies từ platforms",
+       "ket_qua": "harvested metadata",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — lập kế hoạch và thiết kế",
+     "vi_sao": "Skill này có 1 task ở nhóm plan-design; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "meta-map-critical-data-elements",
+       "muc_tieu": "xác định CDE và liên kết system/column/control",
+       "ket_qua": "CDE map",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "meta-publish-metadata-api",
+       "muc_tieu": "cung cấp searchable metadata contract cho tools/agents",
+       "ket_qua": "metadata API contract",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "meta-detect-orphan-data-assets",
+       "muc_tieu": "tìm assets không owner, không consumer hoặc không refresh",
+       "ket_qua": "orphan report",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "meta-measure-metadata-completeness",
+       "muc_tieu": "chấm mandatory fields theo asset type và criticality",
+       "ket_qua": "completeness scorecard",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "meta-validate-lineage",
+       "muc_tieu": "đối chiếu parsed lineage với code, queries và owner evidence",
+       "ket_qua": "lineage validation report",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  },
+  "mlops": {
+   "tom_tat": "Vòng đời ML: theo dõi thí nghiệm, registry, CI/CD, triển khai, giám sát, drift, retrain, rollback, lineage và quản trị.",
+   "so_task": 23,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "mlops-provision-ml-environment",
+       "muc_tieu": "tạo reproducible compute, runtime và access",
+       "ket_qua": "ML environment",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "mlops-register-model-version",
+       "muc_tieu": "lưu artifact, signature, lineage và stage",
+       "ket_qua": "registry version",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — lập kế hoạch và thiết kế",
+     "vi_sao": "Skill này có 1 task ở nhóm plan-design; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "mlops-create-ml-runbook",
+       "muc_tieu": "ghi alerts, diagnosis, rollback và contacts",
+       "ket_qua": "runbook",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "mlops-deploy-model-version",
+       "muc_tieu": "triển khai artifact/config và verify endpoints",
+       "ket_qua": "deployed version",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "mlops-handle-ml-incident",
+       "muc_tieu": "triage data/model/service issue và coordinate response",
+       "ket_qua": "resolved incident",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "mlops-promote-model-stage",
+       "muc_tieu": "kiểm tra gates từ candidate tới staging/production",
+       "ket_qua": "promotion decision",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "mlops-retire-model-version",
+       "muc_tieu": "confirm no consumers, archive evidence và delete safely",
+       "ket_qua": "retired version",
+       "rui_ro": "R4-critical"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "mlops-audit-model-controls",
+       "muc_tieu": "thu lineage, approvals, monitoring và incident evidence",
+       "ket_qua": "control audit",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "mlops-validate-retrained-model",
+       "muc_tieu": "so sánh challenger/champion và policy gates",
+       "ket_qua": "validation decision",
+       "rui_ro": "R2-standard"
+      }
+     ]
+    }
+   ]
+  },
+  "personal-second-brain-and-knowledge-os": {
+   "tom_tat": "Second Brain local-first với bốn tầng 1_Nguon, 2_Wiki, 3_Toi, 4_Ket-Qua. Cho Obsidian hoặc hệ file local.",
+   "so_task": 50,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "brain-assess-current-knowledge-system",
+       "muc_tieu": "đánh giá nơi lưu, retrieval friction, duplication, portability, AI access, privacy và reuse baseline",
+       "ket_qua": "current knowledge-system assessment",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "brain-define-second-brain-purpose",
+       "muc_tieu": "khóa users, decisions, recurring jobs, desired outputs, non-goals và success signals",
+       "ket_qua": "second-brain purpose contract",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — dựng và bàn giao",
+     "vi_sao": "Skill này có 30 task ở nhóm build-deliver; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "brain-backup-second-brain",
+       "muc_tieu": "tạo versioned encrypted backup, integrity hashes và recovery instructions cho vault",
+       "ket_qua": "second-brain backup record",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "brain-build-atomic-knowledge-note",
+       "muc_tieu": "tạo một note cho một concept hoặc decision có stable ID, aliases, status, source links và related notes",
+       "ket_qua": "atomic knowledge note",
+       "rui_ro": "R2-standard"
+      },
+      {
+       "task": "brain-build-audience-context",
+       "muc_tieu": "ghi audience problems, sophistication, language, objections, desired outcomes và sensitive boundaries",
+       "ket_qua": "audience-context pack",
+       "rui_ro": "R2-standard"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "brain-restore-second-brain",
+       "muc_tieu": "phục hồi vào location tách biệt, kiểm tra integrity, links, indexes và representative retrieval trước cutover",
+       "ket_qua": "verified restore record",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "brain-retire-stale-knowledge",
+       "muc_tieu": "deprecate hoặc archive note/source/output với reason, successor, retention và backlink repair",
+       "ket_qua": "knowledge retirement record",
+       "rui_ro": "R4-critical"
+      },
+      {
+       "task": "brain-run-privacy-freshness-audit",
+       "muc_tieu": "kiểm tra secrets, sensitive personal data, permissions, stale notes, broken links, rights và retention",
+       "ket_qua": "privacy-and-freshness audit",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "brain-assess-current-knowledge-system",
+       "muc_tieu": "đánh giá nơi lưu, retrieval friction, duplication, portability, AI access, privacy và reuse baseline",
+       "ket_qua": "current knowledge-system assessment",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "brain-audit-output-grounding",
+       "muc_tieu": "kiểm tra mỗi material claim là sourced, inferred, personal hoặc unsupported và xác minh citations",
+       "ket_qua": "output-grounding audit",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "brain-measure-reuse-value",
+       "muc_tieu": "đo time-to-find, reuse rate, grounded-output rate, search failure và avoided rework mà không chạy theo note count",
+       "ket_qua": "second-brain value review",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  },
+  "product-analytics-and-experimentation": {
+   "tom_tat": "Định nghĩa event và metric sản phẩm, phân tích funnel, activation, retention, tăng trưởng; thiết kế và đánh giá thử nghiệm.",
+   "so_task": 17,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "pa-define-product-event",
+       "muc_tieu": "định nghĩa event, properties, trigger, identity và validation",
+       "ket_qua": "tracking spec entry",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "pa-design-event-taxonomy",
+       "muc_tieu": "chuẩn hóa naming, entities và lifecycle",
+       "ket_qua": "event taxonomy",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — dựng và bàn giao",
+     "vi_sao": "Skill này có 5 task ở nhóm build-deliver; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "exp-calculate-sample-size",
+       "muc_tieu": "tính MDE, power, alpha và traffic duration",
+       "ket_qua": "sample-size plan",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "exp-handle-experiment-peeking",
+       "muc_tieu": "áp dụng sequential/correction rule",
+       "ket_qua": "valid stopping decision",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "exp-register-experiment",
+       "muc_tieu": "lưu hypothesis, setup, result và decision",
+       "ket_qua": "experiment registry entry",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Skill này không có task nào ở mức R3 hoặc R4. Không có nghĩa là không cần rà soát — chỉ là không có cổng phê duyệt bắt buộc.",
+     "tasks": []
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "exp-analyze-experiment",
+       "muc_tieu": "ước lượng effect, interval, guardrails và heterogeneity",
+       "ket_qua": "experiment readout",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "exp-check-randomization",
+       "muc_tieu": "kiểm tra sample ratio mismatch và balance",
+       "ket_qua": "randomization report",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "pa-analyze-activation",
+       "muc_tieu": "định nghĩa activation và xác định actions liên quan value",
+       "ket_qua": "activation analysis",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  },
+  "shared-data-core": {
+   "tom_tat": "Bộ kiểm soát dùng chung cho mọi vai: đóng gói context có giới hạn, dò tìm tài sản, soi schema, profiling, kiểm chứng, bằng chứng, phê duyệt và bàn giao.",
+   "so_task": 18,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "core-classify-data-request",
+       "muc_tieu": "phân loại intent, domain, độ rủi ro và role owner",
+       "ket_qua": "routing decision",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "core-define-success-contract",
+       "muc_tieu": "chuyển mục tiêu mơ hồ thành outcome quan sát được, tiêu chí pass/fail, evidence, non-goals và điều kiện dừng",
+       "ket_qua": "verifiable success contract",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — kiểm chứng",
+     "vi_sao": "Skill này có 6 task ở nhóm test-assure; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "core-audit-change-scope",
+       "muc_tieu": "đối chiếu thay đổi thực tế với yêu cầu, allowlist, planned deletions và task-to-file traceability để phát hiện scope creep",
+       "ket_qua": "surgical change-scope audit",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "core-check-data-access",
+       "muc_tieu": "xác định quyền cần thiết và giới hạn sử dụng",
+       "ket_qua": "access decision hoặc request",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "core-inspect-dataset-schema",
+       "muc_tieu": "đọc schema, khóa, partition và quan hệ",
+       "ket_qua": "schema assessment",
+       "rui_ro": "R0-light"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Các task này ở mức R3 hoặc R4: chúng dừng lại chờ người duyệt, và app không tự vượt được.",
+     "tasks": [
+      {
+       "task": "core-check-data-access",
+       "muc_tieu": "xác định quyền cần thiết và giới hạn sử dụng",
+       "ket_qua": "access decision hoặc request",
+       "rui_ro": "R3-controlled"
+      }
+     ]
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "core-audit-change-scope",
+       "muc_tieu": "đối chiếu thay đổi thực tế với yêu cầu, allowlist, planned deletions và task-to-file traceability để phát hiện scope creep",
+       "ket_qua": "surgical change-scope audit",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "core-check-data-access",
+       "muc_tieu": "xác định quyền cần thiết và giới hạn sử dụng",
+       "ket_qua": "access decision hoặc request",
+       "rui_ro": "R3-controlled"
+      },
+      {
+       "task": "core-inspect-dataset-schema",
+       "muc_tieu": "đọc schema, khóa, partition và quan hệ",
+       "ket_qua": "schema assessment",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  },
+  "technical-translation": {
+   "tom_tat": "Dịch sách, tài liệu kỹ thuật, web và tài liệu mã nguồn sang tiếng Việt đọc như người trong ngành viết, không phải như bản dịch.",
+   "so_task": 17,
+   "cac_buoc": [
+    {
+     "buoc": "Bắt đầu",
+     "vi_sao": "Đây là điểm vào mà hướng dẫn của skill này chỉ định, không phải task đầu tiên theo thứ tự chữ cái.",
+     "tasks": [
+      {
+       "task": "trans-clarify-translation-brief",
+       "muc_tieu": "chốt người đọc, mục đích, mức trang trọng và \"trung thành\" ở đây nghĩa là gì",
+       "ket_qua": "translation brief",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "trans-build-terminology-glossary",
+       "muc_tieu": "chốt thuật ngữ chuyên ngành và thuật ngữ nào giữ nguyên tiếng Anh",
+       "ket_qua": "bilingual terminology glossary",
+       "rui_ro": "R2-standard"
+      }
+     ]
+    },
+    {
+     "buoc": "Làm tiếp — dựng và bàn giao",
+     "vi_sao": "Skill này có 7 task ở nhóm build-deliver; đây là ba task đầu theo thứ tự trong catalog.",
+     "tasks": [
+      {
+       "task": "trans-localize-culture-bound-content",
+       "muc_tieu": "xử lý ví dụ, ẩn dụ, đơn vị và tham chiếu văn hoá không chuyển thẳng được",
+       "ket_qua": "localised content",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "trans-maintain-translation-memory",
+       "muc_tieu": "giữ cặp câu đã duyệt để tái dùng và giữ nhất quán giữa các tài liệu",
+       "ket_qua": "translation memory",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "trans-transcreate-persuasive-copy",
+       "muc_tieu": "viết lại nội dung thuyết phục khi dịch sát nghĩa làm hỏng mục đích",
+       "ket_qua": "transcreated copy",
+       "rui_ro": "R1-reviewed"
+      }
+     ]
+    },
+    {
+     "buoc": "Cổng chặn",
+     "vi_sao": "Skill này không có task nào ở mức R3 hoặc R4. Không có nghĩa là không cần rà soát — chỉ là không có cổng phê duyệt bắt buộc.",
+     "tasks": []
+    },
+    {
+     "buoc": "Xong khi",
+     "vi_sao": "Xong là thứ có người kiểm được, không phải thứ trông có vẻ đủ. Đây là các task kiểm chứng của skill này.",
+     "tasks": [
+      {
+       "task": "trans-analyze-source-document",
+       "muc_tieu": "đọc thể loại, cấu trúc, giọng, và các bẫy dịch trước khi dịch câu nào",
+       "ket_qua": "source analysis",
+       "rui_ro": "R0-light"
+      },
+      {
+       "task": "trans-audit-terminology-consistency",
+       "muc_tieu": "soát một thuật ngữ có bị dịch nhiều kiểu trong cùng tài liệu không",
+       "ket_qua": "terminology consistency audit",
+       "rui_ro": "R1-reviewed"
+      },
+      {
+       "task": "trans-detect-translationese",
+       "muc_tieu": "tìm cú pháp dịch máy, sai mức trang trọng và thành ngữ dịch sát chữ",
+       "ket_qua": "translationese report",
+       "rui_ro": "R0-light"
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

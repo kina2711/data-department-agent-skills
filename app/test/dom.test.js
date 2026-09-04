@@ -96,3 +96,73 @@ test('no console errors while loading a suite and opening a skill', async (t) =>
   const errs = await page.eval('window.__errs');
   assert.deepEqual(errs, [], `renderer reported: ${JSON.stringify(errs)}`);
 });
+
+/* Vietnamese first, and a walkthrough that names real tasks.
+ *
+ * The English frontmatter description is written to make a router choose correctly; showing it to
+ * a person as the primary text was the complaint these cover. */
+
+test('every card carries the Vietnamese summary, not the English description', async (t) => {
+  const page = await withSuite(t);
+  const total = await page.eval('document.querySelectorAll("#grid .card").length');
+  const withGist = await page.eval(
+    '[...document.querySelectorAll("#grid .card-gist")].filter(e => e.textContent.trim()).length');
+  assert.equal(withGist, total, 'a card without Vietnamese falls back to nothing, not to English');
+  const anyEnglish = await page.eval(
+    '[...document.querySelectorAll("#grid .card-gist")].some(e => /\\bUse for\\b|\\bUse when\\b/.test(e.textContent))');
+  assert.equal(anyEnglish, false, 'router prose must not reach the card');
+});
+
+test('the detail view leads in Vietnamese and hides the English original behind a control', async (t) => {
+  const page = await withSuite(t);
+  await page.click('#grid .card');
+  await page.settle(400);
+  assert.equal(await page.eval('!!document.querySelector("#dGuide .lead")'), true);
+  const englishVisible = await page.eval(`(() => {
+    const el = document.querySelector('#dGuide .desc-en');
+    return !!el && !el.hidden; })()`);
+  assert.equal(englishVisible, false, 'the English description starts hidden');
+  assert.match(String(await page.text('.guide-toggle')), /tiếng Anh/);
+});
+
+test('the walkthrough sits in the wide column and every row names a real task', async (t) => {
+  const page = await withSuite(t);
+  await page.click('#grid .card');
+  await page.settle(400);
+
+  const steps = await page.eval('document.querySelectorAll("#dWalkthrough .wt-step").length');
+  assert.equal(steps, 4, 'four beats: bắt đầu, làm tiếp, cổng chặn, xong khi');
+
+  // In the sidebar the rows collapsed to one word per line; the column has to be wide enough.
+  const width = await page.eval(
+    'Math.round(document.getElementById("dWalkthrough").getBoundingClientRect().width)');
+  assert.ok(width > 700, `the walkthrough needs the wide column, got ${width}px`);
+
+  const ids = await page.eval(
+    '[...document.querySelectorAll("#dWalkthrough .wt-task code")].map(e => e.textContent)');
+  assert.ok(ids.length >= 4, 'the walkthrough lists tasks');
+  const known = await page.eval(`(() => {
+    const ids = [...document.querySelectorAll('#dWalkthrough .wt-task code')].map(e => e.textContent);
+    return ids.every(id => /^[a-z0-9-]+$/.test(id)); })()`);
+  assert.equal(known, true, 'every row is a task id, not prose');
+});
+
+test('clicking a walkthrough row selects that task rather than explaining it', async (t) => {
+  const page = await withSuite(t);
+  await page.click('#grid .card');
+  await page.settle(400);
+  const first = await page.eval(
+    'document.querySelector("#dWalkthrough .wt-task code").textContent');
+  await page.click('#dWalkthrough .wt-task');
+  await page.settle(300);
+  // The task list marks its choice with aria-selected, which is also what the CSS keys on. The id
+  // and the goal run together in textContent with no separator, so match the prefix rather than
+  // splitting on whitespace that is not there.
+  const selected = await page.eval(`(() => {
+    const el = document.querySelector('#dTasks [aria-selected="true"]');
+    return el ? (el.textContent || '').trim() : null; })()`);
+  assert.ok(selected && selected.startsWith(first),
+    `expected the selected row to be ${first}, saw ${JSON.stringify(String(selected).slice(0, 60))}`);
+  const howMany = await page.eval('document.querySelectorAll(\'#dTasks [aria-selected="true"]\').length');
+  assert.equal(howMany, 1, 'exactly one task is selected');
+});

@@ -82,6 +82,17 @@ function readSuite(suitePath) {
     waveOrder = [];
   }
 
+  // The step-by-step walkthrough is generated from the catalog, so it is present or it is not;
+  // an older suite simply shows the guide without it.
+  let tutorials = {};
+  try {
+    tutorials = JSON.parse(
+      fs.readFileSync(path.join(suitePath, 'docs', 'huong-dan-tung-buoc.vi.json'), 'utf8')
+    ).skills || {};
+  } catch {
+    tutorials = {};
+  }
+
   // Task-level metadata is optional; the grid degrades to names and counts without it.
   let tasks = [];
   if (fs.existsSync(catalogPath)) {
@@ -114,6 +125,7 @@ function readSuite(suitePath) {
       name: role.display_name || role.skill,
       description,
       guide: guides[role.skill] || null,
+      tutorial: tutorials[role.skill] || null,
       jobs: jobs.filter((j) => j.skill === role.skill),
       taskCount: role.task_count || owned.length,
       wave: waveOf.get(role.skill) || '',

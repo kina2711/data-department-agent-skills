@@ -167,6 +167,13 @@ function skillCard(skill) {
   const title = document.createElement('h3');
   title.textContent = skill.name;
 
+  // The Vietnamese summary, not the English frontmatter description. The description is written to
+  // make a router choose correctly; this is written for a person deciding whether to open it.
+  const gist = document.createElement('p');
+  gist.className = 'card-gist';
+  gist.textContent = (skill.guide && skill.guide.tom_tat) || '';
+  if (!gist.textContent) gist.hidden = true;
+
   const meta = document.createElement('div');
   meta.className = 'meta';
   const count = document.createElement('span');
@@ -181,7 +188,7 @@ function skillCard(skill) {
     meta.append(s);
   }
 
-  card.append(title, meta, riskBar(skill.tasks));
+  card.append(title, gist, meta, riskBar(skill.tasks));
   card.addEventListener('click', () => openDrawer(skill));
   return card;
 }
@@ -238,6 +245,68 @@ function renderGrid() {
     band.append(row);
     grid.append(band);
   }
+}
+
+/* The step-by-step walkthrough, generated from the catalog rather than written.
+ *
+ * Every line in it names a real task and repeats the goal and output that task declares, so it
+ * cannot drift into describing a sequence the suite does not have. Where a skill has no gate or no
+ * verification task, the step says so instead of borrowing one from a neighbour — a walkthrough
+ * that fills a gap quietly teaches an order that does not exist. */
+function renderTutorial(skill) {
+  const host = $('dWalkthrough');
+  host.textContent = '';
+  const t = skill.tutorial;
+  if (!t || !Array.isArray(t.cac_buoc) || !t.cac_buoc.length) return;
+
+  const heading = document.createElement('h4');
+  heading.className = 'sec';
+  heading.textContent = 'Hướng dẫn từng bước';
+  host.append(heading);
+
+  const wrap = document.createElement('div');
+  wrap.className = 'walkthrough';
+  for (const step of t.cac_buoc) {
+    const item = document.createElement('div');
+    item.className = 'wt-step';
+
+    const head = document.createElement('div');
+    head.className = 'wt-head';
+    head.textContent = step.buoc;
+    item.append(head);
+
+    const why = document.createElement('p');
+    why.className = 'wt-why';
+    why.textContent = step.vi_sao;
+    item.append(why);
+
+    for (const task of step.tasks || []) {
+      const row = document.createElement('button');
+      row.className = 'wt-task';
+      row.type = 'button';
+      const id = document.createElement('code');
+      id.textContent = task.task;
+      const goal = document.createElement('span');
+      goal.className = 'wt-goal';
+      goal.textContent = task.muc_tieu;
+      const out = document.createElement('span');
+      out.className = 'wt-out';
+      out.textContent = `→ ${task.ket_qua}`;
+      const risk = document.createElement('span');
+      risk.className = `wt-risk risk-${String(task.rui_ro).slice(0, 2)}`;
+      risk.textContent = task.rui_ro;
+      row.append(id, goal, out, risk);
+      // The walkthrough is a shortcut into the work, not a page about it. Same behaviour as the
+      // guide's entry points: clicking selects the task rather than explaining it.
+      row.addEventListener('click', () => {
+        state.selectedTask = task.task;
+        renderTasks();
+      });
+      item.append(row);
+    }
+    wrap.append(item);
+  }
+  host.append(wrap);
 }
 
 function renderTasks() {
@@ -405,6 +474,7 @@ function openDrawer(skill) {
   window.jobsUI.renderJobList(skill, pickJob);
   $('dTitle').textContent = skill.name;
   renderGuide(skill);
+  renderTutorial(skill);
   renderTasks();
   updateLaunch();
 }
