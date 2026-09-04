@@ -245,3 +245,53 @@ test('running a task records history and never writes the repository', async (t)
   assert.equal(fs.readFileSync(WORKFLOW, 'utf8'), before,
     'a test must not modify the workflow it opens');
 });
+
+test('a finished run leaves a drafted envelope and names what is still missing', async (t) => {
+  const os = require('node:os');
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'wf-run-'));
+  const copy = path.join(tmp, 'probe.workflow.json');
+  fs.copyFileSync(WORKFLOW, copy);
+
+  const page = await open({ stubs: {
+    'suite:pick': SUITE,
+    'folder:pick': SUITE,
+    'workflow:open': { ok: true, file: copy, manifest: JSON.parse(fs.readFileSync(copy, 'utf8')) },
+    'workflow:save': { ok: true },
+    'run:start': { ok: true },
+  } });
+  t.after(() => { page.close(); fs.rmSync(tmp, { recursive: true, force: true }); });
+
+  await page.click('#pickSuite');
+  await page.settle(700);
+  await page.click('#grid .card');
+  await page.settle(250);
+  await page.click('#pickFolder');
+  await page.settle(250);
+  await page.click('#backToSkills');
+  await page.settle(200);
+  await page.eval(`(() => { const tabs = [...document.querySelectorAll('button,[role=tab]')]
+    .filter((b) => /workflow|quy trình/i.test(b.textContent || '')); if (tabs.length) tabs[0].click();
+    return true; })()`);
+  await page.settle(200);
+  await page.click('#wfOpen');
+  await page.settle(500);
+  await setOwner(page, 'kina2711');
+  await page.click('#wfRunNext');
+  await page.settle(300);
+
+  // The run never really started, so drive the completion the way the main process would.
+  await page.eval(`(() => { const id = window.runUI.currentId();
+    if (self.cockpitRunFinished) self.cockpitRunFinished(id, 0); return true; })()`);
+  await page.settle(600);
+
+  const written = fs.readdirSync(path.join(tmp, 'evidence'));
+  assert.equal(written.length, 1, 'one envelope per finished run');
+  const env = JSON.parse(fs.readFileSync(path.join(tmp, 'evidence', written[0]), 'utf8'));
+  assert.equal(env.status, 'passed');
+  assert.equal(env.task_id, 'da-clarify-business-question');
+  assert.equal(env.artifact, '', 'the app must not invent an artifact');
+
+  const said = String(await page.text('#wfResult'));
+  assert.match(said, /nháp bằng chứng/);
+  assert.match(said, /artifact_sha256/, 'the message must name the fields left empty');
+});

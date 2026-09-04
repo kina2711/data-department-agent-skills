@@ -295,6 +295,59 @@
     return out;
   }
 
+  /* An evidence envelope drafted from a run the app actually watched.
+   *
+   * The schema wants thirteen fields and the app honestly knows six of them: which task ran, what
+   * command was issued, where, when, by whom, and what the exit status was. It does not know which
+   * artifact the run produced, what version that artifact is, its hash, or what the result does not
+   * cover. Those are left empty with a note saying so, because an envelope with a guessed hash is
+   * worse than one that is visibly unfinished — the first passes a check it should have failed.
+   *
+   * status follows the exit code into `passed` or `failed`, and never into `observed`: the run
+   * either completed or it did not, and softening that is the app editorialising about its own
+   * work. */
+  function draftEvidence(task, run) {
+    const now = run.at || new Date().toISOString();
+    return {
+      evidence_id: `ev-${keyOf(task)}-${now.replace(/[^0-9]/g, '').slice(0, 14)}`,
+      task_id: keyOf(task),
+      claim_ids: [`claim-${keyOf(task)}-1`],
+      artifact: '',
+      artifact_version: '',
+      artifact_sha256: '',
+      environment: {
+        folder: run.folder || '',
+        permission_mode: run.permissionMode || '',
+        runner: 'app-data-agent',
+      },
+      method: 'Chạy task qua Claude CLI từ buồng lái của app, không qua terminal.',
+      command: run.command || '',
+      expected_result: '',
+      observed_result: run.exit === 0
+        ? `CLI kết thúc với mã 0 sau ${run.durationMs || 0} ms.`
+        : `CLI kết thúc với mã ${run.exit} sau ${run.durationMs || 0} ms.`,
+      exit_status: typeof run.exit === 'number' ? run.exit : null,
+      status: run.exit === 0 ? 'passed' : 'failed',
+      captured_at: now,
+      captured_by: run.actor || '',
+      limitations: [
+        'App chỉ ghi lại được việc CLI chạy xong với mã thoát nào. Nó không kiểm tra kết quả có đúng không.',
+        'artifact, artifact_version và artifact_sha256 để trống: app không biết run này tạo ra artifact nào.',
+        'expected_result để trống: chưa ai phát biểu kỳ vọng trước khi chạy.',
+      ],
+    };
+  }
+
+  /** The fields a drafted envelope leaves for a person, so the gap is reportable and not implied. */
+  function evidenceGaps(envelope) {
+    const gaps = [];
+    for (const field of ['artifact', 'artifact_version', 'artifact_sha256', 'expected_result', 'captured_by']) {
+      if (!String(envelope[field] || '').trim()) gaps.push(field);
+    }
+    return gaps;
+  }
+
   return { NODE_W, NODE_H, GAP_X, GAP_Y, PAD, FINISHED, FAILED, GATE, ALLOWED, NEEDS_EVIDENCE,
+    draftEvidence, evidenceGaps,
     keyOf, layer, layout, readyNow, criticalPath, runPlan, nextAction, statusPath, transitionsFor };
 });

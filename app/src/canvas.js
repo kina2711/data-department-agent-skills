@@ -8,7 +8,7 @@
 
 // Layering, layout and the run-order helpers live in lib/graph.js so tests can call them without
 // a DOM. Two copies of a layering rule is one copy too many.
-const { NODE_W, NODE_H, GAP_X, GAP_Y, PAD, layout, runPlan, nextAction, transitionsFor } = self.WfGraph;
+const { NODE_W, NODE_H, GAP_X, GAP_Y, PAD, layout, runPlan, nextAction, transitionsFor, draftEvidence, evidenceGaps } = self.WfGraph;
 
 const wf = {
   file: '',
@@ -545,12 +545,33 @@ async function moveTask(task, status, evidence) {
 }
 
 /** The cockpit reports the outcome of a run it started, and ignores runs it did not. */
-function cockpitRunFinished(runId, code) {
+async function cockpitRunFinished(runId, code) {
   if (!wf.awaiting || wf.awaiting.runId !== runId) return;
-  const { taskId } = wf.awaiting;
+  const started = wf.awaiting;
   wf.awaiting = null;
-  const task = (wf.manifest.tasks || []).find((x) => x.task_id === taskId);
-  if (task) moveTask(task, code === 0 ? 'implemented' : 'failed');
+  const task = (wf.manifest.tasks || []).find((x) => x.task_id === started.taskId);
+  if (!task) return;
+
+  // The envelope is drafted from what the run actually did, before the status moves, so the record
+  // describes the run rather than the conclusion drawn from it.
+  const envelope = draftEvidence(task, {
+    exit: code,
+    folder: started.folder,
+    permissionMode: started.mode === 'execute' ? 'acceptEdits' : 'plan',
+    command: `claude -p --permission-mode ${started.mode === 'execute' ? 'acceptEdits' : 'plan'}`,
+    durationMs: Date.now() - started.startedAt,
+  });
+  const res = await window.studio.writeEvidence({ file: wf.file, envelope });
+
+  await moveTask(task, code === 0 ? 'implemented' : 'failed');
+
+  // The draft is deliberately unfinished, and saying which fields are missing is the difference
+  // between a record someone completes and a record someone trusts.
+  const gaps = evidenceGaps(envelope);
+  q('wfResult').className = `notice notice-${res.ok ? 'ok' : 'err'}`;
+  q('wfResult').textContent = res.ok
+    ? `Đã ghi nháp bằng chứng ${envelope.evidence_id}. Còn thiếu, phải điền tay: ${gaps.join(', ')}.`
+    : `Không ghi được bằng chứng: ${res.error}`;
 }
 self.cockpitRunFinished = cockpitRunFinished;
 
@@ -678,7 +699,7 @@ window.wfInit = function wfInit(getSuitePath, getCatalog, getRunFolder) {
     const runId = window.runUI.newId();
     window.runUI.reset();
     window.runUI.setRunning(true);
-    wf.awaiting = { runId, taskId: id };
+    wf.awaiting = { runId, taskId: id, startedAt: Date.now(), folder, mode: q('wfMode').value };
     const res = await window.studio.startRun({
       runId,
       folder,

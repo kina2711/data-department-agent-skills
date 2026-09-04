@@ -231,6 +231,25 @@ ipcMain.handle('workflow:save', (_e, { file, manifest }) => {
 });
 
 /** Run the suite's own validator. The app never decides whether a workflow is valid. */
+/* Write a drafted evidence envelope next to the workflow it belongs to.
+ *
+ * The directory is the one the validator reads with --evidence-dir, so a draft becomes resolvable
+ * the moment a person finishes it. The app refuses to overwrite: an envelope already on disk may
+ * have been completed by hand, and silently replacing it would destroy the only part of the record
+ * the app could not produce. */
+ipcMain.handle('evidence:write', (_e, { file, envelope }) => {
+  try {
+    const dir = path.join(path.dirname(file), 'evidence');
+    fs.mkdirSync(dir, { recursive: true });
+    const out = path.join(dir, `${envelope.evidence_id}.json`);
+    if (fs.existsSync(out)) return { ok: false, error: 'Đã có envelope trùng id; không ghi đè.', file: out };
+    fs.writeFileSync(out, JSON.stringify(envelope, null, 2) + '\n');
+    return { ok: true, file: out };
+  } catch (err) {
+    return { ok: false, error: err.message };
+  }
+});
+
 ipcMain.handle('workflow:validate', (_e, { file, suitePath, mode }) => {
   const script = path.join(suitePath, 'skills', 'data-department-orchestrator', 'scripts', 'validate_workflow.py');
   const catalog = path.join(suitePath, 'task-catalog.json');

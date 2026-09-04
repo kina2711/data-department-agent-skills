@@ -9,6 +9,7 @@ contextBridge.exposeInMainWorld('studio', {
   pickFolder: () => ipcRenderer.invoke('folder:pick'),
   launch: (payload) => ipcRenderer.invoke('session:launch', payload),
   openPath: (target) => ipcRenderer.invoke('shell:openPath', target),
+  writeEvidence: (payload) => ipcRenderer.invoke('evidence:write', payload),
   openWorkflow: (suitePath) => ipcRenderer.invoke('workflow:open', suitePath),
   listWorkflows: (suitePath) => ipcRenderer.invoke('workflow:list', suitePath),
   openWorkflowPath: (file) => ipcRenderer.invoke('workflow:openPath', file),
