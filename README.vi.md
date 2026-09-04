@@ -1,12 +1,12 @@
 # Data Department Agent Skills
 
 Hệ điều hành có kiểm soát cho toàn bộ một phòng Data, đóng gói dưới dạng plugin Claude Code.
-**33 role skill**, **827 atomic task contract**, **50 slash command**, **52 script evidence
+**33 role skill**, **867 atomic task contract**, **51 slash command**, **52 script evidence
 chạy được**, **12 JSON Schema**, và một production guard hook.
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
 
-Bản hiện tại: **v3.10.0** · Chạy được với **Claude Code**, **OpenAI Codex** và **Google Antigravity**
+Bản hiện tại: **v3.11.0** · Chạy được với **Claude Code**, **OpenAI Codex** và **Google Antigravity**
 
 🇬🇧 [Read in English](README.md)
 
@@ -60,16 +60,16 @@ script evidence đều cần; cả hai fail-open nếu thiếu).
 
 ```powershell
 # Windows
-$pluginRoot = "C:\Tools\data-department-agent-skills-v3.10.0"
-Expand-Archive .\data-department-claude-plugin-v3.10.0.zip -DestinationPath $pluginRoot
+$pluginRoot = "C:\Tools\data-department-agent-skills-v3.11.0"
+Expand-Archive .\data-department-claude-plugin-v3.11.0.zip -DestinationPath $pluginRoot
 claude plugin validate --strict $pluginRoot
 claude --plugin-dir $pluginRoot
 ```
 
 ```bash
 # macOS / Linux
-pluginRoot=~/tools/data-department-agent-skills-v3.10.0
-unzip data-department-claude-plugin-v3.10.0.zip -d "$pluginRoot"
+pluginRoot=~/tools/data-department-agent-skills-v3.11.0
+unzip data-department-claude-plugin-v3.11.0.zip -d "$pluginRoot"
 claude plugin validate --strict "$pluginRoot"
 claude --plugin-dir "$pluginRoot"
 ```
@@ -116,9 +116,9 @@ SKILL.md, nên không có tầng chuyển đổi nào — installer **link** cù
 | Harness | Đọc gì | Bề mặt |
 |---|---|---|
 | **Claude Code** | `.claude-plugin/`, `skills/`, `commands/`, `hooks/` | Đầy đủ: 45 command, production guard hook |
-| **OpenAI Codex** | `AGENTS.md`, `.codex/skills/<name>/SKILL.md` | 32 skill, route ngầm hoặc gọi tên |
+| **OpenAI Codex** | `AGENTS.md`, `.codex/skills/<name>/SKILL.md` | 33 skill, route ngầm hoặc gọi tên |
 | **Google Antigravity** | `AGENTS.md`, `.agents/agents/<name>.md`, `.agents/skills/` | 32 custom agent, mỗi phòng ban một cái |
-| Harness AGENTS.md khác | `AGENTS.md`, `skills/<name>/SKILL.md` | 32 skill |
+| Harness AGENTS.md khác | `AGENTS.md`, `skills/<name>/SKILL.md` | 33 skill |
 
 ```bash
 # cài vào một project đích
@@ -529,7 +529,7 @@ Power BI, Tableau, Looker, Metabase, Superset và nhiều hơn.
 │       ├── SKILL.md              entry point, chỉ metadata luôn hiển thị
 │       ├── references/
 │       │   ├── catalog-*.md      routing shard, nạp từng cái một
-│       │   ├── tasks/*.md        827 atomic task contract
+│       │   ├── tasks/*.md        867 atomic task contract
 │       │   └── adapter-*.md      gói adapter theo stack
 │       ├── assets/               template bản ghi và JSON Schema
 │       └── scripts/              evidence chạy được  ← viết tay
@@ -588,7 +588,7 @@ unknown thay vì good, và installer từ chối ghi đè file không phải c�
 
 ### Audit nói thật về những gì chưa xong
 
-`audit_skills.py` báo **0 finding trên 32 skill**. v3.6.0 mang 13 finding một cách công khai:
+`audit_skills.py` báo **0 finding trên 33 skill**. v3.6.0 mang 13 finding một cách công khai:
 chín skill có 20+ contract mà không có script evidence, và bốn catalog shard vượt ngưỡng tập
 trung 55%. Cả 13 đã đóng ở v3.7.0 — chín script mới, và sharding theo tỷ trọng.
 
@@ -604,7 +604,7 @@ chỉ import chứ chưa chạy chúng.
 
 | Tài liệu | Nội dung | Ngôn ngữ |
 |---|---|---|
-| [docs/skill-and-task-catalog.md](docs/skill-and-task-catalog.md) | Toàn bộ 32 skill và 827 workflow: ownership, ranh giới, resource | Tiếng Việt |
+| [docs/skill-and-task-catalog.md](docs/skill-and-task-catalog.md) | Toàn bộ 33 skill và 827 workflow: ownership, ranh giới, resource | Tiếng Việt |
 | [docs/installation-and-usage.md](docs/installation-and-usage.md) | Cài plugin, project-scope, user-scope; routing; prompt; xử lý sự cố | Tiếng Việt |
 | [docs/capability-overview.md](docs/capability-overview.md) | Tóm tắt năng lực | Tiếng Việt |
 | [docs/skill-map.md](docs/skill-map.md) | **Taxonomy chuẩn** — nguồn mà build đọc vào | Tiếng Anh |

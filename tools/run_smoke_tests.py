@@ -175,6 +175,57 @@ def main() -> None:
         except json.JSONDecodeError as exc:
             errors.append(f"{asset.parent.parent.name}/{asset.name}: not valid JSON ({exc.msg})")
 
+    # The README states counts and a version in prose, which nothing regenerates. They went stale
+    # twice: the badge said 827 contracts and v3.10.0 while the suite carried 867 and v3.11.0.
+    # A number in a sentence is still a claim, so it gets checked like one.
+    import re as _re
+    plugin_version = json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))["version"]
+    claims = {
+        "role skills?": len(list((ROOT / "skills").glob("*/SKILL.md"))),
+        "atomic task contracts?": len(json.loads((ROOT / "task-catalog.json").read_text(encoding="utf-8"))),
+        "slash commands?": len(list((ROOT / "commands").glob("*.md"))),
+        "executable evidence scripts?": len(list((ROOT / "skills").glob("*/scripts/*.py"))),
+        "JSON Schemas?": len(list((ROOT / "schemas").glob("*.json"))),
+    }
+    for readme in ("README.md", "README.vi.md"):
+        text = (ROOT / readme).read_text(encoding="utf-8")
+        for phrase, actual in claims.items():
+            found = {int(n) for n in _re.findall(rf"\*\*(\d+)\s+{phrase}", text)}
+            if found and actual not in found:
+                errors.append(f"{readme} claims {sorted(found)} for {phrase.rstrip('?')}, actual {actual}")
+        # Only the lines that assert the current version: the release headline and the install
+        # paths people copy. Checking every version string flagged the history section, where
+        # "closed in v3.7.0" is a fact about the past and not a stale claim; checking merely that
+        # the current version appears somewhere let a v9.9.9 headline pass because an install path
+        # further down still carried the right one.
+        claim_lines = [line for line in text.splitlines()
+                       if _re.search(r"Current release|Bản hiện tại|pluginRoot|Expand-Archive", line)]
+        if not claim_lines:
+            errors.append(f"{readme} states no current version")
+        for line in claim_lines:
+            stale = sorted(set(_re.findall(r"v(\d+\.\d+\.\d+)", line)) - {plugin_version})
+            if stale:
+                errors.append(f"{readme} claims {', '.join('v' + v for v in stale)} where the "
+                              f"current version is v{plugin_version}: {line.strip()[:70]}")
+
+    # generate_user_docs.py writes the human catalog, and CI reruns it before checking the tree is
+    # deterministic. Nothing local ran it, so adding two tasks left the catalog stale and turned the
+    # badge red on a push that passed every check here. Rerun it and compare, the same way the other
+    # generators are checked.
+    # Compare the file against what the generator produces now, not against git. Asking git makes
+    # every legitimate uncommitted edit look like staleness, which is a check that cries wolf.
+    catalog_doc = ROOT / "docs" / "skill-and-task-catalog.md"
+    before_doc = catalog_doc.read_text(encoding="utf-8") if catalog_doc.exists() else None
+    docs_run = subprocess.run(
+        [sys.executable, str(ROOT / "tools" / "generate_user_docs.py")],
+        capture_output=True, text=True, check=False,
+    )
+    if docs_run.returncode != 0:
+        errors.append("generate_user_docs.py failed to run")
+    elif before_doc is not None and catalog_doc.read_text(encoding="utf-8") != before_doc:
+        errors.append("docs/skill-and-task-catalog.md was stale; generate_user_docs.py has "
+                      "regenerated it, so commit the result")
+
     # The registry and the corpus plans are generated; a stale plan points at keys that moved.
     for tool, label in [("build_concept_registry.py", "concept registry"),
                         ("build_corpus_plans.py", "corpus plans"),

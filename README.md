@@ -1,12 +1,12 @@
 # Data Department Agent Skills
 
 A governed operating system for an entire Data Department, packaged as a Claude Code plugin.
-**33 role skills**, **827 atomic task contracts**, **50 slash commands**, **52 executable
+**33 role skills**, **867 atomic task contracts**, **51 slash commands**, **52 executable
 evidence scripts**, **12 JSON Schemas**, and a production guard hook.
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
 
-Current release: **v3.10.0** · Works with **Claude Code**, **OpenAI Codex** and **Google Antigravity**
+Current release: **v3.11.0** · Works with **Claude Code**, **OpenAI Codex** and **Google Antigravity**
 
 🇻🇳 [Đọc bản tiếng Việt](README.vi.md)
 
@@ -59,16 +59,16 @@ evidence script need it; both fail open if it is missing).
 
 ```powershell
 # Windows
-$pluginRoot = "C:\Tools\data-department-agent-skills-v3.10.0"
-Expand-Archive .\data-department-claude-plugin-v3.10.0.zip -DestinationPath $pluginRoot
+$pluginRoot = "C:\Tools\data-department-agent-skills-v3.11.0"
+Expand-Archive .\data-department-claude-plugin-v3.11.0.zip -DestinationPath $pluginRoot
 claude plugin validate --strict $pluginRoot
 claude --plugin-dir $pluginRoot
 ```
 
 ```bash
 # macOS / Linux
-pluginRoot=~/tools/data-department-agent-skills-v3.10.0
-unzip data-department-claude-plugin-v3.10.0.zip -d "$pluginRoot"
+pluginRoot=~/tools/data-department-agent-skills-v3.11.0
+unzip data-department-claude-plugin-v3.11.0.zip -d "$pluginRoot"
 claude plugin validate --strict "$pluginRoot"
 claude --plugin-dir "$pluginRoot"
 ```
@@ -527,14 +527,14 @@ Airflow, Spark, Kafka, Power BI, Tableau, Looker, Metabase, Superset and more.
 ├── .claude-plugin/       plugin manifest and marketplace entry
 ├── .github/workflows/    CI: build, validate, regress, audit, determinism check
 ├── .agents/agents/       Antigravity custom agents, one per department  ← GENERATED
-├── commands/             50 slash commands (13 controls + 32 generated departments)
+├── commands/             51 slash commands (13 controls + 32 generated departments)
 ├── hooks/                production, publishing and destructive-action guard
 ├── skills/               32 progressive-disclosure role skills  ← GENERATED
 │   └── <role>/
 │       ├── SKILL.md              entry point, always-visible metadata only
 │       ├── references/
 │       │   ├── catalog-*.md      routing shards, loaded one at a time
-│       │   ├── tasks/*.md        the 827 atomic task contracts
+│       │   ├── tasks/*.md        the 867 atomic task contracts
 │       │   └── adapter-*.md      stack-native adapter packs
 │       ├── assets/               record templates and JSON Schemas
 │       └── scripts/              executable evidence  ← hand-written
@@ -603,7 +603,7 @@ an empty ledger reporting unknown rather than good.
 
 ### The audit is honest about what is unfinished
 
-`audit_skills.py` reports **0 findings across 32 skills**. v3.6.0 carried 13 openly: nine
+`audit_skills.py` reports **0 findings across 33 skills**. v3.6.0 carried 13 openly: nine
 skills with 20+ contracts and no executable evidence script, and four catalog shards over the
 55% concentration threshold. All 13 closed in v3.7.0 — nine new scripts, and share-aware
 sharding.
