@@ -33,6 +33,9 @@ If an absent input changes semantics, risk, cost, scope or acceptance, classify 
 5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
 
 Additional resources:
+- Read [what a figure is for](../figure-intent-and-critique.md). Write the caption before the figure: one sentence naming what a reader should be able to conclude from the picture, not what it depicts. A caption you cannot write is a figure you are not ready to draw, and that failure is far cheaper here than after an hour of layout.
+- Every element earns its place by supporting that conclusion; anything a reader does not need in order to reach it belongs in the prose. The instinct to include it comes from completeness, which is a different goal from communication.
+- Run the critique pass before it ships: cover the caption and check the conclusion still arrives, look for what the layout says that nobody chose, and name what a reader would wrongly conclude. Each round names one specific misreading and one specific change — a critique that says `unclear` produces a redraw that is differently unclear.
 - Read [solution option framing](../solution-option-framing.md); frame three to five materially different approaches in `../../assets/design-option-set.yaml`, select one against the stated constraints in at most forty words, and derive the deliverable structure from that selection. Where this role already owns a scored selection artifact, use it instead of duplicating the decision.
 
 

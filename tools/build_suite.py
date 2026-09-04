@@ -1218,6 +1218,121 @@ answer reads better.
 """
 
 
+LESSON_SCENE_STANDARD = """# Lesson scenes, and where each one came from
+
+Build a lesson from a document and two failure modes appear, identical from the outside. It can
+cover material the document does not contain, and it can quietly drop the part that mattered. Both
+produce a plausible lesson. The defence against both is the same: every beat carries the passage it
+came from, and the passages nobody used are listed.
+
+## Two stages, not one
+
+First comes the outline, and only the outline: an ordered list of beats, each with a type, a claim
+it teaches, and a span of the source it rests on. Nothing is written yet. That is the point —
+the cheapest moment to notice that a lesson has four beats on setup and none on the failure mode is
+before any of them has been drafted.
+
+Scenes come second. Each beat becomes exactly one scene of its declared type. Two scenes out of one beat means it was two beats all along. None means a gap, not a shortcut.
+
+## The scene types, and what each one owes
+
+| Type | Does | Must carry |
+|---|---|---|
+| `explain` | states a mental model or mechanism | the source span, and the misconception it displaces |
+| `check` | asks one retrieval question | an answer, and what a wrong answer reveals |
+| `practice` | gives a task the learner performs | the success condition, checkable by someone else |
+| `decide` | poses a situation with no single right answer | the trade-off, and what makes each choice defensible |
+| `apply` | a longer task combining earlier beats | the beats it assumes, by id |
+
+Five types is the whole vocabulary, and the table above is the complete list. Any sixth is nearly always one of these five renamed, and each extra doubles what an instructor
+must hold in their head.
+
+Watch the ratio rather than legislating it. All `explain` gives you a document with slide breaks. All `check` tests before teaching anything. If a whole module has no
+`decide` beat, either the topic genuinely has no judgment in it — rare — or the judgment was left
+out because it is the hard part to write.
+
+## Source spans are the contract
+
+Each beat names the passage it rests on: the file, plus a locator precise enough to find it — a
+page, a heading, a line range. "Chapter 3" is not a span; "p. 47, the paragraph beginning \"Idempotency\"" is. Test it by having a second person open the source and land on the same passage without guessing.
+
+Two consequences follow, and both are the point of doing this at all. Where no span exists, the beat is teaching something the source does not say. That may still be
+correct. It is certainly not sourced, and it stays marked that way. And the spans nobody used get listed at the end of the outline, because
+the material a lesson skips is a decision, and an undocumented decision is indistinguishable from
+an oversight.
+
+## What the package does not decide
+
+Until somebody has run the session, duration estimates are guesses, and they are labelled as
+estimates. Whether the lesson works is measured by the assessment tasks, not asserted here. And a
+package is not a curriculum: it covers one source, and how it fits a role's learning path is
+decided by the curriculum map, which knows about the other sources.
+"""
+
+
+FIGURE_INTENT_AND_CRITIQUE = """# What a figure is for, decided before it is drawn
+
+Most bad diagrams are not badly drawn. They are drawn before anybody decided what they had to
+show, so every element in them is defensible and the picture as a whole answers nothing. The fix
+costs one sentence and it has to come first.
+
+## The caption is the specification
+
+Write the caption before the figure: one sentence stating what a reader should be able to conclude
+from the picture. Not what it depicts — what it lets someone conclude.
+
+`Kiến trúc pipeline` names a subject. `Đơn hàng đi qua 3 lần ghi, chỉ lần thứ 3 là idempotent`
+states a conclusion, and it settles at once what the first caption left open: the 3 writes must be
+distinguishable, the idempotent one marked, and anything not bearing on that distinction is
+decoration.
+
+A caption you cannot write is a figure you are not ready to draw. That is the useful failure — far
+cheaper here than after an hour of layout.
+
+## Draw only what the caption needs
+
+Every element earns its place by supporting the conclusion. A component nobody has to see to reach
+it belongs in the prose, not the picture, and the instinct to include it comes from completeness,
+which is a different goal from communication.
+
+The reverse is also worth checking: a conclusion the caption states but the picture cannot support
+means the caption is a claim you are illustrating rather than showing.
+
+## The critique pass
+
+After drawing, and before the figure ships, run one deliberate pass in which you try to fail it.
+Three questions, in this order, because a failure at each level makes the next moot.
+
+**Can someone reach the caption's conclusion from the picture alone?** Cover the caption and look.
+If the conclusion needs the caption to be visible, the figure is an illustration of a sentence
+rather than evidence for it.
+
+**Does anything in the picture support a different conclusion?** Layout carries meaning nobody chose. In `mermaid`, `d2` and `plantuml` alike, a centrally placed
+box reads as important, a thick arrow as the main path, and one colour repeated across unrelated
+things as a category. Those readings are made whether or
+not you intended them.
+
+**What would a reader wrongly conclude?** This is the question that catches the expensive errors.
+A dashed line reads as `optional` to one person and `asynchronous` to another; an unlabelled arrow
+reads as data flow to one and control flow to another. Two readings means the figure needs a legend
+or a different mark.
+
+## Iterate on the diagnosis, not the drawing
+
+A critique that says `unclear` produces a redraw that is differently unclear. Each round names 1
+specific misreading and 1 specific change, and the next round checks whether that misreading is
+gone. 2 rounds is normal. Past 4, the trouble is almost always the caption rather than the drawing,
+and the honest move is to split it into 2 figures.
+
+## What this does not do
+
+It says nothing about whether the content is correct. That belongs to
+[diagram fidelity](diagram-fidelity-standard.md) and to `docs-validate-diagram-semantics`, which
+check the model against the system rather than the picture against its caption. A figure can be perfectly
+communicative about a system that does not work that way.
+"""
+
+
 OUTWARD_FACING_SKILLS = {
     "shared-data-core", "data-platform-and-dataops", "data-security-and-privacy",
     "metadata-engineering-and-catalog", "machine-learning-engineering", "mlops",
@@ -1810,6 +1925,20 @@ def task_specific_resources(task_id: str) -> list[str]:
             "Read [the diagram fidelity standard](../diagram-fidelity-standard.md); declare the diagram `observed`, `proposed` or `illustrative` on the rendering itself, because a reader who sees the image in a slide has no access to its metadata.",
             "Record each element in `../../assets/diagram-provenance.yaml` with the artifact it was read out of and a locator. Another diagram, a README, a ticket or recall is not inspection: a diagram derived from a diagram inherits its errors and none of its freshness.",
             "An observed diagram names the commit, tag or extraction timestamp it was read at; without one, whether it is still true has no answer. Record what was excluded and why — a silent omission reads as a claim that nothing was left out.",
+            "Read [what a figure is for](../figure-intent-and-critique.md) before drawing. Write the caption first — one sentence naming what a reader should be able to conclude — then draw only what that conclusion needs. Fidelity asks whether the model matches the system; the caption asks whether the picture says the thing, and a diagram can pass one and fail the other.",
+        ]
+    if task_id in {"academy-outline-lesson-from-source", "academy-build-scene-package"}:
+        return [
+            "Read [the lesson scene standard](../lesson-scene-standard.md). The outline comes first and is only an outline: ordered beats, each with a type, the claim it teaches, and the span of the source it rests on. Nothing is drafted until that list is settled, because noticing four beats on setup and none on the failure mode is cheapest before any of them exists.",
+            "Every beat names its source span precisely enough that a second person opens the file and lands on the same passage. A beat with no span teaches something the source does not say — it may still be correct, and it stays marked unsourced rather than left to look sourced.",
+            "End the outline with the spans nobody used. Material a lesson skips is a decision, and an undocumented decision cannot be told apart from an oversight. Duration figures are estimates until somebody has run the session, and they are labelled as estimates.",
+        ]
+    if task_id.startswith("docs-create-") or task_id in {"docs-select-diagram-type",
+            "content-create-technical-diagram-brief"}:
+        return [
+            "Read [what a figure is for](../figure-intent-and-critique.md). Write the caption before the figure: one sentence naming what a reader should be able to conclude from the picture, not what it depicts. A caption you cannot write is a figure you are not ready to draw, and that failure is far cheaper here than after an hour of layout.",
+            "Every element earns its place by supporting that conclusion; anything a reader does not need in order to reach it belongs in the prose. The instinct to include it comes from completeness, which is a different goal from communication.",
+            "Run the critique pass before it ships: cover the caption and check the conclusion still arrives, look for what the layout says that nobody chose, and name what a reader would wrongly conclude. Each round names one specific misreading and one specific change — a critique that says `unclear` produces a redraw that is differently unclear.",
         ]
     if task_id in groups["academy-corpus"]:
         resources = [
@@ -3492,6 +3621,11 @@ Record only routing/task metadata, outcome, duration, references loaded, token e
         (refs / "model-selection.md").write_text(model_selection, encoding="utf-8")
         if skill in PROSE_AUTHORING_SKILLS:
             (refs / "authored-prose-voice.md").write_text(authored_prose_voice, encoding="utf-8")
+        if skill in {"data-academy-and-curriculum", "book-to-knowledge-and-action"}:
+            (refs / "lesson-scene-standard.md").write_text(LESSON_SCENE_STANDARD, encoding="utf-8")
+        if skill in {"data-documentation-and-diagrams", "data-technical-content-and-social",
+                     "business-intelligence"}:
+            (refs / "figure-intent-and-critique.md").write_text(FIGURE_INTENT_AND_CRITIQUE, encoding="utf-8")
         if skill in OUTWARD_FACING_SKILLS:
             (refs / "external-tool-access.md").write_text(EXTERNAL_TOOL_ACCESS, encoding="utf-8")
         if skill in GRAPH_BUILDING_SKILLS:

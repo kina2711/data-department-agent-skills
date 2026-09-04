@@ -1,19 +1,19 @@
-# docs-create-sequence-diagram
+# academy-outline-lesson-from-source
 
 ## Trigger
 
-Use when the user asks to create sequence diagram, requests the stated deliverable, or supplies an artifact that requires this atomic workflow. Do not select by job title alone.
+Use when the user asks to outline lesson from source, requests the stated deliverable, or supplies an artifact that requires this atomic workflow. Do not select by job title alone.
 
 ## Contract
 
-- Profile: `design-specification`
+- Profile: `learning`
 - Risk tier: `R1-reviewed`
 - Execution path: `standard-path`
 - Contract version: `3.0`
 - Criticality: `standard`
 - Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
-- Goal: mô tả actors/services/messages/alternatives theo thời gian.
-- Primary deliverable: **sequence diagram**.
+- Goal: biến một tài liệu nguồn thành dàn bài buổi học có nhịp được gõ kiểu, mỗi nhịp truy được về đoạn cụ thể trong nguồn và ghi rõ phần nguồn không được dùng.
+- Primary deliverable: **source-traced lesson outline**.
 
 ## Inputs and readiness
 
@@ -33,19 +33,21 @@ If an absent input changes semantics, risk, cost, scope or acceptance, classify 
 5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
 
 Additional resources:
-- Read [the diagram fidelity standard](../diagram-fidelity-standard.md); declare the diagram `observed`, `proposed` or `illustrative` on the rendering itself, because a reader who sees the image in a slide has no access to its metadata.
-- Record each element in `../../assets/diagram-provenance.yaml` with the artifact it was read out of and a locator. Another diagram, a README, a ticket or recall is not inspection: a diagram derived from a diagram inherits its errors and none of its freshness.
-- An observed diagram names the commit, tag or extraction timestamp it was read at; without one, whether it is still true has no answer. Record what was excluded and why — a silent omission reads as a claim that nothing was left out.
-- Read [what a figure is for](../figure-intent-and-critique.md) before drawing. Write the caption first — one sentence naming what a reader should be able to conclude — then draw only what that conclusion needs. Fidelity asks whether the model matches the system; the caption asks whether the picture says the thing, and a diagram can pass one and fail the other.
-- Run `../../scripts/validate_diagram_source.py --provenance` before publishing; an unconnected node, a duplicated identifier, a missing text equivalent or a node with no inspected source is a defect, not a style choice. It confirms each element claims a source and never opens that source to confirm the claim.
-- Read [solution option framing](../solution-option-framing.md); frame three to five materially different approaches in `../../assets/design-option-set.yaml`, select one against the stated constraints in at most forty words, and derive the deliverable structure from that selection. Where this role already owns a scored selection artifact, use it instead of duplicating the decision.
+- Read [role curricula](../role-curricula.md) and [assessment rules](../assessment-and-certification.md).
+- Reuse the applicable curriculum, lesson, assessment or evidence template from `../../assets/`.
+- Read [the lesson scene standard](../lesson-scene-standard.md). The outline comes first and is only an outline: ordered beats, each with a type, the claim it teaches, and the span of the source it rests on. Nothing is drafted until that list is settled, because noticing four beats on setup and none on the failure mode is cheapest before any of them exists.
+- Every beat names its source span precisely enough that a second person opens the file and lands on the same passage. A beat with no span teaches something the source does not say — it may still be correct, and it stays marked unsourced rather than left to look sourced.
+- End the outline with the spans nobody used. Material a lesson skips is a decision, and an undocumented decision cannot be told apart from an oversight. Duration figures are estimates until somebody has run the session, and they are labelled as estimates.
 
+- Certification proves only the named, versioned competencies demonstrated by evidence; it never proves tenure, job title, automatic promotion or general seniority.
+- Upgrade to R3-controlled and require People/HR plus accountable business approval when certification affects employment, promotion, compensation, regulation or external claims.
+- For a curriculum bundle, select one primary artifact and chain `academy-write-theory-lesson` → `academy-design-hands-on-lab` → `academy-design-summative-exam` → `academy-write-answer-key` → `academy-write-assessment-rubric` → `academy-calibrate-assessors` → `academy-certify-role-competency` → `academy-measure-training-effectiveness` as applicable.
 
 ## Tests and evidence
 
-- Requirements traceability.
-- Scenario and failure-path walkthrough.
-- Implementability and operability review.
+- Authoritative-source and domain-review verification.
+- Prerequisite, graph-cycle, misconception and coverage checks.
+- Novel-scenario application and learning-transfer test.
 
 Also verify scope and acceptance criteria, test relevant edge/failure paths, store evidence and keep failed mandatory checks visible. Use independent critical acceptance testing when practical.
 

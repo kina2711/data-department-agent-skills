@@ -2,7 +2,7 @@
  "_": "Generated. Every level comes from an authored source: waves from skill-map section 40, skills from SKILL.md on disk, shards from catalog-*.md, tasks from task-catalog.json. A skill in no wave is reported as unplaced, never filed somewhere plausible.",
  "root": "data-department-agent-skills",
  "skill_count": 33,
- "task_count": 865,
+ "task_count": 867,
  "waves": [
   {
    "wave": "Wave 0",
@@ -4087,16 +4087,16 @@
     {
      "skill": "data-academy-and-curriculum",
      "description": "Design and deliver role-based Data Academy curricula with theory, labs, capstones, assessments, remediation, certification and effectiveness measurement. Use for structured learning programs across Data roles and levels. Route hiring loops, scorecards and candidate evaluation to data-talent-acquisition-and-interview; this skill teaches, never selects.",
-     "task_count": 49,
+     "task_count": 51,
      "risk_mix": {
-      "R1-reviewed": 42,
-      "R2-standard": 7
+      "R1-reviewed": 43,
+      "R2-standard": 8
      },
      "highest_risk": "R2-standard",
      "shards": [
       {
-       "shard": "build-deliver",
-       "task_count": 11,
+       "shard": "build-deliver-note",
+       "task_count": 4,
        "tasks": [
         {
          "id": "academy-apply-misconception-feedback",
@@ -4106,6 +4106,33 @@
          "criticality": "standard"
         },
         {
+         "id": "academy-build-note-module",
+         "output": "module note batch",
+         "risk_tier": "R2-standard",
+         "execution_path": "standard-path",
+         "criticality": "deep"
+        },
+        {
+         "id": "academy-index-note-corpus",
+         "output": "note corpus index",
+         "risk_tier": "R1-reviewed",
+         "execution_path": "standard-path",
+         "criticality": "standard"
+        },
+        {
+         "id": "academy-run-note-diagnostic",
+         "output": "note diagnostic session record",
+         "risk_tier": "R1-reviewed",
+         "execution_path": "standard-path",
+         "criticality": "standard"
+        }
+       ]
+      },
+      {
+       "shard": "build-deliver-other",
+       "task_count": 9,
+       "tasks": [
+        {
          "id": "academy-build-concept-knowledge-graph",
          "output": "concept knowledge graph",
          "risk_tier": "R2-standard",
@@ -4113,8 +4140,8 @@
          "criticality": "deep"
         },
         {
-         "id": "academy-build-note-module",
-         "output": "module note batch",
+         "id": "academy-build-scene-package",
+         "output": "runnable scene package",
          "risk_tier": "R2-standard",
          "execution_path": "standard-path",
          "criticality": "deep"
@@ -4141,8 +4168,8 @@
          "criticality": "standard"
         },
         {
-         "id": "academy-index-note-corpus",
-         "output": "note corpus index",
+         "id": "academy-outline-lesson-from-source",
+         "output": "source-traced lesson outline",
          "risk_tier": "R1-reviewed",
          "execution_path": "standard-path",
          "criticality": "standard"
@@ -4164,13 +4191,6 @@
         {
          "id": "academy-run-learning-office-hours",
          "output": "office-hours support log",
-         "risk_tier": "R1-reviewed",
-         "execution_path": "standard-path",
-         "criticality": "standard"
-        },
-        {
-         "id": "academy-run-note-diagnostic",
-         "output": "note diagnostic session record",
          "risk_tier": "R1-reviewed",
          "execution_path": "standard-path",
          "criticality": "standard"

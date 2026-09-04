@@ -44,7 +44,7 @@ data-department-agent-skills
 │   ├── machine-learning-engineering  (20 tasks, cao nhất R3-controlled)
 │   └── mlops  (23 tasks, cao nhất R4-critical)
 ├── Wave 4 — specialized enterprise capabilities
-│   ├── data-academy-and-curriculum  (49 tasks, cao nhất R2-standard)
+│   ├── data-academy-and-curriculum  (51 tasks, cao nhất R2-standard)
 │   ├── data-career-and-interview-coach  (57 tasks, cao nhất R2-standard)
 │   ├── data-enablement-and-knowledge  (17 tasks, cao nhất R3-controlled)
 │   ├── data-onboarding-and-integration  (34 tasks, cao nhất R4-critical)
@@ -798,6 +798,7 @@ Ranh giới: Academy role thiết kế, giảng dạy, đánh giá và cải ti�
 - `academy-prioritize-corpus-by-gap` — xếp thứ tự module theo khoảng cách năng lực đã đo thay vì theo thứ tự roadmap; output: gap-prioritized corpus plan.
 - `academy-map-questions-to-learning-objectives` — nối question tới competency, Bloom depth, prerequisites, learning objectives và assessments; output: question-to-learning traceability matrix.
 - `academy-design-learning-module` — định nghĩa objectives, concepts, examples, activities và assessment; output: learning-module specification.
+- `academy-outline-lesson-from-source` — biến một tài liệu nguồn thành dàn bài buổi học có nhịp được gõ kiểu, mỗi nhịp truy được về đoạn cụ thể trong nguồn và ghi rõ phần nguồn không được dùng; output: source-traced lesson outline.
 - `academy-plan-learning-cohort` — lập audience, schedule, instructors, capacity và support; output: cohort delivery plan.
 
 ### P1 — content production
@@ -806,6 +807,7 @@ Ranh giới: Academy role thiết kế, giảng dạy, đánh giá và cải ti�
 - `academy-write-knowledge-deep-dive` — giải thích một concept từ definition, mental model, mechanism, trade-offs tới edge cases, examples và sources; output: evidence-backed knowledge deep dive.
 - `academy-build-note-module` — dựng trọn bộ note của một module theo cùng một chuẩn rồi cập nhật corpus manifest; output: module note batch.
 - `academy-create-lecture-deck` — chuyển lesson thành slide narrative có examples và checks; output: lecture deck.
+- `academy-build-scene-package` — dựng mỗi nhịp trong dàn bài thành một scene đúng kiểu rồi ghép thành một gói chạy được có thứ tự, thời lượng và điều kiện chuyển tiếp; output: runnable scene package.
 - `academy-create-instructor-guide` — ghi facilitation flow, timings, prompts, expected questions và interventions; output: instructor guide.
 - `academy-create-learner-workbook` — tạo notes, exercises, reflection và progress checks; output: learner workbook.
 - `academy-create-worked-example` — giải một bài mẫu từng bước kèm reasoning và checks; output: worked example.

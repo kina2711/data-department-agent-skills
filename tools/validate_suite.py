@@ -32,7 +32,7 @@ PEOPLE_RESOURCES = {
         "assets": ["concept-knowledge-map.yaml", "knowledge-library.yaml"],
     },
     "data-academy-and-curriculum": {
-        "references": ["role-curricula.md", "assessment-and-certification.md", "knowledge-deep-dive-standard.md", "note-corpus-operating-system.md", "concept-registry-standard.md", "diagnostic-session-method.md", "edge-provenance.md"],
+        "references": ["role-curricula.md", "assessment-and-certification.md", "knowledge-deep-dive-standard.md", "note-corpus-operating-system.md", "concept-registry-standard.md", "diagnostic-session-method.md", "edge-provenance.md", "lesson-scene-standard.md"],
         "assets": ["curriculum-spec.yaml", "lesson-plan.yaml", "assessment-blueprint.yaml", "learner-evidence.yaml", "concept-knowledge-graph.yaml", "knowledge-deep-dive.yaml", "question-learning-traceability.yaml", "role-roadmap.yaml", "skill-track-map.yaml", "note-corpus-manifest.json", "note-corpus-audit.yaml", "concept-registry.json", "note-diagnostic-session.yaml", "corpus-priority-plan.yaml", "misconception-feedback.yaml", "corpus-workflow-manifest.json"],
         "scripts": ["validate_curriculum_coverage.py", "validate_note_corpus.py"],
     },
@@ -69,7 +69,7 @@ PEOPLE_RESOURCES = {
         "assets": ["schema-retrieval-index.yaml", "semantic-cache.yaml", "tool-surface.yaml", "tool-surface-audit.yaml"],
     },
     "data-documentation-and-diagrams": {
-        "references": ["diagram-fidelity-standard.md"],
+        "references": ["diagram-fidelity-standard.md", "figure-intent-and-critique.md"],
         "assets": [],
     },
     "data-personal-project-engineering": {

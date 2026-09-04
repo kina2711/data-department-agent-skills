@@ -1,7 +1,7 @@
 {
   "workflow_id": "data-academy-and-curriculum-standard-path",
   "version": "2.0.0",
-  "objective": "Standard path through data-academy-and-curriculum, 9 stages over 49 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/learning/plan-design → P0/learning/build-deliver → P0/learning/test-assure → P1/learning/plan-design → P1/learning/build-deliver → P2/learning/plan-design → P2/learning/build-deliver → P2/learning/test-assure → P2/learning/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Control boundaries, where risk first rises and authority beyond the previous stage is required: academy-define-role-learning-outcomes enters R2-standard. Delete what this engagement does not need before running it.",
+  "objective": "Standard path through data-academy-and-curriculum, 9 stages over 51 tasks. Stages come from the phases in docs/skill-map.md ordered by lifecycle profile and then by catalog verb: P0/learning/plan-design → P0/learning/build-deliver → P0/learning/test-assure → P1/learning/plan-design → P1/learning/build-deliver → P2/learning/plan-design → P2/learning/build-deliver → P2/learning/test-assure → P2/learning/operate-improve. An edge encodes stage precedence, not a task-level prerequisite — tasks inside one stage are peers, because nothing in the suite orders them. Control boundaries, where risk first rises and authority beyond the previous stage is required: academy-define-role-learning-outcomes enters R2-standard. Delete what this engagement does not need before running it.",
   "status": "draft",
   "workflow_risk_tier": "R2-standard",
   "current_task_id": "academy-define-role-learning-outcomes",
@@ -194,6 +194,19 @@
       ],
       "status": "planned",
       "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-outline-lesson-from-source",
+      "owner": "",
+      "depends_on": [
+        "academy-build-concept-knowledge-graph"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
       "artifact_version": "",
       "artifact_sha256": "",
       "evidence_refs": [],
@@ -399,6 +412,19 @@
       "owner": "",
       "depends_on": [
         "academy-write-theory-lesson"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-build-scene-package",
+      "owner": "",
+      "depends_on": [
+        "academy-build-note-module"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",

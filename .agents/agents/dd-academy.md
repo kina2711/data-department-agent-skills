@@ -1,7 +1,7 @@
 ---
 name: dd-academy
 description: >-
-  Data Academy and Curriculum department (reflect stage), owning 49 atomic task contracts.
+  Data Academy and Curriculum department (reflect stage), owning 51 atomic task contracts.
   Design, produce, teach, assess, certify, measure, and improve role-based Data Academy curricula from theory through labs and capstones. Use for DA, AE, DE, DS, MLOps, Architecture, Governance, BI, Quality, Security, and leadership learning programs by level.
 model: inherit
 mainAgent: true
@@ -15,7 +15,7 @@ skills:
 
 # Data Academy and Curriculum
 
-Sprint stage: `reflect`. This department owns 49 atomic task contracts.
+Sprint stage: `reflect`. This department owns 51 atomic task contracts.
 
 ## Operating contract
 
