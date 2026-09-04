@@ -179,7 +179,8 @@ def main() -> None:
     for tool, label in [("build_concept_registry.py", "concept registry"),
                         ("build_corpus_plans.py", "corpus plans"),
                         ("build_knowledge_graph.py", "knowledge graph"),
-                        ("build_skill_atlas.py", "skill atlas")]:
+                        ("build_skill_atlas.py", "skill atlas"),
+                        ("build_interop.py", "interop layer")]:
         result = subprocess.run(
             [sys.executable, str(ROOT / "tools" / tool), "--check"],
             capture_output=True, text=True, check=False,

@@ -90,12 +90,13 @@ async function settleForCapture(win) {
     if (document.activeElement && document.activeElement !== document.body) {
       document.activeElement.blur();
     }
-    // Chromium keeps the last hovered element hot until the pointer moves; a move to the corner
-    // outside any card resets it.
-    document.dispatchEvent(new MouseEvent('mousemove', {
-      bubbles: true, clientX: 0, clientY: 0 }));
     return true; })()`, true);
-  await new Promise((r) => setTimeout(r, 120));
+  // A synthetic mousemove does not touch Chromium's hover state -- that lives below the DOM, and a
+  // dispatched event cannot reach it. The baseline for one card was captured mid-hover, where
+  // .card:hover lifts it a pixel and brightens the border, and no amount of scripted event
+  // dispatch cleared it. A real input event does.
+  win.webContents.sendInputEvent({ type: 'mouseMove', x: -10, y: -10 });
+  await new Promise((r) => setTimeout(r, 160));
 }
 
 async function handle(cmd, win) {
