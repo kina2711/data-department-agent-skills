@@ -12,6 +12,7 @@ const state = {
   jobPrompt: '',
   jobMissing: [],
   selectedTask: null,
+  ask: '',
   folder: '',
 };
 
@@ -473,6 +474,8 @@ function openDrawer(skill) {
   showView('viewDetail');
   window.jobsUI.renderJobList(skill, pickJob);
   $('dTitle').textContent = skill.name;
+  state.ask = '';
+  $('dAsk').value = '';
   renderGuide(skill);
   renderTutorial(skill);
   renderTasks();
@@ -486,15 +489,31 @@ function shortPath(p, keep = 2) {
   return '…/' + parts.slice(-keep).join('/');
 }
 
+/* What gets sent, in one place, with the person's own words ranked first.
+ *
+ * Typing beats a preset: somebody who wrote a sentence has said something more specific than any
+ * template covers, and silently running the template instead would be the app deciding it knew
+ * better. A selected task still travels with the sentence, as routing rather than as instruction,
+ * because "run this task" and "here is what I want" are different halves of the same request. */
 function effectivePrompt() {
-  if (state.job) return state.jobPrompt;
   if (!state.openSkill) return '';
+  const asked = (state.ask || '').trim();
+  if (asked) {
+    const route = state.selectedTask
+      ? `Dùng skill ${state.openSkill.id}, chạy atomic task ${state.selectedTask} trong thư mục này.`
+      : `Dùng skill ${state.openSkill.id} cho công việc trong thư mục này, tự định tuyến theo primary deliverable.`;
+    return `${route}\n\nYêu cầu cụ thể:\n${asked}`;
+  }
+  if (state.job) return state.jobPrompt;
   return state.selectedTask
     ? `Use the ${state.openSkill.id} skill and run the atomic task ${state.selectedTask} in this directory.`
     : `Use the ${state.openSkill.id} skill for work in this directory. Route to the right atomic task by primary deliverable.`;
 }
 
 function updateLaunch() {
+  // Show the prompt wherever the button that sends it is, so nothing leaves unseen.
+  const peek = $('promptText');
+  if (peek) peek.textContent = effectivePrompt() || '(chưa có gì để gửi)';
   const ready = Boolean(state.openSkill && state.folder);
   const blocked = state.job && state.jobMissing.length > 0;
   $('launch').disabled = !ready;
@@ -569,6 +588,12 @@ $('openAtlas').addEventListener('click', async () => {
 $('pickSuite').addEventListener('click', async () => {
   const picked = await window.studio.pickSuite();
   if (picked) loadSuite(picked);
+});
+
+// Typing is a prompt source, so every keystroke keeps the preview and the run button honest.
+$('dAsk').addEventListener('input', () => {
+  state.ask = $('dAsk').value;
+  updateLaunch();
 });
 
 $('pickFolder').addEventListener('click', async () => {

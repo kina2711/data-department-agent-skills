@@ -65,6 +65,13 @@
       <button class="btn btn-primary" id="runStart" disabled>Chạy trong app</button>
     </div>
 
+    <!-- What will actually be sent. It was invisible: you pressed run and a prompt you had never
+         seen went to the model. -->
+    <details class="prompt-peek" id="promptPeek">
+      <summary>Xem prompt sẽ gửi</summary>
+      <pre id="promptText"></pre>
+    </details>
+
     <div class="detail-split">
       <aside class="detail-side">
         <div id="dGuide" class="guide"></div>
@@ -76,6 +83,14 @@
           <div id="dWalkthrough"></div>
           <h4 class="sec">Công việc dựng sẵn</h4>
           <div id="dJobs" class="job-grid"></div>
+
+          <!-- Before this there were three prompt sources and none of them was the person: a preset
+               job, a selected task, or a generic fallback. -->
+          <h4 class="sec">Hoặc tự viết yêu cầu</h4>
+          <p class="drawer-hint">Viết bằng tiếng Việt cũng được. Nội dung này thay cho công việc dựng sẵn, và vẫn dùng skill đang mở.</p>
+          <textarea id="dAsk" class="ask" rows="3" autocomplete="off"
+                    placeholder="vd: đọc file doanh thu quý 3 trong thư mục này, tìm nguyên nhân sụt giảm ở vùng miền Trung, và nói rõ chỗ nào dữ liệu không đủ để kết luận"></textarea>
+
           <h4 class="sec">Hoặc chọn task trực tiếp</h4>
           <p class="drawer-hint">Bỏ trống để Claude tự định tuyến theo primary deliverable.</p>
           <div id="dTasks"></div>
