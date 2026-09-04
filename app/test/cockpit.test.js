@@ -93,9 +93,11 @@ test('the strip reports what the workflow is waiting on', async (t) => {
     s.value = opt.value; s.dispatchEvent(new Event('change', {bubbles: true})); })()`);
   await page.settle(600);
   assert.equal(await page.visible('#wfCockpit'), true);
-  assert.equal(await page.text('#wfState'), 'Sẵn sàng');
+  // A generated workflow ships with no owners, so the first thing it is waiting on is an owner.
+  assert.equal(await page.text('#wfState'), 'Chưa có owner');
   assert.match(String(await page.text('#wfStateDetail')), /da-clarify-business-question/);
-  assert.equal(await page.eval('document.getElementById("wfRunNext").hidden'), false);
+  assert.equal(await page.eval('document.getElementById("wfRunNext").hidden'), true,
+    'an unowned task must not offer a run button');
 });
 
 test('a gate shows the approval command and offers no button that clears it', async (t) => {
@@ -132,6 +134,7 @@ test('running a task without a working folder says so instead of starting one', 
     const opt = [...s.options].find((o) => /data-analysis/.test(o.value || o.textContent));
     s.value = opt.value; s.dispatchEvent(new Event('change', {bubbles: true})); })()`);
   await page.settle(600);
+  await setOwner(page, 'kina2711');
   await page.eval(`(() => { window.__started = false;
     const real = window.studio.startRun;
     window.studio.startRun = async (p) => { window.__started = true; return real(p); };
@@ -140,4 +143,105 @@ test('running a task without a working folder says so instead of starting one', 
   await page.settle(300);
   assert.equal(await page.eval('window.__started'), false, 'no run may start without a folder');
   assert.match(String(await page.text('#wfResult')), /thư mục làm việc/i);
+});
+
+/* History. The point of these is that the app writes what the validator will read, so the
+ * assertions are about the transitions array and not about the panel's wording. */
+
+
+/** Fill the owner on the first ready task the way a person does: select the node, type in the
+ *  inspector. Generated workflows ship unowned and the cockpit refuses to run an unowned task. */
+async function setOwner(page, who) {
+  await page.eval(`(() => {
+    const node = document.querySelector('#wfCanvas .wf-node');
+    if (node) node.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    return true; })()`);
+  await page.settle(200);
+  const filled = await page.eval(`(() => {
+    // data-field is on the label as well as the control, so the tag matters here.
+    const input = document.querySelector('#wfInspector input[data-field="owner"]');
+    if (!input) return false;
+    input.value = ${JSON.stringify(who)};
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    return true; })()`);
+  await page.settle(250);
+  return filled;
+}
+
+async function loadDataAnalysis(page) {
+  await page.eval(`(() => { const s = document.getElementById('wfPreset');
+    const opt = [...s.options].find((o) => /data-analysis/.test(o.value || o.textContent));
+    s.value = opt.value; s.dispatchEvent(new Event('change', {bubbles: true})); return true; })()`);
+  await page.settle(600);
+}
+
+test('moving a task writes the intermediate steps the validator requires', async (t) => {
+  const page = await openWorkflow(t);
+  await loadDataAnalysis(page);
+  const written = await page.eval(`(() => {
+    const task = { task_id: 'da-clarify-business-question', status: 'planned' };
+    const steps = self.WfGraph.transitionsFor(task, 'in-progress', { at: '2026-09-01T00:00:00Z' });
+    return steps.map((s) => s.from_status + '->' + s.to_status); })()`);
+  assert.deepEqual(written, ['planned->ready', 'ready->in-progress'],
+    'a cockpit that writes planned->in-progress produces a manifest the validator rejects');
+});
+
+test('the history panel reads the manifest and toggles cleanly', async (t) => {
+  const page = await openWorkflow(t);
+  await loadDataAnalysis(page);
+  assert.equal(await page.visible('#wfHistory'), false);
+  await page.click('#wfHistoryToggle');
+  await page.settle(250);
+  assert.equal(await page.visible('#wfHistory'), true);
+  assert.equal(await page.onScreen('#wfHistory'), true);
+  // A generated workflow ships with no history, and the panel says so rather than showing nothing.
+  assert.match(String(await page.text('#wfHistory .wf-plan-head')), /Chưa có bước chuyển nào/);
+  await page.click('#wfHistoryToggle');
+  await page.settle(150);
+  assert.equal(await page.visible('#wfHistory'), false);
+});
+
+test('running a task records history and never writes the repository', async (t) => {
+  // save is stubbed so the real workflow file is untouched; run:start is stubbed so no model is
+  // called. Everything between those two ends is the app's own code.
+  const page = await open({ stubs: {
+    'suite:pick': SUITE,
+    'folder:pick': SUITE,
+    'workflow:save': { ok: true },
+    'run:start': { ok: true },
+  } });
+  t.after(() => page.close());
+
+  const before = fs.readFileSync(WORKFLOW, 'utf8');
+
+  await page.click('#pickSuite');
+  await page.settle(700);
+  await page.click('#grid .card');
+  await page.settle(250);
+  await page.click('#pickFolder');
+  await page.settle(250);
+  await page.click('#backToSkills');
+  await page.settle(200);
+  await page.eval(`(() => { const tabs = [...document.querySelectorAll('button,[role=tab]')]
+    .filter((b) => /workflow|quy trình/i.test(b.textContent || ''));
+    if (tabs.length) tabs[0].click(); return true; })()`);
+  await page.settle(200);
+  await loadDataAnalysis(page);
+
+  await setOwner(page, 'kina2711');
+  await page.click('#wfHistoryToggle');
+  await page.settle(200);
+  assert.equal(await page.eval('document.querySelectorAll("#wfHistory .wf-move").length'), 0);
+
+  await page.click('#wfRunNext');
+  await page.settle(500);
+
+  const steps = await page.eval(
+    '[...document.querySelectorAll("#wfHistory .wf-move .wf-move-step")].map((e) => e.textContent)');
+  assert.deepEqual(steps, ['ready \u2192 in-progress', 'planned \u2192 ready'],
+    'history shows both steps, newest first');
+  assert.equal(await page.text('#wfState'), 'Đang chạy');
+
+  assert.equal(fs.readFileSync(WORKFLOW, 'utf8'), before,
+    'a test must not modify the workflow it opens');
 });

@@ -8,7 +8,7 @@
 
 // Layering, layout and the run-order helpers live in lib/graph.js so tests can call them without
 // a DOM. Two copies of a layering rule is one copy too many.
-const { NODE_W, NODE_H, GAP_X, GAP_Y, PAD, layout, runPlan, nextAction } = self.WfGraph;
+const { NODE_W, NODE_H, GAP_X, GAP_Y, PAD, layout, runPlan, nextAction, transitionsFor } = self.WfGraph;
 
 const wf = {
   file: '',
@@ -243,6 +243,10 @@ function renderInspector() {
   const field = (label, node) => {
     const wrap = document.createElement('label');
     wrap.className = 'wf-field';
+    // The label is the only thing distinguishing these controls; naming it on the element means a
+    // reader, a test, or a later refactor can address a field without counting inputs.
+    wrap.dataset.field = label;
+    node.dataset.field = label;
     const span = document.createElement('span');
     span.textContent = label;
     wrap.append(span, node);
@@ -424,10 +428,55 @@ const COCKPIT = {
   failed: (a) => ['Có task hỏng', `${a.tasks.join(', ')} — sửa hoặc đặt lại trạng thái trước khi đi tiếp.`],
   stranded: (a) => ['Không tới được', `${a.tasks.join(', ')} — chu trình trong depends_on, hoặc phụ thuộc ngoài manifest.`],
   gate: (a) => ['Cổng duyệt', `${a.task} ở mức ${a.risk}. Cần người duyệt; app không tự vượt cổng.`],
+  unowned: (a) => ['Chưa có owner', `${a.task} chưa gán owner. Validator của suite bắt buộc có owner trên mọi task, nên chọn node đó và điền owner trước khi chạy.`],
   run: (a) => ['Sẵn sàng', a.alsoReady.length
     ? `${a.task} chạy được ngay, cùng ${a.alsoReady.length} task khác trong đợt này.`
     : `${a.task} chạy được ngay.`],
 };
+
+
+/* Run history, read from the manifest rather than kept beside it.
+ *
+ * transitions is where the schema already records what happened, so there is no second store to
+ * fall out of step with the file. Rows are newest first because the question is almost always what
+ * happened last, and the intermediate steps a move required are shown rather than collapsed — a
+ * history that hides planned -> ready is a history that cannot be checked against the validator's
+ * rule that each source matches the prior state. */
+function renderHistory() {
+  const host = q('wfHistory');
+  if (host.hidden) return;
+  host.textContent = '';
+  const moves = (wf.manifest && wf.manifest.transitions) || [];
+  const head = document.createElement('div');
+  head.className = 'wf-plan-head';
+  const touched = new Set(moves.map((m) => m.task_id));
+  head.textContent = moves.length
+    ? `${moves.length} bước chuyển trên ${touched.size} task`
+    : 'Chưa có bước chuyển nào được ghi.';
+  host.append(head);
+
+  for (const move of moves.slice().reverse()) {
+    const row = document.createElement('div');
+    row.className = `wf-move${move.to_status === 'failed' ? ' is-failed' : ''}`;
+    const when = document.createElement('span');
+    when.className = 'wf-move-when';
+    when.textContent = String(move.occurred_at || '').replace('T', ' ').replace(/\.\d+Z?$/, '');
+    const who = document.createElement('span');
+    who.className = 'wf-move-task';
+    who.textContent = move.task_id;
+    const what = document.createElement('span');
+    what.className = 'wf-move-step';
+    what.textContent = `${move.from_status} → ${move.to_status}`;
+    row.append(when, who, what);
+    if ((move.evidence_refs || []).length) {
+      const ev = document.createElement('span');
+      ev.className = 'wf-move-ev';
+      ev.textContent = move.evidence_refs.join(', ');
+      row.append(ev);
+    }
+    host.append(row);
+  }
+}
 
 function renderCockpit() {
   const host = q('wfCockpit');
@@ -460,8 +509,29 @@ function renderCockpit() {
 }
 
 
-/** Write a status and persist it, so the picture and the file never disagree. */
-async function setStatusAndSave(task, status) {
+/* Move a task and record the move.
+ *
+ * The manifest has a transitions array and the validator reads it: the source of each transition
+ * must match the prior state, the move must be in the allowed table, and the task's status must
+ * equal where its history ends. Writing status without writing history produced a file that passed
+ * today and would fail the moment anyone else appended to it — and threw away the audit trail the
+ * schema exists to hold.
+ *
+ * The move also has to be legal. planned does not go straight to in-progress, so the intermediate
+ * steps are written too rather than skipped. When no legal path exists the change is refused and
+ * said out loud, because a status the validator rejects is worse than a button that declines. */
+async function moveTask(task, status, evidence) {
+  const steps = transitionsFor(task, status, { evidence: evidence || [] });
+  if (!steps) {
+    q('wfResult').className = 'notice notice-err';
+    q('wfResult').textContent =
+      `Không có bước chuyển hợp lệ từ ${task.status || 'planned'} sang ${status}`
+      + (['tested', 'approved', 'released', 'complete'].includes(status)
+        ? ' — trạng thái này cần evidence record, app không tạo được.' : '.');
+    return false;
+  }
+  if (!Array.isArray(wf.manifest.transitions)) wf.manifest.transitions = [];
+  wf.manifest.transitions.push(...steps);
   task.status = status;
   if (wf.file) await window.studio.saveWorkflow({ file: wf.file, manifest: wf.manifest });
   wf.dirty = false;
@@ -469,7 +539,9 @@ async function setStatusAndSave(task, status) {
   render();
   renderInspector();
   renderCockpit();
+  renderHistory();
   if (!q('wfPlan').hidden) renderPlan();
+  return true;
 }
 
 /** The cockpit reports the outcome of a run it started, and ignores runs it did not. */
@@ -478,7 +550,7 @@ function cockpitRunFinished(runId, code) {
   const { taskId } = wf.awaiting;
   wf.awaiting = null;
   const task = (wf.manifest.tasks || []).find((x) => x.task_id === taskId);
-  if (task) setStatusAndSave(task, code === 0 ? 'implemented' : 'failed');
+  if (task) moveTask(task, code === 0 ? 'implemented' : 'failed');
 }
 self.cockpitRunFinished = cockpitRunFinished;
 
@@ -486,6 +558,11 @@ function markDirty() {
   wf.dirty = true;
   q('wfSave').disabled = false;
   q('wfFile').textContent = `${wf.file} — chưa lưu`;
+  // Every inspector edit passes through here, and some of them change what the run is waiting on:
+  // typing an owner is the whole difference between "chưa có owner" and a runnable task. Leaving
+  // the strip stale meant filling the field appeared to do nothing.
+  renderCockpit();
+  if (!q('wfPlan').hidden) renderPlan();
 }
 
 function loaded(payload) {
@@ -506,6 +583,7 @@ function loaded(payload) {
   render();
   renderInspector();
   renderCockpit();
+  renderHistory();
   if (!q('wfPlan').hidden) renderPlan();
 }
 
@@ -596,7 +674,7 @@ window.wfInit = function wfInit(getSuitePath, getCatalog, getRunFolder) {
       return;
     }
 
-    await setStatusAndSave(task, 'in-progress');
+    if (!(await moveTask(task, 'in-progress'))) return;
     const runId = window.runUI.newId();
     window.runUI.reset();
     window.runUI.setRunning(true);
@@ -610,7 +688,7 @@ window.wfInit = function wfInit(getSuitePath, getCatalog, getRunFolder) {
     });
     if (!res.ok) {
       wf.awaiting = null;
-      await setStatusAndSave(task, 'failed');
+      await moveTask(task, 'failed');
       q('wfResult').className = 'notice notice-err';
       q('wfResult').textContent = res.error || 'Không chạy được.';
     }
@@ -619,7 +697,19 @@ window.wfInit = function wfInit(getSuitePath, getCatalog, getRunFolder) {
   q('wfMarkFailed').addEventListener('click', async () => {
     const id = q('wfMarkFailed').dataset.task;
     const task = (wf.manifest.tasks || []).find((x) => x.task_id === id);
-    if (task) await setStatusAndSave(task, 'failed');
+    if (task) await moveTask(task, 'failed');
+  });
+
+  q('wfHistoryToggle').addEventListener('click', () => {
+    const host = q('wfHistory');
+    host.hidden = !host.hidden;
+    q('wfHistoryToggle').setAttribute('aria-pressed', String(!host.hidden));
+    if (host.hidden) {
+      host.textContent = '';
+      return;
+    }
+    renderHistory();
+    host.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   });
 
   q('wfDryRun').addEventListener('click', () => {
@@ -654,5 +744,6 @@ window.wfInit = function wfInit(getSuitePath, getCatalog, getRunFolder) {
   render();
   renderInspector();
   renderCockpit();
+  renderHistory();
   if (!q('wfPlan').hidden) renderPlan();
 };

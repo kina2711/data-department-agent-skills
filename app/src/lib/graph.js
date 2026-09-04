@@ -216,8 +216,85 @@
     const gate = ready.find((k) => GATE.has((byKey.get(k) || {}).risk_tier));
     if (gate) return { kind: 'gate', task: gate, risk: byKey.get(gate).risk_tier, alsoReady: ready.filter((k) => k !== gate) };
 
-    return { kind: 'run', task: ready[0], alsoReady: ready.slice(1) };
+    // The validator requires an owner on every task, and generated workflows ship without one:
+    // they are templates, and filling the owners is the act of adopting one. Running an unowned
+    // task would write a manifest the suite rejects, so the cockpit asks for the owner instead.
+    const next = ready[0];
+    if (!String((byKey.get(next) || {}).owner || '').trim()) {
+      return { kind: 'unowned', task: next, alsoReady: ready.slice(1) };
+    }
+
+    return { kind: 'run', task: next, alsoReady: ready.slice(1) };
   }
 
-  return { NODE_W, NODE_H, GAP_X, GAP_Y, PAD, FINISHED, FAILED, GATE, keyOf, layer, layout, readyNow, criticalPath, runPlan, nextAction };
+  /* The legal status moves, copied from validate_workflow.py.
+   *
+   * Two copies of a rule is a drift waiting to happen, so a test parses the Python table and
+   * asserts this one matches it exactly. Copying it is still worth doing: the app must know a move
+   * is illegal before it writes the file, not after the validator refuses it, and shelling out to
+   * Python on every click is not a reasonable price for that.
+   *
+   * The move this table forbids that matters most here: planned goes to ready, never straight to
+   * in-progress. A cockpit that skips ready writes a manifest the suite rejects. */
+  const ALLOWED = {
+    planned: ['ready', 'blocked', 'failed'],
+    ready: ['in-progress', 'blocked', 'failed'],
+    'in-progress': ['implemented', 'blocked', 'failed'],
+    implemented: ['in-progress', 'tested', 'blocked', 'failed'],
+    tested: ['approved', 'released', 'complete', 'failed'],
+    approved: ['released', 'failed'],
+    released: ['complete', 'failed'],
+    blocked: ['ready', 'failed'],
+    failed: ['ready'],
+    complete: [],
+  };
+
+  // A transition into one of these needs an evidence record, which the app cannot mint. The
+  // cockpit stops short of them by design rather than writing a manifest the validator rejects.
+  const NEEDS_EVIDENCE = new Set(['tested', 'approved', 'released', 'complete']);
+
+  /** Shortest legal sequence of statuses from one to another, or null when none exists. */
+  function statusPath(from, to) {
+    if (!(from in ALLOWED) || !(to in ALLOWED)) return null;
+    if (from === to) return [];
+    const queue = [[from, []]];
+    const seen = new Set([from]);
+    while (queue.length) {
+      const [at, path] = queue.shift();
+      for (const next of ALLOWED[at]) {
+        if (seen.has(next)) continue;
+        const walked = path.concat(next);
+        if (next === to) return walked;
+        seen.add(next);
+        queue.push([next, walked]);
+      }
+    }
+    return null;
+  }
+
+  /** The transition records for moving a task, so history is written rather than inferred later.
+   *  Returns null when the move is illegal or would need evidence the caller has not supplied. */
+  function transitionsFor(task, to, { at, evidence = [] } = {}) {
+    const from = task.status || 'planned';
+    const path = statusPath(from, to);
+    if (!path) return null;
+    const stamp = at || new Date().toISOString();
+    let cursor = from;
+    const out = [];
+    for (const step of path) {
+      if (NEEDS_EVIDENCE.has(step) && !evidence.length) return null;
+      out.push({
+        task_id: keyOf(task),
+        from_status: cursor,
+        to_status: step,
+        occurred_at: stamp,
+        evidence_refs: NEEDS_EVIDENCE.has(step) ? evidence.slice() : [],
+      });
+      cursor = step;
+    }
+    return out;
+  }
+
+  return { NODE_W, NODE_H, GAP_X, GAP_Y, PAD, FINISHED, FAILED, GATE, ALLOWED, NEEDS_EVIDENCE,
+    keyOf, layer, layout, readyNow, criticalPath, runPlan, nextAction, statusPath, transitionsFor };
 });

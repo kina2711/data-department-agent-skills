@@ -67,6 +67,37 @@ app.whenReady().then(async () => {
   server.listen(PORT, '127.0.0.1');
 });
 
+/* A baseline is only worth having if the same build always produces it.
+ *
+ * The first grid baseline captured a card carrying a focus ring, because a click earlier in the
+ * session had left focus on it; the next run captured the same card flat and the comparison
+ * reported a real change that was really a stray highlight. Focus and hover are cleared before
+ * every capture so a screenshot records the layout rather than the pointer's history. */
+const CAPTURE_CSS = `
+  /* Decorative blur rasterises differently depending on what the GPU was doing beforehand: the
+     same build produced a stable picture when visual.test.js ran alone and a 0.6% difference on
+     one card when the whole suite ran first, on a different card each time. A baseline cannot
+     hold a value the renderer will not reproduce, so the decoration is flattened for the capture.
+     Layout, spacing, colour and text -- everything a regression would actually show up in --
+     are untouched. */
+  .blob { filter: none !important; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+`;
+
+async function settleForCapture(win) {
+  await win.webContents.insertCSS(CAPTURE_CSS);
+  await win.webContents.executeJavaScript(`(() => {
+    if (document.activeElement && document.activeElement !== document.body) {
+      document.activeElement.blur();
+    }
+    // Chromium keeps the last hovered element hot until the pointer moves; a move to the corner
+    // outside any card resets it.
+    document.dispatchEvent(new MouseEvent('mousemove', {
+      bubbles: true, clientX: 0, clientY: 0 }));
+    return true; })()`, true);
+  await new Promise((r) => setTimeout(r, 120));
+}
+
 async function handle(cmd, win) {
   if (cmd.op === 'eval') {
     // executeJavaScript hands back the expression's value over IPC, and anything that is not
@@ -82,6 +113,7 @@ async function handle(cmd, win) {
   if (cmd.op === 'settle') return new Promise((r) => setTimeout(() => r(true), cmd.ms));
   if (cmd.op === 'resize') { win.setSize(cmd.width, cmd.height); return true; }
   if (cmd.op === 'shot') {
+    await settleForCapture(win);
     const image = await win.webContents.capturePage();
     fs.mkdirSync(path.dirname(cmd.file), { recursive: true });
     fs.writeFileSync(cmd.file, image.toPNG());
@@ -102,6 +134,7 @@ const CHANNEL_TOLERANCE = 16;
 const RATIO_LIMIT = 0.004;
 
 async function compare(cmd, win) {
+  await settleForCapture(win);
   const shot = await win.webContents.capturePage();
   const size = shot.getSize();
   if (!fs.existsSync(cmd.baseline)) {

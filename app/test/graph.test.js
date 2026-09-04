@@ -161,7 +161,8 @@ test('an empty manifest has nothing to do', () => {
 });
 
 test('the first ready task is offered to run', () => {
-  const action = g.nextAction([t('a'), t('b', 'a')]);
+  const owned = (id, ...deps) => ({ ...t(id, ...deps), owner: 'kina2711' });
+  const action = g.nextAction([owned('a'), owned('b', 'a')]);
   assert.equal(action.kind, 'run');
   assert.equal(action.task, 'a');
   assert.deepEqual(action.alsoReady, []);
@@ -219,4 +220,25 @@ test('unreachable work is reported as stranded once nothing is ready', () => {
   const action = g.nextAction([t('x', 'y'), t('y', 'x')]);
   assert.equal(action.kind, 'stranded');
   assert.deepEqual(action.tasks.sort(), ['x', 'y']);
+});
+
+test('a ready task with no owner is asked for one instead of being run', () => {
+  const tasks = [t('a')];
+  const action = g.nextAction(tasks);
+  assert.equal(action.kind, 'unowned');
+  assert.equal(action.task, 'a');
+  tasks[0].owner = 'someone';
+  assert.equal(g.nextAction(tasks).kind, 'run');
+});
+
+test('whitespace is not an owner', () => {
+  const tasks = [t('a')];
+  tasks[0].owner = '   ';
+  assert.equal(g.nextAction(tasks).kind, 'unowned');
+});
+
+test('a gate outranks a missing owner, because it is the earlier refusal', () => {
+  const tasks = [t('g')];
+  tasks[0].risk_tier = 'R3-controlled';
+  assert.equal(g.nextAction(tasks).kind, 'gate');
 });
