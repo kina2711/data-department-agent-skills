@@ -1333,6 +1333,105 @@ communicative about a system that does not work that way.
 """
 
 
+TOOL_OUTPUT_BUDGET = """# Reading less of what a tool returns
+
+Context spends in two directions and only one of them gets attention. Writing shorter answers is
+the familiar half. Less familiar, and usually larger, is what comes back from a command: a
+test run prints 4,000 lines, `git diff` on a generated suite prints 40,000, and every one of them
+is read at full price before the useful three are found.
+
+## Ask for less before trimming more
+
+Cheapest is to reduce at the tool rather than after it. `git diff --stat` before `git diff`.
+`npm test 2>&1 | grep -E "^ℹ (pass|fail)"` when the question is whether it passed. `head -3` on a
+validator that prints a summary line last is worse than `tail -1`, and knowing which end holds the
+answer is most of the skill.
+
+None of that is truncation. Truncation cuts an unknown amount off a known output; asking a
+narrower question returns a smaller output that is complete for that question. Truncation hides what it dropped. Narrowing has nothing to hide.
+
+## Shape first, then drill
+
+Anything large goes in one order: how many, then which, then what. Counts come before names, names before stack traces. A failing pipeline gives the failing stage before the log of that stage
+before the line that threw. Reading the log first and looking for the shape inside it is the
+expensive way round, and it is the default.
+
+Files follow it too. `grep -n` to find where, then read thirty lines around it. Whole
+files get read when the task is to change the whole file.
+
+## Say what was cut
+
+Filtered output gets reported as filtered. "Tests passed" after reading only the summary
+line is a claim about the summary line; if a warning was printed above it and never read, the
+report says the warnings were not read. One clause buys the difference between a compressed read and an incomplete one presented as
+complete.
+
+One failure mode makes this concrete. A command exits 0, the tail is green, and the middle
+contains a skip. From the last line alone, a run that skipped its most expensive check is indistinguishable from one
+that passed it.
+
+## Where this stops
+
+Never compress the thing being judged. Whatever is under review — a diff, an artifact being verified, evidence being read — is the work,
+and skimming it to save context is skipping the task. The
+budget applies to the noise a tool wraps its answer in, never to the answer.
+
+And never filter an error stream. Read at 20%, a stack trace has been read at 0%, and the line that got cut is disproportionately
+the one that mattered.
+"""
+
+
+BOUNDED_SOURCE_ANSWERING = """# Answering from a closed set of sources
+
+Sometimes the sources are chosen first and the answer may not leave them — these four papers, this
+contract, that quarter's incident reports. It looks like ordinary retrieval. It is not: here the
+boundary is the product, and an answer that quietly reaches into general knowledge has broken the
+single guarantee this mode exists to give.
+
+## Declare the set, then hold it
+
+Name the set before the first question: which documents, which versions, when each was added.
+Announce anything that arrives mid-session. The same answer at 10:00 and at 10:30 may rest on
+different ground, and nobody can tell from the answer.
+
+Nothing outside the set is evidence. Not training, not a related note in the same vault, not a
+search result. Those may all be right. They are not what was asked for.
+
+## Three answers, and the second is the point
+
+**Grounded.** The set supports the claim, and each material claim carries its locator — document,
+plus a position precise enough to land on the passage.
+
+**Not in the set.** The sources do not cover this. Say so, and stop. What this mode exists to
+prevent is the alternative: answering anyway from general knowledge, in the same confident register
+as the grounded answers, with nothing marking the difference. A reader cannot tell the two apart, so
+it is not that one answer which loses its standing — it is all of them.
+
+How it is said matters. *"None of the four documents addresses retention windows"* tells the reader
+where to go next. *"I do not have enough information"* tells them nothing, and invites a rephrase
+that fails the same way.
+
+**Grounded but contradicted.** Two sources disagree. Report both with locators, and say which is
+more recent or more authoritative where the set makes that knowable. The quiet failure here is
+picking whichever reads better and presenting one answer.
+
+## Synthesis is allowed; smuggling is not
+
+Combining three passages into a conclusion none of them states is the useful work. Label it
+synthesis, and carry the passages it rests on, so a reader can check the step and not merely the
+sources.
+
+The line is simple. Does the conclusion follow from what is cited? A synthesis needing one unstated
+fact from outside the set is not synthesis at all; it is an outside answer wearing citations.
+
+## What the boundary costs
+
+Closed sets give narrower answers than open ones. That is the trade, not a defect to engineer
+around. Widening it is a decision someone makes out loud, by adding a document and saying so. Widen it
+silently, at the moment a question turns hard, and the mode stops meaning anything at all.
+"""
+
+
 OUTWARD_FACING_SKILLS = {
     "shared-data-core", "data-platform-and-dataops", "data-security-and-privacy",
     "metadata-engineering-and-catalog", "machine-learning-engineering", "mlops",
@@ -1926,6 +2025,14 @@ def task_specific_resources(task_id: str) -> list[str]:
             "Record each element in `../../assets/diagram-provenance.yaml` with the artifact it was read out of and a locator. Another diagram, a README, a ticket or recall is not inspection: a diagram derived from a diagram inherits its errors and none of its freshness.",
             "An observed diagram names the commit, tag or extraction timestamp it was read at; without one, whether it is still true has no answer. Record what was excluded and why — a silent omission reads as a claim that nothing was left out.",
             "Read [what a figure is for](../figure-intent-and-critique.md) before drawing. Write the caption first — one sentence naming what a reader should be able to conclude — then draw only what that conclusion needs. Fidelity asks whether the model matches the system; the caption asks whether the picture says the thing, and a diagram can pass one and fail the other.",
+        ]
+    if task_id in {"brain-audit-output-grounding", "brain-design-retrieval-routing",
+                   "book-test-retrieval-and-application", "ai-build-retrieval-pipeline",
+                   "ai-evaluate-retrieval-quality"}:
+        return [
+            "Read [answering from a closed set of sources](../bounded-source-answering.md). Name the set before the first question — which documents, which versions, when each was added — and announce anything that arrives mid-session, because the same answer half an hour later may rest on different ground.",
+            "Three answers, and the middle one is the point. Grounded, with a locator precise enough to land on the passage. Not in the set, said plainly and then stopped — naming which documents were searched, since `I do not have enough information` tells a reader nothing and invites a rephrase that fails the same way. Or grounded but contradicted, reporting both sides rather than picking whichever reads better.",
+            "Synthesis is the useful work and stays labelled as synthesis, carrying the passages it rests on. A conclusion needing one unstated fact from outside the set is an outside answer wearing citations. Widening the set is a decision made out loud by adding a document, never a thing that happens at the moment a question turns hard.",
         ]
     if task_id in {"academy-outline-lesson-from-source", "academy-build-scene-package"}:
         return [
@@ -3618,11 +3725,16 @@ Record only routing/task metadata, outcome, duration, references loaded, token e
         refs = SKILLS / skill / "references"
         (refs / "lifecycle-standard.md").write_text(lifecycle, encoding="utf-8")
         (refs / "response-compression.md").write_text(response_compression, encoding="utf-8")
+        (refs / "tool-output-budget.md").write_text(TOOL_OUTPUT_BUDGET, encoding="utf-8")
         (refs / "model-selection.md").write_text(model_selection, encoding="utf-8")
         if skill in PROSE_AUTHORING_SKILLS:
             (refs / "authored-prose-voice.md").write_text(authored_prose_voice, encoding="utf-8")
         if skill in {"data-academy-and-curriculum", "book-to-knowledge-and-action"}:
             (refs / "lesson-scene-standard.md").write_text(LESSON_SCENE_STANDARD, encoding="utf-8")
+        if skill in {"personal-second-brain-and-knowledge-os", "book-to-knowledge-and-action",
+                     "data-academy-and-curriculum", "generative-ai-engineering",
+                     "data-enablement-and-knowledge"}:
+            (refs / "bounded-source-answering.md").write_text(BOUNDED_SOURCE_ANSWERING, encoding="utf-8")
         if skill in {"data-documentation-and-diagrams", "data-technical-content-and-social",
                      "business-intelligence"}:
             (refs / "figure-intent-and-critique.md").write_text(FIGURE_INTENT_AND_CRITIQUE, encoding="utf-8")

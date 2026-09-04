@@ -33,8 +33,9 @@ If an absent input changes semantics, risk, cost, scope or acceptance, classify 
 5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
 
 Additional resources:
-- Read [the Second Brain operating system](../second-brain-operating-system.md); preserve the four-layer boundary and stable source identity.
-- Reuse only the matching manifest, source, Wiki-note, personal-context, output, migration or evaluation asset from `../../assets/`.
+- Read [answering from a closed set of sources](../bounded-source-answering.md). Name the set before the first question — which documents, which versions, when each was added — and announce anything that arrives mid-session, because the same answer half an hour later may rest on different ground.
+- Three answers, and the middle one is the point. Grounded, with a locator precise enough to land on the passage. Not in the set, said plainly and then stopped — naming which documents were searched, since `I do not have enough information` tells a reader nothing and invites a rephrase that fails the same way. Or grounded but contradicted, reporting both sides rather than picking whichever reads better.
+- Synthesis is the useful work and stays labelled as synthesis, carrying the passages it rests on. A conclusion needing one unstated fact from outside the set is an outside answer wearing citations. Widening the set is a decision made out loud by adding a document, never a thing that happens at the moment a question turns hard.
 - Read [solution option framing](../solution-option-framing.md); frame three to five materially different approaches in `../../assets/design-option-set.yaml`, select one against the stated constraints in at most forty words, and derive the deliverable structure from that selection. Where this role already owns a scored selection artifact, use it instead of duplicating the decision.
 
 

@@ -55,7 +55,7 @@ PEOPLE_RESOURCES = {
         "scripts": ["validate_content_manifest.py"],
     },
     "personal-second-brain-and-knowledge-os": {
-        "references": ["second-brain-operating-system.md", "knowledge-note-and-lineage-standard.md", "retrieval-and-output-grounding.md", "migration-and-tool-interop.md", "second-brain-quality-and-safety.md"],
+        "references": ["second-brain-operating-system.md", "knowledge-note-and-lineage-standard.md", "retrieval-and-output-grounding.md", "bounded-source-answering.md", "migration-and-tool-interop.md", "second-brain-quality-and-safety.md"],
         "assets": ["second-brain-manifest.json", "source-record.yaml", "wiki-note.yaml", "personal-context.yaml", "output-record.yaml", "migration-plan.yaml", "retrieval-evaluation.yaml", "knowledge-review.yaml", "second-brain-manifest.schema.json"],
         "scripts": ["build_brain_index.py", "validate_second_brain.py"],
     },

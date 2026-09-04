@@ -67,9 +67,9 @@ Block before mutation or a positive completion decision when a mandatory input, 
 5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
 
 Additional resources:
-- Read [the Book-to-Knowledge operating system](../book-conversion-operating-system.md); extract actionable structure rather than chapter recap.
-- Reuse only the matching source-manifest, framework-card, chapter-note, destination-plan, experiment or evidence asset from `../../assets/`.
-- Read [the copyright, security and quality standard](../copyright-security-and-quality.md); run `../../scripts/validate_book_conversion.py` when a conversion manifest is available.
+- Read [answering from a closed set of sources](../bounded-source-answering.md). Name the set before the first question — which documents, which versions, when each was added — and announce anything that arrives mid-session, because the same answer half an hour later may rest on different ground.
+- Three answers, and the middle one is the point. Grounded, with a locator precise enough to land on the passage. Not in the set, said plainly and then stopped — naming which documents were searched, since `I do not have enough information` tells a reader nothing and invites a rephrase that fails the same way. Or grounded but contradicted, reporting both sides rather than picking whichever reads better.
+- Synthesis is the useful work and stays labelled as synthesis, carrying the passages it rests on. A conclusion needing one unstated fact from outside the set is an outside answer wearing citations. Widening the set is a decision made out loud by adding a document, never a thing that happens at the moment a question turns hard.
 
 
 ## Tests and evidence

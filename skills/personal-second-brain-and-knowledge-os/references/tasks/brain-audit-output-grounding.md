@@ -68,11 +68,9 @@ Block before mutation or a positive completion decision when a mandatory input, 
 5. Run the tests below, resolve failures, obtain required approval and complete the lifecycle handoff.
 
 Additional resources:
-- Read [the Second Brain operating system](../second-brain-operating-system.md); preserve the four-layer boundary and stable source identity.
-- Reuse only the matching manifest, source, Wiki-note, personal-context, output, migration or evaluation asset from `../../assets/`.
-- Read [the retrieval and output grounding standard](../retrieval-and-output-grounding.md); use the minimum sufficient context and bind material output claims to source or personal-rule IDs.
-- Read [the Second Brain quality and safety standard](../second-brain-quality-and-safety.md); run `../../scripts/validate_second_brain.py` when a vault manifest is available.
-- Run `../../scripts/build_brain_index.py` for a privacy-minimized path/hash/title/ID inventory; it intentionally excludes note bodies and likely secret files.
+- Read [answering from a closed set of sources](../bounded-source-answering.md). Name the set before the first question — which documents, which versions, when each was added — and announce anything that arrives mid-session, because the same answer half an hour later may rest on different ground.
+- Three answers, and the middle one is the point. Grounded, with a locator precise enough to land on the passage. Not in the set, said plainly and then stopped — naming which documents were searched, since `I do not have enough information` tells a reader nothing and invites a rephrase that fails the same way. Or grounded but contradicted, reporting both sides rather than picking whichever reads better.
+- Synthesis is the useful work and stays labelled as synthesis, carrying the passages it rests on. A conclusion needing one unstated fact from outside the set is an outside answer wearing citations. Widening the set is a decision made out loud by adding a document, never a thing that happens at the moment a question turns hard.
 
 
 ## Tests and evidence
