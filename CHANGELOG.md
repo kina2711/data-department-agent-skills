@@ -1,5 +1,74 @@
 # Changelog
 
+## v3.11.0
+
+The first notes the corpus ever produced, a map the suite draws of itself, and a desktop app with
+tests that can fail.
+
+33 role skills - 867 atomic task contracts - 51 slash commands - 33 Antigravity agents -
+52 executable evidence scripts - 12 JSON Schemas - 23 authored notes - 88 app tests
+
+### The corpus stopped being a plan
+
+86 concept keys, 10 role plans, 206 planned notes — and not one note written. The Data Analyst
+corpus exists now: 22 deep dives plus a canonical running schema, 42,000 words, none scoring below
+0.96 on the prose gate. Writing them found four defects reading could not. A marker the validator counts was never named
+by the authoring standard, so five notes written to that standard exactly failed the check. The
+standard demanded a canonical schema file, while neither the manifest nor the validator had any
+concept of a file that is not a deep dive. Tags ran domain plus module and came out identical for
+every note in a module — all 47 pairs of the SQL module reported at 100% overlap, detecting
+nothing. And `</details>` counted as a sentence opener, penalising every note for a repetition the
+standard itself mandates.
+
+Every note is `drafted`. None is `reviewed`. The files exist and clear every structural and prose
+check there is; nobody with the domain has read one.
+
+### The suite draws itself
+
+One tree of this suite existed, hand-drawn in the canonical skill-map, and it had drifted to 28
+skills against 33 on disk. `tools/build_skill_atlas.py` generates it instead. Four levels, each from a source somebody wrote,
+rewritten between generated markers. It cannot drift again. Its first finding is about itself. Five skills are named in no rollout wave and carry 181 tasks —
+21% of the suite sitting outside every band. Unplaced, and reported as such rather than filed
+somewhere plausible.
+
+Four structures here never talked to each other. `tools/build_knowledge_graph.py` joins them: 1215
+nodes, 5013 edges, each edge labelled `extracted`, `inferred` or `ambiguous`. Phase precedence is what the 832 workflow edges encode, not task prerequisites, so they are
+excluded from every structural claim rather than drawn as dependencies 832 times.
+
+### Evaluation that covers everything, and evaluation that costs money
+
+Only 205 of 867 contracts had a named eval case. `tools/eval_properties.py` adds 12 invariants covering all 867, each carrying a mutation it must
+reject. Three rules that seemed obvious turned out false against the catalog. Those are recorded
+as non-properties.
+Sending the 106 routing cases to a real model, `tools/eval_behavioural.py` reports 76.4% skill
+accuracy and 94.9% rival avoidance, with one concentrated weakness at the orchestrator. Building it
+was mostly discovering that its own measurements were wrong.
+
+### Techniques taken from elsewhere
+
+From OpenMAIC, two academy tasks for the outline-then-scene pipeline, where source spans make an
+unsourced beat visible. From PaperBanana, a caption-first discipline for figures — deliberately a reference and not a task,
+since it fails the distinct-deliverable test. From Caveman, a budget for what a tool returns: the half of context spending nobody watches. And from NotebookLM, whose method survived where its API does not exist, a boundary for answering
+from a closed set — where saying "not in the set" plainly is the whole point.
+
+### Interoperability
+
+`.agents/skills` is a relative symlink to `skills`, so Google Antigravity loads all 33 without a
+second copy to drift. `.mcp.json` declares the Perplexity server, and only that one, because it is
+the only one whose package and interface were read from the provider's documentation.
+
+### The desktop app
+
+Zero tests became 88, screenshots included, compared against baselines by diffing raw bitmaps out
+of Electron. A dry run computes the waves a workflow would take before anything is called. A cockpit strip names
+what the run is waiting on. It has no control that clears an approval gate, and no play button for
+the whole graph. Evidence drafted from the run actually observed, leaving
+blank what the app did not see. Tasks run on the model their tier declared — on one workflow, 20 of 29 runs had been using
+something heavier than the suite asked for.
+
+Grouped by rollout wave, the grid carries the Vietnamese summary instead of the English routing
+description and shows the risk mix the catalog has always held. Every skill has a generated walkthrough. Every line of it names a real task.
+
 ## v3.10.0
 
 Which model a task needs, a reviewer verdict that can stop work, and skill descriptions audited
