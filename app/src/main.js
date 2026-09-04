@@ -271,7 +271,7 @@ ipcMain.handle('workflow:validate', (_e, { file, suitePath, mode }) => {
 
 const runs = new Map();
 
-ipcMain.handle('run:start', (event, { runId, folder, prompt, suitePath, permissionMode }) => {
+ipcMain.handle('run:start', (event, { runId, folder, prompt, suitePath, permissionMode, model }) => {
   if (!folder || !fs.existsSync(folder)) return { ok: false, error: 'Thư mục không tồn tại' };
   if (!String(prompt || '').trim()) return { ok: false, error: 'Prompt rỗng' };
 
@@ -280,6 +280,9 @@ ipcMain.handle('run:start', (event, { runId, folder, prompt, suitePath, permissi
     argv.push('--plugin-dir', suitePath);
   }
   argv.push('--permission-mode', permissionMode || 'plan');
+  // The task's declared tier decides this; an empty model means the CLI's own default applies,
+  // which is the honest outcome for a task whose tier nobody has set.
+  if (model) argv.push('--model', String(model));
   argv.push(String(prompt));
 
   let child;

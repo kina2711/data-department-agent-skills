@@ -99,3 +99,40 @@ test('the checker itself rejects a broken envelope, so a pass means something', 
   const { task_id, ...without } = env;
   assert.notDeepEqual(checkAgainstSchema(without), []);
 });
+
+/* Model choice follows the tier the suite already declared, and the envelope records it because
+ * model-selection.md says a judgment whose model nobody wrote down has no answer six months on. */
+
+test('each declared tier maps to a model, and an undeclared one maps to nothing', () => {
+  assert.equal(g.modelForTier('light'), 'claude-haiku-4-5-20251001');
+  assert.equal(g.modelForTier('standard'), 'claude-sonnet-5');
+  assert.equal(g.modelForTier('strong'), 'claude-opus-5');
+  for (const absent of ['', '  ', undefined, null, 'medium', 'STRONG']) {
+    assert.equal(g.modelForTier(absent), '',
+      `${JSON.stringify(absent)} must fall through to the CLI default rather than be guessed`);
+  }
+});
+
+test('the three tiers map to three different models', () => {
+  const chosen = ['light', 'standard', 'strong'].map(g.modelForTier);
+  assert.equal(new Set(chosen).size, 3, 'a mapping that collapses tiers saves nothing');
+});
+
+test('the envelope records the model and the tier it came from', () => {
+  const env = g.draftEvidence({ task_id: 'a' },
+    { ...RUN, model: 'claude-haiku-4-5-20251001', modelTier: 'light' });
+  assert.equal(env.environment.model, 'claude-haiku-4-5-20251001');
+  assert.equal(env.environment.model_tier, 'light');
+});
+
+test('an unrecorded model is empty rather than assumed', () => {
+  const env = g.draftEvidence({ task_id: 'a' }, RUN);
+  assert.equal(env.environment.model, '');
+  assert.equal(env.environment.model_tier, '');
+});
+
+test('the envelope with a model still satisfies the suite schema', () => {
+  const env = g.draftEvidence({ task_id: 'a' },
+    { ...RUN, model: 'claude-opus-5', modelTier: 'strong' });
+  assert.deepEqual(checkAgainstSchema(env), []);
+});

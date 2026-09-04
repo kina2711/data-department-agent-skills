@@ -8,7 +8,7 @@
 
 // Layering, layout and the run-order helpers live in lib/graph.js so tests can call them without
 // a DOM. Two copies of a layering rule is one copy too many.
-const { NODE_W, NODE_H, GAP_X, GAP_Y, PAD, layout, runPlan, nextAction, transitionsFor, draftEvidence, evidenceGaps } = self.WfGraph;
+const { NODE_W, NODE_H, GAP_X, GAP_Y, PAD, layout, runPlan, nextAction, transitionsFor, draftEvidence, evidenceGaps, modelForTier } = self.WfGraph;
 
 const wf = {
   file: '',
@@ -421,6 +421,13 @@ function renderPlan() {
  * that apply to it. It is deliberately not a play button for the whole graph. Every task costs a
  * model call, gates exist so that a person decides, and a control that runs 29 tasks unattended
  * would be the wrong default no matter how convenient. */
+
+/** The catalog tier for a task, joined in from the metadata the grid already loaded. */
+function tierOf(taskId) {
+  const meta = wf.meta && wf.meta.get(taskId);
+  return (meta && meta.modelTier) || '';
+}
+
 const COCKPIT = {
   empty: () => ['Manifest chưa có task nào', ''],
   done: () => ['Hoàn tất', 'Mọi task trong manifest đã ở trạng thái kết thúc.'],
@@ -429,9 +436,13 @@ const COCKPIT = {
   stranded: (a) => ['Không tới được', `${a.tasks.join(', ')} — chu trình trong depends_on, hoặc phụ thuộc ngoài manifest.`],
   gate: (a) => ['Cổng duyệt', `${a.task} ở mức ${a.risk}. Cần người duyệt; app không tự vượt cổng.`],
   unowned: (a) => ['Chưa có owner', `${a.task} chưa gán owner. Validator của suite bắt buộc có owner trên mọi task, nên chọn node đó và điền owner trước khi chạy.`],
-  run: (a) => ['Sẵn sàng', a.alsoReady.length
-    ? `${a.task} chạy được ngay, cùng ${a.alsoReady.length} task khác trong đợt này.`
-    : `${a.task} chạy được ngay.`],
+  run: (a) => ['Sẵn sàng', [
+    a.alsoReady.length
+      ? `${a.task} chạy được ngay, cùng ${a.alsoReady.length} task khác trong đợt này.`
+      : `${a.task} chạy được ngay.`,
+    // Which model, before the run rather than after the bill.
+    tierOf(a.task) ? `Tier ${tierOf(a.task)} → ${modelForTier(tierOf(a.task)) || 'model mặc định'}.` : '',
+  ].filter(Boolean).join(' ')],
 };
 
 
@@ -558,8 +569,11 @@ async function cockpitRunFinished(runId, code) {
     exit: code,
     folder: started.folder,
     permissionMode: started.mode === 'execute' ? 'acceptEdits' : 'plan',
-    command: `claude -p --permission-mode ${started.mode === 'execute' ? 'acceptEdits' : 'plan'}`,
+    command: `claude -p --permission-mode ${started.mode === 'execute' ? 'acceptEdits' : 'plan'}`
+      + (started.model ? ` --model ${started.model}` : ''),
     durationMs: Date.now() - started.startedAt,
+    model: started.model,
+    modelTier: started.tier,
   });
   const res = await window.studio.writeEvidence({ file: wf.file, envelope });
 
@@ -699,13 +713,17 @@ window.wfInit = function wfInit(getSuitePath, getCatalog, getRunFolder) {
     const runId = window.runUI.newId();
     window.runUI.reset();
     window.runUI.setRunning(true);
-    wf.awaiting = { runId, taskId: id, startedAt: Date.now(), folder, mode: q('wfMode').value };
+    const tier = tierOf(id);
+    const model = modelForTier(tier);
+    wf.awaiting = { runId, taskId: id, startedAt: Date.now(), folder,
+      mode: q('wfMode').value, tier, model };
     const res = await window.studio.startRun({
       runId,
       folder,
       prompt: `Chạy task ${id} theo contract của nó trong suite. Dừng lại và báo cáo nếu contract yêu cầu approval.`,
       suitePath: getSuitePath(),
       permissionMode: q('wfMode').value === 'execute' ? 'acceptEdits' : 'plan',
+      model,
     });
     if (!res.ok) {
       wf.awaiting = null;

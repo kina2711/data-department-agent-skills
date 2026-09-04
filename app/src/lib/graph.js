@@ -295,6 +295,32 @@
     return out;
   }
 
+  /* Which model runs a task, from the tier the task already declares.
+   *
+   * model-selection.md sorts every task into light, standard or strong by what catches an error
+   * before somebody acts on it, and the catalog carries that answer for all 867 of them. The app
+   * was ignoring it and letting whatever the session opened with run everything: on the
+   * data-analysis workflow that is 20 of 29 runs on a heavier model than the suite itself asked
+   * for.
+   *
+   * The tier is the suite's decision and it is honoured, never revised. What model names a tier
+   * maps to is a deployment choice that changes as models do, so it lives here as a default rather
+   * than in the standard, and the cockpit shows the chosen model before the run so a surprise is
+   * visible rather than discovered in a bill.
+   *
+   * An unknown or missing tier maps to nothing at all and the CLI's own default applies. Guessing
+   * strong would be expensive by accident; guessing light would quietly downgrade judgment work,
+   * which the standard forbids outright. */
+  const MODEL_FOR_TIER = {
+    light: 'claude-haiku-4-5-20251001',
+    standard: 'claude-sonnet-5',
+    strong: 'claude-opus-5',
+  };
+
+  function modelForTier(tier) {
+    return MODEL_FOR_TIER[String(tier || '').trim()] || '';
+  }
+
   /* An evidence envelope drafted from a run the app actually watched.
    *
    * The schema wants thirteen fields and the app honestly knows six of them: which task ran, what
@@ -319,6 +345,10 @@
         folder: run.folder || '',
         permission_mode: run.permissionMode || '',
         runner: 'app-data-agent',
+        // model-selection.md: record the model actually used, because "which model graded this"
+        // is a question with consequences and no answer unless somebody wrote it down.
+        model: run.model || '',
+        model_tier: run.modelTier || '',
       },
       method: 'Chạy task qua Claude CLI từ buồng lái của app, không qua terminal.',
       command: run.command || '',
@@ -348,6 +378,6 @@
   }
 
   return { NODE_W, NODE_H, GAP_X, GAP_Y, PAD, FINISHED, FAILED, GATE, ALLOWED, NEEDS_EVIDENCE,
-    draftEvidence, evidenceGaps,
+    draftEvidence, evidenceGaps, MODEL_FOR_TIER, modelForTier,
     keyOf, layer, layout, readyNow, criticalPath, runPlan, nextAction, statusPath, transitionsFor };
 });
