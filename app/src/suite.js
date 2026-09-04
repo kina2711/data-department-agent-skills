@@ -63,6 +63,25 @@ function readSuite(suitePath) {
     searchIndex = new Map();
   }
 
+  /* The skill atlas groups every skill into the rollout wave that skill-map section 40 declares,
+   * and that grouping is the only real structure the suite has for 33 skills. Reading it lets the
+   * grid show that structure instead of an alphabetical wall, and colour can then carry meaning
+   * rather than a hash of the skill id. Absent atlas, the grid falls back to one ungrouped list. */
+  let waveOf = new Map();
+  let waveOrder = [];
+  try {
+    const atlas = JSON.parse(
+      fs.readFileSync(path.join(suitePath, 'docs', 'skill-atlas.json'), 'utf8')
+    );
+    for (const wave of atlas.waves || []) {
+      waveOrder.push({ wave: wave.wave, title: wave.title, tone: wave.tone });
+      for (const s of wave.skills || []) waveOf.set(s.skill, wave.wave);
+    }
+  } catch {
+    waveOf = new Map();
+    waveOrder = [];
+  }
+
   // Task-level metadata is optional; the grid degrades to names and counts without it.
   let tasks = [];
   if (fs.existsSync(catalogPath)) {
@@ -97,6 +116,7 @@ function readSuite(suitePath) {
       guide: guides[role.skill] || null,
       jobs: jobs.filter((j) => j.skill === role.skill),
       taskCount: role.task_count || owned.length,
+      wave: waveOf.get(role.skill) || '',
       tasks: owned.map((t) => ({
         id: t.id,
         keywords: searchIndex.get(t.id) || [],
@@ -107,7 +127,7 @@ function readSuite(suitePath) {
       })),
     };
   });
-  return { suiteVersion, skills, taskTotal: tasks.length };
+  return { suiteVersion, skills, taskTotal: tasks.length, waves: waveOrder };
 }
 
 // Task ids carry a role prefix, not the skill directory name, so resolve through the

@@ -86,27 +86,13 @@ header.top h1 { font-size: 26px; letter-spacing: -.02em; margin: 0; }
 .btn-primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .btn-primary:disabled { opacity: .4; cursor: not-allowed; }
 
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(268px, 1fr)); gap: 14px; }
+/* The bands own their own card grids now, so the container only stacks them. It was still a
+   grid itself, which laid the waves out side by side as columns. */
+.grid { display: block; }
 
-.card {
-  position: relative; overflow: hidden;
-  background: var(--surface); border: 1px solid var(--line);
-  border-radius: var(--radius); box-shadow: var(--shadow);
-  padding: 18px; cursor: pointer; text-align: left;
-  font: inherit; color: inherit; width: 100%;
-  transition: box-shadow .15s ease, transform .15s ease, border-color .15s ease;
-}
 .card:hover { box-shadow: var(--shadow-lift); transform: translateY(-1px); border-color: var(--line-strong); }
 .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-/* The pastel blob from the reference cards; decorative only. */
-.card .blob {
-  position: absolute; width: 96px; height: 96px; border-radius: 50%;
-  filter: blur(24px); opacity: .5; top: -26px; right: -22px; pointer-events: none;
-}
-@media (prefers-color-scheme: dark) {
-  .card .blob { opacity: .18; }
-}
 .card .avatar {
   width: 44px; height: 44px; border-radius: 50%;
   display: grid; place-items: center; font-size: 19px;
@@ -171,18 +157,6 @@ header.top h1 { font-size: 26px; letter-spacing: -.02em; margin: 0; }
 
 /* A fixed pastel set instead of a computed colour, so no inline style is needed and the
    page's CSP can keep style-src at 'self'. */
-.blob-0  { background: hsl(  8 80% 80%); }
-.blob-1  { background: hsl( 38 82% 78%); }
-.blob-2  { background: hsl( 62 70% 76%); }
-.blob-3  { background: hsl( 96 62% 76%); }
-.blob-4  { background: hsl(140 58% 76%); }
-.blob-5  { background: hsl(172 60% 76%); }
-.blob-6  { background: hsl(196 72% 78%); }
-.blob-7  { background: hsl(216 80% 80%); }
-.blob-8  { background: hsl(248 72% 82%); }
-.blob-9  { background: hsl(280 64% 82%); }
-.blob-10 { background: hsl(312 68% 82%); }
-.blob-11 { background: hsl(340 74% 82%); }
 
 .task-main { flex: 1; min-width: 0; }
 .drawer-hint { margin: 0 0 10px; color: var(--ink-muted); font-size: 12.5px; }
@@ -530,3 +504,144 @@ h4.sec:first-child { margin-top: 0; }
 .wf-move-ev { color: var(--accent); font-size: 11.5px; }
 .wf-move.is-failed .wf-move-step { color: var(--danger); }
 .wf-cockpit.is-unowned { border-left-color: var(--warn); }
+
+/* ── Grid, grouped by rollout wave ──────────────────────────────────────────
+   Thirty-three cards in one alphabetical wall gave a reader nothing to steer by. The bands come
+   from the atlas, so colour finally carries the structure the suite declares instead of a hash of
+   the skill id, and the cards got dense enough that a wave fits on one screen. */
+
+.band {
+  --tone: var(--ink-muted);
+  margin: 0 0 18px;
+}
+.band-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 0 2px 7px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 11px;
+}
+.band-name {
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--tone);
+}
+.band-sub { font-size: 12.5px; color: var(--ink-muted); flex: 1 1 auto; }
+.band-tally { font-size: 11.5px; color: var(--ink-faint, var(--ink-muted)); font-variant-numeric: tabular-nums; }
+
+.band-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(212px, 1fr));
+  gap: 9px;
+}
+
+/* One accent per wave, and the same five hues the atlas page uses, so the two pictures of this
+   suite agree with each other. */
+.tone-control              { --tone: #b0567f; }
+.tone-request-to-analytics { --tone: #3fb6a8; }
+.tone-platform             { --tone: #4a8fd4; }
+.tone-ai-ml                { --tone: #8b6fd4; }
+.tone-specialised          { --tone: #c98a3e; }
+.tone-unplaced             { --tone: var(--ink-muted); }
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  align-items: stretch;
+  text-align: left;
+  padding: 11px 12px 12px;
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--tone);
+  border-radius: 9px;
+  background: var(--surface);
+  box-shadow: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  transition: border-color .14s, transform .14s;
+}
+.card:hover { transform: none; border-color: var(--tone); box-shadow: none; }
+.card h3 {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 620;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.card .meta {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  font-size: 11.5px;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+.card .meta-strong { color: var(--tone); }
+
+/* The risk mix, which the suite has known all along and never showed. Width comes from a data
+   attribute rather than a style attribute, because the page CSP forbids inline styles. */
+.risk-bar { display: flex; gap: 1px; height: 3px; border-radius: 2px; overflow: hidden; }
+.risk-seg { display: block; height: 3px; }
+.risk-seg[data-share="1"]  { flex: 1; }
+.risk-seg[data-share="2"]  { flex: 2; }
+.risk-seg[data-share="3"]  { flex: 3; }
+.risk-seg[data-share="4"]  { flex: 4; }
+.risk-seg[data-share="5"]  { flex: 5; }
+.risk-seg[data-share="6"]  { flex: 6; }
+.risk-seg[data-share="7"]  { flex: 7; }
+.risk-seg[data-share="8"]  { flex: 8; }
+.risk-seg[data-share="9"]  { flex: 9; }
+.risk-seg[data-share="10"] { flex: 10; }
+.risk-seg[data-share="11"] { flex: 11; }
+.risk-seg[data-share="12"] { flex: 12; }
+.risk-seg[data-share="13"] { flex: 13; }
+.risk-seg[data-share="14"] { flex: 14; }
+.risk-seg[data-share="15"] { flex: 15; }
+.risk-seg[data-share="16"] { flex: 16; }
+.risk-seg[data-share="17"] { flex: 17; }
+.risk-seg[data-share="18"] { flex: 18; }
+.risk-seg[data-share="19"] { flex: 19; }
+.risk-seg[data-share="20"] { flex: 20; }
+.risk-R0 { background: #3f8f5c; }
+.risk-R1 { background: #4a8fd4; }
+.risk-R2 { background: #c98a3e; }
+.risk-R3 { background: #d2683f; }
+.risk-R4 { background: #c4384f; }
+
+/* ── Header: one bar, not four ──────────────────────────────────────────────
+   Title, suite chip, the two views and the two actions used to stack into roughly 200px before a
+   single skill appeared. On a 33-skill grid that is the most expensive space on the screen. */
+.top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+.top h1 { font-size: 19px; margin: 0; }
+.top .tabs { margin: 0 0 0 auto; }
+.btn-quiet {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink-muted);
+  font-size: 12.5px;
+  padding: 5px 11px;
+}
+.btn-quiet:hover { color: var(--ink); border-color: var(--line-strong); }
+.subtitle { margin: 0 0 12px; font-size: 12.5px; }
+.tabs { margin-bottom: 0; }
+.toolbar { margin-bottom: 12px; }
+.suggest { padding: 11px 13px; margin-bottom: 14px; }
+.suggest-label { font-size: 10.5px; }
+
+/* The card was 72px tall to carry three short lines. Tightening it fits another row of a wave on
+   the fold, which is the whole reason the bands exist. */
+.card { gap: 5px; padding: 9px 11px 10px; }
+.card h3 { font-size: 13px; }
+.card .meta { font-size: 11px; }
+.risk-bar { margin-top: 1px; }

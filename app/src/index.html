@@ -8,16 +8,19 @@
 </head>
 <body>
 <div class="shell">
+  <!-- One bar instead of four stacked ones. The title, the suite it is pointed at and the two
+       views were taking 200px of the fold before a single skill appeared. -->
   <header class="top">
     <h1>Skills</h1>
     <span class="chip" id="suiteChip">chưa nối suite</span>
+    <div class="tabs" role="tablist">
+      <button id="tabSkills" role="tab" aria-selected="true">Skills</button>
+      <button id="tabWorkflow" role="tab" aria-selected="false">Workflow</button>
+    </div>
+    <button class="btn btn-quiet" id="openAtlas" title="Mở bản đồ toàn bộ skill">Bản đồ</button>
+    <button class="btn btn-quiet" id="pickSuite">Chọn thư mục suite</button>
   </header>
   <p class="subtitle" id="subtitle">Chọn một skill, chọn thư mục làm việc, rồi chạy.</p>
-
-  <div class="tabs" role="tablist">
-    <button id="tabSkills" role="tab" aria-selected="true">Skills</button>
-    <button id="tabWorkflow" role="tab" aria-selected="false">Workflow</button>
-  </div>
 
   <div id="notice"></div>
 
@@ -29,9 +32,7 @@
       <button data-tier="standard" aria-pressed="false">Standard</button>
       <button data-tier="light" aria-pressed="false">Light</button>
     </div>
-    <button class="btn" id="openAtlas" title="Mở bản đồ toàn bộ skill">Bản đồ</button>
     <p class="toolbar-status" id="status" role="status" hidden></p>
-    <button class="btn" id="pickSuite">Chọn thư mục suite</button>
   </div>
 
   <div id="viewSkills" class="view">

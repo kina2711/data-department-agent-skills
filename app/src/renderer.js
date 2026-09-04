@@ -17,20 +17,9 @@ const state = {
 
 const $ = (id) => document.getElementById(id);
 
-const BLOB_COUNT = 12;
 
 // Deterministic pastel per skill, so a card keeps the same colour between launches.
 // Returns a class index rather than a colour: inline styles are blocked by the page CSP.
-function blobClass(text) {
-  let h = 0;
-  for (let i = 0; i < text.length; i += 1) h = (h * 31 + text.charCodeAt(i)) % 4096;
-  return `blob blob-${h % BLOB_COUNT}`;
-}
-
-function initials(name) {
-  return name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
-}
-
 function notice(text, kind) {
   $('notice').innerHTML = '';
   if (!text) return;
@@ -135,6 +124,68 @@ function renderSuggestions() {
   });
 }
 
+/* The grid, grouped by the rollout wave each skill belongs to.
+ *
+ * Thirty-three skills in one alphabetical wall gives a reader nothing to navigate by, so the
+ * grouping comes from skill-map section 40 by way of the atlas — the only structure the suite
+ * actually declares — and colour is spent on that rather than on a hash of the skill id. A skill
+ * in no wave lands in its own band and says so, which is the same refusal the atlas makes.
+ *
+ * The card carries what a person scans for: the name, how much work sits under it, and where the
+ * risk is. The description was three truncated lines of routing prose, which is written for a
+ * router and reads like it; it moved to the detail view, where there is room to read it. */
+
+const RISK_ORDER = ['R0-light', 'R1-reviewed', 'R2-standard', 'R3-controlled', 'R4-critical'];
+
+function riskBar(tasks) {
+  const counts = new Map(RISK_ORDER.map((r) => [r, 0]));
+  for (const t of tasks) if (counts.has(t.risk)) counts.set(t.risk, counts.get(t.risk) + 1);
+  const total = tasks.length || 1;
+  const bar = document.createElement('span');
+  bar.className = 'risk-bar';
+  const label = [];
+  for (const risk of RISK_ORDER) {
+    const n = counts.get(risk);
+    if (!n) continue;
+    const seg = document.createElement('span');
+    seg.className = `risk-seg risk-${risk.slice(0, 2)}`;
+    // Width in a class rather than a style attribute: the page CSP forbids inline styles.
+    seg.dataset.share = String(Math.max(1, Math.round((n / total) * 20)));
+    bar.append(seg);
+    label.push(`${n} ${risk}`);
+  }
+  bar.title = label.join(', ');
+  return bar;
+}
+
+function skillCard(skill) {
+  const card = document.createElement('button');
+  card.className = 'card';
+  card.type = 'button';
+  card.dataset.skill = skill.id;
+
+  const title = document.createElement('h3');
+  title.textContent = skill.name;
+
+  const meta = document.createElement('div');
+  meta.className = 'meta';
+  const count = document.createElement('span');
+  count.className = 'meta-count';
+  count.textContent = `${skill.taskCount} task`;
+  meta.append(count);
+  const strong = skill.tasks.filter((t) => t.modelTier === 'strong').length;
+  if (strong) {
+    const s = document.createElement('span');
+    s.className = 'meta-strong';
+    s.textContent = `${strong} strong`;
+    meta.append(s);
+  }
+
+  card.append(title, meta, riskBar(skill.tasks));
+  card.addEventListener('click', () => openDrawer(skill));
+  return card;
+}
+
 function renderGrid() {
   const grid = $('grid');
   grid.innerHTML = '';
@@ -147,41 +198,45 @@ function renderGrid() {
     grid.innerHTML = '<div class="empty">Không có skill nào khớp bộ lọc.</div>';
     return;
   }
+
+  const order = (state.waves || []).map((w) => w.wave);
+  const byWave = new Map(order.map((w) => [w, []]));
+  const loose = [];
   for (const skill of visible) {
-    const card = document.createElement('button');
-    card.className = 'card';
-    card.type = 'button';
+    if (byWave.has(skill.wave)) byWave.get(skill.wave).push(skill);
+    else loose.push(skill);
+  }
+  if (loose.length) byWave.set('', loose);
 
-    const blob = document.createElement('span');
-    blob.className = blobClass(skill.id);
+  for (const [wave, skills] of byWave) {
+    if (!skills.length) continue;
+    const meta = (state.waves || []).find((w) => w.wave === wave);
+    const band = document.createElement('section');
+    band.className = `band tone-${(meta && meta.tone) || 'unplaced'}`;
 
-    const avatar = document.createElement('span');
-    avatar.className = 'avatar';
-    avatar.textContent = initials(skill.name);
-
-    const title = document.createElement('h3');
-    title.textContent = skill.name;
-
-    const desc = document.createElement('p');
-    desc.textContent = skill.description || 'Không có mô tả trong SKILL.md.';
-
-    const meta = document.createElement('div');
-    meta.className = 'meta';
-    const count = document.createElement('span');
-    count.textContent = `${skill.taskCount} task`;
-    meta.append(count);
-    const strong = skill.tasks.filter((t) => t.modelTier === 'strong').length;
-    if (strong) {
-      const sep = document.createElement('span');
-      sep.className = 'dot-sep';
-      const s = document.createElement('span');
-      s.textContent = `${strong} cần model mạnh`;
-      meta.append(sep, s);
+    const head = document.createElement('div');
+    head.className = 'band-head';
+    const name = document.createElement('span');
+    name.className = 'band-name';
+    name.textContent = wave || 'Chưa xếp wave';
+    head.append(name);
+    if (meta && meta.title) {
+      const sub = document.createElement('span');
+      sub.className = 'band-sub';
+      sub.textContent = meta.title;
+      head.append(sub);
     }
+    const tally = document.createElement('span');
+    tally.className = 'band-tally';
+    tally.textContent = `${skills.length} skill · ${skills.reduce((n, s) => n + s.taskCount, 0)} task`;
+    head.append(tally);
+    band.append(head);
 
-    card.append(blob, avatar, title, desc, meta);
-    card.addEventListener('click', () => openDrawer(skill));
-    grid.append(card);
+    const row = document.createElement('div');
+    row.className = 'band-cards';
+    for (const skill of skills) row.append(skillCard(skill));
+    band.append(row);
+    grid.append(band);
   }
 }
 
@@ -395,6 +450,7 @@ async function loadSuite(suitePath) {
   state.suitePath = suitePath;
   state.suiteVersion = data.suiteVersion;
   state.skills = data.skills;
+  state.waves = data.waves || [];
   state.catalog = new Map();
   for (const skill of data.skills) {
     for (const t of skill.tasks) state.catalog.set(t.id, t);
