@@ -1,35 +1,46 @@
-/* Design language read off the reference video: near-white dotted canvas, hairline cards,
-   one solid black primary action, colour reserved for status. */
+/* Palette.
+ *
+ * The dark theme had 7 points of luminance between the page and a card, so cards did not read as
+ * objects — the grid looked like text printed on a smudge. Surfaces are now separated properly and
+ * the neutrals are cooled slightly, which reads as instrument rather than as dust.
+ *
+ * The dotted canvas came from a reference video shot on a near-white page. On a dark background at
+ * 2240px it renders roughly ten thousand faint specks and reads as dirt on the screen, so it is
+ * gone. Texture that only survives at one size and one theme is decoration that costs attention. */
 :root {
-  --bg: #f7f7f8;
+  --bg: #f6f7f9;
   --surface: #ffffff;
-  --line: #ececee;
-  --line-strong: #dcdce0;
-  --ink: #18181b;
-  --ink-muted: #71717a;
-  --ink-faint: #a1a1aa;
+  --raise: #ffffff;
+  --line: #e4e6ea;
+  --line-strong: #cdd1d8;
+  --ink: #14161a;
+  --ink-muted: #5f6672;
+  --ink-faint: #9aa1ad;
   --accent: #2563eb;
-  --ok: #16a34a;
-  --warn: #d97706;
-  --danger: #dc2626;
-  --radius: 14px;
-  --shadow: 0 1px 2px rgba(24, 24, 27, .05), 0 1px 3px rgba(24, 24, 27, .04);
-  --shadow-lift: 0 4px 14px rgba(24, 24, 27, .09);
-  --dot: rgba(24, 24, 27, .12);
+  --ok: #15803d;
+  --warn: #b45309;
+  --danger: #be123c;
+  --radius: 12px;
+  --shadow: 0 1px 2px rgba(20, 22, 26, .06);
+  --shadow-lift: 0 6px 20px rgba(20, 22, 26, .10);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #161618;
-    --surface: #1d1d20;
-    --line: #2a2a2e;
-    --line-strong: #3a3a40;
-    --ink: #f4f4f5;
-    --ink-muted: #a1a1aa;
-    --ink-faint: #71717a;
-    --shadow: 0 1px 2px rgba(0, 0, 0, .4);
-    --shadow-lift: 0 4px 16px rgba(0, 0, 0, .5);
-    --dot: rgba(255, 255, 255, .10);
+    --bg: #0d0f14;
+    --surface: #171a21;
+    --raise: #1d2129;
+    --line: #262b35;
+    --line-strong: #39404d;
+    --ink: #e9ecf2;
+    --ink-muted: #9aa3b2;
+    --ink-faint: #6b7484;
+    --accent: #5b93f5;
+    --ok: #45c07a;
+    --warn: #d9974a;
+    --danger: #e26076;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .5);
+    --shadow-lift: 0 8px 26px rgba(0, 0, 0, .55);
   }
 }
 
@@ -39,13 +50,15 @@ body {
   margin: 0;
   font: 14px/1.5 ui-sans-serif, -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
   color: var(--ink);
-  background-color: var(--bg);
-  background-image: radial-gradient(var(--dot) 1px, transparent 1px);
-  background-size: 22px 22px;
+  background: var(--bg);
   -webkit-font-smoothing: antialiased;
 }
 
-.shell { max-width: 1120px; margin: 0 auto; padding: 28px 24px 64px; }
+/* A dense grid earns width. At 1120px on a 2240px window the app left 560px of nothing on each
+   side and still scrolled; the cards auto-fill, so every pixel of width becomes another column
+   rather than a longer line of prose. Reading measure is constrained where prose actually lives,
+   not here. */
+.shell { max-width: 1760px; margin: 0 auto; padding: 22px 28px 56px; }
 
 header.top { display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px; }
 header.top h1 { font-size: 26px; letter-spacing: -.02em; margin: 0; }
@@ -645,3 +658,46 @@ h4.sec:first-child { margin-top: 0; }
 .card h3 { font-size: 13px; }
 .card .meta { font-size: 11px; }
 .risk-bar { margin-top: 1px; }
+
+/* Cards read as objects now, so the band no longer needs a heavy rule to separate itself. */
+.band-head { border-bottom-color: var(--line); }
+.card {
+  background: var(--raise);
+  border-color: var(--line);
+}
+.card:hover { border-color: var(--tone); background: var(--surface); }
+
+/* Prose gets a measure; the grid does not. A 1760px line of description is unreadable even
+   though a 1760px row of cards is exactly what the width is for. */
+.detail-body p, .guide p, .suggest-label + .search { max-width: 78ch; }
+
+/* The purpose box was a full-width panel around one input. It asks a question, so it reads as a
+   question rather than as a section. */
+.suggest {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  background: none;
+  border: 0;
+  margin-bottom: 16px;
+}
+.suggest-label {
+  flex: 0 0 auto;
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: .04em;
+  text-transform: none;
+  color: var(--ink-muted);
+}
+.suggest-row { flex: 1 1 auto; display: flex; gap: 8px; }
+.suggest-row .search { flex: 1 1 auto; }
+
+/* Risk is an ordered scale, so the ramp has to be ordered too. The first version ran green, blue,
+   amber, orange, crimson — and blue sitting between green and amber reads as a different kind of
+   thing rather than one step further along, which is the opposite of what the bar is for. */
+.risk-R0 { background: #3f9d6b; }
+.risk-R1 { background: #86b04a; }
+.risk-R2 { background: #d0a23c; }
+.risk-R3 { background: #d97740; }
+.risk-R4 { background: #cf4257; }
