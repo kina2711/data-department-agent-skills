@@ -1,5 +1,27 @@
 # Changelog
 
+## Data Agent 0.4.1 — two things the reply box exposed
+
+Replying made a session long enough for two faults to show.
+
+**The last paragraph was printed twice.** The stream sends the final
+assistant message, then a closing event that repeats it as `result`, and
+both were rendered. Now the closing text appears only when it says
+something the transcript does not.
+
+**A session in plan mode refuses every write, and the app never said so.**
+Claude's own advice is to press Shift+Tab, which is true in a terminal and
+meaningless here, so a run could sit blocked while the control that
+governs it was three inches away and unmentioned. The reply area now names
+the mode the next turn will use and marks plan mode in warning colour.
+
+Resuming does carry a new mode — verified before building anything by
+starting a run under plan, resuming it under acceptEdits, and watching the
+file appear. Nothing about the mechanism needed changing; only the silence
+around it did.
+
+107 app tests.
+
 ## Data Agent 0.4.0 — desktop app only
 
 The suite is unchanged at v3.11.0. No skill, task contract, command, hook or schema moved, so the

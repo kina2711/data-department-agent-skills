@@ -110,3 +110,69 @@ test('the box clears between runs so a stale answer is never resent', async (t) 
   await fakeRun(page, { session: 'sess-second' });
   assert.equal(await page.eval('document.getElementById("reply").value'), '');
 });
+
+/* What the closing event repeats, and what the app was silent about. */
+
+test('the closing result does not repeat the last assistant message', async (t) => {
+  const page = await runPane(t);
+  await page.eval(`(() => {
+    window.runUI.newId(); window.runUI.reset(); window.runUI.setRunning(true);
+    window.runUI.handleEvent({ type: 'system', session_id: 'sess-dupe' });
+    window.runUI.handleEvent({ type: 'assistant', message: { content: [
+      { type: 'text', text: 'Bị chặn ở khâu cuối: phiên này vẫn đang ở plan mode.' }] } });
+    window.runUI.handleEvent({ total_cost_usd: 0.01,
+      result: 'Bị chặn ở khâu cuối: phiên này vẫn đang ở plan mode.' });
+    window.runUI.finish(0); return true; })()`);
+  await page.settle(250);
+  const texts = await page.eval(
+    '[...document.querySelectorAll("#runLog .run-text .run-body")].map(e => e.textContent)');
+  assert.equal(texts.length, 1, `the final paragraph was printed ${texts.length} times`);
+});
+
+test('a closing result that adds something is still shown', async (t) => {
+  const page = await runPane(t);
+  await page.eval(`(() => {
+    window.runUI.newId(); window.runUI.reset(); window.runUI.setRunning(true);
+    window.runUI.handleEvent({ type: 'assistant', message: { content: [
+      { type: 'text', text: 'đang làm' }] } });
+    window.runUI.handleEvent({ total_cost_usd: 0.01, result: 'kết luận khác hẳn' });
+    window.runUI.finish(0); return true; })()`);
+  await page.settle(250);
+  const texts = await page.eval(
+    '[...document.querySelectorAll("#runLog .run-text .run-body")].map(e => e.textContent)');
+  assert.deepEqual(texts, ['đang làm', 'kết luận khác hẳn']);
+});
+
+test('the reply area names the permission mode the next turn will use', async (t) => {
+  const page = await runPane(t);
+  await fakeRun(page);
+  assert.match(String(await page.text('#replyMode')), /Lượt tới/);
+});
+
+test('plan mode is called out, because in it nothing gets written', async (t) => {
+  const page = await runPane(t);
+  await page.eval(`(() => { const s = document.getElementById('permMode');
+    s.value = 'plan'; s.dispatchEvent(new Event('change', { bubbles: true })); return true; })()`);
+  await fakeRun(page);
+  assert.match(String(await page.text('#replyMode')), /không ghi file nào/);
+  assert.equal(await page.eval(
+    'document.getElementById("replyMode").classList.contains("is-plan")'), true);
+});
+
+test('switching the mode updates what the reply will carry', async (t) => {
+  const page = await runPane(t);
+  await fakeRun(page, { session: 'sess-mode' });
+  await page.eval(`(() => { const s = document.getElementById('permMode');
+    s.value = 'acceptEdits'; s.dispatchEvent(new Event('change', { bubbles: true })); return true; })()`);
+  await page.settle(150);
+  assert.match(String(await page.text('#replyMode')), /Cho sửa file/);
+
+  await page.calls('run:start', true);
+  await page.eval(`(() => { document.getElementById('reply').value = 'chạy đi'; return true; })()`);
+  await page.click('#replySend');
+  await page.settle(300);
+  const sent = await page.calls('run:start');
+  assert.equal(sent[0].args.permissionMode, 'acceptEdits',
+    'the reply must carry the mode shown, or the label is a lie');
+  assert.equal(sent[0].args.resume, 'sess-mode');
+});

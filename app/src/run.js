@@ -6,7 +6,7 @@
  * defensively: known shapes get a proper row, anything else is shown as raw JSON rather than
  * silently dropped. A viewer that hides what it did not understand is worse than a noisy one. */
 
-const runUI = { id: null, running: false, cost: 0, session: '', turns: 0 };
+const runUI = { id: null, running: false, cost: 0, session: '', turns: 0, lastText: '' };
 const rq = (id) => document.getElementById(id);
 
 function row(kind, label, body) {
@@ -50,7 +50,10 @@ function handleEvent(ev) {
 
   if (ev.type === 'assistant' && ev.message) {
     for (const block of ev.message.content || []) {
-      if (block.type === 'text' && block.text.trim()) row('text', '', block.text);
+      if (block.type === 'text' && block.text.trim()) {
+        runUI.lastText = block.text.trim();
+        row('text', '', block.text);
+      }
       else if (block.type === 'tool_use') row('tool', block.name || 'tool', describeToolInput(block.input));
       else if (block.type === 'thinking') row('meta', 'suy nghĩ', '…');
     }
@@ -75,7 +78,10 @@ function handleEvent(ev) {
   // The terminal event carries cost and stop reason; its `type` is not relied upon.
   if (ev.total_cost_usd !== undefined || ev.stop_reason !== undefined) {
     if (typeof ev.total_cost_usd === 'number') runUI.cost = ev.total_cost_usd;
-    if (ev.result) row('text', '', String(ev.result));
+    // The closing event repeats the final assistant message, so every run ended with its own last
+    // paragraph printed twice. Show it only when it says something the transcript does not.
+    const closing = String(ev.result || '').trim();
+    if (closing && closing !== runUI.lastText) row('text', '', closing);
     return;
   }
 
@@ -95,6 +101,7 @@ window.runUI = {
     runUI.cost = 0;
     runUI.session = '';
     runUI.turns = 0;
+    runUI.lastText = '';
     rq('runStatus').textContent = '';
     rq('replyBox').hidden = true;
     rq('reply').value = '';
@@ -119,7 +126,10 @@ window.runUI = {
     // wearing the same transcript, which is worse than not offering it.
     const canReply = code === 0 && Boolean(runUI.session);
     rq('replyBox').hidden = !canReply;
-    if (canReply) rq('reply').focus();
+    if (canReply) {
+      if (window.refreshReplyMode) window.refreshReplyMode();
+      rq('reply').focus();
+    }
   },
   newId() {
     runUI.id = `run-${Date.now()}`;

@@ -837,3 +837,8 @@ h4.sec:first-child { margin-top: 0; }
   padding-left: 9px;
   white-space: pre-wrap;
 }
+
+/* Which permission mode the next turn runs under. Silent about this, the app let a session sit in
+   plan mode refusing every write while the agent advised a terminal keystroke. */
+.reply-mode { font-size: 12px; color: var(--ink-muted); }
+.reply-mode.is-plan { color: var(--warn); }

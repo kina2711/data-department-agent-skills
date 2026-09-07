@@ -626,6 +626,27 @@ $('runStart').addEventListener('click', async () => {
  * A reply resumes the session the first turn created, so the agent still has everything it just
  * said and everything it just read. Starting a fresh run with the reply as its prompt would look
  * identical in the transcript and would answer a question the model can no longer see. */
+/* Say which permission mode the next turn will run under.
+ *
+ * A session started in plan mode refuses every write, and the agent's own advice is to press
+ * Shift+Tab — true in a terminal, meaningless here, and the app was silent about the control that
+ * actually governs it. Resuming does carry a new mode: verified by starting a run in plan mode,
+ * resuming it with acceptEdits, and watching the file appear. */
+const MODE_LABEL = {
+  plan: 'Chỉ lên kế hoạch — sẽ không ghi file nào',
+  acceptEdits: 'Cho sửa file',
+  bypassPermissions: 'Bỏ mọi kiểm tra quyền',
+};
+
+window.refreshReplyMode = refreshReplyMode;
+function refreshReplyMode() {
+  const el = $('replyMode');
+  if (!el) return;
+  const mode = $('permMode').value;
+  el.textContent = `Lượt tới: ${MODE_LABEL[mode] || mode}`;
+  el.classList.toggle('is-plan', mode === 'plan');
+}
+
 async function sendReply() {
   const text = $('reply').value.trim();
   if (!text) return;
@@ -650,6 +671,7 @@ async function sendReply() {
 }
 
 $('replySend').addEventListener('click', sendReply);
+$('permMode').addEventListener('change', refreshReplyMode);
 $('reply').addEventListener('keydown', (e) => {
   // Enter inserts a newline; a question worth answering is often more than one line.
   if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
