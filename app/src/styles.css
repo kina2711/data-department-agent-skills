@@ -817,3 +817,23 @@ h4.sec:first-child { margin-top: 0; }
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
+
+/* ── Replying to the run ────────────────────────────────────────────────────
+   The exchange was one-way: the agent asked eight questions and the process exited. */
+.reply-box {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.reply-box .ask { margin-bottom: 8px; max-width: none; }
+.reply-actions { display: flex; align-items: center; gap: 12px; }
+.reply-hint { flex: 1 1 auto; font-size: 12px; color: var(--warn); }
+
+/* What you said, marked as yours so a long transcript stays readable as a conversation. */
+.run-you .run-label { background: var(--accent); color: #fff; }
+.run-you .run-body {
+  color: var(--ink);
+  border-left: 2px solid var(--accent);
+  padding-left: 9px;
+  white-space: pre-wrap;
+}

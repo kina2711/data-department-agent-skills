@@ -103,6 +103,16 @@
             <button class="btn" id="runBack">← Quay lại</button>
           </div>
           <div id="runLog" class="run-log"></div>
+          <!-- The run used to end here. When the agent asked a question there was nowhere to
+               answer it, so the whole exchange was one-way. -->
+          <div id="replyBox" class="reply-box" hidden>
+            <textarea id="reply" class="ask" rows="2"
+                      placeholder="Trả lời câu hỏi ở trên rồi Ctrl+Enter để gửi tiếp…"></textarea>
+            <div class="reply-actions">
+              <span class="reply-hint" id="replyHint"></span>
+              <button class="btn btn-primary" id="replySend">Gửi tiếp</button>
+            </div>
+          </div>
         </div>
       </main>
     </div>

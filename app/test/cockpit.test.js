@@ -14,7 +14,16 @@ const SUITE = path.resolve(APP, '..');
 const WORKFLOW = path.join(SUITE, 'workflows', 'data-analysis.workflow.json');
 
 async function openWorkflow(t) {
-  const page = await open({ stubs: { 'suite:pick': SUITE } });
+  // run:start is stubbed so a spawned `claude` process never escapes a test, and so that
+  // page.calls has something to record: an unstubbed channel records nothing, and an assertion
+  // that nothing was sent would then hold no matter what the app did.
+  // workflow:save is stubbed for the same reason run:start is. A mutation test that removed the
+  // folder guard let a run proceed, and moveTask wrote in-progress into the repository's own
+  // data-analysis workflow. A suite that can modify the tree it tests will eventually do so on a
+  // day nobody is watching the diff.
+  const page = await open({ stubs: {
+    'suite:pick': SUITE, 'run:start': { ok: true }, 'workflow:save': { ok: true },
+  } });
   t.after(() => page.close());
   await page.click('#pickSuite');
   await page.settle(700);
@@ -135,13 +144,13 @@ test('running a task without a working folder says so instead of starting one', 
     s.value = opt.value; s.dispatchEvent(new Event('change', {bubbles: true})); })()`);
   await page.settle(600);
   await setOwner(page, 'kina2711');
-  await page.eval(`(() => { window.__started = false;
-    const real = window.studio.startRun;
-    window.studio.startRun = async (p) => { window.__started = true; return real(p); };
-    return true; })()`);
+  // Recorded in the main process. This assertion used to spy on window.studio, which the context
+  // bridge freezes: the assignment failed silently, the spy saw nothing, and "nothing was sent"
+  // was true for the wrong reason. It would have passed even if a run had started.
+  await page.calls('run:start', true);
   await page.click('#wfRunNext');
   await page.settle(300);
-  assert.equal(await page.eval('window.__started'), false, 'no run may start without a folder');
+  assert.deepEqual(await page.calls('run:start'), [], 'no run may start without a folder');
   assert.match(String(await page.text('#wfResult')), /thư mục làm việc/i);
 });
 

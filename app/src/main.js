@@ -271,7 +271,7 @@ ipcMain.handle('workflow:validate', (_e, { file, suitePath, mode }) => {
 
 const runs = new Map();
 
-ipcMain.handle('run:start', (event, { runId, folder, prompt, suitePath, permissionMode, model }) => {
+ipcMain.handle('run:start', (event, { runId, folder, prompt, suitePath, permissionMode, model, resume }) => {
   if (!folder || !fs.existsSync(folder)) return { ok: false, error: 'Thư mục không tồn tại' };
   if (!String(prompt || '').trim()) return { ok: false, error: 'Prompt rỗng' };
 
@@ -283,6 +283,10 @@ ipcMain.handle('run:start', (event, { runId, folder, prompt, suitePath, permissi
   // The task's declared tier decides this; an empty model means the CLI's own default applies,
   // which is the honest outcome for a task whose tier nobody has set.
   if (model) argv.push('--model', String(model));
+  // Resuming carries the whole prior exchange, which is what makes a reply a reply rather than a
+  // new conversation that happens to be about the same thing. Without it the agent asks eight
+  // questions, exits, and there is nowhere to answer.
+  if (resume) argv.push('--resume', String(resume));
   argv.push(String(prompt));
 
   let child;

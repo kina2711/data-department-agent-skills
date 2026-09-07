@@ -89,6 +89,9 @@ async function open({ stubs = {}, width = 1280, height = 900 } = {}) {
         return r.height > 0 && r.top < innerHeight && r.bottom > 0; })()` }),
     shot: (file) => send({ op: 'shot', file }),
     compare: (baseline) => send({ op: 'compare', baseline }),
+    // What a stubbed IPC channel actually received, recorded in the main process because the
+    // context bridge cannot be stubbed from the page.
+    calls: (channel, clear = false) => send({ op: 'calls', channel, clear }),
     resize: (w, h) => send({ op: 'resize', width: w, height: h }),
     settle: (ms = 120) => send({ op: 'settle', ms }),
     noise: () => noise.join(''),

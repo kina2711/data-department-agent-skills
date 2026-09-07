@@ -6,7 +6,7 @@
  * defensively: known shapes get a proper row, anything else is shown as raw JSON rather than
  * silently dropped. A viewer that hides what it did not understand is worse than a noisy one. */
 
-const runUI = { id: null, running: false, cost: 0 };
+const runUI = { id: null, running: false, cost: 0, session: '', turns: 0 };
 const rq = (id) => document.getElementById(id);
 
 function row(kind, label, body) {
@@ -36,6 +36,10 @@ function describeToolInput(input) {
 }
 
 function handleEvent(ev) {
+  // Every event carries the session id. Holding the first one is what lets a reply resume this
+  // conversation instead of starting a fresh one.
+  if (!runUI.session && ev && ev.session_id) runUI.session = String(ev.session_id);
+
   if (!ev || typeof ev !== 'object') return;
 
   if (ev.type === 'system' && ev.subtype === 'init') {
@@ -89,8 +93,21 @@ window.runUI = {
   reset() {
     rq('runLog').innerHTML = '';
     runUI.cost = 0;
+    runUI.session = '';
+    runUI.turns = 0;
     rq('runStatus').textContent = '';
+    rq('replyBox').hidden = true;
+    rq('reply').value = '';
   },
+  // A reply continues the transcript rather than clearing it, because the thing being replied to
+  // is the reason there is a reply.
+  startTurn(text) {
+    runUI.turns += 1;
+    row('you', 'bạn', text);
+    setRunning(true);
+    rq('replyBox').hidden = true;
+  },
+  session: () => runUI.session,
   handleEvent,
   setRunning,
   finish(code, error) {
@@ -98,6 +115,11 @@ window.runUI = {
     const cost = runUI.cost ? ` · ${runUI.cost.toFixed(4)} USD` : '';
     if (error) row('err', 'lỗi', error);
     rq('runStatus').textContent = code === 0 ? `xong${cost}` : `thoát mã ${code}${cost}`;
+    // Replying needs a session to resume; without one the box would open a new conversation
+    // wearing the same transcript, which is worse than not offering it.
+    const canReply = code === 0 && Boolean(runUI.session);
+    rq('replyBox').hidden = !canReply;
+    if (canReply) rq('reply').focus();
   },
   newId() {
     runUI.id = `run-${Date.now()}`;

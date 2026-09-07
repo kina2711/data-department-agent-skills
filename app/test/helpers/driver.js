@@ -21,9 +21,21 @@ app.commandLine.appendSwitch('disable-gpu');
 // The app's main.js creates its own window on ready; load it and take the window it made.
 require(path.resolve(__dirname, '..', '..', 'src', 'main.js'));
 
+/* Stubs record what they were called with.
+ *
+ * A test cannot stub through the context bridge: contextBridge.exposeInMainWorld hands the page a
+ * frozen object, so `window.studio.startRun = spy` fails silently and the spy records nothing while
+ * the real call goes through. A test written that way passes when it asserts "nothing was sent" and
+ * is passing for the wrong reason. Recording here, where the call actually arrives, is the only
+ * place the assertion means something. */
+const CALLS = [];
+
 for (const [channel, value] of Object.entries(STUBS)) {
   ipcMain.removeHandler(channel);
-  ipcMain.handle(channel, () => value);
+  ipcMain.handle(channel, (_event, args) => {
+    CALLS.push({ channel, args });
+    return value;
+  });
 }
 
 function windowOf() {
@@ -121,6 +133,11 @@ async function handle(cmd, win) {
     return cmd.file;
   }
   if (cmd.op === 'compare') return compare(cmd, win);
+  if (cmd.op === 'calls') {
+    const out = cmd.channel ? CALLS.filter((c) => c.channel === cmd.channel) : CALLS.slice();
+    if (cmd.clear) CALLS.length = 0;
+    return out;
+  }
   if (cmd.op === 'quit') { setTimeout(() => app.exit(0), 40); return true; }
   throw new Error(`unknown op ${cmd.op}`);
 }

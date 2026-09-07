@@ -621,6 +621,43 @@ $('runStart').addEventListener('click', async () => {
   if (!res.ok) window.runUI.finish(-1, res.error);
 });
 
+/* Continue the conversation.
+ *
+ * A reply resumes the session the first turn created, so the agent still has everything it just
+ * said and everything it just read. Starting a fresh run with the reply as its prompt would look
+ * identical in the transcript and would answer a question the model can no longer see. */
+async function sendReply() {
+  const text = $('reply').value.trim();
+  if (!text) return;
+  const session = window.runUI.session();
+  if (!session) {
+    $('replyHint').textContent = 'Không có session để nối lại — chạy lại từ đầu.';
+    return;
+  }
+  $('reply').value = '';
+  $('replyHint').textContent = '';
+  window.runUI.startTurn(text);
+  const runId = window.runUI.newId();
+  const res = await window.studio.startRun({
+    runId,
+    folder: state.folder,
+    prompt: text,
+    suitePath: state.suitePath,
+    permissionMode: $('permMode').value,
+    resume: session,
+  });
+  if (!res.ok) window.runUI.finish(-1, res.error);
+}
+
+$('replySend').addEventListener('click', sendReply);
+$('reply').addEventListener('keydown', (e) => {
+  // Enter inserts a newline; a question worth answering is often more than one line.
+  if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+    e.preventDefault();
+    sendReply();
+  }
+});
+
 $('runStop').addEventListener('click', () => window.studio.stopRun(window.runUI.currentId()));
 $('runBack').addEventListener('click', () => showPane(state.job ? 'paneForm' : 'paneJobs'));
 
