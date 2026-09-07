@@ -1,5 +1,36 @@
 # Changelog
 
+## Data Agent 0.4.0 — desktop app only
+
+The suite is unchanged at v3.11.0. No skill, task contract, command, hook or schema moved, so the
+plugin has nothing new to install. What follows happened in the app that ships beside it.
+
+**You can write your own request.** The app had three prompt sources and
+none of them was the person: a preset job, a selected task, or a generic
+fallback. Presets cover work that recurs. Nothing covered the thing nobody templated. A box now sits between
+the presets and the task list, and what you type wins: somebody who wrote a sentence has said
+something more specific than any template covers. A selected task still travels with it, as routing
+rather than as instruction.
+
+**And the prompt is visible before it is sent.** Pressing run used to dispatch a prompt nobody had seen, assembled from a template or a task id.
+Beside the button there is now a disclosure showing exactly what will go, updated on every
+keystroke.
+
+**The conversation continues.** `claude -p` answers once and exits, so
+when a skill asked what you already know — which is the first task of the
+Academy skill — the transcript ended there with nowhere to reply. Every event already carried a session id, and the CLI resumes headlessly. A reply now resumes that
+session instead of opening a new conversation wearing the old transcript. The box appears only after a run exits zero with a
+session to resume.
+
+Two test defects surfaced with it. A spy assigned to `window.studio` records nothing: the context bridge freezes that object, so an
+existing assertion was passing regardless of what the app did. Stubs record in the main process
+now. Proving the repaired assertion could fail exposed something worse. With the folder guard removed a
+run proceeded and wrote `in-progress` into the repository's own workflow file, because the save
+channel was unstubbed too. Both are stubbed. A test suite able to modify the tree it tests will do
+so on a day nobody reads the diff.
+
+102 app tests.
+
 ## v3.11.0
 
 The first notes the corpus ever produced, a map the suite draws of itself, and a desktop app with
