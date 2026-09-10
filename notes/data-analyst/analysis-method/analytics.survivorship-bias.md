@@ -4,7 +4,7 @@ title: Survivorship bias
 domain: data-analyst
 type: pitfall
 tags: [analytics, analysis-method, survivorship, bias]
-status: draft
+status: stable
 ai_summary: Measuring only the entities that remained makes any average look better than the population, because the ones that failed left the table.
 relationships:
   builds_on: [data-analyst.analytics.retention-curve]

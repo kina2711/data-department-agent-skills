@@ -4,7 +4,7 @@ title: Join fan-out
 domain: data-analyst
 type: pitfall
 tags: [sql, sql-foundation, fan, out]
-status: draft
+status: stable
 ai_summary: Fan-out is row multiplication from joining to a table whose join key is not unique, which silently inflates every downstream sum by a per-row factor.
 relationships:
   builds_on: [data-analyst.sql.join-semantics]

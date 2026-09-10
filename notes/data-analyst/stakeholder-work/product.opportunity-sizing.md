@@ -4,7 +4,7 @@ title: Opportunity sizing
 domain: data-analyst
 type: pattern
 tags: [product, stakeholder-work, opportunity, sizing]
-status: draft
+status: stable
 ai_summary: An estimate of what a change is worth, built from a chain of stated assumptions so the estimate can be argued with rather than believed or dismissed.
 relationships:
   builds_on: [data-analyst.product.stakeholder-decision]

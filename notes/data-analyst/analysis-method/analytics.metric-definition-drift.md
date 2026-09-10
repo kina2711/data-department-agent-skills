@@ -4,7 +4,7 @@ title: Metric definition drift
 domain: data-analyst
 type: pitfall
 tags: [analytics, analysis-method, metric, definition, drift]
-status: draft
+status: stable
 ai_summary: The same metric name computed differently over time, making a trend an artefact of its own definition rather than of the business.
 relationships:
   builds_on: [data-analyst.analytics.sampling-bias]

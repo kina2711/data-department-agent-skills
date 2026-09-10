@@ -4,7 +4,7 @@ title: Simpson's paradox
 domain: data-analyst
 type: pitfall
 tags: [analytics, analysis-method, simpson, paradox]
-status: draft
+status: stable
 ai_summary: A trend present in every subgroup reverses when the groups are pooled, caused by uneven group sizes acting as a confounder.
 relationships:
   builds_on: [data-analyst.sql.aggregation-grain-error]
@@ -21,7 +21,7 @@ version_sensitive: false
 
 ## Nỗi Đau & Động Lực
 
-Phiên bản B của trang đích thắng phiên bản A ở khách hàng doanh nghiệp: 8,1% so với 6,4%. B cũng thắng ở khách hàng cá nhân: 3,2% so với 2,6%. Gộp lại, A thắng B: 4,9% so với 4,1%.
+Phiên bản B của trang đích thắng phiên bản A ở khách hàng doanh nghiệp: 8,1% so với 6,4%. B cũng thắng ở khách hàng cá nhân: 3,2% so với 2,6%. Gộp lại, A thắng B: 4,5% so với 3,7%.
 
 Chẳng có lỗi nào ở đây. Ba con số đều tính đúng trên cùng một tập dữ liệu. B thắng ở cả hai nhóm và thua khi gộp, vì lưu lượng của B nghiêng nhiều hơn về nhóm cá nhân — nhóm vốn có tỉ lệ chuyển đổi thấp hơn ở cả hai phiên bản.
 

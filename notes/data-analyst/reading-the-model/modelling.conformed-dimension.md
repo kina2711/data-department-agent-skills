@@ -4,7 +4,7 @@ title: Conformed dimension
 domain: data-analyst
 type: pattern
 tags: [modelling, reading-the-model, conformed, dimension]
-status: draft
+status: stable
 ai_summary: One dimension shared by several facts with identical keys and meaning, which is the condition that makes two facts comparable at all.
 relationships:
   builds_on: [data-analyst.modelling.dimensional-model]

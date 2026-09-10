@@ -4,7 +4,7 @@ title: Statistical power
 domain: data-analyst
 type: mechanism
 tags: [analytics, analysis-method, statistical, power]
-status: draft
+status: stable
 ai_summary: The chance of detecting an effect that is really there, fixed by sample size and effect size before the test runs; a non-significant result from an underpowered test says nothing.
 relationships:
   builds_on: [data-analyst.analytics.simpson-paradox]
@@ -23,7 +23,7 @@ version_sensitive: false
 
 "Thí nghiệm không cho kết quả có ý nghĩa, nên tính năng này không có tác dụng." Câu này sai ở chỗ nó đọc sự vắng mặt của bằng chứng thành bằng chứng về sự vắng mặt — và mức độ sai phụ thuộc hoàn toàn vào lực thống kê, thứ hầu như không được tính.
 
-Con số cụ thể: để phát hiện mức cải thiện tương đối 5% trên nền tỉ lệ chuyển đổi 4%, với lực 80% và mức ý nghĩa 5%, cần khoảng 63.000 người mỗi nhánh. Một thí nghiệm chạy với 5.000 người mỗi nhánh có lực khoảng 13%. Nghĩa là ngay cả khi hiệu ứng có thật đúng bằng 5%, thí nghiệm ấy vẫn bỏ sót nó gần chín lần trên mười.
+Con số cụ thể: để phát hiện mức cải thiện tương đối 5% trên nền tỉ lệ chuyển đổi 4%, với lực 80% và mức ý nghĩa 5%, cần khoảng 154.000 người mỗi nhánh. Một thí nghiệm chạy với 5.000 người mỗi nhánh có lực khoảng 7%. Nghĩa là ngay cả khi hiệu ứng có thật đúng bằng 5%, thí nghiệm ấy vẫn bỏ sót nó hơn chín lần trên mười.
 
 Cái giá không dừng ở một tính năng bị loại oan. Đội đã học được rằng "chúng tôi đã thử và nó không hiệu quả", và kết luận ấy sống lâu hơn nhiều so với dữ liệu tạo ra nó. Không ai quay lại thử một ý tưởng đã bị bác bỏ.
 
@@ -56,9 +56,9 @@ Với p = 4% và MDE tương đối 5% — tức MDE tuyệt đối 0,002:
 n ≈ 16 × 0,04 × 0,96 / 0,000004 ≈ 153.600
 ```
 
-Con số này cao hơn ước lượng chính xác vì hằng số 16 là xấp xỉ thô cho α = 0,05 và lực 80%; dùng nó để biết bậc độ lớn, rồi tính lại bằng công cụ chuyên dụng trước khi cam kết.
+Hằng số 16 xấp xỉ cho `(z₀,₉₇₅ + z₀,₈₀)² × 2 ≈ 15,7` ở α = 0,05 hai phía và lực 80%, nên con số này bám khá sát: tính đầy đủ ra 154.299. Dùng nó để biết bậc độ lớn, rồi tính lại bằng công cụ chuyên dụng trước khi cam kết — sai số của xấp xỉ nhỏ hơn nhiều so với sai số của việc đoán tỉ lệ nền.
 
-Điều phải làm **trước** khi chạy: tính n, rồi đối chiếu với lưu lượng thực tế. Nếu cần 63.000 mỗi nhánh mà sản phẩm chỉ có 8.000 lượt mỗi tuần, thí nghiệm cần 16 tuần. Biết điều đó trước cho phép chọn: chờ, tăng MDE, hoặc không chạy. Biết sau khi chạy hai tuần thì chỉ còn một lựa chọn tệ.
+Điều phải làm **trước** khi chạy: tính n, rồi đối chiếu với lưu lượng thực tế. Nếu cần 154.000 mỗi nhánh mà sản phẩm chỉ có 8.000 lượt mỗi tuần chia cho hai nhánh, thí nghiệm cần hơn 38 tuần. Biết điều đó trước cho phép chọn: chờ, tăng MDE, hoặc không chạy. Biết sau khi chạy hai tuần thì chỉ còn một lựa chọn tệ.
 
 ## Bản Đồ Quyết Định
 
@@ -72,7 +72,7 @@ Con số này cao hơn ước lượng chính xác vì hằng số 16 là xấp 
 
 Dòng cuối là sai lầm phổ biến nhất và ít bị coi là sai lầm nhất. Kiểm tra kết quả mỗi ngày rồi dừng khi p-value lần đầu xuống dưới 0,05 đẩy tỉ lệ dương tính giả lên trên 20% trong nhiều tình huống thực tế. Nếu cần dừng sớm, phải chọn phương pháp tuần tự **trước khi bắt đầu**, không phải quyết định giữa chừng rằng mình sẽ dừng.
 
-Dòng thứ ba đáng viết vào mẫu báo cáo. "Không có ý nghĩa thống kê, lực 13%, khoảng tin cậy 95% từ −4% đến +9%" nói đúng những gì đã biết. "Không có tác dụng" thì không.
+Dòng thứ ba đáng viết vào mẫu báo cáo. "Không có ý nghĩa thống kê, lực 7%, khoảng tin cậy 95% từ −4% đến +9%" nói đúng những gì đã biết. "Không có tác dụng" thì không.
 
 ## Case Study Thực Chiến: tính năng bị loại vì thí nghiệm quá nhỏ
 
@@ -103,7 +103,7 @@ Về đơn vị ngẫu nhiên hóa: nếu ngẫu nhiên hóa theo người dùng
 Về nhiều chỉ số: kiểm định mười chỉ số ở mức α = 0,05 cho xác suất có ít nhất một dương tính giả khoảng 40%. Chọn một chỉ số chính trước khi chạy, và coi phần còn lại là thăm dò chứ không phải bằng chứng.
 
 **Hiểu lầm:** "p > 0,05 nghĩa là không có hiệu ứng."
-**Thực tế:** Nó nghĩa là dữ liệu không đủ để bác bỏ giả thuyết không có hiệu ứng. Với lực 13%, kết quả ấy là điều được kỳ vọng ngay cả khi hiệu ứng tồn tại đúng như mong đợi. **Vì sao nghe hợp lý:** p-value được dạy như một ngưỡng nhị phân, và ngưỡng nhị phân mời gọi cách đọc nhị phân.
+**Thực tế:** Nó nghĩa là dữ liệu không đủ để bác bỏ giả thuyết không có hiệu ứng. Với lực 7%, kết quả ấy là điều được kỳ vọng ngay cả khi hiệu ứng tồn tại đúng như mong đợi. **Vì sao nghe hợp lý:** p-value được dạy như một ngưỡng nhị phân, và ngưỡng nhị phân mời gọi cách đọc nhị phân.
 
 **Hiểu lầm:** "Chạy thêm cho tới khi có ý nghĩa."
 **Thực tế:** Nhìn liên tục rồi dừng khi thấy kết quả mong muốn phá vỡ giả định của kiểm định. Tỉ lệ dương tính giả không còn là 5% mà cao hơn nhiều lần. **Vì sao nghe hợp lý:** thêm dữ liệu thường làm ước lượng tốt hơn, và trực giác ấy đúng — chỉ là nó không cho phép chọn thời điểm dừng dựa trên chính dữ liệu.
@@ -113,9 +113,9 @@ Về nhiều chỉ số: kiểm định mười chỉ số ở mức α = 0,05 c
 
 ## Nếu Bạn Dạy Lại Điều Này...
 
-Mở đầu bằng một kết quả p = 0,41 và câu hỏi "kết luận gì". Sau khi cả lớp kết luận không có tác dụng, chiếu lực 13%. Khoảng lặng ấy là bài học.
+Mở đầu bằng một kết quả p = 0,41 và câu hỏi "kết luận gì". Sau khi cả lớp kết luận không có tác dụng, chiếu lực 7%. Khoảng lặng ấy là bài học.
 
-Hạt giống bài tập: cho lưu lượng thực tế mỗi tuần và một MDE do kinh doanh đặt, yêu cầu tính số tuần cần chạy — rồi hỏi nên làm gì khi con số ra 16 tuần.
+Hạt giống bài tập: cho lưu lượng thực tế mỗi tuần và một MDE do kinh doanh đặt, yêu cầu tính số tuần cần chạy — rồi hỏi nên làm gì khi con số ra 38 tuần.
 
 ## Tự Kiểm Tra Nhanh
 
@@ -126,11 +126,11 @@ Hạt giống bài tập: cho lưu lượng thực tế mỗi tuần và một M
 Gấp bốn. Cỡ mẫu tỉ lệ nghịch với bình phương độ lớn hiệu ứng, nên chia đôi MDE thì nhân bốn n. Đây là lý do các thí nghiệm nhắm tới cải thiện rất nhỏ trở nên bất khả thi về lưu lượng rất nhanh.
 </details>
 
-**2. Kết quả p = 0,41 với lực 13% nói lên điều gì?**
+**2. Kết quả p = 0,41 với lực 7% nói lên điều gì?**
 
 <details><summary>Đáp án</summary>
 
-Rằng thí nghiệm không đưa ra được thông tin. Với lực 13%, một hiệu ứng có thật vẫn bị bỏ sót gần chín lần trên mười, nên kết quả âm tính là điều được kỳ vọng dù hiệu ứng tồn tại hay không. Kết luận đúng là "chưa biết", không phải "không có tác dụng".
+Rằng thí nghiệm không đưa ra được thông tin. Với lực 7%, một hiệu ứng có thật vẫn bị bỏ sót hơn chín lần trên mười, nên kết quả âm tính là điều được kỳ vọng dù hiệu ứng tồn tại hay không. Kết luận đúng là "chưa biết", không phải "không có tác dụng".
 </details>
 
 **3. Vì sao mẫu rất lớn có thể cho kết quả có ý nghĩa mà không đáng làm?**

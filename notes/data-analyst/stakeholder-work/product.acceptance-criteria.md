@@ -4,7 +4,7 @@ title: Acceptance criteria
 domain: data-analyst
 type: pattern
 tags: [product, stakeholder-work, acceptance, criteria]
-status: draft
+status: stable
 ai_summary: Conditions checkable by someone who did not write them, fixed before implementation starts, so that "done" is a fact rather than an opinion.
 relationships:
   builds_on: [data-analyst.product.opportunity-sizing]

@@ -4,7 +4,7 @@ title: Sampling bias
 domain: data-analyst
 type: pitfall
 tags: [analytics, analysis-method, sampling, bias]
-status: draft
+status: stable
 ai_summary: A sample whose selection is related to the outcome being measured, which no sample size fixes because the error is systematic rather than random.
 relationships:
   builds_on: [data-analyst.analytics.statistical-power]

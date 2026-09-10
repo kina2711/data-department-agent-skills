@@ -3,8 +3,8 @@ id: data-analyst.sql.join-semantics
 title: Join semantics
 domain: data-analyst
 type: mechanism
-tags: [sql, sql-foundation, join, semantics]
-status: draft
+tags: [sql, sql-foundation, join, cardinality]
+status: stable
 ai_summary: Which rows survive a join and how many copies each produces is decided by key cardinality on the join columns, not by the join keyword.
 relationships:
   builds_on: []

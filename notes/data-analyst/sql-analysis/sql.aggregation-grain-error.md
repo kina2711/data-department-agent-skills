@@ -4,7 +4,7 @@ title: Aggregation grain error
 domain: data-analyst
 type: pitfall
 tags: [sql, sql-analysis, aggregation, grain, error]
-status: draft
+status: stable
 ai_summary: Aggregating at a grain finer or coarser than the question asked produces a number that is arithmetically correct and answers nothing.
 relationships:
   builds_on: [data-analyst.sql.grain, data-analyst.sql.window-function]

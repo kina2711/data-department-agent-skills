@@ -4,7 +4,7 @@ title: Grain
 domain: data-analyst
 type: mechanism
 tags: [sql, sql-foundation, grain]
-status: draft
+status: stable
 ai_summary: Grain is the sentence stating what exactly one row of a table represents; every aggregate is correct only relative to a declared grain, and joins change it.
 relationships:
   builds_on: []
@@ -113,7 +113,8 @@ Về hiệu năng, một truy vấn giữ đúng grain thường nhanh hơn hẳ
 **Thực tế:** `DISTINCT` chỉ gộp các dòng giống nhau ở mọi cột được chọn. Nếu bạn chọn `order_id, gross_amount` thì ba lần thu tiền của một đơn cho ra ba dòng y hệt và `DISTINCT` gộp lại được — nhưng chỉ vì bạn tình cờ không chọn cột nào phân biệt chúng. Chọn thêm `payment_id` là `DISTINCT` mất tác dụng ngay. **Vì sao nghe hợp lý:** trong đa số ví dụ nhỏ nó có vẻ hiệu quả, và người ta ghi nhớ kết quả chứ không ghi nhớ điều kiện khiến nó hiệu quả.
 
 **Hiểu lầm:** "Grain là khóa chính."
-**Thực tế:** khóa chính đảm bảo tính duy nhất, grain phát biểu ý nghĩa. Chúng trùng nhau ở bảng nguồn nhưng tách nhau ngay khi có truy vấn. Kết quả của một `GROUP BY` có grain rõ ràng mà không có khóa chính nào cả. Ngược lại, một bảng có khóa chính tổng hợp `(order_id, payment_id)` vẫn cần bạn nói ra một dòng nghĩa là gì. Ngộ nhận này nghe hợp lý vì ở bảng chuẩn hóa tốt hai khái niệm thường trùng, nên người học rút ra quy tắc từ trường hợp riêng.
+**Thực tế:** khóa chính đảm bảo tính duy nhất, grain phát biểu ý nghĩa. Chúng trùng nhau ở bảng nguồn nhưng tách nhau ngay khi có truy vấn. Kết quả của một `GROUP BY` có grain rõ ràng mà không có khóa chính nào cả. Ngược lại, một bảng có khóa chính tổng hợp `(order_id, payment_id)` vẫn cần bạn nói ra một dòng nghĩa là gì.
+**Vì sao nghe hợp lý:** ở bảng chuẩn hóa tốt, hai khái niệm thường trùng nhau, nên người học rút ra quy tắc từ đúng trường hợp mà nó không sai.
 
 **Hiểu lầm:** "`LEFT JOIN` an toàn hơn `INNER JOIN` về mặt grain."
 **Thực tế:** `LEFT JOIN` bảo toàn dòng bên trái khi không khớp, nhưng khi có khớp nhiều thì nhân lên y hệt `INNER JOIN`. Nó bảo vệ bạn khỏi mất dòng, không bảo vệ khỏi thừa dòng. **Vì sao nghe hợp lý:** "left" gợi cảm giác vế trái được giữ nguyên, mà giữ nguyên tập hợp không có nghĩa là giữ nguyên số lượng.

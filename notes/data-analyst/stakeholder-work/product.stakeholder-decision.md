@@ -4,7 +4,7 @@ title: Stakeholder decision
 domain: data-analyst
 type: pattern
 tags: [product, stakeholder-work, stakeholder, decision]
-status: draft
+status: stable
 ai_summary: The decision a piece of analysis actually serves, named before work begins, together with who owns it and what result would change it.
 relationships:
   builds_on: [data-analyst.modelling.semantic-layer]

@@ -1,687 +1,701 @@
 {
- "_": "Observed state of the corpus. The plan under docs/corpus-plans/ is generated and stays `planned` by design; progress belongs here so a rebuild of the plan never overwrites it.",
- "corpus_id": "data-analyst-corpus",
- "domain": "Data Analyst",
- "roadmap_ref": "",
- "track_map_ref": "docs/corpus-plans/data-analyst.corpus.json",
- "note_root": "notes",
- "standard": "knowledge-deep-dive-standard.md",
- "prior_knowledge_ref": "docs/corpus-runs/da-prior-knowledge.yaml",
- "notes": [
-  {
-   "id": "data-analyst._schema",
-   "title": "Lược đồ ví dụ chạy xuyên suốt",
-   "module_id": "",
-   "path": "data-analyst/_schema.md",
-   "tags": [
-    "schema",
-    "canonical"
-   ],
-   "concept_keys": [],
-   "primary_for_keys": [],
-   "builds_on": [],
-   "prerequisite_of": [
-    "data-analyst.sql.grain"
-   ],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": "",
-   "kind": "reference"
-  },
-  {
-   "id": "data-analyst.sql.grain",
-   "title": "Grain",
-   "module_id": "sql-foundation",
-   "path": "data-analyst/sql-foundation/sql.grain.md",
-   "tags": [
-    "sql",
+  "_": "Observed state of the corpus. The plan under docs/corpus-plans/ is generated and stays `planned` by design; progress belongs here so a rebuild of the plan never overwrites it.",
+  "corpus_id": "data-analyst-corpus",
+  "domain": "Data Analyst",
+  "roadmap_ref": "",
+  "track_map_ref": "docs/corpus-plans/data-analyst.corpus.json",
+  "note_root": "notes",
+  "standard": "knowledge-deep-dive-standard.md",
+  "prior_knowledge_ref": "docs/corpus-runs/da-prior-knowledge.yaml",
+  "notes": [
+    {
+      "id": "data-analyst._schema",
+      "title": "Lược đồ ví dụ chạy xuyên suốt",
+      "module_id": "",
+      "path": "data-analyst/_schema.md",
+      "tags": [
+        "schema",
+        "canonical"
+      ],
+      "concept_keys": [],
+      "primary_for_keys": [],
+      "builds_on": [],
+      "prerequisite_of": [
+        "data-analyst.sql.grain"
+      ],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": "",
+      "kind": "reference"
+    },
+    {
+      "id": "data-analyst.sql.grain",
+      "title": "Grain",
+      "module_id": "sql-foundation",
+      "path": "data-analyst/sql-foundation/sql.grain.md",
+      "tags": [
+        "sql",
+        "sql-foundation",
+        "grain"
+      ],
+      "concept_keys": [
+        "ck.sql.grain"
+      ],
+      "primary_for_keys": [
+        "ck.sql.grain"
+      ],
+      "builds_on": [],
+      "prerequisite_of": [
+        "data-analyst.sql.aggregation-grain-error"
+      ],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.sql.null-semantics",
+      "title": "Null semantics",
+      "module_id": "sql-foundation",
+      "path": "data-analyst/sql-foundation/sql.null-semantics.md",
+      "tags": [
+        "sql",
+        "sql-foundation",
+        "null",
+        "three-valued-logic"
+      ],
+      "concept_keys": [
+        "ck.sql.null-semantics"
+      ],
+      "primary_for_keys": [
+        "ck.sql.null-semantics"
+      ],
+      "builds_on": [],
+      "prerequisite_of": [
+        "data-analyst.sql.set-operations"
+      ],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.sql.join-semantics",
+      "title": "Join semantics",
+      "module_id": "sql-foundation",
+      "path": "data-analyst/sql-foundation/sql.join-semantics.md",
+      "tags": [
+        "sql",
+        "sql-foundation",
+        "join",
+        "cardinality"
+      ],
+      "concept_keys": [
+        "ck.sql.join-semantics"
+      ],
+      "primary_for_keys": [
+        "ck.sql.join-semantics"
+      ],
+      "builds_on": [],
+      "prerequisite_of": [
+        "data-analyst.sql.fan-out"
+      ],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.sql.fan-out",
+      "title": "Join fan-out",
+      "module_id": "sql-foundation",
+      "path": "data-analyst/sql-foundation/sql.fan-out.md",
+      "tags": [
+        "sql",
+        "sql-foundation",
+        "fan",
+        "out"
+      ],
+      "concept_keys": [
+        "ck.sql.fan-out"
+      ],
+      "primary_for_keys": [
+        "ck.sql.fan-out"
+      ],
+      "builds_on": [
+        "data-analyst.sql.join-semantics"
+      ],
+      "prerequisite_of": [],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.sql.set-operations",
+      "title": "Set operations",
+      "module_id": "sql-foundation",
+      "path": "data-analyst/sql-foundation/sql.set-operations.md",
+      "tags": [
+        "sql",
+        "sql-foundation",
+        "set",
+        "operations"
+      ],
+      "concept_keys": [
+        "ck.sql.set-operations"
+      ],
+      "primary_for_keys": [
+        "ck.sql.set-operations"
+      ],
+      "builds_on": [
+        "data-analyst.sql.null-semantics"
+      ],
+      "prerequisite_of": [],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.sql.window-function",
+      "title": "Window function",
+      "module_id": "sql-analysis",
+      "path": "data-analyst/sql-analysis/sql.window-function.md",
+      "tags": [
+        "sql",
+        "sql-analysis",
+        "window",
+        "function"
+      ],
+      "concept_keys": [
+        "ck.sql.window-function"
+      ],
+      "primary_for_keys": [
+        "ck.sql.window-function"
+      ],
+      "builds_on": [
+        "data-analyst.sql.grain"
+      ],
+      "prerequisite_of": [
+        "data-analyst.sql.aggregation-grain-error"
+      ],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.sql.cte-vs-subquery",
+      "title": "CTE versus subquery",
+      "module_id": "sql-analysis",
+      "path": "data-analyst/sql-analysis/sql.cte-vs-subquery.md",
+      "tags": [
+        "sql",
+        "sql-analysis",
+        "cte",
+        "vs",
+        "subquery"
+      ],
+      "concept_keys": [
+        "ck.sql.cte-vs-subquery"
+      ],
+      "primary_for_keys": [
+        "ck.sql.cte-vs-subquery"
+      ],
+      "builds_on": [
+        "data-analyst.sql.window-function"
+      ],
+      "prerequisite_of": [],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.sql.aggregation-grain-error",
+      "title": "Aggregation grain error",
+      "module_id": "sql-analysis",
+      "path": "data-analyst/sql-analysis/sql.aggregation-grain-error.md",
+      "tags": [
+        "sql",
+        "sql-analysis",
+        "aggregation",
+        "grain",
+        "error"
+      ],
+      "concept_keys": [
+        "ck.sql.aggregation-grain-error"
+      ],
+      "primary_for_keys": [
+        "ck.sql.aggregation-grain-error"
+      ],
+      "builds_on": [
+        "data-analyst.sql.grain",
+        "data-analyst.sql.window-function"
+      ],
+      "prerequisite_of": [],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.analytics.cohort",
+      "title": "Cohort analysis",
+      "module_id": "analysis-method",
+      "path": "data-analyst/analysis-method/analytics.cohort.md",
+      "tags": [
+        "analytics",
+        "analysis-method",
+        "cohort"
+      ],
+      "concept_keys": [
+        "ck.analytics.cohort"
+      ],
+      "primary_for_keys": [
+        "ck.analytics.cohort"
+      ],
+      "builds_on": [
+        "data-analyst.sql.grain"
+      ],
+      "prerequisite_of": [
+        "data-analyst.analytics.retention-curve"
+      ],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.analytics.funnel",
+      "title": "Funnel analysis",
+      "module_id": "analysis-method",
+      "path": "data-analyst/analysis-method/analytics.funnel.md",
+      "tags": [
+        "analytics",
+        "analysis-method",
+        "funnel"
+      ],
+      "concept_keys": [
+        "ck.analytics.funnel"
+      ],
+      "primary_for_keys": [
+        "ck.analytics.funnel"
+      ],
+      "builds_on": [
+        "data-analyst.sql.window-function"
+      ],
+      "prerequisite_of": [],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.analytics.retention-curve",
+      "title": "Retention curve",
+      "module_id": "analysis-method",
+      "path": "data-analyst/analysis-method/analytics.retention-curve.md",
+      "tags": [
+        "analytics",
+        "analysis-method",
+        "retention",
+        "curve"
+      ],
+      "concept_keys": [
+        "ck.analytics.retention-curve"
+      ],
+      "primary_for_keys": [
+        "ck.analytics.retention-curve"
+      ],
+      "builds_on": [
+        "data-analyst.analytics.cohort"
+      ],
+      "prerequisite_of": [],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.analytics.survivorship-bias",
+      "title": "Survivorship bias",
+      "module_id": "analysis-method",
+      "path": "data-analyst/analysis-method/analytics.survivorship-bias.md",
+      "tags": [
+        "analytics",
+        "analysis-method",
+        "survivorship",
+        "bias"
+      ],
+      "concept_keys": [
+        "ck.analytics.survivorship-bias"
+      ],
+      "primary_for_keys": [
+        "ck.analytics.survivorship-bias"
+      ],
+      "builds_on": [
+        "data-analyst.analytics.retention-curve"
+      ],
+      "prerequisite_of": [],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.analytics.simpson-paradox",
+      "title": "Simpson's paradox",
+      "module_id": "analysis-method",
+      "path": "data-analyst/analysis-method/analytics.simpson-paradox.md",
+      "tags": [
+        "analytics",
+        "analysis-method",
+        "simpson",
+        "paradox"
+      ],
+      "concept_keys": [
+        "ck.analytics.simpson-paradox"
+      ],
+      "primary_for_keys": [
+        "ck.analytics.simpson-paradox"
+      ],
+      "builds_on": [
+        "data-analyst.sql.aggregation-grain-error"
+      ],
+      "prerequisite_of": [],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.analytics.statistical-power",
+      "title": "Statistical power",
+      "module_id": "analysis-method",
+      "path": "data-analyst/analysis-method/analytics.statistical-power.md",
+      "tags": [
+        "analytics",
+        "analysis-method",
+        "statistical",
+        "power"
+      ],
+      "concept_keys": [
+        "ck.analytics.statistical-power"
+      ],
+      "primary_for_keys": [
+        "ck.analytics.statistical-power"
+      ],
+      "builds_on": [
+        "data-analyst.analytics.simpson-paradox"
+      ],
+      "prerequisite_of": [],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.analytics.sampling-bias",
+      "title": "Sampling bias",
+      "module_id": "analysis-method",
+      "path": "data-analyst/analysis-method/analytics.sampling-bias.md",
+      "tags": [
+        "analytics",
+        "analysis-method",
+        "sampling",
+        "bias"
+      ],
+      "concept_keys": [
+        "ck.analytics.sampling-bias"
+      ],
+      "primary_for_keys": [
+        "ck.analytics.sampling-bias"
+      ],
+      "builds_on": [
+        "data-analyst.analytics.statistical-power"
+      ],
+      "prerequisite_of": [],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.analytics.metric-definition-drift",
+      "title": "Metric definition drift",
+      "module_id": "analysis-method",
+      "path": "data-analyst/analysis-method/analytics.metric-definition-drift.md",
+      "tags": [
+        "analytics",
+        "analysis-method",
+        "metric",
+        "definition",
+        "drift"
+      ],
+      "concept_keys": [
+        "ck.analytics.metric-definition-drift"
+      ],
+      "primary_for_keys": [
+        "ck.analytics.metric-definition-drift"
+      ],
+      "builds_on": [
+        "data-analyst.analytics.sampling-bias"
+      ],
+      "prerequisite_of": [],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.modelling.dimensional-model",
+      "title": "Dimensional model",
+      "module_id": "reading-the-model",
+      "path": "data-analyst/reading-the-model/modelling.dimensional-model.md",
+      "tags": [
+        "modelling",
+        "reading-the-model",
+        "dimensional",
+        "model"
+      ],
+      "concept_keys": [
+        "ck.modelling.dimensional-model"
+      ],
+      "primary_for_keys": [
+        "ck.modelling.dimensional-model"
+      ],
+      "builds_on": [
+        "data-analyst.sql.grain"
+      ],
+      "prerequisite_of": [
+        "data-analyst.modelling.conformed-dimension"
+      ],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.modelling.conformed-dimension",
+      "title": "Conformed dimension",
+      "module_id": "reading-the-model",
+      "path": "data-analyst/reading-the-model/modelling.conformed-dimension.md",
+      "tags": [
+        "modelling",
+        "reading-the-model",
+        "conformed",
+        "dimension"
+      ],
+      "concept_keys": [
+        "ck.modelling.conformed-dimension"
+      ],
+      "primary_for_keys": [
+        "ck.modelling.conformed-dimension"
+      ],
+      "builds_on": [
+        "data-analyst.modelling.dimensional-model"
+      ],
+      "prerequisite_of": [
+        "data-analyst.modelling.semantic-layer"
+      ],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.modelling.semantic-layer",
+      "title": "Semantic layer",
+      "module_id": "reading-the-model",
+      "path": "data-analyst/reading-the-model/modelling.semantic-layer.md",
+      "tags": [
+        "modelling",
+        "reading-the-model",
+        "semantic",
+        "layer"
+      ],
+      "concept_keys": [
+        "ck.modelling.semantic-layer"
+      ],
+      "primary_for_keys": [
+        "ck.modelling.semantic-layer"
+      ],
+      "builds_on": [
+        "data-analyst.modelling.conformed-dimension"
+      ],
+      "prerequisite_of": [
+        "data-analyst.product.stakeholder-decision"
+      ],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.product.stakeholder-decision",
+      "title": "Stakeholder decision",
+      "module_id": "stakeholder-work",
+      "path": "data-analyst/stakeholder-work/product.stakeholder-decision.md",
+      "tags": [
+        "product",
+        "stakeholder-work",
+        "stakeholder",
+        "decision"
+      ],
+      "concept_keys": [
+        "ck.product.stakeholder-decision"
+      ],
+      "primary_for_keys": [
+        "ck.product.stakeholder-decision"
+      ],
+      "builds_on": [
+        "data-analyst.modelling.semantic-layer"
+      ],
+      "prerequisite_of": [
+        "data-analyst.product.opportunity-sizing"
+      ],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.product.opportunity-sizing",
+      "title": "Opportunity sizing",
+      "module_id": "stakeholder-work",
+      "path": "data-analyst/stakeholder-work/product.opportunity-sizing.md",
+      "tags": [
+        "product",
+        "stakeholder-work",
+        "opportunity",
+        "sizing"
+      ],
+      "concept_keys": [
+        "ck.product.opportunity-sizing"
+      ],
+      "primary_for_keys": [
+        "ck.product.opportunity-sizing"
+      ],
+      "builds_on": [
+        "data-analyst.product.stakeholder-decision"
+      ],
+      "prerequisite_of": [
+        "data-analyst.product.acceptance-criteria"
+      ],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    },
+    {
+      "id": "data-analyst.product.acceptance-criteria",
+      "title": "Acceptance criteria",
+      "module_id": "stakeholder-work",
+      "path": "data-analyst/stakeholder-work/product.acceptance-criteria.md",
+      "tags": [
+        "product",
+        "stakeholder-work",
+        "acceptance",
+        "criteria"
+      ],
+      "concept_keys": [
+        "ck.product.acceptance-criteria"
+      ],
+      "primary_for_keys": [
+        "ck.product.acceptance-criteria"
+      ],
+      "builds_on": [
+        "data-analyst.product.opportunity-sizing"
+      ],
+      "prerequisite_of": [],
+      "status": "reviewed",
+      "version_sensitive": false,
+      "updated": "2026-09-10",
+      "superseded_by": "",
+      "stale_reason": ""
+    }
+  ],
+  "modules_completed": [
     "sql-foundation",
-    "grain"
-   ],
-   "concept_keys": [
-    "ck.sql.grain"
-   ],
-   "primary_for_keys": [
-    "ck.sql.grain"
-   ],
-   "builds_on": [],
-   "prerequisite_of": [
-    "data-analyst.sql.aggregation-grain-error"
-   ],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.sql.null-semantics",
-   "title": "Null semantics",
-   "module_id": "sql-foundation",
-   "path": "data-analyst/sql-foundation/sql.null-semantics.md",
-   "tags": [
-    "sql",
-    "sql-foundation",
-    "null",
-    "semantics"
-   ],
-   "concept_keys": [
-    "ck.sql.null-semantics"
-   ],
-   "primary_for_keys": [
-    "ck.sql.null-semantics"
-   ],
-   "builds_on": [],
-   "prerequisite_of": [
-    "data-analyst.sql.set-operations"
-   ],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.sql.join-semantics",
-   "title": "Join semantics",
-   "module_id": "sql-foundation",
-   "path": "data-analyst/sql-foundation/sql.join-semantics.md",
-   "tags": [
-    "sql",
-    "sql-foundation",
-    "join",
-    "semantics"
-   ],
-   "concept_keys": [
-    "ck.sql.join-semantics"
-   ],
-   "primary_for_keys": [
-    "ck.sql.join-semantics"
-   ],
-   "builds_on": [],
-   "prerequisite_of": [
-    "data-analyst.sql.fan-out"
-   ],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.sql.fan-out",
-   "title": "Join fan-out",
-   "module_id": "sql-foundation",
-   "path": "data-analyst/sql-foundation/sql.fan-out.md",
-   "tags": [
-    "sql",
-    "sql-foundation",
-    "fan",
-    "out"
-   ],
-   "concept_keys": [
-    "ck.sql.fan-out"
-   ],
-   "primary_for_keys": [
-    "ck.sql.fan-out"
-   ],
-   "builds_on": [
-    "data-analyst.sql.join-semantics"
-   ],
-   "prerequisite_of": [],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.sql.set-operations",
-   "title": "Set operations",
-   "module_id": "sql-foundation",
-   "path": "data-analyst/sql-foundation/sql.set-operations.md",
-   "tags": [
-    "sql",
-    "sql-foundation",
-    "set",
-    "operations"
-   ],
-   "concept_keys": [
-    "ck.sql.set-operations"
-   ],
-   "primary_for_keys": [
-    "ck.sql.set-operations"
-   ],
-   "builds_on": [
-    "data-analyst.sql.null-semantics"
-   ],
-   "prerequisite_of": [],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.sql.window-function",
-   "title": "Window function",
-   "module_id": "sql-analysis",
-   "path": "data-analyst/sql-analysis/sql.window-function.md",
-   "tags": [
-    "sql",
     "sql-analysis",
-    "window",
-    "function"
-   ],
-   "concept_keys": [
-    "ck.sql.window-function"
-   ],
-   "primary_for_keys": [
-    "ck.sql.window-function"
-   ],
-   "builds_on": [
-    "data-analyst.sql.grain"
-   ],
-   "prerequisite_of": [
-    "data-analyst.sql.aggregation-grain-error"
-   ],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.sql.cte-vs-subquery",
-   "title": "CTE versus subquery",
-   "module_id": "sql-analysis",
-   "path": "data-analyst/sql-analysis/sql.cte-vs-subquery.md",
-   "tags": [
-    "sql",
-    "sql-analysis",
-    "cte",
-    "vs",
-    "subquery"
-   ],
-   "concept_keys": [
-    "ck.sql.cte-vs-subquery"
-   ],
-   "primary_for_keys": [
-    "ck.sql.cte-vs-subquery"
-   ],
-   "builds_on": [
-    "data-analyst.sql.window-function"
-   ],
-   "prerequisite_of": [],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.sql.aggregation-grain-error",
-   "title": "Aggregation grain error",
-   "module_id": "sql-analysis",
-   "path": "data-analyst/sql-analysis/sql.aggregation-grain-error.md",
-   "tags": [
-    "sql",
-    "sql-analysis",
-    "aggregation",
-    "grain",
-    "error"
-   ],
-   "concept_keys": [
-    "ck.sql.aggregation-grain-error"
-   ],
-   "primary_for_keys": [
-    "ck.sql.aggregation-grain-error"
-   ],
-   "builds_on": [
-    "data-analyst.sql.grain",
-    "data-analyst.sql.window-function"
-   ],
-   "prerequisite_of": [],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.analytics.cohort",
-   "title": "Cohort analysis",
-   "module_id": "analysis-method",
-   "path": "data-analyst/analysis-method/analytics.cohort.md",
-   "tags": [
-    "analytics",
     "analysis-method",
-    "cohort"
-   ],
-   "concept_keys": [
-    "ck.analytics.cohort"
-   ],
-   "primary_for_keys": [
-    "ck.analytics.cohort"
-   ],
-   "builds_on": [
-    "data-analyst.sql.grain"
-   ],
-   "prerequisite_of": [
-    "data-analyst.analytics.retention-curve"
-   ],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.analytics.funnel",
-   "title": "Funnel analysis",
-   "module_id": "analysis-method",
-   "path": "data-analyst/analysis-method/analytics.funnel.md",
-   "tags": [
-    "analytics",
-    "analysis-method",
-    "funnel"
-   ],
-   "concept_keys": [
-    "ck.analytics.funnel"
-   ],
-   "primary_for_keys": [
-    "ck.analytics.funnel"
-   ],
-   "builds_on": [
-    "data-analyst.sql.window-function"
-   ],
-   "prerequisite_of": [],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.analytics.retention-curve",
-   "title": "Retention curve",
-   "module_id": "analysis-method",
-   "path": "data-analyst/analysis-method/analytics.retention-curve.md",
-   "tags": [
-    "analytics",
-    "analysis-method",
-    "retention",
-    "curve"
-   ],
-   "concept_keys": [
-    "ck.analytics.retention-curve"
-   ],
-   "primary_for_keys": [
-    "ck.analytics.retention-curve"
-   ],
-   "builds_on": [
-    "data-analyst.analytics.cohort"
-   ],
-   "prerequisite_of": [],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.analytics.survivorship-bias",
-   "title": "Survivorship bias",
-   "module_id": "analysis-method",
-   "path": "data-analyst/analysis-method/analytics.survivorship-bias.md",
-   "tags": [
-    "analytics",
-    "analysis-method",
-    "survivorship",
-    "bias"
-   ],
-   "concept_keys": [
-    "ck.analytics.survivorship-bias"
-   ],
-   "primary_for_keys": [
-    "ck.analytics.survivorship-bias"
-   ],
-   "builds_on": [
-    "data-analyst.analytics.retention-curve"
-   ],
-   "prerequisite_of": [],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.analytics.simpson-paradox",
-   "title": "Simpson's paradox",
-   "module_id": "analysis-method",
-   "path": "data-analyst/analysis-method/analytics.simpson-paradox.md",
-   "tags": [
-    "analytics",
-    "analysis-method",
-    "simpson",
-    "paradox"
-   ],
-   "concept_keys": [
-    "ck.analytics.simpson-paradox"
-   ],
-   "primary_for_keys": [
-    "ck.analytics.simpson-paradox"
-   ],
-   "builds_on": [
-    "data-analyst.sql.aggregation-grain-error"
-   ],
-   "prerequisite_of": [],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.analytics.statistical-power",
-   "title": "Statistical power",
-   "module_id": "analysis-method",
-   "path": "data-analyst/analysis-method/analytics.statistical-power.md",
-   "tags": [
-    "analytics",
-    "analysis-method",
-    "statistical",
-    "power"
-   ],
-   "concept_keys": [
-    "ck.analytics.statistical-power"
-   ],
-   "primary_for_keys": [
-    "ck.analytics.statistical-power"
-   ],
-   "builds_on": [
-    "data-analyst.analytics.simpson-paradox"
-   ],
-   "prerequisite_of": [],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.analytics.sampling-bias",
-   "title": "Sampling bias",
-   "module_id": "analysis-method",
-   "path": "data-analyst/analysis-method/analytics.sampling-bias.md",
-   "tags": [
-    "analytics",
-    "analysis-method",
-    "sampling",
-    "bias"
-   ],
-   "concept_keys": [
-    "ck.analytics.sampling-bias"
-   ],
-   "primary_for_keys": [
-    "ck.analytics.sampling-bias"
-   ],
-   "builds_on": [
-    "data-analyst.analytics.statistical-power"
-   ],
-   "prerequisite_of": [],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.analytics.metric-definition-drift",
-   "title": "Metric definition drift",
-   "module_id": "analysis-method",
-   "path": "data-analyst/analysis-method/analytics.metric-definition-drift.md",
-   "tags": [
-    "analytics",
-    "analysis-method",
-    "metric",
-    "definition",
-    "drift"
-   ],
-   "concept_keys": [
-    "ck.analytics.metric-definition-drift"
-   ],
-   "primary_for_keys": [
-    "ck.analytics.metric-definition-drift"
-   ],
-   "builds_on": [
-    "data-analyst.analytics.sampling-bias"
-   ],
-   "prerequisite_of": [],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.modelling.dimensional-model",
-   "title": "Dimensional model",
-   "module_id": "reading-the-model",
-   "path": "data-analyst/reading-the-model/modelling.dimensional-model.md",
-   "tags": [
-    "modelling",
     "reading-the-model",
-    "dimensional",
-    "model"
-   ],
-   "concept_keys": [
-    "ck.modelling.dimensional-model"
-   ],
-   "primary_for_keys": [
-    "ck.modelling.dimensional-model"
-   ],
-   "builds_on": [
-    "data-analyst.sql.grain"
-   ],
-   "prerequisite_of": [
-    "data-analyst.modelling.conformed-dimension"
-   ],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.modelling.conformed-dimension",
-   "title": "Conformed dimension",
-   "module_id": "reading-the-model",
-   "path": "data-analyst/reading-the-model/modelling.conformed-dimension.md",
-   "tags": [
-    "modelling",
-    "reading-the-model",
-    "conformed",
-    "dimension"
-   ],
-   "concept_keys": [
-    "ck.modelling.conformed-dimension"
-   ],
-   "primary_for_keys": [
-    "ck.modelling.conformed-dimension"
-   ],
-   "builds_on": [
-    "data-analyst.modelling.dimensional-model"
-   ],
-   "prerequisite_of": [
-    "data-analyst.modelling.semantic-layer"
-   ],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.modelling.semantic-layer",
-   "title": "Semantic layer",
-   "module_id": "reading-the-model",
-   "path": "data-analyst/reading-the-model/modelling.semantic-layer.md",
-   "tags": [
-    "modelling",
-    "reading-the-model",
-    "semantic",
-    "layer"
-   ],
-   "concept_keys": [
-    "ck.modelling.semantic-layer"
-   ],
-   "primary_for_keys": [
-    "ck.modelling.semantic-layer"
-   ],
-   "builds_on": [
-    "data-analyst.modelling.conformed-dimension"
-   ],
-   "prerequisite_of": [
-    "data-analyst.product.stakeholder-decision"
-   ],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.product.stakeholder-decision",
-   "title": "Stakeholder decision",
-   "module_id": "stakeholder-work",
-   "path": "data-analyst/stakeholder-work/product.stakeholder-decision.md",
-   "tags": [
-    "product",
-    "stakeholder-work",
-    "stakeholder",
-    "decision"
-   ],
-   "concept_keys": [
-    "ck.product.stakeholder-decision"
-   ],
-   "primary_for_keys": [
-    "ck.product.stakeholder-decision"
-   ],
-   "builds_on": [
-    "data-analyst.modelling.semantic-layer"
-   ],
-   "prerequisite_of": [
-    "data-analyst.product.opportunity-sizing"
-   ],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.product.opportunity-sizing",
-   "title": "Opportunity sizing",
-   "module_id": "stakeholder-work",
-   "path": "data-analyst/stakeholder-work/product.opportunity-sizing.md",
-   "tags": [
-    "product",
-    "stakeholder-work",
-    "opportunity",
-    "sizing"
-   ],
-   "concept_keys": [
-    "ck.product.opportunity-sizing"
-   ],
-   "primary_for_keys": [
-    "ck.product.opportunity-sizing"
-   ],
-   "builds_on": [
-    "data-analyst.product.stakeholder-decision"
-   ],
-   "prerequisite_of": [
-    "data-analyst.product.acceptance-criteria"
-   ],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
-  },
-  {
-   "id": "data-analyst.product.acceptance-criteria",
-   "title": "Acceptance criteria",
-   "module_id": "stakeholder-work",
-   "path": "data-analyst/stakeholder-work/product.acceptance-criteria.md",
-   "tags": [
-    "product",
-    "stakeholder-work",
-    "acceptance",
-    "criteria"
-   ],
-   "concept_keys": [
-    "ck.product.acceptance-criteria"
-   ],
-   "primary_for_keys": [
-    "ck.product.acceptance-criteria"
-   ],
-   "builds_on": [
-    "data-analyst.product.opportunity-sizing"
-   ],
-   "prerequisite_of": [],
-   "status": "drafted",
-   "version_sensitive": false,
-   "updated": "2026-09-01",
-   "superseded_by": "",
-   "stale_reason": ""
+    "stakeholder-work"
+  ],
+  "next_module": "",
+  "open_gaps": [
+    {
+      "gap": "Every note in a module shares the same two tags, so the validator's tag-overlap duplicate check reports every pair at 100% and detects nothing. The tags come from the generated plan; fixing it means tagging by concept, not by module.",
+      "owner": "",
+      "raised": "2026-09-01"
+    },
+    {
+      "gap": "`drafted` means the file exists and passes structure and prose checks. No note here is `reviewed`: nobody with the domain has read one, and until that happens none of this is evidence that anything is correct.",
+      "owner": "",
+      "raised": "2026-09-01"
+    },
+    {
+      "gap": "Two prerequisite edges (null-semantics -> set-operations) were derived while writing rather than taken from the registry, because the plan left both notes with no edge at all and the standard requires at least one. They are recorded in this manifest, not back-written into the registry.",
+      "owner": "",
+      "raised": "2026-09-01"
+    },
+    {
+      "gap": "The plan gives window-function and cte-vs-subquery no edge at all, so both were derived while writing: window-function builds on grain, cte-vs-subquery builds on window-function. Recorded here rather than back-written into the registry, which has no parent for either key.",
+      "owner": "",
+      "raised": "2026-09-01"
+    },
+    {
+      "gap": "Seven of the eight analysis-method notes had no edge in the plan, because the registry records a parent only for retention-curve. The reading order used here -- cohort under grain, the bias notes chained after simpson-paradox -- is a teaching sequence chosen while writing, not a dependency the registry asserts.",
+      "owner": "",
+      "raised": "2026-09-01"
+    },
+    {
+      "gap": "Two tag-overlap warnings remain and both were checked and dismissed: null-semantics against join-semantics share the token 'semantics', survivorship-bias against sampling-bias share 'bias'. Distinct concepts; the overlap is an artefact of splitting slugs into tokens. The validator has no way to record a dismissal, so it is recorded here.",
+      "owner": "kina2711",
+      "raised": "2026-09-01"
+    }
+  ],
+  "owner": "kina2711",
+  "version": "1.0.0",
+  "status": "drafted-complete",
+  "_status_note": "Every planned note exists and passes structure and prose checks. Not one is `reviewed`: no person with the domain has read any of them, so this corpus is not yet evidence that anything in it is correct.",
+  "review": {
+    "reviewed_on": "2026-09-10",
+    "reviewer": "Claude Opus 5, đọc toàn văn 23 note, đối chiếu từng khẳng định số học bằng tính toán độc lập",
+    "method": "Rà cấu trúc theo knowledge-deep-dive-standard, kiểm mọi phép tính viết trong note, đọc nội dung kỹ thuật của cả 23 note.",
+    "findings_fixed": [
+      "analytics.statistical-power: cỡ mẫu ghi 63.000/nhánh, tính đúng là 154.299 (hai phía, lực 80%); lực tại n=5.000 ghi 13% (con số một phía) thay vì 7,3%; nhận định 'hằng số 16 cao hơn ước lượng chính xác' ngược với thực tế (153.600 so với 154.299).",
+      "analytics.simpson-paradox: tỉ lệ gộp trong phần dẫn ghi 4,9% và 4,1%, mâu thuẫn với bảng số liệu (4,5% và 3,7%).",
+      "sql.grain và sql.null-semantics: một mục Hiểu lầm thiếu marker bắt buộc 'Vì sao nghe hợp lý' — nội dung có sẵn nhưng nằm lẫn trong 'Thực tế'.",
+      "analytics.retention-curve: mẫu số dùng MAX(...) OVER, chỉ đúng khi tuổi 0 là kỳ đông nhất; đổi sang FIRST_VALUE(... ORDER BY tuoi_thang).",
+      "sql.set-operations: câu dẫn ghi 'Ba toán tử' trước một bảng bốn dòng.",
+      "sql.null-semantics và sql.join-semantics: cùng mang tag 'semantics' không phân biệt, gây cảnh báo trùng lặp giả; đổi thành 'three-valued-logic' và 'cardinality'."
+    ],
+    "not_changed": "Nội dung kỹ thuật còn lại đã đối chiếu và không phát hiện sai sót: thứ tự thực thi hàm cửa sổ, mặc định RANGE, logic ba giá trị, ngữ nghĩa not-distinct trong phép toán tập hợp, lịch sử vật chất hóa CTE của PostgreSQL, số học chuỗi ước lượng cơ hội và trung bình-của-trung bình."
   }
- ],
- "modules_completed": [
-  "sql-foundation",
-  "sql-analysis",
-  "analysis-method",
-  "reading-the-model",
-  "stakeholder-work"
- ],
- "next_module": "",
- "open_gaps": [
-  {
-   "gap": "Every note in a module shares the same two tags, so the validator's tag-overlap duplicate check reports every pair at 100% and detects nothing. The tags come from the generated plan; fixing it means tagging by concept, not by module.",
-   "owner": "",
-   "raised": "2026-09-01"
-  },
-  {
-   "gap": "`drafted` means the file exists and passes structure and prose checks. No note here is `reviewed`: nobody with the domain has read one, and until that happens none of this is evidence that anything is correct.",
-   "owner": "",
-   "raised": "2026-09-01"
-  },
-  {
-   "gap": "Two prerequisite edges (null-semantics -> set-operations) were derived while writing rather than taken from the registry, because the plan left both notes with no edge at all and the standard requires at least one. They are recorded in this manifest, not back-written into the registry.",
-   "owner": "",
-   "raised": "2026-09-01"
-  },
-  {
-   "gap": "The plan gives window-function and cte-vs-subquery no edge at all, so both were derived while writing: window-function builds on grain, cte-vs-subquery builds on window-function. Recorded here rather than back-written into the registry, which has no parent for either key.",
-   "owner": "",
-   "raised": "2026-09-01"
-  },
-  {
-   "gap": "Seven of the eight analysis-method notes had no edge in the plan, because the registry records a parent only for retention-curve. The reading order used here -- cohort under grain, the bias notes chained after simpson-paradox -- is a teaching sequence chosen while writing, not a dependency the registry asserts.",
-   "owner": "",
-   "raised": "2026-09-01"
-  },
-  {
-   "gap": "Two tag-overlap warnings remain and both were checked and dismissed: null-semantics against join-semantics share the token 'semantics', survivorship-bias against sampling-bias share 'bias'. Distinct concepts; the overlap is an artefact of splitting slugs into tokens. The validator has no way to record a dismissal, so it is recorded here.",
-   "owner": "kina2711",
-   "raised": "2026-09-01"
-  }
- ],
- "owner": "kina2711",
- "version": "1.0.0",
- "status": "drafted-complete",
- "_status_note": "Every planned note exists and passes structure and prose checks. Not one is `reviewed`: no person with the domain has read any of them, so this corpus is not yet evidence that anything in it is correct."
 }

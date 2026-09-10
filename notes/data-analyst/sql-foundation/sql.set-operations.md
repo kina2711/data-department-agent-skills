@@ -4,7 +4,7 @@ title: Set operations
 domain: data-analyst
 type: mechanism
 tags: [sql, sql-foundation, set, operations]
-status: draft
+status: stable
 ai_summary: Union, intersect and except treat rows as set members, which is why union deduplicates and union all does not, and why they match by column position rather than by name.
 relationships:
   builds_on: [data-analyst.sql.null-semantics]
@@ -29,7 +29,7 @@ Chi phí thứ hai, âm thầm hơn: `UNION` khử trùng lặp, và việc kh�
 
 ## Cơ Chế Tác Động
 
-Ba toán tử, cùng một cơ chế nền:
+Ba toán tử và một biến thể, cùng một cơ chế nền:
 
 | Toán tử | Giữ dòng nào | Khử trùng |
 |---|---|---|

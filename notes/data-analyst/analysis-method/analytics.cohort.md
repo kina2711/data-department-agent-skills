@@ -4,7 +4,7 @@ title: Cohort
 domain: data-analyst
 type: mechanism
 tags: [analytics, analysis-method, cohort]
-status: draft
+status: stable
 ai_summary: A cohort groups users by when they started so behaviour is compared at the same age rather than on the same calendar date.
 relationships:
   builds_on: [data-analyst.sql.grain]

@@ -4,7 +4,7 @@ title: Semantic layer
 domain: data-analyst
 type: pattern
 tags: [modelling, reading-the-model, semantic, layer]
-status: draft
+status: stable
 ai_summary: The single governed definition of a metric, expressed as executable code, so two dashboards asking the same question return the same number.
 relationships:
   builds_on: [data-analyst.modelling.conformed-dimension]

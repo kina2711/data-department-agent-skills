@@ -4,7 +4,7 @@ title: Dimensional model
 domain: data-analyst
 type: pattern
 tags: [modelling, reading-the-model, dimensional, model]
-status: draft
+status: stable
 ai_summary: Facts measured at a grain, described by conformed dimensions, arranged so a business question maps onto a join path instead of a debate.
 relationships:
   builds_on: [data-analyst.sql.grain]

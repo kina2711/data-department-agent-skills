@@ -4,7 +4,7 @@ title: Window function
 domain: data-analyst
 type: mechanism
 tags: [sql, sql-analysis, window, function]
-status: draft
+status: stable
 ai_summary: A window function computes over a set of rows related to the current row without collapsing them, so it adds a column while keeping the grain unchanged.
 relationships:
   builds_on: [data-analyst.sql.grain]

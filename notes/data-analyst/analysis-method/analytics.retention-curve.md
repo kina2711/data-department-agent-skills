@@ -4,7 +4,7 @@ title: Retention curve
 domain: data-analyst
 type: mechanism
 tags: [analytics, analysis-method, retention, curve]
-status: draft
+status: stable
 ai_summary: The share of a cohort still active at each period; whether the curve flattens or decays to zero decides if the product has a viable base.
 relationships:
   builds_on: [data-analyst.analytics.cohort]
@@ -53,11 +53,12 @@ Phân biệt hai hình dạng cần ít nhất năm tới sáu kỳ. Chỉ ba đ
 -- "hoạt động" = có đơn hàng trong tháng đó
 SELECT thang_bat_dau, tuoi_thang,
        COUNT(DISTINCT customer_id) * 1.0 /
-       MAX(COUNT(DISTINCT customer_id)) OVER (PARTITION BY thang_bat_dau) AS ti_le
+       FIRST_VALUE(COUNT(DISTINCT customer_id))
+         OVER (PARTITION BY thang_bat_dau ORDER BY tuoi_thang) AS ti_le
 FROM hoat_dong GROUP BY 1, 2;
 ```
 
-`MAX(...) OVER (PARTITION BY ...)` lấy kích thước cohort ở tuổi 0 làm mẫu số cho mọi tuổi — mẫu số phải cố định, nếu không đường sẽ đo một thứ khác.
+`FIRST_VALUE(...) OVER (... ORDER BY tuoi_thang)` lấy đúng kích thước cohort ở tuổi 0 làm mẫu số cho mọi tuổi — mẫu số phải cố định, nếu không đường sẽ đo một thứ khác. Viết `MAX(...)` thay cho `FIRST_VALUE(...)` cho ra cùng kết quả chừng nào tuổi 0 luôn là kỳ đông nhất, và im lặng đổi mẫu số ngay khi có một kỳ nào đó đông hơn — một phép join làm nhân dòng là đủ. Chọn hàm nói đúng điều bạn muốn, đừng chọn hàm tình cờ trùng kết quả.
 
 ## Bản Đồ Quyết Định
 

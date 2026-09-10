@@ -4,7 +4,7 @@ title: CTE vs subquery
 domain: data-analyst
 type: pattern
 tags: [sql, sql-analysis, cte, vs, subquery]
-status: draft
+status: stable
 ai_summary: A CTE is a named intermediate result that may or may not be materialised; it changes readability always and performance only sometimes, depending on the engine's inlining behaviour.
 relationships:
   builds_on: [data-analyst.sql.window-function]

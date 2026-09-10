@@ -266,6 +266,37 @@ def check_note_file(path: Path) -> list[str]:
     return faults
 
 
+
+def confusion_pairs(by_id: dict, note_root: Path | None) -> set[frozenset]:
+    """Pairs each declare in `commonly_confused_with`, read from the notes' own front matter.
+
+    Declared in one direction is enough. Requiring both sides would turn a missing reciprocal edge
+    into a duplicate warning, which is a different fault reported as the wrong one.
+    """
+    pairs: set[frozenset] = set()
+    if note_root is None:
+        return pairs
+    for note_id, note in by_id.items():
+        rel = str(note.get("path") or "").strip()
+        if not rel:
+            continue
+        path = note_root / rel
+        try:
+            text = path.read_text(encoding="utf-8")
+        except OSError:
+            continue
+        if not text.startswith("---\n"):
+            continue
+        front = text.split("---\n", 2)[1] if text.count("---\n") >= 2 else ""
+        match = re.search(r"^\s*commonly_confused_with:\s*\[(.*?)\]", front, re.MULTILINE)
+        if not match:
+            continue
+        for other in (x.strip() for x in match.group(1).split(",")):
+            if other and other in by_id:
+                pairs.add(frozenset((note_id, other)))
+    return pairs
+
+
 def validate(manifest: Any, note_root: Path | None) -> tuple[list[str], list[str], dict[str, Any]]:
     errors: list[str] = []
     warnings: list[str] = []
@@ -314,11 +345,21 @@ def validate(manifest: Any, note_root: Path | None) -> tuple[list[str], list[str
         errors.append("prerequisite cycle: " + " -> ".join(cycle))
 
     # Near-duplicates, resolved before writing rather than discovered later.
+    #
+    # A pair the author declared in `commonly_confused_with` is exempt. Two notes that exist
+    # precisely because readers confuse them will always share most of their tags -- survivorship
+    # bias and sampling bias carry `analytics`, `analysis-method` and `bias` between them -- and
+    # reporting that as a duplicate asks the author to merge the very distinction the pair was
+    # written to draw. The declaration is the author saying "these are close and both are needed",
+    # which is the answer this check is asking for.
+    confused = confusion_pairs(by_id, note_root)
     tagged = [(nid, {str(t).strip().lower() for t in (n.get("tags") or [])}) for nid, n in by_id.items()]
     duplicate_candidates: list[str] = []
     for i, (left_id, left) in enumerate(tagged):
         for right_id, right in tagged[i + 1:]:
             if len(left) < 2 or len(right) < 2:
+                continue
+            if frozenset((left_id, right_id)) in confused:
                 continue
             overlap = len(left & right) / min(len(left), len(right))
             if overlap >= TAG_OVERLAP_THRESHOLD:

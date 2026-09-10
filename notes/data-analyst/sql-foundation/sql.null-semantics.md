@@ -3,8 +3,8 @@ id: data-analyst.sql.null-semantics
 title: Null semantics
 domain: data-analyst
 type: pitfall
-tags: [sql, sql-foundation, null, semantics]
-status: draft
+tags: [sql, sql-foundation, null, three-valued-logic]
+status: stable
 ai_summary: Null means unknown rather than empty, so it propagates through arithmetic, is never equal to anything including itself, and is silently skipped by aggregates.
 relationships:
   builds_on: []
@@ -117,7 +117,8 @@ Về sắp xếp: `ORDER BY` phải quyết định `NULL` đứng trước hay 
 **Thực tế:** `'' = NULL` cho `NULL`, và trong hầu hết hệ hiện đại `''` là một giá trị đã biết còn `NULL` thì không. Ngoại lệ lịch sử là Oracle, nơi chuỗi rỗng được lưu thành `NULL` — điều này khiến ngộ nhận sống dai, vì nó từng đúng ở một hệ mà nhiều người học đầu tiên. **Vì sao nghe hợp lý:** cả hai đều hiển thị là ô trống trên giao diện.
 
 **Hiểu lầm:** "`COUNT(*)` và `COUNT(cot)` chỉ khác nhau về hiệu năng."
-**Thực tế:** chúng trả lời hai câu hỏi khác nhau. `COUNT(*)` đếm dòng, `COUNT(cot)` đếm giá trị đã biết trong cột đó. Trên bảng không có `NULL` thì bằng nhau, và đó chính là lý do ngộ nhận tồn tại: người ta kiểm chứng trên dữ liệu sạch rồi khái quát hóa.
+**Thực tế:** chúng trả lời hai câu hỏi khác nhau. `COUNT(*)` đếm dòng, `COUNT(cot)` đếm giá trị đã biết trong cột đó. Trên bảng không có `NULL` thì hai con số bằng nhau.
+**Vì sao nghe hợp lý:** người ta kiểm chứng trên dữ liệu sạch, thấy khớp, rồi khái quát hóa sang dữ liệu thật.
 
 **Hiểu lầm:** "Cứ `COALESCE` hết là an toàn."
 **Thực tế:** `COALESCE(x, 0)` biến "không biết" thành "bằng không", tức là bịa ra một dữ kiện. Với `discount_amount` thì thường vô hại. Với `refunds.amount` chưa xử lý xong, nó khẳng định số tiền hoàn là 0 trong khi thực tế chưa ai biết. **Vì sao nghe hợp lý:** nó làm mọi cảnh báo biến mất — mà cảnh báo biến mất không đồng nghĩa với vấn đề được giải quyết.

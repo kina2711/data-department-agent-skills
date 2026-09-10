@@ -4,7 +4,7 @@ title: Funnel
 domain: data-analyst
 type: mechanism
 tags: [analytics, analysis-method, funnel]
-status: draft
+status: stable
 ai_summary: Ordered steps with drop-off between them, where the definition of a step, the attribution window and the ordering rule decide the conversion rate more than user behaviour does.
 relationships:
   builds_on: [data-analyst.sql.window-function]
