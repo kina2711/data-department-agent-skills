@@ -1,6 +1,6 @@
 ---
 name: data-technical-content-and-social
-description: Build evidence-backed technical series for Facebook in Vietnamese, LinkedIn and Substack in English, and GitHub from research and a canonical article through code, diagrams, channel-native adaptations, QA, publishing and measurement. Use for Airflow, dbt, Spark, Kafka or other technical-content programs.
+description: "Build evidence-backed technical series for Facebook in Vietnamese, LinkedIn and Substack in English, and GitHub from research and a canonical article through code, diagrams, channel-native adaptations, QA, publishing and measurement. Use for Airflow, dbt, Spark, Kafka or other technical-content programs."
 ---
 
 # Technical Content and Social

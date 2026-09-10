@@ -1,6 +1,6 @@
 ---
 name: data-career-and-interview-coach
-description: Build evidence-based Data career systems, persistent cross-skill learner memory, mastery/decay tracking, compact transition context, competency maps, portfolios, interview readiness, remediation and review cycles. Use when prior learning should be reused without reteaching; never infer mastery from exposure or fabricate experience.
+description: "Build evidence-based Data career systems, persistent cross-skill learner memory, mastery/decay tracking, compact transition context, competency maps, portfolios, interview readiness, remediation and review cycles. Use when prior learning should be reused without reteaching; never infer mastery from exposure or fabricate experience."
 ---
 
 # Data Career and Interview Coach

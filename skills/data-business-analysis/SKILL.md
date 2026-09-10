@@ -1,6 +1,6 @@
 ---
 name: data-business-analysis
-description: Elicit and validate data requirements, business rules, processes, use cases, acceptance criteria and traceability. Use for Data Business Analyst work or when an ambiguous business request must become an implementation-ready specification.
+description: "Elicit and validate data requirements, business rules, processes, use cases, acceptance criteria and traceability. Use for Data Business Analyst work or when an ambiguous business request must become an implementation-ready specification."
 ---
 
 # Data Business Analysis

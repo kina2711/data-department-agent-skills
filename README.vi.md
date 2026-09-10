@@ -316,6 +316,7 @@ Chi tiết đầy đủ — ownership, ranh giới, resource và toàn bộ 827 
 | `/dd-task <task-id>` | Nạp trọn một contract; báo readiness, gate, test, approval |
 | `/dd-navigate <symbol>` | Trả lời câu hỏi code từ symbol index thay vì đọc cả file |
 | `/dd-recall <câu hỏi>` | Truy hồi việc cũ từ trace đã index, **0 model call** |
+| `/dd-capture <url>` | Ném một link vào; nhận note đã tổng hợp, ghi thẳng vào vault Obsidian |
 
 ### Thực thi và bằng chứng
 

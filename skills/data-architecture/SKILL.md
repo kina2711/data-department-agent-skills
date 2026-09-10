@@ -1,6 +1,6 @@
 ---
 name: data-architecture
-description: Design data target states, domains, models, integration patterns, contracts, technology decisions, migrations and architecture reviews. Use for enterprise, solution or data architecture deliverables and ADRs.
+description: "Design data target states, domains, models, integration patterns, contracts, technology decisions, migrations and architecture reviews. Use for enterprise, solution or data architecture deliverables and ADRs."
 ---
 
 # Data Architecture

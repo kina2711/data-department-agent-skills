@@ -1,6 +1,6 @@
 ---
 name: personal-second-brain-and-knowledge-os
-description: Build or operate a local-first AI Second Brain with 1_Nguon, 2_Wiki, 3_Toi and 4_Ket-Qua layers. Use for Obsidian or local-file knowledge systems, migration from Notion/Sheets/Lark, source ingestion, linked notes, personal context, grounded retrieval, reusable outputs, privacy, backup and freshness.
+description: "Build or operate a local-first AI Second Brain with 1_Nguon, 2_Wiki, 3_Toi and 4_Ket-Qua layers. Use for Obsidian or local-file knowledge systems, migration from Notion/Sheets/Lark, source ingestion, linked notes, personal context, grounded retrieval, reusable outputs, privacy, backup and freshness."
 ---
 
 # Personal Second Brain and Knowledge OS

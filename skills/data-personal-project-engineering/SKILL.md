@@ -1,6 +1,6 @@
 ---
 name: data-personal-project-engineering
-description: Create differentiated personal Data projects for portfolios, learning or capstones from a problem, dataset, repository, role gap, technology, paper, course, open-source issue, incident, constraint or mixed evidence. Use when Claude must select a project mode, assess a reference repo, transform borrowed inspiration into an attributed user-owned thesis, plan execution, or evaluate portfolio proof.
+description: "Create differentiated personal Data projects for portfolios, learning or capstones from a problem, dataset, repository, role gap, technology, paper, course, open-source issue, incident, constraint or mixed evidence. Use when Claude must select a project mode, assess a reference repo, transform borrowed inspiration into an attributed user-owned thesis, plan execution, or evaluate portfolio proof."
 ---
 
 # Personal Data Project Engineering

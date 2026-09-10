@@ -1,6 +1,6 @@
 ---
 name: data-governance-and-stewardship
-description: Define and operate data ownership, policies, glossary, classification, access governance, retention, certification, stewardship and control evidence. Use for Data Governance, Data Office or Data Steward work.
+description: "Define and operate data ownership, policies, glossary, classification, access governance, retention, certification, stewardship and control evidence. Use for Data Governance, Data Office or Data Steward work."
 ---
 
 # Data Governance and Stewardship

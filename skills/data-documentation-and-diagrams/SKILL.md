@@ -1,6 +1,6 @@
 ---
 name: data-documentation-and-diagrams
-description: Create validated data documentation, ADRs, runbooks, postmortems, ERDs, BPMN, sequence, state, lineage and architecture diagrams. Use when the primary deliverable is a data document or technical diagram.
+description: "Create validated data documentation, ADRs, runbooks, postmortems, ERDs, BPMN, sequence, state, lineage and architecture diagrams. Use when the primary deliverable is a data document or technical diagram."
 ---
 
 # Data Documentation and Diagrams

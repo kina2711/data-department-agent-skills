@@ -1,6 +1,6 @@
 ---
 name: company-data-context
-description: Maintain and index company-specific data context including glossary terms, metrics, datasets, systems, owners, policies and platforms. Use when Claude must initialize, route, retrieve or verify organizational context without storing secrets.
+description: "Maintain and index company-specific data context including glossary terms, metrics, datasets, systems, owners, policies and platforms. Use when Claude must initialize, route, retrieve or verify organizational context without storing secrets."
 ---
 
 # Company Data Context

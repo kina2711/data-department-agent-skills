@@ -1,6 +1,6 @@
 ---
 name: product-analytics-and-experimentation
-description: Define product events and metrics, analyze funnels, activation, retention and growth, and design or evaluate experiments. Use for Product Analyst, growth analytics, instrumentation or A/B testing work.
+description: "Define product events and metrics, analyze funnels, activation, retention and growth, and design or evaluate experiments. Use for Product Analyst, growth analytics, instrumentation or A/B testing work."
 ---
 
 # Product Analytics and Experimentation

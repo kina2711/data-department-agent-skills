@@ -321,6 +321,7 @@ fire on their own.
 | `/dd-task <task-id>` | Loads one contract completely; reports readiness, gates, tests, approvals |
 | `/dd-navigate <symbol>` | Answers code questions from a symbol index instead of reading whole files |
 | `/dd-recall <question>` | Retrieves prior work from indexed traces with **zero model calls** |
+| `/dd-capture <url>` | Turns one link into a distilled note, written into an Obsidian vault |
 
 ### Execution and evidence
 

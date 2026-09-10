@@ -1,6 +1,6 @@
 ---
 name: data-analysis
-description: Perform programmatic EDA, reproducible analysis, SQL-to-business explanation, methodology communication, peer review and retrospective. Use for Data Analyst requests involving datasets, SQL, statistics, insights or analytical quality.
+description: "Perform programmatic EDA, reproducible analysis, SQL-to-business explanation, methodology communication, peer review and retrospective. Use for Data Analyst requests involving datasets, SQL, statistics, insights or analytical quality."
 ---
 
 # Data Analysis

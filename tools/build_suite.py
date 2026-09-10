@@ -2755,9 +2755,13 @@ Answer anchors are interviewer-only evidence standards, never candidate scripts 
 
 Own only deliverables listed in this role catalog. When the requested deliverable belongs to another role, produce a handoff instead of silently taking ownership. Use the department orchestrator for multi-role work.
 """
+    # Quoted, because a description is prose and prose contains colons. Unquoted, one colon in
+    # one description made the whole front matter unparseable and the failure surfaced three tools
+    # downstream in generate_user_docs, nowhere near the sentence that caused it.
+    quoted = json.dumps(description, ensure_ascii=False)
     return f"""---
 name: {skill}
-description: {description}
+description: {quoted}
 ---
 
 # {display}

@@ -1,6 +1,6 @@
 ---
 name: data-security-and-privacy
-description: Protect data through classification, threat modeling, least privilege, encryption, masking, audit, privacy workflows and incident response. Use for Data Security, Privacy, DSR or sensitive-data risk work.
+description: "Protect data through classification, threat modeling, least privilege, encryption, masking, audit, privacy workflows and incident response. Use for Data Security, Privacy, DSR or sensitive-data risk work."
 ---
 
 # Data Security and Privacy

@@ -12,7 +12,7 @@
    "skills": [
     {
      "skill": "company-data-context",
-     "description": "Maintain and index company-specific data context including glossary terms, metrics, datasets, systems, owners, policies and platforms. Use when Claude must initialize, route, retrieve or verify organizational context without storing secrets.",
+     "description": "\"Maintain and index company-specific data context including glossary terms, metrics, datasets, systems, owners, policies and platforms. Use when Claude must initialize, route, retrieve or verify organizational context without storing secrets.\"",
      "task_count": 9,
      "risk_mix": {
       "R0-light": 8,
@@ -105,7 +105,7 @@
     },
     {
      "skill": "data-department-orchestrator",
-     "description": "Route ambiguous, organizational or multi-role Data Department requests and compose governed workflows with owners, dependencies, gates and handoffs. Use when the named deliverable cannot be built until another role sources, models or certifies its inputs — a dashboard from systems not yet ingested, an incident spanning monitoring, diagnosis and revalidation, a rebuild combining discovery, implementation and proof. The deliverable named last does not decide the owner; the work standing in front of it does. Route personal learning or portfolio projects to Personal Data Project Engineering.",
+     "description": "\"Route ambiguous, organizational or multi-role Data Department requests and compose governed workflows with owners, dependencies, gates and handoffs. Use when the named deliverable cannot be built until another role sources, models or certifies its inputs — a dashboard from systems not yet ingested, an incident spanning monitoring, diagnosis and revalidation, a rebuild combining discovery, implementation and proof. Also owns the run itself: continuing an in-flight workflow from its last approved checkpoint, enforcing the gate that checkpoint sits behind, and writing the session handoff that tells the next agent what was tried and rejected. A request to resume, continue or hand over work belongs here even when the work is entirely inside one domain. The deliverable named last does not decide the owner; the work standing in front of it does. Route personal learning or portfolio projects to Personal Data Project Engineering.\"",
      "task_count": 27,
      "risk_mix": {
       "R0-light": 13,
@@ -349,7 +349,7 @@
     },
     {
      "skill": "shared-data-core",
-     "description": "Apply shared data controls for bounded task-context packaging, discovery, schema inspection, profiling, validation, evidence, approvals and handoffs. Use when a data task needs reusable cross-role safeguards, a prompt-ready context bundle or artifact checks.",
+     "description": "\"Apply shared data controls for bounded task-context packaging, discovery, schema inspection, profiling, validation, evidence, approvals and handoffs. Use when a data task needs reusable cross-role safeguards, a prompt-ready context bundle or artifact checks.\"",
      "task_count": 18,
      "risk_mix": {
       "R0-light": 14,
@@ -515,7 +515,7 @@
    "skills": [
     {
      "skill": "analytics-engineering",
-     "description": "Build governed staging, intermediate, mart, dimensional and semantic models with tests, documentation, lineage, incremental logic and release controls. Use for Analytics Engineering, dbt or analytics-ready dataset work. Route source ingestion to data-engineering and catalog, lineage harvesting or metadata quality to metadata-engineering-and-catalog.",
+     "description": "\"Build governed staging, intermediate, mart, dimensional and semantic models with tests, documentation, lineage, incremental logic and release controls. Use for Analytics Engineering, dbt or analytics-ready dataset work. Route source ingestion to data-engineering and catalog, lineage harvesting or metadata quality to metadata-engineering-and-catalog.\"",
      "task_count": 22,
      "risk_mix": {
       "R0-light": 7,
@@ -707,7 +707,7 @@
     },
     {
      "skill": "business-intelligence",
-     "description": "Design, build, test and govern BI semantic models, KPIs, dashboards, reports, interactions, row-level security, refresh, accessibility and adoption. Use for BI Engineer, reporting or dashboard work. This skill owns the semantic layer upward; pipelines belong to data-engineering.",
+     "description": "\"Design, build, test and govern BI semantic models, KPIs, dashboards, reports, interactions, row-level security, refresh, accessibility and adoption. Use for BI Engineer, reporting or dashboard work. This skill owns the semantic layer upward; pipelines belong to data-engineering.\"",
      "task_count": 32,
      "risk_mix": {
       "R0-light": 16,
@@ -982,7 +982,7 @@
     },
     {
      "skill": "data-analysis",
-     "description": "Perform programmatic EDA, reproducible analysis, SQL-to-business explanation, methodology communication, peer review and retrospective. Use for Data Analyst requests involving datasets, SQL, statistics, insights or analytical quality.",
+     "description": "\"Perform programmatic EDA, reproducible analysis, SQL-to-business explanation, methodology communication, peer review and retrospective. Use for Data Analyst requests involving datasets, SQL, statistics, insights or analytical quality.\"",
      "task_count": 29,
      "risk_mix": {
       "R0-light": 22,
@@ -1222,7 +1222,7 @@
     },
     {
      "skill": "data-business-analysis",
-     "description": "Elicit and validate data requirements, business rules, processes, use cases, acceptance criteria and traceability. Use for Data Business Analyst work or when an ambiguous business request must become an implementation-ready specification.",
+     "description": "\"Elicit and validate data requirements, business rules, processes, use cases, acceptance criteria and traceability. Use for Data Business Analyst work or when an ambiguous business request must become an implementation-ready specification.\"",
      "task_count": 24,
      "risk_mix": {
       "R0-light": 12,
@@ -1433,7 +1433,7 @@
     },
     {
      "skill": "data-engineering",
-     "description": "Design, build, test, diagnose execution plans and operate batch, API, file, CDC and streaming pipelines with idempotency, schema evolution, reconciliation, recovery and runbooks. Use for Data Engineer ingestion, performance or pipeline work. Route feature pipelines and model serving to machine-learning-engineering, dbt-style modelling to analytics-engineering, and catalog or lineage harvesting to metadata-engineering-and-catalog.",
+     "description": "\"Design, build, test, diagnose execution plans and operate batch, API, file, CDC and streaming pipelines with idempotency, schema evolution, reconciliation, recovery and runbooks. Use for Data Engineer ingestion, performance or pipeline work. Route feature pipelines and model serving to machine-learning-engineering, dbt-style modelling to analytics-engineering, and catalog or lineage harvesting to metadata-engineering-and-catalog.\"",
      "task_count": 25,
      "risk_mix": {
       "R0-light": 5,
@@ -1646,7 +1646,7 @@
     },
     {
      "skill": "data-governance-and-stewardship",
-     "description": "Define and operate data ownership, policies, glossary, classification, access governance, retention, certification, stewardship and control evidence. Use for Data Governance, Data Office or Data Steward work.",
+     "description": "\"Define and operate data ownership, policies, glossary, classification, access governance, retention, certification, stewardship and control evidence. Use for Data Governance, Data Office or Data Steward work.\"",
      "task_count": 22,
      "risk_mix": {
       "R1-reviewed": 18,
@@ -1837,7 +1837,7 @@
     },
     {
      "skill": "data-quality-and-reliability",
-     "description": "Define data quality rules and SLOs, implement observability, reconcile data, triage incidents, run game days and prevent recurrence. Use for Data Quality, Data Reliability or data incident work.",
+     "description": "\"Define data quality rules and SLOs, implement observability, reconcile data, triage incidents, run game days and prevent recurrence. Use for Data Quality, Data Reliability or data incident work.\"",
      "task_count": 21,
      "risk_mix": {
       "R0-light": 12,
@@ -2022,7 +2022,7 @@
     },
     {
      "skill": "metadata-engineering-and-catalog",
-     "description": "Build and operate metadata ingestion, catalog, search, lineage, ownership, usage and metadata quality. Use for data catalog, discovery, technical metadata or lineage engineering requests. This skill describes assets rather than building them, so pipeline construction belongs to data-engineering and transformation modelling to analytics-engineering.",
+     "description": "\"Build and operate metadata ingestion, catalog, search, lineage, ownership, usage and metadata quality. Use for data catalog, discovery, technical metadata or lineage engineering requests. This skill describes assets rather than building them, so pipeline construction belongs to data-engineering and transformation modelling to analytics-engineering.\"",
      "task_count": 18,
      "risk_mix": {
       "R0-light": 13,
@@ -2205,7 +2205,7 @@
    "skills": [
     {
      "skill": "data-architecture",
-     "description": "Design data target states, domains, models, integration patterns, contracts, technology decisions, migrations and architecture reviews. Use for enterprise, solution or data architecture deliverables and ADRs.",
+     "description": "\"Design data target states, domains, models, integration patterns, contracts, technology decisions, migrations and architecture reviews. Use for enterprise, solution or data architecture deliverables and ADRs.\"",
      "task_count": 22,
      "risk_mix": {
       "R0-light": 5,
@@ -2396,7 +2396,7 @@
     },
     {
      "skill": "data-developer-experience",
-     "description": "Improve data developer setup, repositories, end-to-end data-path understanding, templates, local environments, CI feedback, standards and inner-loop productivity. Use for Data DevEx, repo reverse engineering, evidence-based walkthroughs or golden paths.",
+     "description": "\"Improve data developer setup, repositories, end-to-end data-path understanding, templates, local environments, CI feedback, standards and inner-loop productivity. Use for Data DevEx, repo reverse engineering, evidence-based walkthroughs or golden paths.\"",
      "task_count": 20,
      "risk_mix": {
       "R0-light": 9,
@@ -2574,7 +2574,7 @@
     },
     {
      "skill": "data-documentation-and-diagrams",
-     "description": "Create validated data documentation, ADRs, runbooks, postmortems, ERDs, BPMN, sequence, state, lineage and architecture diagrams. Use when the primary deliverable is a data document or technical diagram.",
+     "description": "\"Create validated data documentation, ADRs, runbooks, postmortems, ERDs, BPMN, sequence, state, lineage and architecture diagrams. Use when the primary deliverable is a data document or technical diagram.\"",
      "task_count": 20,
      "risk_mix": {
       "R0-light": 2,
@@ -2757,7 +2757,7 @@
     },
     {
      "skill": "data-platform-and-dataops",
-     "description": "Design and operate data platforms, environments, orchestration, CI/CD, observability, capacity, reliability, cost and disaster recovery. Use for Data Platform, DataOps or platform operations work. The model lifecycle itself belongs to mlops.",
+     "description": "\"Design and operate data platforms, environments, orchestration, CI/CD, observability, capacity, reliability, cost and disaster recovery. Use for Data Platform, DataOps or platform operations work. The model lifecycle itself belongs to mlops.\"",
      "task_count": 21,
      "risk_mix": {
       "R0-light": 5,
@@ -2954,7 +2954,7 @@
     },
     {
      "skill": "data-security-and-privacy",
-     "description": "Protect data through classification, threat modeling, least privilege, encryption, masking, audit, privacy workflows and incident response. Use for Data Security, Privacy, DSR or sensitive-data risk work.",
+     "description": "\"Protect data through classification, threat modeling, least privilege, encryption, masking, audit, privacy workflows and incident response. Use for Data Security, Privacy, DSR or sensitive-data risk work.\"",
      "task_count": 16,
      "risk_mix": {
       "R1-reviewed": 5,
@@ -3104,7 +3104,7 @@
     },
     {
      "skill": "head-of-data-and-data-product",
-     "description": "Lead data strategy, operating model, portfolio, roadmap, service intake, prioritization, value, adoption and executive governance. Use for Head of Data, CDO or Data Product Management deliverables.",
+     "description": "\"Lead data strategy, operating model, portfolio, roadmap, service intake, prioritization, value, adoption and executive governance. Use for Head of Data, CDO or Data Product Management deliverables.\"",
      "task_count": 21,
      "risk_mix": {
       "R0-light": 8,
@@ -3291,7 +3291,7 @@
    "skills": [
     {
      "skill": "data-science",
-     "description": "Frame and execute statistical, causal, forecasting, optimization and machine-learning studies with leakage controls, validation, explainability and model-risk evidence. Use for Data Scientist or decision-science work.",
+     "description": "\"Frame and execute statistical, causal, forecasting, optimization and machine-learning studies with leakage controls, validation, explainability and model-risk evidence. Use for Data Scientist or decision-science work.\"",
      "task_count": 22,
      "risk_mix": {
       "R0-light": 13,
@@ -3488,7 +3488,7 @@
     },
     {
      "skill": "generative-ai-engineering",
-     "description": "Build and evaluate governed RAG, retrieval, prompt, tool-using agent and GenAI systems with guardrails, injection testing, monitoring and system cards. Use for production GenAI data products or agents.",
+     "description": "\"Build and evaluate governed RAG, retrieval, prompt, tool-using agent and GenAI systems with guardrails, injection testing, monitoring and system cards. Use for production GenAI data products or agents.\"",
      "task_count": 24,
      "risk_mix": {
       "R0-light": 6,
@@ -3694,7 +3694,7 @@
     },
     {
      "skill": "machine-learning-engineering",
-     "description": "Engineer training pipelines, features, model artifacts, batch or online serving, performance, testing, deployment interfaces and resilience. Use for ML Engineer implementation and productionization work. Route general batch, CDC or streaming ingestion to data-engineering, and registry, drift or model rollout operations to mlops.",
+     "description": "\"Engineer training pipelines, features, model artifacts, batch or online serving, performance, testing, deployment interfaces and resilience. Use for ML Engineer implementation and productionization work. Route general batch, CDC or streaming ingestion to data-engineering, and registry, drift or model rollout operations to mlops.\"",
      "task_count": 20,
      "risk_mix": {
       "R0-light": 5,
@@ -3872,7 +3872,7 @@
     },
     {
      "skill": "mlops",
-     "description": "Operate the ML lifecycle through experiment tracking, registry, CI/CD, deployment, monitoring, drift, retraining, rollback, lineage and governance. Use for MLOps, model release or ML platform operations. The underlying platform belongs to data-platform-and-dataops.",
+     "description": "\"Operate the ML lifecycle through experiment tracking, registry, CI/CD, deployment, monitoring, drift, retraining, rollback, lineage and governance. Use for MLOps, model release or ML platform operations. The underlying platform belongs to data-platform-and-dataops.\"",
      "task_count": 23,
      "risk_mix": {
       "R0-light": 6,
@@ -4086,7 +4086,7 @@
    "skills": [
     {
      "skill": "data-academy-and-curriculum",
-     "description": "Design and deliver role-based Data Academy curricula with theory, labs, capstones, assessments, remediation, certification and effectiveness measurement. Use for structured learning programs across Data roles and levels. Route hiring loops, scorecards and candidate evaluation to data-talent-acquisition-and-interview; this skill teaches, never selects.",
+     "description": "\"Design and deliver role-based Data Academy curricula with theory, labs, capstones, assessments, remediation, certification and effectiveness measurement. Use for structured learning programs across Data roles and levels. Route hiring loops, scorecards and candidate evaluation to data-talent-acquisition-and-interview; this skill teaches, never selects.\"",
      "task_count": 51,
      "risk_mix": {
       "R1-reviewed": 43,
@@ -4527,7 +4527,7 @@
     },
     {
      "skill": "data-career-and-interview-coach",
-     "description": "Build evidence-based Data career systems, persistent cross-skill learner memory, mastery/decay tracking, compact transition context, competency maps, portfolios, interview readiness, remediation and review cycles. Use when prior learning should be reused without reteaching; never infer mastery from exposure or fabricate experience.",
+     "description": "\"Build evidence-based Data career systems, persistent cross-skill learner memory, mastery/decay tracking, compact transition context, competency maps, portfolios, interview readiness, remediation and review cycles. Use when prior learning should be reused without reteaching; never infer mastery from exposure or fabricate experience.\"",
      "task_count": 57,
      "risk_mix": {
       "R1-reviewed": 53,
@@ -4998,7 +4998,7 @@
     },
     {
      "skill": "data-enablement-and-knowledge",
-     "description": "Enable data teams through technical onboarding, learning plans, explanations, walkthroughs, pairing, knowledge checks, articles and knowledge-base curation. Use for internal data enablement or knowledge-transfer work.",
+     "description": "\"Enable data teams through technical onboarding, learning plans, explanations, walkthroughs, pairing, knowledge checks, articles and knowledge-base curation. Use for internal data enablement or knowledge-transfer work.\"",
      "task_count": 17,
      "risk_mix": {
       "R0-light": 8,
@@ -5161,7 +5161,7 @@
     },
     {
      "skill": "data-onboarding-and-integration",
-     "description": "Plan and operate Data Department preboarding, access readiness, orientation, shadowing, first work, checkpoints, crossboarding, reboarding and offboarding. Use for new-hire or role-transition integration.",
+     "description": "\"Plan and operate Data Department preboarding, access readiness, orientation, shadowing, first work, checkpoints, crossboarding, reboarding and offboarding. Use for new-hire or role-transition integration.\"",
      "task_count": 34,
      "risk_mix": {
       "R2-standard": 30,
@@ -5448,7 +5448,7 @@
     },
     {
      "skill": "data-talent-acquisition-and-interview",
-     "description": "Design and run structured Data hiring with role profiles, scorecards, interview loops, work samples, rubrics, calibration, debriefs, fairness and validity controls. Use for recruiting or interviewing Data roles. Route curriculum, labs and certification of existing staff to data-academy-and-curriculum; this skill decides who to hire, never how to train.",
+     "description": "\"Design and run structured Data hiring with role profiles, scorecards, interview loops, work samples, rubrics, calibration, debriefs, fairness and validity controls. Use for recruiting or interviewing Data roles. Route curriculum, labs and certification of existing staff to data-academy-and-curriculum; this skill decides who to hire, never how to train.\"",
      "task_count": 41,
      "risk_mix": {
       "R2-standard": 18,
@@ -5777,7 +5777,7 @@
     },
     {
      "skill": "master-data-management",
-     "description": "Design and operate master entities, identity matching, survivorship, golden records, reference data, hierarchies, stewardship and synchronization. Use for MDM, entity resolution or reference-data work.",
+     "description": "\"Design and operate master entities, identity matching, survivorship, golden records, reference data, hierarchies, stewardship and synchronization. Use for MDM, entity resolution or reference-data work.\"",
      "task_count": 13,
      "risk_mix": {
       "R0-light": 7,
@@ -5905,7 +5905,7 @@
     },
     {
      "skill": "product-analytics-and-experimentation",
-     "description": "Define product events and metrics, analyze funnels, activation, retention and growth, and design or evaluate experiments. Use for Product Analyst, growth analytics, instrumentation or A/B testing work.",
+     "description": "\"Define product events and metrics, analyze funnels, activation, retention and growth, and design or evaluate experiments. Use for Product Analyst, growth analytics, instrumentation or A/B testing work.\"",
      "task_count": 17,
      "risk_mix": {
       "R0-light": 11,
@@ -6056,14 +6056,14 @@
    ]
   },
   {
-   "wave": "Unplaced",
-   "title": "chưa được xếp vào wave nào trong skill-map",
-   "tone": "unplaced",
+   "wave": "Wave 5",
+   "title": "năng lực cá nhân của người hành nghề",
+   "tone": "personal",
    "skill_count": 5,
    "skills": [
     {
      "skill": "book-to-knowledge-and-action",
-     "description": "Turn books, PDFs, EPUBs, documents or source collections into reusable agent skills, Second Brain packs, career/interview/project systems, curricula, workflows or technical content. Use when structure, frameworks, decisions, citations, copyright controls and progressive loading matter more than a summary.",
+     "description": "\"Turn books, PDFs, EPUBs, documents or source collections into reusable agent skills, Second Brain packs, career/interview/project systems, curricula, workflows or technical content. Use when structure, frameworks, decisions, citations, copyright controls and progressive loading matter more than a summary.\"",
      "task_count": 45,
      "risk_mix": {
       "R0-light": 12,
@@ -6441,7 +6441,7 @@
     },
     {
      "skill": "data-personal-project-engineering",
-     "description": "Create differentiated personal Data projects for portfolios, learning or capstones from a problem, dataset, repository, role gap, technology, paper, course, open-source issue, incident, constraint or mixed evidence. Use when Claude must select a project mode, assess a reference repo, transform borrowed inspiration into an attributed user-owned thesis, plan execution, or evaluate portfolio proof.",
+     "description": "\"Create differentiated personal Data projects for portfolios, learning or capstones from a problem, dataset, repository, role gap, technology, paper, course, open-source issue, incident, constraint or mixed evidence. Use when Claude must select a project mode, assess a reference repo, transform borrowed inspiration into an attributed user-owned thesis, plan execution, or evaluate portfolio proof.\"",
      "task_count": 42,
      "risk_mix": {
       "R0-light": 24,
@@ -6779,7 +6779,7 @@
     },
     {
      "skill": "data-technical-content-and-social",
-     "description": "Build evidence-backed technical series for Facebook in Vietnamese, LinkedIn and Substack in English, and GitHub from research and a canonical article through code, diagrams, channel-native adaptations, QA, publishing and measurement. Use for Airflow, dbt, Spark, Kafka or other technical-content programs.",
+     "description": "\"Build evidence-backed technical series for Facebook in Vietnamese, LinkedIn and Substack in English, and GitHub from research and a canonical article through code, diagrams, channel-native adaptations, QA, publishing and measurement. Use for Airflow, dbt, Spark, Kafka or other technical-content programs.\"",
      "task_count": 27,
      "risk_mix": {
       "R0-light": 9,
@@ -7006,7 +7006,7 @@
     },
     {
      "skill": "personal-second-brain-and-knowledge-os",
-     "description": "Build or operate a local-first AI Second Brain with 1_Nguon, 2_Wiki, 3_Toi and 4_Ket-Qua layers. Use for Obsidian or local-file knowledge systems, migration from Notion/Sheets/Lark, source ingestion, linked notes, personal context, grounded retrieval, reusable outputs, privacy, backup and freshness.",
+     "description": "\"Build or operate a local-first AI Second Brain with 1_Nguon, 2_Wiki, 3_Toi and 4_Ket-Qua layers. Use for Obsidian or local-file knowledge systems, migration from Notion/Sheets/Lark, source ingestion, linked notes, personal context, grounded retrieval, reusable outputs, privacy, backup and freshness.\"",
      "task_count": 50,
      "risk_mix": {
       "R0-light": 10,
@@ -7431,7 +7431,7 @@
     },
     {
      "skill": "technical-translation",
-     "description": "Translate foreign-language books, documentation, web content and technical material into Vietnamese that reads as a domain expert wrote it, with a fixed glossary, style guide, fidelity review and translation memory. Use for translation or localisation into Vietnamese; route the authoring of new Vietnamese technical content to data-technical-content-and-social.",
+     "description": "\"Translate foreign-language books, documentation, web content and technical material into Vietnamese that reads as a domain expert wrote it, with a fixed glossary, style guide, fidelity review and translation memory. Use for translation or localisation into Vietnamese; route the authoring of new Vietnamese technical content to data-technical-content-and-social.\"",
      "task_count": 17,
      "risk_mix": {
       "R0-light": 6,
@@ -7588,12 +7588,6 @@
    ]
   }
  ],
- "unplaced": [
-  "book-to-knowledge-and-action",
-  "data-personal-project-engineering",
-  "data-technical-content-and-social",
-  "personal-second-brain-and-knowledge-os",
-  "technical-translation"
- ],
+ "unplaced": [],
  "drawn_tree_missing": []
 }

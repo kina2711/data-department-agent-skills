@@ -51,7 +51,7 @@ HTML_HEAD = """<!doctype html>
   --ink: #e8ecf4; --dim: #7b869c; --faint: #39415400;
   --bg: #080b12; --panel: #0e131d; --line: #1e2636;
   --control: #b0567f; --request-to-analytics: #3fb6a8; --platform: #4a8fd4;
-  --ai-ml: #8b6fd4; --specialised: #c98a3e; --unplaced: #7b869c;
+  --ai-ml: #8b6fd4; --specialised: #c98a3e; --personal: #5e9e5a; --unplaced: #7b869c;
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--ink);
@@ -192,8 +192,13 @@ WAVE_TONE = {
     "Wave 2": "platform",
     "Wave 3": "ai-ml",
     "Wave 4": "specialised",
+    "Wave 5": "personal",
     "Unplaced": "unplaced",
 }
+# A wave authored in skill-map but missing from the table above still gets drawn. The alternative,
+# found the hard way: a hard-coded order silently dropped a whole authored wave from the map while
+# its tasks stayed in the totals, so the counts agreed with the taxonomy and the picture did not.
+FALLBACK_TONE = "unplaced"
 
 
 def parse_waves() -> tuple[dict[str, str], dict[str, str]]:
@@ -271,7 +276,12 @@ def collect() -> dict:
                        for s, v in sorted(shards.items())],
         })
 
-    order = ["Wave 0", "Wave 1", "Wave 2", "Wave 3", "Wave 4", "Unplaced"]
+    # Numeric order for authored waves, whatever they are named, with Unplaced always last.
+    def wave_key(name: str) -> tuple[int, int]:
+        m = re.match(r"^Wave (\d+)$", name)
+        return (0, int(m.group(1))) if m else (1, 0)
+
+    order = sorted(set(waves) | {"Unplaced"}, key=wave_key)
     drawn = parse_drawn_tree()
     on_disk = {p.parent.name for p in SKILLS.glob("*/SKILL.md")}
 
@@ -284,7 +294,7 @@ def collect() -> dict:
         "task_count": sum(s["task_count"] for w in waves.values() for s in w),
         "waves": [
             {"wave": w, "title": titles.get(w, "chưa được xếp vào wave nào trong skill-map"),
-             "tone": WAVE_TONE[w], "skill_count": len(waves[w]), "skills": waves[w]}
+             "tone": WAVE_TONE.get(w, FALLBACK_TONE), "skill_count": len(waves[w]), "skills": waves[w]}
             for w in order if waves.get(w)
         ],
         "unplaced": sorted(unplaced),

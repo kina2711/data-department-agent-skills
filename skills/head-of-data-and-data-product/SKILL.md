@@ -1,6 +1,6 @@
 ---
 name: head-of-data-and-data-product
-description: Lead data strategy, operating model, portfolio, roadmap, service intake, prioritization, value, adoption and executive governance. Use for Head of Data, CDO or Data Product Management deliverables.
+description: "Lead data strategy, operating model, portfolio, roadmap, service intake, prioritization, value, adoption and executive governance. Use for Head of Data, CDO or Data Product Management deliverables."
 ---
 
 # Head of Data and Data Product

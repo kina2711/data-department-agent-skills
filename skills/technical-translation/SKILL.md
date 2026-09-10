@@ -1,6 +1,6 @@
 ---
 name: technical-translation
-description: Translate foreign-language books, documentation, web content and technical material into Vietnamese that reads as a domain expert wrote it, with a fixed glossary, style guide, fidelity review and translation memory. Use for translation or localisation into Vietnamese; route the authoring of new Vietnamese technical content to data-technical-content-and-social.
+description: "Translate foreign-language books, documentation, web content and technical material into Vietnamese that reads as a domain expert wrote it, with a fixed glossary, style guide, fidelity review and translation memory. Use for translation or localisation into Vietnamese; route the authoring of new Vietnamese technical content to data-technical-content-and-social."
 ---
 
 # Technical Translation

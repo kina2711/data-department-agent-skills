@@ -1,6 +1,6 @@
 ---
 name: data-developer-experience
-description: Improve data developer setup, repositories, end-to-end data-path understanding, templates, local environments, CI feedback, standards and inner-loop productivity. Use for Data DevEx, repo reverse engineering, evidence-based walkthroughs or golden paths.
+description: "Improve data developer setup, repositories, end-to-end data-path understanding, templates, local environments, CI feedback, standards and inner-loop productivity. Use for Data DevEx, repo reverse engineering, evidence-based walkthroughs or golden paths."
 ---
 
 # Data Developer Experience

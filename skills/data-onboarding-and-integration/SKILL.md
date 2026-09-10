@@ -1,6 +1,6 @@
 ---
 name: data-onboarding-and-integration
-description: Plan and operate Data Department preboarding, access readiness, orientation, shadowing, first work, checkpoints, crossboarding, reboarding and offboarding. Use for new-hire or role-transition integration.
+description: "Plan and operate Data Department preboarding, access readiness, orientation, shadowing, first work, checkpoints, crossboarding, reboarding and offboarding. Use for new-hire or role-transition integration."
 ---
 
 # Data Onboarding and Integration

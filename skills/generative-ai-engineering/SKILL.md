@@ -1,6 +1,6 @@
 ---
 name: generative-ai-engineering
-description: Build and evaluate governed RAG, retrieval, prompt, tool-using agent and GenAI systems with guardrails, injection testing, monitoring and system cards. Use for production GenAI data products or agents.
+description: "Build and evaluate governed RAG, retrieval, prompt, tool-using agent and GenAI systems with guardrails, injection testing, monitoring and system cards. Use for production GenAI data products or agents."
 ---
 
 # Generative AI Engineering

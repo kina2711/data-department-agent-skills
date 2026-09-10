@@ -1,6 +1,6 @@
 ---
 name: book-to-knowledge-and-action
-description: Turn books, PDFs, EPUBs, documents or source collections into reusable agent skills, Second Brain packs, career/interview/project systems, curricula, workflows or technical content. Use when structure, frameworks, decisions, citations, copyright controls and progressive loading matter more than a summary.
+description: "Turn books, PDFs, EPUBs, documents or source collections into reusable agent skills, Second Brain packs, career/interview/project systems, curricula, workflows or technical content. Use when structure, frameworks, decisions, citations, copyright controls and progressive loading matter more than a summary."
 ---
 
 # Book to Knowledge and Action

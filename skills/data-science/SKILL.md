@@ -1,6 +1,6 @@
 ---
 name: data-science
-description: Frame and execute statistical, causal, forecasting, optimization and machine-learning studies with leakage controls, validation, explainability and model-risk evidence. Use for Data Scientist or decision-science work.
+description: "Frame and execute statistical, causal, forecasting, optimization and machine-learning studies with leakage controls, validation, explainability and model-risk evidence. Use for Data Scientist or decision-science work."
 ---
 
 # Data Science

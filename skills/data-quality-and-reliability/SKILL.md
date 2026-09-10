@@ -1,6 +1,6 @@
 ---
 name: data-quality-and-reliability
-description: Define data quality rules and SLOs, implement observability, reconcile data, triage incidents, run game days and prevent recurrence. Use for Data Quality, Data Reliability or data incident work.
+description: "Define data quality rules and SLOs, implement observability, reconcile data, triage incidents, run game days and prevent recurrence. Use for Data Quality, Data Reliability or data incident work."
 ---
 
 # Data Quality and Reliability

@@ -51,7 +51,7 @@ data-department-agent-skills
 │   ├── data-talent-acquisition-and-interview  (41 tasks, cao nhất R3-controlled)
 │   ├── master-data-management  (13 tasks, cao nhất R2-standard)
 │   └── product-analytics-and-experimentation  (17 tasks, cao nhất R2-standard)
-└── Unplaced — chưa được xếp vào wave nào trong skill-map
+└── Wave 5 — năng lực cá nhân của người hành nghề
     ├── book-to-knowledge-and-action  (45 tasks, cao nhất R4-critical)
     ├── data-personal-project-engineering  (42 tasks, cao nhất R3-controlled)
     ├── data-technical-content-and-social  (27 tasks, cao nhất R3-controlled)
@@ -1521,6 +1521,23 @@ Không tách các bước như `mở file`, `viết SQL`, `chạy test`, `tạo 
 6. `data-talent-acquisition-and-interview`
 7. `data-career-and-interview-coach`
 8. Các industry, metric và technology adapter packs
+
+### Wave 5 — năng lực cá nhân của người hành nghề
+
+Wave 0–4 là thứ tự dựng một phòng ban: mỗi wave mở khoá đầu vào cho wave sau. Năm skill dưới
+đây không nằm trong chuỗi đó. Chúng phục vụ một người chứ không phải một tổ chức, không skill
+nào trong wave 0–4 chờ chúng, và chúng dùng được ngay từ ngày đầu mà không cần warehouse,
+catalog hay gate nào tồn tại trước. Xếp riêng ở đây là để nói đúng điều đó, chứ không phải để
+gán chúng vào cuối một lộ trình mà chúng không thuộc về.
+
+Đào tạo nội bộ vẫn thuộc `data-academy-and-curriculum` ở Wave 4; phần tự học của một người
+đi qua hai skill đầu danh sách này.
+
+1. `personal-second-brain-and-knowledge-os` — kho tri thức bốn lớp của cá nhân
+2. `book-to-knowledge-and-action` — biến sách và tài liệu nguồn thành skill, curriculum hoặc hệ thống hành động
+3. `data-personal-project-engineering` — project cá nhân và portfolio
+4. `data-technical-content-and-social` — nội dung kỹ thuật và hiện diện cá nhân đa kênh
+5. `technical-translation` — dịch tài liệu kỹ thuật sang tiếng Việt có glossary và translation memory
 
 ## 41. Tiêu chí hoàn thành giai đoạn taxonomy
 

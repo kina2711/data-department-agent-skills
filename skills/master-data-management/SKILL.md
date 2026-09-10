@@ -1,6 +1,6 @@
 ---
 name: master-data-management
-description: Design and operate master entities, identity matching, survivorship, golden records, reference data, hierarchies, stewardship and synchronization. Use for MDM, entity resolution or reference-data work.
+description: "Design and operate master entities, identity matching, survivorship, golden records, reference data, hierarchies, stewardship and synchronization. Use for MDM, entity resolution or reference-data work."
 ---
 
 # Master Data Management

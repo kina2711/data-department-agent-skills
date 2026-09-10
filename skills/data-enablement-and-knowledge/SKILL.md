@@ -1,6 +1,6 @@
 ---
 name: data-enablement-and-knowledge
-description: Enable data teams through technical onboarding, learning plans, explanations, walkthroughs, pairing, knowledge checks, articles and knowledge-base curation. Use for internal data enablement or knowledge-transfer work.
+description: "Enable data teams through technical onboarding, learning plans, explanations, walkthroughs, pairing, knowledge checks, articles and knowledge-base curation. Use for internal data enablement or knowledge-transfer work."
 ---
 
 # Data Enablement and Knowledge
