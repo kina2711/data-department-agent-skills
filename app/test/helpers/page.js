@@ -30,9 +30,11 @@ async function freePort() {
 }
 
 /** Start the app under a driver that accepts one JSON command per line and answers on the socket. */
-async function open({ stubs = {}, width = 1280, height = 900 } = {}) {
+async function open({ stubs = {}, width = 1280, height = 900, userData = null, sessionsPath = null } = {}) {
   const port = await freePort();
   const env = { ...process.env, DA_TEST_PORT: String(port), DA_TEST_STUBS: JSON.stringify(stubs) };
+  if (userData) env.DA_TEST_USERDATA = userData;
+  if (sessionsPath) env.DA_SESSIONS_PATH = sessionsPath;
   delete env.ELECTRON_RUN_AS_NODE;
   const child = spawn(ELECTRON, [path.join(__dirname, 'driver.js'), '--no-sandbox'], {
     cwd: APP, env, stdio: ['ignore', 'pipe', 'pipe'],
@@ -61,9 +63,26 @@ async function open({ stubs = {}, width = 1280, height = 900 } = {}) {
     }
   });
 
-  const send = (command) => new Promise((resolve, reject) => {
+  let closed = false;
+
+  /* Every command carries a deadline.
+   *
+   * Without one, a command sent to an app that has already gone away waits forever: no reply
+   * arrives, nothing rejects, and the run hangs until the whole budget is spent and every later
+   * file is cancelled. One dead socket cost five suites before this existed. */
+  const send = (command, ms = 60000) => new Promise((resolve, reject) => {
+    if (closed) return reject(new Error('the app is already closed'));
     if (pending) return reject(new Error('one command at a time'));
-    pending = { resolve, reject };
+    const timer = setTimeout(() => {
+      if (pending) {
+        pending = null;
+        reject(new Error(`no reply to ${command.op} within ${ms}ms\n${noise.join('')}`));
+      }
+    }, ms);
+    pending = {
+      resolve: (value) => { clearTimeout(timer); resolve(value); },
+      reject: (err) => { clearTimeout(timer); reject(err); },
+    };
     socket.write(JSON.stringify(command) + '\n');
   });
 
@@ -95,10 +114,22 @@ async function open({ stubs = {}, width = 1280, height = 900 } = {}) {
     resize: (w, h) => send({ op: 'resize', width: w, height: h }),
     settle: (ms = 120) => send({ op: 'settle', ms }),
     noise: () => noise.join(''),
+    /* Idempotent, because tests close explicitly and again in an after-hook.
+     *
+     * The second call used to write `quit` to a destroyed socket and then wait for a reply that
+     * could never come. Waiting on a process you have already killed is not a close. */
     close: async () => {
-      try { await send({ op: 'quit' }); } catch { /* the app going away is the point */ }
+      if (closed) return;
+      try { await send({ op: 'quit' }, 10000); } catch { /* the app going away is the point */ }
+      closed = true;
       socket.destroy();
       child.kill('SIGTERM');
+      // Insist if it lingers: a leaked Electron keeps its profile locked and its CPU share.
+      await new Promise((done) => {
+        if (child.exitCode !== null) return done();
+        const timer = setTimeout(() => { child.kill('SIGKILL'); done(); }, 5000);
+        child.once('exit', () => { clearTimeout(timer); done(); });
+      });
     },
     width, height,
   };

@@ -18,6 +18,14 @@ const STUBS = JSON.parse(process.env.DA_TEST_STUBS || '{}');
 app.disableHardwareAcceleration();
 app.commandLine.appendSwitch('disable-gpu');
 
+/* Keep tests out of the real profile.
+ *
+ * main.js writes config.json and sessions.json under userData. A test that exercises persistence
+ * would otherwise edit the profile of the app the person actually uses, and the first symptom is a
+ * session offered in a folder they never opened. Redirected before main.js is loaded, because it
+ * computes those paths at require time. */
+if (process.env.DA_TEST_USERDATA) app.setPath('userData', process.env.DA_TEST_USERDATA);
+
 // The app's main.js creates its own window on ready; load it and take the window it made.
 require(path.resolve(__dirname, '..', '..', 'src', 'main.js'));
 

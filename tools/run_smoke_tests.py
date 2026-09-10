@@ -307,13 +307,20 @@ def main() -> None:
     if not (app_dir / "node_modules" / "electron").exists():
         skipped.append("app tests: app/node_modules/electron is absent; run npm install in app/")
     else:
-        app_run = subprocess.run(
-            ["npm", "test", "--silent"], cwd=app_dir,
-            capture_output=True, text=True, check=False, timeout=600,
-        )
-        if app_run.returncode != 0:
-            failing = [l.strip() for l in app_run.stdout.splitlines() if l.strip().startswith("not ok")]
-            errors.append(f"app tests failed: {failing[0] if failing else 'see npm test in app/'}")
+        # Every case boots a real Electron window, so the suite is minutes, not seconds. The budget
+        # is generous and the expiry is caught: an uncaught TimeoutExpired ends the smoke run in a
+        # traceback, which reads like a broken tool rather than the slow suite it actually is.
+        try:
+            app_run = subprocess.run(
+                ["npm", "test", "--silent"], cwd=app_dir,
+                capture_output=True, text=True, check=False, timeout=1500,
+            )
+        except subprocess.TimeoutExpired:
+            errors.append("app tests timed out after 1500s; run `npm test` in app/ to see where")
+        else:
+            if app_run.returncode != 0:
+                failing = [l.strip() for l in app_run.stdout.splitlines() if l.strip().startswith("not ok")]
+                errors.append(f"app tests failed: {failing[0] if failing else 'see npm test in app/'}")
 
     # The retrieval index is generated; a stale one sends readers to contracts that moved.
     index_path = ROOT / "docs" / "retrieval-index.json"
