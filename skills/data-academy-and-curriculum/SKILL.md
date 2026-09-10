@@ -34,6 +34,7 @@ A request for a whole body of notes for a role or domain rather than one artifac
 - Roadmap steps into ordered tracks and modules → `academy-build-skill-track-map`.
 - Every planned note with its ID, module and prerequisites → `academy-plan-note-corpus`.
 - One module built to completion → `academy-build-note-module`.
+- One delivery milestone sequenced against an existing spec → `academy-plan-corpus-milestone`.
 - Duplication, dangling edges, cycles, staleness and coverage → `academy-audit-note-corpus`.
 - The durable record of what exists → `academy-index-note-corpus`.
 - Which modules to build first, against a measured gap → `academy-prioritize-corpus-by-gap`.
@@ -48,10 +49,10 @@ Resume from `note-corpus-manifest.json` rather than re-deriving the plan; regene
 
 - **Plan, define, design, map, specify or create a proposed artifact — learning deliverables** (6 tasks): read [references/catalog-plan-design-learning.md](references/catalog-plan-design-learning.md).
 - **Plan, define, design, map, specify or create a proposed artifact — role deliverables** (3 tasks): read [references/catalog-plan-design-role.md](references/catalog-plan-design-role.md).
+- **Plan, define, design, map, specify or create a proposed artifact — corpus deliverables** (3 tasks): read [references/catalog-plan-design-corpus.md](references/catalog-plan-design-corpus.md).
 - **Plan, define, design, map, specify or create a proposed artifact — knowledge deliverables** (2 tasks): read [references/catalog-plan-design-knowledge.md](references/catalog-plan-design-knowledge.md).
 - **Plan, define, design, map, specify or create a proposed artifact — specification deliverables** (2 tasks): read [references/catalog-plan-design-specification.md](references/catalog-plan-design-specification.md).
 - **Plan, define, design, map, specify or create a proposed artifact — assessment deliverables** (2 tasks): read [references/catalog-plan-design-assessment.md](references/catalog-plan-design-assessment.md).
-- **Plan, define, design, map, specify or create a proposed artifact — corpus deliverables** (2 tasks): read [references/catalog-plan-design-corpus.md](references/catalog-plan-design-corpus.md).
 - **Plan, define, design, map, specify or create a proposed artifact — learner deliverables** (2 tasks): read [references/catalog-plan-design-learner.md](references/catalog-plan-design-learner.md).
 - **Plan, define, design, map, specify or create a proposed artifact — remaining deliverables** (10 tasks): read [references/catalog-plan-design-other.md](references/catalog-plan-design-other.md).
 - **Build, implement, configure, teach, interview or deliver an artifact — note deliverables** (4 tasks): read [references/catalog-build-deliver-note.md](references/catalog-build-deliver-note.md).

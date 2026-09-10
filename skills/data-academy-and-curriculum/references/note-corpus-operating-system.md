@@ -12,7 +12,7 @@ Use this reference when the deliverable is not one note but a whole body of note
 6. `academy-audit-note-corpus` — duplication, dangling edges, prerequisite cycles, staleness and coverage.
 7. `academy-index-note-corpus` — the durable record of what exists.
 
-Do not begin stage 5 before stage 4 has an accepted plan. Notes written without a planned ID acquire prerequisite edges that point nowhere, and the graph cannot be repaired cheaply once several modules deep.
+Stage 5 repeated over a slice of the plan is a milestone, and `academy-plan-corpus-milestone` sequences one against [milestone execution](corpus-milestone-execution.md). Do not begin stage 5 before stage 4 has an accepted plan. Notes written without a planned ID acquire prerequisite edges that point nowhere, and the graph cannot be repaired cheaply once several modules deep.
 
 ## Sourcing the roadmap
 

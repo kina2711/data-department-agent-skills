@@ -136,6 +136,9 @@ cases:
   - id: academy-prioritize-corpus-by-gap
     task: academy-prioritize-corpus-by-gap
     expected_catalog: plan-design
+  - id: academy-plan-corpus-milestone
+    task: academy-plan-corpus-milestone
+    expected_catalog: plan-design
   - id: academy-build-note-module
     task: academy-build-note-module
     expected_catalog: build-deliver

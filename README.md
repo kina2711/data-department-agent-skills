@@ -1,7 +1,7 @@
 # Data Department Agent Skills
 
 A governed operating system for an entire Data Department, packaged as a Claude Code plugin.
-**33 role skills**, **867 atomic task contracts**, **52 slash commands**, **52 executable
+**33 role skills**, **868 atomic task contracts**, **52 slash commands**, **52 executable
 evidence scripts**, **12 JSON Schemas**, and a production guard hook.
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
@@ -535,7 +535,7 @@ Airflow, Spark, Kafka, Power BI, Tableau, Looker, Metabase, Superset and more.
 │       ├── SKILL.md              entry point, always-visible metadata only
 │       ├── references/
 │       │   ├── catalog-*.md      routing shards, loaded one at a time
-│       │   ├── tasks/*.md        the 867 atomic task contracts
+│       │   ├── tasks/*.md        the 868 atomic task contracts
 │       │   └── adapter-*.md      stack-native adapter packs
 │       ├── assets/               record templates and JSON Schemas
 │       └── scripts/              executable evidence  ← hand-written

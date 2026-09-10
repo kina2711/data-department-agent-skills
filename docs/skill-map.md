@@ -44,7 +44,7 @@ data-department-agent-skills
 │   ├── machine-learning-engineering  (20 tasks, cao nhất R3-controlled)
 │   └── mlops  (23 tasks, cao nhất R4-critical)
 ├── Wave 4 — specialized enterprise capabilities
-│   ├── data-academy-and-curriculum  (51 tasks, cao nhất R2-standard)
+│   ├── data-academy-and-curriculum  (52 tasks, cao nhất R2-standard)
 │   ├── data-career-and-interview-coach  (57 tasks, cao nhất R2-standard)
 │   ├── data-enablement-and-knowledge  (17 tasks, cao nhất R3-controlled)
 │   ├── data-onboarding-and-integration  (34 tasks, cao nhất R4-critical)
@@ -796,6 +796,7 @@ Ranh giới: Academy role thiết kế, giảng dạy, đánh giá và cải ti�
 - `academy-elicit-prior-knowledge` — hỏi người học đã nắm được gì và giải quyết learner memory trước khi lập kế hoạch corpus; output: prior-knowledge profile.
 - `academy-plan-note-corpus` — liệt kê toàn bộ note dự kiến theo module kèm id, prerequisite và trạng thái build; output: note corpus plan.
 - `academy-prioritize-corpus-by-gap` — xếp thứ tự module theo khoảng cách năng lực đã đo thay vì theo thứ tự roadmap; output: gap-prioritized corpus plan.
+- `academy-plan-corpus-milestone` — chuyển một mốc giao hàng của corpus thành kế hoạch thực thi có thứ tự phụ thuộc, bench kiểm chứng đã khảo sát, mâu thuẫn đặc tả đã nêu và giả định gom thành một khối duyệt được; output: corpus milestone plan.
 - `academy-map-questions-to-learning-objectives` — nối question tới competency, Bloom depth, prerequisites, learning objectives và assessments; output: question-to-learning traceability matrix.
 - `academy-design-learning-module` — định nghĩa objectives, concepts, examples, activities và assessment; output: learning-module specification.
 - `academy-outline-lesson-from-source` — biến một tài liệu nguồn thành dàn bài buổi học có nhịp được gõ kiểu, mỗi nhịp truy được về đoạn cụ thể trong nguồn và ghi rõ phần nguồn không được dùng; output: source-traced lesson outline.

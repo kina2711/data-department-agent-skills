@@ -1,7 +1,7 @@
 # Data Department Agent Skills
 
 Hệ điều hành có kiểm soát cho toàn bộ một phòng Data, đóng gói dưới dạng plugin Claude Code.
-**33 role skill**, **867 atomic task contract**, **52 slash command**, **52 script evidence
+**33 role skill**, **868 atomic task contract**, **52 slash command**, **52 script evidence
 chạy được**, **12 JSON Schema**, và một production guard hook.
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
@@ -530,7 +530,7 @@ Power BI, Tableau, Looker, Metabase, Superset và nhiều hơn.
 │       ├── SKILL.md              entry point, chỉ metadata luôn hiển thị
 │       ├── references/
 │       │   ├── catalog-*.md      routing shard, nạp từng cái một
-│       │   ├── tasks/*.md        867 atomic task contract
+│       │   ├── tasks/*.md        868 atomic task contract
 │       │   └── adapter-*.md      gói adapter theo stack
 │       ├── assets/               template bản ghi và JSON Schema
 │       └── scripts/              evidence chạy được  ← viết tay

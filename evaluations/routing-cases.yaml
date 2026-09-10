@@ -434,6 +434,19 @@ cases:
       - Build one module to completion and checkpoint note-corpus-manifest.json rather than regenerating the plan.
       - Bind notes to registered ck. concept keys and claim exactly one primary note per key.
 
+  - id: plan-next-milestone-of-an-existing-corpus
+    query: Bộ giáo trình đã có đề cương đầy đủ và xong hai tầng đầu. Lập kế hoạch cho mốc kế tiếp gồm tập dữ liệu và năm bài, mọi kết quả in trong bài phải chạy thật.
+    expected_primary_skill: data-academy-and-curriculum
+    expected_tasks:
+      - academy-plan-corpus-milestone
+      - academy-generate-training-dataset
+      - academy-build-note-module
+    expected_behavior:
+      - Treat the existing outline as the spec of record and the milestone plan as a third document that replaces neither it nor the standing contract.
+      - Survey the verification bench before planning, and keep it distinct from the environment the notes teach.
+      - Report every spec contradiction with file and line plus a proposed amendment rather than silently writing something else.
+      - Collect assumptions into one block ahead of the work breakdown, and close the milestone only on regenerated promise ledger plus executed evidence.
+
   - id: diagnose-me-against-my-notes
     query: Cho tôi làm bài kiểm tra dựa trên bộ note đã viết, chấm và cập nhật xem tôi đã nắm chắc phần nào.
     expected_primary_skill: data-academy-and-curriculum

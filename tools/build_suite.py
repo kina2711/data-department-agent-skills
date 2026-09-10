@@ -1739,6 +1739,7 @@ def task_specific_resources(task_id: str) -> list[str]:
             "academy-research-role-roadmap",
             "academy-build-skill-track-map",
             "academy-plan-note-corpus",
+            "academy-plan-corpus-milestone",
             "academy-build-note-module",
             "academy-audit-note-corpus",
             "academy-index-note-corpus",
@@ -2073,6 +2074,16 @@ def task_specific_resources(task_id: str) -> list[str]:
             resources.append(
                 "Build one module to completion and checkpoint the manifest before starting the next. `drafted` means a file exists at the expected path; only `reviewed` records a note as usable, and neither is evidence that anyone learned it."
             )
+        if task_id in {"academy-plan-corpus-milestone", "academy-build-note-module"}:
+            resources.append(
+                "Read [milestone execution against a spec of record](../corpus-milestone-execution.md); the spec of record and the standing contract are two documents with different jobs, and the milestone plan is a third that replaces neither."
+            )
+        if task_id == "academy-plan-corpus-milestone":
+            resources.extend([
+                "Survey the verification bench before planning rather than during: a milestone whose evidence needs a running database stalls at the third note if nobody checked. Keep the bench distinct from the environment the notes teach, and say so in the plan.",
+                "Cross-read the spec of record against itself on the names and numbers this slice touches, and report every contradiction with file and line plus the proposed amendment. Amending a spec line costs one line; a note that silently disagrees with its spec is indistinguishable from a note that is wrong.",
+                "Regenerate the promise ledger of forward references and make it an acceptance condition, then collect every assumption into one block ahead of the work breakdown so approval covers the assumptions rather than skipping them.",
+            ])
         if task_id in {"academy-audit-note-corpus", "academy-index-note-corpus"}:
             resources.append(
                 "Run `../../scripts/validate_note_corpus.py` against the manifest and note root; it reports duplicate IDs, dangling relationship targets, prerequisite cycles, planned-but-missing files, unmanifested files and stale version-sensitive notes. It reads structure only and never judges whether a note is good, so `not-run` stays `not-run`."
@@ -2730,6 +2741,7 @@ A request for a whole body of notes for a role or domain rather than one artifac
 - Roadmap steps into ordered tracks and modules → `academy-build-skill-track-map`.
 - Every planned note with its ID, module and prerequisites → `academy-plan-note-corpus`.
 - One module built to completion → `academy-build-note-module`.
+- One delivery milestone sequenced against an existing spec → `academy-plan-corpus-milestone`.
 - Duplication, dangling edges, cycles, staleness and coverage → `academy-audit-note-corpus`.
 - The durable record of what exists → `academy-index-note-corpus`.
 - Which modules to build first, against a measured gap → `academy-prioritize-corpus-by-gap`.
@@ -4060,7 +4072,7 @@ Use this reference when the deliverable is not one note but a whole body of note
 6. `academy-audit-note-corpus` — duplication, dangling edges, prerequisite cycles, staleness and coverage.
 7. `academy-index-note-corpus` — the durable record of what exists.
 
-Do not begin stage 5 before stage 4 has an accepted plan. Notes written without a planned ID acquire prerequisite edges that point nowhere, and the graph cannot be repaired cheaply once several modules deep.
+Stage 5 repeated over a slice of the plan is a milestone, and `academy-plan-corpus-milestone` sequences one against [milestone execution](corpus-milestone-execution.md). Do not begin stage 5 before stage 4 has an accepted plan. Notes written without a planned ID acquire prerequisite edges that point nowhere, and the graph cannot be repaired cheaply once several modules deep.
 
 ## Sourcing the roadmap
 
@@ -4117,6 +4129,64 @@ Learning evidence goes to `data-career-and-interview-coach` as a learning event;
 ## What the corpus index does not record
 
 The index records what exists: notes, relationships, coverage against the roadmap, freshness and gaps. It never records what the learner has mastered. A written note is evidence that content exists, not that anyone learned it, and the number of notes built is not a measure of progress. Mastery semantics and learner memory belong to `data-career-and-interview-coach` under the learner-memory interoperability contract; route learning evidence there rather than inferring it here. Where the corpus is stored in a personal knowledge vault, the vault's layer and provenance rules apply on top of this one.
+"""
+    milestone_exec = """# Milestone execution against a spec of record
+
+A corpus plan enumerates every note. A milestone is the slice of that plan delivered as one piece of work — five notes and the dataset they all query, or one track's worth of modules — and it is where a corpus either stays coherent or quietly stops matching its own specification. What follows covers the stretch between an accepted plan and a closed milestone. It assumes `academy-plan-note-corpus` has already run, and replaces nothing in that stage.
+
+## Two documents govern, and they are not the same document
+
+The **spec of record** says what each note contains: outline, traps, exercises, pass criteria. It was written once and reviewed once, and amending it costs one line where amending the notes derived from it costs six hundred.
+
+The **standing contract** says how every note is written regardless of subject: voice, section structure, the forbidden list, the evidence rules, and the mistakes already made once and not to be repeated. It accumulates across milestones. Cite both by section number in the plan, because a constraint referenced as "the style rules" is a constraint nobody can check.
+
+Neither of them is the milestone plan. That is the third document, and it holds only what the other two cannot: the order this slice gets built in, what blocks what, and what must be true before authoring starts.
+
+## Survey the bench before planning, not during
+
+Where notes carry runnable output — query results, error text, timings — the output came from a machine, and that machine either exists or does not. Find out first. `psql --version` and `pg_isready` answer in under a second, and the answer changes the plan: a milestone whose evidence needs a database and has no database stalls at the third note, after approval, when the cost of replanning is highest.
+
+Keep the bench separate from the taught environment in the plan's own wording. A corpus teaching PostgreSQL 16 on Windows 11 through DBeaver can be verified against a Linux container of `postgres:16-alpine`, and that container appears in no note. Collapse the two and the result is a set of instructions nobody can follow on the machine they actually own.
+
+Evidence has a shelf life. Row counts printed in a note are true of the dataset that produced them, so a generator without a fixed seed makes every published count unreproducible the moment someone reloads. Fix that before the counts are quoted, not after.
+
+## Reconcile the spec before writing anything
+
+Specs drift against themselves. A table list grows from nine entries to ten while four sentences elsewhere still say nine; a file is renamed in one section and called by its old name in three others; a prerequisite points at a note scheduled to be written later than the note requiring it.
+
+Cross-read the spec of record, the standing contract and the corpus index against each other on the specific names and numbers this milestone touches. Report each contradiction with file and line, say which side is right and why, and propose the amendment. Then check whether the notes already built repeat the error, since that is the difference between a four-line fix and a forty-line one.
+
+Amend the spec. Do not quietly write something else instead: a note that disagrees with its own specification is indistinguishable from a note that is wrong, and a reviewer has no way to tell which of the two happened.
+
+## The promise ledger
+
+Notes written early make forward references. "The four delete behaviours are covered in `J01`" is a promise, and `J01` does not know it exists.
+
+Extract those references mechanically and keep the result as an artifact — one row per target note, naming which notes promised what. Regenerate it at every milestone close rather than maintaining it by hand, because a scan across the built corpus costs a second and does not forget. The ledger then becomes an acceptance condition rather than a courtesy: read the exact promising sentences before writing a target note, and confirm each one kept afterwards.
+
+Targets load unevenly. One note carries six promises from six different notes while its neighbours carry none, and that count predicts how long the note takes better than its outline length does. Sequence the milestone around it.
+
+## Assumptions go in one block, at the top
+
+Assumptions buried inside steps get approved without being read. Collect every one into a single section placed before the work breakdown: the verification environment, each spec contradiction found, every place the standing structure does not fit this slice, and each external resource nobody has checked yet.
+
+Write each as a decision the reader can reverse — what was assumed, on what basis, what changes if it turns out wrong. Four such items is an ordinary count for a milestone. Zero means nobody looked.
+
+External dependencies deserve particular suspicion. A note that tells a learner to open a named web sandbox, download a specific installer or click a labelled button asserts the current state of something outside the corpus entirely. Verify it inside the milestone, name the alternatives tried, and record the date it was checked.
+
+## Closing the milestone
+
+A milestone closes when its work is verifiable, not when the files exist.
+
+- Every runnable block extracted and executed in order against a clean environment, with printed results matching what the notes claim, row counts included.
+- The forbidden-list scan clean across the whole corpus rather than only the new notes.
+- Reference and prerequisite checks passing: every cited note ID exists in the spec, and no prerequisite points forward.
+- The promise ledger regenerated, and the promises this milestone was meant to keep confirmed kept.
+- Status updated in the corpus index and the standing contract, so the next session opens on a true statement of what exists.
+
+Report each check as it actually ran. A check that could not run is `not-run` and prints as `not-run`. A milestone with one failing gate and an honest report is in better shape than one reported clean, because the first can be finished and the second has to be re-audited from the start.
+
+Then stop. The next milestone begins from the closed state of this one, and a session that half-finishes two of them leaves neither verifiable.
 """
     concept_registry = """# Canonical concept registry
 
@@ -4771,7 +4841,7 @@ Not to invent reviews, ratings, testimonials or experience. Not to publish under
 """
     targets = {
         "data-enablement-and-knowledge": {"linked-knowledge-library.md": knowledge_library},
-        "data-academy-and-curriculum": {"role-curricula.md": curricula, "assessment-and-certification.md": assessment, "knowledge-deep-dive-standard.md": deep_dive, "note-corpus-operating-system.md": corpus_os, "concept-registry-standard.md": concept_registry, "diagnostic-session-method.md": diagnostic_method},
+        "data-academy-and-curriculum": {"role-curricula.md": curricula, "assessment-and-certification.md": assessment, "knowledge-deep-dive-standard.md": deep_dive, "note-corpus-operating-system.md": corpus_os, "corpus-milestone-execution.md": milestone_exec, "concept-registry-standard.md": concept_registry, "diagnostic-session-method.md": diagnostic_method},
         "data-onboarding-and-integration": {"role-onboarding-tracks.md": onboarding},
         "data-talent-acquisition-and-interview": {"role-interview-architecture.md": interview, "question-knowledge-validity.md": question_validity},
         "data-career-and-interview-coach": {"coaching-ethics-and-method.md": coaching, "role-curricula.md": curricula, "interview-knowledge-system.md": interview_knowledge, "system-design-canon.md": system_design_canon, "career-operating-system.md": career_os, "career-learning-memory.md": career_learning_memory, "concept-registry-standard.md": concept_registry},

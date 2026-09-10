@@ -1,19 +1,19 @@
-# academy-build-note-module
+# academy-plan-corpus-milestone
 
 ## Trigger
 
-Use when the user asks to build note module, requests the stated deliverable, or supplies an artifact that requires this atomic workflow. Do not select by job title alone.
+Use when the user asks to plan corpus milestone, requests the stated deliverable, or supplies an artifact that requires this atomic workflow. Do not select by job title alone.
 
 ## Contract
 
 - Profile: `learning`
-- Risk tier: `R2-standard`
+- Risk tier: `R1-reviewed`
 - Execution path: `standard-path`
 - Contract version: `3.0`
-- Criticality: `deep`
+- Criticality: `standard`
 - Model tier: `standard` per [model selection](../model-selection.md); a lighter model never lowers the bar this output must clear.
-- Goal: dựng trọn bộ note của một module theo cùng một chuẩn rồi cập nhật corpus manifest.
-- Primary deliverable: **module note batch**.
+- Goal: chuyển một mốc giao hàng của corpus thành kế hoạch thực thi có thứ tự phụ thuộc, bench kiểm chứng đã khảo sát, mâu thuẫn đặc tả đã nêu và giả định gom thành một khối duyệt được.
+- Primary deliverable: **corpus milestone plan**.
 
 ## Inputs and readiness
 
@@ -22,37 +22,6 @@ Use when the user asks to build note module, requests the stated deliverable, or
 - For controlled work, establish containment, backup, rollback or recovery before execution.
 
 If an absent input changes semantics, risk, cost, scope or acceptance, classify it as blocking. Otherwise state a bounded assumption and record it.
-
-## Deep execution contract
-
-- Contract version: `3.0`.
-- Criticality: `deep`; treat this as a low-freedom protocol for **module note batch**.
-
-Mandatory domain inputs:
-- Role-level outcomes.
-- Prerequisites and learner baseline.
-- Delivery constraints and transfer target.
-
-Invariants that must remain true:
-- Assessment aligns to outcomes.
-- Attendance is not mastery.
-- Certification scope matches demonstrated evidence.
-
-Decision and execution sequence:
-1. Map outcomes.
-2. Sequence theory/practice.
-3. Design authentic assessment.
-4. Teach.
-5. Calibrate.
-6. Retest transfer and improve.
-
-Required proof:
-- Blueprint traceability.
-- Learner artifacts.
-- Calibrated scores.
-- Remediation, retention and workplace-transfer evidence.
-
-Block before mutation or a positive completion decision when a mandatory input, authority, invariant, recovery path or proof source is unresolved. Preserve the failed state and route remediation explicitly; never weaken a test or threshold merely to pass.
 
 
 ## Procedure
@@ -69,9 +38,11 @@ Additional resources:
 - Read [the note-corpus operating system](../note-corpus-operating-system.md); the stages run in one direction, and `note-corpus-manifest.json` is the resume anchor rather than something to re-derive each session.
 - Read [the canonical concept registry](../concept-registry-standard.md); bind every note, module and scenario to a `ck.` key, coining it as `proposed` when none fits, and claim exactly one primary note per key. Only `registered` keys count toward coverage, so never report a corpus built on proposed keys as covered.
 - Reuse the role-roadmap, skill-track-map, note-corpus-manifest or note-corpus-audit asset from `../../assets/` that matches this stage.
-- Read [the knowledge deep-dive authoring standard](../knowledge-deep-dive-standard.md) and [the authored prose voice standard](../authored-prose-voice.md); planned IDs and `relationships` edges come from the first, and the second decides whether the batch reads as writing or as filler.
-- Build one module to completion and checkpoint the manifest before starting the next. `drafted` means a file exists at the expected path; only `reviewed` records a note as usable, and neither is evidence that anyone learned it.
 - Read [milestone execution against a spec of record](../corpus-milestone-execution.md); the spec of record and the standing contract are two documents with different jobs, and the milestone plan is a third that replaces neither.
+- Survey the verification bench before planning rather than during: a milestone whose evidence needs a running database stalls at the third note if nobody checked. Keep the bench distinct from the environment the notes teach, and say so in the plan.
+- Cross-read the spec of record against itself on the names and numbers this slice touches, and report every contradiction with file and line plus the proposed amendment. Amending a spec line costs one line; a note that silently disagrees with its spec is indistinguishable from a note that is wrong.
+- Regenerate the promise ledger of forward references and make it an acceptance condition, then collect every assumption into one block ahead of the work breakdown so approval covers the assumptions rather than skipping them.
+- Read [solution option framing](../solution-option-framing.md); frame three to five materially different approaches in `../../assets/design-option-set.yaml`, select one against the stated constraints in at most forty words, and derive the deliverable structure from that selection. Where this role already owns a scored selection artifact, use it instead of duplicating the decision.
 
 - Certification proves only the named, versioned competencies demonstrated by evidence; it never proves tenure, job title, automatic promotion or general seniority.
 - Upgrade to R3-controlled and require People/HR plus accountable business approval when certification affects employment, promotion, compensation, regulation or external claims.
@@ -87,12 +58,10 @@ Also verify scope and acceptance criteria, test relevant edge/failure paths, sto
 
 ## Approval and done
 
-Require owner approval before production, sensitive, externally visible or materially costly execution. Approval is version- and scope-specific and never waives testing. Finish only when the deliverable meets acceptance criteria, mandatory tests pass, required approval exists, residual risks have owners, and handoff/monitoring is explicit. Stop as `blocked` or `failed` on missing authority, material ambiguity, failed validation or unsafe recovery; never fabricate success.
+Require named reviewer acceptance before the artifact becomes an organizational baseline. Approval is version- and scope-specific and never waives testing. Finish only when the deliverable meets acceptance criteria, mandatory tests pass, required approval exists, residual risks have owners, and handoff/monitoring is explicit. Stop as `blocked` or `failed` on missing authority, material ambiguity, failed validation or unsafe recovery; never fabricate success.
 
 ## Return
 
 Return the task ID, lifecycle profile, risk tier, execution path, phase reached, primary deliverable, evidence links, test results, approvals, assumptions, open risks, affected assets, owner and one explicit next task. Route cross-role work through the department orchestrator.
 
-Return the full contract; [response compression](../response-compression.md) governs wording, never coverage. Never soften `blocked` or `failed`, and never report an unrun check as a pass.
-
-Mirror the outcome into `../../assets/atomic-task-output.yaml` alongside the prose. Where the prose and the structured record disagree, the record stands and the task is not complete.
+Report it in the compact shape from [response compression](../response-compression.md): one state line, the deliverable, only the fields that carry content, then one next action. Blocked gates, unrun checks, assumptions, limitations and residual risks are printed in full even here.

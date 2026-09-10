@@ -1,6 +1,6 @@
 # Chi tiết toàn bộ Data Department Skills và Atomic Tasks
 
-> Phiên bản `3.11.0` · `33` Claude role skills · `867` atomic workflows.
+> Phiên bản `3.11.0` · `33` Claude role skills · `868` atomic workflows.
 > Đây là catalog tra cứu đầy đủ được sinh từ `suite-manifest.yaml`, `task-catalog.json` và task contracts; không phải nội dung luôn được nạp vào context của Claude.
 
 ## Mục lục
@@ -129,7 +129,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | 23 | [`generative-ai-engineering`](#skill-generative-ai-engineering) | Generative AI Engineering | 24 |
 | 24 | [`data-documentation-and-diagrams`](#skill-data-documentation-and-diagrams) | Data Documentation and Diagrams | 20 |
 | 25 | [`data-enablement-and-knowledge`](#skill-data-enablement-and-knowledge) | Data Enablement and Knowledge | 17 |
-| 26 | [`data-academy-and-curriculum`](#skill-data-academy-and-curriculum) | Data Academy and Curriculum | 51 |
+| 26 | [`data-academy-and-curriculum`](#skill-data-academy-and-curriculum) | Data Academy and Curriculum | 52 |
 | 27 | [`data-onboarding-and-integration`](#skill-data-onboarding-and-integration) | Data Onboarding and Integration | 34 |
 | 28 | [`data-talent-acquisition-and-interview`](#skill-data-talent-acquisition-and-interview) | Data Talent and Interviewing | 41 |
 | 29 | [`data-career-and-interview-coach`](#skill-data-career-and-interview-coach) | Data Career and Interview Coach | 57 |
@@ -1615,15 +1615,15 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Ranh giới và handoff:** Không coi attendance hay đáp án học thuộc là competency; certification cần rubric, critical failures, calibration và retention/transfer evidence.
 
-**Quy mô:** 51 tasks — Plan / Design 29; Build / Deliver 13; Test / Assure 8; Operate / Improve 1.
+**Quy mô:** 52 tasks — Plan / Design 30; Build / Deliver 13; Test / Assure 8; Operate / Improve 1.
 
-**Domain references tải khi cần:** `assessment-and-certification.md`, `authored-prose-voice.md`, `bounded-source-answering.md`, `concept-registry-standard.md`, `diagnostic-session-method.md`, `edge-provenance.md`, `knowledge-deep-dive-standard.md`, `learning-memory-interoperability.md`, `lesson-scene-standard.md`, `model-selection.md`, `note-corpus-operating-system.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `assessment-and-certification.md`, `authored-prose-voice.md`, `bounded-source-answering.md`, `concept-registry-standard.md`, `corpus-milestone-execution.md`, `diagnostic-session-method.md`, `edge-provenance.md`, `knowledge-deep-dive-standard.md`, `learning-memory-interoperability.md`, `lesson-scene-standard.md`, `model-selection.md`, `note-corpus-operating-system.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `assessment-blueprint.yaml`, `atomic-task-output.yaml`, `concept-knowledge-graph.yaml`, `concept-registry.json`, `corpus-priority-plan.yaml`, `corpus-workflow-manifest.json`, `curriculum-spec.yaml`, `design-option-set.yaml`, `knowledge-deep-dive.yaml`, `learner-evidence.yaml`, `lesson-plan.yaml`, `misconception-feedback.yaml`, `note-corpus-audit.yaml`, `note-corpus-manifest.json`, `note-diagnostic-session.yaml`, `prior-knowledge-profile.yaml`, `question-learning-traceability.yaml`, `role-roadmap.yaml`, `skill-track-map.yaml`.
 
 **Scripts:** `validate_curriculum_coverage.py`, `validate_note_corpus.py`.
 
-#### Plan / Design (29 tasks)
+#### Plan / Design (30 tasks)
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
@@ -1648,6 +1648,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`academy-elicit-prior-knowledge`](skills/data-academy-and-curriculum/references/tasks/academy-elicit-prior-knowledge.md) | hỏi người học đã nắm được gì và giải quyết learner memory trước khi lập kế hoạch corpus | prior-knowledge profile | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-map-learning-prerequisites`](skills/data-academy-and-curriculum/references/tasks/academy-map-learning-prerequisites.md) | xác định kiến thức tiên quyết và dependency giữa modules | learning prerequisite graph | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-map-questions-to-learning-objectives`](skills/data-academy-and-curriculum/references/tasks/academy-map-questions-to-learning-objectives.md) | nối question tới competency, Bloom depth, prerequisites, learning objectives và assessments | question-to-learning traceability matrix | `learning` | `R1-reviewed` / `standard-path` |
+| [`academy-plan-corpus-milestone`](skills/data-academy-and-curriculum/references/tasks/academy-plan-corpus-milestone.md) | chuyển một mốc giao hàng của corpus thành kế hoạch thực thi có thứ tự phụ thuộc, bench kiểm chứng đã khảo sát, mâu thuẫn đặc tả đã nêu và giả định gom thành một khối duyệt được | corpus milestone plan | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-plan-learning-cohort`](skills/data-academy-and-curriculum/references/tasks/academy-plan-learning-cohort.md) | lập audience, schedule, instructors, capacity và support | cohort delivery plan | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-plan-note-corpus`](skills/data-academy-and-curriculum/references/tasks/academy-plan-note-corpus.md) | liệt kê toàn bộ note dự kiến theo module kèm id, prerequisite và trạng thái build | note corpus plan | `learning` | `R1-reviewed` / `standard-path` |
 | [`academy-prioritize-corpus-by-gap`](skills/data-academy-and-curriculum/references/tasks/academy-prioritize-corpus-by-gap.md) | xếp thứ tự module theo khoảng cách năng lực đã đo thay vì theo thứ tự roadmap | gap-prioritized corpus plan | `learning` | `R1-reviewed` / `standard-path` |
@@ -2283,4 +2284,4 @@ Hãy phân tích yêu cầu và báo trước khi làm:
 Sau đó thực hiện task hiện tại, test, báo evidence, approval status, residual risks và next owner.
 ```
 
-Tổng kiểm: **33 skills / 867 tasks** đã được liệt kê, không thiếu và không trùng ownership trong catalog này.
+Tổng kiểm: **33 skills / 868 tasks** đã được liệt kê, không thiếu và không trùng ownership trong catalog này.

@@ -2,7 +2,7 @@
  "_": "Generated. Every level comes from an authored source: waves from skill-map section 40, skills from SKILL.md on disk, shards from catalog-*.md, tasks from task-catalog.json. A skill in no wave is reported as unplaced, never filed somewhere plausible.",
  "root": "data-department-agent-skills",
  "skill_count": 33,
- "task_count": 867,
+ "task_count": 868,
  "waves": [
   {
    "wave": "Wave 0",
@@ -4087,9 +4087,9 @@
     {
      "skill": "data-academy-and-curriculum",
      "description": "\"Design and deliver role-based Data Academy curricula with theory, labs, capstones, assessments, remediation, certification and effectiveness measurement. Use for structured learning programs across Data roles and levels. Route hiring loops, scorecards and candidate evaluation to data-talent-acquisition-and-interview; this skill teaches, never selects.\"",
-     "task_count": 51,
+     "task_count": 52,
      "risk_mix": {
-      "R1-reviewed": 43,
+      "R1-reviewed": 44,
       "R2-standard": 8
      },
      "highest_risk": "R2-standard",
@@ -4232,8 +4232,15 @@
       },
       {
        "shard": "plan-design-corpus",
-       "task_count": 2,
+       "task_count": 3,
        "tasks": [
+        {
+         "id": "academy-plan-corpus-milestone",
+         "output": "corpus milestone plan",
+         "risk_tier": "R1-reviewed",
+         "execution_path": "standard-path",
+         "criticality": "standard"
+        },
         {
          "id": "academy-plan-note-corpus",
          "output": "note corpus plan",
