@@ -65,6 +65,19 @@
       <button class="btn btn-primary" id="runStart" disabled>Chạy trong app</button>
     </div>
 
+    <!-- A session survives the app closing. Resuming carries the model's memory of the work, not
+         the transcript on screen, so the offer says exactly that rather than implying the log
+         will come back. -->
+    <div id="resumeBar" class="resume-bar" hidden>
+      <span class="resume-dot"></span>
+      <div class="resume-text">
+        <strong id="resumeTitle">Có phiên làm việc dở dang</strong>
+        <span id="resumeSub" class="resume-sub"></span>
+      </div>
+      <button class="btn btn-primary" id="resumeGo">Làm tiếp phiên đó</button>
+      <button class="btn btn-quiet" id="resumeDrop">Bỏ qua</button>
+    </div>
+
     <!-- What will actually be sent. It was invisible: you pressed run and a prompt you had never
          seen went to the model. -->
     <details class="prompt-peek" id="promptPeek">
@@ -106,14 +119,19 @@
           <!-- The run used to end here. When the agent asked a question there was nowhere to
                answer it, so the whole exchange was one-way. -->
           <div id="replyBox" class="reply-box" hidden>
-            <textarea id="reply" class="ask" rows="2"
-                      placeholder="Trả lời câu hỏi ở trên rồi Ctrl+Enter để gửi tiếp…"></textarea>
+            <div class="reply-head">
+              <span class="reply-title">Trả lời tiếp</span>
+              <span class="reply-sub">Phiên vẫn giữ nguyên ngữ cảnh — nó nhớ mọi thứ vừa đọc và vừa nói.</span>
+            </div>
+            <textarea id="reply" class="reply-input" rows="3"
+                      placeholder="vd: 1b 2a 3a — hoặc viết tự do: đổi sang SQLite đi, và bỏ phần window function"></textarea>
             <div class="reply-actions">
               <!-- The permission mode the next turn will use. In plan mode the agent cannot write,
                    and it tells you to press Shift+Tab, which is terminal advice with no meaning
                    here. Changing the control above and replying does carry the new mode. -->
               <span class="reply-mode" id="replyMode"></span>
               <span class="reply-hint" id="replyHint"></span>
+              <kbd class="reply-kbd">Ctrl</kbd><kbd class="reply-kbd">Enter</kbd>
               <button class="btn btn-primary" id="replySend">Gửi tiếp</button>
             </div>
           </div>

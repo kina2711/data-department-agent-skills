@@ -73,8 +73,10 @@ header.top h1 { font-size: 26px; letter-spacing: -.02em; margin: 0; }
   display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
   margin-bottom: 22px;
 }
-/* A class selector outranks the UA rule for [hidden], so display must be reset explicitly. */
-.toolbar[hidden] { display: none; }
+/* A class selector outranks the UA rule for [hidden], so `display` on a class silently un-hides
+   an element that JavaScript believes is hidden. It had already been patched per-class twice and
+   caught a third element on its way in; one rule with enough weight ends the whole category. */
+[hidden] { display: none !important; }
 .search {
   flex: 1 1 260px; min-width: 200px;
   border: 1px solid var(--line); border-radius: 10px;
@@ -182,7 +184,6 @@ header.top h1 { font-size: 26px; letter-spacing: -.02em; margin: 0; }
 }
 .tabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 
-.view[hidden] { display: none; }
 
 .wf-bar { display: flex; gap: 9px; align-items: center; flex-wrap: wrap; margin-bottom: 14px; }
 .wf-file { flex: 1 1 200px; font-size: 12px; color: var(--ink-faint); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -353,7 +354,9 @@ h4.sec:first-child { margin-top: 0; }
 }
 .detail-title { margin: 0; font-size: 19px; letter-spacing: -.01em; }
 .detail-bar .spacer { flex: 1; }
-.detail-bar .folder-line { max-width: 240px; }
+.detail-bar .folder-line { max-width: 200px; }
+/* Everything on one row: the run button wrapping to a line of its own read as a broken layout. */
+.detail-title { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .detail-bar .perm { max-width: 190px; }
 .detail-bar .btn { white-space: nowrap; }
 
@@ -371,7 +374,10 @@ h4.sec:first-child { margin-top: 0; }
 .job-grid .job-card { margin-bottom: 0; }
 
 #paneForm { max-width: 640px; }
-.run-log { max-height: none; min-height: 340px; }
+/* Tall while output is streaming, so the box does not jump on every line; natural once the run
+   ends, so a four-line answer is not followed by a screen of nothing. */
+.run-log { max-height: none; }
+.run-log.is-live { min-height: 340px; }
 
 /* ---- Purpose-driven skill suggestion ---- */
 .suggest {
@@ -820,15 +826,6 @@ h4.sec:first-child { margin-top: 0; }
 
 /* ── Replying to the run ────────────────────────────────────────────────────
    The exchange was one-way: the agent asked eight questions and the process exited. */
-.reply-box {
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px solid var(--line);
-}
-.reply-box .ask { margin-bottom: 8px; max-width: none; }
-.reply-actions { display: flex; align-items: center; gap: 12px; }
-.reply-hint { flex: 1 1 auto; font-size: 12px; color: var(--warn); }
-
 /* What you said, marked as yours so a long transcript stays readable as a conversation. */
 .run-you .run-label { background: var(--accent); color: #fff; }
 .run-you .run-body {
@@ -840,5 +837,77 @@ h4.sec:first-child { margin-top: 0; }
 
 /* Which permission mode the next turn runs under. Silent about this, the app let a session sit in
    plan mode refusing every write while the agent advised a terminal keystroke. */
+
+/* ── Reply composer ─────────────────────────────────────────────────────────
+   It was a bare textarea floating under a wall of JSON with a button pushed to the far right, and
+   nothing said what it was for or that the session still held its context. */
+.reply-box {
+  position: sticky;
+  bottom: 0;
+  margin-top: 14px;
+  padding: 12px 14px 13px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--raise);
+  box-shadow: var(--shadow-lift);
+}
+.reply-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+.reply-title { font-size: 13px; font-weight: 640; color: var(--ink); }
+.reply-sub { font-size: 12px; color: var(--ink-muted); }
+.reply-input {
+  width: 100%;
+  resize: vertical;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+  border-radius: 9px;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 13.5px;
+  line-height: 1.55;
+  margin-bottom: 9px;
+}
+.reply-input:focus { outline: 2px solid var(--accent); outline-offset: -1px; border-color: transparent; }
+.reply-input::placeholder { color: var(--ink-faint); }
+.reply-actions { display: flex; align-items: center; gap: 8px; }
 .reply-mode { font-size: 12px; color: var(--ink-muted); }
-.reply-mode.is-plan { color: var(--warn); }
+.reply-mode.is-plan { color: var(--warn); font-weight: 600; }
+.reply-hint { flex: 1 1 auto; font-size: 12px; color: var(--warn); text-align: right; }
+.reply-kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10.5px;
+  border: 1px solid var(--line-strong);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  padding: 1px 5px;
+  color: var(--ink-muted);
+}
+
+/* The thinking counter replaces itself rather than stacking one row per tick. */
+.run-thinking .run-label { color: var(--ink-faint); }
+.run-thinking .run-body { color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+
+/* ── Unfinished session ─────────────────────────────────────────────────────
+   Offered, never resumed silently: the model's memory comes back but the transcript does not, and
+   the person has to know which of the two they are getting. */
+.resume-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 12px;
+  padding: 11px 14px;
+  border: 1px solid var(--line-strong);
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+  background: var(--raise);
+}
+.resume-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex: none;
+}
+.resume-text { display: flex; flex-direction: column; gap: 2px; flex: 1 1 auto; min-width: 0; }
+.resume-text strong { font-size: 13px; font-weight: 640; color: var(--ink); }
+.resume-sub { font-size: 12px; color: var(--ink-muted); }

@@ -6,7 +6,7 @@
  * defensively: known shapes get a proper row, anything else is shown as raw JSON rather than
  * silently dropped. A viewer that hides what it did not understand is worse than a noisy one. */
 
-const runUI = { id: null, running: false, cost: 0, session: '', turns: 0, lastText: '' };
+const runUI = { id: null, running: false, cost: 0, session: '', turns: 0, lastText: '', thinking: 0 };
 const rq = (id) => document.getElementById(id);
 
 function row(kind, label, body) {
@@ -35,6 +35,30 @@ function describeToolInput(input) {
   return Object.keys(input).join(', ').slice(0, 160);
 }
 
+/** One row that counts up, replaced in place, instead of a line per tick. */
+function thinkingRow() {
+  let el = rq('runLog').querySelector('.run-thinking .run-body');
+  if (!el) {
+    const wrap = document.createElement('div');
+    wrap.className = 'run-row run-thinking';
+    const label = document.createElement('span');
+    label.className = 'run-label';
+    label.textContent = 'suy nghĩ';
+    el = document.createElement('div');
+    el.className = 'run-body';
+    wrap.append(label, el);
+    rq('runLog').append(wrap);
+  }
+  return el;
+}
+
+/** Once real output arrives the counter has said everything it can. */
+function clearThinking() {
+  const row = rq('runLog').querySelector('.run-thinking');
+  if (row) row.remove();
+  runUI.thinking = 0;
+}
+
 function handleEvent(ev) {
   // Every event carries the session id. Holding the first one is what lets a reply resume this
   // conversation instead of starting a fresh one.
@@ -48,7 +72,19 @@ function handleEvent(ev) {
   }
   if (ev.type === 'rate_limit_event') return; // housekeeping, not part of the work
 
+  /* Thinking ticks arrive every few hundred milliseconds and each one used to render its own line
+   * of raw JSON, so a transcript was mostly `{"type":"system","subtype":"thinking_tokens",...}`
+   * and the actual conversation was buried in it. One line that counts up says the same thing. */
+  if (ev.type === 'system' && ev.subtype === 'thinking_tokens') {
+    runUI.thinking = Number(ev.estimated_tokens) || runUI.thinking;
+    thinkingRow().textContent = `đang suy nghĩ… ~${runUI.thinking} token`;
+    return;
+  }
+  // Any other system housekeeping is noise unless it carries text a person can read.
+  if (ev.type === 'system' && !ev.subtype) return;
+
   if (ev.type === 'assistant' && ev.message) {
+    clearThinking();
     for (const block of ev.message.content || []) {
       if (block.type === 'text' && block.text.trim()) {
         runUI.lastText = block.text.trim();
@@ -60,6 +96,7 @@ function handleEvent(ev) {
     return;
   }
   if (ev.type === 'user' && ev.message) {
+    clearThinking();
     for (const block of ev.message.content || []) {
       if (block.type === 'tool_result') {
         const text = typeof block.content === 'string'
@@ -80,6 +117,7 @@ function handleEvent(ev) {
     if (typeof ev.total_cost_usd === 'number') runUI.cost = ev.total_cost_usd;
     // The closing event repeats the final assistant message, so every run ended with its own last
     // paragraph printed twice. Show it only when it says something the transcript does not.
+    clearThinking();
     const closing = String(ev.result || '').trim();
     if (closing && closing !== runUI.lastText) row('text', '', closing);
     return;
@@ -90,6 +128,7 @@ function handleEvent(ev) {
 
 function setRunning(on) {
   runUI.running = on;
+  rq('runLog').classList.toggle('is-live', on);
   rq('runStart').disabled = on;
   rq('runStop').disabled = !on;
   rq('runStatus').textContent = on ? 'đang chạy…' : '';
@@ -102,6 +141,7 @@ window.runUI = {
     runUI.session = '';
     runUI.turns = 0;
     runUI.lastText = '';
+    runUI.thinking = 0;
     rq('runStatus').textContent = '';
     rq('replyBox').hidden = true;
     rq('reply').value = '';
@@ -115,6 +155,31 @@ window.runUI = {
     rq('replyBox').hidden = true;
   },
   session: () => runUI.session,
+  turns: () => runUI.turns,
+  lastText: () => runUI.lastText,
+  /* Pick up a session recorded before the app closed.
+   *
+   * Only the id crosses the restart. The transcript is gone and the log says so, because an empty
+   * log under a heading that claims a conversation was restored is a lie the person discovers by
+   * asking something the agent answers from context they cannot see. */
+  adopt(record) {
+    // window.runUI, not runUI: the const in this file is the state, and only the exposed object
+    // carries the methods. Calling reset() on the state threw, and a thrown adopt looks exactly
+    // like a resume that quietly did nothing.
+    window.runUI.reset();
+    runUI.session = String(record.sessionId);
+    runUI.turns = Number(record.turns) || 0;
+    runUI.lastText = String(record.lastText || '');
+    row('meta', 'phiên cũ', `Nối lại phiên ${record.sessionId.slice(0, 8)}… — ${runUI.turns} lượt trước đó.`);
+    row('meta', '', 'Claude vẫn nhớ toàn bộ cuộc trò chuyện cũ; phần hiển thị dưới đây bắt đầu lại từ trống.');
+    if (runUI.lastText) row('text', 'câu cuối trước đó', runUI.lastText);
+    // Nothing is running yet: leaving Stop live would offer to cancel a run that does not exist.
+    setRunning(false);
+    rq('runStatus').textContent = 'sẵn sàng nối tiếp';
+    rq('replyBox').hidden = false;
+    if (window.refreshReplyMode) window.refreshReplyMode();
+    rq('reply').focus();
+  },
   handleEvent,
   setRunning,
   finish(code, error) {
@@ -126,6 +191,8 @@ window.runUI = {
     // wearing the same transcript, which is worse than not offering it.
     const canReply = code === 0 && Boolean(runUI.session);
     rq('replyBox').hidden = !canReply;
+    // Record it now rather than on quit: a crash is exactly the case this feature exists for.
+    if (runUI.session && window.saveRunSession) window.saveRunSession();
     if (canReply) {
       if (window.refreshReplyMode) window.refreshReplyMode();
       rq('reply').focus();

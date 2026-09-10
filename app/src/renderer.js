@@ -473,6 +473,7 @@ function openDrawer(skill) {
   showPane('paneJobs');
   showView('viewDetail');
   window.jobsUI.renderJobList(skill, pickJob);
+  offerResume();
   $('dTitle').textContent = skill.name;
   state.ask = '';
   $('dAsk').value = '';
@@ -601,6 +602,7 @@ $('pickFolder').addEventListener('click', async () => {
   if (folder) {
     state.folder = folder;
     updateLaunch();
+    offerResume();
   }
 });
 
@@ -669,6 +671,68 @@ async function sendReply() {
   });
   if (!res.ok) window.runUI.finish(-1, res.error);
 }
+
+/* Session memory across restarts.
+ *
+ * The saved record is keyed on folder plus skill: the same session id means nothing in a different
+ * repository. Saving after every finished turn, not at quit, because the restart worth surviving
+ * is usually the one nobody chose. */
+window.saveRunSession = saveRunSession;
+function saveRunSession() {
+  const session = window.runUI.session();
+  if (!session || !state.folder) return;
+  window.studio.saveSession({
+    sessionId: session,
+    folder: state.folder,
+    skillId: currentSkillId(),
+    skillName: (state.openSkill && state.openSkill.name) || '',
+    mode: $('permMode').value,
+    turns: window.runUI.turns(),
+    lastText: window.runUI.lastText(),
+  });
+}
+
+// openSkill holds the whole skill object; the session key needs its id.
+function currentSkillId() {
+  return (state.openSkill && state.openSkill.id) || '';
+}
+
+let pendingResume = null;
+
+async function offerResume() {
+  const bar = $('resumeBar');
+  if (!bar) return;
+  pendingResume = null;
+  bar.hidden = true;
+  if (!state.folder) return;
+  const rec = await window.studio.getSession({ folder: state.folder, skillId: currentSkillId() });
+  if (!rec || !rec.sessionId) return;
+  pendingResume = rec;
+  $('resumeTitle').textContent = `Có phiên dở dang trong ${shortPath(rec.folder)}`;
+  const when = new Date(rec.updatedAt);
+  const stamp = Number.isNaN(when.getTime()) ? '' : ` · ${when.toLocaleString('vi-VN')}`;
+  $('resumeSub').textContent = `${rec.turns} lượt${stamp} — Claude vẫn giữ nguyên ngữ cảnh, bấm để hỏi tiếp.`;
+  bar.hidden = false;
+}
+window.offerResume = offerResume;
+
+$('resumeGo').addEventListener('click', () => {
+  if (!pendingResume) return;
+  const rec = pendingResume;
+  $('resumeBar').hidden = true;
+  if (rec.mode) $('permMode').value = rec.mode;
+  showPane('paneRun');
+  window.runUI.adopt(rec);
+  refreshReplyMode();
+});
+
+$('resumeDrop').addEventListener('click', async () => {
+  $('resumeBar').hidden = true;
+  if (pendingResume) {
+    await window.studio.forgetSession({ folder: pendingResume.folder, skillId: pendingResume.skillId });
+    pendingResume = null;
+  }
+});
 
 $('replySend').addEventListener('click', sendReply);
 $('permMode').addEventListener('change', refreshReplyMode);
@@ -767,6 +831,7 @@ window.wfInit(() => state.suitePath, () => state.catalog, () => state.folder);
   const cfg = await window.studio.getConfig();
   state.folder = (cfg.recentFolders && cfg.recentFolders[0]) || '';
   updateLaunch();
+  offerResume();
   if (cfg.suitePath) loadSuite(cfg.suitePath);
   else renderGrid();
 })();

@@ -22,6 +22,81 @@ function writeConfig(cfg) {
   fs.writeFileSync(CONFIG_PATH, JSON.stringify(cfg, null, 2));
 }
 
+/* Sessions that outlive the window.
+ *
+ * `--resume` restores the model's side of a conversation, so continuing after a restart needs
+ * nothing more than the session id. The transcript on screen is not restored and the app says so:
+ * claiming to have brought back a conversation while showing an empty log would be a lie the user
+ * only discovers by asking a question the agent answers from context they cannot see.
+ *
+ * Keyed on folder plus skill, because a session belongs to the work it was doing. Records are
+ * capped and the oldest dropped, so a long-running install does not accumulate a session file
+ * nobody reads.
+ */
+/* The store lives beside the config, but its path is overridable.
+ *
+ * Chromium locks a userData directory, so two app instances cannot share one — and a test for
+ * "the session survived a restart" is precisely two instances that must see the same store.
+ * Naming the file separately gives the test a shared store without a shared profile lock. */
+const SESSIONS_PATH = process.env.DA_SESSIONS_PATH || path.join(app.getPath('userData'), 'sessions.json');
+const SESSION_LIMIT = 60;
+
+function readSessions() {
+  try {
+    const doc = JSON.parse(fs.readFileSync(SESSIONS_PATH, 'utf8'));
+    return doc && typeof doc === 'object' && doc.sessions ? doc : { version: 1, sessions: {} };
+  } catch {
+    return { version: 1, sessions: {} };
+  }
+}
+
+function sessionKey(folder, skillId) {
+  return `${folder || ''}::${skillId || ''}`;
+}
+
+ipcMain.handle('session:get', (_e, { folder, skillId }) => {
+  const doc = readSessions();
+  return doc.sessions[sessionKey(folder, skillId)] || null;
+});
+
+ipcMain.handle('session:save', (_e, record) => {
+  if (!record || !record.sessionId || !record.folder) return { ok: false, error: 'thiếu session hoặc thư mục' };
+  const doc = readSessions();
+  doc.sessions[sessionKey(record.folder, record.skillId)] = {
+    sessionId: record.sessionId,
+    folder: record.folder,
+    skillId: record.skillId || '',
+    skillName: record.skillName || '',
+    mode: record.mode || 'plan',
+    turns: Number(record.turns) || 1,
+    lastText: String(record.lastText || '').slice(0, 400),
+    updatedAt: new Date().toISOString(),
+  };
+  // Oldest first, so the cap drops what nobody has touched.
+  const entries = Object.entries(doc.sessions)
+    .sort((a, b) => String(b[1].updatedAt).localeCompare(String(a[1].updatedAt)))
+    .slice(0, SESSION_LIMIT);
+  doc.sessions = Object.fromEntries(entries);
+  try {
+    fs.mkdirSync(path.dirname(SESSIONS_PATH), { recursive: true });
+    fs.writeFileSync(SESSIONS_PATH, JSON.stringify(doc, null, 2) + '\n');
+    return { ok: true };
+  } catch (err) {
+    return { ok: false, error: err.message };
+  }
+});
+
+ipcMain.handle('session:forget', (_e, { folder, skillId }) => {
+  const doc = readSessions();
+  delete doc.sessions[sessionKey(folder, skillId)];
+  try {
+    fs.writeFileSync(SESSIONS_PATH, JSON.stringify(doc, null, 2) + '\n');
+    return { ok: true };
+  } catch (err) {
+    return { ok: false, error: err.message };
+  }
+});
+
 function createWindow() {
   const win = new BrowserWindow({
     width: 1180,
