@@ -70,7 +70,7 @@ Bốn catalog được tải theo nhu cầu để tối ưu token:
 
 ### Slash commands
 
-Mười ba lệnh điều khiển cộng 32 lệnh phòng ban (mỗi role một lệnh `/dd-<role>`, nhóm theo sprint stage think / plan / build / review / test / ship / reflect). Routing ngầm bằng ngôn ngữ tự nhiên vẫn hoạt động như cũ.
+Mười chín lệnh điều khiển cộng 32 lệnh phòng ban (mỗi role một lệnh `/dd-<role>`, nhóm theo sprint stage think / plan / build / review / test / ship / reflect). Routing ngầm bằng ngôn ngữ tự nhiên vẫn hoạt động như cũ.
 
 | Lệnh | Dùng để |
 |---|---|
@@ -84,9 +84,15 @@ Mười ba lệnh điều khiển cộng 32 lệnh phòng ban (mỗi role một 
 | `/dd-constitution` | Chốt và cưỡng chế hiến pháp dự án: tech stack khóa và luật kiến trúc chặn |
 | `/dd-scan` | Đo structural drift: cycles, độ sâu phụ thuộc, coupling, trùng lặp |
 | `/dd-recall` | Truy hồi trí nhớ tất định, 0 model call, trả về con trỏ source:line |
+| `/dd-capture` | Ném một link vào, nhận note đã tổng hợp nằm sẵn trong vault Obsidian |
 | `/dd-navigate` | Trả lời câu hỏi code từ symbol index thay vì đọc cả file |
 | `/dd-instinct` | Ghi nhận và chấm điểm instinct; confidence tính từ kết quả đếm được |
 | `/dd-skill-quality` | Chấm chất lượng task contract theo outcome đã ghi nhận |
+| `/dd-plan` | Biến ý định thành spec và task list được duyệt trước khi build |
+| `/dd-work` | Làm một task đã duyệt cùng test bắt buộc, dừng đúng ở test gate |
+| `/dd-review` | Review việc đã xong theo acceptance criteria chốt từ khâu Plan |
+| `/dd-ship` | Đóng gói evidence đã verify thành release, từ chối claim không có evidence |
+| `/dd-atlas` | Vẽ toàn bộ suite thành một cây từ gốc repo xuống tới từng task |
 
 ### Production guard
 
@@ -2097,7 +2103,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`, `knowledge-review.yaml`, `migration-plan.yaml`, `output-record.yaml`, `personal-context.yaml`, `retrieval-evaluation.yaml`, `second-brain-manifest.json`, `second-brain-manifest.schema.json`, `source-record.yaml`, `wiki-note.yaml`.
 
-**Scripts:** `build_brain_index.py`, `build_entity_context_graph.py`, `validate_second_brain.py`.
+**Scripts:** `build_brain_index.py`, `build_entity_context_graph.py`, `validate_second_brain.py`, `write_vault_bundle.py`.
 
 #### Plan / Design (12 tasks)
 
