@@ -274,7 +274,7 @@ ROLE_COMMANDS = {
 SPRINT_STAGES = ["think", "plan", "build", "review", "test", "ship", "reflect"]
 
 CLAUDE_TRIGGER_DESCRIPTIONS = {
-    "data-department-orchestrator": "Route ambiguous, organizational or multi-role Data Department requests and compose governed workflows with owners, dependencies, gates and handoffs. Use when the named deliverable cannot be built until another role sources, models or certifies its inputs — a dashboard from systems not yet ingested, an incident spanning monitoring, diagnosis and revalidation, a rebuild combining discovery, implementation and proof. The deliverable named last does not decide the owner; the work standing in front of it does. Route personal learning or portfolio projects to Personal Data Project Engineering.",
+    "data-department-orchestrator": "Route ambiguous, organizational or multi-role Data Department requests and compose governed workflows with owners, dependencies, gates and handoffs. Use when the named deliverable cannot be built until another role sources, models or certifies its inputs — a dashboard from systems not yet ingested, an incident spanning monitoring, diagnosis and revalidation, a rebuild combining discovery, implementation and proof. Also owns the run itself: continuing an in-flight workflow from its last approved checkpoint, enforcing the gate that checkpoint sits behind, and writing the session handoff that tells the next agent what was tried and rejected. A request to resume, continue or hand over work belongs here even when the work is entirely inside one domain. The deliverable named last does not decide the owner; the work standing in front of it does. Route personal learning or portfolio projects to Personal Data Project Engineering.",
     "shared-data-core": "Apply shared data controls for bounded task-context packaging, discovery, schema inspection, profiling, validation, evidence, approvals and handoffs. Use when a data task needs reusable cross-role safeguards, a prompt-ready context bundle or artifact checks.",
     "company-data-context": "Maintain and index company-specific data context including glossary terms, metrics, datasets, systems, owners, policies and platforms. Use when Claude must initialize, route, retrieve or verify organizational context without storing secrets.",
     "head-of-data-and-data-product": "Lead data strategy, operating model, portfolio, roadmap, service intake, prioritization, value, adoption and executive governance. Use for Head of Data, CDO or Data Product Management deliverables.",
@@ -1074,19 +1074,19 @@ def catalog_group(task_id: str) -> str:
 # that lets an agent reach further than its contract allows.
 EXTERNAL_TOOL_ACCESS = """# External tool access for agents
 
-An agent that can read a warehouse is a reporting tool. An agent that can send mail, edit a document or write to a ticket system is acting in the organisation, and the failure modes stop being wrong answers and start being wrong actions. The boundary between those two is worth designing rather than inheriting from whatever library was convenient.
+An agent that can read a warehouse is a reporting tool. Let that same agent send mail, edit a document or write to a ticket system and it is acting in the organisation, and the failure modes stop being wrong answers and start being wrong actions. The boundary between those two is worth designing rather than inheriting from whatever library was convenient.
 
 ## One declared surface, not scattered credentials
 
-Reach external services through a single declared tool surface — Model Context Protocol or an equivalent — rather than through per-integration code holding its own credentials. The reason is not elegance. A declared surface is enumerable: you can answer "what can this agent touch" by reading a manifest, and the answer stays true. Scattered SDK calls answer that question only by grepping, and the grep goes stale.
+Reach external services through a single declared tool surface — Model Context Protocol or an equivalent — rather than through per-integration code holding its own credentials. The reason is not elegance. Enumerability is the reason: "what can this agent touch" is answered by reading a manifest, and the answer stays true. Scattered SDK calls answer that question only by grepping, and the grep goes stale.
 
-Each tool in the surface declares what it does, what it needs, and whether it reads or writes. An agent's available tools are the intersection of what the surface offers and what this task's contract allows — not everything the credential happens to permit.
+Each tool in the surface declares what it does, what it needs, and whether it reads or writes. Available tools are the intersection of what the surface offers and what this task's contract allows — not everything the credential happens to permit.
 
 ## Read and write are different grants
 
-Separate them explicitly and default to read. A summarising agent needs to read the thread; it does not need to send. Most agent incidents in shared workspaces are a write grant that was never needed for the task that was actually being done.
+Separate them explicitly and default to read. An agent summarising a thread needs to read it. It does not need to send. Most agent incidents in shared workspaces are a write grant that was never needed for the task that was actually being done.
 
-A write to an external service is an outward-facing action, so the suite's existing rule applies unchanged: it needs authority bound to this scope, and it is never inferred from the agent having succeeded at reading. Draft-then-approve is the default shape — the agent produces the message, the document, the ticket, and a person releases it.
+Writing to an external service is an outward-facing action, so the suite's existing rule applies unchanged: it needs authority bound to this scope, and it is never inferred from the agent having succeeded at reading. Draft-then-approve is the default shape — the agent produces the message, the document, the ticket, and a person releases it.
 
 ## Identity, and what the audit trail must show
 
@@ -4060,13 +4060,13 @@ Do not begin stage 5 before stage 4 has an accepted plan. Notes written without 
 
 ## Sourcing the roadmap
 
-A roadmap presented as current must name where it came from. Every step carries a source with publisher, URL, publication or update date and access date. Where a step is included on the author's judgment rather than from a source, mark it as judgment and say why. `role-curricula.md` is the suite's own level matrix and may be used as one input, but it is a static table and is never itself evidence of what is current. An uncited step is recorded as an assumption, and the roadmap does not claim currency unless its sources are dated.
+Presented as current, a roadmap must name where it came from. Every step carries a source with publisher, URL, publication or update date and access date. A step included on the author's judgment rather than from a source is marked as judgment and say why. `role-curricula.md` is the suite's own level matrix and may be used as one input, but it is a static table and is never itself evidence of what is current. An uncited step is recorded as an assumption, and the roadmap does not claim currency unless its sources are dated.
 
 Separate three things throughout: what sources state, what is conventional practice without a single authority, and what is the author's judgment. Do not assert version numbers, release dates or tool rankings that have not been verified.
 
 ## Ask before building
 
-A corpus generated without asking teaches the learner things they already know, and the cost lands on them: they read modules they could have skipped, and lose trust in the rest of the corpus for having wasted their time. Stage 3 exists so the plan starts from what is already held.
+Generate a corpus without asking and it teaches the learner things they already know, and the cost lands on them: they read modules they could have skipped, and lose trust in the rest of the corpus for having wasted their time. Stage 3 exists so the plan starts from what is already held.
 
 Resolve the learner memory first, through the learner-memory contract. It is the durable record, and a topic already marked `mastered` with fresh evidence does not need to be asked about again. Only then ask, and ask about what the roadmap actually contains rather than in general: name the tracks and modules and ask which are familiar.
 
@@ -4078,17 +4078,17 @@ Each module then carries one of three treatments:
 - **compress** — build the notes that carry decision rules, failure modes and interfaces, and skip the introductory ones. Use this when the learner holds the concept but not its edges.
 - **skip** — plan the notes and leave them `planned`, with the reason recorded. A skipped module is not deleted from the plan: prerequisite edges still resolve to it, and the learner may ask for it later.
 
-Where a claim of prior knowledge is load-bearing — a module everything downstream depends on — offer a short diagnostic from `academy-run-note-diagnostic` rather than taking the claim at face value. Offer it; do not require it. A learner who declines has made a decision about their own time, and the plan records that the foundation is assumed rather than checked.
+Where a claim of prior knowledge is load-bearing — a module everything downstream depends on — offer a short diagnostic from `academy-run-note-diagnostic` rather than taking the claim at face value. Offer it; do not require it. Declining is a decision the learner made about their own time; the plan records that the foundation is assumed rather than checked.
 
 ## The manifest is the resume anchor
 
 `note-corpus-manifest.json` holds the corpus state: corpus ID, domain, roadmap and track references, the planned note list and per-note status. Note status is exactly one of `planned`, `drafted`, `reviewed` or `stale`. `drafted` means a file exists at the expected path; it is not a claim that the note is correct. Only `reviewed` records a note as usable, and only after the deep-dive standard's checks have been applied to it.
 
-A session resumes by reading the manifest, never by re-deriving the plan. Rebuilding the plan mid-corpus renumbers IDs that other notes already point at. Where the roadmap genuinely changed, add and supersede entries rather than regenerating the list, and mark superseded notes `stale` with a reason rather than deleting them.
+A session resumes by reading the manifest, never by re-deriving the plan. Rebuilding the plan mid-corpus renumbers IDs that other notes already point at. When the roadmap genuinely changed, add and supersede entries rather than regenerating the list, and mark superseded notes `stale` with a reason rather than deleting them.
 
 ## Module batches
 
-A module is the unit of work because it is the smallest scope whose notes share prerequisites and can be checked against each other for overlap. Build every note in the module to the same depth before moving on: a corpus of uneven notes is worse than a smaller complete one, because the reader cannot tell which gaps are deliberate.
+Modules are the unit of work: the smallest scope whose notes share prerequisites and can be checked against each other for overlap. Build every note in the module to the same depth before moving on: a corpus of uneven notes is worse than a smaller complete one, because the reader cannot tell which gaps are deliberate.
 
 Within a batch, apply the deep-dive standard to each note, then check the batch as a set: no two notes in the module carry the same elevator-pitch claim, each note's `builds_on` targets either exist or are planned, and no note silently redefines a term another note in the module owns.
 
@@ -4098,7 +4098,7 @@ The per-note rule of extending a near-duplicate instead of creating one does not
 
 ## One module, one writer
 
-A corpus outlives its sessions, so two of them will eventually run at once. The manifest is a single file and the last write wins, which silently discards whichever module finished first.
+Corpora outlive their sessions, so two sessions will eventually run at once. The manifest is a single file and the last write wins, which silently discards whichever module finished first.
 
 Claim a module before building it and release it when the batch closes. Two sessions may work in parallel only on modules that share no notes, and neither rewrites a manifest entry belonging to the other's module. On a collision, the module that has not yet written any note yields; re-running a module that produced nothing is cheap, and reconciling two divergent manifests is not.
 
@@ -4106,7 +4106,7 @@ Where the corpus spans enough stages to need gates, represent it as `corpus-work
 
 ## Persisting what happened
 
-Every stage writes its outcome down before the session ends: the roadmap and its sources, the prior-knowledge profile, the plan, each module as it closes, and every diagnostic result. A corpus built across many sessions has no other continuity, and reconstructing a decision from a transcript that no longer exists is not possible.
+Every stage writes its outcome down before the session ends: the roadmap and its sources, the prior-knowledge profile, the plan, each module as it closes, and every diagnostic result. Built across many sessions, a corpus has no other continuity, and a decision cannot be reconstructed from a transcript that no longer exists.
 
 Learning evidence goes to `data-career-and-interview-coach` as a learning event; the corpus manifest keeps only what exists. These are separate records with separate owners, and the split is what keeps a written note from quietly becoming a claim that someone learned it.
 
@@ -4413,7 +4413,7 @@ Store a bounded evidence snapshot or executable report with SHA-256, concrete ve
 - Examples include error/failure behavior, not only the happy path. Explain trade-offs and when the technique should not be used.
 - Content excludes secrets, proprietary interview material, private logs, customer data and unapproved company details.
 
-Run independent reviews for technical accuracy, claim/source traceability, code/diagram validity, voice/originality and platform fit. A pass in one dimension does not compensate for a critical failure in another. Corrections update canonical and all affected channel variants through stable artifact links and a changelog.
+Run independent reviews for technical accuracy, claim/source traceability, code/diagram validity, voice/originality and platform fit. A pass in one dimension does not compensate for a critical failure in another. Averaging them hides exactly the failure that matters, since a piece can be well written, on brand, correctly formatted and still wrong about the thing it exists to explain. Corrections update canonical and all affected channel variants through stable artifact links and a changelog.
 
 For social variants, enforce Facebook=`vi`, LinkedIn=`en`, and Substack=`en`. The language check covers all reader-facing prose while allowing code, identifiers, product names and established technical terms to remain unchanged. A declared language without a passed exact-version `channel-language` test is insufficient for approval.
 """
@@ -4660,7 +4660,7 @@ Keep disagreement visible. A newer edition does not silently erase prior claims;
 
 Start from the concrete job and target output. Translate it into concepts, time/authority constraints, required personal rules and forbidden sensitivity. Retrieve in this order: authoritative fresh source records → verified Wiki notes → scoped 3_Toi context → prior outputs as examples only. Penalize stale, weak-authority, duplicate and overbroad results. Return the minimum sufficient context under the declared token budget.
 
-A context pack states selected and omitted items, conflicts, freshness, source locators, personal-rule versions and expiry. An output manifest maps every material claim to evidence or marks it synthesis/inference/personal/unsupported. Citation existence is insufficient: verify the cited location entails the claim. When evidence conflicts or is absent, abstain or present uncertainty.
+A context pack states selected and omitted items, conflicts, freshness, source locators, personal-rule versions and expiry. An output manifest maps every material claim to evidence or marks it synthesis/inference/personal/unsupported. Citation existence is insufficient: verify the cited location entails the claim. A citation that points at a real document which does not actually say the thing is worse than no citation at all, because it survives the one check most readers perform. When evidence conflicts or is absent, abstain or present uncertainty.
 
 Evaluate with unseen representative queries: relevance precision, coverage, authority, freshness, citation validity, leakage/forbidden-source exclusion and abstention accuracy. Test changed wording and cross-domain ambiguity. Never improve a score by removing hard queries after a failure.
 """
@@ -4786,13 +4786,13 @@ Not to invent reviews, ratings, testimonials or experience. Not to publish under
 def build_benchmark_references() -> None:
     grounded_generation = """# Grounded generation and agent economics
 
-An agent that writes SQL from the table names it remembers will produce syntactically perfect queries against columns that do not exist. An agent that skips the model when a question looks familiar will answer a new question with an old answer. Both failures are cheap to prevent and expensive to notice, because both produce output that looks exactly like success.
+An agent that writes SQL from the table names it remembers will produce syntactically perfect queries against columns that do not exist. Skip the model because a question looks familiar, and you answer a new question with an old answer. Both failures are cheap to prevent and expensive to notice, because both produce output that looks exactly like success.
 
 ## Retrieve the schema before writing the query
 
-A generation step that touches a warehouse retrieves the schema for the tables it intends to use, from a metadata index, immediately before generating. Not from the system prompt, which goes stale the moment a column is renamed; not from the conversation, which may be describing a different environment; and not from recall.
+Before generating, a step that touches a warehouse retrieves the schema for the tables it intends to use, from a metadata index. Not from the system prompt, which goes stale the moment a column is renamed; not from the conversation, which may be describing a different environment; and not from recall.
 
-What the retrieval must return is the grain, the column names and types, the partition and cluster keys, and whatever the warehouse enforces about them. A query written without the partition key on a partitioned table is not slow — it is a full scan the finance team notices before the analyst does.
+What the retrieval must return is the grain, the column names and types, the partition and cluster keys, and whatever the warehouse enforces about them. Written without the partition key on a partitioned table, a query is not slow — it is a full scan the finance team notices before the analyst does.
 
 Record which schema version grounded which query. When a query later turns out to be wrong, the first question is whether the schema it was written against still describes the table, and that question needs an answer rather than an investigation.
 
@@ -4805,13 +4805,13 @@ Two things must hold before a hit is served:
 - **The question is the same question.** Vector distance measures phrasing, and two questions can be phrased almost identically while differing in the one clause that matters — last month versus this month, gross versus net, including refunds or not. Set the threshold from labelled pairs you have checked, and treat every near-threshold hit as a miss.
 - **The data has not moved underneath it.** A cached report is valid only for a warehouse state. Key the cache on the underlying table versions, partitions or a freshness watermark as well as on the question, and invalidate on load rather than on a timer that has no relationship to when the data changed.
 
-Serve a cached answer labelled as cached, with the timestamp it was produced. A user who can see that a number is four hours old will ask for a refresh when it matters; a user shown a stale number as if it were live will not.
+Serve a cached answer labelled as cached, with the timestamp it was produced. Show the reader that a number is four hours old and they will ask for a refresh when it matters; show them a stale number as if it were live and they will not.
 
-Measure the hit rate and the false-hit rate separately. A rising hit rate with no false-hit measurement is not a saving that has been demonstrated — it is one that has been assumed.
+Measure the hit rate and the false-hit rate separately. Rising hit rate with no false-hit measurement is not a demonstrated saving. It is an assumed one.
 
 ## Interrupt points are part of the design
 
-A long agent graph that runs to completion and then asks for approval has already spent the tokens and already made the decisions. Name the points where it stops instead: after the plan, before anything is written, before anything is published. Each interrupt states what was decided, what happens next, and what the human is being asked to change.
+Let a long agent graph run to completion before it asks for approval, and it has already spent the tokens and already made the decisions. Name the points where it stops instead: after the plan, before anything is written, before anything is published. Each interrupt states what was decided, what happens next, and what the human is being asked to change.
 
 An interrupt is not a confirmation dialog. It exists so the plan can be edited and the graph resumed from that point, which means the state at each interrupt is serialisable and the resume path is tested. An interrupt that can only be approved is a delay with extra steps.
 
@@ -5022,7 +5022,7 @@ A domain expert confirms the terminology. Fluency in both languages does not con
 
 A harness is everything one agent needs to do one role's work, packaged so it behaves the same way twice and can be handed to somebody else. It is not a bundle of skills. It is a boundary, and most of its value is in what it excludes.
 
-The suite already has the parts — task contracts, a context package, a tool surface, evaluation cases, run state. A harness is the declaration that says which of them apply, and that declaration is the artifact.
+The suite already has the parts — task contracts, a context package, a tool surface, evaluation cases, run state. What a harness adds is the declaration of which ones apply, and that declaration is the artifact `orchestrator-define-agent-harness` produces.
 
 ## What a harness declares
 
@@ -5037,21 +5037,21 @@ The suite already has the parts — task contracts, a context package, a tool su
 
 Two runs of the same harness on the same input should differ only where the model is non-deterministic — never because a prompt, a corpus or a schema moved underneath it. Pin every input that is not the user's request, and record the pinned versions with the run.
 
-When an agent produces something wrong, the first question is what it was working from. A harness that cannot answer that turns every investigation into an archaeology exercise, and the answer is usually that something changed and nobody knows what.
+When an agent produces something wrong, the first question is what it was working from — the model, the prompt, the corpus, the schema, each at the version it had that day. Unable to answer that, a harness turns every investigation into an archaeology exercise, and the answer is usually that something changed and nobody knows what.
 
 ## Version it, because a changed harness is a different agent
 
-Swapping the model, editing the system prompt, adding a tool or widening the scope produces an agent with different behaviour and a stale evaluation. Version the harness, re-run its cases, and record both. An evaluation score attached to a version nobody can reconstruct is decoration.
+Swap the model. Edit the system prompt, add a tool, widen the scope — each one produces an agent with different behaviour and an evaluation that no longer describes it. Version the harness, re-run its cases, and record both; `orchestrator-audit-agent-harness` exists to compare a running agent against the declaration it claims to follow. An evaluation score attached to a version nobody can reconstruct is decoration.
 
 ## Handing one over transfers risk as well as capability
 
-A harness given to another team runs under their credentials, in their environment, against their data. The guardrails travel with it or the harness is not what they received. State plainly what it may write, what it may spend, and what it stops for; a recipient who has to infer the blast radius from reading prompts will infer it wrong.
+Handed to another team, a harness runs under their credentials, in their environment, against their data. The guardrails travel with it or the harness is not what they received. State plainly what it may write, what it may spend, and what it stops for; a recipient who has to infer the blast radius from reading prompts will infer it wrong.
 
 Name an accountable owner. An unowned harness in production is a set of permissions nobody is watching.
 
 ## What the harness does not change
 
-It packages how work is done; it does not lower what the work must clear. Every gate in the lifecycle standard applies inside a harness exactly as outside it: evidence for material claims, named authority for R3 and above, and no claim of production execution without it. A harness that quietly relaxes a gate has not made the agent more capable, only less accountable.
+It packages how work is done; it does not lower what the work must clear. Every gate in the lifecycle standard applies inside a harness exactly as outside it: evidence for material claims, named authority for R3 and above, and no claim of production execution without it. Quietly relax a gate and the agent is not more capable, only less accountable.
 
 Nor does packaging make an agent correct. A harness with a clean evaluation on ten cases is an agent that passed ten cases.
 """
@@ -5093,7 +5093,7 @@ It confirms that each element claims a source. It cannot open that source and co
 """
     context_engineering = """# Context engineering standard
 
-Use context as a governed retrieval layer, not as one oversized prompt or a substitute for live inspection.
+Context is a retrieval layer under governance. It is not one oversized prompt, and it is never a substitute for looking at the live artifact. The seven layers below are the shape of a package; the procedure after them is how you fill it without smuggling in an assumption.
 
 ## Persistent index versus task package
 
@@ -5120,11 +5120,11 @@ Use context as a governed retrieval layer, not as one oversized prompt or a subs
 6. Scan for secrets and unnecessary sensitive data. Link protected material rather than copying it when permissions may differ.
 7. Validate the package by asking whether a fresh agent can identify the task, unknowns, authority, constraints, required tests and output without hidden context.
 
-The package may enable progress with bounded assumptions, but it must never turn missing authority, live state or critical semantics into an assumed fact.
+Bounded assumptions are allowed. Turning missing authority, live state or critical semantics into an assumed fact is not, and step 7 exists to catch exactly that.
 
 ## Session-boundary handoff
 
-Run state records where work stands: phase, current task, gates passed, what blocks it. It records nothing about how the session arrived there — the approach tried and abandoned, the assumption everything else rests on, the reason the obvious solution does not work here. A successor resuming from run state alone re-derives that reasoning, sometimes differently, and sometimes by repeating the abandoned approach.
+Run state records where work stands: phase, current task, gates passed, what blocks it. About how the session arrived there it records nothing — not the approach tried and abandoned, not the assumption everything else rests on, not the reason the obvious solution does not work here. A successor resuming from run state alone re-derives that reasoning. Sometimes differently. Sometimes by repeating the approach the last session already abandoned.
 
 Write a handoff when a session ends with work unfinished. It carries only what no durable artifact already holds.
 
@@ -5137,9 +5137,9 @@ Write a handoff when a session ends with work unfinished. It carries only what n
 
 Leave out anything a spec, plan, ADR, issue, commit, diff or run-state record already holds; reference it by path, hash or URL. A handoff that restates the plan is a second copy of the plan, and it will drift from the first.
 
-Write it to the operating system's temporary directory or a configured scratch location, never into the workspace unless the user asks for it there. A handoff is working scratch, not a deliverable: written into the repository it gets committed, then reviewed, then eventually believed.
+Write it to the operating system's temporary directory or a configured scratch location, never into the workspace unless the user asks for it there. This is working scratch, not a deliverable: put it in the repository and it gets committed, then reviewed, then eventually believed.
 
-A handoff is not evidence, not an approval and not a claim that anything finished. A gate the session did not pass stays unpassed however the document describes it. Redact secrets, credentials and personal data before writing — a scratch file is still a file.
+Nothing here is evidence, an approval, or a claim that anything finished. A gate the session did not pass stays unpassed, however confidently the document describes it. Redact secrets, credentials and personal data before writing — a scratch file is still a file.
 """
 
     analysis_rigor = """# Analysis rigor and communication standard
@@ -5152,7 +5152,7 @@ Confirm row grain and scope before interpreting distributions. Inspect schema/ty
 
 ## SQL to business logic
 
-Trace CTEs and sources, join type/cardinality, filters, time logic, grouping grain, aggregations, window functions and output columns. Flag fan-out, implicit null handling, hard-coded periods, currency/time-zone ambiguity and dialect-specific behavior. A structural parser is heuristic; confirm against schema, business definitions and an EXPLAIN/dry run when available.
+Trace CTEs and sources, join type/cardinality, filters, time logic, grouping grain, aggregations, window functions and output columns. Flag fan-out, implicit null handling, hard-coded periods, currency/time-zone ambiguity and dialect-specific behavior. A structural parser is heuristic; confirm against schema, business definitions and an EXPLAIN/dry run when available. Fan-out is the failure worth naming twice: a join that multiplies rows inflates every sum downstream, and the result stays plausible enough to reach a slide before anyone checks the row count.
 
 ## Assumptions and impact
 
@@ -5160,7 +5160,7 @@ Record data, business-rule and statistical assumptions with source, confidence, 
 
 ## Methodology explanation
 
-Calibrate depth by audience: executive = decision, why the method is credible and limitation; business = data, logic and interpretation; technical = full design, assumptions, diagnostics and reproducibility. Preserve decision-critical caveats when simplifying.
+Calibrate depth by audience: executive = decision, why the method is credible and limitation; business = data, logic and interpretation; technical = full design, assumptions, diagnostics and reproducibility. Preserve decision-critical caveats when simplifying. Dropping the caveat is what turns a bounded finding into a claim the audience acts on, and the shorter the summary, the more load each surviving sentence carries.
 
 ## Peer review and pre-delivery QA
 

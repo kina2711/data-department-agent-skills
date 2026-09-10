@@ -1,18 +1,18 @@
 # External tool access for agents
 
-An agent that can read a warehouse is a reporting tool. An agent that can send mail, edit a document or write to a ticket system is acting in the organisation, and the failure modes stop being wrong answers and start being wrong actions. The boundary between those two is worth designing rather than inheriting from whatever library was convenient.
+An agent that can read a warehouse is a reporting tool. Let that same agent send mail, edit a document or write to a ticket system and it is acting in the organisation, and the failure modes stop being wrong answers and start being wrong actions. The boundary between those two is worth designing rather than inheriting from whatever library was convenient.
 
 ## One declared surface, not scattered credentials
 
-Reach external services through a single declared tool surface — Model Context Protocol or an equivalent — rather than through per-integration code holding its own credentials. The reason is not elegance. A declared surface is enumerable: you can answer "what can this agent touch" by reading a manifest, and the answer stays true. Scattered SDK calls answer that question only by grepping, and the grep goes stale.
+Reach external services through a single declared tool surface — Model Context Protocol or an equivalent — rather than through per-integration code holding its own credentials. The reason is not elegance. Enumerability is the reason: "what can this agent touch" is answered by reading a manifest, and the answer stays true. Scattered SDK calls answer that question only by grepping, and the grep goes stale.
 
-Each tool in the surface declares what it does, what it needs, and whether it reads or writes. An agent's available tools are the intersection of what the surface offers and what this task's contract allows — not everything the credential happens to permit.
+Each tool in the surface declares what it does, what it needs, and whether it reads or writes. Available tools are the intersection of what the surface offers and what this task's contract allows — not everything the credential happens to permit.
 
 ## Read and write are different grants
 
-Separate them explicitly and default to read. A summarising agent needs to read the thread; it does not need to send. Most agent incidents in shared workspaces are a write grant that was never needed for the task that was actually being done.
+Separate them explicitly and default to read. An agent summarising a thread needs to read it. It does not need to send. Most agent incidents in shared workspaces are a write grant that was never needed for the task that was actually being done.
 
-A write to an external service is an outward-facing action, so the suite's existing rule applies unchanged: it needs authority bound to this scope, and it is never inferred from the agent having succeeded at reading. Draft-then-approve is the default shape — the agent produces the message, the document, the ticket, and a person releases it.
+Writing to an external service is an outward-facing action, so the suite's existing rule applies unchanged: it needs authority bound to this scope, and it is never inferred from the agent having succeeded at reading. Draft-then-approve is the default shape — the agent produces the message, the document, the ticket, and a person releases it.
 
 ## Identity, and what the audit trail must show
 

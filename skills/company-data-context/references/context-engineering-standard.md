@@ -1,6 +1,6 @@
 # Context engineering standard
 
-Use context as a governed retrieval layer, not as one oversized prompt or a substitute for live inspection.
+Context is a retrieval layer under governance. It is not one oversized prompt, and it is never a substitute for looking at the live artifact. The seven layers below are the shape of a package; the procedure after them is how you fill it without smuggling in an assumption.
 
 ## Persistent index versus task package
 
@@ -27,11 +27,11 @@ Use context as a governed retrieval layer, not as one oversized prompt or a subs
 6. Scan for secrets and unnecessary sensitive data. Link protected material rather than copying it when permissions may differ.
 7. Validate the package by asking whether a fresh agent can identify the task, unknowns, authority, constraints, required tests and output without hidden context.
 
-The package may enable progress with bounded assumptions, but it must never turn missing authority, live state or critical semantics into an assumed fact.
+Bounded assumptions are allowed. Turning missing authority, live state or critical semantics into an assumed fact is not, and step 7 exists to catch exactly that.
 
 ## Session-boundary handoff
 
-Run state records where work stands: phase, current task, gates passed, what blocks it. It records nothing about how the session arrived there — the approach tried and abandoned, the assumption everything else rests on, the reason the obvious solution does not work here. A successor resuming from run state alone re-derives that reasoning, sometimes differently, and sometimes by repeating the abandoned approach.
+Run state records where work stands: phase, current task, gates passed, what blocks it. About how the session arrived there it records nothing — not the approach tried and abandoned, not the assumption everything else rests on, not the reason the obvious solution does not work here. A successor resuming from run state alone re-derives that reasoning. Sometimes differently. Sometimes by repeating the approach the last session already abandoned.
 
 Write a handoff when a session ends with work unfinished. It carries only what no durable artifact already holds.
 
@@ -44,6 +44,6 @@ Write a handoff when a session ends with work unfinished. It carries only what n
 
 Leave out anything a spec, plan, ADR, issue, commit, diff or run-state record already holds; reference it by path, hash or URL. A handoff that restates the plan is a second copy of the plan, and it will drift from the first.
 
-Write it to the operating system's temporary directory or a configured scratch location, never into the workspace unless the user asks for it there. A handoff is working scratch, not a deliverable: written into the repository it gets committed, then reviewed, then eventually believed.
+Write it to the operating system's temporary directory or a configured scratch location, never into the workspace unless the user asks for it there. This is working scratch, not a deliverable: put it in the repository and it gets committed, then reviewed, then eventually believed.
 
-A handoff is not evidence, not an approval and not a claim that anything finished. A gate the session did not pass stays unpassed however the document describes it. Redact secrets, credentials and personal data before writing — a scratch file is still a file.
+Nothing here is evidence, an approval, or a claim that anything finished. A gate the session did not pass stays unpassed, however confidently the document describes it. Redact secrets, credentials and personal data before writing — a scratch file is still a file.

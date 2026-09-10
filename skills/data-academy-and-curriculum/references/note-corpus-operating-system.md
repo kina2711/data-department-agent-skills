@@ -16,13 +16,13 @@ Do not begin stage 5 before stage 4 has an accepted plan. Notes written without 
 
 ## Sourcing the roadmap
 
-A roadmap presented as current must name where it came from. Every step carries a source with publisher, URL, publication or update date and access date. Where a step is included on the author's judgment rather than from a source, mark it as judgment and say why. `role-curricula.md` is the suite's own level matrix and may be used as one input, but it is a static table and is never itself evidence of what is current. An uncited step is recorded as an assumption, and the roadmap does not claim currency unless its sources are dated.
+Presented as current, a roadmap must name where it came from. Every step carries a source with publisher, URL, publication or update date and access date. A step included on the author's judgment rather than from a source is marked as judgment and say why. `role-curricula.md` is the suite's own level matrix and may be used as one input, but it is a static table and is never itself evidence of what is current. An uncited step is recorded as an assumption, and the roadmap does not claim currency unless its sources are dated.
 
 Separate three things throughout: what sources state, what is conventional practice without a single authority, and what is the author's judgment. Do not assert version numbers, release dates or tool rankings that have not been verified.
 
 ## Ask before building
 
-A corpus generated without asking teaches the learner things they already know, and the cost lands on them: they read modules they could have skipped, and lose trust in the rest of the corpus for having wasted their time. Stage 3 exists so the plan starts from what is already held.
+Generate a corpus without asking and it teaches the learner things they already know, and the cost lands on them: they read modules they could have skipped, and lose trust in the rest of the corpus for having wasted their time. Stage 3 exists so the plan starts from what is already held.
 
 Resolve the learner memory first, through the learner-memory contract. It is the durable record, and a topic already marked `mastered` with fresh evidence does not need to be asked about again. Only then ask, and ask about what the roadmap actually contains rather than in general: name the tracks and modules and ask which are familiar.
 
@@ -34,17 +34,17 @@ Each module then carries one of three treatments:
 - **compress** — build the notes that carry decision rules, failure modes and interfaces, and skip the introductory ones. Use this when the learner holds the concept but not its edges.
 - **skip** — plan the notes and leave them `planned`, with the reason recorded. A skipped module is not deleted from the plan: prerequisite edges still resolve to it, and the learner may ask for it later.
 
-Where a claim of prior knowledge is load-bearing — a module everything downstream depends on — offer a short diagnostic from `academy-run-note-diagnostic` rather than taking the claim at face value. Offer it; do not require it. A learner who declines has made a decision about their own time, and the plan records that the foundation is assumed rather than checked.
+Where a claim of prior knowledge is load-bearing — a module everything downstream depends on — offer a short diagnostic from `academy-run-note-diagnostic` rather than taking the claim at face value. Offer it; do not require it. Declining is a decision the learner made about their own time; the plan records that the foundation is assumed rather than checked.
 
 ## The manifest is the resume anchor
 
 `note-corpus-manifest.json` holds the corpus state: corpus ID, domain, roadmap and track references, the planned note list and per-note status. Note status is exactly one of `planned`, `drafted`, `reviewed` or `stale`. `drafted` means a file exists at the expected path; it is not a claim that the note is correct. Only `reviewed` records a note as usable, and only after the deep-dive standard's checks have been applied to it.
 
-A session resumes by reading the manifest, never by re-deriving the plan. Rebuilding the plan mid-corpus renumbers IDs that other notes already point at. Where the roadmap genuinely changed, add and supersede entries rather than regenerating the list, and mark superseded notes `stale` with a reason rather than deleting them.
+A session resumes by reading the manifest, never by re-deriving the plan. Rebuilding the plan mid-corpus renumbers IDs that other notes already point at. When the roadmap genuinely changed, add and supersede entries rather than regenerating the list, and mark superseded notes `stale` with a reason rather than deleting them.
 
 ## Module batches
 
-A module is the unit of work because it is the smallest scope whose notes share prerequisites and can be checked against each other for overlap. Build every note in the module to the same depth before moving on: a corpus of uneven notes is worse than a smaller complete one, because the reader cannot tell which gaps are deliberate.
+Modules are the unit of work: the smallest scope whose notes share prerequisites and can be checked against each other for overlap. Build every note in the module to the same depth before moving on: a corpus of uneven notes is worse than a smaller complete one, because the reader cannot tell which gaps are deliberate.
 
 Within a batch, apply the deep-dive standard to each note, then check the batch as a set: no two notes in the module carry the same elevator-pitch claim, each note's `builds_on` targets either exist or are planned, and no note silently redefines a term another note in the module owns.
 
@@ -54,7 +54,7 @@ The per-note rule of extending a near-duplicate instead of creating one does not
 
 ## One module, one writer
 
-A corpus outlives its sessions, so two of them will eventually run at once. The manifest is a single file and the last write wins, which silently discards whichever module finished first.
+Corpora outlive their sessions, so two sessions will eventually run at once. The manifest is a single file and the last write wins, which silently discards whichever module finished first.
 
 Claim a module before building it and release it when the batch closes. Two sessions may work in parallel only on modules that share no notes, and neither rewrites a manifest entry belonging to the other's module. On a collision, the module that has not yet written any note yields; re-running a module that produced nothing is cheap, and reconciling two divergent manifests is not.
 
@@ -62,7 +62,7 @@ Where the corpus spans enough stages to need gates, represent it as `corpus-work
 
 ## Persisting what happened
 
-Every stage writes its outcome down before the session ends: the roadmap and its sources, the prior-knowledge profile, the plan, each module as it closes, and every diagnostic result. A corpus built across many sessions has no other continuity, and reconstructing a decision from a transcript that no longer exists is not possible.
+Every stage writes its outcome down before the session ends: the roadmap and its sources, the prior-knowledge profile, the plan, each module as it closes, and every diagnostic result. Built across many sessions, a corpus has no other continuity, and a decision cannot be reconstructed from a transcript that no longer exists.
 
 Learning evidence goes to `data-career-and-interview-coach` as a learning event; the corpus manifest keeps only what exists. These are separate records with separate owners, and the split is what keeps a written note from quietly becoming a claim that someone learned it.
 

@@ -10,9 +10,11 @@ Ném một link vào đây và nhận về note đã tổng hợp, nằm sẵn t
 Bộ skill đã có đủ từng bước riêng lẻ cho việc này. Lệnh này chỉ nối chúng lại thành một
 đường chạy, và thêm bước cuối cùng vốn còn thiếu: ghi vào vault.
 
-1. Xác định vault. Nếu `--vault` không được truyền, đọc `second-brain-manifest.json` trong
-   thư mục làm việc. **Không đoán một đường dẫn vault.** Không có vault thì dừng và hỏi —
-   ghi note vào nhầm chỗ là thứ người dùng phải tự đi dọn.
+1. Xác định vault theo thứ tự: `--vault` nếu được truyền, rồi `second-brain-manifest.json`
+   trong thư mục làm việc, rồi vault mặc định của máy này —
+   `/media/kina2711/DATA/2026/Second_Brain` (bốn lớp, manifest đã dựng sẵn).
+   **Không đoán ngoài ba nguồn đó.** Không tìm được vault thì dừng và hỏi; ghi note vào
+   nhầm chỗ là thứ người dùng phải tự đi dọn.
 2. `brain-capture-source-material` — lấy nội dung về, sinh stable ID, snapshot, checksum,
    origin và captured-at. Nếu không tải được nội dung, nói rõ là không tải được; đừng tổng
    hợp từ trí nhớ về một URL rồi trình bày như thể đã đọc.

@@ -8,7 +8,7 @@ Confirm row grain and scope before interpreting distributions. Inspect schema/ty
 
 ## SQL to business logic
 
-Trace CTEs and sources, join type/cardinality, filters, time logic, grouping grain, aggregations, window functions and output columns. Flag fan-out, implicit null handling, hard-coded periods, currency/time-zone ambiguity and dialect-specific behavior. A structural parser is heuristic; confirm against schema, business definitions and an EXPLAIN/dry run when available.
+Trace CTEs and sources, join type/cardinality, filters, time logic, grouping grain, aggregations, window functions and output columns. Flag fan-out, implicit null handling, hard-coded periods, currency/time-zone ambiguity and dialect-specific behavior. A structural parser is heuristic; confirm against schema, business definitions and an EXPLAIN/dry run when available. Fan-out is the failure worth naming twice: a join that multiplies rows inflates every sum downstream, and the result stays plausible enough to reach a slide before anyone checks the row count.
 
 ## Assumptions and impact
 
@@ -16,7 +16,7 @@ Record data, business-rule and statistical assumptions with source, confidence, 
 
 ## Methodology explanation
 
-Calibrate depth by audience: executive = decision, why the method is credible and limitation; business = data, logic and interpretation; technical = full design, assumptions, diagnostics and reproducibility. Preserve decision-critical caveats when simplifying.
+Calibrate depth by audience: executive = decision, why the method is credible and limitation; business = data, logic and interpretation; technical = full design, assumptions, diagnostics and reproducibility. Preserve decision-critical caveats when simplifying. Dropping the caveat is what turns a bounded finding into a claim the audience acts on, and the shorter the summary, the more load each surviving sentence carries.
 
 ## Peer review and pre-delivery QA
 

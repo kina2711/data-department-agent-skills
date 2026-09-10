@@ -15,6 +15,6 @@ Store a bounded evidence snapshot or executable report with SHA-256, concrete ve
 - Examples include error/failure behavior, not only the happy path. Explain trade-offs and when the technique should not be used.
 - Content excludes secrets, proprietary interview material, private logs, customer data and unapproved company details.
 
-Run independent reviews for technical accuracy, claim/source traceability, code/diagram validity, voice/originality and platform fit. A pass in one dimension does not compensate for a critical failure in another. Corrections update canonical and all affected channel variants through stable artifact links and a changelog.
+Run independent reviews for technical accuracy, claim/source traceability, code/diagram validity, voice/originality and platform fit. A pass in one dimension does not compensate for a critical failure in another. Averaging them hides exactly the failure that matters, since a piece can be well written, on brand, correctly formatted and still wrong about the thing it exists to explain. Corrections update canonical and all affected channel variants through stable artifact links and a changelog.
 
 For social variants, enforce Facebook=`vi`, LinkedIn=`en`, and Substack=`en`. The language check covers all reader-facing prose while allowing code, identifiers, product names and established technical terms to remain unchanged. A declared language without a passed exact-version `channel-language` test is insufficient for approval.

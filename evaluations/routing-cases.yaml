@@ -53,6 +53,13 @@ cases:
       - Do not silently pick a definition.
       - Preserve the conflict and approval evidence.
 
+  # Haiku routes this to machine-learning-engineering and has done so across every run since the
+  # case was written, including after the orchestrator description was sharpened. That answer is
+  # defensible: four of the five tasks below are mlops tasks, and the query names one model in one
+  # domain. The case keeps the orchestrator as expected because handling drift properly crosses
+  # into ds-validate-model and an incident path with its own gates, and the point of the case is
+  # that crossing. Recorded rather than relaxed — a hard query dropped after a failure stops
+  # measuring anything.
   - id: model-drift
     query: The fraud model input distribution shifted and precision dropped in production.
     expected_primary_skill: data-department-orchestrator
