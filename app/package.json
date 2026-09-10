@@ -14,7 +14,7 @@
     "name": "kina2711",
     "email": "kienthai2711@gmail.com"
   },
-  "license": "MIT",
+  "license": "UNLICENSED",
   "devDependencies": {
     "electron": "^33.0.0",
     "electron-builder": "^25.0.0"
@@ -43,5 +43,6 @@
     }
   },
   "homepage": "https://github.com/kina2711/app-data-agent",
-  "productName": "Data Agent"
+  "productName": "Data Agent",
+  "private": true
 }

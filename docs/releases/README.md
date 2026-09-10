@@ -53,3 +53,20 @@ cd .. && gh release upload app-v0.4.2 app/dist/*.AppImage app/dist/*.deb
 
 `npm run dist` chạy `electron-builder --linux AppImage deb`, nên nó chỉ sinh bản Linux.
 Bản Windows và macOS cần chạy trên chính hệ đó hoặc qua CI.
+
+## Cập nhật bản trên dock
+
+Dock chạy `~/.local/opt/app-data-agent/app-data-agent`, không chạy AppImage. Thay bản
+mới bằng cách chép đè thư mục đó; tệp `.desktop` và biểu tượng giữ nguyên nên ghim trên
+dock không mất:
+
+```bash
+mv ~/.local/opt/app-data-agent ~/.local/opt/app-data-agent.bak-$(date +%F-%H%M%S)
+cp -r app/dist/linux-unpacked ~/.local/opt/app-data-agent
+```
+
+> **Đừng chạy `npx asar extract-file` bên trong `app/`.** Nó ghi tệp giải nén ra thư mục
+> hiện tại theo đúng tên trong archive, không ra stdout dù bạn truyền `/dev/stdout`. Chạy
+> trong `app/` là nó đè `app/package.json` bằng bản rút gọn nằm trong asar — mất toàn bộ
+> `scripts` và `build`, và triệu chứng đầu tiên là `npm test` báo *Missing script: "test"*.
+> Muốn xem thì `cd` sang thư mục tạm trước.
