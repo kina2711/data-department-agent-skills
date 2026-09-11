@@ -1,9 +1,16 @@
+# The version is read from plugin.json, never typed here. Typed, it sat at 3.7.0 through four
+# releases and would have named an archive after a version it did not contain.
 param(
-    [string]$OutputPath = (Join-Path (Split-Path -Parent $PSScriptRoot) 'dist\data-department-claude-plugin-v3.7.0.zip')
+    [string]$OutputPath
 )
 
 $ErrorActionPreference = 'Stop'
 $suiteRoot = [System.IO.Path]::GetFullPath((Split-Path -Parent $PSScriptRoot))
+if ([string]::IsNullOrWhiteSpace($OutputPath)) {
+    $pluginVersion = (Get-Content -LiteralPath (Join-Path $suiteRoot '.claude-plugin\plugin.json') -Raw | ConvertFrom-Json).version
+    if ([string]::IsNullOrWhiteSpace($pluginVersion)) { throw '.claude-plugin/plugin.json has no version' }
+    $OutputPath = Join-Path $suiteRoot ('dist\data-department-claude-plugin-v{0}.zip' -f $pluginVersion)
+}
 $distRoot = [System.IO.Path]::GetFullPath((Join-Path $suiteRoot 'dist'))
 $stageRoot = [System.IO.Path]::GetFullPath((Join-Path $distRoot 'claude-plugin\data-department-agent-skills'))
 $resolvedOutput = [System.IO.Path]::GetFullPath($OutputPath)

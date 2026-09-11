@@ -6,7 +6,7 @@ evidence scripts**, **12 JSON Schemas**, and a production guard hook.
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
 
-Current release: **v3.11.0** · Works with **Claude Code**, **OpenAI Codex** and **Google Antigravity**
+Current release: **v3.12.0** · Works with **Claude Code**, **OpenAI Codex** and **Google Antigravity**
 
 🇻🇳 [Đọc bản tiếng Việt](README.vi.md)
 
@@ -59,16 +59,16 @@ evidence script need it; both fail open if it is missing).
 
 ```powershell
 # Windows
-$pluginRoot = "C:\Tools\data-department-agent-skills-v3.11.0"
-Expand-Archive .\data-department-claude-plugin-v3.11.0.zip -DestinationPath $pluginRoot
+$pluginRoot = "C:\Tools\data-department-agent-skills-v3.12.0"
+Expand-Archive .\data-department-claude-plugin-v3.12.0.zip -DestinationPath $pluginRoot
 claude plugin validate --strict $pluginRoot
 claude --plugin-dir $pluginRoot
 ```
 
 ```bash
 # macOS / Linux
-pluginRoot=~/tools/data-department-agent-skills-v3.11.0
-unzip data-department-claude-plugin-v3.11.0.zip -d "$pluginRoot"
+pluginRoot=~/tools/data-department-agent-skills-v3.12.0
+unzip data-department-claude-plugin-v3.12.0.zip -d "$pluginRoot"
 claude plugin validate --strict "$pluginRoot"
 claude --plugin-dir "$pluginRoot"
 ```
