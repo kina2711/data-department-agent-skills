@@ -1,5 +1,5 @@
 suite: "data-department-agent-skills"
-version: "3.12.0"
+version: "3.12.1"
 top_level_skills: 33
 atomic_tasks: 868
 roles:

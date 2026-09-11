@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MAP = ROOT / "docs" / "skill-map.md"
 SKILLS = ROOT / "skills"
-SUITE_VERSION = "3.12.0"
+SUITE_VERSION = "3.12.1"
 REPOSITORY_URL = "https://github.com/kina2711/data-department-agent-skills"
 
 
@@ -5703,7 +5703,11 @@ def build_plugin() -> None:
                     "data-governance", "mlops", "data-quality", "data-career",
                 ],
                 "commands": ["./commands/"],
-                "hooks": "./hooks/hooks.json",
+                # No "hooks" key. Claude Code loads hooks/hooks.json from the standard path on its
+                # own, so naming it here loads the same file twice and the plugin fails outright:
+                # "Duplicate hooks file detected". The manifest's hooks field is for additional
+                # hook files, not for the one that is already found. A plugin that fails to load
+                # looks exactly like a plugin that was never installed.
             },
             indent=2,
         )
