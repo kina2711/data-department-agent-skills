@@ -6,6 +6,7 @@ Build, implement, configure, teach, interview or deliver an artifact. Select exa
 - `content-build-series-knowledge-map` → **series knowledge map**; read [contract](tasks/content-build-series-knowledge-map.md).
 - `content-build-editorial-calendar` → **editorial calendar**; read [contract](tasks/content-build-editorial-calendar.md).
 - `content-build-code-example-package` → **validated code example package**; read [contract](tasks/content-build-code-example-package.md).
+- `content-render-post-images` → **rendered post image set**; read [contract](tasks/content-render-post-images.md).
 - `content-repurpose-technical-content` → **cross-channel adaptation package**; read [contract](tasks/content-repurpose-technical-content.md).
 - `content-package-technical-series-repository` → **technical-series repository package**; read [contract](tasks/content-package-technical-series-repository.md).
 - `content-manage-content-backlog` → **governed content backlog**; read [contract](tasks/content-manage-content-backlog.md).

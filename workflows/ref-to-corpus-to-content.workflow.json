@@ -1,7 +1,7 @@
 {
   "workflow_id": "ref-to-corpus-to-content",
   "version": "1.0.0",
-  "objective": "Everything in a ./ref folder — books, slides, lecture video — becomes a systematic note corpus and a curriculum for one named audience, lands in a local Obsidian vault, and then becomes a technical content series across Facebook in Vietnamese, LinkedIn in English and Threads, each post carrying runnable code, a diagram or a cheatsheet.",
+  "objective": "Everything in a ./ref folder — books, slides, lecture video — becomes a systematic note corpus and a curriculum for one named audience, lands in a local Obsidian vault, and comes back out as drafted posts for Facebook, LinkedIn and Threads with rendered images, packaged for the author to post themselves. Publishing is not part of this workflow.",
   "status": "planned",
   "workflow_risk_tier": "R3-controlled",
   "current_task_id": "book-assess-source-rights",
@@ -523,8 +523,7 @@
       "task_id": "content-test-code-and-diagrams",
       "owner": "",
       "depends_on": [
-        "content-build-code-example-package",
-        "content-create-technical-diagram-brief"
+        "content-render-post-images"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -630,38 +629,10 @@
       "approval_refs": []
     },
     {
-      "task_id": "content-publish-technical-content",
-      "owner": "",
-      "depends_on": [
-        "content-audit-claim-source-traceability",
-        "content-audit-author-voice-and-originality",
-        "content-review-platform-fit"
-      ],
-      "status": "planned",
-      "risk_tier": "R3-controlled",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "content-measure-series-performance",
-      "owner": "",
-      "depends_on": [
-        "content-publish-technical-content"
-      ],
-      "status": "planned",
-      "risk_tier": "R0-light",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
       "task_id": "core-handoff-data-work",
       "owner": "",
       "depends_on": [
-        "content-measure-series-performance",
+        "content-package-technical-series-repository",
         "brain-run-privacy-freshness-audit"
       ],
       "status": "planned",
@@ -670,9 +641,40 @@
       "artifact_sha256": "",
       "evidence_refs": [],
       "approval_refs": []
+    },
+    {
+      "task_id": "content-render-post-images",
+      "owner": "",
+      "depends_on": [
+        "content-create-technical-diagram-brief",
+        "content-create-technical-carousel-script",
+        "content-build-code-example-package"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-package-technical-series-repository",
+      "owner": "",
+      "depends_on": [
+        "content-audit-claim-source-traceability",
+        "content-audit-author-voice-and-originality",
+        "content-review-platform-fit",
+        "content-render-post-images"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
     }
   ],
   "transitions": [],
   "claims": [],
-  "updated_at": "2026-09-12T14:07:50+00:00"
+  "updated_at": "2026-09-12T14:34:29+00:00"
 }

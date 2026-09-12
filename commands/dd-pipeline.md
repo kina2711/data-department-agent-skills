@@ -46,14 +46,24 @@ rồi mới `--apply --expect`. Ánh xạ lớp: nguồn → `1_Nguon`; note →
 quy ước cá nhân → `3_Toi`; giáo trình và bài đăng → `4_Ket-Qua`.
 
 **Content.** Một canonical article rồi mới ra ba biến thể — Facebook tiếng Việt, LinkedIn tiếng
-Anh, Threads tiếng Việt. Mỗi bài kèm code chạy được, sơ đồ hoặc cheatsheet, và ảnh màn hình thật
-khi có. Giới hạn ký tự là ràng buộc câu chữ, **không phải cớ để bỏ mệnh đề làm cho claim đúng**.
+Anh, Threads tiếng Việt. Giới hạn ký tự là ràng buộc câu chữ, **không phải cớ để bỏ mệnh đề làm
+cho claim đúng**.
 
-## Ba cổng, và một điều không được nói sai
+Ảnh là ảnh thật, không phải bản mô tả ảnh. `content-render-post-images` chạy
+`scripts/render_content_images.js` dưới Electron của app và xuất PNG cho ba loại: code có tô màu
+cú pháp, cheatsheet dạng bảng, và diagram từ SVG. **Ảnh màn hình thật thì script không dựng** —
+một ảnh màn hình là bằng chứng có thứ gì đó đã chạy, và dựng ra nó là chế tạo bằng chứng đó.
+Người dùng tự chụp và đưa vào thư mục ảnh.
 
-Cổng ở đợt 18 (bản quyền), 20 (quyền riêng tư vault) và 29 (xuất bản nội dung). Cái thứ ba là
-hành động ra ngoài: **không tuyên bố đã đăng khi chưa có bằng chứng đăng**, và một bài soạn xong
-nằm chờ thì báo là soạn xong, không phải đã đăng.
+## Dây chuyền dừng ở gói bàn giao, không đăng
+
+`content-package-technical-series-repository` là bước cuối trước handoff: bài đã soạn, ảnh đã
+dựng, mọi audit đã qua, đóng thành một gói để **người dùng tự đăng**.
+
+Đăng không nằm trong workflow này. Tài khoản là của họ, và một workflow liệt kê việc đăng sẽ mời
+gọi một tuyên bố mà không ai có bằng chứng. Không bao giờ nói đã đăng.
+
+Hai cổng còn lại: bản quyền, và quyền riêng tư của vault.
 
 Báo cáo: nguồn nào đọc được và nguồn nào không, số note viết ra, tệp nào vào vault, bài nào soạn
-xong ở kênh nào, cổng nào đã qua và cổng nào đang chờ người duyệt.
+xong ở kênh nào, ảnh nào đã dựng, cổng nào đã qua và cổng nào đang chờ người duyệt.

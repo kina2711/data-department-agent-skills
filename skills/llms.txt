@@ -1,6 +1,6 @@
 # Data Department Agent Skills — routing index
 
-33 skills, 869 atomic task contracts, 6 waves. Suite version in `.claude-plugin/plugin.json`.
+33 skills, 870 atomic task contracts, 6 waves. Suite version in `.claude-plugin/plugin.json`.
 
 Read this to pick a skill and narrow to a task group. Then open that skill's SKILL.md and
 the one catalog shard you need — never the whole catalog. Selection is by primary
@@ -178,10 +178,10 @@ data-personal-project-engineering  ·  42 tasks  ·  max R3-controlled
   Produces: architecture-grounded project charter; domain-grounded project direction; integration-grounded project direction; contribution-grounded project plan; implementation-ready project blueprint; repository transformation matrix.
   Task groups: build-deliver-grounded (4), build-deliver-other (11), build-deliver-project (11), plan-design (10), test-assure (6).
 
-data-technical-content-and-social  ·  28 tasks  ·  max R3-controlled
+data-technical-content-and-social  ·  29 tasks  ·  max R3-controlled
   Build evidence-backed technical series for Facebook in Vietnamese, LinkedIn and Substack in English, and GitHub from research and a canonical article through code, diagrams, channel-native adaptations, QA, publishing and measurement.
-  Produces: validated code example package; editorial calendar; series knowledge map; governed content backlog; technical-series repository package; cross-channel adaptation package.
-  Task groups: build-deliver (7), operate-improve (2), plan-design (11), test-assure (8).
+  Produces: validated code example package; editorial calendar; series knowledge map; governed content backlog; technical-series repository package; rendered post image set.
+  Task groups: build-deliver (8), operate-improve (2), plan-design (11), test-assure (8).
 
 personal-second-brain-and-knowledge-os  ·  50 tasks  ·  max R4-critical
   Build or operate a local-first AI Second Brain with 1_Nguon, 2_Wiki, 3_Toi and 4_Ket-Qua layers.

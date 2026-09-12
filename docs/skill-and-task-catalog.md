@@ -1,6 +1,6 @@
 # Chi tiết toàn bộ Data Department Skills và Atomic Tasks
 
-> Phiên bản `3.17.0` · `33` Claude role skills · `869` atomic workflows.
+> Phiên bản `3.18.0` · `33` Claude role skills · `870` atomic workflows.
 > Đây là catalog tra cứu đầy đủ được sinh từ `suite-manifest.yaml`, `task-catalog.json` và task contracts; không phải nội dung luôn được nạp vào context của Claude.
 
 ## Mục lục
@@ -134,7 +134,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | 27 | [`data-onboarding-and-integration`](#skill-data-onboarding-and-integration) | Data Onboarding and Integration | 34 |
 | 28 | [`data-talent-acquisition-and-interview`](#skill-data-talent-acquisition-and-interview) | Data Talent and Interviewing | 41 |
 | 29 | [`data-career-and-interview-coach`](#skill-data-career-and-interview-coach) | Data Career and Interview Coach | 57 |
-| 30 | [`data-technical-content-and-social`](#skill-data-technical-content-and-social) | Technical Content and Social | 28 |
+| 30 | [`data-technical-content-and-social`](#skill-data-technical-content-and-social) | Technical Content and Social | 29 |
 | 31 | [`data-personal-project-engineering`](#skill-data-personal-project-engineering) | Personal Data Project Engineering | 42 |
 | 32 | [`personal-second-brain-and-knowledge-os`](#skill-personal-second-brain-and-knowledge-os) | Personal Second Brain and Knowledge OS | 50 |
 | 33 | [`book-to-knowledge-and-action`](#skill-book-to-knowledge-and-action) | Book to Knowledge and Action | 45 |
@@ -1955,13 +1955,13 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Ranh giới và handoff:** Không viết social trước technical validation, copy một bài sang mọi kênh, hoặc bịa production experience, benchmark, authority và reader outcomes.
 
-**Quy mô:** 28 tasks — Plan / Design 11; Build / Deliver 7; Test / Assure 8; Operate / Improve 2.
+**Quy mô:** 29 tasks — Plan / Design 11; Build / Deliver 8; Test / Assure 8; Operate / Improve 2.
 
 **Domain references tải khi cần:** `context-budget-standard.md`, `demand-driven-content.md`, `external-tool-access.md`, `figure-intent-and-critique.md`, `learning-memory-interoperability.md`, `model-selection.md`, `platform-format-playbooks.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `technical-content-quality-standard.md`, `technical-series-method.md`, `tool-output-budget.md`, `universal-professional-series-rules.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `content-evidence-return.yaml`, `content-manifest.json`, `content-quality-review.yaml`, `design-option-set.yaml`, `editorial-calendar.yaml`, `episode-brief.yaml`, `series-concept-coverage.yaml`, `social-episode-package.yaml`, `source-pack.yaml`, `technical-series-plan.yaml`.
 
-**Scripts:** `validate_content_manifest.py`.
+**Scripts:** `render_content_images.js`, `validate_content_manifest.py`.
 
 #### Plan / Design (11 tasks)
 
@@ -1979,7 +1979,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`content-write-substack-technical-newsletter`](skills/data-technical-content-and-social/references/tasks/content-write-substack-technical-newsletter.md) | viết newsletter tiếng Anh chuyên sâu có subject, preheader, editorial opening, technical walkthrough, exercise, references và next-episode bridge | English Substack technical newsletter | `design-specification` | `R1-reviewed` / `standard-path` |
 | [`content-write-threads-post`](skills/data-technical-content-and-social/references/tasks/content-write-threads-post.md) | nén một ý kỹ thuật thành chuỗi Threads ngắn, ảnh dẫn trước chữ, mỗi post đứng một mình được và không hạ thấp claim để cho vừa giới hạn ký tự | Threads technical thread | `design-specification` | `R1-reviewed` / `standard-path` |
 
-#### Build / Deliver (7 tasks)
+#### Build / Deliver (8 tasks)
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
@@ -1988,6 +1988,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`content-build-series-knowledge-map`](skills/data-technical-content-and-social/references/tasks/content-build-series-knowledge-map.md) | nối prerequisites, core concepts, mechanisms, contrasts, failure modes và follow-on topics | series knowledge map | `build-change` | `R1-reviewed` / `standard-path` |
 | [`content-manage-content-backlog`](skills/data-technical-content-and-social/references/tasks/content-manage-content-backlog.md) | ưu tiên topic theo audience value, evidence readiness, dependency, effort, freshness và strategic fit | governed content backlog | `advisory-analysis` | `R0-light` / `fast-path` |
 | [`content-package-technical-series-repository`](skills/data-technical-content-and-social/references/tasks/content-package-technical-series-repository.md) | tổ chức roadmap, articles, research, code, tests, diagrams, social variants, status và contribution guidance | technical-series repository package | `build-change` | `R2-standard` / `standard-path` |
+| [`content-render-post-images`](skills/data-technical-content-and-social/references/tasks/content-render-post-images.md) | dựng PNG thật cho bài đăng từ code, cheatsheet và diagram SVG; ảnh màn hình thật do người dùng tự chụp và đưa vào, script không bịa ra chúng | rendered post image set | `advisory-analysis` | `R0-light` / `fast-path` |
 | [`content-repurpose-technical-content`](skills/data-technical-content-and-social/references/tasks/content-repurpose-technical-content.md) | biến canonical article thành channel-native variants mà không copy nguyên văn hoặc làm sai claim | cross-channel adaptation package | `advisory-analysis` | `R0-light` / `fast-path` |
 | [`content-research-technical-topic`](skills/data-technical-content-and-social/references/tasks/content-research-technical-topic.md) | thu thập official sources, versioned facts, examples, controversies, failure modes và source limitations | technical-topic research pack | `advisory-analysis` | `R0-light` / `fast-path` |
 
@@ -2286,4 +2287,4 @@ Hãy phân tích yêu cầu và báo trước khi làm:
 Sau đó thực hiện task hiện tại, test, báo evidence, approval status, residual risks và next owner.
 ```
 
-Tổng kiểm: **33 skills / 869 tasks** đã được liệt kê, không thiếu và không trùng ownership trong catalog này.
+Tổng kiểm: **33 skills / 870 tasks** đã được liệt kê, không thiếu và không trùng ownership trong catalog này.
