@@ -497,7 +497,7 @@ python skills\data-department-orchestrator\scripts\validate_workflow.py `
 Mỗi claim quan trọng phải bind vào evidence envelope. Khi artifact ở local, dùng complete mode để kiểm tra tồn tại và SHA-256:
 
 ```powershell
-python skills\shared-data-core\scripts\validate_evidence_bundle.py `
+python skills\shared-task-controls\scripts\validate_evidence_bundle.py `
   evidence.json `
   --artifact-root . `
   --mode complete

@@ -1,6 +1,6 @@
 # Chi tiết toàn bộ Data Department Skills và Atomic Tasks
 
-> Phiên bản `3.13.0` · `33` Claude role skills · `868` atomic workflows.
+> Phiên bản `3.14.0` · `33` Claude role skills · `868` atomic workflows.
 > Đây là catalog tra cứu đầy đủ được sinh từ `suite-manifest.yaml`, `task-catalog.json` và task contracts; không phải nội dung luôn được nạp vào context của Claude.
 
 ## Mục lục
@@ -105,7 +105,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | # | Skill | Role | Tasks |
 |---:|---|---|---:|
 | 1 | [`data-department-orchestrator`](#skill-data-department-orchestrator) | Data Department Orchestrator | 27 |
-| 2 | [`shared-data-core`](#skill-shared-data-core) | Shared Data Core | 18 |
+| 2 | [`shared-task-controls`](#skill-shared-task-controls) | Shared Task Controls | 18 |
 | 3 | [`company-data-context`](#skill-company-data-context) | Company Data Context | 9 |
 | 4 | [`head-of-data-and-data-product`](#skill-head-of-data-and-data-product) | Head of Data and Data Product | 21 |
 | 5 | [`data-business-analysis`](#skill-data-business-analysis) | Data Business Analysis | 24 |
@@ -202,9 +202,9 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`orchestrator-check-information-sufficiency`](skills/data-department-orchestrator/references/tasks/orchestrator-check-information-sufficiency.md) | xác định thiếu blocking/nonblocking và conflicts | proceed/ask/stop decision | `advisory-analysis` | `R0-light` / `fast-path` |
 | [`orchestrator-evaluate-workflow-completion`](skills/data-department-orchestrator/references/tasks/orchestrator-evaluate-workflow-completion.md) | đối chiếu deliverables, validations, approvals và open risks | completion decision | `advisory-analysis` | `R0-light` / `fast-path` |
 
-<a id="skill-shared-data-core"></a>
+<a id="skill-shared-task-controls"></a>
 
-### 2. `shared-data-core` — Shared Data Core
+### 2. `shared-task-controls` — Shared Task Controls
 
 **Claude trigger description:** Apply shared data controls for bounded task-context packaging, discovery, schema inspection, profiling, validation, evidence, approvals and handoffs. Use when a data task needs reusable cross-role safeguards, a prompt-ready context bundle or artifact checks.
 
@@ -226,34 +226,34 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
-| [`core-create-data-work-ticket`](skills/shared-data-core/references/tasks/core-create-data-work-ticket.md) | chuyển yêu cầu thành scope, acceptance criteria, dependency và estimate | implementation-ready ticket | `design-specification` | `R1-reviewed` / `standard-path` |
-| [`core-define-success-contract`](skills/shared-data-core/references/tasks/core-define-success-contract.md) | chuyển mục tiêu mơ hồ thành outcome quan sát được, tiêu chí pass/fail, evidence, non-goals và điều kiện dừng | verifiable success contract | `design-specification` | `R1-reviewed` / `standard-path` |
-| [`core-document-data-deliverable`](skills/shared-data-core/references/tasks/core-document-data-deliverable.md) | tạo tài liệu theo template chuẩn | linked documentation | `advisory-analysis` | `R0-light` / `fast-path` |
+| [`core-create-data-work-ticket`](skills/shared-task-controls/references/tasks/core-create-data-work-ticket.md) | chuyển yêu cầu thành scope, acceptance criteria, dependency và estimate | implementation-ready ticket | `design-specification` | `R1-reviewed` / `standard-path` |
+| [`core-define-success-contract`](skills/shared-task-controls/references/tasks/core-define-success-contract.md) | chuyển mục tiêu mơ hồ thành outcome quan sát được, tiêu chí pass/fail, evidence, non-goals và điều kiện dừng | verifiable success contract | `design-specification` | `R1-reviewed` / `standard-path` |
+| [`core-document-data-deliverable`](skills/shared-task-controls/references/tasks/core-document-data-deliverable.md) | tạo tài liệu theo template chuẩn | linked documentation | `advisory-analysis` | `R0-light` / `fast-path` |
 
 #### Build / Deliver (9 tasks)
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
-| [`core-build-task-context-package`](skills/shared-data-core/references/tasks/core-build-task-context-package.md) | gom task, business, schema, lineage, constraints và evidence thành context bundle có manifest, provenance, freshness và token budget | prompt-ready task context package | `build-change` | `R2-standard` / `standard-path` |
-| [`core-classify-data-request`](skills/shared-data-core/references/tasks/core-classify-data-request.md) | phân loại intent, domain, độ rủi ro và role owner | routing decision | `advisory-analysis` | `R0-light` / `fast-path` |
-| [`core-discover-data-assets`](skills/shared-data-core/references/tasks/core-discover-data-assets.md) | tìm source, table, metric, dashboard và owner liên quan | evidence-backed asset shortlist | `advisory-analysis` | `R0-light` / `fast-path` |
-| [`core-estimate-change-impact`](skills/shared-data-core/references/tasks/core-estimate-change-impact.md) | tìm downstream dependency và stakeholder bị ảnh hưởng | impact report | `advisory-analysis` | `R0-light` / `fast-path` |
-| [`core-handle-sensitive-data`](skills/shared-data-core/references/tasks/core-handle-sensitive-data.md) | nhận diện PII/confidential data và áp dụng handling rule | safe processing plan | `advisory-analysis` | `R0-light` / `fast-path` |
-| [`core-handoff-data-work`](skills/shared-data-core/references/tasks/core-handoff-data-work.md) | đóng gói context, artifacts, open risks và next action | lossless handoff package | `advisory-analysis` | `R0-light` / `fast-path` |
-| [`core-read-business-glossary`](skills/shared-data-core/references/tasks/core-read-business-glossary.md) | ánh xạ thuật ngữ người dùng sang định nghĩa chuẩn | resolved terminology | `advisory-analysis` | `R0-light` / `fast-path` |
-| [`core-record-data-decision`](skills/shared-data-core/references/tasks/core-record-data-decision.md) | ghi decision, alternatives, evidence và consequences | decision record | `advisory-analysis` | `R0-light` / `fast-path` |
-| [`core-request-human-approval`](skills/shared-data-core/references/tasks/core-request-human-approval.md) | tạo approval package đúng owner | auditable approval request | `advisory-analysis` | `R0-light` / `fast-path` |
+| [`core-build-task-context-package`](skills/shared-task-controls/references/tasks/core-build-task-context-package.md) | gom task, business, schema, lineage, constraints và evidence thành context bundle có manifest, provenance, freshness và token budget | prompt-ready task context package | `build-change` | `R2-standard` / `standard-path` |
+| [`core-classify-data-request`](skills/shared-task-controls/references/tasks/core-classify-data-request.md) | phân loại intent, domain, độ rủi ro và role owner | routing decision | `advisory-analysis` | `R0-light` / `fast-path` |
+| [`core-discover-data-assets`](skills/shared-task-controls/references/tasks/core-discover-data-assets.md) | tìm source, table, metric, dashboard và owner liên quan | evidence-backed asset shortlist | `advisory-analysis` | `R0-light` / `fast-path` |
+| [`core-estimate-change-impact`](skills/shared-task-controls/references/tasks/core-estimate-change-impact.md) | tìm downstream dependency và stakeholder bị ảnh hưởng | impact report | `advisory-analysis` | `R0-light` / `fast-path` |
+| [`core-handle-sensitive-data`](skills/shared-task-controls/references/tasks/core-handle-sensitive-data.md) | nhận diện PII/confidential data và áp dụng handling rule | safe processing plan | `advisory-analysis` | `R0-light` / `fast-path` |
+| [`core-handoff-data-work`](skills/shared-task-controls/references/tasks/core-handoff-data-work.md) | đóng gói context, artifacts, open risks và next action | lossless handoff package | `advisory-analysis` | `R0-light` / `fast-path` |
+| [`core-read-business-glossary`](skills/shared-task-controls/references/tasks/core-read-business-glossary.md) | ánh xạ thuật ngữ người dùng sang định nghĩa chuẩn | resolved terminology | `advisory-analysis` | `R0-light` / `fast-path` |
+| [`core-record-data-decision`](skills/shared-task-controls/references/tasks/core-record-data-decision.md) | ghi decision, alternatives, evidence và consequences | decision record | `advisory-analysis` | `R0-light` / `fast-path` |
+| [`core-request-human-approval`](skills/shared-task-controls/references/tasks/core-request-human-approval.md) | tạo approval package đúng owner | auditable approval request | `advisory-analysis` | `R0-light` / `fast-path` |
 
 #### Test / Assure (6 tasks)
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
-| [`core-audit-change-scope`](skills/shared-data-core/references/tasks/core-audit-change-scope.md) | đối chiếu thay đổi thực tế với yêu cầu, allowlist, planned deletions và task-to-file traceability để phát hiện scope creep | surgical change-scope audit | `advisory-analysis` | `R0-light` / `fast-path` |
-| [`core-check-data-access`](skills/shared-data-core/references/tasks/core-check-data-access.md) | xác định quyền cần thiết và giới hạn sử dụng | access decision hoặc request | `advisory-analysis` | `R3-controlled` / `controlled-path` |
-| [`core-inspect-dataset-schema`](skills/shared-data-core/references/tasks/core-inspect-dataset-schema.md) | đọc schema, khóa, partition và quan hệ | schema assessment | `advisory-analysis` | `R0-light` / `fast-path` |
-| [`core-profile-dataset`](skills/shared-data-core/references/tasks/core-profile-dataset.md) | đo null, distinct, distribution, outlier và freshness | profile report | `advisory-analysis` | `R0-light` / `fast-path` |
-| [`core-validate-sql-safely`](skills/shared-data-core/references/tasks/core-validate-sql-safely.md) | lint, dry-run/explain, kiểm tra scan cost và read/write risk | validated SQL | `advisory-analysis` | `R0-light` / `fast-path` |
-| [`core-verify-deliverable`](skills/shared-data-core/references/tasks/core-verify-deliverable.md) | chạy checklist theo loại artifact và thu evidence | pass/fail verification report | `advisory-analysis` | `R0-light` / `fast-path` |
+| [`core-audit-change-scope`](skills/shared-task-controls/references/tasks/core-audit-change-scope.md) | đối chiếu thay đổi thực tế với yêu cầu, allowlist, planned deletions và task-to-file traceability để phát hiện scope creep | surgical change-scope audit | `advisory-analysis` | `R0-light` / `fast-path` |
+| [`core-check-data-access`](skills/shared-task-controls/references/tasks/core-check-data-access.md) | xác định quyền cần thiết và giới hạn sử dụng | access decision hoặc request | `advisory-analysis` | `R3-controlled` / `controlled-path` |
+| [`core-inspect-dataset-schema`](skills/shared-task-controls/references/tasks/core-inspect-dataset-schema.md) | đọc schema, khóa, partition và quan hệ | schema assessment | `advisory-analysis` | `R0-light` / `fast-path` |
+| [`core-profile-dataset`](skills/shared-task-controls/references/tasks/core-profile-dataset.md) | đo null, distinct, distribution, outlier và freshness | profile report | `advisory-analysis` | `R0-light` / `fast-path` |
+| [`core-validate-sql-safely`](skills/shared-task-controls/references/tasks/core-validate-sql-safely.md) | lint, dry-run/explain, kiểm tra scan cost và read/write risk | validated SQL | `advisory-analysis` | `R0-light` / `fast-path` |
+| [`core-verify-deliverable`](skills/shared-task-controls/references/tasks/core-verify-deliverable.md) | chạy checklist theo loại artifact và thu evidence | pass/fail verification report | `advisory-analysis` | `R0-light` / `fast-path` |
 
 <a id="skill-company-data-context"></a>
 

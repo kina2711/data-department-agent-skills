@@ -1,9 +1,9 @@
 ---
-name: shared-data-core
+name: shared-task-controls
 description: "Apply shared data controls for bounded task-context packaging, discovery, schema inspection, profiling, validation, evidence, approvals and handoffs. Use when a data task needs reusable cross-role safeguards, a prompt-ready context bundle or artifact checks."
 ---
 
-# Shared Data Core
+# Shared Task Controls
 
 ## Operating contract
 

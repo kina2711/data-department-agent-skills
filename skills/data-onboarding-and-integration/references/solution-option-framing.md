@@ -18,6 +18,6 @@ Required when the primary deliverable is a specification, design, architecture, 
 
 ## Result envelope
 
-Return prose and a structured record together. The option set belongs in `design-option-set.yaml`; the task outcome belongs in `atomic-task-output.yaml`, whose fields mirror the return contract — task, status, phase reached, deliverable, evidence, test results, gate results, approval, assumptions, limitations, residual risks and next task/owner. Validate it with `shared-data-core/scripts/validate_task_result.py` when the script is reachable.
+Return prose and a structured record together. The option set belongs in `design-option-set.yaml`; the task outcome belongs in `atomic-task-output.yaml`, whose fields mirror the return contract — task, status, phase reached, deliverable, evidence, test results, gate results, approval, assumptions, limitations, residual risks and next task/owner. Validate it with `shared-task-controls/scripts/validate_task_result.py` when the script is reachable.
 
 The structured record is a mirror of the reported outcome, not a second version of it. If the prose claims a pass that the record does not carry, the record wins and the task is not complete.

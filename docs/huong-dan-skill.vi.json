@@ -18,7 +18,7 @@
       ],
       "luu_y": "Nó điều phối chứ không phê duyệt thay bạn. Nhánh được giao việc không bao giờ tự nâng risk tier của mình. Harness là ranh giới chứ không phải gói: giá trị của nó nằm ở phần bị loại ra. Ghim mọi đầu vào không phải yêu cầu người dùng, và guardrail phải đi theo gói — người nhận không suy ra được blast radius từ việc đọc prompt."
     },
-    "shared-data-core": {
+    "shared-task-controls": {
       "tom_tat": "Bộ kiểm soát dùng chung cho mọi vai: đóng gói context có giới hạn, dò tìm tài sản, soi schema, profiling, kiểm chứng, bằng chứng, phê duyệt và bàn giao.",
       "dung_khi": [
         "Cần một gói context gọn cho một task cụ thể",

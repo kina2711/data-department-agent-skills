@@ -15,7 +15,7 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CORE = ROOT / "skills" / "shared-data-core" / "scripts"
+CORE = ROOT / "skills" / "shared-task-controls" / "scripts"
 ORCH = ROOT / "skills" / "data-department-orchestrator" / "scripts"
 GUARD = ROOT / "hooks" / "guard_production_action.py"
 ARCH = ROOT / "skills" / "data-architecture" / "scripts" / "scan_architecture_drift.py"
@@ -157,7 +157,7 @@ def check_new_layers(work: Path) -> tuple[int, list[str]]:
     unlocked_doc["technology_stack"][0]["locked"] = False
     unlocked_doc["version"] = "1.1.0"
     unlocked = write(work / "constitution-unlocked.json", unlocked_doc)
-    blank = ROOT / "skills" / "shared-data-core" / "assets" / "project-constitution.json"
+    blank = ROOT / "skills" / "shared-task-controls" / "assets" / "project-constitution.json"
 
     cases: list[tuple[str, list[str], int]] = [
         ("a ratified constitution validates", [str(CONSTITUTION), str(good)], 0),
@@ -250,7 +250,7 @@ def telemetry_line(number: int, task: str, outcome: str, route: str = "implicit"
                    overridden: bool = False, verified: bool = True) -> dict:
     return {
         "event_id": "e" + str(number), "occurred_at": "2026-08-11T09:00:00Z",
-        "suite_version": "3.5.0", "skill": "shared-data-core", "task_id": task,
+        "suite_version": "3.5.0", "skill": "shared-task-controls", "task_id": task,
         "route_source": "overridden" if overridden else route, "outcome": outcome,
         "duration_ms": 1000, "references_loaded": [], "token_estimate": 4000,
         "failure_codes": ["missing-approval"] if outcome == "failed" else [],
@@ -403,7 +403,7 @@ def check_harness_install(work: Path) -> tuple[int, list[str]]:
     skills_dir = target / ".codex" / "skills"
     if code != 0:
         failures.append("codex install must succeed, got exit " + str(code) + LF + output)
-    elif not (skills_dir / "shared-data-core" / "SKILL.md").exists():
+    elif not (skills_dir / "shared-task-controls" / "SKILL.md").exists():
         failures.append("codex install must place SKILL.md under .codex/skills/<name>/")
     elif not (target / "AGENTS.md").exists():
         failures.append("codex install must provide AGENTS.md")
@@ -418,12 +418,12 @@ def check_harness_install(work: Path) -> tuple[int, list[str]]:
 
     foreign = work / "foreign-project"
     (foreign / ".codex" / "skills").mkdir(parents=True)
-    (foreign / ".codex" / "skills" / "shared-data-core").write_text("mine", encoding="utf-8")
+    (foreign / ".codex" / "skills" / "shared-task-controls").write_text("mine", encoding="utf-8")
     checks += 1
     code, output = run([str(INSTALLER), str(foreign), "--harness", "codex", "--copy"])
     if "REFUSED" not in output:
         failures.append("installing over a path we did not create must be refused" + LF + output)
-    elif (foreign / ".codex" / "skills" / "shared-data-core").read_text(encoding="utf-8") != "mine":
+    elif (foreign / ".codex" / "skills" / "shared-task-controls").read_text(encoding="utf-8") != "mine":
         failures.append("a refused path must be left untouched")
 
     checks += 1

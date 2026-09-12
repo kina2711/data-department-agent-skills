@@ -25,7 +25,7 @@ Initialize a project context from the templates in `assets/company-context/`. Ne
 ## Context routing
 
 - Persistent source inventory, authority, owner, routing trigger and freshness -> `ctx-build-context-index`.
-- Prompt-ready context bundle for exactly one task and token budget -> hand off to `core-build-task-context-package` in Shared Data Core.
+- Prompt-ready context bundle for exactly one task and token budget -> hand off to `core-build-task-context-package` in Shared Task Controls.
 
 Use `scripts/bootstrap_context_index.py` to inventory local context without copying content values. Its authority and owner classifications remain hypotheses until accountable confirmation.
 

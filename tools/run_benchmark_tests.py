@@ -52,7 +52,7 @@ def main() -> int:
     de = ROOT / "skills" / "data-engineering" / "scripts"
     ae = ROOT / "skills" / "analytics-engineering" / "scripts"
     dq = ROOT / "skills" / "data-quality-and-reliability" / "scripts"
-    core = ROOT / "skills" / "shared-data-core" / "scripts"
+    core = ROOT / "skills" / "shared-task-controls" / "scripts"
     context = ROOT / "skills" / "company-data-context" / "scripts"
     orchestrator = ROOT / "skills" / "data-department-orchestrator" / "scripts"
     project = ROOT / "skills" / "data-personal-project-engineering" / "scripts"

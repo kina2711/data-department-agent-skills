@@ -521,7 +521,7 @@ def main() -> None:
         for expected_text in expected_texts:
             if expected_text not in result.stdout:
                 errors.append(f"workflow validator {workflow_path.name}: missing regression signal {expected_text!r}")
-    evidence_validator = SKILLS / "shared-data-core" / "scripts" / "validate_evidence_bundle.py"
+    evidence_validator = SKILLS / "shared-task-controls" / "scripts" / "validate_evidence_bundle.py"
     evidence_cases = [
         (ROOT / "evaluations" / "fixtures" / "evidence-envelope-valid.json", 0, ["cryptographically valid"]),
         (ROOT / "evaluations" / "fixtures" / "evidence-envelope-invalid.json", 1, ["artifact_sha256", "complete bundle cannot contain status 'not-run'", "artifact does not exist"]),

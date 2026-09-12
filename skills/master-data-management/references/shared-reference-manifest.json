@@ -1,5 +1,5 @@
 {
-  "suite_version": "3.13.0",
+  "suite_version": "3.14.0",
   "references": [
     {
       "logical_id": "lifecycle-standard",
@@ -14,7 +14,7 @@
     {
       "logical_id": "solution-option-framing",
       "filename": "solution-option-framing.md",
-      "sha256": "6c17ba2cba1e7fbe27c90f001b5201313fc01f9ee1bedab9135f6a187ae79649"
+      "sha256": "da7b42876ba76de03b8492d1a49bdd1111077bf4389b5310f1d029e48ea8985f"
     },
     {
       "logical_id": "safety-and-approvals",
@@ -34,7 +34,7 @@
     {
       "logical_id": "workflow-runtime-and-evidence-os",
       "filename": "workflow-runtime-and-evidence-os.md",
-      "sha256": "70e317b85a1c54e08742880d72183a31e61b66394e3a15152282fa33a3982d03"
+      "sha256": "080afddce29c611f7f495744e0a02c602438dfe311c7b9d11776e16081904fb5"
     },
     {
       "logical_id": "learning-memory-interoperability",

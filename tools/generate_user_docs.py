@@ -34,7 +34,7 @@ ROLE_GUIDANCE = {
         "Dùng khi đề bài chứa nhiều deliverable, cần dựng lại một repository, hoặc chưa rõ role nào sở hữu kết quả cuối.",
         "Không thay chuyên môn của các role. Mỗi task chỉ có một accountable owner; orchestrator quản lý workflow state, approval và thứ tự thực thi.",
     ),
-    "shared-data-core": (
+    "shared-task-controls": (
         "Cung cấp các kiểm soát nền dùng chung: phân loại request, tìm tài sản, đọc glossary/schema, profiling, access, evidence, approval và handoff.",
         "Dùng như dependency của mọi role khi cần context đáng tin cậy hoặc kiểm tra an toàn trước khi làm việc.",
         "Không sở hữu deliverable chuyên môn; không được dùng shared controls để né ownership của DA, DE, DG, DS hay role khác.",

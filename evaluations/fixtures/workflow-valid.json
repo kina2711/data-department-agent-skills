@@ -8,7 +8,7 @@
   "tasks": [
     {
       "task_id": "core-classify-data-request",
-      "owner": "shared-data-core",
+      "owner": "shared-task-controls",
       "depends_on": [],
       "status": "complete",
       "risk_tier": "R0-light",

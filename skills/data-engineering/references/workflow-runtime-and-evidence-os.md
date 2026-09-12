@@ -10,7 +10,7 @@ Run `data-department-orchestrator/scripts/validate_workflow.py` with the canonic
 
 ## Evidence envelope
 
-Bind each material claim to a versioned artifact and a structured envelope containing task, claims, SHA-256, environment, method/command, expected and observed results, exit status, timestamp, actor and limitations. `not-run` is an honest status, never completion proof. Run `shared-data-core/scripts/validate_evidence_bundle.py`; in complete mode, verify local artifact existence and hash when an artifact root is available.
+Bind each material claim to a versioned artifact and a structured envelope containing task, claims, SHA-256, environment, method/command, expected and observed results, exit status, timestamp, actor and limitations. `not-run` is an honest status, never completion proof. Run `shared-task-controls/scripts/validate_evidence_bundle.py`; in complete mode, verify local artifact existence and hash when an artifact root is available.
 
 ## Approval binding
 

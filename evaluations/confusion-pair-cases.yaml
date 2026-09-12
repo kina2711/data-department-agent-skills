@@ -137,13 +137,13 @@ cases:
     expected_task: orchestrator-compose-workflow
   - id: core-vs-context-package
     query: Package only the verified files needed for this one SQL review under a token budget.
-    expected_primary_skill: shared-data-core
+    expected_primary_skill: shared-task-controls
     rejected_skill: company-data-context
     expected_task: core-build-task-context-package
   - id: context-vs-core-index
     query: Build a persistent authority and freshness index for company metrics, systems and policies.
     expected_primary_skill: company-data-context
-    rejected_skill: shared-data-core
+    rejected_skill: shared-task-controls
     expected_task: ctx-build-context-index
   - id: bi-vs-ae-dashboard
     query: Build and independently UAT an accessible executive dashboard from an approved semantic model.
@@ -219,7 +219,7 @@ cases:
   - id: session-handoff-vs-core-context-package
     query: Phiên này sắp hết, ghi lại cho agent sau biết tôi đã thử hướng nào và bỏ vì sao, đừng chép lại plan.
     expected_primary_skill: data-department-orchestrator
-    rejected_skill: shared-data-core
+    rejected_skill: shared-task-controls
     expected_task: orchestrator-write-session-handoff
   - id: de-vs-mle-batch-pipeline
     query: Xây pipeline batch nạp đơn hàng hằng đêm vào warehouse, chịu được chạy lại và schema đổi.

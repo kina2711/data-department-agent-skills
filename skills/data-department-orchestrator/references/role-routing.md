@@ -5,7 +5,7 @@ A vague repository rebuild or a request that combines discovery, implementation 
 
 | Role skill | Owns | Atomic tasks |
 |---|---|---:|
-| `shared-data-core` | Shared Data Core: Apply reusable controls for task context packaging, data discovery, glossary resolution, schema inspection, profiling, safe SQL, access, sensitive data, impact analysis, documentation, approvals, handoffs, and deliverable verification. | 18 |
+| `shared-task-controls` | Shared Task Controls: Apply reusable controls for task context packaging, data discovery, glossary resolution, schema inspection, profiling, safe SQL, access, sensitive data, impact analysis, documentation, approvals, handoffs, and deliverable verification. | 18 |
 | `company-data-context` | Company Data Context: Create, index and maintain governed company-specific context for source systems, schemas, metrics, owners, policies, platforms, and environments with authority, retrieval rules, provenance and staleness checks. | 9 |
 | `head-of-data-and-data-product` | Head of Data and Data Product: Lead data strategy, maturity, operating model, roadmaps, OKRs, portfolios, capacity, vendors, data product discovery, requirements, priority, releases, and acceptance. | 21 |
 | `data-business-analysis` | Data Business Analysis: Perform Data Business Analyst work covering problem framing, stakeholders, decisions, discovery, business and functional requirements, processes, use cases, rules, acceptance criteria, traceability, feasibility, risks, and delivery handoffs. | 24 |

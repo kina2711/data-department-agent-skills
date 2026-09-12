@@ -13,7 +13,7 @@ as a side effect.
 
 ## Ratify
 
-1. Copy `skills/shared-data-core/assets/project-constitution.json` to the project root.
+1. Copy `skills/shared-task-controls/assets/project-constitution.json` to the project root.
 2. Fill it from real decisions already made — ADRs, architecture docs, existing dependency
    manifests. Do not invent principles the team never agreed to; an unratified constitution
    that nobody believes is worse than none.
@@ -22,12 +22,12 @@ as a side effect.
    makes drift detectable later.
 4. Set `amendment_policy.requires_approval_from` to a named authority. Leave `ratified_by`
    empty until a human ratifies it, and say so.
-5. Validate: `python skills/shared-data-core/scripts/validate_constitution.py project-constitution.json`
+5. Validate: `python skills/shared-task-controls/scripts/validate_constitution.py project-constitution.json`
 
 ## Check a plan before building
 
 ```
-python skills/shared-data-core/scripts/validate_constitution.py project-constitution.json --proposal-file <plan.md>
+python skills/shared-task-controls/scripts/validate_constitution.py project-constitution.json --proposal-file <plan.md>
 ```
 
 Exit `3` means the plan names a rejected alternative for a locked layer. That is a **blocked**
@@ -36,7 +36,7 @@ plan, not a warning to note and proceed past. Either change the plan or open an 
 ## Amend
 
 ```
-python skills/shared-data-core/scripts/validate_constitution.py project-constitution.json --previous <ratified-copy.json>
+python skills/shared-task-controls/scripts/validate_constitution.py project-constitution.json --previous <ratified-copy.json>
 ```
 
 An amendment requires a version bump and the named approver. Changing a locked layer,

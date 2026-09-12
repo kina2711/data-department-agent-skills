@@ -1,13 +1,13 @@
 suite: "data-department-agent-skills"
-version: "3.13.0"
+version: "3.14.0"
 top_level_skills: 33
 atomic_tasks: 868
 roles:
   - skill: "data-department-orchestrator"
     display_name: "Data Department Orchestrator"
     task_count: 27
-  - skill: "shared-data-core"
-    display_name: "Shared Data Core"
+  - skill: "shared-task-controls"
+    display_name: "Shared Task Controls"
     task_count: 18
   - skill: "company-data-context"
     display_name: "Company Data Context"

@@ -21,7 +21,7 @@ data-department-agent-skills
 ├── Wave 0 — control plane
 │   ├── company-data-context  (9 tasks, cao nhất R2-standard)
 │   ├── data-department-orchestrator  (27 tasks, cao nhất R2-standard)
-│   └── shared-data-core  (18 tasks, cao nhất R3-controlled)
+│   └── shared-task-controls  (18 tasks, cao nhất R3-controlled)
 ├── Wave 1 — đường đi từ request đến trusted analytics
 │   ├── analytics-engineering  (22 tasks, cao nhất R3-controlled)
 │   ├── business-intelligence  (32 tasks, cao nhất R4-critical)
@@ -91,7 +91,7 @@ Mỗi task module phải khai báo đủ:
 9. **Failure mode**: khi nào phải dừng, rollback hoặc chuyển role.
 10. **Handoff**: role/sub-skill tiếp theo và dữ liệu bàn giao.
 
-## 4. Shared Data Core — năng lực dùng chung
+## 4. Shared Task Controls — năng lực dùng chung
 
 Đây là các task dùng lại bởi mọi role; không gắn ownership vào một role chuyên môn.
 
@@ -1482,7 +1482,7 @@ Không tách các bước như `mở file`, `viết SQL`, `chạy test`, `tạo 
 ### Wave 0 — control plane
 
 1. `data-department-orchestrator`
-2. `shared-data-core`
+2. `shared-task-controls`
 3. `company-data-context` — company context pack: glossary, schemas, metrics, owners, policies, stack và environments
 
 ### Wave 1 — đường đi từ request đến trusted analytics

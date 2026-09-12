@@ -28,7 +28,7 @@
     ],
     [
       "company-data-context",
-      "shared-data-core"
+      "shared-task-controls"
     ],
     [
       "data-academy-and-curriculum",
@@ -60,7 +60,7 @@
     ],
     [
       "data-department-orchestrator",
-      "shared-data-core"
+      "shared-task-controls"
     ],
     [
       "data-documentation-and-diagrams",

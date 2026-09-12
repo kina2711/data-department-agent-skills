@@ -272,7 +272,7 @@ cases:
 
   - id: bounded-task-context-package
     query: Package only the business rules, schemas, lineage and evidence needed for this one task, preserve provenance and keep it under a fixed token budget.
-    expected_primary_skill: shared-data-core
+    expected_primary_skill: shared-task-controls
     expected_tasks:
       - core-build-task-context-package
     expected_behavior:
@@ -318,7 +318,7 @@ cases:
 
   - id: define-verifiable-success-before-build
     query: The request is vague. Convert it into observable outcomes, pass/fail checks, non-goals, evidence methods and stop conditions before implementation.
-    expected_primary_skill: shared-data-core
+    expected_primary_skill: shared-task-controls
     expected_tasks:
       - core-define-success-contract
     expected_behavior:
@@ -327,7 +327,7 @@ cases:
 
   - id: audit-drive-by-repository-changes
     query: Read the Git changes and verify that every changed file maps to the approved outcomes and path allowlist; flag unapproved deletions and drive-by refactors.
-    expected_primary_skill: shared-data-core
+    expected_primary_skill: shared-task-controls
     expected_tasks:
       - core-audit-change-scope
     expected_behavior:

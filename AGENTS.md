@@ -59,13 +59,13 @@ are honest statuses; neither may be reported as a pass.
 ## Executable evidence
 
 ```bash
-python skills/shared-data-core/scripts/validate_evidence_bundle.py <bundle> --artifact-root <root> --mode complete
-python skills/shared-data-core/scripts/validate_task_result.py <result> --task-catalog task-catalog.json --mode complete
-python skills/shared-data-core/scripts/verify_deliverable.py <result> <evidence> --artifact-root <root>
+python skills/shared-task-controls/scripts/validate_evidence_bundle.py <bundle> --artifact-root <root> --mode complete
+python skills/shared-task-controls/scripts/validate_task_result.py <result> --task-catalog task-catalog.json --mode complete
+python skills/shared-task-controls/scripts/verify_deliverable.py <result> <evidence> --artifact-root <root>
 python skills/data-department-orchestrator/scripts/validate_workflow.py <manifest> --mode complete
 python skills/data-department-orchestrator/scripts/validate_run_state.py <state> --task-catalog task-catalog.json
 python skills/data-department-orchestrator/scripts/validate_approval_record.py <record> --require-approved
-python skills/shared-data-core/scripts/validate_constitution.py <constitution> --proposal-file <plan>
+python skills/shared-task-controls/scripts/validate_constitution.py <constitution> --proposal-file <plan>
 python skills/data-architecture/scripts/scan_architecture_drift.py <repo> --max-depth 5
 python skills/personal-second-brain-and-knowledge-os/scripts/build_entity_context_graph.py <vault> --query "<question>"
 python skills/data-developer-experience/scripts/build_code_index.py <repo> --symbol <Name>

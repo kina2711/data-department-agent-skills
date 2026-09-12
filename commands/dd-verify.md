@@ -13,9 +13,9 @@ Run the real validators and report their real output. A description of a check i
 2. Run, in order, and show each command with its actual output:
 
 ```
-python skills/shared-data-core/scripts/validate_task_result.py <result> --task-catalog task-catalog.json --mode complete
-python skills/shared-data-core/scripts/validate_evidence_bundle.py <evidence> --artifact-root <root> --mode complete
-python skills/shared-data-core/scripts/verify_deliverable.py <result> <evidence> --artifact-root <root>
+python skills/shared-task-controls/scripts/validate_task_result.py <result> --task-catalog task-catalog.json --mode complete
+python skills/shared-task-controls/scripts/validate_evidence_bundle.py <evidence> --artifact-root <root> --mode complete
+python skills/shared-task-controls/scripts/verify_deliverable.py <result> <evidence> --artifact-root <root>
 ```
 
 3. Interpret exit codes honestly: `0` passed, `1` failed, `2` incomplete because a check could not be run. **`incomplete` is not `passed`.** Report `not-run` checks as unproven, never as satisfied.

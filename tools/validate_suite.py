@@ -83,7 +83,7 @@ PEOPLE_RESOURCES = {
 }
 
 BENCHMARK_RESOURCES = {
-    "shared-data-core": {
+    "shared-task-controls": {
         "references": ["context-engineering-standard.md", "execution-discipline-standard.md"],
         "assets": ["task-context-package.yaml", "success-contract.yaml", "change-scope-ledger.yaml", "change-scope-contract.json", "debug-hypothesis-ledger.yaml", "verification-claims.yaml", "atomic-task-output.yaml", "atomic-task-result.schema.json", "project-constitution.json", "project-constitution.schema.json"],
         "scripts": ["build_context_package.py", "audit_change_scope.py", "validate_evidence_bundle.py", "validate_task_result.py", "verify_deliverable.py", "validate_constitution.py"],
@@ -394,10 +394,10 @@ def validate() -> tuple[list[str], dict[str, int]]:
         SKILLS / "data-department-orchestrator" / "assets" / "approval-record.schema.json",
         SKILLS / "data-department-orchestrator" / "assets" / "telemetry-event.schema.json",
         SKILLS / "data-department-orchestrator" / "assets" / "task-contract.schema.json",
-        SKILLS / "shared-data-core" / "scripts" / "validate_evidence_bundle.py",
-        SKILLS / "shared-data-core" / "assets" / "evidence-envelope.json",
-        SKILLS / "shared-data-core" / "assets" / "evidence-envelope.schema.json",
-        SKILLS / "shared-data-core" / "assets" / "atomic-task-result.schema.json",
+        SKILLS / "shared-task-controls" / "scripts" / "validate_evidence_bundle.py",
+        SKILLS / "shared-task-controls" / "assets" / "evidence-envelope.json",
+        SKILLS / "shared-task-controls" / "assets" / "evidence-envelope.schema.json",
+        SKILLS / "shared-task-controls" / "assets" / "atomic-task-result.schema.json",
         SKILLS / "company-data-context" / "scripts" / "bootstrap_context_index.py",
         SKILLS / "data-developer-experience" / "scripts" / "detect_data_stack.py",
         SKILLS / "data-personal-project-engineering" / "scripts" / "audit_repository.py",
@@ -537,6 +537,28 @@ def check_preset_jobs(skills: set[str], task_ids: set[str]) -> list[str]:
     return errors
 
 
+def check_skill_path_references(skills: set[str]) -> list[str]:
+    """Hard-coded skill directory paths inside scripts, which a rename breaks silently.
+
+    One script reaches a shared implementation by path rather than by import. Renaming a skill
+    directory left that path pointing at nothing, and every validator stayed green because the
+    failure only happens when the script runs. Checking the paths themselves closes the gap that
+    a rename opens.
+    """
+    errors: list[str] = []
+    pattern = re.compile(r"""["']?skills[/\\]([a-z0-9-]+)[/\\]""")
+    for script in sorted(SKILLS.glob("*/scripts/*.py")):
+        text = script.read_text(encoding="utf-8")
+        for name in set(pattern.findall(text)):
+            if name not in skills:
+                errors.append(f"{script.relative_to(ROOT)}: points at skills/{name}, which does not exist")
+        # `parents[2] / "name"` is the same reference written another way.
+        for name in set(re.findall(r'parents\[\d\]\s*/\s*"([a-z0-9-]+)"', text)):
+            if name not in skills and "-" in name:
+                errors.append(f"{script.relative_to(ROOT)}: reaches sibling skill {name!r}, which does not exist")
+    return errors
+
+
 def check_universal_references(skills: set[str]) -> list[str]:
     """Every skill carries the same four standards, and until now nothing checked that.
 
@@ -572,6 +594,9 @@ def main() -> None:
     catalog_ids = {t["id"] for t in _json.loads((ROOT / "task-catalog.json").read_text(encoding="utf-8"))}
     job_errors = check_preset_jobs(skill_names, catalog_ids)
     errors.extend(job_errors)
+    path_errors = check_skill_path_references(skill_names)
+    errors.extend(path_errors)
+    stats["skill_path_references"] = "ok" if not path_errors else f"{len(path_errors)} problem(s)"
     universal_errors = check_universal_references(skill_names)
     errors.extend(universal_errors)
     stats["universal_references"] = "ok" if not universal_errors else f"{len(universal_errors)} problem(s)"

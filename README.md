@@ -5,7 +5,7 @@ A governed operating system for an entire Data Department, packaged as a Claude 
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
 
-Current release: **v3.13.0** · Works with **Claude Code**, **OpenAI Codex** and **Google Antigravity**
+Current release: **v3.14.0** · Works with **Claude Code**, **OpenAI Codex** and **Google Antigravity**
 
 🇻🇳 [Đọc bản tiếng Việt](README.vi.md)
 
@@ -58,16 +58,16 @@ evidence script need it; both fail open if it is missing).
 
 ```powershell
 # Windows
-$pluginRoot = "C:\Tools\data-department-agent-skills-v3.13.0"
-Expand-Archive .\data-department-claude-plugin-v3.13.0.zip -DestinationPath $pluginRoot
+$pluginRoot = "C:\Tools\data-department-agent-skills-v3.14.0"
+Expand-Archive .\data-department-claude-plugin-v3.14.0.zip -DestinationPath $pluginRoot
 claude plugin validate --strict $pluginRoot
 claude --plugin-dir $pluginRoot
 ```
 
 ```bash
 # macOS / Linux
-pluginRoot=~/tools/data-department-agent-skills-v3.13.0
-unzip data-department-claude-plugin-v3.13.0.zip -d "$pluginRoot"
+pluginRoot=~/tools/data-department-agent-skills-v3.14.0
+unzip data-department-claude-plugin-v3.14.0.zip -d "$pluginRoot"
 claude plugin validate --strict "$pluginRoot"
 claude --plugin-dir "$pluginRoot"
 ```
@@ -265,7 +265,7 @@ atomic tasks.
 | `/dd-mdm` | Master Data Management | 13 |
 | `/dd-devex` | Data Developer Experience | 19 |
 | `/dd-project` | Personal Data Project Engineering | 42 |
-| `/dd-core` | Shared Data Core | 18 |
+| `/dd-core` | Shared Task Controls | 18 |
 
 ### Review — authority and safety
 
@@ -354,7 +354,7 @@ way. A constitution records principles, a technology stack with per-layer `locke
 `alternatives_rejected`, blocking architecture rules, and an amendment policy.
 
 ```bash
-python skills/shared-data-core/scripts/validate_constitution.py project-constitution.json \
+python skills/shared-task-controls/scripts/validate_constitution.py project-constitution.json \
   --proposal-file plan.md
 ```
 
@@ -466,11 +466,11 @@ install step. Exit codes carry meaning everywhere:
 ### The core chain
 
 ```bash
-python skills/shared-data-core/scripts/validate_task_result.py result.json \
+python skills/shared-task-controls/scripts/validate_task_result.py result.json \
   --task-catalog task-catalog.json --mode complete
-python skills/shared-data-core/scripts/validate_evidence_bundle.py evidence.json \
+python skills/shared-task-controls/scripts/validate_evidence_bundle.py evidence.json \
   --artifact-root ./artifacts --mode complete
-python skills/shared-data-core/scripts/verify_deliverable.py result.json evidence.json \
+python skills/shared-task-controls/scripts/verify_deliverable.py result.json evidence.json \
   --artifact-root ./artifacts
 ```
 

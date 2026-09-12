@@ -23,7 +23,7 @@ data-department-orchestrator  ·  27 tasks  ·  max R2-standard
   Task groups: build-deliver-decision (2), build-deliver-ledger (2), build-deliver-other (10), build-deliver-project (3), build-deliver-register (3), plan-design (3), test-assure (4).
   Route personal learning or portfolio projects to Personal Data Project Engineering.
 
-shared-data-core  ·  18 tasks  ·  max R3-controlled
+shared-task-controls  ·  18 tasks  ·  max R3-controlled
   Apply shared data controls for bounded task-context packaging, discovery, schema inspection, profiling, validation, evidence, approvals and handoffs.
   Produces: prompt-ready task context package; routing decision; evidence-backed asset shortlist; impact report; safe processing plan; lossless handoff package.
   Task groups: build-deliver (9), plan-design (3), test-assure (6).

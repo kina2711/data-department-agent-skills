@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MAP = ROOT / "docs" / "skill-map.md"
 SKILLS = ROOT / "skills"
-SUITE_VERSION = "3.13.0"
+SUITE_VERSION = "3.14.0"
 REPOSITORY_URL = "https://github.com/kina2711/data-department-agent-skills"
 
 
@@ -24,7 +24,7 @@ def canonical_text_sha256(path: Path) -> str:
 
 PREFIX_TO_SKILL = {
     "orchestrator": "data-department-orchestrator",
-    "core": "shared-data-core",
+    "core": "shared-task-controls",
     "ctx": "company-data-context",
     "hod": "head-of-data-and-data-product",
     "dpm": "head-of-data-and-data-product",
@@ -69,9 +69,9 @@ SKILL_META = {
         "Data Department Orchestrator",
         "Route and govern end-to-end data work",
     ),
-    "shared-data-core": (
+    "shared-task-controls": (
         "Apply reusable controls for task context packaging, data discovery, glossary resolution, schema inspection, profiling, safe SQL, access, sensitive data, impact analysis, documentation, approvals, handoffs, and deliverable verification. Use when another data role needs a common control, bounded context bundle, or evidence check.",
-        "Shared Data Core",
+        "Shared Task Controls",
         "Shared controls for trustworthy data work",
     ),
     "company-data-context": (
@@ -237,7 +237,7 @@ SKILL_META = {
 # short name -> (skill, sprint stage). Short names are stable user-facing identifiers.
 ROLE_COMMANDS = {
     "dd-orchestrate": ("data-department-orchestrator", "plan"),
-    "dd-core": ("shared-data-core", "build"),
+    "dd-core": ("shared-task-controls", "build"),
     "dd-context": ("company-data-context", "think"),
     "dd-hod": ("head-of-data-and-data-product", "think"),
     "dd-ba": ("data-business-analysis", "think"),
@@ -275,7 +275,7 @@ SPRINT_STAGES = ["think", "plan", "build", "review", "test", "ship", "reflect"]
 
 CLAUDE_TRIGGER_DESCRIPTIONS = {
     "data-department-orchestrator": "Route ambiguous, organizational or multi-role Data Department requests and compose governed workflows with owners, dependencies, gates and handoffs. Use when the named deliverable cannot be built until another role sources, models or certifies its inputs — a dashboard from systems not yet ingested, an incident spanning monitoring, diagnosis and revalidation, a rebuild combining discovery, implementation and proof. Also owns the run itself: continuing an in-flight workflow from its last approved checkpoint, enforcing the gate that checkpoint sits behind, and writing the session handoff that tells the next agent what was tried and rejected. A request to resume, continue or hand over work belongs here even when the work is entirely inside one domain. The deliverable named last does not decide the owner; the work standing in front of it does. Route personal learning or portfolio projects to Personal Data Project Engineering.",
-    "shared-data-core": "Apply shared data controls for bounded task-context packaging, discovery, schema inspection, profiling, validation, evidence, approvals and handoffs. Use when a data task needs reusable cross-role safeguards, a prompt-ready context bundle or artifact checks.",
+    "shared-task-controls": "Apply shared data controls for bounded task-context packaging, discovery, schema inspection, profiling, validation, evidence, approvals and handoffs. Use when a data task needs reusable cross-role safeguards, a prompt-ready context bundle or artifact checks.",
     "company-data-context": "Maintain and index company-specific data context including glossary terms, metrics, datasets, systems, owners, policies and platforms. Use when Claude must initialize, route, retrieve or verify organizational context without storing secrets.",
     "head-of-data-and-data-product": "Lead data strategy, operating model, portfolio, roadmap, service intake, prioritization, value, adoption and executive governance. Use for Head of Data, CDO or Data Product Management deliverables.",
     "data-business-analysis": "Elicit and validate data requirements, business rules, processes, use cases, acceptance criteria and traceability. Use for Data Business Analyst work or when an ambiguous business request must become an implementation-ready specification.",
@@ -360,7 +360,7 @@ CONTENT_PLANNING_TASKS = {
 # remain out of the always-on skill entrypoint and are loaded with one selected task.
 DOMAIN_EXECUTION_CONTROLS = {
     "data-department-orchestrator": ("objective and success contract; task graph with owners; current state and authority", "one accountable owner per task; no dependency or gate bypass; child risk sets the workflow risk floor", "classify and bound; compose acyclic graph; validate readiness; execute one ready task; gate and hand off", "validated workflow graph; version-bound approvals; claim-to-evidence completion record"),
-    "shared-data-core": ("bounded request and consumer; authoritative sources; evidence and sensitivity constraints", "least context and privilege; provenance on material facts; no claim stronger than evidence", "classify; retrieve minimum context; inspect source; execute deterministic check; record evidence and limitation", "source identifiers and hashes; method and environment; pass/fail result and residual uncertainty"),
+    "shared-task-controls": ("bounded request and consumer; authoritative sources; evidence and sensitivity constraints", "least context and privilege; provenance on material facts; no claim stronger than evidence", "classify; retrieve minimum context; inspect source; execute deterministic check; record evidence and limitation", "source identifiers and hashes; method and environment; pass/fail result and residual uncertainty"),
     "company-data-context": ("source inventory and authority; owners and freshness; sensitivity and retrieval triggers", "live evidence overrides stale context; secrets/raw sensitive records are excluded; conflicts remain explicit", "inventory; classify authority; redact; detect conflict; version and index; test representative retrieval", "context entry provenance; last-verified timestamp; conflict/freshness report and retrieval test"),
     "head-of-data-and-data-product": ("business outcomes and decision owners; portfolio capacity and constraints; adoption/value baseline", "priorities trace to outcomes; estimates expose uncertainty; implementation ownership is handed off", "frame outcome; compare options; prioritize with capacity; define benefit and adoption evidence; govern review", "decision log; portfolio trade-offs; value/adoption measures and accountable acceptance"),
     "data-business-analysis": ("stakeholders and decisions; current process and rules; source-to-requirement evidence", "requirements are testable and uniquely identified; conflicts are not silently resolved; traceability reaches acceptance", "discover; model current state; specify rules and exceptions; trace design/test; validate with authority", "signed requirement baseline; RTM coverage; scenario/UAT evidence and unresolved decisions"),
@@ -396,7 +396,7 @@ DOMAIN_EXECUTION_CONTROLS = {
 
 
 ROLE_STACK_ADAPTERS = {
-    "shared-data-core": ("snowflake", "bigquery"),
+    "shared-task-controls": ("snowflake", "bigquery"),
     "company-data-context": ("snowflake", "bigquery", "databricks", "microsoft-fabric", "metadata-catalog"),
     "data-architecture": ("snowflake", "bigquery", "databricks", "microsoft-fabric", "kafka-flink"),
     "metadata-engineering-and-catalog": ("snowflake", "bigquery", "databricks", "microsoft-fabric", "metadata-catalog"),
@@ -1507,7 +1507,7 @@ silently, at the moment a question turns hard, and the mode stops meaning anythi
 
 
 OUTWARD_FACING_SKILLS = {
-    "shared-data-core", "data-platform-and-dataops", "data-security-and-privacy",
+    "shared-task-controls", "data-platform-and-dataops", "data-security-and-privacy",
     "metadata-engineering-and-catalog", "machine-learning-engineering", "mlops",
     "data-onboarding-and-integration", "data-technical-content-and-social",
     "generative-ai-engineering", "head-of-data-and-data-product",
@@ -1519,7 +1519,7 @@ OUTWARD_FACING_SKILLS = {
 }
 
 GRAPH_BUILDING_SKILLS = {
-    "shared-data-core",
+    "shared-task-controls",
     "personal-second-brain-and-knowledge-os",
     "data-academy-and-curriculum",
     "book-to-knowledge-and-action",
@@ -1527,7 +1527,7 @@ GRAPH_BUILDING_SKILLS = {
 }
 
 PROSE_AUTHORING_SKILLS = {
-    "shared-data-core",
+    "shared-task-controls",
     "data-academy-and-curriculum",
     "data-career-and-interview-coach",
     "data-enablement-and-knowledge",
@@ -2616,7 +2616,7 @@ For multi-step work, initialize `assets/workflow-manifest.json` and update it af
 
 Record optional improvement telemetry only through `scripts/record_skill_telemetry.py` and `assets/telemetry-event.json`; never store user content, prompts, secrets or data values. Aggregate it with `scripts/analyze_skill_telemetry.py`; high failure or override rates trigger investigation, never weaker gates. Score contracts against those outcomes with `scripts/score_skill_quality.py`; its recommendations are change requests with evidence attached, never direct edits. Govern reusable patterns with `scripts/manage_instincts.py` and `assets/instinct-ledger.json`: confidence is the Wilson lower bound of counted outcomes, only `active` instincts may shape behavior, and an instinct unconfirmed for 90 days weakens until it is re-tested.
 """
-    elif skill == "shared-data-core":
+    elif skill == "shared-task-controls":
         extra = """
 ## Context-package routing
 
@@ -2636,7 +2636,7 @@ Initialize a project context from the templates in `assets/company-context/`. Ne
 ## Context routing
 
 - Persistent source inventory, authority, owner, routing trigger and freshness -> `ctx-build-context-index`.
-- Prompt-ready context bundle for exactly one task and token budget -> hand off to `core-build-task-context-package` in Shared Data Core.
+- Prompt-ready context bundle for exactly one task and token budget -> hand off to `core-build-task-context-package` in Shared Task Controls.
 
 Use `scripts/bootstrap_context_index.py` to inventory local context without copying content values. Its authority and owner classifications remain hypotheses until accountable confirmation.
 """
@@ -3094,7 +3094,7 @@ def build_shared_assets(risk_of: dict[str, str] | None = None) -> None:
     for name, body in context_templates.items():
         write_yaml(context / name, body)
 
-    core_assets = SKILLS / "shared-data-core" / "assets"
+    core_assets = SKILLS / "shared-task-controls" / "assets"
     write_yaml(
         core_assets / "atomic-task-output.yaml",
         {
@@ -3762,7 +3762,7 @@ Required when the primary deliverable is a specification, design, architecture, 
 
 ## Result envelope
 
-Return prose and a structured record together. The option set belongs in `design-option-set.yaml`; the task outcome belongs in `atomic-task-output.yaml`, whose fields mirror the return contract — task, status, phase reached, deliverable, evidence, test results, gate results, approval, assumptions, limitations, residual risks and next task/owner. Validate it with `shared-data-core/scripts/validate_task_result.py` when the script is reachable.
+Return prose and a structured record together. The option set belongs in `design-option-set.yaml`; the task outcome belongs in `atomic-task-output.yaml`, whose fields mirror the return contract — task, status, phase reached, deliverable, evidence, test results, gate results, approval, assumptions, limitations, residual risks and next task/owner. Validate it with `shared-task-controls/scripts/validate_task_result.py` when the script is reachable.
 
 The structured record is a mirror of the reported outcome, not a second version of it. If the prose claims a pass that the record does not carry, the record wins and the task is not complete.
 """
@@ -3792,7 +3792,7 @@ Run `data-department-orchestrator/scripts/validate_workflow.py` with the canonic
 
 ## Evidence envelope
 
-Bind each material claim to a versioned artifact and a structured envelope containing task, claims, SHA-256, environment, method/command, expected and observed results, exit status, timestamp, actor and limitations. `not-run` is an honest status, never completion proof. Run `shared-data-core/scripts/validate_evidence_bundle.py`; in complete mode, verify local artifact existence and hash when an artifact root is available.
+Bind each material claim to a versioned artifact and a structured envelope containing task, claims, SHA-256, environment, method/command, expected and observed results, exit status, timestamp, actor and limitations. `not-run` is an honest status, never completion proof. Run `shared-task-controls/scripts/validate_evidence_bundle.py`; in complete mode, verify local artifact existence and hash when an artifact root is available.
 
 ## Approval binding
 
@@ -5512,7 +5512,7 @@ A redesign specification maps audit finding -> design decision -> affected page/
 """
 
     targets = {
-        "shared-data-core": {"context-engineering-standard.md": context_engineering},
+        "shared-task-controls": {"context-engineering-standard.md": context_engineering},
         "data-documentation-and-diagrams": {"diagram-fidelity-standard.md": diagram_fidelity},
         "technical-translation": {"vietnamese-technical-translation.md": translation_standard},
         "data-department-orchestrator": {"agent-harness-standard.md": agent_harness, "harness-delivery-loop.md": harness_loop, "context-engineering-standard.md": context_engineering},
@@ -5547,7 +5547,7 @@ A redesign specification maps audit finding -> design decision -> affected page/
         "tool-output-budget.md",
         "context-budget-standard.md",
     ]
-    canonical_refs = SKILLS / "shared-data-core" / "references"
+    canonical_refs = SKILLS / "shared-task-controls" / "references"
     shared_manifest = {
         "suite_version": SUITE_VERSION,
         "references": [
@@ -5739,9 +5739,9 @@ def build_manifest(grouped: dict[str, list[dict[str, str]]]) -> None:
         "instinct-record.schema.json": "data-department-orchestrator",
         "telemetry-event.schema.json": "data-department-orchestrator",
         "task-contract.schema.json": "data-department-orchestrator",
-        "evidence-envelope.schema.json": "shared-data-core",
-        "project-constitution.schema.json": "shared-data-core",
-        "atomic-task-result.schema.json": "shared-data-core",
+        "evidence-envelope.schema.json": "shared-task-controls",
+        "project-constitution.schema.json": "shared-task-controls",
+        "atomic-task-result.schema.json": "shared-task-controls",
         "second-brain-manifest.schema.json": "personal-second-brain-and-knowledge-os",
         "book-conversion-manifest.schema.json": "book-to-knowledge-and-action",
         "learner-memory.schema.json": "data-career-and-interview-coach",
