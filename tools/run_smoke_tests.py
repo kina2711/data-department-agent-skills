@@ -232,7 +232,8 @@ def main() -> None:
                         ("build_knowledge_graph.py", "knowledge graph"),
                         ("build_skill_atlas.py", "skill atlas"),
                         ("build_interop.py", "interop layer"),
-                        ("build_skill_tutorials.py", "step-by-step guide")]:
+                        ("build_skill_tutorials.py", "step-by-step guide"),
+                        ("build_skill_index.py", "routing index")]:
         result = subprocess.run(
             [sys.executable, str(ROOT / "tools" / tool), "--check"],
             capture_output=True, text=True, check=False,

@@ -201,6 +201,26 @@ WAVE_TONE = {
 FALLBACK_TONE = "unplaced"
 
 
+
+def read_description(text: str) -> str:
+    """The description from SKILL.md front matter, quoted or not.
+
+    It is JSON-quoted now, because prose contains colons and an unquoted colon breaks the whole
+    front matter. A regex that takes the rest of the line therefore captures the quotes too, and
+    they surface wherever the description is displayed. Decode when it is quoted; take it raw when
+    it is not, so this keeps working whichever way the generator writes it.
+    """
+    match = re.search(r"^description:\s*(.+)$", text, re.M)
+    if not match:
+        return ""
+    value = match.group(1).strip()
+    if value.startswith('"'):
+        try:
+            return json.loads(value)
+        except json.JSONDecodeError:
+            return value.strip('"')
+    return value
+
 def parse_waves() -> tuple[dict[str, str], dict[str, str]]:
     """Wave membership and each wave's authored subtitle, read from skill-map section 40."""
     text = MAP.read_text(encoding="utf-8")
@@ -248,7 +268,7 @@ def collect() -> dict:
     for skill_md in sorted(SKILLS.glob("*/SKILL.md")):
         name = skill_md.parent.name
         text = skill_md.read_text(encoding="utf-8")
-        desc = re.search(r"^description:\s*(.+)$", text, re.M)
+        description = read_description(text)
         wave = membership.get(name)
         if wave is None:
             unplaced.append(name)
@@ -268,7 +288,7 @@ def collect() -> dict:
         risk = Counter(t["risk_tier"] for group in shards.values() for t in group)
         waves[wave].append({
             "skill": name,
-            "description": (desc.group(1).strip() if desc else ""),
+            "description": description,
             "task_count": len(tasks),
             "risk_mix": dict(sorted(risk.items())),
             "highest_risk": max(risk, default=""),

@@ -1,6 +1,6 @@
 # Chi tiết toàn bộ Data Department Skills và Atomic Tasks
 
-> Phiên bản `3.12.1` · `33` Claude role skills · `868` atomic workflows.
+> Phiên bản `3.13.0` · `33` Claude role skills · `868` atomic workflows.
 > Đây là catalog tra cứu đầy đủ được sinh từ `suite-manifest.yaml`, `task-catalog.json` và task contracts; không phải nội dung luôn được nạp vào context của Claude.
 
 ## Mục lục
@@ -154,7 +154,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 27 tasks — Plan / Design 3; Build / Deliver 20; Test / Assure 4; Operate / Improve 0.
 
-**Domain references tải khi cần:** `agent-harness-standard.md`, `context-engineering-standard.md`, `edge-provenance.md`, `external-tool-access.md`, `harness-delivery-loop.md`, `learning-memory-interoperability.md`, `model-selection.md`, `parallel-execution-and-agent-teams.md`, `producer-reviewer-method.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `agent-harness-standard.md`, `context-budget-standard.md`, `context-engineering-standard.md`, `edge-provenance.md`, `external-tool-access.md`, `harness-delivery-loop.md`, `learning-memory-interoperability.md`, `model-selection.md`, `parallel-execution-and-agent-teams.md`, `producer-reviewer-method.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `agent-harness.yaml`, `approval-ledger.yaml`, `approval-record.json`, `approval-record.schema.json`, `assumption-register.yaml`, `atomic-task-output.yaml`, `branch-delegation-contract.json`, `change-scope-contract.json`, `change-scope-ledger.yaml`, `conflict-register.yaml`, `debug-hypothesis-ledger.yaml`, `design-option-set.yaml`, `evidence-ledger.yaml`, `fan-in-merge-record.yaml`, `handoff-package.yaml`, `harness-approval.yaml`, `harness-readiness-audit.yaml`, `harness-stop-log.json`, `instinct-ledger.json`, `instinct-record.schema.json`, `producer-reviewer-record.yaml`, `question-register.yaml`, `run-state.schema.json`, `run-state.yaml`, `session-handoff.yaml`, `stage-gate.yaml`, `success-contract.yaml`, `task-catalog.json`, `task-contract.schema.json`, `telemetry-event.json`, `telemetry-event.schema.json`, `test-evidence.yaml`, `verification-claims.yaml`, `work-ledger.yaml`, `workflow-manifest.json`, `workflow-manifest.schema.json`.
 
@@ -216,7 +216,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 18 tasks — Plan / Design 3; Build / Deliver 9; Test / Assure 6; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-snowflake.md`, `authored-prose-voice.md`, `context-engineering-standard.md`, `edge-provenance.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-snowflake.md`, `authored-prose-voice.md`, `context-budget-standard.md`, `context-engineering-standard.md`, `edge-provenance.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `atomic-task-result.schema.json`, `change-scope-contract.json`, `change-scope-ledger.yaml`, `debug-hypothesis-ledger.yaml`, `design-option-set.yaml`, `evidence-envelope.json`, `evidence-envelope.schema.json`, `project-constitution.json`, `project-constitution.schema.json`, `success-contract.yaml`, `task-context-package.yaml`, `verification-claims.yaml`.
 
@@ -269,7 +269,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 9 tasks — Plan / Design 1; Build / Deliver 7; Test / Assure 1; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `context-engineering-standard.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `context-budget-standard.md`, `context-engineering-standard.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `context-index.yaml`, `design-option-set.yaml`.
 
@@ -313,7 +313,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 21 tasks — Plan / Design 11; Build / Deliver 7; Test / Assure 3; Operate / Improve 0.
 
-**Domain references tải khi cần:** `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `context-budget-standard.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -369,7 +369,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 24 tasks — Plan / Design 15; Build / Deliver 7; Test / Assure 2; Operate / Improve 0.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `context-budget-standard.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -428,7 +428,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 22 tasks — Plan / Design 17; Build / Deliver 1; Test / Assure 4; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-kafka-flink.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-kafka-flink.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `context-budget-standard.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -485,7 +485,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 22 tasks — Plan / Design 8; Build / Deliver 5; Test / Assure 8; Operate / Improve 1.
 
-**Domain references tải khi cần:** `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `context-budget-standard.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -547,7 +547,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 18 tasks — Plan / Design 1; Build / Deliver 13; Test / Assure 3; Operate / Improve 1.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `context-budget-standard.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -603,7 +603,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 21 tasks — Plan / Design 1; Build / Deliver 13; Test / Assure 3; Operate / Improve 4.
 
-**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-kafka-flink.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-mlflow-kubeflow.md`, `adapter-snowflake.md`, `adapter-spark.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-kafka-flink.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-mlflow-kubeflow.md`, `adapter-snowflake.md`, `adapter-spark.md`, `context-budget-standard.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -664,7 +664,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 20 tasks — Plan / Design 3; Build / Deliver 11; Test / Assure 5; Operate / Improve 1.
 
-**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-microsoft-fabric.md`, `adapter-spark.md`, `evidence-based-repository-understanding.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-microsoft-fabric.md`, `adapter-spark.md`, `context-budget-standard.md`, `evidence-based-repository-understanding.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `data-path-trace.yaml`, `design-option-set.yaml`.
 
@@ -724,7 +724,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 25 tasks — Plan / Design 3; Build / Deliver 11; Test / Assure 4; Operate / Improve 7.
 
-**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-kafka-flink.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `adapter-spark.md`, `execution-plan-and-pipeline-adapters.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `stage-gated-data-validation.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`, `zero-landing-ingestion.md`.
+**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-kafka-flink.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `adapter-spark.md`, `context-budget-standard.md`, `execution-plan-and-pipeline-adapters.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `stage-gated-data-validation.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`, `zero-landing-ingestion.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`, `execution-plan-review.yaml`, `pipeline-validation-plan.yaml`.
 
@@ -789,7 +789,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 22 tasks — Plan / Design 5; Build / Deliver 10; Test / Assure 4; Operate / Improve 3.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `agent-ready-marts.md`, `execution-plan-and-pipeline-adapters.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `agent-ready-marts.md`, `context-budget-standard.md`, `execution-plan-and-pipeline-adapters.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`, `execution-plan-review.yaml`.
 
@@ -851,7 +851,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 29 tasks — Plan / Design 8; Build / Deliver 9; Test / Assure 10; Operate / Improve 2.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `analysis-rigor-and-communication.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `analysis-rigor-and-communication.md`, `context-budget-standard.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `analysis-peer-review.yaml`, `analysis-retrospective.yaml`, `atomic-task-output.yaml`, `design-option-set.yaml`, `eda-report.yaml`, `impact-estimate.yaml`, `methodology-note.yaml`, `query-logic-explanation.yaml`.
 
@@ -920,7 +920,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 32 tasks — Plan / Design 4; Build / Deliver 15; Test / Assure 8; Operate / Improve 5.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-microsoft-fabric.md`, `adapter-power-bi.md`, `adapter-snowflake.md`, `adapter-tableau-looker.md`, `dashboard-experience-quality.md`, `dashboards-as-code.md`, `external-tool-access.md`, `figure-intent-and-critique.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-microsoft-fabric.md`, `adapter-power-bi.md`, `adapter-snowflake.md`, `adapter-tableau-looker.md`, `context-budget-standard.md`, `dashboard-experience-quality.md`, `dashboards-as-code.md`, `external-tool-access.md`, `figure-intent-and-critique.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `dashboard-experience-audit.yaml`, `design-option-set.yaml`.
 
@@ -992,7 +992,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 17 tasks — Plan / Design 5; Build / Deliver 5; Test / Assure 7; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-snowflake.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-snowflake.md`, `context-budget-standard.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -1042,7 +1042,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 22 tasks — Plan / Design 5; Build / Deliver 13; Test / Assure 3; Operate / Improve 1.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `context-budget-standard.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -1104,7 +1104,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 20 tasks — Plan / Design 4; Build / Deliver 10; Test / Assure 3; Operate / Improve 3.
 
-**Domain references tải khi cần:** `adapter-databricks.md`, `adapter-kafka-flink.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-databricks.md`, `adapter-kafka-flink.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `context-budget-standard.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -1164,7 +1164,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 23 tasks — Plan / Design 1; Build / Deliver 12; Test / Assure 2; Operate / Improve 8.
 
-**Domain references tải khi cần:** `adapter-databricks.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-databricks.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `context-budget-standard.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -1227,7 +1227,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 21 tasks — Plan / Design 3; Build / Deliver 5; Test / Assure 8; Operate / Improve 5.
 
-**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `adapter-spark.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `stage-gated-data-validation.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-microsoft-fabric.md`, `adapter-snowflake.md`, `adapter-spark.md`, `context-budget-standard.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `stage-gated-data-validation.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`, `pipeline-validation-plan.yaml`.
 
@@ -1288,7 +1288,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 16 tasks — Plan / Design 3; Build / Deliver 9; Test / Assure 4; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-power-bi.md`, `adapter-snowflake.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-power-bi.md`, `adapter-snowflake.md`, `context-budget-standard.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -1337,7 +1337,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 17 tasks — Plan / Design 4; Build / Deliver 7; Test / Assure 5; Operate / Improve 1.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `tool-output-budget.md`, `vietnamese-technical-translation.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `context-budget-standard.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `tool-output-budget.md`, `vietnamese-technical-translation.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`, `fidelity-review.yaml`, `terminology-glossary.yaml`, `translation-brief.yaml`, `translation-memory.yaml`, `translationese-report.yaml`, `vietnamese-style-guide.yaml`.
 
@@ -1392,7 +1392,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 13 tasks — Plan / Design 3; Build / Deliver 6; Test / Assure 2; Operate / Improve 2.
 
-**Domain references tải khi cần:** `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `context-budget-standard.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`.
 
@@ -1443,7 +1443,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 24 tasks — Plan / Design 8; Build / Deliver 8; Test / Assure 5; Operate / Improve 3.
 
-**Domain references tải khi cần:** `adapter-databricks.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `bounded-source-answering.md`, `external-tool-access.md`, `grounded-generation-and-agent-economics.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-databricks.md`, `adapter-mlflow-kubeflow.md`, `adapter-spark.md`, `bounded-source-answering.md`, `context-budget-standard.md`, `external-tool-access.md`, `grounded-generation-and-agent-economics.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`, `schema-retrieval-index.yaml`, `semantic-cache.yaml`, `tool-surface-audit.yaml`, `tool-surface.yaml`.
 
@@ -1507,7 +1507,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 20 tasks — Plan / Design 18; Build / Deliver 1; Test / Assure 1; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-dbt.md`, `adapter-metadata-catalog.md`, `adapter-power-bi.md`, `adapter-tableau-looker.md`, `authored-prose-voice.md`, `diagram-fidelity-standard.md`, `external-tool-access.md`, `figure-intent-and-critique.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-dbt.md`, `adapter-metadata-catalog.md`, `adapter-power-bi.md`, `adapter-tableau-looker.md`, `authored-prose-voice.md`, `context-budget-standard.md`, `diagram-fidelity-standard.md`, `external-tool-access.md`, `figure-intent-and-critique.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`, `diagram-provenance.yaml`.
 
@@ -1562,7 +1562,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 17 tasks — Plan / Design 5; Build / Deliver 10; Test / Assure 1; Operate / Improve 1.
 
-**Domain references tải khi cần:** `authored-prose-voice.md`, `bounded-source-answering.md`, `evidence-based-repository-understanding.md`, `learning-memory-interoperability.md`, `linked-knowledge-library.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `authored-prose-voice.md`, `bounded-source-answering.md`, `context-budget-standard.md`, `evidence-based-repository-understanding.md`, `learning-memory-interoperability.md`, `linked-knowledge-library.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `concept-knowledge-map.yaml`, `data-path-trace.yaml`, `design-option-set.yaml`, `knowledge-library.yaml`.
 
@@ -1617,7 +1617,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 52 tasks — Plan / Design 30; Build / Deliver 13; Test / Assure 8; Operate / Improve 1.
 
-**Domain references tải khi cần:** `assessment-and-certification.md`, `authored-prose-voice.md`, `bounded-source-answering.md`, `concept-registry-standard.md`, `corpus-milestone-execution.md`, `diagnostic-session-method.md`, `edge-provenance.md`, `knowledge-deep-dive-standard.md`, `learning-memory-interoperability.md`, `lesson-scene-standard.md`, `model-selection.md`, `note-corpus-operating-system.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `assessment-and-certification.md`, `authored-prose-voice.md`, `bounded-source-answering.md`, `concept-registry-standard.md`, `context-budget-standard.md`, `corpus-milestone-execution.md`, `diagnostic-session-method.md`, `edge-provenance.md`, `knowledge-deep-dive-standard.md`, `learning-memory-interoperability.md`, `lesson-scene-standard.md`, `model-selection.md`, `note-corpus-operating-system.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `assessment-blueprint.yaml`, `atomic-task-output.yaml`, `concept-knowledge-graph.yaml`, `concept-registry.json`, `corpus-priority-plan.yaml`, `corpus-workflow-manifest.json`, `curriculum-spec.yaml`, `design-option-set.yaml`, `knowledge-deep-dive.yaml`, `learner-evidence.yaml`, `lesson-plan.yaml`, `misconception-feedback.yaml`, `note-corpus-audit.yaml`, `note-corpus-manifest.json`, `note-diagnostic-session.yaml`, `prior-knowledge-profile.yaml`, `question-learning-traceability.yaml`, `role-roadmap.yaml`, `skill-track-map.yaml`.
 
@@ -1709,7 +1709,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 34 tasks — Plan / Design 8; Build / Deliver 18; Test / Assure 4; Operate / Improve 4.
 
-**Domain references tải khi cần:** `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `role-onboarding-tracks.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `context-budget-standard.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `role-onboarding-tracks.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `access-readiness.yaml`, `atomic-task-output.yaml`, `checkpoint.yaml`, `design-option-set.yaml`, `onboarding-plan.yaml`.
 
@@ -1783,7 +1783,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 41 tasks — Plan / Design 11; Build / Deliver 21; Test / Assure 8; Operate / Improve 1.
 
-**Domain references tải khi cần:** `learning-memory-interoperability.md`, `model-selection.md`, `question-knowledge-validity.md`, `response-compression.md`, `role-interview-architecture.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `context-budget-standard.md`, `learning-memory-interoperability.md`, `model-selection.md`, `question-knowledge-validity.md`, `response-compression.md`, `role-interview-architecture.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `answer-anchor-pack.yaml`, `assessment-rubric.yaml`, `atomic-task-output.yaml`, `calibration-record.yaml`, `candidate-packet.yaml`, `debrief.yaml`, `design-option-set.yaml`, `fairness-validity-audit.yaml`, `hiring-workflow-state.yaml`, `interview-evidence.yaml`, `interview-loop.yaml`, `interviewer-guide.yaml`, `question-bank-coverage-audit.yaml`, `question-competency-evidence.yaml`, `role-scorecard.yaml`.
 
@@ -1864,7 +1864,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 57 tasks — Plan / Design 16; Build / Deliver 29; Test / Assure 12; Operate / Improve 0.
 
-**Domain references tải khi cần:** `authored-prose-voice.md`, `career-learning-memory.md`, `career-operating-system.md`, `coaching-ethics-and-method.md`, `concept-registry-standard.md`, `interview-knowledge-system.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `system-design-canon.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `authored-prose-voice.md`, `career-learning-memory.md`, `career-operating-system.md`, `coaching-ethics-and-method.md`, `concept-registry-standard.md`, `context-budget-standard.md`, `interview-knowledge-system.md`, `learning-memory-interoperability.md`, `model-selection.md`, `response-compression.md`, `role-curricula.md`, `solution-option-framing.md`, `system-design-canon.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `architecture-case-study.yaml`, `atomic-task-output.yaml`, `career-content-handoff.yaml`, `career-evidence-portfolio.yaml`, `career-operating-system.yaml`, `career-review.yaml`, `concept-registry.json`, `concept-visual-explainer.yaml`, `content-evidence-return.yaml`, `cross-skill-prerequisite-map.yaml`, `design-option-set.yaml`, `impact-score.yaml`, `interview-knowledge-library.yaml`, `interview-question-dossier.yaml`, `knowledge-coverage-audit.yaml`, `learner-memory.json`, `learner-memory.schema.json`, `learning-event.yaml`, `mock-assessment.yaml`, `offer-evaluation.yaml`, `question-knowledge-map.yaml`, `readiness-profile.yaml`, `remediation-plan.yaml`, `skill-transition-context.json`, `work-entities.yaml`, `work-log-entry.yaml`.
 
@@ -1956,7 +1956,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 27 tasks — Plan / Design 10; Build / Deliver 7; Test / Assure 8; Operate / Improve 2.
 
-**Domain references tải khi cần:** `demand-driven-content.md`, `external-tool-access.md`, `figure-intent-and-critique.md`, `learning-memory-interoperability.md`, `model-selection.md`, `platform-format-playbooks.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `technical-content-quality-standard.md`, `technical-series-method.md`, `tool-output-budget.md`, `universal-professional-series-rules.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `context-budget-standard.md`, `demand-driven-content.md`, `external-tool-access.md`, `figure-intent-and-critique.md`, `learning-memory-interoperability.md`, `model-selection.md`, `platform-format-playbooks.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `technical-content-quality-standard.md`, `technical-series-method.md`, `tool-output-budget.md`, `universal-professional-series-rules.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `content-evidence-return.yaml`, `content-manifest.json`, `content-quality-review.yaml`, `design-option-set.yaml`, `editorial-calendar.yaml`, `episode-brief.yaml`, `series-concept-coverage.yaml`, `social-episode-package.yaml`, `source-pack.yaml`, `technical-series-plan.yaml`.
 
@@ -2023,7 +2023,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 42 tasks — Plan / Design 10; Build / Deliver 26; Test / Assure 6; Operate / Improve 0.
 
-**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-kafka-flink.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-mlflow-kubeflow.md`, `adapter-power-bi.md`, `adapter-snowflake.md`, `adapter-spark.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `personal-project-operating-system.md`, `personal-project-quality-standard.md`, `repository-assessment-and-originality.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `adapter-airflow.md`, `adapter-bigquery.md`, `adapter-databricks.md`, `adapter-dbt.md`, `adapter-kafka-flink.md`, `adapter-metadata-catalog.md`, `adapter-microsoft-fabric.md`, `adapter-mlflow-kubeflow.md`, `adapter-power-bi.md`, `adapter-snowflake.md`, `adapter-spark.md`, `context-budget-standard.md`, `external-tool-access.md`, `learning-memory-interoperability.md`, `model-selection.md`, `personal-project-operating-system.md`, `personal-project-quality-standard.md`, `repository-assessment-and-originality.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `borrowed-source-transformation.yaml`, `design-option-set.yaml`, `personal-project-manifest.json`, `project-evidence-plan.yaml`, `project-intake.yaml`, `project-option-scorecard.json`, `project-release-review.yaml`, `project-roadmap.yaml`, `project-thesis.yaml`, `repository-assessment.yaml`.
 
@@ -2100,7 +2100,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 50 tasks — Plan / Design 12; Build / Deliver 30; Test / Assure 4; Operate / Improve 4.
 
-**Domain references tải khi cần:** `bounded-source-answering.md`, `edge-provenance.md`, `external-tool-access.md`, `knowledge-note-and-lineage-standard.md`, `learning-memory-interoperability.md`, `migration-and-tool-interop.md`, `model-selection.md`, `response-compression.md`, `retrieval-and-output-grounding.md`, `search-provider-access.md`, `second-brain-operating-system.md`, `second-brain-quality-and-safety.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `bounded-source-answering.md`, `context-budget-standard.md`, `edge-provenance.md`, `external-tool-access.md`, `knowledge-note-and-lineage-standard.md`, `learning-memory-interoperability.md`, `migration-and-tool-interop.md`, `model-selection.md`, `response-compression.md`, `retrieval-and-output-grounding.md`, `search-provider-access.md`, `second-brain-operating-system.md`, `second-brain-quality-and-safety.md`, `solution-option-framing.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `design-option-set.yaml`, `knowledge-review.yaml`, `migration-plan.yaml`, `output-record.yaml`, `personal-context.yaml`, `retrieval-evaluation.yaml`, `second-brain-manifest.json`, `second-brain-manifest.schema.json`, `source-record.yaml`, `wiki-note.yaml`.
 
@@ -2190,7 +2190,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Quy mô:** 45 tasks — Plan / Design 1; Build / Deliver 32; Test / Assure 8; Operate / Improve 4.
 
-**Domain references tải khi cần:** `book-conversion-operating-system.md`, `bounded-source-answering.md`, `copyright-security-and-quality.md`, `destination-packs.md`, `edge-provenance.md`, `knowledge-distillation-and-application.md`, `learning-memory-interoperability.md`, `lesson-scene-standard.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `source-extraction-and-structure.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
+**Domain references tải khi cần:** `book-conversion-operating-system.md`, `bounded-source-answering.md`, `context-budget-standard.md`, `copyright-security-and-quality.md`, `destination-packs.md`, `edge-provenance.md`, `knowledge-distillation-and-application.md`, `learning-memory-interoperability.md`, `lesson-scene-standard.md`, `model-selection.md`, `response-compression.md`, `solution-option-framing.md`, `source-extraction-and-structure.md`, `tool-output-budget.md`, `workflow-runtime-and-evidence-os.md`.
 
 **Templates/assets có thể tái sử dụng:** `application-experiment.yaml`, `atomic-task-output.yaml`, `book-conversion-manifest.json`, `book-conversion-manifest.schema.json`, `book-source-manifest.yaml`, `chapter-note.yaml`, `conversion-evidence.yaml`, `design-option-set.yaml`, `destination-plan.yaml`, `framework-card.yaml`.
 

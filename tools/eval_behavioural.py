@@ -50,14 +50,34 @@ class CallFailed(RuntimeError):
     """The model was never reached. Distinct from a reply that came back wrong."""
 
 
+
+def read_description(text: str) -> str:
+    """The description from SKILL.md front matter, quoted or not.
+
+    It is JSON-quoted now, because prose contains colons and an unquoted colon breaks the whole
+    front matter. A regex that takes the rest of the line therefore captures the quotes too, and
+    they surface wherever the description is displayed. Decode when it is quoted; take it raw when
+    it is not, so this keeps working whichever way the generator writes it.
+    """
+    match = re.search(r"^description:\s*(.+)$", text, re.M)
+    if not match:
+        return ""
+    value = match.group(1).strip()
+    if value.startswith('"'):
+        try:
+            return json.loads(value)
+        except json.JSONDecodeError:
+            return value.strip('"')
+    return value
+
 def skill_menu() -> str:
     lines = []
     for skill_md in sorted((ROOT / "skills").glob("*/SKILL.md")):
         text = skill_md.read_text(encoding="utf-8")
         name = re.search(r"^name:\s*(.+)$", text, re.M)
-        desc = re.search(r"^description:\s*(.+)$", text, re.M)
-        if name and desc:
-            lines.append(f"- {name.group(1).strip()}: {desc.group(1).strip()}")
+        description = read_description(text)
+        if name and description:
+            lines.append(f"- {name.group(1).strip()}: {description}")
     return "\n".join(lines)
 
 

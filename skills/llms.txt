@@ -1,0 +1,194 @@
+# Data Department Agent Skills — routing index
+
+33 skills, 868 atomic task contracts, 6 waves. Suite version in `.claude-plugin/plugin.json`.
+
+Read this to pick a skill and narrow to a task group. Then open that skill's SKILL.md and
+the one catalog shard you need — never the whole catalog. Selection is by primary
+deliverable, not by job title: the work standing in front of the request decides the owner,
+not the noun the request ends with.
+
+Ambiguous, multi-role, or a request to resume or hand over work goes to
+`data-department-orchestrator` first.
+
+## Wave 0 — control plane
+
+company-data-context  ·  9 tasks  ·  max R2-standard
+  Maintain and index company-specific data context including glossary terms, metrics, datasets, systems, owners, policies and platforms.
+  Produces: initialized context pack; platform-context entry; metric entry; ownership entry; policy entry; dataset-schema entry.
+  Task groups: build-deliver (7), plan-design (1), test-assure (1).
+
+data-department-orchestrator  ·  27 tasks  ·  max R2-standard
+  Route ambiguous, organizational or multi-role Data Department requests and compose governed workflows with owners, dependencies, gates and handoffs.
+  Produces: gate decision; branch decision and execution; approval ledger; evidence ledger; workflow plan; hydrated context.
+  Task groups: build-deliver-decision (2), build-deliver-ledger (2), build-deliver-other (10), build-deliver-project (3), build-deliver-register (3), plan-design (3), test-assure (4).
+  Route personal learning or portfolio projects to Personal Data Project Engineering.
+
+shared-data-core  ·  18 tasks  ·  max R3-controlled
+  Apply shared data controls for bounded task-context packaging, discovery, schema inspection, profiling, validation, evidence, approvals and handoffs.
+  Produces: prompt-ready task context package; routing decision; evidence-backed asset shortlist; impact report; safe processing plan; lossless handoff package.
+  Task groups: build-deliver (9), plan-design (3), test-assure (6).
+
+## Wave 1 — đường đi từ request đến trusted analytics
+
+analytics-engineering  ·  22 tasks  ·  max R3-controlled
+  Build governed staging, intermediate, mart, dimensional and semantic models with tests, documentation, lineage, incremental logic and release controls.
+  Produces: consumable mart; intermediate model; staging model; retired model; incremental model; semantic metric.
+  Task groups: build-deliver (10), operate-improve (3), plan-design (5), test-assure (4).
+  Route source ingestion to data-engineering and catalog, lineage harvesting or metadata quality to metadata-engineering-and-catalog.
+
+business-intelligence  ·  32 tasks  ·  max R4-critical
+  Design, build, test and govern BI semantic models, KPIs, dashboards, reports, interactions, row-level security, refresh, accessibility and adoption.
+  Produces: evidence ledger; uat evidence; analytical report; domain brief; working dashboard; bi semantic model.
+  Task groups: build-deliver-evidence (2), build-deliver-other (11), build-deliver-release (2), operate-improve (5), plan-design (4), test-assure (8).
+
+data-analysis  ·  29 tasks  ·  max R2-standard
+  Perform programmatic EDA, reproducible analysis, SQL-to-business explanation, methodology communication, peer review and retrospective.
+  Produces: decision-ready answer; forecast and assumptions; selected data sources; opportunity sizing; audience-calibrated methodology note; query logic explanation.
+  Task groups: build-deliver (9), operate-improve (2), plan-design (8), test-assure (10).
+
+data-business-analysis  ·  24 tasks  ·  max R2-standard
+  Elicit and validate data requirements, business rules, processes, use cases, acceptance criteria and traceability.
+  Produces: traceability matrix; requirement set; delivery handoff; governed change request; prioritized requirements; workshop record.
+  Task groups: build-deliver (7), plan-design-model (2), plan-design-other (10), plan-design-specification (3), test-assure (2).
+
+data-engineering  ·  25 tasks  ·  max R4-critical
+  Design, build, test, diagnose execution plans and operate batch, API, file, CDC and streaming pipelines with idempotency, schema evolution, reconciliation, recovery and runbooks.
+  Produces: guarded pipeline; api pipeline; production-ready batch pipeline; cdc pipeline; file pipeline; incremental pipeline.
+  Task groups: build-deliver (11), operate-improve (7), plan-design (3), test-assure (4).
+  Route feature pipelines and model serving to machine-learning-engineering, dbt-style modelling to analytics-engineering, and catalog or lineage harvesting to metadata-engineering-and-catalog.
+
+data-governance-and-stewardship  ·  22 tasks  ·  max R4-critical
+  Define and operate data ownership, policies, glossary, classification, access governance, retention, certification, stewardship and control evidence.
+  Produces: ownership matrix; classification record; governed issue record; time-bound exception; council decision log; resolved term.
+  Task groups: build-deliver (5), operate-improve (1), plan-design (8), test-assure (8).
+
+data-quality-and-reliability  ·  21 tasks  ·  max R3-controlled
+  Define data quality rules and SLOs, implement observability, reconcile data, triage incidents, run game days and prevent recurrence.
+  Produces: dq scorecard; automated test; incident log; resilience test report; action register; distribution alert.
+  Task groups: build-deliver (5), operate-improve (5), plan-design (3), test-assure (8).
+
+metadata-engineering-and-catalog  ·  18 tasks  ·  max R3-controlled
+  Build and operate metadata ingestion, catalog, search, lineage, ownership, usage and metadata quality.
+  Produces: enriched catalog entries; deprecated catalog record; discoverable catalog index; harvested metadata; usage metadata; consistent ownership metadata.
+  Task groups: build-deliver-catalog (3), build-deliver-metadata (3), build-deliver-other (7), operate-improve (1), plan-design (1), test-assure (3).
+
+## Wave 2 — production platform
+
+data-architecture  ·  22 tasks  ·  max R3-controlled
+  Design data target states, domains, models, integration patterns, contracts, technology decisions, migrations and architecture reviews.
+  Produces: debt register; target architecture; security architecture; sharing architecture; dr architecture; metadata architecture.
+  Task groups: build-deliver (1), plan-design-architecture (6), plan-design-other (11), test-assure (4).
+
+data-developer-experience  ·  20 tasks  ·  max R3-controlled
+  Improve data developer setup, repositories, end-to-end data-path understanding, templates, local environments, CI feedback, standards and inner-loop productivity.
+  Produces: benchmark scorecard; working local setup; task runner; pre-commit workflow; repository ci; synthetic dataset.
+  Task groups: build-deliver (11), operate-improve (1), plan-design (3), test-assure (5).
+
+data-documentation-and-diagrams  ·  20 tasks  ·  max R3-controlled
+  Create validated data documentation, ADRs, runbooks, postmortems, ERDs, BPMN, sequence, state, lineage and architecture diagrams.
+  Produces: changelog; architecture diagram; validated mermaid activity diagram; sequence diagram; rendered swimlane diagram; use-case diagram.
+  Task groups: build-deliver (1), plan-design-diagram (6), plan-design-documentation (2), plan-design-other (10), test-assure (1).
+
+data-platform-and-dataops  ·  21 tasks  ·  max R3-controlled
+  Design and operate data platforms, environments, orchestration, CI/CD, observability, capacity, reliability, cost and disaster recovery.
+  Produces: verified backups; access configuration; observability baseline; safe deprecation; enforced controls; managed secret lifecycle.
+  Task groups: build-deliver-other (9), build-deliver-resource (2), build-deliver-workflow (2), operate-improve (4), plan-design (1), test-assure (3).
+
+data-security-and-privacy  ·  16 tasks  ·  max R4-critical
+  Protect data through classification, threat modeling, least privilege, encryption, masking, audit, privacy workflows and incident response.
+  Produces: security classification; sensitive-data inventory; masked data flow; enforced policies; threat model; deletion evidence.
+  Task groups: build-deliver-1 (5), build-deliver-2 (4), plan-design (3), test-assure (4).
+
+head-of-data-and-data-product  ·  21 tasks  ·  max R3-controlled
+  Lead data strategy, operating model, portfolio, roadmap, service intake, prioritization, value, adoption and executive governance.
+  Produces: acceptance decision; intake record; ranked backlog; phased roadmap; capability plan; portfolio review.
+  Task groups: build-deliver (7), plan-design (11), test-assure (3).
+
+## Wave 3 — AI/ML
+
+data-science  ·  22 tasks  ·  max R2-standard
+  Frame and execute statistical, causal, forecasting, optimization and machine-learning studies with leakage controls, validation, explainability and model-risk evidence.
+  Produces: trained candidate; tuned candidate; baseline metrics; optimization solution; forecast model; feature set.
+  Task groups: build-deliver-candidate (2), build-deliver-other (11), operate-improve (1), plan-design (5), test-assure (3).
+
+generative-ai-engineering  ·  24 tasks  ·  max R3-controlled
+  Build and evaluate governed RAG, retrieval, prompt, tool-using agent and GenAI systems with guardrails, injection testing, monitoring and system cards.
+  Produces: rag workflow; reranker; retriever; schema retrieval index; semantic answer cache; bounded agent workflow.
+  Task groups: build-deliver (8), operate-improve (3), plan-design (8), test-assure (5).
+
+machine-learning-engineering  ·  20 tasks  ·  max R3-controlled
+  Engineer training pipelines, features, model artifacts, batch or online serving, performance, testing, deployment interfaces and resilience.
+  Produces: batch inference job; canary rollout; feature pipeline; serving service; shadow comparison; training pipeline.
+  Task groups: build-deliver (10), operate-improve (3), plan-design (4), test-assure (3).
+  Route general batch, CDC or streaming ingestion to data-engineering, and registry, drift or model rollout operations to mlops.
+
+mlops  ·  23 tasks  ·  max R4-critical
+  Operate the ML lifecycle through experiment tracking, registry, CI/CD, deployment, monitoring, drift, retraining, rollback, lineage and governance.
+  Produces: lineage graph; tracking workspace; auditable gate; resolved incident; governed feature lifecycle; promotion decision.
+  Task groups: build-deliver-other (10), build-deliver-workflow (2), operate-improve (8), plan-design (1), test-assure (2).
+
+## Wave 4 — specialized enterprise capabilities
+
+data-academy-and-curriculum  ·  52 tasks  ·  max R2-standard
+  Design and deliver role-based Data Academy curricula with theory, labs, capstones, assessments, remediation, certification and effectiveness measurement.
+  Produces: revised note batch; module note batch; note corpus index; note diagnostic session record; concept knowledge graph; runnable scene package.
+  Task groups: build-deliver-note (4), build-deliver-other (9), operate-improve (1), plan-design-assessment (2), plan-design-corpus (3), plan-design-knowledge (2), plan-design-learner (2), plan-design-learning (6), plan-design-other (10), plan-design-role (3), plan-design-specification (2), test-assure (8).
+  Route hiring loops, scorecards and candidate evaluation to data-talent-acquisition-and-interview; this skill teaches, never selects.
+
+data-career-and-interview-coach  ·  57 tasks  ·  max R2-standard
+  Build evidence-based Data career systems, persistent cross-skill learner memory, mastery/decay tracking, compact transition context, competency maps, portfolios, interview readiness, remediation and review cycles.
+  Produces: retest assessment; analytics-case mock assessment; behavioral mock assessment; de design mock assessment; data-modeling mock assessment; ds mock assessment.
+  Task groups: build-deliver-assessment (11), build-deliver-career (3), build-deliver-other-1 (6), build-deliver-other-2 (6), build-deliver-work (3), plan-design-career (3), plan-design-interview (4), plan-design-other (9), test-assure-interview (3), test-assure-other (9).
+
+data-enablement-and-knowledge  ·  17 tasks  ·  max R3-controlled
+  Enable data teams through technical onboarding, learning plans, explanations, walkthroughs, pairing, knowledge checks, articles and knowledge-base curation.
+  Produces: linked concept knowledge map; governed knowledge library; curated knowledge base; knowledge check; lessons-learned record; concept lesson.
+  Task groups: build-deliver-knowledge (4), build-deliver-other (6), operate-improve (1), plan-design (5), test-assure (1).
+
+data-onboarding-and-integration  ·  34 tasks  ·  max R4-critical
+  Plan and operate Data Department preboarding, access readiness, orientation, shadowing, first work, checkpoints, crossboarding, reboarding and offboarding.
+  Produces: seven-day checkpoint record; sixty-day checkpoint record; thirty-day checkpoint record; domain-orientation record; company-orientation completion record; architecture-orientation record.
+  Task groups: build-deliver-checkpoint (3), build-deliver-orientation (6), build-deliver-other (9), operate-improve (4), plan-design (8), test-assure (4).
+
+data-talent-acquisition-and-interview  ·  41 tasks  ·  max R3-controlled
+  Design and run structured Data hiring with role profiles, scorecards, interview loops, work samples, rubrics, calibration, debriefs, fairness and validity controls.
+  Produces: analytics-case assessment; bi product-sense assessment; architecture-interview assessment; data-engineering assessment; data-modeling assessment; data-science assessment.
+  Task groups: build-deliver-assessment (11), build-deliver-other (10), operate-improve (1), plan-design (11), test-assure (8).
+  Route curriculum, labs and certification of existing staff to data-academy-and-curriculum; this skill decides who to hire, never how to train.
+
+master-data-management  ·  13 tasks  ·  max R2-standard
+  Design and operate master entities, identity matching, survivorship, golden records, reference data, hierarchies, stewardship and synchronization.
+  Produces: golden dataset; approved master change; valid hierarchy; governed reference set; resolved stewardship cases; synchronized consumers.
+  Task groups: build-deliver (6), operate-improve (2), plan-design (3), test-assure (2).
+
+product-analytics-and-experimentation  ·  17 tasks  ·  max R2-standard
+  Define product events and metrics, analyze funnels, activation, retention and growth, and design or evaluate experiments.
+  Produces: sample-size plan; valid stopping decision; experiment registry entry; growth accounting; instrumentation qa report; experiment design.
+  Task groups: build-deliver (5), plan-design (5), test-assure (7).
+
+## Wave 5 — năng lực cá nhân của người hành nghề
+
+book-to-knowledge-and-action  ·  45 tasks  ·  max R4-critical
+  Turn books, PDFs, EPUBs, documents or source collections into reusable agent skills, Second Brain packs, career/interview/project systems, curricula, workflows or technical content.
+  Produces: validated book-derived agent skill; book-to-career application pack; book-to-curriculum package; book-to-interview knowledge pack; book knowledge graph; book-to-project application pack.
+  Task groups: build-deliver-book (11), build-deliver-decision (4), build-deliver-library (4), build-deliver-other (9), build-deliver-pack (4), operate-improve (4), plan-design (1), test-assure (8).
+
+data-personal-project-engineering  ·  42 tasks  ·  max R3-controlled
+  Create differentiated personal Data projects for portfolios, learning or capstones from a problem, dataset, repository, role gap, technology, paper, course, open-source issue, incident, constraint or mixed evidence.
+  Produces: architecture-grounded project charter; domain-grounded project direction; integration-grounded project direction; contribution-grounded project plan; implementation-ready project blueprint; repository transformation matrix.
+  Task groups: build-deliver-grounded (4), build-deliver-other (11), build-deliver-project (11), plan-design (10), test-assure (6).
+
+data-technical-content-and-social  ·  27 tasks  ·  max R3-controlled
+  Build evidence-backed technical series for Facebook in Vietnamese, LinkedIn and Substack in English, and GitHub from research and a canonical article through code, diagrams, channel-native adaptations, QA, publishing and measurement.
+  Produces: validated code example package; editorial calendar; series knowledge map; governed content backlog; technical-series repository package; cross-channel adaptation package.
+  Task groups: build-deliver (7), operate-improve (2), plan-design (10), test-assure (8).
+
+personal-second-brain-and-knowledge-os  ·  50 tasks  ·  max R4-critical
+  Build or operate a local-first AI Second Brain with 1_Nguon, 2_Wiki, 3_Toi and 4_Ket-Qua layers.
+  Produces: second-brain backup record; domain-specific second-brain package; audience-context pack; routed task context; prompt-ready grounded context pack; grounded second-brain output.
+  Task groups: build-deliver-brain (2), build-deliver-context (2), build-deliver-grounded (2), build-deliver-knowledge (5), build-deliver-other (11), build-deliver-source (8), operate-improve (4), plan-design-brain (4), plan-design-other (8), test-assure (4).
+
+technical-translation  ·  17 tasks  ·  max R2-standard
+  Translate foreign-language books, documentation, web content and technical material into Vietnamese that reads as a domain expert wrote it, with a fixed glossary, style guide, fidelity review and translation memory.
+  Produces: localised content; translation memory; transcreated copy; translated code documentation; translated document; translated book manuscript.
+  Task groups: build-deliver (7), operate-improve (1), plan-design (4), test-assure (5).

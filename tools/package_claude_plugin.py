@@ -80,6 +80,12 @@ def stage_plugin(stage: Path) -> None:
 
     skills_target = stage / "skills"
     skills_target.mkdir()
+    # The routing index is a file, not a skill directory, so the per-skill loop below skips it.
+    # It travels with the plugin because it is the cheapest way in for a harness that does not
+    # preload descriptions.
+    index = ROOT / "skills" / "llms.txt"
+    if index.is_file():
+        shutil.copy2(index, skills_target / "llms.txt")
     for skill in sorted(p for p in (ROOT / "skills").iterdir() if p.is_dir()):
         out = skills_target / skill.name
         out.mkdir()

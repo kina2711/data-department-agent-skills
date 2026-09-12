@@ -39,14 +39,34 @@ TRIGGER = re.compile(r"\bUse (for|when|whenever|it for|this for)\b", re.I)
 BOUNDARY = re.compile(r"\b(never|not for|instead|route|rather than|belongs to|hand off|defer)\b", re.I)
 
 
+
+def read_description(text: str) -> str:
+    """The description from SKILL.md front matter, quoted or not.
+
+    It is JSON-quoted now, because prose contains colons and an unquoted colon breaks the whole
+    front matter. A regex that takes the rest of the line therefore captures the quotes too, and
+    they surface wherever the description is displayed. Decode when it is quoted; take it raw when
+    it is not, so this keeps working whichever way the generator writes it.
+    """
+    match = re.search(r"^description:\s*(.+)$", text, re.M)
+    if not match:
+        return ""
+    value = match.group(1).strip()
+    if value.startswith('"'):
+        try:
+            return json.loads(value)
+        except json.JSONDecodeError:
+            return value.strip('"')
+    return value
+
 def read_descriptions() -> dict[str, str]:
     out: dict[str, str] = {}
     for path in sorted(SKILLS.glob("*/SKILL.md")):
         text = path.read_text(encoding="utf-8")
         name = re.search(r"^name:\s*(.+)$", text, re.M)
-        desc = re.search(r"^description:\s*(.+)$", text, re.M)
-        if name and desc:
-            out[name.group(1).strip()] = desc.group(1).strip()
+        description = read_description(text)
+        if name and description:
+            out[name.group(1).strip()] = description
     return out
 
 

@@ -966,6 +966,61 @@
         },
         "Ghi cả ngày không ra được gì, đừng chỉ ghi ngày thắng."
       ]
+    },
+    {
+      "id": "brain-chup-link",
+      "skill": "personal-second-brain-and-knowledge-os",
+      "ten": "Chụp một link vào Second Brain",
+      "mo_ta": "Ném một link vào, nhận note đã tổng hợp nằm sẵn trong vault Obsidian. Tách rõ nguồn nói gì, bạn tổng hợp được gì, và chỗ nào còn chưa chắc.",
+      "task_id": "brain-capture-source-material",
+      "thong_so": [
+        {
+          "key": "nguon",
+          "nhan": "Link hoặc đường dẫn file",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "https://example.com/bai-viet"
+        },
+        {
+          "key": "vault",
+          "nhan": "Vault Obsidian",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "/media/kina2711/DATA/2026/Second_Brain"
+        },
+        {
+          "key": "goc_nhin",
+          "nhan": "Đọc dưới góc nhìn nào",
+          "kieu": "text",
+          "bat_buoc": false,
+          "goi_y": "Áp dụng được gì cho pipeline dbt đang làm"
+        },
+        {
+          "key": "ghi_de",
+          "nhan": "Nếu note đã tồn tại",
+          "kieu": "chon",
+          "bat_buoc": true,
+          "chon": [
+            "Dừng lại hỏi tôi",
+            "Ghi đè"
+          ]
+        }
+      ],
+      "mau": [
+        "Chụp nguồn này vào Second Brain: {nguon}",
+        "Vault: {vault}",
+        {
+          "neu": "goc_nhin",
+          "text": "Đọc dưới góc nhìn: {goc_nhin}"
+        },
+        "Chạy chuỗi: brain-capture-source-material để lấy nội dung về kèm checksum và origin, brain-normalize-source-metadata, rồi brain-distill-source-to-wiki-note. Tách riêng bốn phần trong note: nguồn nói gì, phần tổng hợp, phần suy luận chưa có trong nguồn, và chỗ còn chưa chắc.",
+        "Ghi vào vault bằng scripts/write_vault_bundle.py theo hai pha: chạy pha plan trước, cho tôi xem danh sách tệp sẽ tạo và sẽ ghi đè, rồi mới --apply --expect.",
+        "Nếu không tải được nội dung thật thì nói thẳng là không tải được — đừng tổng hợp từ trí nhớ về URL này rồi trình bày như đã đọc.",
+        {
+          "neu": "ghi_de",
+          "text": "Khi một note đã tồn tại: {ghi_de}."
+        }
+      ]
     }
   ]
 }

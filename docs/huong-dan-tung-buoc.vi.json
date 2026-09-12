@@ -1,6 +1,6 @@
 {
  "_": "Sinh tự động bởi tools/build_skill_tutorials.py. Mỗi bước trỏ tới một task có thật, kèm mục tiêu và kết quả mà chính catalog khai báo. Đừng sửa tay: chạy lại generator.",
- "suite_version": "3.12.1",
+ "suite_version": "3.13.0",
  "skills": {
   "analytics-engineering": {
    "tom_tat": "Mô hình staging, intermediate, mart, dimensional và semantic có quản trị — kèm test, tài liệu, lineage, logic incremental và kiểm soát phát hành.",

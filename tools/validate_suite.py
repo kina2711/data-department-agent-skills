@@ -537,6 +537,32 @@ def check_preset_jobs(skills: set[str], task_ids: set[str]) -> list[str]:
     return errors
 
 
+def check_universal_references(skills: set[str]) -> list[str]:
+    """Every skill carries the same four standards, and until now nothing checked that.
+
+    They are written to all 33 skills by one loop in the generator. Delete any of them from a
+    skill and validation passed: the per-skill resource lists name the role-specific references
+    and never these. A standard cited by a hundred task contracts and absent from disk is a dead
+    link at the moment someone follows it.
+    """
+    universal = [
+        "lifecycle-standard.md",
+        "response-compression.md",
+        "tool-output-budget.md",
+        "context-budget-standard.md",
+        "model-selection.md",
+    ]
+    errors: list[str] = []
+    for skill in sorted(skills):
+        for name in universal:
+            path = SKILLS / skill / "references" / name
+            if not path.is_file():
+                errors.append(f"{skill}: universal reference is missing: references/{name}")
+            elif not path.read_text(encoding="utf-8").strip():
+                errors.append(f"{skill}: universal reference is empty: references/{name}")
+    return errors
+
+
 def main() -> None:
     errors, stats = validate()
     skill_names = {d.name for d in SKILLS.iterdir() if d.is_dir()}
@@ -546,6 +572,9 @@ def main() -> None:
     catalog_ids = {t["id"] for t in _json.loads((ROOT / "task-catalog.json").read_text(encoding="utf-8"))}
     job_errors = check_preset_jobs(skill_names, catalog_ids)
     errors.extend(job_errors)
+    universal_errors = check_universal_references(skill_names)
+    errors.extend(universal_errors)
+    stats["universal_references"] = "ok" if not universal_errors else f"{len(universal_errors)} problem(s)"
     stats["vietnamese_guides"] = "ok" if not guide_errors else f"{len(guide_errors)} problem(s)"
     stats["preset_jobs"] = "ok" if not job_errors else f"{len(job_errors)} problem(s)"
     if "errors" in stats:
