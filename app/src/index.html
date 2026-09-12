@@ -78,6 +78,23 @@
       <button class="btn btn-quiet" id="resumeDrop">Bỏ qua</button>
     </div>
 
+    <!-- Two skills, one owner. Its own row rather than another control in the toolbar, which was
+         already full enough that one more pushed the run button onto a line of its own. -->
+    <div class="pair-row">
+      <select class="btn pair-pick" id="pairPick" aria-label="Ghép thêm một skill">
+        <option value="">+ Ghép skill thứ hai</option>
+      </select>
+      <div id="pairBar" class="pair-bar" hidden>
+        <span class="pair-role">Chính</span>
+        <span class="pair-name" id="pairPrimary">—</span>
+        <span class="pair-arrow">+</span>
+        <span class="pair-role pair-role-second">Phụ</span>
+        <span class="pair-name" id="pairSecondary">—</span>
+        <span class="pair-note" id="pairNote"></span>
+        <button class="btn btn-quiet" id="pairClear">Bỏ ghép</button>
+      </div>
+    </div>
+
     <!-- What will actually be sent. It was invisible: you pressed run and a prompt you had never
          seen went to the model. -->
     <details class="prompt-peek" id="promptPeek">

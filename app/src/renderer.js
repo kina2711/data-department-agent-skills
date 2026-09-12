@@ -12,6 +12,8 @@ const state = {
   jobPrompt: '',
   jobMissing: [],
   selectedTask: null,
+  pairSkill: null,
+  pairs: { confusion: [], handoff: {} },
   ask: '',
   folder: '',
 };
@@ -466,6 +468,9 @@ function pickJob(job) {
 
 function openDrawer(skill) {
   state.openSkill = skill;
+  // A pair belongs to the skill it was set on; carrying it to the next skill pairs something
+  // nobody chose.
+  state.pairSkill = null;
   state.selectedTask = null;
   state.job = null;
   state.jobPrompt = '';
@@ -473,6 +478,7 @@ function openDrawer(skill) {
   showPane('paneJobs');
   showView('viewDetail');
   window.jobsUI.renderJobList(skill, pickJob);
+  renderPairPicker();
   offerResume();
   $('dTitle').textContent = skill.name;
   state.ask = '';
@@ -496,19 +502,102 @@ function shortPath(p, keep = 2) {
  * template covers, and silently running the template instead would be the app deciding it knew
  * better. A selected task still travels with the sentence, as routing rather than as instruction,
  * because "run this task" and "here is what I want" are different halves of the same request. */
+/* One deliverable keeps one owner, even when two skills run.
+ *
+ * The suite's whole discipline is that a task has a single accountable owner. "Use both skills"
+ * with nothing else said produces two agents each assuming the other handled the gate. So the
+ * pair is expressed as primary and secondary: the primary owns the deliverable and the approvals,
+ * the secondary contributes a named part and hands it back labelled. */
+function pairClause() {
+  if (!state.pairSkill || !state.openSkill) return '';
+  return `\n\nGhép hai skill: ${state.openSkill.id} là skill chính và sở hữu deliverable, gate và `
+    + `approval. ${state.pairSkill.id} là skill phụ, chỉ đóng góp phần thuộc chuyên môn của nó và `
+    + `giao lại kết quả có nhãn rõ ràng. Nêu rõ phần nào do skill phụ đóng góp. Nếu hóa ra việc này `
+    + `thuộc hẳn về một trong hai, nói ra và làm theo một skill thay vì chia đôi trách nhiệm.`;
+}
+
 function effectivePrompt() {
   if (!state.openSkill) return '';
+  const pair = pairClause();
   const asked = (state.ask || '').trim();
   if (asked) {
     const route = state.selectedTask
       ? `Dùng skill ${state.openSkill.id}, chạy atomic task ${state.selectedTask} trong thư mục này.`
       : `Dùng skill ${state.openSkill.id} cho công việc trong thư mục này, tự định tuyến theo primary deliverable.`;
-    return `${route}\n\nYêu cầu cụ thể:\n${asked}`;
+    return `${route}${pair}\n\nYêu cầu cụ thể:\n${asked}`;
   }
-  if (state.job) return state.jobPrompt;
-  return state.selectedTask
+  if (state.job) return `${state.jobPrompt}${pair}`;
+  const base = state.selectedTask
     ? `Use the ${state.openSkill.id} skill and run the atomic task ${state.selectedTask} in this directory.`
     : `Use the ${state.openSkill.id} skill for work in this directory. Route to the right atomic task by primary deliverable.`;
+  return `${base}${pair}`;
+}
+
+/* Pairing: the picker, the bar, and the one warning worth showing.
+ *
+ * A confusion pair is a boundary the suite already resolved in a test. Offering to run both at
+ * once is offering to undo that decision from a dropdown, so the pair is still allowed and the
+ * bar says plainly that routing, not mixing, is the usual answer there. */
+function isConfusionPair(a, b) {
+  return (state.pairs.confusion || []).some(
+    (p) => p.length === 2 && p.includes(a) && p.includes(b));
+}
+
+function handoffDeclared(a, b) {
+  const from = (state.pairs.handoff || {})[a] || [];
+  const back = (state.pairs.handoff || {})[b] || [];
+  return from.includes(b) || back.includes(a);
+}
+
+function renderPairPicker() {
+  const pick = $('pairPick');
+  if (!pick || !state.openSkill) return;
+  const current = state.pairSkill ? state.pairSkill.id : '';
+  pick.innerHTML = '';
+  const none = document.createElement('option');
+  none.value = '';
+  none.textContent = '+ Ghép skill thứ hai';
+  pick.appendChild(none);
+  for (const skill of state.skills) {
+    if (skill.id === state.openSkill.id) continue;
+    const opt = document.createElement('option');
+    opt.value = skill.id;
+    opt.textContent = skill.name;
+    pick.appendChild(opt);
+  }
+  pick.value = current;
+  renderPairBar();
+}
+
+function renderPairBar() {
+  const bar = $('pairBar');
+  if (!bar) return;
+  if (!state.pairSkill || !state.openSkill) {
+    bar.hidden = true;
+    return;
+  }
+  bar.hidden = false;
+  $('pairPrimary').textContent = state.openSkill.name;
+  $('pairSecondary').textContent = state.pairSkill.name;
+  const note = $('pairNote');
+  const a = state.openSkill.id;
+  const b = state.pairSkill.id;
+  if (isConfusionPair(a, b)) {
+    note.textContent = 'Hai skill này có ranh giới đã được chốt bằng test — thường chỉ một cái sở hữu việc. Ghép vẫn chạy được, nhưng hãy cân nhắc chọn một.';
+    note.className = 'pair-note is-warn';
+  } else if (handoffDeclared(a, b)) {
+    note.textContent = 'Cặp này có bàn giao khai báo sẵn giữa hai skill.';
+    note.className = 'pair-note is-ok';
+  } else {
+    note.textContent = 'Skill chính giữ deliverable và approval; skill phụ đóng góp phần có nhãn.';
+    note.className = 'pair-note';
+  }
+}
+
+function setPairSkill(id) {
+  state.pairSkill = id ? (state.skills.find((s) => s.id === id) || null) : null;
+  renderPairBar();
+  updateLaunch();
 }
 
 function updateLaunch() {
@@ -541,6 +630,7 @@ async function loadSuite(suitePath) {
   state.suiteVersion = data.suiteVersion;
   state.skills = data.skills;
   state.waves = data.waves || [];
+  state.pairs = data.pairs || { confusion: [], handoff: {} };
   state.catalog = new Map();
   for (const skill of data.skills) {
     for (const t of skill.tasks) state.catalog.set(t.id, t);
@@ -732,6 +822,12 @@ $('resumeDrop').addEventListener('click', async () => {
     await window.studio.forgetSession({ folder: pendingResume.folder, skillId: pendingResume.skillId });
     pendingResume = null;
   }
+});
+
+$('pairPick').addEventListener('change', (e) => setPairSkill(e.target.value));
+$('pairClear').addEventListener('click', () => {
+  $('pairPick').value = '';
+  setPairSkill('');
 });
 
 $('replySend').addEventListener('click', sendReply);

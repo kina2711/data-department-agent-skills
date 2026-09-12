@@ -139,7 +139,21 @@ function readSuite(suitePath) {
       })),
     };
   });
-  return { suiteVersion, skills, taskTotal: tasks.length, waves: waveOrder };
+  /* Which skills the suite says should not be combined, and which it says hand off to which.
+   * A confusion pair is a boundary the suite already decided; offering to run both at once would
+   * be offering to undo that decision from the toolbar. Absent the file, pairing still works and
+   * simply warns about nothing. */
+  let pairs = { confusion: [], handoff: {} };
+  try {
+    const doc = JSON.parse(
+      fs.readFileSync(path.join(suitePath, 'docs', 'skill-pairs.json'), 'utf8')
+    );
+    pairs = { confusion: doc.confusion || [], handoff: doc.handoff || {} };
+  } catch {
+    pairs = { confusion: [], handoff: {} };
+  }
+
+  return { suiteVersion, skills, taskTotal: tasks.length, waves: waveOrder, pairs };
 }
 
 // Task ids carry a role prefix, not the skill directory name, so resolve through the

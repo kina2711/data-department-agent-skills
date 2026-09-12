@@ -911,3 +911,39 @@ h4.sec:first-child { margin-top: 0; }
 .resume-text { display: flex; flex-direction: column; gap: 2px; flex: 1 1 auto; min-width: 0; }
 .resume-text strong { font-size: 13px; font-weight: 640; color: var(--ink); }
 .resume-sub { font-size: 12px; color: var(--ink-muted); }
+
+/* ── Ghép hai skill ──────────────────────────────────────────────────────────
+   Two skills, one owner. The bar states which is which, because a pair with no primary is two
+   agents each assuming the other handled the gate. */
+.pair-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+.pair-pick { max-width: 220px; flex: none; }
+.pair-row .pair-bar { margin: 0; flex: 1 1 420px; min-width: 0; }
+.pair-bar {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 12px;
+  padding: 9px 13px;
+  border: 1px solid var(--line-strong);
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+  background: var(--raise);
+  flex-wrap: wrap;
+}
+.pair-role {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--bg);
+  background: var(--accent);
+  border-radius: 5px;
+  padding: 1px 6px;
+  font-weight: 650;
+  flex: none;
+}
+.pair-role-second { background: var(--ink-faint); }
+.pair-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+.pair-arrow { color: var(--ink-faint); font-size: 14px; }
+.pair-note { flex: 1 1 240px; font-size: 12px; color: var(--ink-muted); min-width: 0; }
+.pair-note.is-warn { color: var(--warn); }
+.pair-note.is-ok { color: var(--ok, var(--ink-muted)); }
