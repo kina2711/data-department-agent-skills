@@ -17,7 +17,28 @@ const wf = {
   dirty: false,
   meta: new Map(),
   fit: false,
+  viewW: 0,
+  viewH: 0,
+  // Pan and zoom ride on the viewBox rather than a CSS transform: the page CSP forbids inline
+  // styles, and the viewBox is an attribute. It also keeps hit-testing correct for free, which a
+  // transform on a wrapper does not.
+  zoom: 1,
+  panX: 0,
+  panY: 0,
 };
+
+const ZOOM_MIN = 0.35;
+const ZOOM_MAX = 3;
+
+function clampZoom(z) {
+  return Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, z));
+}
+
+function resetView() {
+  wf.zoom = 1;
+  wf.panX = 0;
+  wf.panY = 0;
+}
 
 const DONE = new Set(['implemented', 'tested', 'approved', 'released', 'complete']);
 const OPEN = new Set(['ready', 'in-progress']);
@@ -70,10 +91,19 @@ function render() {
     drawW = Math.round(width * scale);
     drawH = Math.round(height * scale);
   }
+  // The graph's own dimensions, kept so the toolbar buttons can zoom about the view centre
+  // without re-running the layout to find out how big it is.
+  wf.viewW = width;
+  wf.viewH = height;
+  const vw = width / wf.zoom;
+  const vh = height / wf.zoom;
   const svg = el('svg', {
-    class: `wf-svg${wf.fit ? ' is-fit' : ''}`,
-    width: drawW, height: drawH, viewBox: `0 0 ${width} ${height}`,
+    class: `wf-svg${wf.fit ? ' is-fit' : ''}${wf.zoom !== 1 || wf.panX || wf.panY ? ' is-panned' : ''}`,
+    width: drawW, height: drawH,
+    viewBox: `${wf.panX} ${wf.panY} ${vw} ${vh}`,
   });
+  svg.dataset.width = String(width);
+  svg.dataset.height = String(height);
 
   const defs = el('defs');
   const marker = el('marker', {
@@ -180,12 +210,83 @@ function render() {
     svg.append(g);
   }
   host.append(svg);
+  attachPanZoom(svg, width, height);
   renderProgress(tasks, depth);
 }
 
 /** Progress is counted from status, and blocked work is never folded into "remaining".
  *  Drawn as SVG: segment widths are geometry, which the page CSP allows, unlike the inline style
  *  a div-based bar would need. */
+
+/* Wheel to zoom toward the pointer, drag to pan.
+ *
+ * Zooming to the centre is the easy version and the wrong one: the thing being examined is under
+ * the cursor, and centre-zoom pushes it off screen, so every zoom costs a pan to undo it. The
+ * anchor maths keeps the graph point under the pointer fixed while the window around it shrinks.
+ *
+ * Dragging starts only on empty canvas. A drag begun on a node would steal the click that selects
+ * it, and selection is the thing this canvas is mostly used for. */
+function attachPanZoom(svg, width, height) {
+  const clampPan = () => {
+    const vw = width / wf.zoom;
+    const vh = height / wf.zoom;
+    // Half a screen of overscroll in each direction: enough to bring an edge node clear of a
+    // panel, not so much that the graph can be lost off the side entirely.
+    wf.panX = Math.min(width - vw / 2, Math.max(-vw / 2, wf.panX));
+    wf.panY = Math.min(height - vh / 2, Math.max(-vh / 2, wf.panY));
+  };
+
+  const apply = () => {
+    clampPan();
+    svg.setAttribute('viewBox', `${wf.panX} ${wf.panY} ${width / wf.zoom} ${height / wf.zoom}`);
+    const level = q('wfZoomLevel');
+    if (level) level.textContent = `${Math.round(wf.zoom * 100)}%`;
+  };
+
+  svg.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const box = svg.getBoundingClientRect();
+    if (!box.width || !box.height) return;
+    // Where the pointer is in graph coordinates, before the zoom changes.
+    const gx = wf.panX + ((e.clientX - box.left) / box.width) * (width / wf.zoom);
+    const gy = wf.panY + ((e.clientY - box.top) / box.height) * (height / wf.zoom);
+    const next = clampZoom(wf.zoom * (e.deltaY < 0 ? 1.12 : 1 / 1.12));
+    if (next === wf.zoom) return;
+    wf.zoom = next;
+    // Put that same graph point back under the pointer.
+    wf.panX = gx - ((e.clientX - box.left) / box.width) * (width / wf.zoom);
+    wf.panY = gy - ((e.clientY - box.top) / box.height) * (height / wf.zoom);
+    apply();
+  }, { passive: false });
+
+  let dragging = null;
+  svg.addEventListener('pointerdown', (e) => {
+    if (e.button !== 0) return;
+    if (e.target.closest('.wf-node')) return;
+    dragging = { x: e.clientX, y: e.clientY, panX: wf.panX, panY: wf.panY };
+    svg.classList.add('is-dragging');
+    svg.setPointerCapture(e.pointerId);
+  });
+  svg.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    const box = svg.getBoundingClientRect();
+    if (!box.width || !box.height) return;
+    wf.panX = dragging.panX - ((e.clientX - dragging.x) / box.width) * (width / wf.zoom);
+    wf.panY = dragging.panY - ((e.clientY - dragging.y) / box.height) * (height / wf.zoom);
+    apply();
+  });
+  const stop = (e) => {
+    if (!dragging) return;
+    dragging = null;
+    svg.classList.remove('is-dragging');
+    try { svg.releasePointerCapture(e.pointerId); } catch { /* already released */ }
+  };
+  svg.addEventListener('pointerup', stop);
+  svg.addEventListener('pointercancel', stop);
+
+  apply();
+}
+
 function renderProgress(tasks, depth) {
   const box = q('wfProgress');
   if (!box) return;
@@ -229,6 +330,24 @@ function renderProgress(tasks, depth) {
   line.textContent = parts.join(' · ');
   box.append(line);
 }
+
+// Statuses that mean something was actually done and evidenced. Deleting one of these throws away
+// a record, which is a different act from removing a node somebody added by mistake.
+const RECORDED = new Set(['implemented', 'tested', 'approved', 'released', 'complete']);
+
+function cyclic(tasks) {
+  const graph = (typeof WfGraph !== 'undefined' && WfGraph) || null;
+  if (!graph || typeof graph.layer !== 'function') return false;
+  return graph.layer(tasks) === null;
+}
+
+function notifyEdit(text, kind) {
+  const out = q('wfResult');
+  if (!out) return;
+  out.textContent = text || '';
+  out.className = text ? `notice notice-${kind === 'err' ? 'err' : 'warn'}` : '';
+}
+
 
 function renderInspector() {
   const box = q('wfInspector');
@@ -306,9 +425,21 @@ function renderInspector() {
     cb.type = 'checkbox';
     cb.checked = (task.depends_on || []).includes(keyOf(other));
     cb.addEventListener('change', () => {
-      const set = new Set(task.depends_on || []);
+      const before = [...(task.depends_on || [])];
+      const set = new Set(before);
       if (cb.checked) set.add(keyOf(other)); else set.delete(keyOf(other));
       task.depends_on = [...set];
+      /* A cycle has no layering, so the canvas cannot draw it and the planner cannot order it.
+       * Letting one be built and reporting it at save time means the person finds out after the
+       * edit that caused it has scrolled out of view. WfGraph.layer returns null on a cycle, which
+       * is the same check the drawing already depends on. */
+      if (cb.checked && cyclic(tasks)) {
+        task.depends_on = before;
+        cb.checked = false;
+        notifyEdit(`Không thêm được: ${keyOf(task)} phụ thuộc ${keyOf(other)} sẽ tạo vòng lặp.`, 'err');
+        return;
+      }
+      notifyEdit('');
       markDirty();
       render();
     });
@@ -324,10 +455,32 @@ function renderInspector() {
   del.textContent = 'Xoá node này';
   del.addEventListener('click', () => {
     const key = keyOf(task);
+    /* Deleting used to strip the key out of every dependent silently. The node vanished and three
+     * other tasks quietly lost a prerequisite, which is a change to what those tasks mean and not
+     * a change to the one being deleted. Name them, and make the second press the consent. */
+    const dependents = tasks.filter((t) => (t.depends_on || []).includes(key)).map(keyOf);
+    const recorded = RECORDED.has(String(task.status || ''));
+    if ((dependents.length || recorded) && del.dataset.confirm !== key) {
+      del.dataset.confirm = key;
+      del.textContent = 'Xoá thật? Bấm lại';
+      del.classList.add('is-danger');
+      const parts = [];
+      if (dependents.length) {
+        parts.push(`${dependents.length} task sẽ mất tiền đề: ${dependents.join(', ')}`);
+      }
+      if (recorded) {
+        parts.push(`trạng thái đang là \`${task.status}\` — xoá là bỏ một bản ghi đã có bằng chứng`);
+      }
+      notifyEdit(parts.join('; ') + '.', 'warn');
+      return;
+    }
     wf.manifest.tasks = tasks.filter((t) => keyOf(t) !== key);
     for (const t of wf.manifest.tasks) {
       t.depends_on = (t.depends_on || []).filter((d) => d !== key);
     }
+    notifyEdit(dependents.length
+      ? `Đã xoá ${key}; đã gỡ tiền đề khỏi ${dependents.join(', ')}.`
+      : '', dependents.length ? 'warn' : '');
     wf.selected = null;
     markDirty();
     render();
@@ -611,6 +764,9 @@ function loaded(payload) {
   wf.manifest = payload.manifest;
   wf.selected = null;
   wf.dirty = false;
+  // A new graph inherits neither the old zoom nor the old pan; carrying them opens the next
+  // workflow scrolled to a corner of a graph that no longer exists.
+  resetView();
   q('wfSave').disabled = true;
   q('wfFile').textContent = payload.file;
   q('wfResult').textContent = '';
@@ -644,6 +800,27 @@ window.wfInit = function wfInit(getSuitePath, getCatalog, getRunFolder) {
     q('wfFit').textContent = wf.fit ? 'Cỡ thật' : 'Vừa khung';
     render();
   });
+  const stepZoom = (factor) => {
+    const next = clampZoom(wf.zoom * factor);
+    if (next === wf.zoom) return;
+    // Keep the middle of the current view fixed, which is what a button press implies; the wheel
+    // anchors on the pointer because there is a pointer to anchor on.
+    const w = wf.viewW || 1200;
+    const h = wf.viewH || 600;
+    const cx = wf.panX + (w / wf.zoom) / 2;
+    const cy = wf.panY + (h / wf.zoom) / 2;
+    wf.zoom = next;
+    wf.panX = cx - (w / wf.zoom) / 2;
+    wf.panY = cy - (h / wf.zoom) / 2;
+    render();
+  };
+  q('wfZoomIn').addEventListener('click', () => stepZoom(1.25));
+  q('wfZoomOut').addEventListener('click', () => stepZoom(1 / 1.25));
+  q('wfZoomReset').addEventListener('click', () => {
+    resetView();
+    render();
+  });
+
   q('wfPreset').addEventListener('change', async (e) => {
     if (!e.target.value) return;
     loaded(await window.studio.openWorkflowPath(e.target.value));

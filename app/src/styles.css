@@ -165,9 +165,11 @@ header.top h1 { font-size: 26px; letter-spacing: -.02em; margin: 0; }
 .notice { padding: 10px 12px; border-radius: 10px; font-size: 12.5px; margin-bottom: 14px; }
 .notice-err { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
 .notice-ok { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+.notice-warn { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
 @media (prefers-color-scheme: dark) {
   .notice-err { background: #2a1416; color: #fca5a5; border-color: #4c1d1d; }
   .notice-ok { background: #10231a; color: #86efac; border-color: #14532d; }
+  .notice-warn { background: #241c0c; color: #fcd34d; border-color: #4a3a13; }
 }
 
 /* A fixed pastel set instead of a computed colour, so no inline style is needed and the
@@ -947,3 +949,20 @@ h4.sec:first-child { margin-top: 0; }
 .pair-note { flex: 1 1 240px; font-size: 12px; color: var(--ink-muted); min-width: 0; }
 .pair-note.is-warn { color: var(--warn); }
 .pair-note.is-ok { color: var(--ok, var(--ink-muted)); }
+
+/* ── Pan and zoom on the workflow canvas ────────────────────────────────────
+   The viewBox does the work, so nothing here scales anything; these only say what the pointer is
+   for and keep the zoom readout from jumping as the digits change. */
+.wf-svg.is-panned { cursor: grab; }
+.wf-svg.is-dragging { cursor: grabbing; }
+.wf-zoom {
+  font-size: 12px;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+  min-width: 44px;
+  text-align: center;
+}
+
+/* A destructive edit asks once. The button says what the second press does, so the confirmation
+   is on the control being pressed rather than in a dialog somewhere else. */
+.btn.is-danger { border-color: var(--danger, #cf4257); color: var(--danger, #cf4257); }

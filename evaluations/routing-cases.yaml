@@ -490,7 +490,7 @@ cases:
       - ai-create-embeddings-index
     expected_behavior:
       - Retrieve the live schema immediately before generating, never from the system prompt or recall, and record which schema version grounded the query.
-      - A cache hit must clear both bars: the same question, and data that has not moved; key on table version or freshness watermark, not on a timer.
+      - "A cache hit must clear both bars: the same question, and data that has not moved; key on table version or freshness watermark, not on a timer."
       - Label a served answer as cached with its timestamp, and measure the false-hit rate separately from the hit rate.
       - Attribute cost per session and per agent rather than per call.
 
@@ -523,7 +523,7 @@ cases:
       - content-build-series-knowledge-map
     expected_behavior:
       - The demand signal is a recorded query with a stated threshold; the mining itself belongs to product-analytics-and-experimentation.
-      - At volume the controls move to the generator: emission gated on every placeholder resolving, claims supported by the row, a read sample including the strangest rows.
+      - "At volume the controls move to the generator: emission gated on every placeholder resolving, claims supported by the row, a read sample including the strangest rows."
       - Structured markup states facts machines will not check, so it must match both the page and the data.
       - Bind each artifact to its source version and decide the retirement rule before generating.
   - id: package-an-agent-for-a-role
@@ -535,7 +535,7 @@ cases:
     expected_behavior:
       - Declare a scope that names the tasks left out; "everything the skill offers" is the absence of a scope.
       - Pin every input that is not the user's request and record the pinned versions with the run.
-      - Ship the guardrails with the package: what it may write, what it may spend, what it stops for, and a named owner.
+      - "Ship the guardrails with the package: what it may write, what it may spend, what it stops for, and a named owner."
       - Re-run the evaluation against the version being shipped; a score attached to a version nobody can reconstruct is decoration.
       - Every lifecycle gate applies inside a harness exactly as outside it.
   - id: disciplined-delivery-loop
@@ -572,7 +572,648 @@ cases:
     expected_tasks:
       - dx-recommend-agent-automation
     expected_behavior:
-      - Stay read-only: recommend, and let the team implement what it chooses.
+      - "Stay read-only: recommend, and let the team implement what it chooses."
       - Surface one or two per category rather than everything possible.
       - Ground each recommendation in something found in this repository, not in what would fit any data repo.
       - State what each automation costs as well as what it saves.
+
+  # R4 destructive work. Nine contracts at the highest tier had no routing case at all, and these
+  # are the requests where a wrong owner costs most: something is retired, rolled back, revoked or
+  # reported to a regulator. The queries are written as a person would ask, not as the task id
+  # spelled out, because a case that quotes its own answer tests nothing.
+
+  - id: retire-a-dataset-nobody-owns
+    query: Bảng khách hàng cũ này hình như không ai dùng nữa, tôi muốn dẹp nó đi cho gọn kho.
+    expected_primary_skill: data-governance-and-stewardship
+    expected_tasks:
+      - dg-plan-data-asset-retirement
+    expected_behavior:
+      - Find the consumers before agreeing that nobody uses it; "hình như không ai dùng" is a hypothesis, not evidence.
+      - Separate archive, replacement and deletion, and name the approval each one needs.
+      - Never delete inside the same step that discovered the asset was unused.
+
+  - id: turn-off-an-old-pipeline
+    query: Pipeline nạp đơn hàng từ hệ thống cũ chạy song song sáu tháng rồi, giờ tắt được chưa?
+    expected_primary_skill: data-engineering
+    expected_tasks:
+      - de-retire-data-pipeline
+    expected_behavior:
+      - Confirm downstream consumers are actually off it, from lineage rather than from memory.
+      - Archive before disabling, and keep the restore path stated.
+      - Disabling is a gated action; report it as planned until the approval exists.
+
+  - id: dashboard-nobody-opens
+    query: Cái dashboard doanh thu cũ ba tháng nay không ai mở. Xoá đi được không?
+    expected_primary_skill: business-intelligence
+    expected_tasks:
+      - bi-retire-dashboard
+    expected_behavior:
+      - Check usage against the real access log, not against an impression.
+      - Offer the replacement before removing the original, and tell the remaining viewers where to go.
+      - Archive the definition so the metric logic survives the dashboard.
+
+  - id: bad-model-in-production
+    query: Model chấm điểm rủi ro bản mới đang trả kết quả tệ hơn hẳn bản cũ trên production. Quay lại bản trước ngay.
+    expected_primary_skill: mlops
+    expected_tasks:
+      - mlops-rollback-production-model
+    expected_behavior:
+      - Shift traffic or version deliberately, and verify recovery against the metric that showed the problem.
+      - Record what was rolled back from and to; a rollback nobody can reconstruct repeats itself.
+      - Rolling back is a production change and needs its approval, however urgent it feels.
+
+  - id: delete-an-old-model-version
+    query: Registry đang giữ chín bản model cũ, tôi muốn xoá bớt cho nhẹ.
+    expected_primary_skill: mlops
+    expected_tasks:
+      - mlops-retire-model-version
+    expected_behavior:
+      - Confirm no serving endpoint, batch job or experiment still references each version.
+      - Archive the evidence bundle before deleting the artefact; the audit trail outlives the binary.
+      - Storage cost is not an approval to delete.
+
+  - id: key-leaked-in-a-repo
+    query: Service account key bị commit nhầm lên repo công khai. Xử lý gấp.
+    expected_primary_skill: data-security-and-privacy
+    expected_tasks:
+      - sec-rotate-compromised-credential
+    expected_behavior:
+      - Revoke first, rotate second, update consumers third; deleting the commit does not un-leak the key.
+      - Assume it was used until the audit log says otherwise.
+      - Record scope and timeline, because the incident record is the thing an auditor reads later.
+
+  - id: possible-personal-data-leak
+    query: Một file export chứa email và số điện thoại khách hàng bị gửi nhầm ra ngoài công ty. Cần đánh giá xem có phải sự cố phải khai báo không.
+    expected_primary_skill: data-security-and-privacy
+    expected_tasks:
+      - privacy-prepare-data-breach-assessment
+    expected_behavior:
+      - Establish which data, whose data, and how many subjects before judging severity.
+      - Notification duty is a legal determination with a clock; state the deadline and who decides, and never decide it alone.
+      - An assessment is not a notification, and saying so keeps the two from being confused.
+
+  - id: notes-that-went-stale
+    query: Mấy note về Airflow trong vault viết từ hai năm trước, giờ sai nhiều rồi. Dọn thế nào?
+    expected_primary_skill: personal-second-brain-and-knowledge-os
+    expected_tasks:
+      - brain-retire-stale-knowledge
+    expected_behavior:
+      - Deprecate with a reason and a successor rather than deleting, so the links pointing at it still resolve.
+      - Repair backlinks; an orphaned reference is the cost of a silent delete.
+      - Wrong and outdated are different findings, and the record says which one this was.
+
+  - id: framework-from-a-superseded-edition
+    query: Cái framework tôi rút ra từ ấn bản cũ của quyển sách giờ tác giả đã sửa lại. Bộ pack sinh ra từ nó phải làm sao?
+    expected_primary_skill: book-to-knowledge-and-action
+    expected_tasks:
+      - book-retire-derived-knowledge
+    expected_behavior:
+      - Name the superseding edition and what changed, not merely that something changed.
+      - Archive the derived pack with its provenance so an old output can still be explained.
+      - Repair the backlinks from anything that cited the retired framework.
+
+  # R3 controlled work, batch 1: platform, architecture and pipelines. Everything here changes a
+  # running system, so the failure mode is a request that sounds routine getting handled routinely.
+
+  - id: who-can-see-this-table
+    query: Tôi cần đọc bảng lương để làm báo cáo headcount. Xin quyền kiểu gì?
+    expected_primary_skill: shared-task-controls
+    expected_tasks:
+      - core-check-data-access
+    expected_behavior:
+      - Establish what the task actually needs before requesting anything; a report on headcount may not need salary at all.
+      - State the usage limit and the expiry alongside the grant, not after it.
+
+  - id: plan-a-release-train
+    query: Quý tới có bốn thứ phải lên production, tôi cần một kế hoạch phát hành có thứ tự và ai phụ thuộc ai.
+    expected_primary_skill: head-of-data-and-data-product
+    expected_tasks:
+      - dpm-plan-data-release
+    expected_behavior:
+      - Sequence by dependency rather than by wish; name what blocks what.
+      - Say who is told, when, and through which channel.
+
+  - id: security-architecture-for-a-new-platform
+    query: Chúng tôi dựng nền tảng dữ liệu mới, cần thiết kế ranh giới tin cậy, IAM và mã hoá ngay từ đầu.
+    expected_primary_skill: data-architecture
+    expected_tasks:
+      - arch-design-data-security-architecture
+    expected_behavior:
+      - Draw the trust boundaries first; controls without boundaries are a list, not an architecture.
+      - Say how each policy is enforced, not merely that it exists.
+
+  - id: what-happens-if-the-region-dies
+    query: Nếu vùng chính sập thì bao lâu chúng tôi khôi phục được, và mất bao nhiêu dữ liệu?
+    expected_primary_skill: data-architecture
+    expected_tasks:
+      - arch-design-disaster-recovery
+    expected_behavior:
+      - RTO and RPO are decisions the business makes, not numbers the architecture assumes.
+      - A recovery path that has never been tested is a hypothesis; include the test plan.
+
+  - id: share-data-with-a-partner
+    query: Đối tác muốn truy cập dữ liệu giao dịch của chúng tôi. Kiến trúc chia sẻ nên thế nào?
+    expected_primary_skill: data-architecture
+    expected_tasks:
+      - arch-design-data-sharing-architecture
+    expected_behavior:
+      - Choose between clean room, exchange, API and share by what governance each one permits.
+      - Revocation is part of the design, not an afterthought.
+
+  - id: set-up-service-accounts
+    query: Cần cấu hình role và service account cho team mới trên warehouse, theo least privilege.
+    expected_primary_skill: data-platform-and-dataops
+    expected_tasks:
+      - platform-configure-data-iam
+    expected_behavior:
+      - Least privilege means starting from the task and adding, never from admin and trimming.
+      - Configuration on a live platform is a gated change; report it as applied only with evidence.
+
+  - id: secrets-are-in-a-config-file
+    query: Mật khẩu database đang nằm thẳng trong file config của orchestrator. Chuyển sang quản lý đàng hoàng.
+    expected_primary_skill: data-platform-and-dataops
+    expected_tasks:
+      - platform-manage-data-secrets
+    expected_behavior:
+      - A secret that has been in a config file is already exposed; rotate rather than merely relocate.
+      - Rotation without an audit trail cannot be shown to have happened.
+
+  - id: stand-up-airflow
+    query: Dựng và cấu hình orchestrator cho môi trường staging, kiểm tra chạy được rồi mới bàn giao.
+    expected_primary_skill: data-platform-and-dataops
+    expected_tasks:
+      - platform-deploy-orchestrator
+    expected_behavior:
+      - Verify the runtime actually schedules and retries before calling it operational.
+
+  - id: does-our-failover-work
+    query: Chúng tôi có kế hoạch DR trên giấy nhưng chưa ai diễn tập. Chạy thử đi.
+    expected_primary_skill: data-platform-and-dataops
+    expected_tasks:
+      - platform-test-disaster-recovery
+    expected_behavior:
+      - Measure the achieved RTO and RPO against the declared ones, and report the gap rather than the intent.
+      - A drill that skipped a step is reported as a drill that skipped a step.
+
+  - id: cluster-is-throwing-errors
+    query: Cluster xử lý đang lỗi liên tục từ sáng, job nào cũng chết. Không rõ do hạ tầng hay do code.
+    expected_primary_skill: data-platform-and-dataops
+    expected_tasks:
+      - platform-troubleshoot-platform-incident
+    expected_behavior:
+      - Separate infrastructure, runtime and workload before changing anything.
+      - Record the timeline as it happens; an incident reconstructed afterwards loses the ordering that explains it.
+
+  - id: move-workloads-to-a-new-cluster
+    query: Chuyển toàn bộ job sang cluster mới mà không được gián đoạn.
+    expected_primary_skill: data-platform-and-dataops
+    expected_tasks:
+      - platform-migrate-platform-workload
+    expected_behavior:
+      - Dual-run and compare before cutting over; a migration verified only after cutover has no way back.
+      - The rollback path is named before the first workload moves.
+
+  - id: rerun-two-years-of-history
+    query: Cần chạy lại dữ liệu hai năm cho bảng đơn hàng sau khi sửa logic. Tốn bao nhiêu và làm sao biết đúng?
+    expected_primary_skill: data-engineering
+    expected_tasks:
+      - de-backfill-data-range
+    expected_behavior:
+      - Estimate scope and cost before running; a backfill discovered to be expensive halfway is a backfill abandoned halfway.
+      - Chunk it, and reconcile each chunk against a known total rather than trusting completion.
+
+  - id: nightly-job-failed-again
+    query: Job nạp hằng đêm fail ba hôm liên tiếp, log thì chung chung. Tìm nguyên nhân.
+    expected_primary_skill: data-engineering
+    expected_tasks:
+      - de-troubleshoot-failed-pipeline
+    expected_behavior:
+      - Isolate source, code, platform and data as separate causes rather than guessing among them.
+      - The same failure three nights running is a pattern; say what changed before the first one.
+
+  - id: move-a-pipeline-to-dbt
+    query: Pipeline transform viết tay giờ muốn chuyển sang dbt, không được sai số.
+    expected_primary_skill: data-engineering
+    expected_tasks:
+      - de-migrate-data-pipeline
+    expected_behavior:
+      - Dual-run and reconcile row counts and totals before cutover.
+      - Keep the rollback until the reconciliation passes, not until the migration finishes.
+
+  - id: rebuild-a-mart-after-a-logic-fix
+    query: Sửa định nghĩa doanh thu thuần trong mart rồi, giờ phải dựng lại lịch sử và đối chiếu số.
+    expected_primary_skill: analytics-engineering
+    expected_tasks:
+      - ae-backfill-analytics-model
+    expected_behavior:
+      - Reconcile the rebuilt metric against the published figures and report where they differ.
+      - A metric that changed for good reasons still changed; say so before someone notices in a dashboard.
+
+  - id: mart-build-is-failing
+    query: Model trong mart build fail, không rõ do nguồn, do logic hay do warehouse.
+    expected_primary_skill: analytics-engineering
+    expected_tasks:
+      - ae-troubleshoot-model-failure
+    expected_behavior:
+      - Distinguish source, logic, dependency and warehouse faults before editing SQL.
+
+  # R3 batch 2: BI delivery, model rollout, and data incidents.
+
+  - id: each-region-sees-only-its-own-rows
+    query: Dashboard bán hàng phải để mỗi vùng chỉ thấy số của vùng mình. Làm sao chắc là không lọt?
+    expected_primary_skill: business-intelligence
+    expected_tasks:
+      - bi-implement-row-level-security
+    expected_behavior:
+      - Map identity to filter explicitly, and test with an account from each region rather than reasoning about it.
+      - A filter that has not been tested from the wrong account has not been tested.
+
+  - id: push-the-dashboard-live
+    query: Dashboard đã duyệt xong, giờ đưa lên workspace production, cấp quyền và đặt lịch refresh.
+    expected_primary_skill: business-intelligence
+    expected_tasks:
+      - bi-publish-dashboard
+    expected_behavior:
+      - Publishing is an outward-facing action; report it as done only with evidence of the deploy.
+      - Permissions and refresh are part of publishing, not follow-up work.
+
+  - id: numbers-look-wrong-on-the-dashboard
+    query: Sếp bảo số trên dashboard sai. Chưa rõ do dữ liệu, do refresh hay do quyền.
+    expected_primary_skill: business-intelligence
+    expected_tasks:
+      - bi-troubleshoot-dashboard
+    expected_behavior:
+      - Separate data, refresh, permission and visual causes before touching the model.
+      - A viewer saying wrong may mean different from what they expected; establish which.
+
+  - id: package-a-bi-release-for-approval
+    query: Gom hết gate đã qua, rủi ro còn mở và version lại thành một gói để xin duyệt phát hành.
+    expected_primary_skill: business-intelligence
+    expected_tasks:
+      - bi-prepare-release-approval
+    expected_behavior:
+      - An unmet gate appears in the package as unmet; a release package that hides one is worthless.
+
+  - id: run-the-new-model-quietly-first
+    query: Muốn chạy model mới song song mà không để nó ảnh hưởng quyết định, để so kết quả trước.
+    expected_primary_skill: machine-learning-engineering
+    expected_tasks:
+      - mle-build-shadow-deployment
+    expected_behavior:
+      - Shadow means the output is recorded and not acted on; verify nothing downstream consumes it.
+
+  - id: roll-the-model-out-slowly
+    query: Cho model mới nhận 5% lưu lượng trước, có ngưỡng để dừng nếu tệ.
+    expected_primary_skill: machine-learning-engineering
+    expected_tasks:
+      - mle-build-canary-release
+    expected_behavior:
+      - Define the abort threshold before traffic moves, or the canary is just a slow deploy.
+
+  - id: inference-endpoint-throwing-errors
+    query: Endpoint dự đoán trả lỗi rải rác, lúc được lúc không.
+    expected_primary_skill: machine-learning-engineering
+    expected_tasks:
+      - mle-troubleshoot-inference-error
+    expected_behavior:
+      - Isolate input, feature, artifact, runtime and dependency causes; intermittent points at state, not at logic.
+
+  - id: undo-the-model-release
+    query: Bản model vừa release gây lỗi, trả về bản ổn định trước đó.
+    expected_primary_skill: machine-learning-engineering
+    expected_tasks:
+      - mle-rollback-model-release
+    expected_behavior:
+      - Revert artifact, config and traffic together; reverting one of the three leaves a mismatch.
+      - Verify the restored version is actually serving before declaring recovery.
+
+  - id: find-where-the-bad-data-came-from
+    query: Số liệu tháng này lệch hẳn, cần lần theo lineage xem hỏng ở khâu nào.
+    expected_primary_skill: data-quality-and-reliability
+    expected_tasks:
+      - dre-diagnose-data-incident
+    expected_behavior:
+      - Trace lineage to the earliest point the evidence still holds, rather than stopping at the first suspicious step.
+
+  - id: run-the-incident
+    query: Sự cố dữ liệu đang diễn ra, nhiều người nhảy vào, cần ai đó điều phối và ghi lại timeline.
+    expected_primary_skill: data-quality-and-reliability
+    expected_tasks:
+      - dre-coordinate-data-incident
+    expected_behavior:
+      - Name roles and the communication cadence; an incident with everyone diagnosing has nobody deciding.
+
+  - id: table-got-corrupted
+    query: Bảng sự kiện bị ghi hỏng một phần, cần cách ly rồi phục hồi và đối chiếu lại.
+    expected_primary_skill: data-quality-and-reliability
+    expected_tasks:
+      - dre-restore-corrupted-data
+    expected_behavior:
+      - Quarantine before restoring, so the corrupted state is still available to explain what happened.
+      - Reconcile after restore; a restore nobody reconciled is a restore nobody verified.
+
+  - id: ship-a-new-prompt-version
+    query: Bản prompt mới cho trợ lý nội bộ đã eval xong, giờ phát hành có kiểm soát.
+    expected_primary_skill: generative-ai-engineering
+    expected_tasks:
+      - ai-release-ai-version
+    expected_behavior:
+      - Evaluation, approval, canary and rollback are four things; a release missing any of them says which.
+
+  - id: expose-metadata-to-tools
+    query: Các tool và agent cần tra metadata qua API thay vì đọc catalog bằng tay.
+    expected_primary_skill: metadata-engineering-and-catalog
+    expected_tasks:
+      - meta-publish-metadata-api
+    expected_behavior:
+      - The contract is the deliverable; an endpoint without a stated schema moves the problem rather than solving it.
+
+  - id: scan-the-repo-for-keys
+    query: Nghi có API key bị commit vào repo, cần quét cả lịch sử và có kế hoạch xử lý.
+    expected_primary_skill: data-developer-experience
+    expected_tasks:
+      - dx-detect-repository-secrets
+    expected_behavior:
+      - Scan history, not only the current tree; a removed file is still in the objects.
+      - A found secret is a rotation task, and the report says so rather than stopping at detection.
+
+  - id: restructure-the-repo
+    query: Layout repo hiện tại lộn xộn, muốn đổi cấu trúc mà không làm hỏng import của ai.
+    expected_primary_skill: data-developer-experience
+    expected_tasks:
+      - dx-migrate-project-structure
+    expected_behavior:
+      - State the compatibility plan before moving files, and verify imports afterwards rather than assuming them.
+
+  - id: write-the-release-notes
+    query: "Bản phát hành tuần này cần ghi chú: đổi gì, ảnh hưởng ai, phải làm gì để chuyển đổi."
+    expected_primary_skill: data-documentation-and-diagrams
+    expected_tasks:
+      - docs-write-release-notes
+    expected_behavior:
+      - Known issues belong in the notes; a release note listing only improvements is marketing.
+
+  # R3 batch 3: access, sharing and privacy. Several of these are near-neighbours by design — a
+  # sharing request has a governance side and a security side — so the cases exist partly to keep
+  # the two from collapsing into each other.
+
+  - id: someone-wants-access-to-sensitive-data
+    query: Bạn marketing xin quyền đọc bảng khách hàng có cả email và ngày sinh. Nên duyệt không?
+    expected_primary_skill: data-governance-and-stewardship
+    expected_tasks:
+      - dg-review-data-access-request
+    expected_behavior:
+      - Judge purpose and minimisation before identity; the question is what the work needs, not who is asking.
+      - Grant with a duration, or the review happens once and the access lasts forever.
+
+  - id: partner-wants-our-data
+    query: Đối tác đề nghị nhận dữ liệu hành vi người dùng hằng tháng. Cần gói quyết định để trình.
+    expected_primary_skill: data-governance-and-stewardship
+    expected_tasks:
+      - dg-review-data-sharing-request
+    expected_behavior:
+      - Recipient, purpose, contract, controls and revocation are five separate findings.
+      - Sharing without a revocation path is a transfer, and the package says which one this is.
+
+  - id: design-who-can-do-what
+    query: Cần thiết kế mô hình phân quyền cho kho dữ liệu, có cả đường break-glass khi khẩn cấp.
+    expected_primary_skill: data-security-and-privacy
+    expected_tasks:
+      - sec-design-data-access-control
+    expected_behavior:
+      - Break-glass without an alert and a review is a permanent back door.
+      - Segregation of duties is part of the design, not a policy bolted on later.
+
+  - id: who-actually-uses-their-access
+    query: Rà lại xem ai đang có quyền gì, ai lâu không dùng, và có gì bất thường không.
+    expected_primary_skill: data-security-and-privacy
+    expected_tasks:
+      - sec-audit-data-access
+    expected_behavior:
+      - Dormant access is a finding, not a footnote.
+      - Distinguish anomalous usage from unusual-but-explained; report the evidence for the call.
+
+  - id: is-this-use-of-data-allowed
+    query: Team muốn dùng dữ liệu đơn hàng để huấn luyện mô hình gợi ý. Có được phép không?
+    expected_primary_skill: data-security-and-privacy
+    expected_tasks:
+      - privacy-assess-data-use-case
+    expected_behavior:
+      - Legal basis and purpose limitation are the question; technical feasibility is not an answer to it.
+      - Where the basis is unclear, say so and name who decides rather than assuming consent.
+
+  - id: is-this-transfer-secure-enough
+    query: Chúng tôi sắp gửi dữ liệu cho bên thứ ba qua SFTP. Về mặt an ninh có ổn không?
+    expected_primary_skill: data-security-and-privacy
+    expected_tasks:
+      - sec-review-data-sharing-security
+    expected_behavior:
+      - Assess recipient, transport, controls and expiry; transport alone is the easy third of the question.
+
+  - id: odd-query-pattern-at-night
+    query: Một tài khoản truy vấn bảng nhạy cảm lúc 3 giờ sáng, khối lượng lớn bất thường. Điều tra.
+    expected_primary_skill: data-security-and-privacy
+    expected_tasks:
+      - sec-investigate-data-access-anomaly
+    expected_behavior:
+      - Correlate identity, query, asset and context before concluding intent; a scheduled job looks like this too.
+      - An investigation report states what was ruled out, not only what was found.
+
+  - id: teach-new-joiners-the-rules
+    query: Người mới vào cần buổi định hướng về policy, phân loại dữ liệu, quyền và cách báo sự cố.
+    expected_primary_skill: data-onboarding-and-integration
+    expected_tasks:
+      - onboard-deliver-governance-security-orientation
+    expected_behavior:
+      - Record who attended and what was covered; orientation nobody can evidence did not happen for audit purposes.
+
+  - id: start-a-project-from-a-failure
+    query: Tôi muốn làm project cá nhân về độ tin cậy, bắt đầu từ một kịch bản hỏng thật rồi dựng cách phát hiện và chẩn đoán.
+    expected_primary_skill: data-personal-project-engineering
+    expected_tasks:
+      - project-start-incident-failure-first
+    expected_behavior:
+      - Reproduce the failure before designing the detection; a detector built against an imagined failure detects an imagined failure.
+
+  - id: audit-the-vault-for-secrets-and-rot
+    query: "Vault cá nhân của tôi lâu rồi chưa rà: có thể lẫn thông tin nhạy cảm, link chết và note cũ."
+    expected_primary_skill: personal-second-brain-and-knowledge-os
+    expected_tasks:
+      - brain-run-privacy-freshness-audit
+    expected_behavior:
+      - Secrets and staleness are separate findings with separate remedies.
+
+  - id: restore-the-vault-from-backup
+    query: Cần phục hồi vault từ bản sao lưu, nhưng phải kiểm tra trước khi thay bản đang dùng.
+    expected_primary_skill: personal-second-brain-and-knowledge-os
+    expected_tasks:
+      - brain-restore-second-brain
+    expected_behavior:
+      - Restore to a separate location and verify integrity, links and retrieval before cutting over.
+      - A restore verified only by the file count is not verified.
+
+  - id: can-i-quote-this-much
+    query: Bộ tài liệu tôi rút ra từ sách trích khá nhiều nguyên văn. Kiểm tra xem có vi phạm bản quyền hay lộ thông tin nội bộ không.
+    expected_primary_skill: book-to-knowledge-and-action
+    expected_tasks:
+      - book-audit-copyright-and-privacy
+    expected_behavior:
+      - Quotation length, redistribution and confidential content are three checks, and the audit reports each.
+
+  # R3 batch 4: the hiring loop. Nineteen contracts, none of them previously covered, and they are
+  # R3 for a reason — each one produces a record that decides something about a person. The whole
+  # loop shares vocabulary with data-academy, so these also hold that boundary: this skill decides
+  # who to hire, and never how to train.
+
+  - id: find-candidates-for-a-de-role
+    query: Cần tìm ứng viên Data Engineer, chưa biết tìm ở đâu và lọc theo tiêu chí gì.
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-source-data-candidates
+    expected_behavior:
+      - Outreach criteria come from the role's must-have outcomes, not from a tool stack list.
+
+  - id: screen-a-stack-of-cvs
+    query: Có 60 CV cho vị trí Analytics Engineer, lọc giúp tôi.
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-screen-data-resume
+    expected_behavior:
+      - Match evidence against must-have outcomes; keyword matching selects for CV writing, not for the work.
+
+  - id: first-call-with-a-candidate
+    query: Buổi gọi đầu với ứng viên nên hỏi gì để biết có hợp cơ bản không?
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-run-recruiter-screen
+    expected_behavior:
+      - Motivation, logistics and expectations are checkable; potential is not, at this stage.
+
+  - id: technical-screen-for-a-data-role
+    query: Vòng sàng lọc kỹ thuật cho vị trí data, kiểm tra nền tảng và cách nghĩ.
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-run-technical-screen
+    expected_behavior:
+      - Probe fundamentals and problem-solving against the role, rather than trivia the job never uses.
+
+  - id: python-interview-for-data-work
+    query: "Phỏng vấn Python cho vị trí data: xử lý dữ liệu, thiết kế, test, code dễ bảo trì."
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-run-python-interview
+    expected_behavior:
+      - Assess maintainability and testing, not only whether the answer runs.
+
+  - id: analytics-case-round
+    query: Cần một case phân tích để xem ứng viên khung hoá vấn đề và ra kết luận thế nào.
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-run-analytics-case-interview
+    expected_behavior:
+      - Framing, metric choice and how the decision is communicated are scored separately from the arithmetic.
+
+  - id: modelling-round
+    query: "Vòng phỏng vấn mô hình hoá dữ liệu: grain, entity, dimension, lịch sử thay đổi."
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-run-data-modeling-interview
+    expected_behavior:
+      - Grain stated explicitly is the signal; a correct diagram with an unstated grain is not.
+
+  - id: architecture-round
+    query: Phỏng vấn kiến trúc dữ liệu, xem ứng viên nghĩ về ranh giới, pattern và đường di trú.
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-run-data-architecture-interview
+    expected_behavior:
+      - Trade-offs named aloud matter more than the pattern chosen.
+
+  - id: data-science-round
+    query: "Vòng phỏng vấn data science: thống kê, thiết kế thí nghiệm, rò rỉ dữ liệu, thiên lệch."
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-run-data-science-interview
+    expected_behavior:
+      - Leakage and validity are the discriminating questions; model zoo knowledge is not.
+
+  - id: mlops-round
+    query: "Phỏng vấn MLOps: vòng đời model, triển khai, giám sát, rollback, quản trị."
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-run-mlops-interview
+    expected_behavior:
+      - Ask what they rolled back and how they knew to, rather than which tools they have touched.
+
+  - id: governance-round
+    query: Vòng phỏng vấn về governance và privacy cho vị trí data steward.
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-run-governance-privacy-interview
+    expected_behavior:
+      - Probe how they handled a real access or classification decision, not their recall of a regulation's name.
+
+  - id: bi-product-sense-round
+    query: Muốn biết ứng viên BI có hiểu người dùng cần quyết định gì, chứ không chỉ dựng biểu đồ.
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-run-bi-product-sense-interview
+    expected_behavior:
+      - Audience and the decision the dashboard serves come before the semantic model and the visuals.
+
+  - id: grade-a-take-home
+    query: Ứng viên nộp bài take-home, cần chấm công bằng và xem có tự làm không.
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-evaluate-take-home-assignment
+    expected_behavior:
+      - Score correctness, reasoning, trade-offs and testing separately, against the rubric fixed before the submission arrived.
+      - Authorship doubt is raised as a question to ask, never as a conclusion asserted.
+
+  - id: leadership-round
+    query: "Phỏng vấn vị trí trưởng nhóm dữ liệu: chiến lược, con người, thực thi, ảnh hưởng."
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-run-leadership-interview
+    expected_behavior:
+      - Judgment is assessed from decisions they actually made and what they cost.
+
+  - id: candidate-asks-us-questions
+    query: Cuối buổi ứng viên hỏi ngược về team và vai trò. Cần trả lời nhất quán và ghi lại băn khoăn của họ.
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-run-candidate-question-session
+    expected_behavior:
+      - Answer honestly including the unattractive parts; a hire made on a rosy picture leaves within the year.
+
+  - id: turn-interview-notes-into-a-score
+    query: Bốn người phỏng vấn ghi note riêng, cần quy về scorecard trước khi họp debrief.
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-score-interview-evidence
+    expected_behavior:
+      - Map notes to the scorecard before the debrief, because a score formed in the room follows whoever spoke first.
+
+  - id: should-we-hire-them
+    query: Xong hết các vòng rồi, giờ chốt nên tuyển hay không.
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-make-hiring-recommendation
+    expected_behavior:
+      - Weigh must-have evidence against risks and state which gaps are development assumptions rather than demonstrated ability.
+
+  - id: call-their-referees
+    query: Cần gọi người tham chiếu của ứng viên, hỏi sao cho đúng và có sự đồng ý.
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-run-reference-check
+    expected_behavior:
+      - Consent first, consistent questions second; a reference check without both is an opinion survey.
+
+  - id: tell-a-candidate-they-did-not-get-it
+    query: Ứng viên trượt vòng cuối và muốn nghe phản hồi. Viết sao cho tử tế mà vẫn đúng.
+    expected_primary_skill: data-talent-acquisition-and-interview
+    expected_tasks:
+      - talent-create-candidate-feedback
+    expected_behavior:
+      - Ground every statement in interview evidence; feedback that cannot be evidenced is a legal risk as well as an unkindness.
