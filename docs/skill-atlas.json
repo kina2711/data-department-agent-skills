@@ -2,7 +2,7 @@
  "_": "Generated. Every level comes from an authored source: waves from skill-map section 40, skills from SKILL.md on disk, shards from catalog-*.md, tasks from task-catalog.json. A skill in no wave is reported as unplaced, never filed somewhere plausible.",
  "root": "data-department-agent-skills",
  "skill_count": 33,
- "task_count": 868,
+ "task_count": 869,
  "waves": [
   {
    "wave": "Wave 0",
@@ -6787,10 +6787,10 @@
     {
      "skill": "data-technical-content-and-social",
      "description": "Build evidence-backed technical series for Facebook in Vietnamese, LinkedIn and Substack in English, and GitHub from research and a canonical article through code, diagrams, channel-native adaptations, QA, publishing and measurement. Use for Airflow, dbt, Spark, Kafka or other technical-content programs.",
-     "task_count": 27,
+     "task_count": 28,
      "risk_mix": {
       "R0-light": 9,
-      "R1-reviewed": 15,
+      "R1-reviewed": 16,
       "R2-standard": 2,
       "R3-controlled": 1
      },
@@ -6873,7 +6873,7 @@
       },
       {
        "shard": "plan-design",
-       "task_count": 10,
+       "task_count": 11,
        "tasks": [
         {
          "id": "content-create-episode-brief",
@@ -6941,6 +6941,13 @@
         {
          "id": "content-write-substack-technical-newsletter",
          "output": "English Substack technical newsletter",
+         "risk_tier": "R1-reviewed",
+         "execution_path": "standard-path",
+         "criticality": "standard"
+        },
+        {
+         "id": "content-write-threads-post",
+         "output": "Threads technical thread",
          "risk_tier": "R1-reviewed",
          "execution_path": "standard-path",
          "criticality": "standard"

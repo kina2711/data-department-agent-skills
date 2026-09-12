@@ -54,7 +54,7 @@ data-department-agent-skills
 └── Wave 5 — năng lực cá nhân của người hành nghề
     ├── book-to-knowledge-and-action  (45 tasks, cao nhất R4-critical)
     ├── data-personal-project-engineering  (42 tasks, cao nhất R3-controlled)
-    ├── data-technical-content-and-social  (27 tasks, cao nhất R3-controlled)
+    ├── data-technical-content-and-social  (28 tasks, cao nhất R3-controlled)
     ├── personal-second-brain-and-knowledge-os  (50 tasks, cao nhất R4-critical)
     └── technical-translation  (17 tasks, cao nhất R2-standard)
 ```
@@ -1036,6 +1036,7 @@ Ranh giới: skill này sở hữu strategy, research, production, QA, publishin
 - `content-write-facebook-technical-post` — chuyển canonical evidence thành bài tiếng Việt dài, tự nhiên, giàu context, failure/trade-off và câu hỏi thảo luận, đồng thời giữ nguyên technical terms cần độ chính xác; output: Vietnamese Facebook technical post.
 - `content-write-linkedin-technical-post` — chuyển một insight kỹ thuật thành bài tiếng Anh chuyên nghiệp, cô đọng, scannable, có evidence và takeaway; output: English LinkedIn technical post.
 - `content-write-substack-technical-newsletter` — viết newsletter tiếng Anh chuyên sâu có subject, preheader, editorial opening, technical walkthrough, exercise, references và next-episode bridge; output: English Substack technical newsletter.
+- `content-write-threads-post` — nén một ý kỹ thuật thành chuỗi Threads ngắn, ảnh dẫn trước chữ, mỗi post đứng một mình được và không hạ thấp claim để cho vừa giới hạn ký tự; output: Threads technical thread.
 - `content-create-technical-carousel-script` — chuyển một mental model thành slide sequence có hook, progressive explanation, visual direction, alt text và takeaway; output: technical carousel script.
 - `content-repurpose-technical-content` — biến canonical article thành channel-native variants mà không copy nguyên văn hoặc làm sai claim; output: cross-channel adaptation package.
 - `content-package-technical-series-repository` — tổ chức roadmap, articles, research, code, tests, diagrams, social variants, status và contribution guidance; output: technical-series repository package.

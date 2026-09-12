@@ -1,6 +1,6 @@
 # Chi tiết toàn bộ Data Department Skills và Atomic Tasks
 
-> Phiên bản `3.16.0` · `33` Claude role skills · `868` atomic workflows.
+> Phiên bản `3.17.0` · `33` Claude role skills · `869` atomic workflows.
 > Đây là catalog tra cứu đầy đủ được sinh từ `suite-manifest.yaml`, `task-catalog.json` và task contracts; không phải nội dung luôn được nạp vào context của Claude.
 
 ## Mục lục
@@ -70,7 +70,7 @@ Bốn catalog được tải theo nhu cầu để tối ưu token:
 
 ### Slash commands
 
-Mười chín lệnh điều khiển cộng 32 lệnh phòng ban (mỗi role một lệnh `/dd-<role>`, nhóm theo sprint stage think / plan / build / review / test / ship / reflect). Routing ngầm bằng ngôn ngữ tự nhiên vẫn hoạt động như cũ.
+Hai mươi lệnh điều khiển cộng 33 lệnh phòng ban (mỗi role một lệnh `/dd-<role>`, nhóm theo sprint stage think / plan / build / review / test / ship / reflect). Routing ngầm bằng ngôn ngữ tự nhiên vẫn hoạt động như cũ.
 
 | Lệnh | Dùng để |
 |---|---|
@@ -85,6 +85,7 @@ Mười chín lệnh điều khiển cộng 32 lệnh phòng ban (mỗi role m�
 | `/dd-scan` | Đo structural drift: cycles, độ sâu phụ thuộc, coupling, trùng lặp |
 | `/dd-recall` | Truy hồi trí nhớ tất định, 0 model call, trả về con trỏ source:line |
 | `/dd-capture` | Ném một link vào, nhận note đã tổng hợp nằm sẵn trong vault Obsidian |
+| `/dd-pipeline` | Cả dây chuyền: /ref → note → giáo trình → vault → content ba kênh |
 | `/dd-navigate` | Trả lời câu hỏi code từ symbol index thay vì đọc cả file |
 | `/dd-instinct` | Ghi nhận và chấm điểm instinct; confidence tính từ kết quả đếm được |
 | `/dd-skill-quality` | Chấm chất lượng task contract theo outcome đã ghi nhận |
@@ -133,7 +134,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | 27 | [`data-onboarding-and-integration`](#skill-data-onboarding-and-integration) | Data Onboarding and Integration | 34 |
 | 28 | [`data-talent-acquisition-and-interview`](#skill-data-talent-acquisition-and-interview) | Data Talent and Interviewing | 41 |
 | 29 | [`data-career-and-interview-coach`](#skill-data-career-and-interview-coach) | Data Career and Interview Coach | 57 |
-| 30 | [`data-technical-content-and-social`](#skill-data-technical-content-and-social) | Technical Content and Social | 27 |
+| 30 | [`data-technical-content-and-social`](#skill-data-technical-content-and-social) | Technical Content and Social | 28 |
 | 31 | [`data-personal-project-engineering`](#skill-data-personal-project-engineering) | Personal Data Project Engineering | 42 |
 | 32 | [`personal-second-brain-and-knowledge-os`](#skill-personal-second-brain-and-knowledge-os) | Personal Second Brain and Knowledge OS | 50 |
 | 33 | [`book-to-knowledge-and-action`](#skill-book-to-knowledge-and-action) | Book to Knowledge and Action | 45 |
@@ -1954,7 +1955,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Ranh giới và handoff:** Không viết social trước technical validation, copy một bài sang mọi kênh, hoặc bịa production experience, benchmark, authority và reader outcomes.
 
-**Quy mô:** 27 tasks — Plan / Design 10; Build / Deliver 7; Test / Assure 8; Operate / Improve 2.
+**Quy mô:** 28 tasks — Plan / Design 11; Build / Deliver 7; Test / Assure 8; Operate / Improve 2.
 
 **Domain references tải khi cần:** `context-budget-standard.md`, `demand-driven-content.md`, `external-tool-access.md`, `figure-intent-and-critique.md`, `learning-memory-interoperability.md`, `model-selection.md`, `platform-format-playbooks.md`, `response-compression.md`, `search-provider-access.md`, `solution-option-framing.md`, `technical-content-quality-standard.md`, `technical-series-method.md`, `tool-output-budget.md`, `universal-professional-series-rules.md`, `workflow-runtime-and-evidence-os.md`.
 
@@ -1962,7 +1963,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Scripts:** `validate_content_manifest.py`.
 
-#### Plan / Design (10 tasks)
+#### Plan / Design (11 tasks)
 
 | Task | Nhiệm vụ | Primary deliverable | Lifecycle | Risk / path |
 |---|---|---|---|---|
@@ -1976,6 +1977,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 | [`content-write-facebook-technical-post`](skills/data-technical-content-and-social/references/tasks/content-write-facebook-technical-post.md) | chuyển canonical evidence thành bài tiếng Việt dài, tự nhiên, giàu context, failure/trade-off và câu hỏi thảo luận, đồng thời giữ nguyên technical terms cần độ chính xác | Vietnamese Facebook technical post | `design-specification` | `R1-reviewed` / `standard-path` |
 | [`content-write-linkedin-technical-post`](skills/data-technical-content-and-social/references/tasks/content-write-linkedin-technical-post.md) | chuyển một insight kỹ thuật thành bài tiếng Anh chuyên nghiệp, cô đọng, scannable, có evidence và takeaway | English LinkedIn technical post | `design-specification` | `R1-reviewed` / `standard-path` |
 | [`content-write-substack-technical-newsletter`](skills/data-technical-content-and-social/references/tasks/content-write-substack-technical-newsletter.md) | viết newsletter tiếng Anh chuyên sâu có subject, preheader, editorial opening, technical walkthrough, exercise, references và next-episode bridge | English Substack technical newsletter | `design-specification` | `R1-reviewed` / `standard-path` |
+| [`content-write-threads-post`](skills/data-technical-content-and-social/references/tasks/content-write-threads-post.md) | nén một ý kỹ thuật thành chuỗi Threads ngắn, ảnh dẫn trước chữ, mỗi post đứng một mình được và không hạ thấp claim để cho vừa giới hạn ký tự | Threads technical thread | `design-specification` | `R1-reviewed` / `standard-path` |
 
 #### Build / Deliver (7 tasks)
 
@@ -2284,4 +2286,4 @@ Hãy phân tích yêu cầu và báo trước khi làm:
 Sau đó thực hiện task hiện tại, test, báo evidence, approval status, residual risks và next owner.
 ```
 
-Tổng kiểm: **33 skills / 868 tasks** đã được liệt kê, không thiếu và không trùng ownership trong catalog này.
+Tổng kiểm: **33 skills / 869 tasks** đã được liệt kê, không thiếu và không trùng ownership trong catalog này.

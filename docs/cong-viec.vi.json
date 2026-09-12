@@ -1095,6 +1095,105 @@
         "Note theo chuẩn knowledge-deep-dive-standard, tiếng Việt, 1.500–2.000 từ mỗi note. Đây là kiến thức đầy đủ có hệ thống, KHÔNG phải tóm tắt sách. Tách rõ bốn phần: nguồn nói gì, tổng hợp, suy luận chưa có trong nguồn, còn chưa chắc.",
         "Dừng ở hai chỗ để tôi duyệt: sau academy-plan-note-corpus (trước khi viết note nào), và trước mỗi lần ghi vào vault. Số nào in trong note phải từ chạy thật; không chạy được thì nói là chưa chạy được chứ đừng bịa."
       ]
+    },
+    {
+      "id": "ref-to-content-pipeline",
+      "skill": "data-department-orchestrator",
+      "ten": "Cả dây chuyền: /ref → note → giáo trình → vault → content 3 kênh",
+      "mo_ta": "Đọc hết sách, slide và video trong ./ref; biên soạn note đầy đủ có hệ thống; dựng giáo trình và roadmap; lưu vào vault Obsidian; rồi ra series bài cho Facebook (tiếng Việt), LinkedIn (tiếng Anh) và Threads, kèm code chạy được, sơ đồ và cheatsheet. Chạy theo workflow ref-to-corpus-to-content: 50 task, 31 đợt, 3 cổng duyệt.",
+      "task_id": "book-assess-source-rights",
+      "thong_so": [
+        {
+          "key": "chu_de",
+          "nhan": "Chủ đề",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "SQL cho phân tích dữ liệu"
+        },
+        {
+          "key": "nguon",
+          "nhan": "Thư mục tài liệu nguồn",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "./ref"
+        },
+        {
+          "key": "doi_tuong",
+          "nhan": "Dạy cho ai",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "SQL for Data Analyst — đã biết SQL cơ bản, cần phân tích ra quyết định"
+        },
+        {
+          "key": "vault",
+          "nhan": "Vault Obsidian",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "/media/kina2711/DATA/2026/Second_Brain"
+        },
+        {
+          "key": "fb",
+          "nhan": "Nơi đăng Facebook",
+          "kieu": "text",
+          "bat_buoc": false,
+          "goi_y": "Group Xóm Data"
+        },
+        {
+          "key": "da_biet",
+          "nhan": "Tôi đã biết sẵn những gì",
+          "kieu": "text",
+          "bat_buoc": false,
+          "nhieu_dong": true,
+          "goi_y": "JOIN, GROUP BY; chưa chắc window function"
+        },
+        {
+          "key": "ky_thuat",
+          "nhan": "Phương ngữ / phiên bản chuẩn",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "PostgreSQL 16"
+        },
+        {
+          "key": "dung_o",
+          "nhan": "Dừng lại ở đâu",
+          "kieu": "chon",
+          "bat_buoc": true,
+          "chon": [
+            "Sau kế hoạch corpus (chưa viết note)",
+            "Sau khi vào vault (chưa làm content)",
+            "Soạn xong content nhưng chưa đăng",
+            "Chạy hết, tôi duyệt ở từng cổng"
+          ]
+        },
+        {
+          "key": "ghi_chu",
+          "nhan": "Ghi chú thêm",
+          "kieu": "text",
+          "bat_buoc": false,
+          "nhieu_dong": true
+        }
+      ],
+      "mau": [
+        "Chạy workflow `ref-to-corpus-to-content` trong workflows/. Điều phối qua data-department-orchestrator: việc này chạm bốn skill (book-to-knowledge-and-action, data-academy-and-curriculum, personal-second-brain-and-knowledge-os, data-technical-content-and-social), đừng để một skill ôm hết.",
+        "Chủ đề: {chu_de}. Nguồn: mọi thứ trong {nguon} — sách, slide, video bài giảng. Đối tượng: {doi_tuong}. Vault: {vault}. Kỹ thuật chuẩn: {ky_thuat}, nói rõ chỗ nào nguồn dùng khác.",
+        {
+          "neu": "da_biet",
+          "text": "Tôi đã biết: {da_biet} — coi là kiến thức đã có, đừng lập kế hoạch dạy lại."
+        },
+        {
+          "neu": "ghi_chu",
+          "text": "{ghi_chu}"
+        },
+        "Nguồn theo loại: PDF/sách qua book-extract-source-text; video qua brain-transcribe-audio-video-source có timestamp; slide và ảnh qua brain-process-image-and-diagram-source. Nội dung không đọc được thì nói là không đọc được, đừng suy từ tên tệp.",
+        "Note viết vào ./notes trong thư mục làm việc, KHÔNG ghi thẳng vào vault. Xuất bản bằng hai pha của write_vault_bundle.py: pha plan cho tôi xem sẽ tạo và ghi đè tệp nào, tôi duyệt rồi mới --apply --expect. Ánh xạ lớp: nguồn → 1_Nguon; note → 2_Wiki; kiến thức sẵn có và quy ước của tôi → 3_Toi; giáo trình và bài đăng → 4_Ket-Qua.",
+        "Note theo knowledge-deep-dive-standard, tiếng Việt, 1.500–2.000 từ mỗi note — kiến thức đầy đủ có hệ thống, KHÔNG phải tóm tắt. Tách rõ: nguồn nói gì / tổng hợp / suy luận chưa có trong nguồn / còn chưa chắc.",
+        "Content: một canonical article rồi mới ra ba biến thể. Facebook tiếng Việt. LinkedIn tiếng Anh, trang cá nhân. Threads tiếng Việt, ảnh dẫn trước chữ. Mỗi bài kèm code chạy được, sơ đồ hoặc cheatsheet, và ảnh màn hình thật khi có. Giới hạn ký tự là ràng buộc câu chữ, không phải cớ để bỏ mệnh đề làm cho claim đúng.",
+        {
+          "neu": "fb",
+          "text": "Bài Facebook đăng ở: {fb}."
+        },
+        "Dừng ở: {dung_o}. Mọi số in ra phải từ chạy thật; chưa chạy được thì ghi là chưa chạy được. Không tuyên bố đã đăng khi chưa có bằng chứng đăng."
+      ]
     }
   ]
 }

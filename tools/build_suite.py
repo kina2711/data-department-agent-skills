@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MAP = ROOT / "docs" / "skill-map.md"
 SKILLS = ROOT / "skills"
-SUITE_VERSION = "3.16.0"
+SUITE_VERSION = "3.17.0"
 REPOSITORY_URL = "https://github.com/kina2711/data-department-agent-skills"
 
 
@@ -4564,7 +4564,7 @@ Store a bounded evidence snapshot or executable report with SHA-256, concrete ve
 
 Run independent reviews for technical accuracy, claim/source traceability, code/diagram validity, voice/originality and platform fit. A pass in one dimension does not compensate for a critical failure in another. Averaging them hides exactly the failure that matters, since a piece can be well written, on brand, correctly formatted and still wrong about the thing it exists to explain. Corrections update canonical and all affected channel variants through stable artifact links and a changelog.
 
-For social variants, enforce Facebook=`vi`, LinkedIn=`en`, and Substack=`en`. The language check covers all reader-facing prose while allowing code, identifiers, product names and established technical terms to remain unchanged. A declared language without a passed exact-version `channel-language` test is insufficient for approval.
+For social variants, enforce Facebook=`vi`, LinkedIn=`en`, Substack=`en` and Threads=`vi`. Threads is short and image-first, which is where a claim gets quietly weakened to fit: the character limit is a constraint on wording, never a licence to drop the qualifier that made the claim true. The language check covers all reader-facing prose while allowing code, identifiers, product names and established technical terms to remain unchanged. A declared language without a passed exact-version `channel-language` test is insufficient for approval.
 """
     universal_series_rules = """# Universal professional-series rules
 

@@ -11,4 +11,5 @@ Plan, define, design, map, specify or create a proposed artifact. Select exactly
 - `content-write-facebook-technical-post` → **Vietnamese Facebook technical post**; read [contract](tasks/content-write-facebook-technical-post.md).
 - `content-write-linkedin-technical-post` → **English LinkedIn technical post**; read [contract](tasks/content-write-linkedin-technical-post.md).
 - `content-write-substack-technical-newsletter` → **English Substack technical newsletter**; read [contract](tasks/content-write-substack-technical-newsletter.md).
+- `content-write-threads-post` → **Threads technical thread**; read [contract](tasks/content-write-threads-post.md).
 - `content-create-technical-carousel-script` → **technical carousel script**; read [contract](tasks/content-create-technical-carousel-script.md).

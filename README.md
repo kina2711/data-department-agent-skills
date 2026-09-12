@@ -1,11 +1,11 @@
 # Data Department Agent Skills
 
 A governed operating system for an entire Data Department, packaged as a Claude Code plugin.
-**33 role skills**, **868 atomic task contracts**, **52 slash commands**, **53 executable evidence scripts**, **12 JSON Schemas**, and a production guard hook.
+**33 role skills**, **869 atomic task contracts**, **53 slash commands**, **53 executable evidence scripts**, **12 JSON Schemas**, and a production guard hook.
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
 
-Current release: **v3.16.0** · Works with **Claude Code**, **OpenAI Codex** and **Google Antigravity**
+Current release: **v3.17.0** · Works with **Claude Code**, **OpenAI Codex** and **Google Antigravity**
 
 🇻🇳 [Đọc bản tiếng Việt](README.vi.md)
 
@@ -58,16 +58,16 @@ evidence script need it; both fail open if it is missing).
 
 ```powershell
 # Windows
-$pluginRoot = "C:\Tools\data-department-agent-skills-v3.16.0"
-Expand-Archive .\data-department-claude-plugin-v3.16.0.zip -DestinationPath $pluginRoot
+$pluginRoot = "C:\Tools\data-department-agent-skills-v3.17.0"
+Expand-Archive .\data-department-claude-plugin-v3.17.0.zip -DestinationPath $pluginRoot
 claude plugin validate --strict $pluginRoot
 claude --plugin-dir $pluginRoot
 ```
 
 ```bash
 # macOS / Linux
-pluginRoot=~/tools/data-department-agent-skills-v3.16.0
-unzip data-department-claude-plugin-v3.16.0.zip -d "$pluginRoot"
+pluginRoot=~/tools/data-department-agent-skills-v3.17.0
+unzip data-department-claude-plugin-v3.17.0.zip -d "$pluginRoot"
 claude plugin validate --strict "$pluginRoot"
 claude --plugin-dir "$pluginRoot"
 ```
@@ -527,7 +527,7 @@ Airflow, Spark, Kafka, Power BI, Tableau, Looker, Metabase, Superset and more.
 ├── .claude-plugin/       plugin manifest and marketplace entry
 ├── .github/workflows/    CI: build, validate, regress, audit, determinism check
 ├── .agents/agents/       Antigravity custom agents, one per department  ← GENERATED
-├── commands/             52 slash commands (19 controls + 33 generated departments)
+├── commands/             53 slash commands (20 controls + 33 generated departments)
 ├── hooks/                production, publishing and destructive-action guard
 ├── skills/               32 progressive-disclosure role skills  ← GENERATED
 │   └── <role>/

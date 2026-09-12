@@ -1,14 +1,14 @@
 {
  "_": "Every edge carries its provenance. `ambiguous` edges — workflow stage precedence — are excluded from degree, clustering and any claim about what depends on what.",
  "seed": 20260831,
- "node_count": 1223,
- "edge_count": 5086,
+ "node_count": 1224,
+ "edge_count": 5158,
  "edges_by_provenance": {
-  "extracted": 4195,
+  "extracted": 4200,
   "inferred": 21,
-  "ambiguous": 870
+  "ambiguous": 937
  },
- "community_count": 98,
+ "community_count": 97,
  "ubiquitous_standards_excluded": [
   "lifecycle-standard.md",
   "model-selection.md",
@@ -76,7 +76,7 @@
    "kind": "concept",
    "domain": "sql",
    "label": "Set operations",
-   "community": 456,
+   "community": 582,
    "degree": 1
   },
   {
@@ -124,7 +124,7 @@
    "kind": "concept",
    "domain": "python",
    "label": "Python data model",
-   "community": 647,
+   "community": 430,
    "degree": 2
   },
   {
@@ -132,7 +132,7 @@
    "kind": "concept",
    "domain": "python",
    "label": "Mutability and aliasing",
-   "community": 650,
+   "community": 651,
    "degree": 2
   },
   {
@@ -148,7 +148,7 @@
    "kind": "concept",
    "domain": "python",
    "label": "Comprehension",
-   "community": 646,
+   "community": 429,
    "degree": 2
   },
   {
@@ -196,7 +196,7 @@
    "kind": "concept",
    "domain": "python",
    "label": "Async concurrency",
-   "community": 645,
+   "community": 646,
    "degree": 3
   },
   {
@@ -212,7 +212,7 @@
    "kind": "concept",
    "domain": "rust",
    "label": "Ownership",
-   "community": 439,
+   "community": 443,
    "degree": 3
   },
   {
@@ -244,7 +244,7 @@
    "kind": "concept",
    "domain": "rust",
    "label": "Error handling",
-   "community": 1143,
+   "community": 1144,
    "degree": 1
   },
   {
@@ -252,7 +252,7 @@
    "kind": "concept",
    "domain": "rust",
    "label": "Fearless concurrency",
-   "community": 439,
+   "community": 443,
    "degree": 2
   },
   {
@@ -268,7 +268,7 @@
    "kind": "concept",
    "domain": "modelling",
    "label": "Dimensional model",
-   "community": 102,
+   "community": 101,
    "degree": 4
   },
   {
@@ -276,7 +276,7 @@
    "kind": "concept",
    "domain": "modelling",
    "label": "Conformed dimension",
-   "community": 102,
+   "community": 101,
    "degree": 4
   },
   {
@@ -332,7 +332,7 @@
    "kind": "concept",
    "domain": "pipeline",
    "label": "Change data capture",
-   "community": 593,
+   "community": 594,
    "degree": 2
   },
   {
@@ -364,7 +364,7 @@
    "kind": "concept",
    "domain": "pipeline",
    "label": "Schema evolution",
-   "community": 595,
+   "community": 420,
    "degree": 3
   },
   {
@@ -372,7 +372,7 @@
    "kind": "concept",
    "domain": "pipeline",
    "label": "Reconciliation",
-   "community": 609,
+   "community": 610,
    "degree": 1
   },
   {
@@ -388,7 +388,7 @@
    "kind": "concept",
    "domain": "pipeline",
    "label": "Dead letter",
-   "community": 605,
+   "community": 415,
    "degree": 1
   },
   {
@@ -524,7 +524,7 @@
    "kind": "concept",
    "domain": "ml",
    "label": "Validation strategy",
-   "community": 644,
+   "community": 645,
    "degree": 1
   },
   {
@@ -548,7 +548,7 @@
    "kind": "concept",
    "domain": "ml",
    "label": "Drift",
-   "community": 638,
+   "community": 639,
    "degree": 2
   },
   {
@@ -556,7 +556,7 @@
    "kind": "concept",
    "domain": "ml",
    "label": "Explainability",
-   "community": 639,
+   "community": 640,
    "degree": 1
   },
   {
@@ -572,7 +572,7 @@
    "kind": "concept",
    "domain": "arch",
    "label": "Coupling",
-   "community": 394,
+   "community": 299,
    "degree": 3
   },
   {
@@ -588,7 +588,7 @@
    "kind": "concept",
    "domain": "arch",
    "label": "Idempotent interface",
-   "community": 397,
+   "community": 417,
    "degree": 4
   },
   {
@@ -596,7 +596,7 @@
    "kind": "concept",
    "domain": "arch",
    "label": "Failure domain",
-   "community": 586,
+   "community": 587,
    "degree": 2
   },
   {
@@ -604,7 +604,7 @@
    "kind": "concept",
    "domain": "arch",
    "label": "Lineage",
-   "community": 588,
+   "community": 398,
    "degree": 1
   },
   {
@@ -612,7 +612,7 @@
    "kind": "concept",
    "domain": "swe",
    "label": "Version control hygiene",
-   "community": 309,
+   "community": 464,
    "degree": 5
   },
   {
@@ -644,7 +644,7 @@
    "kind": "concept",
    "domain": "swe",
    "label": "Technical debt",
-   "community": 462,
+   "community": 308,
    "degree": 4
   },
   {
@@ -748,7 +748,7 @@
    "kind": "note",
    "domain": "analytics-engineer-corpus",
    "label": "Dimensional model",
-   "community": 102,
+   "community": 101,
    "degree": 2
   },
   {
@@ -756,7 +756,7 @@
    "kind": "note",
    "domain": "analytics-engineer-corpus",
    "label": "Conformed dimension",
-   "community": 102,
+   "community": 101,
    "degree": 2
   },
   {
@@ -844,7 +844,7 @@
    "kind": "note",
    "domain": "analytics-engineer-corpus",
    "label": "Version control hygiene",
-   "community": 309,
+   "community": 464,
    "degree": 1
   },
   {
@@ -900,7 +900,7 @@
    "kind": "note",
    "domain": "bridge-se-corpus",
    "label": "Version control hygiene",
-   "community": 309,
+   "community": 464,
    "degree": 1
   },
   {
@@ -924,7 +924,7 @@
    "kind": "note",
    "domain": "bridge-se-corpus",
    "label": "Technical debt",
-   "community": 462,
+   "community": 308,
    "degree": 1
   },
   {
@@ -956,7 +956,7 @@
    "kind": "note",
    "domain": "bridge-se-corpus",
    "label": "Coupling",
-   "community": 394,
+   "community": 299,
    "degree": 1
   },
   {
@@ -1124,7 +1124,7 @@
    "kind": "note",
    "domain": "data-analyst-corpus",
    "label": "Set operations",
-   "community": 456,
+   "community": 582,
    "degree": 1
   },
   {
@@ -1220,7 +1220,7 @@
    "kind": "note",
    "domain": "data-analyst-corpus",
    "label": "Dimensional model",
-   "community": 102,
+   "community": 101,
    "degree": 2
   },
   {
@@ -1228,7 +1228,7 @@
    "kind": "note",
    "domain": "data-analyst-corpus",
    "label": "Conformed dimension",
-   "community": 102,
+   "community": 101,
    "degree": 2
   },
   {
@@ -1276,7 +1276,7 @@
    "kind": "note",
    "domain": "data-architect-corpus",
    "label": "Coupling",
-   "community": 394,
+   "community": 299,
    "degree": 1
   },
   {
@@ -1292,7 +1292,7 @@
    "kind": "note",
    "domain": "data-architect-corpus",
    "label": "Idempotent interface",
-   "community": 397,
+   "community": 417,
    "degree": 1
   },
   {
@@ -1300,7 +1300,7 @@
    "kind": "note",
    "domain": "data-architect-corpus",
    "label": "Failure domain",
-   "community": 586,
+   "community": 587,
    "degree": 1
   },
   {
@@ -1308,7 +1308,7 @@
    "kind": "note",
    "domain": "data-architect-corpus",
    "label": "Lineage",
-   "community": 588,
+   "community": 398,
    "degree": 1
   },
   {
@@ -1316,7 +1316,7 @@
    "kind": "note",
    "domain": "data-architect-corpus",
    "label": "Dimensional model",
-   "community": 102,
+   "community": 101,
    "degree": 2
   },
   {
@@ -1332,7 +1332,7 @@
    "kind": "note",
    "domain": "data-architect-corpus",
    "label": "Conformed dimension",
-   "community": 102,
+   "community": 101,
    "degree": 2
   },
   {
@@ -1404,7 +1404,7 @@
    "kind": "note",
    "domain": "data-architect-corpus",
    "label": "Change data capture",
-   "community": 593,
+   "community": 594,
    "degree": 1
   },
   {
@@ -1412,7 +1412,7 @@
    "kind": "note",
    "domain": "data-architect-corpus",
    "label": "Schema evolution",
-   "community": 595,
+   "community": 420,
    "degree": 1
   },
   {
@@ -1516,7 +1516,7 @@
    "kind": "note",
    "domain": "data-engineer-corpus",
    "label": "Change data capture",
-   "community": 593,
+   "community": 594,
    "degree": 1
   },
   {
@@ -1548,7 +1548,7 @@
    "kind": "note",
    "domain": "data-engineer-corpus",
    "label": "Schema evolution",
-   "community": 595,
+   "community": 420,
    "degree": 1
   },
   {
@@ -1556,7 +1556,7 @@
    "kind": "note",
    "domain": "data-engineer-corpus",
    "label": "Reconciliation",
-   "community": 609,
+   "community": 610,
    "degree": 1
   },
   {
@@ -1572,7 +1572,7 @@
    "kind": "note",
    "domain": "data-engineer-corpus",
    "label": "Dead letter",
-   "community": 605,
+   "community": 415,
    "degree": 1
   },
   {
@@ -1628,7 +1628,7 @@
    "kind": "note",
    "domain": "data-engineer-corpus",
    "label": "Version control hygiene",
-   "community": 309,
+   "community": 464,
    "degree": 1
   },
   {
@@ -1660,7 +1660,7 @@
    "kind": "note",
    "domain": "data-engineer-corpus",
    "label": "Technical debt",
-   "community": 462,
+   "community": 308,
    "degree": 1
   },
   {
@@ -1676,7 +1676,7 @@
    "kind": "note",
    "domain": "data-scientist-corpus",
    "label": "Python data model",
-   "community": 647,
+   "community": 430,
    "degree": 1
   },
   {
@@ -1684,7 +1684,7 @@
    "kind": "note",
    "domain": "data-scientist-corpus",
    "label": "Mutability and aliasing",
-   "community": 650,
+   "community": 651,
    "degree": 1
   },
   {
@@ -1700,7 +1700,7 @@
    "kind": "note",
    "domain": "data-scientist-corpus",
    "label": "Comprehension",
-   "community": 646,
+   "community": 429,
    "degree": 1
   },
   {
@@ -1748,7 +1748,7 @@
    "kind": "note",
    "domain": "data-scientist-corpus",
    "label": "Async concurrency",
-   "community": 645,
+   "community": 646,
    "degree": 1
   },
   {
@@ -1812,7 +1812,7 @@
    "kind": "note",
    "domain": "data-scientist-corpus",
    "label": "Validation strategy",
-   "community": 644,
+   "community": 645,
    "degree": 1
   },
   {
@@ -1836,7 +1836,7 @@
    "kind": "note",
    "domain": "data-scientist-corpus",
    "label": "Drift",
-   "community": 638,
+   "community": 639,
    "degree": 1
   },
   {
@@ -1844,7 +1844,7 @@
    "kind": "note",
    "domain": "data-scientist-corpus",
    "label": "Explainability",
-   "community": 639,
+   "community": 640,
    "degree": 1
   },
   {
@@ -1900,7 +1900,7 @@
    "kind": "note",
    "domain": "ml-engineer-corpus",
    "label": "Async concurrency",
-   "community": 645,
+   "community": 646,
    "degree": 1
   },
   {
@@ -1932,7 +1932,7 @@
    "kind": "note",
    "domain": "ml-engineer-corpus",
    "label": "Drift",
-   "community": 638,
+   "community": 639,
    "degree": 1
   },
   {
@@ -1948,7 +1948,7 @@
    "kind": "note",
    "domain": "ml-engineer-corpus",
    "label": "Pipeline idempotency",
-   "community": 397,
+   "community": 417,
    "degree": 2
   },
   {
@@ -1956,7 +1956,7 @@
    "kind": "note",
    "domain": "ml-engineer-corpus",
    "label": "Schema evolution",
-   "community": 595,
+   "community": 420,
    "degree": 1
   },
   {
@@ -1964,7 +1964,7 @@
    "kind": "note",
    "domain": "ml-engineer-corpus",
    "label": "Idempotent interface",
-   "community": 397,
+   "community": 417,
    "degree": 2
   },
   {
@@ -1980,7 +1980,7 @@
    "kind": "note",
    "domain": "ml-engineer-corpus",
    "label": "Version control hygiene",
-   "community": 309,
+   "community": 464,
    "degree": 1
   },
   {
@@ -2012,7 +2012,7 @@
    "kind": "note",
    "domain": "ml-engineer-corpus",
    "label": "Technical debt",
-   "community": 462,
+   "community": 308,
    "degree": 1
   },
   {
@@ -2132,7 +2132,7 @@
    "kind": "note",
    "domain": "software-engineer-corpus",
    "label": "Version control hygiene",
-   "community": 309,
+   "community": 464,
    "degree": 1
   },
   {
@@ -2164,7 +2164,7 @@
    "kind": "note",
    "domain": "software-engineer-corpus",
    "label": "Technical debt",
-   "community": 462,
+   "community": 308,
    "degree": 1
   },
   {
@@ -2180,7 +2180,7 @@
    "kind": "note",
    "domain": "software-engineer-corpus",
    "label": "Python data model",
-   "community": 647,
+   "community": 430,
    "degree": 1
   },
   {
@@ -2188,7 +2188,7 @@
    "kind": "note",
    "domain": "software-engineer-corpus",
    "label": "Mutability and aliasing",
-   "community": 650,
+   "community": 651,
    "degree": 1
   },
   {
@@ -2204,7 +2204,7 @@
    "kind": "note",
    "domain": "software-engineer-corpus",
    "label": "Comprehension",
-   "community": 646,
+   "community": 429,
    "degree": 1
   },
   {
@@ -2252,7 +2252,7 @@
    "kind": "note",
    "domain": "software-engineer-corpus",
    "label": "Async concurrency",
-   "community": 645,
+   "community": 646,
    "degree": 1
   },
   {
@@ -2268,7 +2268,7 @@
    "kind": "note",
    "domain": "software-engineer-corpus",
    "label": "Ownership",
-   "community": 439,
+   "community": 443,
    "degree": 3
   },
   {
@@ -2300,7 +2300,7 @@
    "kind": "note",
    "domain": "software-engineer-corpus",
    "label": "Error handling",
-   "community": 1143,
+   "community": 1144,
    "degree": 1
   },
   {
@@ -2308,7 +2308,7 @@
    "kind": "note",
    "domain": "software-engineer-corpus",
    "label": "Fearless concurrency",
-   "community": 439,
+   "community": 443,
    "degree": 2
   },
   {
@@ -2324,7 +2324,7 @@
    "kind": "note",
    "domain": "software-engineer-corpus",
    "label": "Coupling",
-   "community": 394,
+   "community": 299,
    "degree": 1
   },
   {
@@ -2340,7 +2340,7 @@
    "kind": "note",
    "domain": "software-engineer-corpus",
    "label": "Failure domain",
-   "community": 586,
+   "community": 587,
    "degree": 1
   },
   {
@@ -2348,7 +2348,7 @@
    "kind": "note",
    "domain": "software-engineer-corpus",
    "label": "Idempotent interface",
-   "community": 397,
+   "community": 417,
    "degree": 1
   },
   {
@@ -2364,31 +2364,31 @@
    "kind": "standard",
    "domain": "reference",
    "label": "lifecycle-standard.md",
-   "community": 852,
-   "degree": 868
+   "community": 853,
+   "degree": 869
   },
   {
    "id": "model-selection.md",
    "kind": "standard",
    "domain": "reference",
    "label": "model-selection.md",
-   "community": 948,
-   "degree": 868
+   "community": 949,
+   "degree": 869
   },
   {
    "id": "response-compression.md",
    "kind": "standard",
    "domain": "reference",
    "label": "response-compression.md",
-   "community": 1108,
-   "degree": 868
+   "community": 1109,
+   "degree": 869
   },
   {
    "id": "ae-backfill-analytics-model",
    "kind": "task",
    "domain": "analytics-engineering",
    "label": "verified backfill",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -2396,7 +2396,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "workflow-runtime-and-evidence-os.md",
-   "community": 818,
+   "community": 819,
    "degree": 94
   },
   {
@@ -2420,7 +2420,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "execution-discipline-standard.md",
-   "community": 818,
+   "community": 819,
    "degree": 212
   },
   {
@@ -2428,7 +2428,7 @@
    "kind": "task",
    "domain": "analytics-engineering",
    "label": "intermediate model",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -2436,7 +2436,7 @@
    "kind": "task",
    "domain": "analytics-engineering",
    "label": "staging model",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -2452,7 +2452,7 @@
    "kind": "task",
    "domain": "analytics-engineering",
    "label": "snapshot model",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -2460,8 +2460,8 @@
    "kind": "standard",
    "domain": "reference",
    "label": "solution-option-framing.md",
-   "community": 1155,
-   "degree": 238
+   "community": 1156,
+   "degree": 239
   },
   {
    "id": "ae-deprecate-analytics-model",
@@ -2484,7 +2484,7 @@
    "kind": "task",
    "domain": "analytics-engineering",
    "label": "analytical data product",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -2500,7 +2500,7 @@
    "kind": "task",
    "domain": "analytics-engineering",
    "label": "model documentation",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -2508,7 +2508,7 @@
    "kind": "task",
    "domain": "analytics-engineering",
    "label": "incremental model",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -2524,7 +2524,7 @@
    "kind": "task",
    "domain": "analytics-engineering",
    "label": "historical dimension",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -2556,7 +2556,7 @@
    "kind": "task",
    "domain": "analytics-engineering",
    "label": "refactored model",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -2580,7 +2580,7 @@
    "kind": "task",
    "domain": "analytics-engineering",
    "label": "restored model",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -2588,7 +2588,7 @@
    "kind": "task",
    "domain": "analytics-engineering",
    "label": "model test suite",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -3012,7 +3012,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "prioritized dashboard experience audit",
-   "community": 559,
+   "community": 560,
    "degree": 4
   },
   {
@@ -3020,7 +3020,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "dashboard-experience-quality.md",
-   "community": 559,
+   "community": 560,
    "degree": 5
   },
   {
@@ -3036,7 +3036,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "domain brief",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -3044,7 +3044,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "working dashboard",
-   "community": 560,
+   "community": 174,
    "degree": 5
   },
   {
@@ -3052,7 +3052,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "dashboards-as-code.md",
-   "community": 560,
+   "community": 174,
    "degree": 3
   },
   {
@@ -3060,7 +3060,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "BI semantic model",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -3068,7 +3068,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "BI authority matrix",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -3084,7 +3084,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "reliable refresh",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -3092,7 +3092,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "transformation plan",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -3100,7 +3100,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "neutral report spec",
-   "community": 559,
+   "community": 560,
    "degree": 5
   },
   {
@@ -3108,7 +3108,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "published report files",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -3116,7 +3116,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "external-tool-access.md",
-   "community": 818,
+   "community": 819,
    "degree": 46
   },
   {
@@ -3124,7 +3124,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "tested measures",
-   "community": 560,
+   "community": 174,
    "degree": 5
   },
   {
@@ -3132,7 +3132,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "tested RLS",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -3164,7 +3164,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "benchmarked improvement",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -3172,7 +3172,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "release package",
-   "community": 818,
+   "community": 819,
    "degree": 7
   },
   {
@@ -3180,7 +3180,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "published dashboard",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -3196,7 +3196,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "implementation-ready dashboard redesign specification",
-   "community": 559,
+   "community": 560,
    "degree": 5
   },
   {
@@ -3204,7 +3204,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "retired dashboard",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -3228,7 +3228,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "UAT evidence",
-   "community": 559,
+   "community": 560,
    "degree": 4
   },
   {
@@ -3236,7 +3236,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "usability findings",
-   "community": 559,
+   "community": 560,
    "degree": 4
   },
   {
@@ -3244,7 +3244,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "BI design",
-   "community": 560,
+   "community": 174,
    "degree": 4
   },
   {
@@ -3252,7 +3252,7 @@
    "kind": "task",
    "domain": "business-intelligence",
    "label": "restored dashboard",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -3284,7 +3284,7 @@
    "kind": "task",
    "domain": "company-data-context",
    "label": "governed context index",
-   "community": 503,
+   "community": 501,
    "degree": 5
   },
   {
@@ -3292,7 +3292,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "context-engineering-standard.md",
-   "community": 503,
+   "community": 501,
    "degree": 3
   },
   {
@@ -3300,7 +3300,7 @@
    "kind": "task",
    "domain": "company-data-context",
    "label": "initialized context pack",
-   "community": 522,
+   "community": 523,
    "degree": 3
   },
   {
@@ -3308,7 +3308,7 @@
    "kind": "task",
    "domain": "company-data-context",
    "label": "platform-context entry",
-   "community": 523,
+   "community": 524,
    "degree": 3
   },
   {
@@ -3316,7 +3316,7 @@
    "kind": "task",
    "domain": "company-data-context",
    "label": "metric entry",
-   "community": 524,
+   "community": 525,
    "degree": 3
   },
   {
@@ -3324,7 +3324,7 @@
    "kind": "task",
    "domain": "company-data-context",
    "label": "ownership entry",
-   "community": 525,
+   "community": 526,
    "degree": 3
   },
   {
@@ -3332,7 +3332,7 @@
    "kind": "task",
    "domain": "company-data-context",
    "label": "policy entry",
-   "community": 526,
+   "community": 527,
    "degree": 3
   },
   {
@@ -3340,7 +3340,7 @@
    "kind": "task",
    "domain": "company-data-context",
    "label": "dataset-schema entry",
-   "community": 527,
+   "community": 528,
    "degree": 3
   },
   {
@@ -3348,7 +3348,7 @@
    "kind": "task",
    "domain": "company-data-context",
    "label": "source-system entry",
-   "community": 528,
+   "community": 529,
    "degree": 3
   },
   {
@@ -3356,7 +3356,7 @@
    "kind": "task",
    "domain": "company-data-context",
    "label": "context validation report",
-   "community": 529,
+   "community": 530,
    "degree": 3
   },
   {
@@ -3388,7 +3388,7 @@
    "kind": "task",
    "domain": "data-academy-and-curriculum",
    "label": "revised note batch",
-   "community": 144,
+   "community": 1,
    "degree": 8
   },
   {
@@ -3396,7 +3396,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "concept-registry-standard.md",
-   "community": 144,
+   "community": 1,
    "degree": 14
   },
   {
@@ -3404,7 +3404,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "diagnostic-session-method.md",
-   "community": 144,
+   "community": 1,
    "degree": 2
   },
   {
@@ -3412,7 +3412,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "note-corpus-operating-system.md",
-   "community": 144,
+   "community": 1,
    "degree": 11
   },
   {
@@ -3444,7 +3444,7 @@
    "kind": "task",
    "domain": "data-academy-and-curriculum",
    "label": "note corpus audit",
-   "community": 144,
+   "community": 1,
    "degree": 8
   },
   {
@@ -3452,7 +3452,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "edge-provenance.md",
-   "community": 144,
+   "community": 1,
    "degree": 3
   },
   {
@@ -3476,7 +3476,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "knowledge-deep-dive-standard.md",
-   "community": 144,
+   "community": 1,
    "degree": 8
   },
   {
@@ -3484,7 +3484,7 @@
    "kind": "task",
    "domain": "data-academy-and-curriculum",
    "label": "module note batch",
-   "community": 144,
+   "community": 1,
    "degree": 10
   },
   {
@@ -3492,7 +3492,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "authored-prose-voice.md",
-   "community": 144,
+   "community": 1,
    "degree": 5
   },
   {
@@ -3500,7 +3500,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "corpus-milestone-execution.md",
-   "community": 144,
+   "community": 1,
    "degree": 2
   },
   {
@@ -3532,7 +3532,7 @@
    "kind": "task",
    "domain": "data-academy-and-curriculum",
    "label": "skill-track map",
-   "community": 144,
+   "community": 1,
    "degree": 8
   },
   {
@@ -3572,7 +3572,7 @@
    "kind": "task",
    "domain": "data-academy-and-curriculum",
    "label": "learner workbook",
-   "community": 144,
+   "community": 1,
    "degree": 8
   },
   {
@@ -3604,7 +3604,7 @@
    "kind": "task",
    "domain": "data-academy-and-curriculum",
    "label": "worked example",
-   "community": 144,
+   "community": 1,
    "degree": 8
   },
   {
@@ -3684,7 +3684,7 @@
    "kind": "task",
    "domain": "data-academy-and-curriculum",
    "label": "prior-knowledge profile",
-   "community": 144,
+   "community": 1,
    "degree": 9
   },
   {
@@ -3692,7 +3692,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "learning-memory-interoperability.md",
-   "community": 144,
+   "community": 1,
    "degree": 2
   },
   {
@@ -3716,7 +3716,7 @@
    "kind": "task",
    "domain": "data-academy-and-curriculum",
    "label": "note corpus index",
-   "community": 144,
+   "community": 1,
    "degree": 9
   },
   {
@@ -3756,7 +3756,7 @@
    "kind": "task",
    "domain": "data-academy-and-curriculum",
    "label": "corpus milestone plan",
-   "community": 144,
+   "community": 1,
    "degree": 9
   },
   {
@@ -3772,7 +3772,7 @@
    "kind": "task",
    "domain": "data-academy-and-curriculum",
    "label": "note corpus plan",
-   "community": 144,
+   "community": 1,
    "degree": 11
   },
   {
@@ -3780,7 +3780,7 @@
    "kind": "task",
    "domain": "data-academy-and-curriculum",
    "label": "gap-prioritized corpus plan",
-   "community": 144,
+   "community": 1,
    "degree": 8
   },
   {
@@ -3796,7 +3796,7 @@
    "kind": "task",
    "domain": "data-academy-and-curriculum",
    "label": "sourced role roadmap",
-   "community": 144,
+   "community": 1,
    "degree": 8
   },
   {
@@ -3828,7 +3828,7 @@
    "kind": "task",
    "domain": "data-academy-and-curriculum",
    "label": "note diagnostic session record",
-   "community": 144,
+   "community": 1,
    "degree": 8
   },
   {
@@ -3860,7 +3860,7 @@
    "kind": "task",
    "domain": "data-academy-and-curriculum",
    "label": "theory lesson",
-   "community": 144,
+   "community": 1,
    "degree": 8
   },
   {
@@ -3868,7 +3868,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "cohort findings",
-   "community": 530,
+   "community": 531,
    "degree": 3
   },
   {
@@ -3876,7 +3876,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "funnel findings",
-   "community": 531,
+   "community": 532,
    "degree": 3
   },
   {
@@ -3884,7 +3884,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "variance decomposition",
-   "community": 532,
+   "community": 533,
    "degree": 3
   },
   {
@@ -3892,7 +3892,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "retention analysis",
-   "community": 533,
+   "community": 534,
    "degree": 3
   },
   {
@@ -3900,7 +3900,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "causal hypothesis tree",
-   "community": 534,
+   "community": 535,
    "degree": 3
   },
   {
@@ -3908,7 +3908,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "decision-ready answer",
-   "community": 535,
+   "community": 536,
    "degree": 3
   },
   {
@@ -3916,7 +3916,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "forecast and assumptions",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -3924,7 +3924,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "analysis brief",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -3932,7 +3932,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "visualization artifact",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -3940,7 +3940,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "metric requirement",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -3948,7 +3948,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "dashboard spec",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -3956,7 +3956,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "ranked root causes",
-   "community": 541,
+   "community": 542,
    "degree": 3
   },
   {
@@ -3964,7 +3964,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "selected data sources",
-   "community": 542,
+   "community": 543,
    "degree": 3
   },
   {
@@ -4012,7 +4012,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "monitoring update",
-   "community": 547,
+   "community": 548,
    "degree": 3
   },
   {
@@ -4020,7 +4020,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "presentation package",
-   "community": 548,
+   "community": 549,
    "degree": 3
   },
   {
@@ -4028,7 +4028,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "QA report",
-   "community": 549,
+   "community": 550,
    "degree": 3
   },
   {
@@ -4052,7 +4052,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "descriptive findings",
-   "community": 552,
+   "community": 553,
    "degree": 3
   },
   {
@@ -4068,7 +4068,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "segment profile",
-   "community": 554,
+   "community": 555,
    "degree": 3
   },
   {
@@ -4084,7 +4084,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "analysis plan",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4092,7 +4092,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "validated query",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4100,7 +4100,7 @@
    "kind": "task",
    "domain": "data-analysis",
    "label": "insight memo",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4124,7 +4124,7 @@
    "kind": "task",
    "domain": "data-architecture",
    "label": "integration decision",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4132,7 +4132,7 @@
    "kind": "task",
    "domain": "data-architecture",
    "label": "contract standard",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4140,7 +4140,7 @@
    "kind": "task",
    "domain": "data-architecture",
    "label": "modeling standard",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4148,7 +4148,7 @@
    "kind": "task",
    "domain": "data-architecture",
    "label": "target architecture",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4156,7 +4156,7 @@
    "kind": "task",
    "domain": "data-architecture",
    "label": "batch design",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4164,7 +4164,7 @@
    "kind": "task",
    "domain": "data-architecture",
    "label": "domain map",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4172,7 +4172,7 @@
    "kind": "task",
    "domain": "data-architecture",
    "label": "data-flow design",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4180,7 +4180,7 @@
    "kind": "task",
    "domain": "data-architecture",
    "label": "security architecture",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -4188,7 +4188,7 @@
    "kind": "task",
    "domain": "data-architecture",
    "label": "sharing architecture",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -4196,7 +4196,7 @@
    "kind": "task",
    "domain": "data-architecture",
    "label": "DR architecture",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -4204,7 +4204,7 @@
    "kind": "task",
    "domain": "data-architecture",
    "label": "metadata architecture",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4212,7 +4212,7 @@
    "kind": "task",
    "domain": "data-architecture",
    "label": "environment architecture",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4220,7 +4220,7 @@
    "kind": "task",
    "domain": "data-architecture",
    "label": "streaming design",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4244,7 +4244,7 @@
    "kind": "task",
    "domain": "data-architecture",
    "label": "capacity model",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4252,7 +4252,7 @@
    "kind": "task",
    "domain": "data-architecture",
    "label": "migration roadmap",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4268,7 +4268,7 @@
    "kind": "task",
    "domain": "data-architecture",
    "label": "pattern decision",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4276,7 +4276,7 @@
    "kind": "task",
    "domain": "data-architecture",
    "label": "ADR",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4292,7 +4292,7 @@
    "kind": "task",
    "domain": "data-business-analysis",
    "label": "traceability matrix",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -4300,7 +4300,7 @@
    "kind": "task",
    "domain": "data-business-analysis",
    "label": "persona",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4308,7 +4308,7 @@
    "kind": "task",
    "domain": "data-business-analysis",
    "label": "business-rule register",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4316,7 +4316,7 @@
    "kind": "task",
    "domain": "data-business-analysis",
    "label": "scope contract",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4324,7 +4324,7 @@
    "kind": "task",
    "domain": "data-business-analysis",
    "label": "to-be process model",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4332,7 +4332,7 @@
    "kind": "task",
    "domain": "data-business-analysis",
    "label": "as-is process model",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4348,7 +4348,7 @@
    "kind": "task",
    "domain": "data-business-analysis",
    "label": "problem statement",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4372,7 +4372,7 @@
    "kind": "task",
    "domain": "data-business-analysis",
    "label": "decision map",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4380,7 +4380,7 @@
    "kind": "task",
    "domain": "data-business-analysis",
    "label": "stakeholder map",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4388,7 +4388,7 @@
    "kind": "task",
    "domain": "data-business-analysis",
    "label": "user-journey map",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4396,7 +4396,7 @@
    "kind": "task",
    "domain": "data-business-analysis",
    "label": "interview plan",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4436,7 +4436,7 @@
    "kind": "task",
    "domain": "data-business-analysis",
    "label": "acceptance criteria",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4444,7 +4444,7 @@
    "kind": "task",
    "domain": "data-business-analysis",
    "label": "BRD",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4452,7 +4452,7 @@
    "kind": "task",
    "domain": "data-business-analysis",
    "label": "functional specification",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4460,7 +4460,7 @@
    "kind": "task",
    "domain": "data-business-analysis",
    "label": "NFR specification",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4468,7 +4468,7 @@
    "kind": "task",
    "domain": "data-business-analysis",
    "label": "use-case specification",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -4972,7 +4972,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "harness readiness audit",
-   "community": 984,
+   "community": 985,
    "degree": 4
   },
   {
@@ -4980,7 +4980,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "agent-harness-standard.md",
-   "community": 984,
+   "community": 985,
    "degree": 3
   },
   {
@@ -4988,7 +4988,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "runtime floor audit",
-   "community": 830,
+   "community": 819,
    "degree": 4
   },
   {
@@ -4996,7 +4996,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "harness-delivery-loop.md",
-   "community": 830,
+   "community": 819,
    "degree": 3
   },
   {
@@ -5004,7 +5004,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "proceed/ask/stop decision",
-   "community": 986,
+   "community": 987,
    "degree": 3
   },
   {
@@ -5012,7 +5012,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "plan-time risk approval set",
-   "community": 830,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5020,7 +5020,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "workflow plan",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5028,7 +5028,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "agent harness specification",
-   "community": 984,
+   "community": 985,
    "degree": 5
   },
   {
@@ -5036,7 +5036,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "gate decision",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -5044,7 +5044,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "completion decision",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5052,7 +5052,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "hydrated context",
-   "community": 992,
+   "community": 993,
    "degree": 3
   },
   {
@@ -5060,7 +5060,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "run-state record",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5068,7 +5068,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "approval ledger",
-   "community": 994,
+   "community": 995,
    "degree": 3
   },
   {
@@ -5076,7 +5076,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "assumption register",
-   "community": 995,
+   "community": 996,
    "degree": 3
   },
   {
@@ -5084,7 +5084,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "conflict register",
-   "community": 996,
+   "community": 997,
    "degree": 3
   },
   {
@@ -5092,7 +5092,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "evidence ledger",
-   "community": 997,
+   "community": 998,
    "degree": 3
   },
   {
@@ -5100,7 +5100,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "question register",
-   "community": 998,
+   "community": 999,
    "degree": 3
   },
   {
@@ -5108,7 +5108,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "packaged agent harness",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5116,7 +5116,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "resumed execution plan",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5124,7 +5124,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "branch decision and execution",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -5132,7 +5132,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "delivery loop record",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5140,7 +5140,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "consolidated assessment",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5148,7 +5148,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "parallel-execution-and-agent-teams.md",
-   "community": 818,
+   "community": 819,
    "degree": 2
   },
   {
@@ -5156,7 +5156,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "merged result",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5164,7 +5164,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "producer-reviewer verdict record",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5172,7 +5172,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "producer-reviewer-method.md",
-   "community": 818,
+   "community": 819,
    "degree": 1
   },
   {
@@ -5180,7 +5180,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "completed chain",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -5188,7 +5188,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "evidence-grounded project direction",
-   "community": 1007,
+   "community": 1008,
    "degree": 3
   },
   {
@@ -5196,7 +5196,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "baselined project charter",
-   "community": 1008,
+   "community": 1009,
    "degree": 3
   },
   {
@@ -5204,7 +5204,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "repo-grounded project plan",
-   "community": 1009,
+   "community": 1010,
    "degree": 3
   },
   {
@@ -5212,7 +5212,7 @@
    "kind": "task",
    "domain": "data-department-orchestrator",
    "label": "session handoff note",
-   "community": 503,
+   "community": 501,
    "degree": 5
   },
   {
@@ -5220,7 +5220,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "readiness decision",
-   "community": 779,
+   "community": 780,
    "degree": 3
   },
   {
@@ -5228,7 +5228,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "repository assessment",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -5236,7 +5236,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "benchmark scorecard",
-   "community": 781,
+   "community": 782,
    "degree": 3
   },
   {
@@ -5244,7 +5244,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "working local setup",
-   "community": 782,
+   "community": 783,
    "degree": 3
   },
   {
@@ -5252,7 +5252,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "task runner",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -5260,7 +5260,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "pre-commit workflow",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -5268,7 +5268,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "repository CI",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -5276,7 +5276,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "reproducible demo",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -5284,7 +5284,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "test fixture",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -5292,7 +5292,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "secret exposure report",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -5300,7 +5300,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "synthetic dataset",
-   "community": 789,
+   "community": 790,
    "degree": 3
   },
   {
@@ -5308,7 +5308,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "reproducible dependency set",
-   "community": 790,
+   "community": 791,
    "degree": 3
   },
   {
@@ -5316,7 +5316,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "migrated repository",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5324,7 +5324,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "deployable project artifact",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -5332,7 +5332,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "automation recommendation",
-   "community": 793,
+   "community": 794,
    "degree": 3
   },
   {
@@ -5340,7 +5340,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "evidence-based project map",
-   "community": 817,
+   "community": 818,
    "degree": 4
   },
   {
@@ -5348,7 +5348,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "evidence-based-repository-understanding.md",
-   "community": 817,
+   "community": 818,
    "degree": 3
   },
   {
@@ -5356,7 +5356,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "hygiene report",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -5364,7 +5364,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "runnable project skeleton",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -5372,7 +5372,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "template decision",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -5380,7 +5380,7 @@
    "kind": "task",
    "domain": "data-developer-experience",
    "label": "evidence-based end-to-end data path trace",
-   "community": 817,
+   "community": 818,
    "degree": 4
   },
   {
@@ -5388,7 +5388,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "architecture diagram",
-   "community": 709,
+   "community": 710,
    "degree": 6
   },
   {
@@ -5396,7 +5396,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "diagram-fidelity-standard.md",
-   "community": 709,
+   "community": 710,
    "degree": 12
   },
   {
@@ -5404,7 +5404,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "figure-intent-and-critique.md",
-   "community": 709,
+   "community": 710,
    "degree": 15
   },
   {
@@ -5412,7 +5412,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "valid BPMN artifact",
-   "community": 709,
+   "community": 710,
    "degree": 6
   },
   {
@@ -5420,7 +5420,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "D2 source and rendered image",
-   "community": 709,
+   "community": 710,
    "degree": 6
   },
   {
@@ -5428,7 +5428,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "D2 ERD",
-   "community": 709,
+   "community": 710,
    "degree": 6
   },
   {
@@ -5436,7 +5436,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "validated DBML schema",
-   "community": 709,
+   "community": 710,
    "degree": 5
   },
   {
@@ -5444,7 +5444,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "validated Mermaid activity diagram",
-   "community": 709,
+   "community": 710,
    "degree": 6
   },
   {
@@ -5452,7 +5452,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "Mermaid ERD",
-   "community": 709,
+   "community": 710,
    "degree": 6
   },
   {
@@ -5460,7 +5460,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "sequence diagram",
-   "community": 709,
+   "community": 710,
    "degree": 6
   },
   {
@@ -5468,7 +5468,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "state model",
-   "community": 709,
+   "community": 710,
    "degree": 6
   },
   {
@@ -5476,7 +5476,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "rendered swimlane diagram",
-   "community": 709,
+   "community": 710,
    "degree": 6
   },
   {
@@ -5484,7 +5484,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "use-case diagram",
-   "community": 709,
+   "community": 710,
    "degree": 6
   },
   {
@@ -5492,7 +5492,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "changelog",
-   "community": 721,
+   "community": 722,
    "degree": 3
   },
   {
@@ -5500,7 +5500,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "diagram decision",
-   "community": 709,
+   "community": 710,
    "degree": 5
   },
   {
@@ -5508,7 +5508,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "diagram QA report",
-   "community": 709,
+   "community": 710,
    "degree": 5
   },
   {
@@ -5516,7 +5516,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "API documentation",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -5524,7 +5524,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "architecture document",
-   "community": 709,
+   "community": 710,
    "degree": 6
   },
   {
@@ -5532,7 +5532,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "data documentation",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -5540,7 +5540,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "runbook",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -5548,7 +5548,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "postmortem",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -5556,7 +5556,7 @@
    "kind": "task",
    "domain": "data-documentation-and-diagrams",
    "label": "release notes",
-   "community": 818,
+   "community": 819,
    "degree": 7
   },
   {
@@ -5564,7 +5564,7 @@
    "kind": "task",
    "domain": "data-enablement-and-knowledge",
    "label": "linked concept knowledge map",
-   "community": 800,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5572,7 +5572,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "linked-knowledge-library.md",
-   "community": 800,
+   "community": 819,
    "degree": 2
   },
   {
@@ -5580,7 +5580,7 @@
    "kind": "task",
    "domain": "data-enablement-and-knowledge",
    "label": "governed knowledge library",
-   "community": 800,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5588,7 +5588,7 @@
    "kind": "task",
    "domain": "data-enablement-and-knowledge",
    "label": "lessons-learned record",
-   "community": 802,
+   "community": 803,
    "degree": 3
   },
   {
@@ -5596,7 +5596,7 @@
    "kind": "task",
    "domain": "data-enablement-and-knowledge",
    "label": "code walkthrough",
-   "community": 817,
+   "community": 818,
    "degree": 5
   },
   {
@@ -5604,7 +5604,7 @@
    "kind": "task",
    "domain": "data-enablement-and-knowledge",
    "label": "knowledge article",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -5612,7 +5612,7 @@
    "kind": "task",
    "domain": "data-enablement-and-knowledge",
    "label": "learning plan",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -5620,7 +5620,7 @@
    "kind": "task",
    "domain": "data-enablement-and-knowledge",
    "label": "role onboarding plan",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -5628,7 +5628,7 @@
    "kind": "task",
    "domain": "data-enablement-and-knowledge",
    "label": "system onboarding guide",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -5636,7 +5636,7 @@
    "kind": "task",
    "domain": "data-enablement-and-knowledge",
    "label": "curated knowledge base",
-   "community": 808,
+   "community": 809,
    "degree": 3
   },
   {
@@ -5644,7 +5644,7 @@
    "kind": "task",
    "domain": "data-enablement-and-knowledge",
    "label": "concept lesson",
-   "community": 809,
+   "community": 810,
    "degree": 3
   },
   {
@@ -5652,7 +5652,7 @@
    "kind": "task",
    "domain": "data-enablement-and-knowledge",
    "label": "knowledge check",
-   "community": 810,
+   "community": 811,
    "degree": 3
   },
   {
@@ -5660,7 +5660,7 @@
    "kind": "task",
    "domain": "data-enablement-and-knowledge",
    "label": "practice assignment",
-   "community": 811,
+   "community": 812,
    "degree": 3
   },
   {
@@ -5668,7 +5668,7 @@
    "kind": "task",
    "domain": "data-enablement-and-knowledge",
    "label": "learning-progress report",
-   "community": 812,
+   "community": 813,
    "degree": 3
   },
   {
@@ -5676,7 +5676,7 @@
    "kind": "task",
    "domain": "data-enablement-and-knowledge",
    "label": "published knowledge asset",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5684,7 +5684,7 @@
    "kind": "task",
    "domain": "data-enablement-and-knowledge",
    "label": "completed guided exercise",
-   "community": 814,
+   "community": 815,
    "degree": 3
   },
   {
@@ -5692,7 +5692,7 @@
    "kind": "task",
    "domain": "data-enablement-and-knowledge",
    "label": "skill assessment",
-   "community": 815,
+   "community": 816,
    "degree": 3
   },
   {
@@ -5700,7 +5700,7 @@
    "kind": "task",
    "domain": "data-enablement-and-knowledge",
    "label": "source summary",
-   "community": 816,
+   "community": 817,
    "degree": 3
   },
   {
@@ -5708,7 +5708,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "guarded pipeline",
-   "community": 659,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5716,7 +5716,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "stage-gated-data-validation.md",
-   "community": 659,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5732,7 +5732,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "verified backfill",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -5740,7 +5740,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "API pipeline",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5748,7 +5748,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "zero-landing-ingestion.md",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -5756,7 +5756,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "production-ready batch pipeline",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5764,7 +5764,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "CDC pipeline",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5772,7 +5772,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "file pipeline",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5780,7 +5780,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "incremental pipeline",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -5788,7 +5788,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "stream pipeline",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5796,7 +5796,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "runbook",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -5804,7 +5804,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "deployed pipeline",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -5812,7 +5812,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "ingestion design",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5820,7 +5820,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "schema-change implementation",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -5828,7 +5828,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "idempotency guarantees",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -5836,7 +5836,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "migrated pipeline",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5844,7 +5844,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "conformed raw layer",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -5860,7 +5860,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "orchestrated DAG",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -5868,7 +5868,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "source profile",
-   "community": 677,
+   "community": 678,
    "degree": 3
   },
   {
@@ -5876,7 +5876,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "reconciliation report",
-   "community": 678,
+   "community": 679,
    "degree": 3
   },
   {
@@ -5884,7 +5884,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "verified replay",
-   "community": 679,
+   "community": 680,
    "degree": 3
   },
   {
@@ -5892,7 +5892,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "retired pipeline",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5900,7 +5900,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "review findings",
-   "community": 681,
+   "community": 682,
    "degree": 3
   },
   {
@@ -5908,7 +5908,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "restored pipeline and diagnosis",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -5916,7 +5916,7 @@
    "kind": "task",
    "domain": "data-engineering",
    "label": "automated test suite",
-   "community": 659,
+   "community": 819,
    "degree": 6
   },
   {
@@ -5924,7 +5924,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "governance assessment",
-   "community": 686,
+   "community": 687,
    "degree": 3
   },
   {
@@ -5932,7 +5932,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "ownership matrix",
-   "community": 687,
+   "community": 688,
    "degree": 3
   },
   {
@@ -5940,7 +5940,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "conformance audit",
-   "community": 688,
+   "community": 689,
    "degree": 3
   },
   {
@@ -5948,7 +5948,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "certified metric",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -5956,7 +5956,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "certification decision",
-   "community": 690,
+   "community": 691,
    "degree": 3
   },
   {
@@ -5964,7 +5964,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "classification record",
-   "community": 691,
+   "community": 692,
    "degree": 3
   },
   {
@@ -5972,7 +5972,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "evidence package",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -5980,7 +5980,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "glossary entry",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -5988,7 +5988,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "domain charter",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -5996,7 +5996,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "approved policy draft",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -6004,7 +6004,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "DQ policy",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -6012,7 +6012,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "retention schedule",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -6020,7 +6020,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "metadata standard",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -6028,7 +6028,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "governed issue record",
-   "community": 699,
+   "community": 700,
    "degree": 3
   },
   {
@@ -6036,7 +6036,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "time-bound exception",
-   "community": 700,
+   "community": 701,
    "degree": 3
   },
   {
@@ -6044,7 +6044,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "governance scorecard",
-   "community": 701,
+   "community": 702,
    "degree": 3
   },
   {
@@ -6052,7 +6052,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "retirement plan",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -6060,7 +6060,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "resolved term",
-   "community": 703,
+   "community": 704,
    "degree": 3
   },
   {
@@ -6068,7 +6068,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "governance recommendation",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6076,7 +6076,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "sharing decision package",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -6084,7 +6084,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "lineage gap report",
-   "community": 706,
+   "community": 707,
    "degree": 3
   },
   {
@@ -6092,7 +6092,7 @@
    "kind": "task",
    "domain": "data-governance-and-stewardship",
    "label": "council decision log",
-   "community": 707,
+   "community": 708,
    "degree": 3
   },
   {
@@ -6100,7 +6100,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "integration-health assessment",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6108,7 +6108,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "role-onboarding-tracks.md",
-   "community": 1112,
+   "community": 1113,
    "degree": 34
   },
   {
@@ -6116,7 +6116,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "buddy agreement",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6124,7 +6124,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "onboarding feedback report",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6132,7 +6132,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "onboarding completion decision",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6140,7 +6140,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "new-hire context profile",
-   "community": 1112,
+   "community": 1113,
    "degree": 5
   },
   {
@@ -6148,7 +6148,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "first-week schedule",
-   "community": 1112,
+   "community": 1113,
    "degree": 5
   },
   {
@@ -6156,7 +6156,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "preboarding checklist",
-   "community": 1112,
+   "community": 1113,
    "degree": 5
   },
   {
@@ -6164,7 +6164,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "crossboarding plan",
-   "community": 1112,
+   "community": 1113,
    "degree": 4
   },
   {
@@ -6172,7 +6172,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "data onboarding standard",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -6180,7 +6180,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "domain-orientation record",
-   "community": 1112,
+   "community": 1113,
    "degree": 4
   },
   {
@@ -6188,7 +6188,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "company-orientation completion record",
-   "community": 1112,
+   "community": 1113,
    "degree": 4
   },
   {
@@ -6196,7 +6196,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "architecture-orientation record",
-   "community": 1112,
+   "community": 1113,
    "degree": 4
   },
   {
@@ -6204,7 +6204,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "data-organization orientation record",
-   "community": 1112,
+   "community": 1113,
    "degree": 4
   },
   {
@@ -6212,7 +6212,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "governance-security training record",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6220,7 +6220,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "role-orientation record",
-   "community": 1112,
+   "community": 1113,
    "degree": 4
   },
   {
@@ -6228,7 +6228,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "toolchain-orientation record",
-   "community": 1112,
+   "community": 1113,
    "degree": 4
   },
   {
@@ -6236,7 +6236,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "documentation-discovery exercise",
-   "community": 1112,
+   "community": 1113,
    "degree": 4
   },
   {
@@ -6244,7 +6244,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "onboarding effectiveness report",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6252,7 +6252,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "offboarding evidence package",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -6260,7 +6260,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "contractor onboarding package",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6268,7 +6268,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "access provisioning plan",
-   "community": 818,
+   "community": 819,
    "degree": 7
   },
   {
@@ -6276,7 +6276,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "individual onboarding plan",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -6284,7 +6284,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "stakeholder introduction plan",
-   "community": 1112,
+   "community": 1113,
    "degree": 5
   },
   {
@@ -6292,7 +6292,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "workstation readiness evidence",
-   "community": 1112,
+   "community": 1113,
    "degree": 5
   },
   {
@@ -6300,7 +6300,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "reboarding plan",
-   "community": 1112,
+   "community": 1113,
    "degree": 4
   },
   {
@@ -6308,7 +6308,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "resolved onboarding issue",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6316,7 +6316,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "first-independent-task assessment",
-   "community": 1112,
+   "community": 1113,
    "degree": 4
   },
   {
@@ -6324,7 +6324,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "guided-task completion record",
-   "community": 1112,
+   "community": 1113,
    "degree": 4
   },
   {
@@ -6332,7 +6332,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "ninety-day onboarding review",
-   "community": 1112,
+   "community": 1113,
    "degree": 4
   },
   {
@@ -6340,7 +6340,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "shadowing evidence",
-   "community": 1112,
+   "community": 1113,
    "degree": 4
   },
   {
@@ -6348,7 +6348,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "seven-day checkpoint record",
-   "community": 1112,
+   "community": 1113,
    "degree": 4
   },
   {
@@ -6356,7 +6356,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "sixty-day checkpoint record",
-   "community": 1112,
+   "community": 1113,
    "degree": 4
   },
   {
@@ -6364,7 +6364,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "thirty-day checkpoint record",
-   "community": 1112,
+   "community": 1113,
    "degree": 4
   },
   {
@@ -6372,7 +6372,7 @@
    "kind": "task",
    "domain": "data-onboarding-and-integration",
    "label": "access-readiness report",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -6380,7 +6380,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "originality and attribution audit",
-   "community": 1022,
+   "community": 1023,
    "degree": 5
   },
   {
@@ -6388,7 +6388,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "personal-project-operating-system.md",
-   "community": 1022,
+   "community": 1023,
    "degree": 42
   },
   {
@@ -6396,7 +6396,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "repository-assessment-and-originality.md",
-   "community": 1022,
+   "community": 1023,
    "degree": 8
   },
   {
@@ -6404,7 +6404,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "evidence-backed repository assessment",
-   "community": 1022,
+   "community": 1023,
    "degree": 5
   },
   {
@@ -6412,7 +6412,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "project scope and constraint contract",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6420,7 +6420,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "personal-project thesis",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6428,7 +6428,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "implementation-ready project blueprint",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6436,7 +6436,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "repository transformation matrix",
-   "community": 1022,
+   "community": 1023,
    "degree": 6
   },
   {
@@ -6444,7 +6444,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "project starting-point classification",
-   "community": 1022,
+   "community": 1023,
    "degree": 4
   },
   {
@@ -6452,7 +6452,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "project success-evidence contract",
-   "community": 1022,
+   "community": 1023,
    "degree": 5
   },
   {
@@ -6460,7 +6460,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "evidence-driven project evolution plan",
-   "community": 1022,
+   "community": 1023,
    "degree": 6
   },
   {
@@ -6468,7 +6468,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "personal-project-quality-standard.md",
-   "community": 1022,
+   "community": 1023,
    "degree": 8
   },
   {
@@ -6476,7 +6476,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "project differentiation design",
-   "community": 1022,
+   "community": 1023,
    "degree": 6
   },
   {
@@ -6484,7 +6484,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "project portfolio-strength assessment",
-   "community": 1022,
+   "community": 1023,
    "degree": 5
   },
   {
@@ -6492,7 +6492,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "personal-project completion decision",
-   "community": 1022,
+   "community": 1023,
    "degree": 5
   },
   {
@@ -6500,7 +6500,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "executable project milestone plan",
-   "community": 1022,
+   "community": 1023,
    "degree": 5
   },
   {
@@ -6508,7 +6508,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "originality and attribution plan",
-   "community": 1022,
+   "community": 1023,
    "degree": 6
   },
   {
@@ -6516,7 +6516,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "portfolio evidence plan",
-   "community": 1022,
+   "community": 1023,
    "degree": 6
   },
   {
@@ -6524,7 +6524,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "personal-project maintenance plan",
-   "community": 1022,
+   "community": 1023,
    "degree": 6
   },
   {
@@ -6532,7 +6532,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "personal-project roadmap",
-   "community": 1022,
+   "community": 1023,
    "degree": 5
   },
   {
@@ -6540,7 +6540,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "project validation strategy",
-   "community": 1022,
+   "community": 1023,
    "degree": 6
   },
   {
@@ -6548,7 +6548,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "project readiness decision",
-   "community": 1022,
+   "community": 1023,
    "degree": 5
   },
   {
@@ -6556,7 +6556,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "weighted project option scorecard",
-   "community": 1022,
+   "community": 1023,
    "degree": 5
   },
   {
@@ -6564,7 +6564,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "personal-project mode decision",
-   "community": 1022,
+   "community": 1023,
    "degree": 5
   },
   {
@@ -6572,7 +6572,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "architecture-grounded project charter",
-   "community": 1022,
+   "community": 1023,
    "degree": 4
   },
   {
@@ -6580,7 +6580,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "benchmark-driven project plan",
-   "community": 1022,
+   "community": 1023,
    "degree": 4
   },
   {
@@ -6588,7 +6588,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "constraint-driven project direction",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6596,7 +6596,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "evidence-grounded project direction",
-   "community": 1022,
+   "community": 1023,
    "degree": 4
   },
   {
@@ -6604,7 +6604,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "decision-grounded project direction",
-   "community": 1022,
+   "community": 1023,
    "degree": 4
   },
   {
@@ -6612,7 +6612,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "domain-grounded project direction",
-   "community": 1022,
+   "community": 1023,
    "degree": 4
   },
   {
@@ -6620,7 +6620,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "governance-driven project charter",
-   "community": 1022,
+   "community": 1023,
    "degree": 4
   },
   {
@@ -6628,7 +6628,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "hybrid-input project charter",
-   "community": 1022,
+   "community": 1023,
    "degree": 4
   },
   {
@@ -6636,7 +6636,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "self-idea project charter",
-   "community": 1022,
+   "community": 1023,
    "degree": 4
   },
   {
@@ -6644,7 +6644,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "reliability project charter",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -6652,7 +6652,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "inspiration-derived project charter",
-   "community": 1022,
+   "community": 1023,
    "degree": 5
   },
   {
@@ -6660,7 +6660,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "integration-grounded project direction",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6668,7 +6668,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "contribution-grounded project plan",
-   "community": 1022,
+   "community": 1023,
    "degree": 4
   },
   {
@@ -6676,7 +6676,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "replication-and-extension project plan",
-   "community": 1022,
+   "community": 1023,
    "degree": 4
   },
   {
@@ -6684,7 +6684,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "problem-grounded project direction",
-   "community": 1022,
+   "community": 1023,
    "degree": 4
   },
   {
@@ -6692,7 +6692,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "assessed and differentiated repo-first plan",
-   "community": 1022,
+   "community": 1023,
    "degree": 5
   },
   {
@@ -6700,7 +6700,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "competency-evidence project direction",
-   "community": 1022,
+   "community": 1023,
    "degree": 4
   },
   {
@@ -6708,7 +6708,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "technology-grounded project charter",
-   "community": 1022,
+   "community": 1023,
    "degree": 4
   },
   {
@@ -6716,7 +6716,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "tutorial-to-independent-project plan",
-   "community": 1022,
+   "community": 1023,
    "degree": 4
   },
   {
@@ -6724,7 +6724,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "workflow-grounded project direction",
-   "community": 1022,
+   "community": 1023,
    "degree": 4
   },
   {
@@ -6732,7 +6732,7 @@
    "kind": "task",
    "domain": "data-personal-project-engineering",
    "label": "attributed differentiated project thesis",
-   "community": 1022,
+   "community": 1023,
    "degree": 5
   },
   {
@@ -6740,7 +6740,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "verified backups",
-   "community": 1024,
+   "community": 1025,
    "degree": 3
   },
   {
@@ -6748,7 +6748,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "CD workflow",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -6756,7 +6756,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "CI workflow",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -6764,7 +6764,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "access configuration",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -6772,7 +6772,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "observability baseline",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -6780,7 +6780,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "reusable template",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -6788,7 +6788,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "operational orchestrator",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -6796,7 +6796,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "safe deprecation",
-   "community": 1031,
+   "community": 1032,
    "degree": 3
   },
   {
@@ -6804,7 +6804,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "enforced controls",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -6812,7 +6812,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "capacity report",
-   "community": 1033,
+   "community": 1034,
    "degree": 3
   },
   {
@@ -6820,7 +6820,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "managed secret lifecycle",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -6828,7 +6828,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "validated connectivity",
-   "community": 1036,
+   "community": 1037,
    "degree": 3
   },
   {
@@ -6836,7 +6836,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "SLO report",
-   "community": 1037,
+   "community": 1038,
    "degree": 3
   },
   {
@@ -6844,7 +6844,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "migrated workload",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6852,7 +6852,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "savings plan",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -6860,7 +6860,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "compute resource",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6868,7 +6868,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "usable environment",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6876,7 +6876,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "storage resource",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6884,7 +6884,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "DR test report",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6892,7 +6892,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "restored platform and incident record",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6900,7 +6900,7 @@
    "kind": "task",
    "domain": "data-platform-and-dataops",
    "label": "upgraded service",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -6908,7 +6908,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "DQ scorecard",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -6916,7 +6916,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "quality gate decision",
-   "community": 659,
+   "community": 819,
    "degree": 4
   },
   {
@@ -6924,7 +6924,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "DQ rule spec",
-   "community": 659,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6932,7 +6932,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "anomaly detector",
-   "community": 739,
+   "community": 740,
    "degree": 3
   },
   {
@@ -6940,7 +6940,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "automated test",
-   "community": 659,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6948,7 +6948,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "DQ profile",
-   "community": 741,
+   "community": 742,
    "degree": 3
   },
   {
@@ -6956,7 +6956,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "reconciliation evidence",
-   "community": 742,
+   "community": 743,
    "degree": 3
   },
   {
@@ -6964,7 +6964,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "contract test report",
-   "community": 743,
+   "community": 744,
    "degree": 3
   },
   {
@@ -6972,7 +6972,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "reliability assessment",
-   "community": 744,
+   "community": 745,
    "degree": 3
   },
   {
@@ -6980,7 +6980,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "incident log",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -6988,7 +6988,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "data SLO",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -6996,7 +6996,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "root-cause diagnosis",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7004,7 +7004,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "distribution alert",
-   "community": 748,
+   "community": 749,
    "degree": 3
   },
   {
@@ -7012,7 +7012,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "freshness alerts",
-   "community": 749,
+   "community": 750,
    "degree": 3
   },
   {
@@ -7020,7 +7020,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "volume alerts",
-   "community": 750,
+   "community": 751,
    "degree": 3
   },
   {
@@ -7028,7 +7028,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "schema alert",
-   "community": 751,
+   "community": 752,
    "degree": 3
   },
   {
@@ -7036,7 +7036,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "recovered dataset",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7044,7 +7044,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "resilience test report",
-   "community": 753,
+   "community": 754,
    "degree": 3
   },
   {
@@ -7052,7 +7052,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "action register",
-   "community": 754,
+   "community": 755,
    "degree": 3
   },
   {
@@ -7060,7 +7060,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "triage decision",
-   "community": 755,
+   "community": 756,
    "degree": 3
   },
   {
@@ -7068,7 +7068,7 @@
    "kind": "task",
    "domain": "data-quality-and-reliability",
    "label": "postmortem",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -7076,7 +7076,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "fairness assessment",
-   "community": 757,
+   "community": 758,
    "degree": 3
   },
   {
@@ -7084,7 +7084,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "baseline metrics",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -7092,7 +7092,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "optimization solution",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -7100,7 +7100,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "forecast model",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -7108,7 +7108,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "model card",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -7116,7 +7116,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "dataset specification",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -7124,7 +7124,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "evaluation design",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -7132,7 +7132,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "anomaly model",
-   "community": 764,
+   "community": 765,
    "degree": 3
   },
   {
@@ -7140,7 +7140,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "feature set",
-   "community": 765,
+   "community": 766,
    "degree": 3
   },
   {
@@ -7148,7 +7148,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "causal estimate",
-   "community": 766,
+   "community": 767,
    "degree": 3
   },
   {
@@ -7156,7 +7156,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "explainability report",
-   "community": 767,
+   "community": 768,
    "degree": 3
   },
   {
@@ -7164,7 +7164,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "modeling brief",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -7172,7 +7172,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "production handoff",
-   "community": 769,
+   "community": 770,
    "degree": 3
   },
   {
@@ -7180,7 +7180,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "value report",
-   "community": 770,
+   "community": 771,
    "degree": 3
   },
   {
@@ -7188,7 +7188,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "leakage assessment",
-   "community": 771,
+   "community": 772,
    "degree": 3
   },
   {
@@ -7196,7 +7196,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "reproducibility report",
-   "community": 772,
+   "community": 773,
    "degree": 3
   },
   {
@@ -7204,7 +7204,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "EDA report",
-   "community": 773,
+   "community": 774,
    "degree": 3
   },
   {
@@ -7212,7 +7212,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "scenario analysis",
-   "community": 774,
+   "community": 775,
    "degree": 3
   },
   {
@@ -7220,7 +7220,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "evaluation protocol",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -7228,7 +7228,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "trained candidate",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -7236,7 +7236,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "tuned candidate",
-   "community": 777,
+   "community": 778,
    "degree": 3
   },
   {
@@ -7244,7 +7244,7 @@
    "kind": "task",
    "domain": "data-science",
    "label": "validation report",
-   "community": 778,
+   "community": 779,
    "degree": 3
   },
   {
@@ -7252,7 +7252,7 @@
    "kind": "task",
    "domain": "data-security-and-privacy",
    "label": "privacy assessment",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -7260,7 +7260,7 @@
    "kind": "task",
    "domain": "data-security-and-privacy",
    "label": "deletion evidence",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7268,7 +7268,7 @@
    "kind": "task",
    "domain": "data-security-and-privacy",
    "label": "completed DSR package",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -7276,7 +7276,7 @@
    "kind": "task",
    "domain": "data-security-and-privacy",
    "label": "breach assessment",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7284,7 +7284,7 @@
    "kind": "task",
    "domain": "data-security-and-privacy",
    "label": "access audit",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7292,7 +7292,7 @@
    "kind": "task",
    "domain": "data-security-and-privacy",
    "label": "security classification",
-   "community": 1114,
+   "community": 1115,
    "degree": 3
   },
   {
@@ -7300,7 +7300,7 @@
    "kind": "task",
    "domain": "data-security-and-privacy",
    "label": "audit evidence",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -7308,7 +7308,7 @@
    "kind": "task",
    "domain": "data-security-and-privacy",
    "label": "access-control design",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -7316,7 +7316,7 @@
    "kind": "task",
    "domain": "data-security-and-privacy",
    "label": "sensitive-data inventory",
-   "community": 1117,
+   "community": 1118,
    "degree": 3
   },
   {
@@ -7324,7 +7324,7 @@
    "kind": "task",
    "domain": "data-security-and-privacy",
    "label": "masked data flow",
-   "community": 1118,
+   "community": 1119,
    "degree": 3
   },
   {
@@ -7332,7 +7332,7 @@
    "kind": "task",
    "domain": "data-security-and-privacy",
    "label": "enforced policies",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -7340,7 +7340,7 @@
    "kind": "task",
    "domain": "data-security-and-privacy",
    "label": "investigation report",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7348,7 +7348,7 @@
    "kind": "task",
    "domain": "data-security-and-privacy",
    "label": "security recommendation",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -7356,7 +7356,7 @@
    "kind": "task",
    "domain": "data-security-and-privacy",
    "label": "restored credentials",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7364,7 +7364,7 @@
    "kind": "task",
    "domain": "data-security-and-privacy",
    "label": "threat model",
-   "community": 1123,
+   "community": 1124,
    "degree": 3
   },
   {
@@ -7372,7 +7372,7 @@
    "kind": "task",
    "domain": "data-security-and-privacy",
    "label": "encryption evidence",
-   "community": 1124,
+   "community": 1125,
    "degree": 3
   },
   {
@@ -7380,7 +7380,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "assessment-validity report",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -7388,7 +7388,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "role-interview-architecture.md",
-   "community": 818,
+   "community": 819,
    "degree": 41
   },
   {
@@ -7396,7 +7396,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "interview fairness audit",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -7404,7 +7404,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "question-bank coverage audit",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7412,7 +7412,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "question-knowledge-validity.md",
-   "community": 818,
+   "community": 819,
    "degree": 3
   },
   {
@@ -7420,7 +7420,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "role hiring scorecard",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7428,7 +7428,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "versioned interview question bank",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7436,7 +7436,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "panel calibration record",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -7444,7 +7444,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "candidate feedback package",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -7452,7 +7452,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "interviewer guide",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7460,7 +7460,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "role profile",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7468,7 +7468,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "interview-loop design",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7476,7 +7476,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "take-home assignment package",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7484,7 +7484,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "take-home assessment",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7492,7 +7492,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "hiring recommendation",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7500,7 +7500,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "question-competency-evidence matrix",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -7508,7 +7508,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "quality-of-hire report",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -7516,7 +7516,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "optimized interview process",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -7524,7 +7524,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "hiring campaign plan",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7532,7 +7532,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "analytics-case assessment",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7540,7 +7540,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "behavioral assessment",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7548,7 +7548,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "BI product-sense assessment",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7556,7 +7556,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "candidate-question record",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7564,7 +7564,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "architecture-interview assessment",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7572,7 +7572,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "data-engineering assessment",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7580,7 +7580,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "data-modeling assessment",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7588,7 +7588,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "data-science assessment",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7596,7 +7596,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "governance-privacy assessment",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7604,7 +7604,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "hiring debrief record",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7612,7 +7612,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "leadership assessment",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7620,7 +7620,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "MLOps interview assessment",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7628,7 +7628,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "Python interview assessment",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7636,7 +7636,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "recruiter-screen record",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7644,7 +7644,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "reference-check record",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7652,7 +7652,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "SQL interview assessment",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7660,7 +7660,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "technical-screen assessment",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7668,7 +7668,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "evidence-based interview score",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7676,7 +7676,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "resume-screen decision",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7684,7 +7684,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "qualified candidate slate",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7692,7 +7692,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "interviewer training record",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -7700,7 +7700,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "validated hiring request",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -7708,7 +7708,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "job description",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -7716,7 +7716,7 @@
    "kind": "task",
    "domain": "data-talent-acquisition-and-interview",
    "label": "calibrated answer-anchor pack",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -7724,7 +7724,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "voice and originality audit",
-   "community": 684,
+   "community": 1035,
    "degree": 5
   },
   {
@@ -7732,7 +7732,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "platform-format-playbooks.md",
-   "community": 684,
+   "community": 1035,
    "degree": 10
   },
   {
@@ -7740,15 +7740,15 @@
    "kind": "standard",
    "domain": "reference",
    "label": "universal-professional-series-rules.md",
-   "community": 684,
-   "degree": 25
+   "community": 1035,
+   "degree": 26
   },
   {
    "id": "content-audit-claim-source-traceability",
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "content claim-traceability audit",
-   "community": 684,
+   "community": 1035,
    "degree": 5
   },
   {
@@ -7756,7 +7756,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "technical-content-quality-standard.md",
-   "community": 684,
+   "community": 1035,
    "degree": 12
   },
   {
@@ -7772,7 +7772,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "validated code example package",
-   "community": 684,
+   "community": 1035,
    "degree": 6
   },
   {
@@ -7780,7 +7780,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "editorial calendar",
-   "community": 684,
+   "community": 685,
    "degree": 7
   },
   {
@@ -7788,7 +7788,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "demand-driven-content.md",
-   "community": 684,
+   "community": 685,
    "degree": 6
   },
   {
@@ -7796,7 +7796,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "technical-series-method.md",
-   "community": 684,
+   "community": 685,
    "degree": 7
   },
   {
@@ -7804,7 +7804,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "series knowledge map",
-   "community": 684,
+   "community": 685,
    "degree": 7
   },
   {
@@ -7812,7 +7812,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "episode content brief",
-   "community": 684,
+   "community": 685,
    "degree": 6
   },
   {
@@ -7820,7 +7820,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "technical carousel script",
-   "community": 684,
+   "community": 1035,
    "degree": 6
   },
   {
@@ -7828,7 +7828,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "technical diagram brief",
-   "community": 709,
+   "community": 710,
    "degree": 5
   },
   {
@@ -7836,7 +7836,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "author-voice guide",
-   "community": 684,
+   "community": 1035,
    "degree": 6
   },
   {
@@ -7844,7 +7844,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "technical-content strategy brief",
-   "community": 684,
+   "community": 685,
    "degree": 7
   },
   {
@@ -7852,7 +7852,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "technical-series architecture",
-   "community": 684,
+   "community": 685,
    "degree": 6
   },
   {
@@ -7860,7 +7860,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "governed content backlog",
-   "community": 684,
+   "community": 685,
    "degree": 6
   },
   {
@@ -7868,7 +7868,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "series performance review",
-   "community": 684,
+   "community": 1035,
    "degree": 6
   },
   {
@@ -7876,7 +7876,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "technical-series repository package",
-   "community": 684,
+   "community": 685,
    "degree": 6
   },
   {
@@ -7884,7 +7884,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "technical-content publication record",
-   "community": 684,
+   "community": 819,
    "degree": 9
   },
   {
@@ -7892,7 +7892,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "refreshed technical-series release",
-   "community": 684,
+   "community": 1035,
    "degree": 5
   },
   {
@@ -7900,7 +7900,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "cross-channel adaptation package",
-   "community": 684,
+   "community": 1035,
    "degree": 6
   },
   {
@@ -7908,7 +7908,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "technical-topic research pack",
-   "community": 684,
+   "community": 1035,
    "degree": 5
   },
   {
@@ -7916,7 +7916,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "platform-fit review",
-   "community": 684,
+   "community": 1035,
    "degree": 5
   },
   {
@@ -7924,7 +7924,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "technical accuracy review",
-   "community": 684,
+   "community": 1035,
    "degree": 5
   },
   {
@@ -7932,7 +7932,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "content artifact validation report",
-   "community": 684,
+   "community": 1035,
    "degree": 5
   },
   {
@@ -7940,7 +7940,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "technical version matrix",
-   "community": 684,
+   "community": 1035,
    "degree": 5
   },
   {
@@ -7948,7 +7948,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "canonical technical article",
-   "community": 684,
+   "community": 1035,
    "degree": 6
   },
   {
@@ -7956,7 +7956,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "Vietnamese Facebook technical post",
-   "community": 684,
+   "community": 1035,
    "degree": 7
   },
   {
@@ -7964,7 +7964,7 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "English LinkedIn technical post",
-   "community": 684,
+   "community": 1035,
    "degree": 7
   },
   {
@@ -7972,15 +7972,23 @@
    "kind": "task",
    "domain": "data-technical-content-and-social",
    "label": "English Substack technical newsletter",
-   "community": 684,
+   "community": 1035,
    "degree": 7
+  },
+  {
+   "id": "content-write-threads-post",
+   "kind": "task",
+   "domain": "data-technical-content-and-social",
+   "label": "Threads technical thread",
+   "community": 1035,
+   "degree": 5
   },
   {
    "id": "ai-analyze-ai-failures",
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "failure taxonomy",
-   "community": 829,
+   "community": 830,
    "degree": 4
   },
   {
@@ -7988,7 +7996,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "grounded-generation-and-agent-economics.md",
-   "community": 829,
+   "community": 830,
    "degree": 22
   },
   {
@@ -7996,7 +8004,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "tool surface access audit",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8004,7 +8012,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "RAG workflow",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -8012,7 +8020,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "reranker",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -8020,7 +8028,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "retriever",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -8028,7 +8036,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "schema retrieval index",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -8036,7 +8044,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "semantic answer cache",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -8044,7 +8052,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "bounded agent workflow",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -8052,7 +8060,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "searchable index",
-   "community": 829,
+   "community": 830,
    "degree": 5
   },
   {
@@ -8060,7 +8068,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "review queue and policy",
-   "community": 829,
+   "community": 830,
    "degree": 5
   },
   {
@@ -8068,7 +8076,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "declared tool surface",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -8076,7 +8084,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "chunking strategy",
-   "community": 829,
+   "community": 830,
    "degree": 5
   },
   {
@@ -8084,7 +8092,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "versioned eval set",
-   "community": 829,
+   "community": 830,
    "degree": 5
   },
   {
@@ -8092,7 +8100,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "versioned prompt",
-   "community": 829,
+   "community": 830,
    "degree": 5
   },
   {
@@ -8100,7 +8108,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "AI system card",
-   "community": 829,
+   "community": 830,
    "degree": 5
   },
   {
@@ -8108,7 +8116,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "answer evaluation",
-   "community": 829,
+   "community": 830,
    "degree": 4
   },
   {
@@ -8116,7 +8124,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "retrieval evaluation",
-   "community": 829,
+   "community": 830,
    "degree": 4
   },
   {
@@ -8124,7 +8132,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "AI use-case brief",
-   "community": 829,
+   "community": 830,
    "degree": 5
   },
   {
@@ -8132,7 +8140,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "guardrail layer",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -8140,7 +8148,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "indexed-ready corpus",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -8148,7 +8156,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "AI observability dashboard",
-   "community": 829,
+   "community": 830,
    "degree": 4
   },
   {
@@ -8156,7 +8164,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "benchmarked optimization",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -8164,7 +8172,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "controlled release",
-   "community": 818,
+   "community": 819,
    "degree": 7
   },
   {
@@ -8172,7 +8180,7 @@
    "kind": "task",
    "domain": "generative-ai-engineering",
    "label": "security test report",
-   "community": 829,
+   "community": 830,
    "degree": 4
   },
   {
@@ -8180,7 +8188,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "acceptance decision",
-   "community": 730,
+   "community": 731,
    "degree": 3
   },
   {
@@ -8188,7 +8196,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "opportunity brief",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -8196,7 +8204,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "intake record",
-   "community": 732,
+   "community": 733,
    "degree": 3
   },
   {
@@ -8204,7 +8212,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "release plan",
-   "community": 818,
+   "community": 819,
    "degree": 7
   },
   {
@@ -8212,7 +8220,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "ranked backlog",
-   "community": 734,
+   "community": 735,
    "degree": 3
   },
   {
@@ -8220,7 +8228,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "PRD",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -8228,7 +8236,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "maturity baseline",
-   "community": 831,
+   "community": 832,
    "degree": 3
   },
   {
@@ -8236,7 +8244,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "phased roadmap",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8244,7 +8252,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "capability plan",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8252,7 +8260,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "hiring scorecard",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -8260,7 +8268,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "approved OKR set",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -8268,7 +8276,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "role framework",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -8276,7 +8284,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "SLA policy",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -8284,7 +8292,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "data strategy",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -8292,7 +8300,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "operating model",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -8300,7 +8308,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "target topology",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -8308,7 +8316,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "vendor decision memo",
-   "community": 841,
+   "community": 842,
    "degree": 3
   },
   {
@@ -8316,7 +8324,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "portfolio review",
-   "community": 842,
+   "community": 843,
    "degree": 3
   },
   {
@@ -8324,7 +8332,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "adoption report",
-   "community": 843,
+   "community": 844,
    "degree": 3
   },
   {
@@ -8332,7 +8340,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "capacity plan",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -8340,7 +8348,7 @@
    "kind": "task",
    "domain": "head-of-data-and-data-product",
    "label": "steering decision log",
-   "community": 845,
+   "community": 846,
    "degree": 3
   },
   {
@@ -8348,7 +8356,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "batch inference job",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8356,7 +8364,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "canary rollout",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -8364,7 +8372,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "feature pipeline",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8372,7 +8380,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "serving service",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8380,7 +8388,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "shadow comparison",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -8388,7 +8396,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "training pipeline",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8396,7 +8404,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "optimized model artifact",
-   "community": 911,
+   "community": 912,
    "degree": 3
   },
   {
@@ -8404,7 +8412,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "inference contract",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -8412,7 +8420,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "service documentation",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -8420,7 +8428,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "resilience behavior",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8428,7 +8436,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "latency/cost benchmark",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8436,7 +8444,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "deployable artifact",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8444,7 +8452,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "production codebase",
-   "community": 917,
+   "community": 918,
    "degree": 3
   },
   {
@@ -8452,7 +8460,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "review findings",
-   "community": 918,
+   "community": 919,
    "degree": 3
   },
   {
@@ -8460,7 +8468,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "restored stable version",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -8468,7 +8476,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "restored inference",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -8476,7 +8484,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "compatibility report",
-   "community": 921,
+   "community": 922,
    "degree": 3
   },
   {
@@ -8484,7 +8492,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "skew report",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8492,7 +8500,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "integration tests",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -8500,7 +8508,7 @@
    "kind": "task",
    "domain": "machine-learning-engineering",
    "label": "unit test suite",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -8508,7 +8516,7 @@
    "kind": "task",
    "domain": "master-data-management",
    "label": "lineage evidence",
-   "community": 854,
+   "community": 855,
    "degree": 3
   },
   {
@@ -8516,7 +8524,7 @@
    "kind": "task",
    "domain": "master-data-management",
    "label": "golden dataset",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8524,7 +8532,7 @@
    "kind": "task",
    "domain": "master-data-management",
    "label": "match rule set",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -8532,7 +8540,7 @@
    "kind": "task",
    "domain": "master-data-management",
    "label": "survivorship policy",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -8540,7 +8548,7 @@
    "kind": "task",
    "domain": "master-data-management",
    "label": "master model",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -8548,7 +8556,7 @@
    "kind": "task",
    "domain": "master-data-management",
    "label": "approved master change",
-   "community": 859,
+   "community": 860,
    "degree": 3
   },
   {
@@ -8556,7 +8564,7 @@
    "kind": "task",
    "domain": "master-data-management",
    "label": "valid hierarchy",
-   "community": 860,
+   "community": 861,
    "degree": 3
   },
   {
@@ -8564,7 +8572,7 @@
    "kind": "task",
    "domain": "master-data-management",
    "label": "governed reference set",
-   "community": 861,
+   "community": 862,
    "degree": 3
   },
   {
@@ -8572,7 +8580,7 @@
    "kind": "task",
    "domain": "master-data-management",
    "label": "resolved stewardship cases",
-   "community": 862,
+   "community": 863,
    "degree": 3
   },
   {
@@ -8580,7 +8588,7 @@
    "kind": "task",
    "domain": "master-data-management",
    "label": "MDM scorecard",
-   "community": 863,
+   "community": 864,
    "degree": 3
   },
   {
@@ -8588,7 +8596,7 @@
    "kind": "task",
    "domain": "master-data-management",
    "label": "duplicate assessment",
-   "community": 864,
+   "community": 865,
    "degree": 3
   },
   {
@@ -8596,7 +8604,7 @@
    "kind": "task",
    "domain": "master-data-management",
    "label": "identity resolution",
-   "community": 865,
+   "community": 866,
    "degree": 3
   },
   {
@@ -8604,7 +8612,7 @@
    "kind": "task",
    "domain": "master-data-management",
    "label": "synchronized consumers",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -8612,7 +8620,7 @@
    "kind": "task",
    "domain": "metadata-engineering-and-catalog",
    "label": "lineage graph",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8620,7 +8628,7 @@
    "kind": "task",
    "domain": "metadata-engineering-and-catalog",
    "label": "authority matrix",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8628,7 +8636,7 @@
    "kind": "task",
    "domain": "metadata-engineering-and-catalog",
    "label": "enriched catalog entries",
-   "community": 869,
+   "community": 870,
    "degree": 3
   },
   {
@@ -8636,7 +8644,7 @@
    "kind": "task",
    "domain": "metadata-engineering-and-catalog",
    "label": "deprecated catalog record",
-   "community": 870,
+   "community": 871,
    "degree": 3
   },
   {
@@ -8644,7 +8652,7 @@
    "kind": "task",
    "domain": "metadata-engineering-and-catalog",
    "label": "orphan report",
-   "community": 871,
+   "community": 872,
    "degree": 3
   },
   {
@@ -8652,7 +8660,7 @@
    "kind": "task",
    "domain": "metadata-engineering-and-catalog",
    "label": "harvested metadata",
-   "community": 872,
+   "community": 873,
    "degree": 3
   },
   {
@@ -8660,7 +8668,7 @@
    "kind": "task",
    "domain": "metadata-engineering-and-catalog",
    "label": "discoverable catalog index",
-   "community": 873,
+   "community": 874,
    "degree": 3
   },
   {
@@ -8668,7 +8676,7 @@
    "kind": "task",
    "domain": "metadata-engineering-and-catalog",
    "label": "usage metadata",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8676,7 +8684,7 @@
    "kind": "task",
    "domain": "metadata-engineering-and-catalog",
    "label": "asset inventory",
-   "community": 875,
+   "community": 876,
    "degree": 3
   },
   {
@@ -8684,7 +8692,7 @@
    "kind": "task",
    "domain": "metadata-engineering-and-catalog",
    "label": "governed tag set",
-   "community": 876,
+   "community": 877,
    "degree": 3
   },
   {
@@ -8692,7 +8700,7 @@
    "kind": "task",
    "domain": "metadata-engineering-and-catalog",
    "label": "CDE map",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -8700,7 +8708,7 @@
    "kind": "task",
    "domain": "metadata-engineering-and-catalog",
    "label": "completeness scorecard",
-   "community": 878,
+   "community": 879,
    "degree": 3
   },
   {
@@ -8708,7 +8716,7 @@
    "kind": "task",
    "domain": "metadata-engineering-and-catalog",
    "label": "operational connector",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8716,7 +8724,7 @@
    "kind": "task",
    "domain": "metadata-engineering-and-catalog",
    "label": "metadata API contract",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -8724,7 +8732,7 @@
    "kind": "task",
    "domain": "metadata-engineering-and-catalog",
    "label": "registered asset",
-   "community": 881,
+   "community": 882,
    "degree": 3
   },
   {
@@ -8732,7 +8740,7 @@
    "kind": "task",
    "domain": "metadata-engineering-and-catalog",
    "label": "consistent ownership metadata",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -8740,7 +8748,7 @@
    "kind": "task",
    "domain": "metadata-engineering-and-catalog",
    "label": "schema version history",
-   "community": 883,
+   "community": 884,
    "degree": 3
   },
   {
@@ -8748,7 +8756,7 @@
    "kind": "task",
    "domain": "metadata-engineering-and-catalog",
    "label": "lineage validation report",
-   "community": 884,
+   "community": 885,
    "degree": 3
   },
   {
@@ -8756,7 +8764,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "control audit",
-   "community": 925,
+   "community": 926,
    "degree": 3
   },
   {
@@ -8764,7 +8772,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "ML CD workflow",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8772,7 +8780,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "ML CI workflow",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8780,7 +8788,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "lineage graph",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8788,7 +8796,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "tracking workspace",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8796,7 +8804,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "runbook",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -8804,7 +8812,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "deployed version",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -8812,7 +8820,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "auditable gate",
-   "community": 932,
+   "community": 933,
    "degree": 3
   },
   {
@@ -8820,7 +8828,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "resolved incident",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -8828,7 +8836,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "governed feature lifecycle",
-   "community": 934,
+   "community": 935,
    "degree": 3
   },
   {
@@ -8836,7 +8844,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "drift alert/report",
-   "community": 935,
+   "community": 936,
    "degree": 3
   },
   {
@@ -8844,7 +8852,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "performance report",
-   "community": 936,
+   "community": 937,
    "degree": 3
   },
   {
@@ -8852,7 +8860,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "service monitoring",
-   "community": 937,
+   "community": 938,
    "degree": 3
   },
   {
@@ -8860,7 +8868,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "prediction-quality report",
-   "community": 938,
+   "community": 939,
    "degree": 3
   },
   {
@@ -8868,7 +8876,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "cost plan",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8876,7 +8884,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "promotion decision",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -8884,7 +8892,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "ML environment",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -8892,7 +8900,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "registry version",
-   "community": 942,
+   "community": 943,
    "degree": 3
   },
   {
@@ -8900,7 +8908,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "retired version",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -8908,7 +8916,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "rollback record",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -8916,7 +8924,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "retraining run",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8924,7 +8932,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "upgraded runtime",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8932,7 +8940,7 @@
    "kind": "task",
    "domain": "mlops",
    "label": "validation decision",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8940,7 +8948,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "current knowledge-system assessment",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -8948,7 +8956,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "second-brain-operating-system.md",
-   "community": 818,
+   "community": 819,
    "degree": 48
   },
   {
@@ -8964,7 +8972,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "second-brain backup record",
-   "community": 818,
+   "community": 819,
    "degree": 7
   },
   {
@@ -8972,7 +8980,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "migration-and-tool-interop.md",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -8980,7 +8988,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "second-brain-quality-and-safety.md",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -8988,7 +8996,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "atomic knowledge note",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -8996,7 +9004,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "knowledge-note-and-lineage-standard.md",
-   "community": 818,
+   "community": 819,
    "degree": 16
   },
   {
@@ -9004,7 +9012,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "audience-context pack",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9012,7 +9020,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "retrieval-and-output-grounding.md",
-   "community": 818,
+   "community": 819,
    "degree": 13
   },
   {
@@ -9020,7 +9028,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "author-voice profile",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -9028,7 +9036,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "canvas view",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -9036,7 +9044,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "concept map",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9044,7 +9052,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "domain-specific second-brain package",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -9052,7 +9060,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "prompt-ready grounded context pack",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9060,7 +9068,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "map of content",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -9068,7 +9076,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "source provenance record",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9076,7 +9084,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "topic map",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9084,7 +9092,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "personal work-rule library",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -9092,7 +9100,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "captured source record",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9100,7 +9108,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "knowledge-domain classification",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -9108,7 +9116,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "source-and-voice-grounded content draft",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9116,7 +9124,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "second-brain learning plan",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9124,7 +9132,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "knowledge-grounded project plan",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9132,7 +9140,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "grounded report",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9140,7 +9148,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "personal-principle library",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -9148,7 +9156,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "source deduplication decision",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9156,7 +9164,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "second-brain output contracts",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9164,7 +9172,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "personal-context contract",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9172,7 +9180,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "second-brain purpose contract",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -9180,7 +9188,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "source-rights policy",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9188,7 +9196,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "four-layer brain architecture",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -9204,7 +9212,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "vault taxonomy",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -9212,7 +9220,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "source-grounded Wiki note",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9220,7 +9228,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "normalized source extraction",
-   "community": 818,
+   "community": 819,
    "degree": 7
   },
   {
@@ -9228,7 +9236,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "grounded second-brain output",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9236,7 +9244,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "imported workspace package",
-   "community": 818,
+   "community": 819,
    "degree": 8
   },
   {
@@ -9244,7 +9252,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "distributed-source inventory",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -9252,7 +9260,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "linked knowledge graph",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9260,7 +9268,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "wikilink graph report",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -9268,7 +9276,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "second-brain value review",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9276,7 +9284,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "normalized source metadata",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9284,7 +9292,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "capture inbox record",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -9292,7 +9300,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "reversible knowledge migration plan",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9300,7 +9308,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "image knowledge record",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9308,7 +9316,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "knowledge-conflict record",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9316,7 +9324,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "verified restore record",
-   "community": 818,
+   "community": 819,
    "degree": 8
   },
   {
@@ -9324,7 +9332,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "knowledge retirement record",
-   "community": 818,
+   "community": 819,
    "degree": 8
   },
   {
@@ -9332,7 +9340,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "routed task context",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -9340,7 +9348,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "prior-work reuse decision",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9348,7 +9356,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "knowledge review record",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -9356,7 +9364,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "privacy-and-freshness audit",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9364,7 +9372,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "retrieval evaluation",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -9372,7 +9380,7 @@
    "kind": "task",
    "domain": "personal-second-brain-and-knowledge-os",
    "label": "source-grounded transcript",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9380,7 +9388,7 @@
    "kind": "task",
    "domain": "product-analytics-and-experimentation",
    "label": "experiment readout",
-   "community": 820,
+   "community": 821,
    "degree": 3
   },
   {
@@ -9388,7 +9396,7 @@
    "kind": "task",
    "domain": "product-analytics-and-experimentation",
    "label": "sample-size plan",
-   "community": 821,
+   "community": 822,
    "degree": 3
   },
   {
@@ -9396,7 +9404,7 @@
    "kind": "task",
    "domain": "product-analytics-and-experimentation",
    "label": "randomization report",
-   "community": 822,
+   "community": 823,
    "degree": 3
   },
   {
@@ -9404,7 +9412,7 @@
    "kind": "task",
    "domain": "product-analytics-and-experimentation",
    "label": "experiment design",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -9412,7 +9420,7 @@
    "kind": "task",
    "domain": "product-analytics-and-experimentation",
    "label": "testable hypothesis",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -9420,7 +9428,7 @@
    "kind": "task",
    "domain": "product-analytics-and-experimentation",
    "label": "valid stopping decision",
-   "community": 825,
+   "community": 826,
    "degree": 3
   },
   {
@@ -9428,7 +9436,7 @@
    "kind": "task",
    "domain": "product-analytics-and-experimentation",
    "label": "experiment registry entry",
-   "community": 826,
+   "community": 827,
    "degree": 3
   },
   {
@@ -9436,7 +9444,7 @@
    "kind": "task",
    "domain": "product-analytics-and-experimentation",
    "label": "activation analysis",
-   "community": 1011,
+   "community": 1012,
    "degree": 3
   },
   {
@@ -9444,7 +9452,7 @@
    "kind": "task",
    "domain": "product-analytics-and-experimentation",
    "label": "adoption report",
-   "community": 1012,
+   "community": 1013,
    "degree": 3
   },
   {
@@ -9452,7 +9460,7 @@
    "kind": "task",
    "domain": "product-analytics-and-experimentation",
    "label": "churn findings",
-   "community": 1013,
+   "community": 1014,
    "degree": 3
   },
   {
@@ -9460,7 +9468,7 @@
    "kind": "task",
    "domain": "product-analytics-and-experimentation",
    "label": "retention report",
-   "community": 1014,
+   "community": 1015,
    "degree": 3
   },
   {
@@ -9468,7 +9476,7 @@
    "kind": "task",
    "domain": "product-analytics-and-experimentation",
    "label": "journey findings",
-   "community": 1015,
+   "community": 1016,
    "degree": 3
   },
   {
@@ -9476,7 +9484,7 @@
    "kind": "task",
    "domain": "product-analytics-and-experimentation",
    "label": "growth accounting",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -9484,7 +9492,7 @@
    "kind": "task",
    "domain": "product-analytics-and-experimentation",
    "label": "tracking spec entry",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -9492,7 +9500,7 @@
    "kind": "task",
    "domain": "product-analytics-and-experimentation",
    "label": "north-star framework",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -9500,7 +9508,7 @@
    "kind": "task",
    "domain": "product-analytics-and-experimentation",
    "label": "event taxonomy",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -9508,7 +9516,7 @@
    "kind": "task",
    "domain": "product-analytics-and-experimentation",
    "label": "instrumentation QA report",
-   "community": 1020,
+   "community": 1021,
    "degree": 3
   },
   {
@@ -9516,7 +9524,7 @@
    "kind": "task",
    "domain": "shared-task-controls",
    "label": "surgical change-scope audit",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -9524,7 +9532,7 @@
    "kind": "task",
    "domain": "shared-task-controls",
    "label": "prompt-ready task context package",
-   "community": 503,
+   "community": 501,
    "degree": 5
   },
   {
@@ -9532,7 +9540,7 @@
    "kind": "task",
    "domain": "shared-task-controls",
    "label": "access decision hoặc request",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -9540,7 +9548,7 @@
    "kind": "task",
    "domain": "shared-task-controls",
    "label": "routing decision",
-   "community": 505,
+   "community": 506,
    "degree": 3
   },
   {
@@ -9548,7 +9556,7 @@
    "kind": "task",
    "domain": "shared-task-controls",
    "label": "implementation-ready ticket",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -9556,7 +9564,7 @@
    "kind": "task",
    "domain": "shared-task-controls",
    "label": "verifiable success contract",
-   "community": 818,
+   "community": 819,
    "degree": 5
   },
   {
@@ -9564,7 +9572,7 @@
    "kind": "task",
    "domain": "shared-task-controls",
    "label": "evidence-backed asset shortlist",
-   "community": 508,
+   "community": 509,
    "degree": 3
   },
   {
@@ -9572,7 +9580,7 @@
    "kind": "task",
    "domain": "shared-task-controls",
    "label": "linked documentation",
-   "community": 1155,
+   "community": 1156,
    "degree": 4
   },
   {
@@ -9580,7 +9588,7 @@
    "kind": "task",
    "domain": "shared-task-controls",
    "label": "impact report",
-   "community": 510,
+   "community": 511,
    "degree": 3
   },
   {
@@ -9588,7 +9596,7 @@
    "kind": "task",
    "domain": "shared-task-controls",
    "label": "safe processing plan",
-   "community": 511,
+   "community": 512,
    "degree": 3
   },
   {
@@ -9596,7 +9604,7 @@
    "kind": "task",
    "domain": "shared-task-controls",
    "label": "lossless handoff package",
-   "community": 512,
+   "community": 513,
    "degree": 3
   },
   {
@@ -9604,7 +9612,7 @@
    "kind": "task",
    "domain": "shared-task-controls",
    "label": "schema assessment",
-   "community": 513,
+   "community": 514,
    "degree": 3
   },
   {
@@ -9612,7 +9620,7 @@
    "kind": "task",
    "domain": "shared-task-controls",
    "label": "profile report",
-   "community": 514,
+   "community": 515,
    "degree": 3
   },
   {
@@ -9620,7 +9628,7 @@
    "kind": "task",
    "domain": "shared-task-controls",
    "label": "resolved terminology",
-   "community": 515,
+   "community": 516,
    "degree": 3
   },
   {
@@ -9628,7 +9636,7 @@
    "kind": "task",
    "domain": "shared-task-controls",
    "label": "decision record",
-   "community": 516,
+   "community": 517,
    "degree": 3
   },
   {
@@ -9636,7 +9644,7 @@
    "kind": "task",
    "domain": "shared-task-controls",
    "label": "auditable approval request",
-   "community": 517,
+   "community": 518,
    "degree": 3
   },
   {
@@ -9644,7 +9652,7 @@
    "kind": "task",
    "domain": "shared-task-controls",
    "label": "validated SQL",
-   "community": 518,
+   "community": 519,
    "degree": 3
   },
   {
@@ -9652,7 +9660,7 @@
    "kind": "task",
    "domain": "shared-task-controls",
    "label": "pass/fail verification report",
-   "community": 818,
+   "community": 819,
    "degree": 4
   },
   {
@@ -9660,7 +9668,7 @@
    "kind": "task",
    "domain": "technical-translation",
    "label": "source analysis",
-   "community": 1220,
+   "community": 1221,
    "degree": 4
   },
   {
@@ -9668,7 +9676,7 @@
    "kind": "standard",
    "domain": "reference",
    "label": "vietnamese-technical-translation.md",
-   "community": 1220,
+   "community": 1221,
    "degree": 17
   },
   {
@@ -9676,7 +9684,7 @@
    "kind": "task",
    "domain": "technical-translation",
    "label": "terminology consistency audit",
-   "community": 1220,
+   "community": 1221,
    "degree": 4
   },
   {
@@ -9684,7 +9692,7 @@
    "kind": "task",
    "domain": "technical-translation",
    "label": "bilingual terminology glossary",
-   "community": 818,
+   "community": 819,
    "degree": 6
   },
   {
@@ -9692,7 +9700,7 @@
    "kind": "task",
    "domain": "technical-translation",
    "label": "translation brief",
-   "community": 1155,
+   "community": 1156,
    "degree": 5
   },
   {
@@ -9700,7 +9708,7 @@
    "kind": "task",
    "domain": "technical-translation",
    "label": "Vietnamese style guide",
-   "community": 1155,
+   "community": 1156,
    "degree": 5
   },
   {
@@ -9708,7 +9716,7 @@
    "kind": "task",
    "domain": "technical-translation",
    "label": "translationese report",
-   "community": 1220,
+   "community": 1221,
    "degree": 4
   },
   {
@@ -9716,7 +9724,7 @@
    "kind": "task",
    "domain": "technical-translation",
    "label": "localised content",
-   "community": 1220,
+   "community": 1221,
    "degree": 4
   },
   {
@@ -9724,7 +9732,7 @@
    "kind": "task",
    "domain": "technical-translation",
    "label": "translation memory",
-   "community": 1220,
+   "community": 1221,
    "degree": 4
   },
   {
@@ -9732,7 +9740,7 @@
    "kind": "task",
    "domain": "technical-translation",
    "label": "long-form translation plan",
-   "community": 1155,
+   "community": 1156,
    "degree": 5
   },
   {
@@ -9740,7 +9748,7 @@
    "kind": "task",
    "domain": "technical-translation",
    "label": "refreshed translation",
-   "community": 1220,
+   "community": 1221,
    "degree": 4
   },
   {
@@ -9748,7 +9756,7 @@
    "kind": "task",
    "domain": "technical-translation",
    "label": "fidelity review",
-   "community": 1220,
+   "community": 1221,
    "degree": 4
   },
   {
@@ -9756,7 +9764,7 @@
    "kind": "task",
    "domain": "technical-translation",
    "label": "comprehension test result",
-   "community": 1220,
+   "community": 1221,
    "degree": 4
   },
   {
@@ -9764,7 +9772,7 @@
    "kind": "task",
    "domain": "technical-translation",
    "label": "transcreated copy",
-   "community": 1220,
+   "community": 1221,
    "degree": 4
   },
   {
@@ -9772,7 +9780,7 @@
    "kind": "task",
    "domain": "technical-translation",
    "label": "translated code documentation",
-   "community": 1220,
+   "community": 1221,
    "degree": 4
   },
   {
@@ -9780,7 +9788,7 @@
    "kind": "task",
    "domain": "technical-translation",
    "label": "translated document",
-   "community": 1220,
+   "community": 1221,
    "degree": 4
   },
   {
@@ -9788,7 +9796,7 @@
    "kind": "task",
    "domain": "technical-translation",
    "label": "translated book manuscript",
-   "community": 1220,
+   "community": 1221,
    "degree": 4
   },
   {
@@ -9796,7 +9804,7 @@
    "kind": "task",
    "domain": "technical-translation",
    "label": "translated web content",
-   "community": 1220,
+   "community": 1221,
    "degree": 4
   }
  ],
@@ -32608,6 +32616,41 @@
    "basis": "link present in the task contract"
   },
   {
+   "from": "content-write-threads-post",
+   "to": "lifecycle-standard.md",
+   "type": "routes-to",
+   "provenance": "extracted",
+   "basis": "link present in the task contract"
+  },
+  {
+   "from": "content-write-threads-post",
+   "to": "model-selection.md",
+   "type": "routes-to",
+   "provenance": "extracted",
+   "basis": "link present in the task contract"
+  },
+  {
+   "from": "content-write-threads-post",
+   "to": "response-compression.md",
+   "type": "routes-to",
+   "provenance": "extracted",
+   "basis": "link present in the task contract"
+  },
+  {
+   "from": "content-write-threads-post",
+   "to": "solution-option-framing.md",
+   "type": "routes-to",
+   "provenance": "extracted",
+   "basis": "link present in the task contract"
+  },
+  {
+   "from": "content-write-threads-post",
+   "to": "universal-professional-series-rules.md",
+   "type": "routes-to",
+   "provenance": "extracted",
+   "basis": "link present in the task contract"
+  },
+  {
    "from": "ai-analyze-ai-failures",
    "to": "grounded-generation-and-agent-economics.md",
    "type": "routes-to",
@@ -43837,6 +43880,13 @@
   },
   {
    "from": "content-write-canonical-technical-article",
+   "to": "content-write-threads-post",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-write-canonical-technical-article",
    "to": "content-create-technical-carousel-script",
    "type": "stage-precedence",
    "provenance": "ambiguous",
@@ -45168,6 +45218,468 @@
   {
    "from": "exp-frame-experiment-hypothesis",
    "to": "exp-design-ab-test",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "book-assess-source-rights",
+   "to": "book-build-source-manifest",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "book-build-source-manifest",
+   "to": "book-extract-source-text",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "book-build-source-manifest",
+   "to": "brain-transcribe-audio-video-source",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "book-build-source-manifest",
+   "to": "brain-process-image-and-diagram-source",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "book-extract-source-text",
+   "to": "brain-capture-source-material",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "brain-transcribe-audio-video-source",
+   "to": "brain-capture-source-material",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "brain-process-image-and-diagram-source",
+   "to": "brain-capture-source-material",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "brain-capture-source-material",
+   "to": "brain-normalize-source-metadata",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "brain-normalize-source-metadata",
+   "to": "academy-research-role-roadmap",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-research-role-roadmap",
+   "to": "academy-build-skill-track-map",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-build-skill-track-map",
+   "to": "academy-elicit-prior-knowledge",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-elicit-prior-knowledge",
+   "to": "core-define-success-contract",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "core-define-success-contract",
+   "to": "academy-plan-note-corpus",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-plan-note-corpus",
+   "to": "academy-plan-corpus-milestone",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-plan-corpus-milestone",
+   "to": "book-extract-frameworks",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-plan-corpus-milestone",
+   "to": "book-extract-decision-rules",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-plan-corpus-milestone",
+   "to": "book-extract-antipatterns",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-plan-corpus-milestone",
+   "to": "book-extract-examples-and-cases",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-plan-corpus-milestone",
+   "to": "book-extract-technical-artifacts",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "book-extract-frameworks",
+   "to": "academy-build-note-module",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "book-extract-decision-rules",
+   "to": "academy-build-note-module",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "book-extract-antipatterns",
+   "to": "academy-build-note-module",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "book-extract-examples-and-cases",
+   "to": "academy-build-note-module",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "book-extract-technical-artifacts",
+   "to": "academy-build-note-module",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-build-note-module",
+   "to": "core-verify-deliverable",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "core-verify-deliverable",
+   "to": "academy-audit-note-corpus",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "core-verify-deliverable",
+   "to": "book-audit-source-traceability",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-audit-note-corpus",
+   "to": "academy-index-note-corpus",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-index-note-corpus",
+   "to": "book-build-curriculum-pack",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-index-note-corpus",
+   "to": "brain-link-knowledge-graph",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "brain-link-knowledge-graph",
+   "to": "brain-build-map-of-content",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "brain-build-map-of-content",
+   "to": "brain-maintain-wikilink-graph",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "book-build-curriculum-pack",
+   "to": "book-audit-copyright-and-privacy",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "book-audit-source-traceability",
+   "to": "book-audit-copyright-and-privacy",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "brain-maintain-wikilink-graph",
+   "to": "brain-run-privacy-freshness-audit",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "book-audit-copyright-and-privacy",
+   "to": "content-define-author-voice",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "book-audit-copyright-and-privacy",
+   "to": "content-design-technical-series",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-design-technical-series",
+   "to": "content-build-series-knowledge-map",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-build-series-knowledge-map",
+   "to": "content-build-editorial-calendar",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-build-editorial-calendar",
+   "to": "content-create-episode-brief",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-define-author-voice",
+   "to": "content-create-episode-brief",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-create-episode-brief",
+   "to": "content-write-canonical-technical-article",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-write-canonical-technical-article",
+   "to": "content-verify-technical-versions",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-write-canonical-technical-article",
+   "to": "content-build-code-example-package",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-write-canonical-technical-article",
+   "to": "content-create-technical-diagram-brief",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-write-canonical-technical-article",
+   "to": "content-create-technical-carousel-script",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-build-code-example-package",
+   "to": "content-test-code-and-diagrams",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-create-technical-diagram-brief",
+   "to": "content-test-code-and-diagrams",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-test-code-and-diagrams",
+   "to": "content-write-facebook-technical-post",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-verify-technical-versions",
+   "to": "content-write-facebook-technical-post",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-test-code-and-diagrams",
+   "to": "content-write-linkedin-technical-post",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-verify-technical-versions",
+   "to": "content-write-linkedin-technical-post",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-test-code-and-diagrams",
+   "to": "content-write-threads-post",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-create-technical-carousel-script",
+   "to": "content-write-threads-post",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-write-facebook-technical-post",
+   "to": "content-review-technical-accuracy",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-write-linkedin-technical-post",
+   "to": "content-review-technical-accuracy",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-write-threads-post",
+   "to": "content-review-technical-accuracy",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-review-technical-accuracy",
+   "to": "content-audit-claim-source-traceability",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-review-technical-accuracy",
+   "to": "content-audit-author-voice-and-originality",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-review-technical-accuracy",
+   "to": "content-review-platform-fit",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-audit-claim-source-traceability",
+   "to": "content-publish-technical-content",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-audit-author-voice-and-originality",
+   "to": "content-publish-technical-content",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-review-platform-fit",
+   "to": "content-publish-technical-content",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-publish-technical-content",
+   "to": "content-measure-series-performance",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-measure-series-performance",
+   "to": "core-handoff-data-work",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "brain-run-privacy-freshness-audit",
+   "to": "core-handoff-data-work",
    "type": "stage-precedence",
    "provenance": "ambiguous",
    "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"

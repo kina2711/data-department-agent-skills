@@ -1,0 +1,678 @@
+{
+  "workflow_id": "ref-to-corpus-to-content",
+  "version": "1.0.0",
+  "objective": "Everything in a ./ref folder — books, slides, lecture video — becomes a systematic note corpus and a curriculum for one named audience, lands in a local Obsidian vault, and then becomes a technical content series across Facebook in Vietnamese, LinkedIn in English and Threads, each post carrying runnable code, a diagram or a cheatsheet.",
+  "status": "planned",
+  "workflow_risk_tier": "R3-controlled",
+  "current_task_id": "book-assess-source-rights",
+  "tasks": [
+    {
+      "task_id": "book-assess-source-rights",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-build-source-manifest",
+      "owner": "",
+      "depends_on": [
+        "book-assess-source-rights"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-source-text",
+      "owner": "",
+      "depends_on": [
+        "book-build-source-manifest"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-transcribe-audio-video-source",
+      "owner": "",
+      "depends_on": [
+        "book-build-source-manifest"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-process-image-and-diagram-source",
+      "owner": "",
+      "depends_on": [
+        "book-build-source-manifest"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-capture-source-material",
+      "owner": "",
+      "depends_on": [
+        "book-extract-source-text",
+        "brain-transcribe-audio-video-source",
+        "brain-process-image-and-diagram-source"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-normalize-source-metadata",
+      "owner": "",
+      "depends_on": [
+        "brain-capture-source-material"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-research-role-roadmap",
+      "owner": "",
+      "depends_on": [
+        "brain-normalize-source-metadata"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-build-skill-track-map",
+      "owner": "",
+      "depends_on": [
+        "academy-research-role-roadmap"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-elicit-prior-knowledge",
+      "owner": "",
+      "depends_on": [
+        "academy-build-skill-track-map"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-define-success-contract",
+      "owner": "",
+      "depends_on": [
+        "academy-elicit-prior-knowledge"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-plan-note-corpus",
+      "owner": "",
+      "depends_on": [
+        "core-define-success-contract"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-plan-corpus-milestone",
+      "owner": "",
+      "depends_on": [
+        "academy-plan-note-corpus"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-frameworks",
+      "owner": "",
+      "depends_on": [
+        "academy-plan-corpus-milestone"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-decision-rules",
+      "owner": "",
+      "depends_on": [
+        "academy-plan-corpus-milestone"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-antipatterns",
+      "owner": "",
+      "depends_on": [
+        "academy-plan-corpus-milestone"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-examples-and-cases",
+      "owner": "",
+      "depends_on": [
+        "academy-plan-corpus-milestone"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-technical-artifacts",
+      "owner": "",
+      "depends_on": [
+        "academy-plan-corpus-milestone"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-build-note-module",
+      "owner": "",
+      "depends_on": [
+        "book-extract-frameworks",
+        "book-extract-decision-rules",
+        "book-extract-antipatterns",
+        "book-extract-examples-and-cases",
+        "book-extract-technical-artifacts"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-verify-deliverable",
+      "owner": "",
+      "depends_on": [
+        "academy-build-note-module"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-audit-note-corpus",
+      "owner": "",
+      "depends_on": [
+        "core-verify-deliverable"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-audit-source-traceability",
+      "owner": "",
+      "depends_on": [
+        "core-verify-deliverable"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-index-note-corpus",
+      "owner": "",
+      "depends_on": [
+        "academy-audit-note-corpus"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-build-curriculum-pack",
+      "owner": "",
+      "depends_on": [
+        "academy-index-note-corpus"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-link-knowledge-graph",
+      "owner": "",
+      "depends_on": [
+        "academy-index-note-corpus"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-build-map-of-content",
+      "owner": "",
+      "depends_on": [
+        "brain-link-knowledge-graph"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-maintain-wikilink-graph",
+      "owner": "",
+      "depends_on": [
+        "brain-build-map-of-content"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-audit-copyright-and-privacy",
+      "owner": "",
+      "depends_on": [
+        "book-build-curriculum-pack",
+        "book-audit-source-traceability"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-run-privacy-freshness-audit",
+      "owner": "",
+      "depends_on": [
+        "brain-maintain-wikilink-graph"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-define-author-voice",
+      "owner": "",
+      "depends_on": [
+        "book-audit-copyright-and-privacy"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-design-technical-series",
+      "owner": "",
+      "depends_on": [
+        "book-audit-copyright-and-privacy"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-build-series-knowledge-map",
+      "owner": "",
+      "depends_on": [
+        "content-design-technical-series"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-build-editorial-calendar",
+      "owner": "",
+      "depends_on": [
+        "content-build-series-knowledge-map"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-create-episode-brief",
+      "owner": "",
+      "depends_on": [
+        "content-build-editorial-calendar",
+        "content-define-author-voice"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-write-canonical-technical-article",
+      "owner": "",
+      "depends_on": [
+        "content-create-episode-brief"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-verify-technical-versions",
+      "owner": "",
+      "depends_on": [
+        "content-write-canonical-technical-article"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-build-code-example-package",
+      "owner": "",
+      "depends_on": [
+        "content-write-canonical-technical-article"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-create-technical-diagram-brief",
+      "owner": "",
+      "depends_on": [
+        "content-write-canonical-technical-article"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-create-technical-carousel-script",
+      "owner": "",
+      "depends_on": [
+        "content-write-canonical-technical-article"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-test-code-and-diagrams",
+      "owner": "",
+      "depends_on": [
+        "content-build-code-example-package",
+        "content-create-technical-diagram-brief"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-write-facebook-technical-post",
+      "owner": "",
+      "depends_on": [
+        "content-test-code-and-diagrams",
+        "content-verify-technical-versions"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-write-linkedin-technical-post",
+      "owner": "",
+      "depends_on": [
+        "content-test-code-and-diagrams",
+        "content-verify-technical-versions"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-write-threads-post",
+      "owner": "",
+      "depends_on": [
+        "content-test-code-and-diagrams",
+        "content-create-technical-carousel-script"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-review-technical-accuracy",
+      "owner": "",
+      "depends_on": [
+        "content-write-facebook-technical-post",
+        "content-write-linkedin-technical-post",
+        "content-write-threads-post"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-audit-claim-source-traceability",
+      "owner": "",
+      "depends_on": [
+        "content-review-technical-accuracy"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-audit-author-voice-and-originality",
+      "owner": "",
+      "depends_on": [
+        "content-review-technical-accuracy"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-review-platform-fit",
+      "owner": "",
+      "depends_on": [
+        "content-review-technical-accuracy"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-publish-technical-content",
+      "owner": "",
+      "depends_on": [
+        "content-audit-claim-source-traceability",
+        "content-audit-author-voice-and-originality",
+        "content-review-platform-fit"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-measure-series-performance",
+      "owner": "",
+      "depends_on": [
+        "content-publish-technical-content"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-handoff-data-work",
+      "owner": "",
+      "depends_on": [
+        "content-measure-series-performance",
+        "brain-run-privacy-freshness-audit"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": "2026-09-12T14:07:50+00:00"
+}
