@@ -1021,6 +1021,80 @@
           "text": "Khi một note đã tồn tại: {ghi_de}."
         }
       ]
+    },
+    {
+      "id": "book-corpus-vault",
+      "skill": "book-to-knowledge-and-action",
+      "ten": "Sách → note corpus → giáo trình → vault",
+      "mo_ta": "Biến một kệ sách thành bộ note đầy đủ có hệ thống và một giáo trình cho đúng một đối tượng, rồi xuất bản sang vault Obsidian. Chạy theo workflow book-to-curriculum-to-vault, dừng ở cổng để bạn duyệt.",
+      "task_id": "book-assess-source-rights",
+      "thong_so": [
+        {
+          "key": "nguon",
+          "nhan": "Thư mục chứa sách",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "./ref"
+        },
+        {
+          "key": "doi_tuong",
+          "nhan": "Dạy cho ai",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "SQL for Data Analyst — đã biết SQL cơ bản, cần phân tích ra quyết định"
+        },
+        {
+          "key": "vault",
+          "nhan": "Vault Obsidian",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "/media/kina2711/DATA/2026/Second_Brain"
+        },
+        {
+          "key": "da_biet",
+          "nhan": "Tôi đã biết sẵn những gì",
+          "kieu": "text",
+          "bat_buoc": false,
+          "goi_y": "JOIN, GROUP BY cơ bản; chưa chắc về window function",
+          "nhieu_dong": true
+        },
+        {
+          "key": "phuong_ngu",
+          "nhan": "Phương ngữ SQL chuẩn",
+          "kieu": "chon",
+          "bat_buoc": true,
+          "chon": [
+            "PostgreSQL",
+            "MySQL",
+            "BigQuery",
+            "Snowflake",
+            "SQL Server"
+          ]
+        },
+        {
+          "key": "ghi_chu",
+          "nhan": "Ghi chú thêm",
+          "kieu": "text",
+          "bat_buoc": false,
+          "nhieu_dong": true
+        }
+      ],
+      "mau": [
+        "Chạy workflow `book-to-curriculum-to-vault` trong workflows/ cho công việc này. Đây là việc chạm ba skill nên đi qua data-department-orchestrator; đừng để một skill ôm hết.",
+        "Nguồn: sách trong {nguon}. Đối tượng: {doi_tuong}. Vault: {vault}. Mọi câu SQL viết theo phương ngữ {phuong_ngu}, và nói rõ chỗ nào sách dùng phương ngữ khác.",
+        {
+          "neu": "da_biet",
+          "text": "Tôi đã biết: {da_biet} — coi là kiến thức đã có, đừng lập kế hoạch dạy lại."
+        },
+        {
+          "neu": "ghi_chu",
+          "text": "{ghi_chu}"
+        },
+        "Note viết vào ./notes trong thư mục làm việc, KHÔNG ghi thẳng vào vault. Xuất bản sang vault bằng hai pha của scripts/write_vault_bundle.py: chạy pha plan, cho tôi xem danh sách tệp sẽ tạo và ghi đè, tôi duyệt rồi mới --apply --expect.",
+        "Ánh xạ lớp vault: sách → 1_Nguon; note corpus → 2_Wiki; những gì tôi đã biết và quy ước của tôi → 3_Toi; giáo trình → 4_Ket-Qua.",
+        "Note theo chuẩn knowledge-deep-dive-standard, tiếng Việt, 1.500–2.000 từ mỗi note. Đây là kiến thức đầy đủ có hệ thống, KHÔNG phải tóm tắt sách. Tách rõ bốn phần: nguồn nói gì, tổng hợp, suy luận chưa có trong nguồn, còn chưa chắc.",
+        "Dừng ở hai chỗ để tôi duyệt: sau academy-plan-note-corpus (trước khi viết note nào), và trước mỗi lần ghi vào vault. Số nào in trong note phải từ chạy thật; không chạy được thì nói là chưa chạy được chứ đừng bịa."
+      ]
     }
   ]
 }

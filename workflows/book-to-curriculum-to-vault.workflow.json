@@ -1,0 +1,395 @@
+{
+  "workflow_id": "book-to-curriculum-to-vault",
+  "version": "1.0.0",
+  "objective": "Turn a shelf of books into a systematic note corpus and a curriculum for one named audience, then publish both into a local Obsidian vault. Notes are authored knowledge organised by a plan, not summaries of chapters.",
+  "status": "planned",
+  "workflow_risk_tier": "R3-controlled",
+  "current_task_id": "book-assess-source-rights",
+  "tasks": [
+    {
+      "task_id": "book-assess-source-rights",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-build-source-manifest",
+      "owner": "",
+      "depends_on": [
+        "book-assess-source-rights"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-capture-source-material",
+      "owner": "",
+      "depends_on": [
+        "book-build-source-manifest"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-normalize-source-metadata",
+      "owner": "",
+      "depends_on": [
+        "brain-capture-source-material"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-source-text",
+      "owner": "",
+      "depends_on": [
+        "book-build-source-manifest"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-research-role-roadmap",
+      "owner": "",
+      "depends_on": [
+        "book-extract-source-text"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-build-skill-track-map",
+      "owner": "",
+      "depends_on": [
+        "academy-research-role-roadmap"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-elicit-prior-knowledge",
+      "owner": "",
+      "depends_on": [
+        "academy-build-skill-track-map"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-define-success-contract",
+      "owner": "",
+      "depends_on": [
+        "academy-elicit-prior-knowledge"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-plan-note-corpus",
+      "owner": "",
+      "depends_on": [
+        "core-define-success-contract"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-plan-corpus-milestone",
+      "owner": "",
+      "depends_on": [
+        "academy-plan-note-corpus"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-frameworks",
+      "owner": "",
+      "depends_on": [
+        "academy-plan-corpus-milestone"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-decision-rules",
+      "owner": "",
+      "depends_on": [
+        "academy-plan-corpus-milestone"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-antipatterns",
+      "owner": "",
+      "depends_on": [
+        "academy-plan-corpus-milestone"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-examples-and-cases",
+      "owner": "",
+      "depends_on": [
+        "academy-plan-corpus-milestone"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-technical-artifacts",
+      "owner": "",
+      "depends_on": [
+        "academy-plan-corpus-milestone"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-build-note-module",
+      "owner": "",
+      "depends_on": [
+        "book-extract-frameworks",
+        "book-extract-decision-rules",
+        "book-extract-antipatterns",
+        "book-extract-examples-and-cases",
+        "book-extract-technical-artifacts"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-verify-deliverable",
+      "owner": "",
+      "depends_on": [
+        "academy-build-note-module"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-audit-note-corpus",
+      "owner": "",
+      "depends_on": [
+        "core-verify-deliverable"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-audit-source-traceability",
+      "owner": "",
+      "depends_on": [
+        "core-verify-deliverable"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-index-note-corpus",
+      "owner": "",
+      "depends_on": [
+        "academy-audit-note-corpus"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-link-knowledge-graph",
+      "owner": "",
+      "depends_on": [
+        "academy-index-note-corpus"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-build-map-of-content",
+      "owner": "",
+      "depends_on": [
+        "brain-link-knowledge-graph"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-maintain-wikilink-graph",
+      "owner": "",
+      "depends_on": [
+        "brain-build-map-of-content"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-build-curriculum-pack",
+      "owner": "",
+      "depends_on": [
+        "academy-index-note-corpus"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-run-note-diagnostic",
+      "owner": "",
+      "depends_on": [
+        "academy-index-note-corpus"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-audit-copyright-and-privacy",
+      "owner": "",
+      "depends_on": [
+        "book-build-curriculum-pack",
+        "book-audit-source-traceability"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-run-privacy-freshness-audit",
+      "owner": "",
+      "depends_on": [
+        "brain-maintain-wikilink-graph"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-handoff-data-work",
+      "owner": "",
+      "depends_on": [
+        "book-audit-copyright-and-privacy",
+        "brain-run-privacy-freshness-audit",
+        "academy-run-note-diagnostic"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ],
+  "transitions": [],
+  "claims": [],
+  "updated_at": "2026-09-12T13:08:55+00:00"
+}

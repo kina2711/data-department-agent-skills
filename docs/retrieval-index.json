@@ -1590,7 +1590,9 @@
      "book-classify-conversion-purpose"
     ]
    },
-   "preset_jobs": [],
+   "preset_jobs": [
+    "Sách → note corpus → giáo trình → vault"
+   ],
    "keywords": [
     "assess",
     "book",
