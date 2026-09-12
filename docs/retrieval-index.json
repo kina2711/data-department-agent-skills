@@ -1584,13 +1584,13 @@
     "source-extraction-and-structure.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 0,
     "depends_on": []
    },
    "preset_jobs": [
     "Sách → note corpus → giáo trình → vault",
-    "Cả dây chuyền: /ref → note → giáo trình → vault → content 3 kênh"
+    "Data Trainer"
    ],
    "keywords": [
     "assess",
@@ -1629,7 +1629,7 @@
     "workflow-runtime-and-evidence-os.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 27,
     "depends_on": [
      "book-build-curriculum-pack",
@@ -1674,7 +1674,7 @@
     "source-extraction-and-structure.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 21,
     "depends_on": [
      "core-verify-deliverable"
@@ -1888,7 +1888,7 @@
     "response-compression.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 23,
     "depends_on": [
      "academy-index-note-corpus"
@@ -2191,7 +2191,7 @@
     "source-extraction-and-structure.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 1,
     "depends_on": [
      "book-assess-source-rights"
@@ -2543,7 +2543,7 @@
     "source-extraction-and-structure.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 15,
     "depends_on": [
      "academy-plan-corpus-milestone"
@@ -2586,7 +2586,7 @@
     "source-extraction-and-structure.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 14,
     "depends_on": [
      "academy-plan-corpus-milestone"
@@ -2628,7 +2628,7 @@
     "source-extraction-and-structure.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 16,
     "depends_on": [
      "academy-plan-corpus-milestone"
@@ -2672,7 +2672,7 @@
     "source-extraction-and-structure.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 13,
     "depends_on": [
      "academy-plan-corpus-milestone"
@@ -2802,7 +2802,7 @@
     "source-extraction-and-structure.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 2,
     "depends_on": [
      "book-build-source-manifest"
@@ -2850,7 +2850,7 @@
     "source-extraction-and-structure.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 17,
     "depends_on": [
      "academy-plan-corpus-milestone"
@@ -5270,7 +5270,7 @@
     "role-curricula.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 20,
     "depends_on": [
      "core-verify-deliverable"
@@ -5394,7 +5394,7 @@
     "role-curricula.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 18,
     "depends_on": [
      "book-extract-frameworks",
@@ -5532,7 +5532,7 @@
     "solution-option-framing.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 8,
     "depends_on": [
      "academy-research-role-roadmap"
@@ -6282,7 +6282,7 @@
     "solution-option-framing.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 9,
     "depends_on": [
      "academy-build-skill-track-map"
@@ -6407,7 +6407,7 @@
     "role-curricula.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 22,
     "depends_on": [
      "academy-audit-note-corpus"
@@ -6632,7 +6632,7 @@
     "solution-option-framing.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 12,
     "depends_on": [
      "academy-plan-note-corpus"
@@ -6733,7 +6733,7 @@
     "solution-option-framing.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 11,
     "depends_on": [
      "core-define-success-contract"
@@ -6859,7 +6859,7 @@
     "solution-option-framing.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 7,
     "depends_on": [
      "brain-normalize-source-metadata"
@@ -24919,7 +24919,7 @@
     "universal-professional-series-rules.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 45,
     "depends_on": [
      "content-review-technical-accuracy"
@@ -24962,7 +24962,7 @@
     "universal-professional-series-rules.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 44,
     "depends_on": [
      "content-review-technical-accuracy"
@@ -25050,7 +25050,7 @@
     "universal-professional-series-rules.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 36,
     "depends_on": [
      "content-write-canonical-technical-article"
@@ -25096,7 +25096,7 @@
     "universal-professional-series-rules.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 32,
     "depends_on": [
      "content-build-series-knowledge-map"
@@ -25137,7 +25137,7 @@
     "universal-professional-series-rules.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 31,
     "depends_on": [
      "content-design-technical-series"
@@ -25179,7 +25179,7 @@
     "universal-professional-series-rules.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 33,
     "depends_on": [
      "content-build-editorial-calendar",
@@ -25223,7 +25223,7 @@
     "universal-professional-series-rules.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 38,
     "depends_on": [
      "content-write-canonical-technical-article"
@@ -25268,7 +25268,7 @@
     "solution-option-framing.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 37,
     "depends_on": [
      "content-write-canonical-technical-article"
@@ -25309,7 +25309,7 @@
     "universal-professional-series-rules.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 29,
     "depends_on": [
      "book-audit-copyright-and-privacy"
@@ -25395,7 +25395,7 @@
     "universal-professional-series-rules.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 30,
     "depends_on": [
      "book-audit-copyright-and-privacy"
@@ -25530,7 +25530,7 @@
     "universal-professional-series-rules.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 49,
     "depends_on": [
      "content-audit-claim-source-traceability",
@@ -25673,7 +25673,7 @@
     "universal-professional-series-rules.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 48,
     "depends_on": [
      "content-create-technical-diagram-brief",
@@ -25818,7 +25818,7 @@
     "universal-professional-series-rules.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 46,
     "depends_on": [
      "content-review-technical-accuracy"
@@ -25862,7 +25862,7 @@
     "universal-professional-series-rules.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 43,
     "depends_on": [
      "content-write-facebook-technical-post",
@@ -25906,7 +25906,7 @@
     "universal-professional-series-rules.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 39,
     "depends_on": [
      "content-render-post-images"
@@ -25950,7 +25950,7 @@
     "universal-professional-series-rules.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 35,
     "depends_on": [
      "content-write-canonical-technical-article"
@@ -26000,7 +26000,7 @@
     "universal-professional-series-rules.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 34,
     "depends_on": [
      "content-create-episode-brief"
@@ -26045,7 +26045,7 @@
     "universal-professional-series-rules.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 40,
     "depends_on": [
      "content-test-code-and-diagrams",
@@ -26106,7 +26106,7 @@
     "universal-professional-series-rules.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 41,
     "depends_on": [
      "content-test-code-and-diagrams",
@@ -26201,7 +26201,7 @@
     "universal-professional-series-rules.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
+    "workflow": "data-trainer",
     "position": 42,
     "depends_on": [
      "content-test-code-and-diagrams",
@@ -31015,10 +31015,10 @@
     "second-brain-operating-system.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
-    "position": 25,
+    "workflow": "personal-second-brain-and-knowledge-os-standard-path",
+    "position": 12,
     "depends_on": [
-     "brain-link-knowledge-graph"
+     "brain-define-second-brain-purpose"
     ]
    },
    "preset_jobs": [],
@@ -31182,12 +31182,10 @@
     "second-brain-operating-system.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
-    "position": 5,
+    "workflow": "personal-second-brain-and-knowledge-os-standard-path",
+    "position": 15,
     "depends_on": [
-     "book-extract-source-text",
-     "brain-transcribe-audio-video-source",
-     "brain-process-image-and-diagram-source"
+     "brain-inventory-distributed-sources"
     ]
    },
    "preset_jobs": [
@@ -32059,10 +32057,10 @@
     "second-brain-operating-system.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
-    "position": 24,
+    "workflow": "personal-second-brain-and-knowledge-os-standard-path",
+    "position": 27,
     "depends_on": [
-     "academy-index-note-corpus"
+     "brain-capture-source-material"
     ]
    },
    "preset_jobs": [],
@@ -32105,10 +32103,10 @@
     "second-brain-operating-system.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
-    "position": 26,
+    "workflow": "personal-second-brain-and-knowledge-os-standard-path",
+    "position": 1,
     "depends_on": [
-     "brain-build-map-of-content"
+     "brain-classify-knowledge-domain"
     ]
    },
    "preset_jobs": [],
@@ -32195,8 +32193,8 @@
     "second-brain-operating-system.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
-    "position": 6,
+    "workflow": "personal-second-brain-and-knowledge-os-standard-path",
+    "position": 20,
     "depends_on": [
      "brain-capture-source-material"
     ]
@@ -32335,10 +32333,10 @@
     "second-brain-operating-system.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
-    "position": 4,
+    "workflow": "personal-second-brain-and-knowledge-os-standard-path",
+    "position": 19,
     "depends_on": [
-     "book-build-source-manifest"
+     "brain-capture-source-material"
     ]
    },
    "preset_jobs": [],
@@ -32657,10 +32655,10 @@
     "workflow-runtime-and-evidence-os.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
-    "position": 28,
+    "workflow": "personal-second-brain-and-knowledge-os-standard-path",
+    "position": 46,
     "depends_on": [
-     "brain-maintain-wikilink-graph"
+     "brain-backup-second-brain"
     ]
    },
    "preset_jobs": [],
@@ -32745,10 +32743,10 @@
     "second-brain-operating-system.md"
    ],
    "workflow": {
-    "workflow": "ref-to-corpus-to-content",
-    "position": 3,
+    "workflow": "personal-second-brain-and-knowledge-os-standard-path",
+    "position": 18,
     "depends_on": [
-     "book-build-source-manifest"
+     "brain-capture-source-material"
     ]
    },
    "preset_jobs": [],

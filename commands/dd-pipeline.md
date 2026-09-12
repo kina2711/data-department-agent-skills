@@ -7,7 +7,7 @@ disable-model-invocation: true
 
 Chạy cả dây chuyền cho: $ARGUMENTS
 
-Workflow `workflows/ref-to-corpus-to-content.workflow.json` — 50 task, 31 đợt, 3 cổng duyệt.
+Workflow `workflows/data-trainer.workflow.json` — 50 task, 31 đợt, 3 cổng duyệt.
 Nó chạm bốn skill, nên **điều phối qua `data-department-orchestrator`**; đừng để một skill ôm
 phần nó không rành.
 

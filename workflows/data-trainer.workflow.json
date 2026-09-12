@@ -1,7 +1,7 @@
 {
-  "workflow_id": "ref-to-corpus-to-content",
+  "workflow_id": "data-trainer",
   "version": "1.0.0",
-  "objective": "Everything in a ./ref folder — books, slides, lecture video — becomes a systematic note corpus and a curriculum for one named audience, lands in a local Obsidian vault, and comes back out as drafted posts for Facebook, LinkedIn and Threads with rendered images, packaged for the author to post themselves. Publishing is not part of this workflow.",
+  "objective": "Data Trainer. Everything in a ./ref folder — books, slides, lecture video — becomes a detailed roadmap and a note corpus organised as skill, then module, then lesson, and a curriculum for one named audience. It lands in a local Obsidian vault, and comes back out as drafted posts for Facebook in Vietnamese, LinkedIn in English and Threads, each with rendered images, packaged for the author to post themselves. Publishing is not part of this workflow.",
   "status": "planned",
   "workflow_risk_tier": "R3-controlled",
   "current_task_id": "book-assess-source-rights",
@@ -676,5 +676,5 @@
   ],
   "transitions": [],
   "claims": [],
-  "updated_at": "2026-09-12T14:34:29+00:00"
+  "updated_at": "2026-09-12T14:59:24+00:00"
 }

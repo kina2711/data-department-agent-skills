@@ -213,18 +213,29 @@ def render_note(note: dict, source_id: str) -> str:
 
 
 def targets_for(bundle: dict, vault: Path) -> list[tuple[Path, str]]:
-    """Every file the bundle would write, as (path, content). Order is stable for hashing."""
+    """Every file the bundle would write, as (path, content). Order is stable for hashing.
+
+    An optional `namespace` puts a bundle in its own subfolder under each layer. One vault holding
+    two corpora — an SQL curriculum and a Python one, say — writes sixty notes into one flat
+    directory without it, and the reader loses which corpus a note belongs to at the moment there
+    are enough notes for that to matter. Wikilinks are unaffected: Obsidian resolves `[[note-id]]`
+    by name wherever the file sits.
+    """
     source = bundle.get("source") or {}
     source_id = source.get("source_id") or slug(source.get("title", ""), "nguon")
     source["source_id"] = source_id
+    space = slug(str(bundle.get("namespace") or ""), "")
+
+    def under(layer: str, name: str) -> Path:
+        return vault / layer / space / name if space else vault / layer / name
 
     out: list[tuple[Path, str]] = []
-    out.append((vault / SOURCE_LAYER / filename(source_id, source.get("title", "")), render_source(source)))
+    out.append((under(SOURCE_LAYER, filename(source_id, source.get("title", ""))), render_source(source)))
 
     for note in bundle.get("notes") or []:
         note_id = note.get("note_id") or slug(note.get("title", ""), "note")
         note["note_id"] = note_id
-        out.append((vault / WIKI_LAYER / filename(note_id, note.get("title", "")), render_note(note, source_id)))
+        out.append((under(WIKI_LAYER, filename(note_id, note.get("title", ""))), render_note(note, source_id)))
 
     return out
 

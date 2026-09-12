@@ -5,7 +5,7 @@ Hệ điều hành có kiểm soát cho toàn bộ một phòng Data, đóng gó
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
 
-Bản hiện tại: **v3.18.0** · Chạy được với **Claude Code**, **OpenAI Codex** và **Google Antigravity**
+Bản hiện tại: **v3.19.0** · Chạy được với **Claude Code**, **OpenAI Codex** và **Google Antigravity**
 
 🇬🇧 [Read in English](README.md)
 
@@ -59,16 +59,16 @@ script evidence đều cần; cả hai fail-open nếu thiếu).
 
 ```powershell
 # Windows
-$pluginRoot = "C:\Tools\data-department-agent-skills-v3.18.0"
-Expand-Archive .\data-department-claude-plugin-v3.18.0.zip -DestinationPath $pluginRoot
+$pluginRoot = "C:\Tools\data-department-agent-skills-v3.19.0"
+Expand-Archive .\data-department-claude-plugin-v3.19.0.zip -DestinationPath $pluginRoot
 claude plugin validate --strict $pluginRoot
 claude --plugin-dir $pluginRoot
 ```
 
 ```bash
 # macOS / Linux
-pluginRoot=~/tools/data-department-agent-skills-v3.18.0
-unzip data-department-claude-plugin-v3.18.0.zip -d "$pluginRoot"
+pluginRoot=~/tools/data-department-agent-skills-v3.19.0
+unzip data-department-claude-plugin-v3.19.0.zip -d "$pluginRoot"
 claude plugin validate --strict "$pluginRoot"
 claude --plugin-dir "$pluginRoot"
 ```
