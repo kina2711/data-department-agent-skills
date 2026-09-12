@@ -1165,6 +1165,8 @@
         },
         "Cấu trúc bắt buộc của corpus, ba tầng: **Skill → Module → Bài giảng**. Ví dụ SQL For Data Analyst → DDL → SELECT. Note ID theo dạng `<skill-slug>.<module-slug>.<bai-giang-slug>`, và mỗi module có exit criterion nói rõ học xong thì làm được gì kiểm chứng được.",
         "Nguồn theo loại: PDF và sách qua book-extract-source-text; video qua brain-transcribe-audio-video-source có timestamp, ghi rõ chỗ nghe không rõ; slide và ảnh qua brain-process-image-and-diagram-source. Thứ không đọc được thì nói là không đọc được, đừng suy từ tên tệp.",
+        "THỨ TỰ BẮT BUỘC: vét cạn ./ref trước. Đọc hết mọi tệp trong đó, viết roadmap chi tiết và dựng xong kế hoạch corpus theo ba tầng Skill → Module → Bài giảng, RỒI mới tính đến tài liệu bên ngoài. Đi tìm nguồn ngoài trước khi đọc hết cái đang có là bỏ qua chính bộ tài liệu tôi đã chọn, và cho ra một giáo trình không khớp với sách tôi đang cầm.",
+        "Tài liệu ngoài chỉ dùng để LẤP một lỗ hổng đã nêu tên: nói rõ lỗ hổng đó là gì, vì sao ./ref không phủ được, rồi mới tìm. Nguồn ngoài theo đúng technical-content-quality-standard — tài liệu chính thức đang hiện hành, standard/specification, nghiên cứu gốc, hoặc bằng chứng chạy thật; ghi phiên bản, ngày xuất bản và ngày kiểm chứng. Blog cá nhân, nội dung tổng hợp lại và bài do AI viết thì không tính là nguồn. Mỗi mục kiến thức lấy từ ngoài phải chỉ ra được nó nằm ở đâu trong nguồn đó.",
         {
           "neu": "vault",
           "text": "Vault: {vault} — dùng đường dẫn này, bỏ qua manifest."
