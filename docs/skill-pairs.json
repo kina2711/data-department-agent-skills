@@ -12,15 +12,39 @@
     ],
     [
       "analytics-engineering",
+      "data-science"
+    ],
+    [
+      "analytics-engineering",
+      "machine-learning-engineering"
+    ],
+    [
+      "analytics-engineering",
       "metadata-engineering-and-catalog"
+    ],
+    [
+      "book-to-knowledge-and-action",
+      "company-data-context"
     ],
     [
       "book-to-knowledge-and-action",
       "data-academy-and-curriculum"
     ],
     [
+      "book-to-knowledge-and-action",
+      "data-career-and-interview-coach"
+    ],
+    [
+      "book-to-knowledge-and-action",
+      "personal-second-brain-and-knowledge-os"
+    ],
+    [
       "business-intelligence",
       "data-engineering"
+    ],
+    [
+      "business-intelligence",
+      "metadata-engineering-and-catalog"
     ],
     [
       "company-data-context",
@@ -36,6 +60,10 @@
     ],
     [
       "data-academy-and-curriculum",
+      "data-onboarding-and-integration"
+    ],
+    [
+      "data-academy-and-curriculum",
       "data-talent-acquisition-and-interview"
     ],
     [
@@ -48,7 +76,19 @@
     ],
     [
       "data-architecture",
+      "data-onboarding-and-integration"
+    ],
+    [
+      "data-architecture",
       "data-platform-and-dataops"
+    ],
+    [
+      "data-career-and-interview-coach",
+      "data-enablement-and-knowledge"
+    ],
+    [
+      "data-career-and-interview-coach",
+      "data-personal-project-engineering"
     ],
     [
       "data-career-and-interview-coach",
@@ -67,6 +107,10 @@
       "data-technical-content-and-social"
     ],
     [
+      "data-enablement-and-knowledge",
+      "personal-second-brain-and-knowledge-os"
+    ],
+    [
       "data-engineering",
       "data-platform-and-dataops"
     ],
@@ -81,6 +125,10 @@
     [
       "data-engineering",
       "metadata-engineering-and-catalog"
+    ],
+    [
+      "data-engineering",
+      "mlops"
     ],
     [
       "data-governance-and-stewardship",
@@ -103,15 +151,35 @@
       "generative-ai-engineering"
     ],
     [
+      "data-talent-acquisition-and-interview",
+      "head-of-data-and-data-product"
+    ],
+    [
       "data-technical-content-and-social",
       "technical-translation"
+    ],
+    [
+      "generative-ai-engineering",
+      "machine-learning-engineering"
     ],
     [
       "generative-ai-engineering",
       "metadata-engineering-and-catalog"
     ],
     [
+      "head-of-data-and-data-product",
+      "metadata-engineering-and-catalog"
+    ],
+    [
       "machine-learning-engineering",
+      "mlops"
+    ],
+    [
+      "master-data-management",
+      "personal-second-brain-and-knowledge-os"
+    ],
+    [
+      "metadata-engineering-and-catalog",
       "mlops"
     ]
   ],

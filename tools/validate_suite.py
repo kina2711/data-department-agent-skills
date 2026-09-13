@@ -690,6 +690,38 @@ def check_pipeline_counts() -> list[str]:
     return []
 
 
+def check_harness_scores() -> list[str]:
+    """A recorded harness score, against the version it was recorded for.
+
+    The declaration carries score_is_for_version so a reader can tell what was measured. Nothing
+    stopped that field from naming an older release, which is the quiet failure this guards: a
+    score that was true once, sitting beside a harness that has moved on, reading exactly like a
+    score that was true this morning. Re-run the suite and the field comes back into line; skip
+    the re-run and validation says so.
+    """
+    import json as _json
+    version_file = (ROOT / "tools" / "build_suite.py").read_text(encoding="utf-8")
+    match = re.search(r'SUITE_VERSION = "([^"]+)"', version_file)
+    if not match:
+        return ["cannot read SUITE_VERSION, so no harness score can be checked against it"]
+    current = match.group(1)
+    errors: list[str] = []
+    for path in sorted((ROOT / "harnesses").glob("*.harness.json")) if (ROOT / "harnesses").is_dir() else []:
+        doc = _json.loads(path.read_text(encoding="utf-8"))
+        ev = doc.get("evaluation") or {}
+        if not ev.get("cases_total"):
+            continue
+        stamped = str(ev.get("score_is_for_version") or "")
+        if stamped != current:
+            errors.append(f"{path.name}: score is stamped for {stamped or '(nothing)'} but the "
+                          f"suite is {current}; re-run `tools/eval_harness.py run --suite harness` "
+                          "and record what it says")
+        cases = ROOT / str(ev.get("cases_ref") or "")
+        if not cases.is_file():
+            errors.append(f"{path.name}: cases_ref points at {ev.get('cases_ref')!r}, which is not a file")
+    return errors
+
+
 def main() -> None:
     errors, stats = validate()
     skill_names = {d.name for d in SKILLS.iterdir() if d.is_dir()}
@@ -714,6 +746,9 @@ def main() -> None:
     pipeline_errors = check_pipeline_counts()
     errors.extend(pipeline_errors)
     stats["pipeline_counts"] = "ok" if not pipeline_errors else f"{len(pipeline_errors)} problem(s)"
+    score_errors = check_harness_scores()
+    errors.extend(score_errors)
+    stats["harness_scores"] = "ok" if not score_errors else f"{len(score_errors)} problem(s)"
     stats["vietnamese_guides"] = "ok" if not guide_errors else f"{len(guide_errors)} problem(s)"
     stats["preset_jobs"] = "ok" if not job_errors else f"{len(job_errors)} problem(s)"
     if "errors" in stats:

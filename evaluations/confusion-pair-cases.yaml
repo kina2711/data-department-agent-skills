@@ -296,3 +296,223 @@ cases:
     expected_primary_skill: data-technical-content-and-social
     rejected_skill: technical-translation
     expected_task: content-define-technical-content-strategy
+
+
+  # Seven of these thirty-seven route somewhere other than the expected skill, and none of them
+  # route to the named rival — the model picks a third skill instead. That is the finding worth
+  # keeping: the pairs I designed are not the confusion that happens. Each miss carries a note
+  # above it saying what the model answers and why the case still expects what it expects. One
+  # case was mine to fix rather than the model's: it listed eight cross-role concerns, so
+  # data-department-orchestrator was the correct answer, and the query is now narrower.
+  # Measured at 78.4% skill accuracy over 37 cases against claude-haiku-4-5-20251001.
+  # --- R2 pairs whose names collide across skills -------------------------------------------
+  # Selected by measurement rather than by taste: these are the uncovered R2 tasks that share
+  # most of their name with a task in another skill, which is the shape a router actually
+  # confuses. Each query is written so only one of the two can answer it.
+  - id: bi-vs-meta-source-authority
+    query: Doanh thu đang có ba con số khác nhau trên ba dashboard. Chốt xem KPI doanh thu lấy từ nguồn nào là chuẩn, theo từng dimension và từng use case báo cáo.
+    expected_primary_skill: business-intelligence
+    rejected_skill: metadata-engineering-and-catalog
+    expected_task: bi-build-source-authority-matrix
+  - id: meta-vs-bi-source-authority
+    query: Với entity Customer, xác định hệ thống nào là authoritative source cho từng field và ghi vào catalog để mọi nhóm tra được.
+    expected_primary_skill: metadata-engineering-and-catalog
+    rejected_skill: business-intelligence
+    expected_task: meta-build-source-authority-matrix
+  - id: brain-vs-enable-concept-map
+    query: Nối các khái niệm tôi đã ghi trong second brain lại theo prerequisite, cơ chế, tương phản và chỗ hay hỏng.
+    expected_primary_skill: personal-second-brain-and-knowledge-os
+    rejected_skill: data-enablement-and-knowledge
+    expected_task: brain-build-concept-map
+  - id: book-vs-academy-knowledge-graph
+    query: Từ quyển sách này, nối chương với chương theo prerequisite, framework, kỹ thuật và chỗ các tác giả mâu thuẫn nhau.
+    expected_primary_skill: book-to-knowledge-and-action
+    rejected_skill: data-academy-and-curriculum
+    expected_task: book-build-knowledge-graph
+  - id: platform-vs-mlops-cd
+    query: "Dựng đường promotion cho warehouse: duyệt, deploy, smoke test và rollback cho các job dữ liệu."
+    expected_primary_skill: data-platform-and-dataops
+    rejected_skill: mlops
+    expected_task: platform-build-data-cd-pipeline
+  - id: mlops-vs-platform-cd
+    query: "Dựng đường deploy cho model đã train: duyệt, đẩy lên serving, smoke test và rollback về bản trước."
+    expected_primary_skill: mlops
+    rejected_skill: data-platform-and-dataops
+    expected_task: mlops-build-ml-cd-pipeline
+  - id: mlops-vs-platform-ci
+    query: "CI cho repo model: lint, test, kiểm tra dữ liệu huấn luyện, quét bảo mật rồi đóng gói artifact."
+    expected_primary_skill: mlops
+    rejected_skill: data-platform-and-dataops
+    expected_task: mlops-build-ml-ci-pipeline
+  # Haiku answers data-governance-and-stewardship. Standards about lifecycle, gates, owners and
+  # SLAs do read as governance, and the word "chuẩn" pulls that way on its own. The case keeps
+  # onboarding because the standard governs how a source is taken on, not how the organisation
+  # governs data generally. Recorded, not relaxed.
+  - id: onboard-vs-arch-standard
+    query: "Viết chuẩn cho việc tiếp nhận nguồn dữ liệu mới: vòng đời, nội dung bắt buộc, các cổng, ai sở hữu và SLA."
+    expected_primary_skill: data-onboarding-and-integration
+    rejected_skill: data-architecture
+    expected_task: onboard-define-data-onboarding-standard
+  - id: talent-vs-hod-role-profile
+    query: "Viết mô tả vị trí Data Engineer sắp tuyển: sứ mệnh, kết quả mong đợi, trách nhiệm, ranh giới và cấp bậc."
+    expected_primary_skill: data-talent-acquisition-and-interview
+    rejected_skill: head-of-data-and-data-product
+    expected_task: talent-define-data-role-profile
+  # Haiku answers personal-second-brain. Tags, backlinks and versions are second-brain vocabulary,
+  # so the pull is real. The case keeps the career skill because the library is interview
+  # preparation with a defined use, not a general knowledge store.
+  - id: career-vs-enable-knowledge-library
+    query: Gom bộ câu hỏi phỏng vấn tôi đã soạn thành thư viện có tag, backlink và đánh phiên bản để tôi ôn.
+    expected_primary_skill: data-career-and-interview-coach
+    rejected_skill: data-enablement-and-knowledge
+    expected_task: career-build-interview-knowledge-library
+  - id: brain-vs-book-domain-brain
+    query: Cấu hình second brain bốn lớp riêng cho mảng tài chính, chỉ nạp rule và reference thuộc mảng đó.
+    expected_primary_skill: personal-second-brain-and-knowledge-os
+    rejected_skill: book-to-knowledge-and-action
+    expected_task: brain-build-domain-second-brain
+  - id: book-vs-career-interview-pack
+    query: Biến các framework trong sách thành phụ thuộc giữa câu hỏi, chiến lược trả lời, ví dụ và đánh đổi.
+    expected_primary_skill: book-to-knowledge-and-action
+    rejected_skill: data-career-and-interview-coach
+    expected_task: book-build-interview-knowledge-pack
+  - id: hod-vs-meta-roadmap
+    query: Xếp thứ tự các sáng kiến dữ liệu năm nay theo giá trị, rủi ro và phụ thuộc lẫn nhau.
+    expected_primary_skill: head-of-data-and-data-product
+    rejected_skill: metadata-engineering-and-catalog
+    expected_task: hod-build-data-roadmap
+  - id: de-vs-ae-tests
+    query: "Viết test cho pipeline ingest: unit, contract, integration và cả đường hỏng."
+    expected_primary_skill: data-engineering
+    rejected_skill: analytics-engineering
+    expected_task: de-write-pipeline-tests
+  # Haiku answers data-documentation-and-diagrams, which is the most defensible of these misses:
+  # a runbook is a document. The case keeps data engineering because the contract owns the alerts
+  # and recovery steps the runbook describes, and whoever runs the pipeline writes them.
+  - id: de-vs-mlops-runbook
+    query: "Viết runbook vận hành cho pipeline ingest: cảnh báo, cách khôi phục và ai trực."
+    expected_primary_skill: data-engineering
+    rejected_skill: mlops
+    expected_task: de-create-pipeline-runbook
+  # Haiku answers data-engineering. Renaming and casting sounds like ingestion, and at the
+  # boundary between the two skills it nearly is. The case keeps analytics engineering because a
+  # staging model is a dbt layer over data that has already landed.
+  - id: ae-vs-bi-staging
+    query: "Dựng lớp staging cho dữ liệu thô: đổi tên cột, ép kiểu và chuẩn hoá theo nguồn."
+    expected_primary_skill: analytics-engineering
+    rejected_skill: business-intelligence
+    expected_task: ae-build-staging-model
+  - id: ae-vs-bi-intermediate
+    query: Đóng gói các phép biến đổi nghiệp vụ dùng lại được thành một lớp model trung gian trong dbt.
+    expected_primary_skill: analytics-engineering
+    rejected_skill: business-intelligence
+    expected_task: ae-build-intermediate-model
+  - id: ae-vs-mle-incremental
+    query: "Cho model dbt này chạy incremental: định nghĩa unique key, filter và hành vi merge."
+    expected_primary_skill: analytics-engineering
+    rejected_skill: machine-learning-engineering
+    expected_task: ae-implement-incremental-model
+  - id: bi-vs-ae-semantic
+    query: "Cấu hình lớp semantic của BI: quan hệ giữa bảng, measure, phân cấp và logic ngày tháng."
+    expected_primary_skill: business-intelligence
+    rejected_skill: analytics-engineering
+    expected_task: bi-build-semantic-model
+  - id: bi-vs-de-performance
+    query: Dashboard mở mất mười lăm giây. Giảm thời gian query, thời gian render và kích thước model.
+    expected_primary_skill: business-intelligence
+    rejected_skill: data-engineering
+    expected_task: bi-optimize-dashboard-performance
+  - id: ds-vs-ae-baseline
+    query: Trước khi thử model phức tạp, dựng một baseline heuristic để có mốc so sánh.
+    expected_primary_skill: data-science
+    rejected_skill: analytics-engineering
+    expected_task: ds-build-baseline-model
+  - id: ds-vs-ae-optimization
+    query: "Bài toán xếp lịch giao hàng: định nghĩa hàm mục tiêu, ràng buộc và cách đánh giá từng kịch bản."
+    expected_primary_skill: data-science
+    rejected_skill: analytics-engineering
+    expected_task: ds-build-optimization-model
+  - id: mle-vs-ai-training-pipeline
+    query: "Tự động hoá vòng huấn luyện: rút dữ liệu, train, đánh giá rồi đóng gói model."
+    expected_primary_skill: machine-learning-engineering
+    rejected_skill: generative-ai-engineering
+    expected_task: mle-build-training-pipeline
+  - id: mle-vs-de-inference-performance
+    query: Suy luận đang chậm. Tune batching, serialization, runtime và phần cứng phục vụ.
+    expected_primary_skill: machine-learning-engineering
+    rejected_skill: data-engineering
+    expected_task: mle-optimize-inference-performance
+  # Haiku answers mlops. Degraded mode and rollback are operational, so the reading holds. The
+  # case keeps ML engineering because the fallback is built into the serving code rather than
+  # configured around it.
+  - id: mle-vs-ae-fallback
+    query: Khi model chính lỗi hoặc quá hạn, cần timeout, giá trị mặc định, quay về bản trước và chế độ suy giảm.
+    expected_primary_skill: machine-learning-engineering
+    rejected_skill: analytics-engineering
+    expected_task: mle-implement-model-fallback
+  # Haiku answers data-platform-and-dataops, and provisioning is what that skill does. The case
+  # keeps mlops because the reproducibility being asked for is of a training run, which is an ML
+  # concern the platform baseline does not cover.
+  - id: mlops-vs-platform-environment
+    query: "Tạo môi trường chạy ML tái lập được: compute, runtime và quyền truy cập."
+    expected_primary_skill: mlops
+    rejected_skill: data-platform-and-dataops
+    expected_task: mlops-provision-ml-environment
+  - id: mlops-vs-meta-lineage
+    query: Nối dữ liệu, code, feature, lần chạy, artifact và bản deploy của một model lại thành một chuỗi truy vết.
+    expected_primary_skill: mlops
+    rejected_skill: metadata-engineering-and-catalog
+    expected_task: mlops-build-model-lineage
+  - id: ai-vs-mle-reranking
+    query: Sau khi retrieve xong, xếp lại thứ tự ứng viên và cân bằng độ trễ với chất lượng.
+    expected_primary_skill: generative-ai-engineering
+    rejected_skill: machine-learning-engineering
+    expected_task: ai-build-reranking-pipeline
+  - id: onboard-vs-academy-effectiveness
+    query: "Đo xem quy trình tiếp nhận người mới có hiệu quả không: bao lâu có quyền, bao lâu ra giá trị đầu tiên, tỉ lệ ở lại và mức sẵn sàng."
+    expected_primary_skill: data-onboarding-and-integration
+    rejected_skill: data-academy-and-curriculum
+    expected_task: onboard-measure-onboarding-effectiveness
+  - id: talent-vs-academy-guide
+    query: "Soạn hướng dẫn cho người phỏng vấn: cách dẫn dắt, cách đào sâu, cách ghi bằng chứng, chủ đề cấm hỏi và phân bổ thời gian."
+    expected_primary_skill: data-talent-acquisition-and-interview
+    rejected_skill: data-academy-and-curriculum
+    expected_task: talent-create-interviewer-guide
+  - id: project-vs-career-blueprint
+    query: Dự án cá nhân của tôi sắp code. Viết bản blueprint cho riêng nó trước khi bắt đầu.
+    expected_primary_skill: data-personal-project-engineering
+    rejected_skill: data-career-and-interview-coach
+    expected_task: project-build-project-blueprint
+  - id: brain-vs-book-topic-map
+    query: Làm map-of-content cho vault để tôi đi trong một lĩnh vực bằng câu hỏi và quan hệ, thay vì lục thư mục.
+    expected_primary_skill: personal-second-brain-and-knowledge-os
+    rejected_skill: book-to-knowledge-and-action
+    expected_task: brain-build-topic-map
+  - id: brain-vs-book-link-graph
+    query: Tạo link có kiểu giữa nguồn, khái niệm, người, dự án, quyết định và output trong vault, và chỉ ra link mồ côi.
+    expected_primary_skill: personal-second-brain-and-knowledge-os
+    rejected_skill: book-to-knowledge-and-action
+    expected_task: brain-link-knowledge-graph
+  # Haiku answers data-governance-and-stewardship. Conflict resolution is governance work when
+  # the records are the company's. The case keeps the second brain because these are the user's
+  # own notes, where the rule is to keep both claims rather than to arbitrate one.
+  - id: brain-vs-mdm-conflict
+    query: Hai nguồn trong vault nói ngược nhau. Giữ lại cả hai claim kèm bản in, thẩm quyền, ngày tháng và ai là người phân xử, đừng ghi đè.
+    expected_primary_skill: personal-second-brain-and-knowledge-os
+    rejected_skill: master-data-management
+    expected_task: brain-resolve-knowledge-conflict
+  - id: brain-vs-ctx-audience
+    query: "Ghi lại chân dung người đọc của tôi: họ vướng gì, trình độ đến đâu, dùng từ nào, hay phản bác gì và chủ đề nào nhạy cảm."
+    expected_primary_skill: personal-second-brain-and-knowledge-os
+    rejected_skill: company-data-context
+    expected_task: brain-build-audience-context
+  - id: book-vs-brain-glossary
+    query: "Lập bảng thuật ngữ cho quyển sách: chuẩn hoá các cách gọi khác nhau, định nghĩa, chương nào nhắc tới và khái niệm liên quan."
+    expected_primary_skill: book-to-knowledge-and-action
+    rejected_skill: personal-second-brain-and-knowledge-os
+    expected_task: book-build-concept-glossary
+  - id: book-vs-ctx-topic-index
+    query: Ánh xạ câu hỏi đời thường của tôi sang đúng chương, đúng framework và đúng tệp đích của quyển sách.
+    expected_primary_skill: book-to-knowledge-and-action
+    rejected_skill: company-data-context
+    expected_task: book-build-topic-index

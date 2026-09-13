@@ -1,5 +1,33 @@
 # Changelog
 
+## v3.23.0 — the harness has a score now, and the router has an opinion about R2
+
+**data-trainer stops reading UNEVALUATED.** Twenty cases ask the harness what it does when a run
+requests a particular task, and get one of three answers: allowed, gated, or refused. Sixteen name
+a task; four state an invariant a widened harness would break. The expectations are written from
+what the flow is meant to be, never read back out of the declaration they check — a case computed
+from its own subject passes by construction and measures nothing.
+
+Teeth were verified before the score was recorded. Publishing was moved into scope, a gate was
+removed, an exclusion lost its reason, a gate was pointed at a task that does not exist, and a
+workflow task was dropped from the scope. Each broke a case. 20/20 for suite 3.23.0.
+
+**A score can no longer outlive the thing it measured.** `score_is_for_version` was free to name an
+older release, which reads exactly like a fresh measurement. Validation now compares it against the
+suite version, and it caught this release's own bump before the re-run.
+
+**R2 evaluation coverage goes from 28.4% to 44.9%.** The 161 uncovered R2 contracts were not worth
+a case each; the 37 that share most of their name with a task in another skill were, because that
+similarity is the shape a router confuses. The first pair is a literal collision —
+`bi-build-source-authority-matrix` and `meta-build-source-authority-matrix` differ by prefix alone.
+
+Those 37 were then sent to a model rather than left as structure. **78.4% skill accuracy, and 97.3%
+rival avoidance** — which is the interesting part: on the seven misses the model almost never picks
+the rival the case names, it picks a third skill. The pairs designed here are not the confusion
+that occurs. Each miss carries a note above it saying what the model answered and why the case
+still expects what it expects, and one case was wrong rather than the model: it listed eight
+cross-role concerns, which makes the orchestrator the correct answer. That query is narrower now.
+
 ## v3.22.1 — the install note named the wrong directory
 
 The permission entry v3.22.0 documented pointed at the marketplace checkout. `${CLAUDE_PLUGIN_ROOT}`

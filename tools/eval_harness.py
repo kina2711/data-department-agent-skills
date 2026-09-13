@@ -37,13 +37,19 @@ ROOT = Path(__file__).resolve().parents[1]
 SKILLS = ROOT / "skills"
 CASES = ROOT / "evaluations"
 
+RISK_ORDER = ["R0-light", "R1-reviewed", "R2-standard", "R3-controlled", "R4-critical"]
+
 SUITES = {
     "routing": ("routing-cases.yaml", "query routes to a skill and an ordered set of tasks"),
     "catalog": ("catalog-routing-cases.yaml", "task lands in the right verb catalog"),
     "confusion": ("confusion-pair-cases.yaml", "the right skill wins against a named rival"),
     "lifecycle": ("lifecycle-cases.yaml", "task carries the expected profile and execution path"),
     "contract": ("contract-cases.yaml", "contract shape holds"),
+    "harness": ("harness-cases.yaml", "a harness allows, gates or refuses the work it is asked for"),
 }
+
+HARNESSES = ROOT / "harnesses"
+WORKFLOWS = ROOT / "workflows"
 
 
 def load_cases(path: Path) -> list[dict]:
@@ -109,6 +115,21 @@ def check(case: dict, suite: str, entries: dict, skills: set[str], group: dict[s
         expected = case.get("expected_catalog", "")
         if actual != expected and not actual.startswith(f"{expected}-"):
             problems.append(f"catalog {actual or '(none)'} is not in the {expected} group")
+    if suite == "harness":
+        name = case.get("harness") or ""
+        path = HARNESSES / f"{name}.harness.json"
+        if not path.is_file():
+            return [f"no harness declaration named {name!r}"]
+        doc = json.loads(path.read_text(encoding="utf-8"))
+        if case.get("rule"):
+            return harness_rule(doc, case["rule"], entries)
+        task_id = case.get("request") or ""
+        if task_id not in entries:
+            return [f"unknown task {task_id}"]
+        actual = harness_verdict(doc, task_id)
+        if actual != case.get("expect"):
+            return [f"harness {actual} {task_id}, the case expects {case.get('expect')}"]
+        return []
     if suite == "lifecycle" and case.get("task") in entries:
         entry = entries[case["task"]]
         if case.get("expected_profile") and entry["lifecycle_profile"] != case["expected_profile"]:
@@ -118,13 +139,73 @@ def check(case: dict, suite: str, entries: dict, skills: set[str], group: dict[s
     return problems
 
 
+def harness_verdict(doc: dict, task_id: str) -> str:
+    """What the declaration says a run may do when it asks for this task.
+
+    Three answers and no fourth: `allowed` to proceed unattended, `gated` behind a named
+    approver, `refused` because the boundary does not carry it. Anything the harness never
+    mentions is refused rather than allowed, since a boundary that admits whatever it forgot to
+    list is not a boundary.
+    """
+    scope = doc.get("scope") or {}
+    gates = set((doc.get("guardrails") or {}).get("gates_requiring_authority") or [])
+    if task_id in set(scope.get("tasks_out") or []):
+        return "refused"
+    if task_id not in set(scope.get("tasks_in") or []):
+        return "refused"
+    return "gated" if task_id in gates else "allowed"
+
+
+def harness_rule(doc: dict, rule: str, entries: dict) -> list[str]:
+    """The invariants a widened harness would break, checked against the declaration."""
+    scope = doc.get("scope") or {}
+    guards = doc.get("guardrails") or {}
+    tasks_in = list(scope.get("tasks_in") or [])
+    gates = set(guards.get("gates_requiring_authority") or [])
+    problems: list[str] = []
+
+    if rule == "every-in-scope-task-at-or-above-stop-tier-is-gated":
+        stop = str(guards.get("stops_at_risk_tier") or "")
+        if stop not in RISK_ORDER:
+            return [f"stop tier {stop or '(empty)'} is not a known tier"]
+        floor = RISK_ORDER.index(stop)
+        for task_id in tasks_in:
+            tier = (entries.get(task_id) or {}).get("risk_tier", "")
+            if tier in RISK_ORDER and RISK_ORDER.index(tier) >= floor and task_id not in gates:
+                problems.append(f"{task_id} is {tier} and runs with no gate")
+    elif rule == "every-excluded-task-names-a-reason":
+        reason = str(scope.get("out_reason") or "")
+        for task_id in scope.get("tasks_out") or []:
+            if task_id not in reason:
+                problems.append(f"{task_id} is excluded and out_reason never says why")
+    elif rule == "every-gate-names-a-real-task-or-script":
+        for gate in sorted(gates):
+            if gate in entries:
+                continue
+            script = gate.split()[0]
+            if script.endswith((".py", ".js", ".sh")) and any(SKILLS.glob(f"*/scripts/{script}")):
+                continue
+            problems.append(f"gate {gate!r} names neither a catalog task nor a shipped script")
+    elif rule == "every-workflow-task-is-in-scope":
+        path = WORKFLOWS / f"{doc.get('harness_id', '')}.workflow.json"
+        if not path.is_file():
+            return [f"no workflow named {path.name} to compare the scope against"]
+        flow = json.loads(path.read_text(encoding="utf-8"))
+        for task in flow.get("tasks", []):
+            if task.get("task_id") and task["task_id"] not in set(tasks_in):
+                problems.append(f"workflow runs {task['task_id']}, which the scope never mentions")
+    else:
+        problems.append(f"unknown rule {rule!r}")
+    return problems
+
+
 def coverage(entries: dict, all_cases: dict[str, list[dict]]) -> dict:
     """Which contracts and skills any case mentions — the number a pass rate cannot show."""
     seen_tasks: set[str] = set()
     seen_skills: set[str] = set()
     for cases in all_cases.values():
         for case in cases:
-            for field in ("task", "expected_task"):
+            for field in ("task", "expected_task", "request"):
                 if case.get(field):
                     seen_tasks.add(case[field])
             seen_tasks.update(t for t in (case.get("expected_tasks") or []) if t)

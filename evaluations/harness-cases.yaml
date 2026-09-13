@@ -1,0 +1,130 @@
+# What the Data Trainer harness must decide when a run asks to do something.
+#
+# Every expectation here is written from what the flow is supposed to be, not read back out of
+# harness declaration. That distinction is the whole point: a case computed from the file it
+# checks passes by construction and measures nothing. These fail when somebody widens the
+# boundary, which is the event worth catching.
+#
+# Three verdicts. `allowed` means the run may do it unattended. `gated` means it may do it only
+# after a named person with authority says so. `refused` means the harness does not carry it at
+# all, and the run has to hand it back rather than improvise.
+cases:
+  # --- the refusals, which are the reason this harness exists ------------------------------
+  - id: dt-refuse-publishing
+    harness: data-trainer
+    request: content-publish-technical-content
+    expect: refused
+    because: The account belongs to the author. A flow that lists publishing invites a claim that
+      something was published, and nobody would hold evidence for it.
+  - id: dt-refuse-performance-measurement
+    harness: data-trainer
+    request: content-measure-series-performance
+    expect: refused
+    because: Reach and engagement exist only after a post is live. This harness never posts, so
+      the numbers it would report are numbers it cannot have.
+  - id: dt-refuse-knowledge-deletion
+    harness: data-trainer
+    request: brain-retire-stale-knowledge
+    expect: refused
+    because: Retiring notes deletes the user's own knowledge. A harness built to teach a subject
+      has no business removing what the user already wrote.
+  - id: dt-refuse-out-of-role-governance
+    harness: data-trainer
+    request: dg-plan-data-asset-retirement
+    expect: refused
+    because: Asset lifecycle governance is another role's work. Being adjacent to data is not
+      the same as being in scope.
+
+  # --- the gates, where the run stops and waits for a person ------------------------------
+  - id: dt-gate-copyright
+    harness: data-trainer
+    request: book-audit-copyright-and-privacy
+    expect: gated
+    because: Quoting limits are decided before deep reading, and the decision is a legal one that
+      belongs to a person rather than to a run.
+  - id: dt-gate-vault-privacy
+    harness: data-trainer
+    request: brain-run-privacy-freshness-audit
+    expect: gated
+    because: The vault holds the user's private material. Writing into it is theirs to approve.
+  - id: dt-gate-corpus-plan
+    harness: data-trainer
+    request: academy-plan-note-corpus
+    expect: gated
+    because: The corpus plan fixes the shape of every note that follows. Getting it wrong is
+      cheap to fix here and expensive to fix after two hundred notes exist.
+  - id: dt-gate-ai-prose-review
+    harness: data-trainer
+    request: core-review-ai-prose
+    expect: gated
+    because: The review gate is what makes generated text publishable. A run that could clear its
+      own review would be marking its own homework.
+  - id: dt-gate-ai-code-review
+    harness: data-trainer
+    request: core-review-ai-code
+    expect: gated
+    because: Same reason as the prose gate, for the code the series ships.
+  - id: dt-gate-ai-media-review
+    harness: data-trainer
+    request: core-review-ai-media
+    expect: gated
+    because: Images and video carry claims too, and a rendered figure is as publishable as a
+      paragraph.
+
+  # --- the work the harness is actually for ------------------------------------------------
+  - id: dt-allow-source-extraction
+    harness: data-trainer
+    request: book-extract-source-text
+    expect: allowed
+    because: Reading the material in ./ref is the first thing the flow does and touches nothing
+      outside the project.
+  - id: dt-allow-transcription
+    harness: data-trainer
+    request: brain-transcribe-audio-video-source
+    expect: allowed
+    because: Lecture video is a source like any other, and transcribing it writes only into the
+      project's own working files.
+  - id: dt-allow-roadmap
+    harness: data-trainer
+    request: academy-research-role-roadmap
+    expect: allowed
+    because: The roadmap is the deliverable the user asked for, drafted before anything is
+      published anywhere.
+  - id: dt-allow-note-writing
+    harness: data-trainer
+    request: academy-build-note-module
+    expect: allowed
+    because: Notes are written into ./notes in the project, not into the vault, so no approved
+      boundary is crossed by building a module of them.
+  - id: dt-allow-channel-variant
+    harness: data-trainer
+    request: content-write-facebook-technical-post
+    expect: allowed
+    because: Drafting a post is not posting it. The draft is handed over for the user to send.
+  - id: dt-allow-final-package
+    harness: data-trainer
+    request: content-package-technical-series-repository
+    expect: allowed
+    because: The package is where the flow ends. It has to be reachable without approval or the
+      harness could never finish.
+
+  # --- invariants a widened harness would break --------------------------------------------
+  - id: dt-controlled-work-is-gated
+    harness: data-trainer
+    rule: every-in-scope-task-at-or-above-stop-tier-is-gated
+    because: The declaration says the run stops at R3. If an R3 task were in scope with no gate
+      in front of it, the stop tier would be a comment rather than a control.
+  - id: dt-exclusions-carry-reasons
+    harness: data-trainer
+    rule: every-excluded-task-names-a-reason
+    because: An exclusion without a reason cannot be reviewed, and cannot be argued with when it
+      turns out to be wrong.
+  - id: dt-gates-name-real-work
+    harness: data-trainer
+    rule: every-gate-names-a-real-task-or-script
+    because: A gate in front of something that does not exist stops nothing.
+  - id: dt-scope-covers-the-workflow
+    harness: data-trainer
+    rule: every-workflow-task-is-in-scope
+    because: A task the workflow runs and the harness never mentions is work happening outside
+      the boundary that was supposed to contain it.
