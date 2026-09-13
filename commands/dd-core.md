@@ -1,6 +1,6 @@
 ---
 name: dd-core
-description: "Open the Shared Task Controls department (build stage) and route the request to one of its 18 atomic tasks. Apply reusable controls for task context packaging, data discovery, glossary resolution, schema inspection, profiling, safe SQL, access, sensitive data, impact analysis, documentation, approvals, handoffs, and deliverable verification."
+description: "Open the Shared Task Controls department (build stage) and route the request to one of its 21 atomic tasks. Apply reusable controls for task context packaging, data discovery, glossary resolution, schema inspection, profiling, safe SQL, access, sensitive data, impact analysis, documentation, approvals, handoffs, and deliverable verification."
 argument-hint: "<request>"
 disable-model-invocation: true
 ---
@@ -9,7 +9,7 @@ disable-model-invocation: true
 
 Open the **Shared Task Controls** department for: $ARGUMENTS
 
-Sprint stage: `build`. This department owns 18 atomic tasks.
+Sprint stage: `build`. This department owns 21 atomic tasks.
 
 1. Read `skills/shared-task-controls/SKILL.md` and follow its operating contract.
 2. Confirm this department actually owns the primary deliverable. If another role owns it,

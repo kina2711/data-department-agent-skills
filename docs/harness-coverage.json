@@ -1,0 +1,313 @@
+{
+  "workflows": [
+    {
+      "workflow": "analytics-engineering-standard-path",
+      "kind": "template",
+      "tasks": 22,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "book-to-knowledge-and-action-standard-path",
+      "kind": "template",
+      "tasks": 45,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "business-intelligence-standard-path",
+      "kind": "template",
+      "tasks": 32,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "company-data-context-standard-path",
+      "kind": "template",
+      "tasks": 9,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-academy-and-curriculum-standard-path",
+      "kind": "template",
+      "tasks": 52,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-analysis-standard-path",
+      "kind": "template",
+      "tasks": 29,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-architecture-standard-path",
+      "kind": "template",
+      "tasks": 22,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-business-analysis-standard-path",
+      "kind": "template",
+      "tasks": 24,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-career-and-interview-coach-standard-path",
+      "kind": "template",
+      "tasks": 57,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-department-orchestrator-standard-path",
+      "kind": "template",
+      "tasks": 27,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-developer-experience-standard-path",
+      "kind": "template",
+      "tasks": 20,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-documentation-and-diagrams-standard-path",
+      "kind": "template",
+      "tasks": 20,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-enablement-and-knowledge-standard-path",
+      "kind": "template",
+      "tasks": 17,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-engineering-standard-path",
+      "kind": "template",
+      "tasks": 25,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-governance-and-stewardship-standard-path",
+      "kind": "template",
+      "tasks": 22,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-onboarding-and-integration-standard-path",
+      "kind": "template",
+      "tasks": 34,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-personal-project-engineering-standard-path",
+      "kind": "template",
+      "tasks": 42,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-platform-and-dataops-standard-path",
+      "kind": "template",
+      "tasks": 21,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-quality-and-reliability-standard-path",
+      "kind": "template",
+      "tasks": 21,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-science-standard-path",
+      "kind": "template",
+      "tasks": 22,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-security-and-privacy-standard-path",
+      "kind": "template",
+      "tasks": 16,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-talent-acquisition-and-interview-standard-path",
+      "kind": "template",
+      "tasks": 41,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-technical-content-and-social-standard-path",
+      "kind": "template",
+      "tasks": 29,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "data-trainer",
+      "kind": "authored",
+      "tasks": 56,
+      "harness": "data-trainer",
+      "harness_status": "draft",
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "generative-ai-engineering-standard-path",
+      "kind": "template",
+      "tasks": 24,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "head-of-data-and-data-product-standard-path",
+      "kind": "template",
+      "tasks": 21,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "machine-learning-engineering-standard-path",
+      "kind": "template",
+      "tasks": 20,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "master-data-management-standard-path",
+      "kind": "template",
+      "tasks": 13,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "metadata-engineering-and-catalog-standard-path",
+      "kind": "template",
+      "tasks": 18,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "mlops-standard-path",
+      "kind": "template",
+      "tasks": 23,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "personal-second-brain-and-knowledge-os-standard-path",
+      "kind": "template",
+      "tasks": 50,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "product-analytics-and-experimentation-standard-path",
+      "kind": "template",
+      "tasks": 17,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "shared-task-controls-standard-path",
+      "kind": "template",
+      "tasks": 21,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    },
+    {
+      "workflow": "technical-translation-standard-path",
+      "kind": "template",
+      "tasks": 17,
+      "harness": null,
+      "harness_status": null,
+      "evaluated": false,
+      "tasks_outside_harness": []
+    }
+  ],
+  "harnesses": [
+    "data-trainer"
+  ]
+}

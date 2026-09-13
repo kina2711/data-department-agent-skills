@@ -21,7 +21,7 @@ data-department-agent-skills
 ├── Wave 0 — control plane
 │   ├── company-data-context  (9 tasks, cao nhất R2-standard)
 │   ├── data-department-orchestrator  (27 tasks, cao nhất R2-standard)
-│   └── shared-task-controls  (18 tasks, cao nhất R3-controlled)
+│   └── shared-task-controls  (21 tasks, cao nhất R3-controlled)
 ├── Wave 1 — đường đi từ request đến trusted analytics
 │   ├── analytics-engineering  (22 tasks, cao nhất R3-controlled)
 │   ├── business-intelligence  (32 tasks, cao nhất R4-critical)
@@ -114,6 +114,9 @@ Mỗi task module phải khai báo đủ:
 - `core-request-human-approval` — tạo approval package đúng owner; output: auditable approval request.
 - `core-handoff-data-work` — đóng gói context, artifacts, open risks và next action; output: lossless handoff package.
 - `core-verify-deliverable` — chạy checklist theo loại artifact và thu evidence; output: pass/fail verification report.
+- `core-review-ai-prose` — rà văn bản do model viết theo catalogue AI tell, và kiểm rằng bản viết lại không thêm hay mất một dữ kiện, số, tên, ngày hay trích dẫn nào; output: prose review verdict.
+- `core-review-ai-code` — rà code do model viết: API không tồn tại, không có bằng chứng đã chạy, xử lý cho trạng thái bất khả thi, abstraction một người gọi, test bám implementation; output: code review verdict.
+- `core-review-ai-media` — rà ảnh và video: ảnh màn hình phải chụp chứ không được dựng, số trong biểu đồ phải có truy vấn, nhãn sơ đồ phải có thật, và ghi rõ tệp được tạo bằng cách nào; output: media review verdict.
 - `core-build-task-context-package` — gom task, business, schema, lineage, constraints và evidence thành context bundle có manifest, provenance, freshness và token budget; output: prompt-ready task context package.
 
 ## 4A. Company Data Context — bộ nhớ có quản trị của phòng Data

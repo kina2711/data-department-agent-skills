@@ -1,7 +1,7 @@
 {
   "harness_id": "data-trainer",
   "role": "data-department-orchestrator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "owner": "",
   "_": "Harness cho luồng Data Trainer. Owner để trống theo đúng quy ước của workflow: một bản khai phát hành kèm tên người sẽ giao việc cho người không có mặt khi người khác dùng nó. Điền owner trước khi chạy.",
   "scope": {
@@ -14,6 +14,7 @@
       "academy-plan-corpus-milestone",
       "academy-plan-note-corpus",
       "academy-research-role-roadmap",
+      "academy-run-note-diagnostic",
       "book-assess-source-rights",
       "book-audit-copyright-and-privacy",
       "book-audit-source-traceability",
@@ -55,7 +56,12 @@
       "content-write-threads-post",
       "core-define-success-contract",
       "core-handoff-data-work",
-      "core-verify-deliverable"
+      "core-review-ai-code",
+      "core-review-ai-media",
+      "core-review-ai-prose",
+      "core-verify-deliverable",
+      "orchestrator-audit-agent-harness",
+      "orchestrator-define-agent-harness"
     ],
     "tasks_out": [
       "brain-retire-stale-knowledge",
@@ -97,9 +103,12 @@
     "writes_per_run_limit": 0,
     "stops_at_risk_tier": "R3-controlled",
     "gates_requiring_authority": [
+      "academy-plan-note-corpus",
       "book-audit-copyright-and-privacy",
       "brain-run-privacy-freshness-audit",
-      "academy-plan-note-corpus",
+      "core-review-ai-code",
+      "core-review-ai-media",
+      "core-review-ai-prose",
       "write_vault_bundle.py --apply"
     ]
   },
@@ -148,5 +157,5 @@
     ]
   },
   "status": "draft",
-  "updated_at": "2026-09-13T03:59:47+00:00"
+  "updated_at": "2026-09-13T04:45:34+00:00"
 }

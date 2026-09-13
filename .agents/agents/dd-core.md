@@ -1,7 +1,7 @@
 ---
 name: dd-core
 description: >-
-  Shared Task Controls department (build stage), owning 18 atomic task contracts.
+  Shared Task Controls department (build stage), owning 21 atomic task contracts.
   Apply reusable controls for task context packaging, data discovery, glossary resolution, schema inspection, profiling, safe SQL, access, sensitive data, impact analysis, documentation, approvals, handoffs, and deliverable verification. Use when another data role needs a common control, bounded context bundle, or evidence check.
 model: inherit
 mainAgent: true
@@ -15,7 +15,7 @@ skills:
 
 # Shared Task Controls
 
-Sprint stage: `build`. This department owns 18 atomic task contracts.
+Sprint stage: `build`. This department owns 21 atomic task contracts.
 
 ## Operating contract
 

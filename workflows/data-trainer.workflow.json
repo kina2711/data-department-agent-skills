@@ -263,7 +263,7 @@
       "task_id": "core-verify-deliverable",
       "owner": "",
       "depends_on": [
-        "academy-build-note-module"
+        "core-review-ai-prose"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -525,7 +525,8 @@
       "task_id": "content-test-code-and-diagrams",
       "owner": "",
       "depends_on": [
-        "content-render-post-images"
+        "core-review-ai-code",
+        "core-review-ai-media"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -582,7 +583,8 @@
       "depends_on": [
         "content-write-facebook-technical-post",
         "content-write-linkedin-technical-post",
-        "content-write-threads-post"
+        "content-write-threads-post",
+        "core-review-ai-prose"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -689,8 +691,61 @@
       "task_id": "orchestrator-audit-agent-harness",
       "owner": "",
       "depends_on": [
-        "content-package-technical-series-repository",
-        "brain-run-privacy-freshness-audit"
+        "academy-run-note-diagnostic",
+        "brain-run-privacy-freshness-audit",
+        "content-package-technical-series-repository"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-review-ai-prose",
+      "owner": "",
+      "depends_on": [
+        "academy-build-note-module"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-review-ai-code",
+      "owner": "",
+      "depends_on": [
+        "content-build-code-example-package"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-review-ai-media",
+      "owner": "",
+      "depends_on": [
+        "content-render-post-images"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-run-note-diagnostic",
+      "owner": "",
+      "depends_on": [
+        "academy-index-note-corpus"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -702,5 +757,5 @@
   ],
   "transitions": [],
   "claims": [],
-  "updated_at": "2026-09-13T04:01:26+00:00"
+  "updated_at": "2026-09-13T04:47:04+00:00"
 }

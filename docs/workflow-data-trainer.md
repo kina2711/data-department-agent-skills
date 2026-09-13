@@ -1,9 +1,9 @@
-# Sách → note corpus → giáo trình → vault
+# Data Trainer — sách, slide, video → note → giáo trình → vault → content
 
 Một workflow chạy được cho việc lặp lại: có một kệ sách, muốn ra bộ note đầy đủ có hệ
 thống cho đúng một đối tượng, rồi đưa vào vault Obsidian.
 
-`workflows/book-to-curriculum-to-vault.workflow.json` — 29 task, 19 đợt, 2 cổng duyệt.
+`workflows/data-trainer.workflow.json` — 56 task, 2 cổng duyệt. Xem số đợt hiện tại bằng `tools/audit_harness_coverage.py` hoặc nút Chạy thử khô trong app.
 
 ## Vì sao ba skill chứ không một
 
@@ -54,7 +54,7 @@ bạn → `3_Toi`; giáo trình → `4_Ket-Qua`.
 
 ## Chạy thế nào
 
-**Trong app:** tab Workflow → chọn `book-to-curriculum-to-vault` → **Chạy thử khô** để
+**Trong app:** tab Workflow → chọn `data-trainer` → **Chạy thử khô** để
 xem 19 đợt và 2 cổng → gán owner → Validate → chạy.
 
 Hoặc tab Skills → *Book to Knowledge and Action* → công việc **"Sách → note corpus →

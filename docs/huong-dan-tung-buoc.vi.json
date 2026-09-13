@@ -1,6 +1,6 @@
 {
  "_": "Sinh tự động bởi tools/build_skill_tutorials.py. Mỗi bước trỏ tới một task có thật, kèm mục tiêu và kết quả mà chính catalog khai báo. Đừng sửa tay: chạy lại generator.",
- "suite_version": "3.20.0",
+ "suite_version": "3.21.0",
  "skills": {
   "analytics-engineering": {
    "tom_tat": "Mô hình staging, intermediate, mart, dimensional và semantic có quản trị — kèm test, tài liệu, lineage, logic incremental và kiểm soát phát hành.",
@@ -2629,7 +2629,7 @@
   },
   "shared-task-controls": {
    "tom_tat": "Bộ kiểm soát dùng chung cho mọi vai: đóng gói context có giới hạn, dò tìm tài sản, soi schema, profiling, kiểm chứng, bằng chứng, phê duyệt và bàn giao.",
-   "so_task": 18,
+   "so_task": 21,
    "cac_buoc": [
     {
      "buoc": "Bắt đầu",
@@ -2651,7 +2651,7 @@
     },
     {
      "buoc": "Làm tiếp — kiểm chứng",
-     "vi_sao": "Skill này có 6 task ở nhóm test-assure; đây là ba task đầu theo thứ tự trong catalog.",
+     "vi_sao": "Skill này có 9 task ở nhóm test-assure; đây là ba task đầu theo thứ tự trong catalog.",
      "tasks": [
       {
        "task": "core-audit-change-scope",

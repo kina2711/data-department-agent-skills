@@ -2,7 +2,7 @@
  "_": "Generated. Every level comes from an authored source: waves from skill-map section 40, skills from SKILL.md on disk, shards from catalog-*.md, tasks from task-catalog.json. A skill in no wave is reported as unplaced, never filed somewhere plausible.",
  "root": "data-department-agent-skills",
  "skill_count": 33,
- "task_count": 870,
+ "task_count": 873,
  "waves": [
   {
    "wave": "Wave 0",
@@ -350,9 +350,9 @@
     {
      "skill": "shared-task-controls",
      "description": "Apply shared data controls for bounded task-context packaging, discovery, schema inspection, profiling, validation, evidence, approvals and handoffs. Use when a data task needs reusable cross-role safeguards, a prompt-ready context bundle or artifact checks.",
-     "task_count": 18,
+     "task_count": 21,
      "risk_mix": {
-      "R0-light": 14,
+      "R0-light": 17,
       "R1-reviewed": 2,
       "R2-standard": 1,
       "R3-controlled": 1
@@ -457,7 +457,7 @@
       },
       {
        "shard": "test-assure",
-       "task_count": 6,
+       "task_count": 9,
        "tasks": [
         {
          "id": "core-audit-change-scope",
@@ -483,6 +483,27 @@
         {
          "id": "core-profile-dataset",
          "output": "profile report",
+         "risk_tier": "R0-light",
+         "execution_path": "fast-path",
+         "criticality": "standard"
+        },
+        {
+         "id": "core-review-ai-code",
+         "output": "code review verdict",
+         "risk_tier": "R0-light",
+         "execution_path": "fast-path",
+         "criticality": "standard"
+        },
+        {
+         "id": "core-review-ai-media",
+         "output": "media review verdict",
+         "risk_tier": "R0-light",
+         "execution_path": "fast-path",
+         "criticality": "standard"
+        },
+        {
+         "id": "core-review-ai-prose",
+         "output": "prose review verdict",
          "risk_tier": "R0-light",
          "execution_path": "fast-path",
          "criticality": "standard"

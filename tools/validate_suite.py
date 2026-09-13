@@ -488,6 +488,11 @@ def check_preset_jobs(skills: set[str], task_ids: set[str]) -> list[str]:
     except _json.JSONDecodeError as exc:
         return [f"{path.name}: unreadable: {exc}"]
 
+    workflow_ids = {
+        _json.loads(w.read_text(encoding="utf-8")).get("workflow_id") or w.stem.replace(".workflow", "")
+        for w in (ROOT / "workflows").glob("*.workflow.json")
+    }
+
     jobs = doc.get("cong_viec")
     if not isinstance(jobs, list) or not jobs:
         return [f"{path.name}: no cong_viec list"]
@@ -526,6 +531,13 @@ def check_preset_jobs(skills: set[str], task_ids: set[str]) -> list[str]:
         for part in job.get("mau") or []:
             text = part if isinstance(part, str) else str(part.get("text", ""))
             used.update(_re.findall(r"\{([a-z0-9_]+)\}", text))
+            # A template naming a workflow that no longer exists sends the agent looking for
+            # nothing. It happened: a job outlived the workflow it ran, and every validator stayed
+            # green because none of them read the prose inside a template.
+            for named in _re.findall(r"`([a-z0-9-]+)`\s+trong workflows/", text):
+                if named not in workflow_ids:
+                    errors.append(f"{path.name}: {jid} names workflow {named!r}, "
+                                  "which workflows/ does not have")
             if isinstance(part, dict):
                 condition = str(part.get("neu", "")).strip()
                 if condition and condition not in declared:
@@ -593,6 +605,8 @@ def check_universal_references(skills: set[str]) -> list[str]:
         "response-compression.md",
         "tool-output-budget.md",
         "context-budget-standard.md",
+        "agent-harness-standard.md",
+        "harness-delivery-loop.md",
         "model-selection.md",
     ]
     errors: list[str] = []

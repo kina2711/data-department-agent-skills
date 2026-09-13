@@ -39,7 +39,7 @@ After selecting the task, detect the real stack/version and read only the matchi
 
 - **Plan, define, design, map, specify or create a proposed artifact** (3 tasks): read [references/catalog-plan-design.md](references/catalog-plan-design.md).
 - **Build, implement, configure, teach, interview or deliver an artifact** (9 tasks): read [references/catalog-build-deliver.md](references/catalog-build-deliver.md).
-- **Inspect, analyze, test, review, validate, assess, certify or audit** (6 tasks): read [references/catalog-test-assure.md](references/catalog-test-assure.md).
+- **Inspect, analyze, test, review, validate, assess, certify or audit** (9 tasks): read [references/catalog-test-assure.md](references/catalog-test-assure.md).
 
 Read only the best-matching catalog. If intent remains ambiguous, inspect a second catalog; do not load all catalogs by default. Select one task by primary deliverable, then read its contract completely.
 
