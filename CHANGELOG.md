@@ -1,5 +1,15 @@
 # Changelog
 
+## v3.23.1 — the coverage report disagreed with the harness it reports on
+
+`docs/harness-coverage.json` still called data-trainer unevaluated while the declaration beside it
+carried 20/20. The report is generated, nothing regenerated it, and a generated copy nobody
+refreshes is a second answer to a question that already had one — the more convincing answer, since
+it is the file a reader opens first.
+
+Regenerated, and validation now compares the two. Verified by setting the row back to false and
+watching it fail.
+
 ## v3.23.0 — the harness has a score now, and the router has an opinion about R2
 
 **data-trainer stops reading UNEVALUATED.** Twenty cases ask the harness what it does when a run

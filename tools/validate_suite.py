@@ -719,6 +719,23 @@ def check_harness_scores() -> list[str]:
         cases = ROOT / str(ev.get("cases_ref") or "")
         if not cases.is_file():
             errors.append(f"{path.name}: cases_ref points at {ev.get('cases_ref')!r}, which is not a file")
+
+    # The coverage report is a generated copy of what the declarations say, and a copy that is
+    # not regenerated is a second answer to the same question. v3.23.0 shipped with the report
+    # still calling data-trainer unevaluated while the harness beside it carried 20/20.
+    report = ROOT / "docs" / "harness-coverage.json"
+    if report.is_file():
+        rows = {r["workflow"]: r for r in _json.loads(report.read_text(encoding="utf-8")).get("workflows", [])}
+        for path in sorted((ROOT / "harnesses").glob("*.harness.json")):
+            doc = _json.loads(path.read_text(encoding="utf-8"))
+            wid = doc.get("harness_id") or ""
+            row = rows.get(wid)
+            if row is None:
+                errors.append(f"docs/harness-coverage.json has no row for {wid}; regenerate with "
+                              "tools/audit_harness_coverage.py --json docs/harness-coverage.json")
+            elif bool(row.get("evaluated")) != bool((doc.get("evaluation") or {}).get("cases_total")):
+                errors.append(f"docs/harness-coverage.json says {wid} evaluated="
+                              f"{row.get('evaluated')}, the declaration disagrees; regenerate it")
     return errors
 
 

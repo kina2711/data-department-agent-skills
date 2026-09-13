@@ -213,7 +213,7 @@
       "tasks": 56,
       "harness": "data-trainer",
       "harness_status": "draft",
-      "evaluated": false,
+      "evaluated": true,
       "tasks_outside_harness": []
     },
     {
