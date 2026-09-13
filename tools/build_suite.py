@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MAP = ROOT / "docs" / "skill-map.md"
 SKILLS = ROOT / "skills"
-SUITE_VERSION = "3.21.0"
+SUITE_VERSION = "3.21.1"
 REPOSITORY_URL = "https://github.com/kina2711/data-department-agent-skills"
 
 
@@ -1437,15 +1437,15 @@ It does not make the work correct. Passing four gates means four things were che
 
 AGENT_HARNESS_STANDARD = """# Agent harness
 
-A harness is everything one agent needs to do one role's work, packaged so it behaves the same way twice and can be handed to somebody else. It is not a bundle of skills. It is a boundary, and most of its value is in what it excludes.
+Everything one agent needs to do one role's work, packaged so it behaves the same way twice and can be handed to somebody else — that is a harness. It is not a bundle of skills. It is a boundary, and most of its value is in what it excludes.
 
 The suite already has the parts — task contracts, a context package, a tool surface, evaluation cases, run state. What a harness adds is the declaration of which ones apply, and that declaration is the artifact `orchestrator-define-agent-harness` produces.
 
 ## Agent = model + harness
 
-A model is a text predictor that stands still and forgets. It cannot run a command, cannot see a file, and remembers nothing between calls. Everything an agent does that a model cannot, the harness does — which is why the same model, wrapped in two different harnesses, produces an agent that finishes a project and an agent that flails.
+A model is a text predictor that stands still and forgets. It cannot run a command, cannot see a file, and remembers nothing between calls. Everything else an agent does, the frame around it does — so the same weights wrapped two different ways give you one agent that finishes a project and one that flails.
 
-Four parts, and every one of them already exists somewhere in this suite. Naming them together is the point: a harness missing one of the four fails in a way that looks like the model being bad at its job.
+Four parts. Every one already exists somewhere in this suite, and naming them together is the point: leave one out and the failure looks like the model being bad at its job.
 
 **The loop.** Think, call a tool, read what came back, think again, one step at a time until the work is done. [The harness delivery loop](harness-delivery-loop.md) is this suite's version, and the reason a loop is a design decision rather than a detail is that the stopping condition is part of it: a loop with no stated finish runs until something else stops it.
 
@@ -1455,7 +1455,7 @@ Four parts, and every one of them already exists somewhere in this suite. Naming
 
 **Safety rails.** An agent will trip. A command errors, a permission is wider than the task needed, an answer is confidently wrong. Risk tiers, approval gates, the production guard hook and [safety and approvals](safety-and-approvals.md) are the floor it lands on: bound the permission, catch the error, retry what is safe to retry, and ask a person for the rest. Trip without falling.
 
-The strongest models are trained for the harness they run inside; the two are designed to fit. That is the whole reason the same model behaves differently in two harnesses, and the reason a harness is worth declaring rather than assuming.
+The strongest models are trained for the frame they run inside; the two are designed to fit. Which is why declaring it beats assuming it.
 
 ## What a harness declares
 
@@ -1468,9 +1468,9 @@ The strongest models are trained for the harness they run inside; the two are de
 
 ## Reproducible, or it cannot be debugged
 
-Two runs of the same harness on the same input should differ only where the model is non-deterministic — never because a prompt, a corpus or a schema moved underneath it. Pin every input that is not the user's request, and record the pinned versions with the run.
+Two runs on the same input should differ only where the model is non-deterministic. Never because a prompt, a corpus or a schema moved underneath them. Pin every input that is not the user's request, and record the pinned versions with the run.
 
-When an agent produces something wrong, the first question is what it was working from — the model, the prompt, the corpus, the schema, each at the version it had that day. Unable to answer that, a harness turns every investigation into an archaeology exercise, and the answer is usually that something changed and nobody knows what.
+When an agent produces something wrong, the first question is what it was working from — the model, the prompt, the corpus, the schema, each at the version it had that day. Unable to answer that, every investigation becomes archaeology. The finding is almost always the same: something changed and nobody knows what.
 
 ## Version it, because a changed harness is a different agent
 
@@ -1478,15 +1478,15 @@ Swap the model. Edit the system prompt, add a tool, widen the scope — each one
 
 ## Handing one over transfers risk as well as capability
 
-Handed to another team, a harness runs under their credentials, in their environment, against their data. The guardrails travel with it or the harness is not what they received. State plainly what it may write, what it may spend, and what it stops for; a recipient who has to infer the blast radius from reading prompts will infer it wrong.
+Handed to another team, a harness runs under their credentials, in their environment, against their data. The guardrails travel with it, or what they received is something else. State plainly what it may write, what it may spend, and what it stops for; a recipient who has to infer the blast radius from reading prompts will infer it wrong.
 
 Name an accountable owner. An unowned harness in production is a set of permissions nobody is watching.
 
 ## What the harness does not change
 
-It packages how work is done; it does not lower what the work must clear. Every gate in the lifecycle standard applies inside a harness exactly as outside it: evidence for material claims, named authority for R3 and above, and no claim of production execution without it. Quietly relax a gate and the agent is not more capable, only less accountable.
+It packages how work is done; it does not lower what the work must clear. Gates from the lifecycle standard apply inside one exactly as outside it: evidence for material claims, named authority for R3 and above, and no claim of production execution without it. Quietly relax a gate and the agent is not more capable, only less accountable.
 
-Nor does packaging make an agent correct. A harness with a clean evaluation on ten cases is an agent that passed ten cases.
+Nor does packaging make an agent correct. A clean evaluation on ten cases means an agent that passed ten cases.
 """
 
 AI_OUTPUT_REVIEW_GATE = """# Reviewing what a model produced, before anyone relies on it
