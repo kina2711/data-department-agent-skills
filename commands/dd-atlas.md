@@ -12,17 +12,17 @@ You are drawing a map, not designing one. Every level of the tree comes from a f
 1. Regenerate, so nothing you report is read off a stale picture:
 
 ```
-python3 tools/build_skill_atlas.py --report
+python3 ${CLAUDE_PLUGIN_ROOT}/tools/build_skill_atlas.py --report
 ```
 
-This writes `docs/skill-atlas.json`, rewrites the tree in `docs/skill-map.md` section 2 between its generated markers, and renders `docs/skill-atlas.html`.
+This writes `${CLAUDE_PLUGIN_ROOT}/docs/skill-atlas.json`, rewrites the tree in `${CLAUDE_PLUGIN_ROOT}/docs/skill-map.md` section 2 between its generated markers, and renders `${CLAUDE_PLUGIN_ROOT}/docs/skill-atlas.html`.
 
 2. Read the four levels back to the reader in the order they nest, and say where each came from:
    - **root** the repository
    - **wave** rollout bands authored in skill-map section 40
    - **skill** the `SKILL.md` files on disk
    - **shard** the `catalog-*.md` verb shards inside each skill
-   - **task** `task-catalog.json`
+   - **task** `${CLAUDE_PLUGIN_ROOT}/task-catalog.json`
 
 3. Report the gaps as findings, never as tidy-ups:
    - **Unplaced skills** — named in no wave. Do not file them somewhere plausible. Say how many tasks sit outside every wave and what share of the suite that is.

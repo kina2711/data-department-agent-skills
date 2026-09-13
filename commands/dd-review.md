@@ -7,7 +7,7 @@ disable-model-invocation: true
 
 Review stage of the harness delivery loop. Target: $ARGUMENTS
 
-Read `skills/data-department-orchestrator/references/producer-reviewer-method.md` alongside the delivery loop.
+Read `${CLAUDE_PLUGIN_ROOT}/skills/data-department-orchestrator/references/producer-reviewer-method.md` alongside the delivery loop.
 
 1. Review against the criteria fixed at Plan time, not against what was built. If the criteria were never written down, the review cannot proceed — say so.
 2. Do not read the producer's rationale before recording a verdict. A reviewer who has read it is measuring agreement with it.

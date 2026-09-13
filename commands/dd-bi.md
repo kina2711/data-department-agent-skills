@@ -11,11 +11,14 @@ Open the **Business Intelligence** department for: $ARGUMENTS
 
 Sprint stage: `build`. This department owns 32 atomic tasks.
 
-1. Read `skills/business-intelligence/SKILL.md` and follow its operating contract.
+1. Load the `business-intelligence` skill with the Skill tool
+   and follow its operating contract. Use the skill rather than a path: the plugin is installed
+   outside the working directory, so a relative path resolves against the user's project and
+   finds nothing there.
 2. Confirm this department actually owns the primary deliverable. If another role owns it,
    stop and hand off rather than silently taking ownership — use `/dd-route` to re-route.
-3. Read the matching catalog shard under `skills/business-intelligence/references/`, then select exactly
-   one atomic task by primary deliverable. Do not load every catalog.
+3. Read the matching catalog shard under `${CLAUDE_PLUGIN_ROOT}/skills/business-intelligence/references/`,
+   then select exactly one atomic task by primary deliverable. Do not load every catalog.
 4. Read that task contract completely before acting, and apply its lifecycle profile, risk
    tier and execution path.
 5. Check `project-constitution.json` if the working directory has one; a change that violates

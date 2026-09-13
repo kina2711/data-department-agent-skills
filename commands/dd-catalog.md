@@ -7,7 +7,7 @@ disable-model-invocation: true
 
 Search the atomic task catalog for: $ARGUMENTS
 
-1. Read `task-catalog.json` (the canonical machine-readable inventory). Do not answer from memory or from the skill map prose.
+1. Read `${CLAUDE_PLUGIN_ROOT}/task-catalog.json` (the canonical machine-readable inventory). Do not answer from memory or from the skill map prose.
 2. Match on task ID, deliverable and description. Treat a bare role prefix (`ae`, `de`, `bi`, `mlops`, `career`, …) as a request for that role's tasks.
 3. Return at most 15 matches as a table: task ID, owning skill, primary deliverable.
 4. If more than 15 match, say how many were found and narrow by the most specific deliverable.

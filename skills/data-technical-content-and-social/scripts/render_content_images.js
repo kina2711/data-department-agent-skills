@@ -18,7 +18,7 @@
  *     skills/data-technical-content-and-social/scripts/render_content_images.js spec.json
  */
 
-const { app, BrowserWindow, nativeImage } = require('electron');
+const { app, BrowserWindow } = require('electron');
 const fs = require('node:fs');
 const path = require('node:path');
 

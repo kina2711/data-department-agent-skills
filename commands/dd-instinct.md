@@ -12,7 +12,7 @@ earns its status from counted outcomes, and loses it the same way.
 
 ## Propose
 
-Append to the ledger (`skills/data-department-orchestrator/assets/instinct-ledger.json`) with
+Append to the ledger (`${CLAUDE_PLUGIN_ROOT}/skills/data-department-orchestrator/assets/instinct-ledger.json`) with
 `status: "proposed"`, `observations` all zero, and `user_content: null`.
 
 Write it as a trigger and an action: *when* this situation holds, *then* do this, *because* of
@@ -23,7 +23,7 @@ rejects text that looks like a credential.
 ## Observe
 
 ```
-python skills/data-department-orchestrator/scripts/manage_instincts.py <ledger> --observe <id> --outcome success|failure --evidence <evidence-id> --write
+python ${CLAUDE_PLUGIN_ROOT}/skills/data-department-orchestrator/scripts/manage_instincts.py <ledger> --observe <id> --outcome success|failure --evidence <evidence-id> --write
 ```
 
 Record the outcome of an actual application, with the evidence that shows it. An observation
@@ -32,7 +32,7 @@ without evidence is an opinion.
 ## Review
 
 ```
-python skills/data-department-orchestrator/scripts/manage_instincts.py <ledger> --rescore --scope <skill>
+python ${CLAUDE_PLUGIN_ROOT}/skills/data-department-orchestrator/scripts/manage_instincts.py <ledger> --rescore --scope <skill>
 ```
 
 Confidence is the Wilson lower bound of the success rate, so a small sample scores low by

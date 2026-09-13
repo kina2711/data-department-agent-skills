@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MAP = ROOT / "docs" / "skill-map.md"
 SKILLS = ROOT / "skills"
-SUITE_VERSION = "3.21.1"
+SUITE_VERSION = "3.22.0"
 REPOSITORY_URL = "https://github.com/kina2711/data-department-agent-skills"
 
 
@@ -5694,11 +5694,14 @@ Open the **{display}** department for: $ARGUMENTS
 
 Sprint stage: `{stage}`. This department owns {task_count} atomic tasks.
 
-1. Read `skills/{skill}/SKILL.md` and follow its operating contract.
+1. Load the `{skill}` skill with the Skill tool
+   and follow its operating contract. Use the skill rather than a path: the plugin is installed
+   outside the working directory, so a relative path resolves against the user's project and
+   finds nothing there.
 2. Confirm this department actually owns the primary deliverable. If another role owns it,
    stop and hand off rather than silently taking ownership — use `/dd-route` to re-route.
-3. Read the matching catalog shard under `skills/{skill}/references/`, then select exactly
-   one atomic task by primary deliverable. Do not load every catalog.
+3. Read the matching catalog shard under `${{CLAUDE_PLUGIN_ROOT}}/skills/{skill}/references/`,
+   then select exactly one atomic task by primary deliverable. Do not load every catalog.
 4. Read that task contract completely before acting, and apply its lifecycle profile, risk
    tier and execution path.
 5. Check `project-constitution.json` if the working directory has one; a change that violates
@@ -5894,6 +5897,13 @@ def build_plugin() -> None:
                     "data-governance", "mlops", "data-quality", "data-career",
                 ],
                 "commands": ["./commands/"],
+                # Registering the skills is what makes the plugin work outside this repository.
+                # Without this key Claude Code loads the commands and no skills, so every command
+                # that said "read skills/<role>/SKILL.md" was reading a working-directory-relative
+                # path that exists in this checkout and nowhere else. Measured from an empty
+                # directory: the file is not found, and reading it by absolute path instead costs a
+                # permission prompt. A skill loaded through the Skill tool costs neither.
+                "skills": ["./skills/"],
                 # No "hooks" key. Claude Code loads hooks/hooks.json from the standard path on its
                 # own, so naming it here loads the same file twice and the plugin fails outright:
                 # "Duplicate hooks file detected". The manifest's hooks field is for additional

@@ -9,11 +9,11 @@ Check approval authority. Optional paths: $ARGUMENTS
 
 You cannot grant approval. You can only report whether a valid approval record exists.
 
-1. Locate the approval record. If none exists, initialize one from `skills/data-department-orchestrator/assets/approval-record.json`, leave it unsigned, and state that the action remains **unauthorized** until a named human approver completes it.
+1. Locate the approval record. If none exists, initialize one from `${CLAUDE_PLUGIN_ROOT}/skills/data-department-orchestrator/assets/approval-record.json`, leave it unsigned, and state that the action remains **unauthorized** until a named human approver completes it.
 2. Validate it against the current time:
 
 ```
-python skills/data-department-orchestrator/scripts/validate_approval_record.py <record> --task-catalog task-catalog.json --artifact-root <root> --require-approved
+python ${CLAUDE_PLUGIN_ROOT}/skills/data-department-orchestrator/scripts/validate_approval_record.py <record> --task-catalog task-catalog.json --artifact-root <root> --require-approved
 ```
 
 3. Report each binding explicitly:

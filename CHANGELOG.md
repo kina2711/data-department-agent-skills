@@ -1,5 +1,41 @@
 # Changelog
 
+## v3.22.0 — the plugin only worked in the directory it was built in
+
+Running `/dd-brain` from an empty folder found nothing. The command said to read
+`skills/personal-second-brain-and-knowledge-os/SKILL.md`, that path resolved against the user's
+project rather than the plugin, and no such directory was there. Every version since the command
+surface was introduced shipped this way. It went unnoticed because the only place it was ever run
+was the checkout it was built in, where the relative path happens to be correct.
+
+**The skills are now registered.** `plugin.json` gained `"skills": ["./skills/"]`, so Claude Code
+loads them through the Skill tool from any working directory, and the department commands ask for
+the skill by name instead of by path. Loading a skill this way costs no permission prompt, which
+is why it beats the alternative of pointing the same path somewhere absolute.
+
+**Thirty-four remaining paths now say which root they mean.** Task contracts, catalog shards,
+`task-catalog.json`, `suite-manifest.yaml` and every `python skills/...` invocation carry
+`${CLAUDE_PLUGIN_ROOT}/`. Seventeen of those were script invocations inside fenced code blocks
+that the first pass missed entirely; the check found them. Paths that belong to the user's own
+project — `project-constitution.json` above all — deliberately stay relative, because rewriting
+those would point every project at one shipped template.
+
+**Two checks so it cannot drift back.** `check_command_paths` refuses a command that addresses a
+plugin directory as a project directory. `check_pipeline_counts` compares the summary at the top
+of `/dd-pipeline` against the workflow and harness it describes; it was claiming 50 tasks, 31
+waves and 3 gates for a flow holding 56 tasks, 35 waves and 7 gates. Both were verified by
+breaking them on purpose and watching validation fail.
+
+**Installing now has a documented second step.** Skills load free, but the files they cite are
+reads outside the working directory, so Claude Code asks each time. One `additionalDirectories`
+entry settles it, and both READMEs now say so.
+
+Measured, not assumed: `${CLAUDE_PLUGIN_ROOT}` expansion in command and SKILL.md bodies, skill
+registration, and the permission behaviour were each established with a throwaway plugin before
+anything here was written. An earlier probe of the same question failed because it edited the
+marketplace source rather than the installed copy, and reading that as "substitution does not
+work" would have sent this release down the wrong path.
+
 ## Data Agent 0.4.1 — two things the reply box exposed
 
 Replying made a session long enough for two faults to show.

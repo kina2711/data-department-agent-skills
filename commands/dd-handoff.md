@@ -10,8 +10,8 @@ Prepare the handoff. Optional arguments: $ARGUMENTS
 A handoff is a transfer of ownership, not a summary. The receiving role must be able to start without re-deriving your work.
 
 1. Confirm the source task is genuinely finished. Run `/dd-verify` first if the evidence chain has not been validated in this session. Do not hand off an `incomplete` verdict as if it were complete.
-2. Resolve the receiving role from `suite-manifest.yaml` and the single next atomic task ID from `task-catalog.json`. An unnamed next owner is not a handoff.
-3. Fill `skills/data-department-orchestrator/assets/handoff-package.yaml` with:
+2. Resolve the receiving role from `${CLAUDE_PLUGIN_ROOT}/suite-manifest.yaml` and the single next atomic task ID from `${CLAUDE_PLUGIN_ROOT}/task-catalog.json`. An unnamed next owner is not a handoff.
+3. Fill `${CLAUDE_PLUGIN_ROOT}/skills/data-department-orchestrator/assets/handoff-package.yaml` with:
    - Source task ID, primary deliverable, artifact paths, artifact versions and SHA-256 hashes.
    - Evidence envelope IDs and their verification status.
    - Approval status and, when required, the approval record ID and its expiry.

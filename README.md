@@ -5,7 +5,7 @@ A governed operating system for an entire Data Department, packaged as a Claude 
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
 
-Current release: **v3.21.1** · Works with **Claude Code**, **OpenAI Codex** and **Google Antigravity**
+Current release: **v3.22.0** · Works with **Claude Code**, **OpenAI Codex** and **Google Antigravity**
 
 🇻🇳 [Đọc bản tiếng Việt](README.vi.md)
 
@@ -58,16 +58,16 @@ evidence script need it; both fail open if it is missing).
 
 ```powershell
 # Windows
-$pluginRoot = "C:\Tools\data-department-agent-skills-v3.21.1"
-Expand-Archive .\data-department-claude-plugin-v3.21.1.zip -DestinationPath $pluginRoot
+$pluginRoot = "C:\Tools\data-department-agent-skills-v3.22.0"
+Expand-Archive .\data-department-claude-plugin-v3.22.0.zip -DestinationPath $pluginRoot
 claude plugin validate --strict $pluginRoot
 claude --plugin-dir $pluginRoot
 ```
 
 ```bash
 # macOS / Linux
-pluginRoot=~/tools/data-department-agent-skills-v3.21.1
-unzip data-department-claude-plugin-v3.21.1.zip -d "$pluginRoot"
+pluginRoot=~/tools/data-department-agent-skills-v3.22.0
+unzip data-department-claude-plugin-v3.22.0.zip -d "$pluginRoot"
 claude plugin validate --strict "$pluginRoot"
 claude --plugin-dir "$pluginRoot"
 ```
@@ -95,6 +95,29 @@ python tools/build_suite.py
 python tools/validate_claude_skills.py
 claude --plugin-dir .
 ```
+
+### One more step, and skipping it is the usual reason the commands feel broken
+
+The plugin installs outside whatever project you are working in. Skills load through the Skill
+tool and cost nothing extra, but the files they cite — the task contracts, the catalog shards,
+the evidence scripts — are ordinary reads of a directory that is not your working directory, so
+Claude Code asks permission for each one.
+
+Grant it once, in `~/.claude/settings.json`:
+
+```json
+{
+  "permissions": {
+    "additionalDirectories": [
+      "~/.claude/plugins/marketplaces/data-department"
+    ]
+  }
+}
+```
+
+Measured from an empty directory with that entry in place, `/dd-catalog` reads the catalog and
+answers 873; without it the same command stops and asks. Approving in the prompt works too — this
+just stops it asking again.
 
 ### Verifying the install
 

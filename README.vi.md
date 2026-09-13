@@ -5,7 +5,7 @@ Hệ điều hành có kiểm soát cho toàn bộ một phòng Data, đóng gó
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
 
-Bản hiện tại: **v3.21.1** · Chạy được với **Claude Code**, **OpenAI Codex** và **Google Antigravity**
+Bản hiện tại: **v3.22.0** · Chạy được với **Claude Code**, **OpenAI Codex** và **Google Antigravity**
 
 🇬🇧 [Read in English](README.md)
 
@@ -59,16 +59,16 @@ script evidence đều cần; cả hai fail-open nếu thiếu).
 
 ```powershell
 # Windows
-$pluginRoot = "C:\Tools\data-department-agent-skills-v3.21.1"
-Expand-Archive .\data-department-claude-plugin-v3.21.1.zip -DestinationPath $pluginRoot
+$pluginRoot = "C:\Tools\data-department-agent-skills-v3.22.0"
+Expand-Archive .\data-department-claude-plugin-v3.22.0.zip -DestinationPath $pluginRoot
 claude plugin validate --strict $pluginRoot
 claude --plugin-dir $pluginRoot
 ```
 
 ```bash
 # macOS / Linux
-pluginRoot=~/tools/data-department-agent-skills-v3.21.1
-unzip data-department-claude-plugin-v3.21.1.zip -d "$pluginRoot"
+pluginRoot=~/tools/data-department-agent-skills-v3.22.0
+unzip data-department-claude-plugin-v3.22.0.zip -d "$pluginRoot"
 claude plugin validate --strict "$pluginRoot"
 claude --plugin-dir "$pluginRoot"
 ```
@@ -95,6 +95,27 @@ python tools/build_suite.py
 python tools/validate_claude_skills.py
 claude --plugin-dir .
 ```
+
+### Còn một bước nữa, và bỏ qua nó là lý do thường gặp khiến các lệnh trông như hỏng
+
+Plugin cài ở ngoài project bạn đang làm. Skill nạp qua Skill tool nên không tốn thêm gì, nhưng
+những tệp mà skill trỏ tới — task contract, catalog shard, script bằng chứng — là các lượt đọc
+bình thường vào một thư mục không phải working directory, nên Claude Code sẽ hỏi quyền từng lần.
+
+Cấp một lần trong `~/.claude/settings.json`:
+
+```json
+{
+  "permissions": {
+    "additionalDirectories": [
+      "~/.claude/plugins/marketplaces/data-department"
+    ]
+  }
+}
+```
+
+Đo từ một thư mục trống: có dòng này thì `/dd-catalog` đọc được catalog và trả lời 873; không có
+thì lệnh dừng lại hỏi quyền. Bấm duyệt ở hộp thoại cũng được — dòng này chỉ để nó thôi hỏi.
 
 ### Kiểm tra đã cài đúng chưa
 

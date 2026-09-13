@@ -11,8 +11,8 @@ Report workflow status. Optional path argument: $ARGUMENTS
 2. Validate before reporting. State that fails validation is not a status report:
 
 ```
-python skills/data-department-orchestrator/scripts/validate_run_state.py <state-file> --task-catalog task-catalog.json
-python skills/data-department-orchestrator/scripts/validate_workflow.py <manifest> --mode plan
+python ${CLAUDE_PLUGIN_ROOT}/skills/data-department-orchestrator/scripts/validate_run_state.py <state-file> --task-catalog task-catalog.json
+python ${CLAUDE_PLUGIN_ROOT}/skills/data-department-orchestrator/scripts/validate_workflow.py <manifest> --mode plan
 ```
 
 3. Report from the validated file only: workflow ID, status, lifecycle profile, risk tier, execution path, current phase, current task, completed tasks, passed gates, failed tests, blockers, next permitted action and the age of `updated_at`.

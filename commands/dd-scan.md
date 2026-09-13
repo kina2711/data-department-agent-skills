@@ -14,7 +14,7 @@ blocks multiply.
 1. Run the sensor over the target path (default: the working directory):
 
 ```
-python skills/data-architecture/scripts/scan_architecture_drift.py <path> --max-depth 5 --report-out architecture-report.json
+python ${CLAUDE_PLUGIN_ROOT}/skills/data-architecture/scripts/scan_architecture_drift.py <path> --max-depth 5 --report-out architecture-report.json
 ```
 
 2. Report the score out of 10000 and each of the five components (modularity, acyclicity,

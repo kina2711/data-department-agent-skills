@@ -7,7 +7,7 @@ disable-model-invocation: true
 
 Chạy cả dây chuyền cho: $ARGUMENTS
 
-Workflow `workflows/data-trainer.workflow.json` — 50 task, 31 đợt, 3 cổng duyệt.
+Workflow `${CLAUDE_PLUGIN_ROOT}/workflows/data-trainer.workflow.json` — 56 task, 35 đợt, 7 cổng cần thẩm quyền.
 Nó chạm bốn skill, nên **điều phối qua `data-department-orchestrator`**; đừng để một skill ôm
 phần nó không rành.
 
@@ -63,7 +63,10 @@ dựng, mọi audit đã qua, đóng thành một gói để **người dùng t�
 Đăng không nằm trong workflow này. Tài khoản là của họ, và một workflow liệt kê việc đăng sẽ mời
 gọi một tuyên bố mà không ai có bằng chứng. Không bao giờ nói đã đăng.
 
-Hai cổng còn lại: bản quyền, và quyền riêng tư của vault.
+Bảy cổng cần một người có thẩm quyền: kế hoạch corpus, bản quyền, quyền riêng tư của vault,
+ba cổng kiểm duyệt nội dung AI (code, văn bản, phương tiện), và bước `--apply` ghi vào vault.
+Danh sách nằm ở `${CLAUDE_PLUGIN_ROOT}/harnesses/data-trainer.harness.json`, và validator
+đối chiếu con số ở trên với nó — một bản tóm tắt trôi khỏi workflow là bản tóm tắt sai.
 
 Báo cáo: nguồn nào đọc được và nguồn nào không, số note viết ra, tệp nào vào vault, bài nào soạn
 xong ở kênh nào, ảnh nào đã dựng, cổng nào đã qua và cổng nào đang chờ người duyệt.

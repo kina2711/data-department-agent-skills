@@ -620,6 +620,76 @@ def check_universal_references(skills: set[str]) -> list[str]:
     return errors
 
 
+def check_command_paths() -> list[str]:
+    """Paths in a command that only resolve inside this checkout.
+
+    A command body is read by a model whose working directory is the user's project, not this
+    repository. `skills/data-engineering/SKILL.md` therefore resolves against their project and
+    finds nothing, which is what running /dd-brain from an empty directory actually did. The
+    plugin ships elsewhere on disk, so a path into the plugin has to say so with
+    ${CLAUDE_PLUGIN_ROOT}.
+
+    Paths the user owns are the opposite case and must stay relative: project-constitution.json
+    belongs to their repository, and rewriting it to point into the plugin would send every
+    project to the same shipped template.
+    """
+    own_directories = ("skills", "tools", "docs", "workflows", "harnesses",
+                       "evaluations", "schemas", "notes", "assets", "commands", "hooks")
+    own_files = ("task-catalog.json", "suite-manifest.yaml")
+    errors: list[str] = []
+    for path in sorted((ROOT / "commands").glob("*.md")):
+        body = path.read_text(encoding="utf-8").split("---", 2)[-1]
+        for match in re.finditer(r"`([^`\n]+)`", body):
+            ref = match.group(1)
+            if "${CLAUDE_PLUGIN_ROOT}" in ref:
+                continue
+            first = ref.split("/", 1)[0].lstrip("./")
+            bare = ref.lstrip("./").split()[-1] if ref else ""
+            if first in own_directories and "/" in ref:
+                errors.append(f"{path.name}: `{ref}` resolves against the user's project, "
+                              "not the plugin; prefix it with ${CLAUDE_PLUGIN_ROOT}/")
+            elif bare in own_files:
+                errors.append(f"{path.name}: `{ref}` is a plugin file addressed as a project "
+                              "file; prefix it with ${CLAUDE_PLUGIN_ROOT}/")
+        for match in re.finditer(r"^\s*(?:python3?|bash|node)\s+((?:tools|skills)/\S+)", body, re.M):
+            errors.append(f"{path.name}: runs `{match.group(1)}` from the working directory; "
+                          "prefix it with ${CLAUDE_PLUGIN_ROOT}/")
+    return errors
+
+
+def check_pipeline_counts() -> list[str]:
+    """The numbers /dd-pipeline quotes, against the workflow and harness they describe.
+
+    The command opened with "50 task, 31 dot, 3 cong duyet" while the workflow held 56 tasks in
+    35 waves behind 7 gates. Nothing compared them, so the summary drifted every time the
+    workflow grew, and a reader budgeting their afternoon was reading a figure from an older
+    shape of the flow.
+    """
+    import json as _json
+    command = ROOT / "commands" / "dd-pipeline.md"
+    workflow = ROOT / "workflows" / "data-trainer.workflow.json"
+    harness = ROOT / "harnesses" / "data-trainer.harness.json"
+    if not (command.is_file() and workflow.is_file() and harness.is_file()):
+        return []
+    tasks = {t["task_id"]: set(t.get("depends_on") or []) for t in
+             _json.loads(workflow.read_text(encoding="utf-8"))["tasks"]}
+    done: set[str] = set()
+    waves = 0
+    while len(done) < len(tasks):
+        ready = {k for k, v in tasks.items() if k not in done and v <= done}
+        if not ready:
+            return [f"{workflow.name}: dependency cycle, so the wave count cannot be checked"]
+        done |= ready
+        waves += 1
+    gates = len((_json.loads(harness.read_text(encoding="utf-8"))
+                 .get("guardrails") or {}).get("gates_requiring_authority") or [])
+    expected = f"{len(tasks)} task, {waves} \u0111\u1ee3t, {gates} c\u1ed5ng"
+    text = command.read_text(encoding="utf-8")
+    if expected not in text:
+        return [f"dd-pipeline.md: does not state {expected!r}; the workflow and harness say so"]
+    return []
+
+
 def main() -> None:
     errors, stats = validate()
     skill_names = {d.name for d in SKILLS.iterdir() if d.is_dir()}
@@ -638,6 +708,12 @@ def main() -> None:
     universal_errors = check_universal_references(skill_names)
     errors.extend(universal_errors)
     stats["universal_references"] = "ok" if not universal_errors else f"{len(universal_errors)} problem(s)"
+    command_errors = check_command_paths()
+    errors.extend(command_errors)
+    stats["command_paths"] = "ok" if not command_errors else f"{len(command_errors)} problem(s)"
+    pipeline_errors = check_pipeline_counts()
+    errors.extend(pipeline_errors)
+    stats["pipeline_counts"] = "ok" if not pipeline_errors else f"{len(pipeline_errors)} problem(s)"
     stats["vietnamese_guides"] = "ok" if not guide_errors else f"{len(guide_errors)} problem(s)"
     stats["preset_jobs"] = "ok" if not job_errors else f"{len(job_errors)} problem(s)"
     if "errors" in stats:

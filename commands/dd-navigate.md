@@ -13,13 +13,13 @@ Most of what gets read turns out to be irrelevant, and the context is already sp
 1. Build the index once per repository, then reuse it:
 
 ```
-python skills/data-developer-experience/scripts/build_code_index.py <repo> --index-out code-index.json
+python ${CLAUDE_PLUGIN_ROOT}/skills/data-developer-experience/scripts/build_code_index.py <repo> --index-out code-index.json
 ```
 
 2. Answer from the index:
 
 ```
-python skills/data-developer-experience/scripts/build_code_index.py <repo> --index-in code-index.json --symbol <Name>
+python ${CLAUDE_PLUGIN_ROOT}/skills/data-developer-experience/scripts/build_code_index.py <repo> --index-in code-index.json --symbol <Name>
 ```
 
 It returns the definition span, what the symbol calls, who calls it, the blast radius at the

@@ -14,13 +14,13 @@ original trace instead.
 1. Build or reuse the index:
 
 ```
-python skills/personal-second-brain-and-knowledge-os/scripts/build_entity_context_graph.py <vault> --index-out memory-index.json
+python ${CLAUDE_PLUGIN_ROOT}/skills/personal-second-brain-and-knowledge-os/scripts/build_entity_context_graph.py <vault> --index-out memory-index.json
 ```
 
 2. Retrieve, following the entity graph one hop when the query is broad:
 
 ```
-python skills/personal-second-brain-and-knowledge-os/scripts/build_entity_context_graph.py <vault> --index-in memory-index.json --query "<question>" --expand
+python ${CLAUDE_PLUGIN_ROOT}/skills/personal-second-brain-and-knowledge-os/scripts/build_entity_context_graph.py <vault> --index-in memory-index.json --query "<question>" --expand
 ```
 
 3. **Read the cited spans before asserting anything.** The retrieval output is a set of

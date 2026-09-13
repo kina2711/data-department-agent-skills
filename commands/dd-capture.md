@@ -28,11 +28,11 @@ Bộ skill đã có đủ từng bước riêng lẻ cho việc này. Lệnh nà
 
    ```bash
    # pha 1 — chỉ đọc, in ra đúng những file sẽ đổi và hash hiện tại của chúng
-   python3 skills/personal-second-brain-and-knowledge-os/scripts/write_vault_bundle.py \
+   python3 ${CLAUDE_PLUGIN_ROOT}/skills/personal-second-brain-and-knowledge-os/scripts/write_vault_bundle.py \
        --vault "$VAULT" --bundle bundle.json
 
    # pha 2 — ghi, và tự dừng nếu vault đã đổi kể từ pha 1
-   python3 skills/personal-second-brain-and-knowledge-os/scripts/write_vault_bundle.py \
+   python3 ${CLAUDE_PLUGIN_ROOT}/skills/personal-second-brain-and-knowledge-os/scripts/write_vault_bundle.py \
        --vault "$VAULT" --bundle bundle.json --apply --expect <expect từ pha 1>
    ```
 

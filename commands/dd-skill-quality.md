@@ -17,7 +17,7 @@ the contract that caused it.
 1. Score the ledger:
 
 ```
-python skills/data-department-orchestrator/scripts/score_skill_quality.py <telemetry.jsonl> --task-catalog task-catalog.json --report-out skill-quality.json
+python ${CLAUDE_PLUGIN_ROOT}/skills/data-department-orchestrator/scripts/score_skill_quality.py <telemetry.jsonl> --task-catalog task-catalog.json --report-out skill-quality.json
 ```
 
 2. Read the recommendation per task and what drives it:

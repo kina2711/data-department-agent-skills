@@ -7,7 +7,7 @@ disable-model-invocation: true
 
 Plan stage of the harness delivery loop. Intent: $ARGUMENTS
 
-Read `skills/data-department-orchestrator/references/harness-delivery-loop.md` first.
+Read `${CLAUDE_PLUGIN_ROOT}/skills/data-department-orchestrator/references/harness-delivery-loop.md` first.
 
 1. Select the atomic tasks this work needs by primary deliverable, and name the ones you are deliberately leaving out. A plan without exclusions is a plan whose scope will surprise someone later.
 2. Write the specification and the acceptance criteria **now**, before any implementation. Criteria written after seeing the artifact describe the artifact.
