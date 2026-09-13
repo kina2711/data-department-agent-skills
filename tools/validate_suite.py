@@ -537,6 +537,27 @@ def check_preset_jobs(skills: set[str], task_ids: set[str]) -> list[str]:
     return errors
 
 
+def check_harnesses() -> list[str]:
+    """Every harness declaration in harnesses/ must pass the orchestrator's own validator.
+
+    A harness is a boundary written down. Nothing checked it until now, so a declaration could name
+    a task the catalog dropped, or carry an evaluation score attached to no version, and stay green.
+    """
+    import subprocess
+    directory = ROOT / "harnesses"
+    if not directory.is_dir():
+        return []
+    validator = SKILLS / "data-department-orchestrator" / "scripts" / "validate_harness.py"
+    errors: list[str] = []
+    for path in sorted(directory.glob("*.harness.json")):
+        result = subprocess.run([sys.executable, str(validator), str(path)],
+                                capture_output=True, text=True, check=False)
+        if result.returncode != 0:
+            first = next((l for l in result.stdout.splitlines() if l.startswith("ERROR")), "see validate_harness.py")
+            errors.append(f"{path.name}: {first}")
+    return errors
+
+
 def check_skill_path_references(skills: set[str]) -> list[str]:
     """Hard-coded skill directory paths inside scripts, which a rename breaks silently.
 
@@ -594,6 +615,9 @@ def main() -> None:
     catalog_ids = {t["id"] for t in _json.loads((ROOT / "task-catalog.json").read_text(encoding="utf-8"))}
     job_errors = check_preset_jobs(skill_names, catalog_ids)
     errors.extend(job_errors)
+    harness_errors = check_harnesses()
+    errors.extend(harness_errors)
+    stats["harnesses"] = "ok" if not harness_errors else f"{len(harness_errors)} problem(s)"
     path_errors = check_skill_path_references(skill_names)
     errors.extend(path_errors)
     stats["skill_path_references"] = "ok" if not path_errors else f"{len(path_errors)} problem(s)"

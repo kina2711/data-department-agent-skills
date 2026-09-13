@@ -1,0 +1,152 @@
+{
+  "harness_id": "data-trainer",
+  "role": "data-department-orchestrator",
+  "version": "1.0.0",
+  "owner": "",
+  "_": "Harness cho luồng Data Trainer. Owner để trống theo đúng quy ước của workflow: một bản khai phát hành kèm tên người sẽ giao việc cho người không có mặt khi người khác dùng nó. Điền owner trước khi chạy.",
+  "scope": {
+    "tasks_in": [
+      "academy-audit-note-corpus",
+      "academy-build-note-module",
+      "academy-build-skill-track-map",
+      "academy-elicit-prior-knowledge",
+      "academy-index-note-corpus",
+      "academy-plan-corpus-milestone",
+      "academy-plan-note-corpus",
+      "academy-research-role-roadmap",
+      "book-assess-source-rights",
+      "book-audit-copyright-and-privacy",
+      "book-audit-source-traceability",
+      "book-build-curriculum-pack",
+      "book-build-source-manifest",
+      "book-extract-antipatterns",
+      "book-extract-decision-rules",
+      "book-extract-examples-and-cases",
+      "book-extract-frameworks",
+      "book-extract-source-text",
+      "book-extract-technical-artifacts",
+      "brain-build-map-of-content",
+      "brain-capture-source-material",
+      "brain-link-knowledge-graph",
+      "brain-maintain-wikilink-graph",
+      "brain-normalize-source-metadata",
+      "brain-process-image-and-diagram-source",
+      "brain-run-privacy-freshness-audit",
+      "brain-transcribe-audio-video-source",
+      "content-audit-author-voice-and-originality",
+      "content-audit-claim-source-traceability",
+      "content-build-code-example-package",
+      "content-build-editorial-calendar",
+      "content-build-series-knowledge-map",
+      "content-create-episode-brief",
+      "content-create-technical-carousel-script",
+      "content-create-technical-diagram-brief",
+      "content-define-author-voice",
+      "content-design-technical-series",
+      "content-package-technical-series-repository",
+      "content-render-post-images",
+      "content-review-platform-fit",
+      "content-review-technical-accuracy",
+      "content-test-code-and-diagrams",
+      "content-verify-technical-versions",
+      "content-write-canonical-technical-article",
+      "content-write-facebook-technical-post",
+      "content-write-linkedin-technical-post",
+      "content-write-threads-post",
+      "core-define-success-contract",
+      "core-handoff-data-work",
+      "core-verify-deliverable"
+    ],
+    "tasks_out": [
+      "brain-retire-stale-knowledge",
+      "content-measure-series-performance",
+      "content-publish-technical-content",
+      "dg-plan-data-asset-retirement"
+    ],
+    "out_reason": "brain-retire-stale-knowledge: Nghỉ hưu note là R4 và xoá tri thức của người dùng; nằm ngoài phạm vi một harness dựng giáo trình. | content-measure-series-performance: Đo hiệu quả cần số liệu sau khi đăng, mà harness này không đăng nên không có số liệu đó. | content-publish-technical-content: Đăng bài là hành động trên tài khoản của tác giả. Harness dừng ở gói bàn giao; một harness liệt kê việc đăng sẽ mời gọi tuyên bố đã đăng mà không ai có bằng chứng. | dg-plan-data-asset-retirement: Không thuộc vai này. Harness dạy học, không quản trị vòng đời tài sản dữ liệu."
+  },
+  "grounding": [
+    {
+      "source": "./ref trong thư mục dự án",
+      "kind": "corpus",
+      "version": "checksum từng tệp trong book source manifest",
+      "pinned_at": "lúc chạy"
+    },
+    {
+      "source": "docs/corpus-manifests/<skill>.manifest.json",
+      "kind": "corpus",
+      "version": "theo manifest",
+      "pinned_at": "lúc chạy"
+    },
+    {
+      "source": "second-brain-manifest.json của dự án",
+      "kind": "company-context",
+      "version": "canonical_root + namespace",
+      "pinned_at": "lúc chạy"
+    },
+    {
+      "source": "docs/concept-registry.json",
+      "kind": "concept-registry",
+      "version": "theo suite version",
+      "pinned_at": "lúc chạy"
+    }
+  ],
+  "tool_surface_ref": "skills/data-department-orchestrator/references/external-tool-access.md",
+  "guardrails": {
+    "permission_mode": "plan",
+    "writes_per_run_limit": 0,
+    "stops_at_risk_tier": "R3-controlled",
+    "gates_requiring_authority": [
+      "book-audit-copyright-and-privacy",
+      "brain-run-privacy-freshness-audit",
+      "academy-plan-note-corpus",
+      "write_vault_bundle.py --apply"
+    ]
+  },
+  "evaluation": {
+    "cases_ref": "evaluations/routing-cases.yaml",
+    "run_at": "",
+    "score": 0.0,
+    "cases_total": 0,
+    "cases_passed": 0,
+    "score_is_for_version": "",
+    "_": "CHƯA CHẠY. Các task thành phần đều nằm dưới routing case, nhưng chưa có case nào đánh giá chính harness này chạy đầu-cuối. Ghi 0 thay vì mượn điểm routing của suite: mượn điểm là tuyên bố đã đo một thứ chưa ai đo."
+  },
+  "environment": {
+    "services": [
+      "Electron của app (dựng ảnh PNG)",
+      "PostgreSQL hoặc engine tương ứng để chạy thật ví dụ"
+    ],
+    "credential_names": [],
+    "versions": {
+      "suite": "",
+      "plugin": "",
+      "app": ""
+    }
+  },
+  "reproducible": {
+    "inputs_pinned": false,
+    "pinned_versions_recorded_with_run": false
+  },
+  "handover": {
+    "recipient": "tác giả của corpus",
+    "blast_radius_stated": "Ghi vào ./notes của dự án và vào vault Obsidian qua hai pha có xem trước. Không đăng bài. Không đụng tới repo suite.",
+    "may_write": [
+      "./notes/**",
+      "./corpus/**",
+      "<vault>/1_Nguon/<ns>/**",
+      "<vault>/2_Wiki/<ns>/**",
+      "<vault>/4_Ket-Qua/<ns>/**",
+      "./content/**"
+    ],
+    "may_spend": "chưa đặt trần; đặt trước khi chạy không giám sát",
+    "stops_for": [
+      "duyệt kế hoạch corpus",
+      "mỗi lần ghi vào vault",
+      "audit bản quyền",
+      "audit quyền riêng tư vault"
+    ]
+  },
+  "status": "draft",
+  "updated_at": "2026-09-13T03:59:47+00:00"
+}

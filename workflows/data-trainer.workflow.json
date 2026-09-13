@@ -9,7 +9,9 @@
     {
       "task_id": "book-assess-source-rights",
       "owner": "",
-      "depends_on": [],
+      "depends_on": [
+        "orchestrator-define-agent-harness"
+      ],
       "status": "planned",
       "risk_tier": "R0-light",
       "artifact_version": "",
@@ -632,8 +634,7 @@
       "task_id": "core-handoff-data-work",
       "owner": "",
       "depends_on": [
-        "content-package-technical-series-repository",
-        "brain-run-privacy-freshness-audit"
+        "orchestrator-audit-agent-harness"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -672,9 +673,34 @@
       "artifact_sha256": "",
       "evidence_refs": [],
       "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-define-agent-harness",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-audit-agent-harness",
+      "owner": "",
+      "depends_on": [
+        "content-package-technical-series-repository",
+        "brain-run-privacy-freshness-audit"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
     }
   ],
   "transitions": [],
   "claims": [],
-  "updated_at": "2026-09-12T14:59:24+00:00"
+  "updated_at": "2026-09-13T04:01:26+00:00"
 }

@@ -337,3 +337,42 @@ validation green; `validate_suite.py` now checks that each exists and is non-emp
 tools parsed the SKILL.md description with a regex that captured the surrounding quotes once
 descriptions became JSON-quoted, which put a stray quote into the atlas, the drawn map and the
 skill menu sent to the routing model.
+
+## Humanizer, và harness cho một luồng thật — v3.20.0
+
+`blader/humanizer` (MIT, Siqi Chen) **không được vendor vào đây**, và lần này lý do khác các lần
+trước: repo ấy tự ship `.claude-plugin/`, tức là nó được thiết kế để cài như một plugin độc lập.
+Chép 374 dòng của nó vào bộ này sẽ tạo ra một bản sao lệch dần khỏi bản gốc mà không ai cập nhật.
+Nó được cài song song bằng `claude plugin install humanizer@humanizer`, và Data Trainer gọi nó
+**nếu có mặt**, còn không thì lùi về `authored-prose-voice.md` của bộ này và nói rõ đã dùng cái nào.
+
+Hai chuẩn này chồng lấn nhưng không thay thế nhau. `authored-prose-voice.md` 116 dòng nêu nguyên
+tắc — văn AI cam kết vào điều gì, kết cấu đều đặn ra sao, vì sao nó không có cái giá của việc
+biết. Humanizer 374 dòng liệt kê 21 mẫu đánh số theo độ mạnh, mỗi mẫu kèm ví dụ trước và sau. Một
+bên giải thích, một bên thao tác được ngay.
+
+Một giới hạn phải nói rõ vì dễ hiểu nhầm: **humanizer không rà code.** Chính nó viết rằng chỉ sửa
+văn xuôi và giữ nguyên code, câu lệnh, đường dẫn, YAML và link. Độ đúng của code thuộc
+`content-test-code-and-diagrams` và `content-review-technical-accuracy`. Gọi humanizer để "kiểm
+duyệt code" là giao việc cho công cụ đã tự nói nó không làm việc đó.
+
+Và một ràng buộc nữa được ghi vào prompt: humanizer sửa cách viết, không được thêm hay bớt một dữ
+kiện, con số, tên hay trích dẫn nào. Mất một claim trong lúc viết lại là lỗi, không phải là gọn hơn.
+
+### Harness cho luồng, chứ không chỉ năng lực harness
+
+Bộ này đã có `agent-harness-standard.md`, `harness-delivery-loop.md` và ba task define, package,
+audit từ trước. Cái chưa có là **một bản khai cho luồng thật**: năng lực có, thực thể không có.
+
+`harnesses/data-trainer.harness.json` là bản đầu tiên. Nó khai 50 task trong phạm vi, **4 task cố
+ý loại ra kèm lý do từng cái** — đăng bài, đo hiệu quả sau đăng, nghỉ hưu tri thức, quản lý vòng
+đời tài sản dữ liệu — vì một scope chỉ liệt kê cái được phép là scope chưa quyết định gì.
+
+`evaluation.score` để 0 và ghi thẳng là **chưa chạy**. Các task thành phần đều nằm dưới routing
+case, nhưng chưa có case nào đo chính harness này chạy đầu-cuối; mượn điểm routing của suite để
+điền vào đây là tuyên bố đã đo một thứ chưa ai đo.
+
+`validate_harness.py` kiểm bản khai theo chuẩn, và `validate_suite.py` gọi nó. Nó bắt được: scope
+không nêu loại trừ, task không có trong catalog, điểm eval không gắn với phiên bản hay ngày chạy,
+grounding không ghim phiên bản, handover không nêu blast radius, và `status: active` khi chưa có
+owner hoặc chưa đo. Đã thử phá cả bốn dạng đầu để chắc nó bắt được.

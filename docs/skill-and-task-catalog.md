@@ -1,6 +1,6 @@
 # Chi tiết toàn bộ Data Department Skills và Atomic Tasks
 
-> Phiên bản `3.19.1` · `33` Claude role skills · `870` atomic workflows.
+> Phiên bản `3.20.0` · `33` Claude role skills · `870` atomic workflows.
 > Đây là catalog tra cứu đầy đủ được sinh từ `suite-manifest.yaml`, `task-catalog.json` và task contracts; không phải nội dung luôn được nạp vào context của Claude.
 
 ## Mục lục
@@ -159,7 +159,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Templates/assets có thể tái sử dụng:** `agent-harness.yaml`, `approval-ledger.yaml`, `approval-record.json`, `approval-record.schema.json`, `assumption-register.yaml`, `atomic-task-output.yaml`, `branch-delegation-contract.json`, `change-scope-contract.json`, `change-scope-ledger.yaml`, `conflict-register.yaml`, `debug-hypothesis-ledger.yaml`, `design-option-set.yaml`, `evidence-ledger.yaml`, `fan-in-merge-record.yaml`, `handoff-package.yaml`, `harness-approval.yaml`, `harness-readiness-audit.yaml`, `harness-stop-log.json`, `instinct-ledger.json`, `instinct-record.schema.json`, `producer-reviewer-record.yaml`, `question-register.yaml`, `run-state.schema.json`, `run-state.yaml`, `session-handoff.yaml`, `stage-gate.yaml`, `success-contract.yaml`, `task-catalog.json`, `task-contract.schema.json`, `telemetry-event.json`, `telemetry-event.schema.json`, `test-evidence.yaml`, `verification-claims.yaml`, `work-ledger.yaml`, `workflow-manifest.json`, `workflow-manifest.schema.json`.
 
-**Scripts:** `analyze_skill_telemetry.py`, `manage_instincts.py`, `record_skill_telemetry.py`, `score_skill_quality.py`, `validate_approval_record.py`, `validate_branch_plan.py`, `validate_run_state.py`, `validate_workflow.py`.
+**Scripts:** `analyze_skill_telemetry.py`, `manage_instincts.py`, `record_skill_telemetry.py`, `score_skill_quality.py`, `validate_approval_record.py`, `validate_branch_plan.py`, `validate_harness.py`, `validate_run_state.py`, `validate_workflow.py`.
 
 #### Plan / Design (3 tasks)
 

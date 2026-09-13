@@ -2,11 +2,11 @@
  "_": "Every edge carries its provenance. `ambiguous` edges — workflow stage precedence — are excluded from degree, clustering and any claim about what depends on what.",
  "seed": 20260831,
  "node_count": 1225,
- "edge_count": 5165,
+ "edge_count": 5167,
  "edges_by_provenance": {
   "extracted": 4204,
   "inferred": 21,
-  "ambiguous": 940
+  "ambiguous": 942
  },
  "community_count": 103,
  "ubiquitous_standards_excluded": [
@@ -44020,6 +44020,13 @@
    "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
   },
   {
+   "from": "orchestrator-define-agent-harness",
+   "to": "book-assess-source-rights",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
    "from": "book-assess-source-rights",
    "to": "book-build-source-manifest",
    "type": "stage-precedence",
@@ -44433,14 +44440,7 @@
    "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
   },
   {
-   "from": "content-package-technical-series-repository",
-   "to": "core-handoff-data-work",
-   "type": "stage-precedence",
-   "provenance": "ambiguous",
-   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
-  },
-  {
-   "from": "brain-run-privacy-freshness-audit",
+   "from": "orchestrator-audit-agent-harness",
    "to": "core-handoff-data-work",
    "type": "stage-precedence",
    "provenance": "ambiguous",
@@ -44491,6 +44491,20 @@
   {
    "from": "content-render-post-images",
    "to": "content-package-technical-series-repository",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-package-technical-series-repository",
+   "to": "orchestrator-audit-agent-harness",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "brain-run-privacy-freshness-audit",
+   "to": "orchestrator-audit-agent-harness",
    "type": "stage-precedence",
    "provenance": "ambiguous",
    "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
