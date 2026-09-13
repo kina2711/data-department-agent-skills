@@ -5,7 +5,7 @@ A governed operating system for an entire Data Department, packaged as a Claude 
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
 
-Current release: **v3.22.0** · Works with **Claude Code**, **OpenAI Codex** and **Google Antigravity**
+Current release: **v3.22.1** · Works with **Claude Code**, **OpenAI Codex** and **Google Antigravity**
 
 🇻🇳 [Đọc bản tiếng Việt](README.vi.md)
 
@@ -58,16 +58,16 @@ evidence script need it; both fail open if it is missing).
 
 ```powershell
 # Windows
-$pluginRoot = "C:\Tools\data-department-agent-skills-v3.22.0"
-Expand-Archive .\data-department-claude-plugin-v3.22.0.zip -DestinationPath $pluginRoot
+$pluginRoot = "C:\Tools\data-department-agent-skills-v3.22.1"
+Expand-Archive .\data-department-claude-plugin-v3.22.1.zip -DestinationPath $pluginRoot
 claude plugin validate --strict $pluginRoot
 claude --plugin-dir $pluginRoot
 ```
 
 ```bash
 # macOS / Linux
-pluginRoot=~/tools/data-department-agent-skills-v3.22.0
-unzip data-department-claude-plugin-v3.22.0.zip -d "$pluginRoot"
+pluginRoot=~/tools/data-department-agent-skills-v3.22.1
+unzip data-department-claude-plugin-v3.22.1.zip -d "$pluginRoot"
 claude plugin validate --strict "$pluginRoot"
 claude --plugin-dir "$pluginRoot"
 ```
@@ -109,15 +109,20 @@ Grant it once, in `~/.claude/settings.json`:
 {
   "permissions": {
     "additionalDirectories": [
-      "~/.claude/plugins/marketplaces/data-department"
+      "~/.claude/plugins/cache"
     ]
   }
 }
 ```
 
-Measured from an empty directory with that entry in place, `/dd-catalog` reads the catalog and
-answers 873; without it the same command stops and asks. Approving in the prompt works too — this
-just stops it asking again.
+The path is the cache, not the marketplace checkout: `${CLAUDE_PLUGIN_ROOT}` resolves to the
+installed version under `cache/<marketplace>/<plugin>/<version>/`, and naming the cache root
+covers the next upgrade as well.
+
+Measured from an empty directory with that entry in place, `/dd-catalog` reads
+`.../cache/data-department/data-department-agent-skills/3.22.1/task-catalog.json` and answers
+873; without it the same command stops and asks. Approving in the prompt works too — this just
+stops it asking again.
 
 ### Verifying the install
 

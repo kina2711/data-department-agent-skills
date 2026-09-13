@@ -1,5 +1,17 @@
 # Changelog
 
+## v3.22.1 — the install note named the wrong directory
+
+The permission entry v3.22.0 documented pointed at the marketplace checkout. `${CLAUDE_PLUGIN_ROOT}`
+resolves to the cache instead — `cache/<marketplace>/<plugin>/<version>/` — so the entry granted a
+directory the commands never read. A run from an empty folder still answered 873 by finding a copy
+in the marketplace directory and saying it could not confirm the two matched, which is a correct
+report of a wrong setup.
+
+Both READMEs now name the cache root, which also covers the next upgrade. Verified after the
+correction: `/dd-catalog` and `/dd-de` both run from an empty directory, and the paths they report
+reading are inside the installed version.
+
 ## v3.22.0 — the plugin only worked in the directory it was built in
 
 Running `/dd-brain` from an empty folder found nothing. The command said to read
