@@ -1,5 +1,21 @@
 # Changelog
 
+## Data Agent 0.6.0 — the desktop build catches up with the split
+
+The suite is unchanged at v3.24.0. What moved is the app, which now loads its logic from
+`app/core/` rather than owning it, and the packaged build had to be told about that.
+
+**The package list would have shipped a broken app.** `build.files` named `src/**/*` and
+`package.json`, which was complete when everything lived in `src/`. After the split, a build made
+from that list contains a `main.js` whose first line requires `../core/suite` — a module the
+archive does not hold, so the window never opens. Caught by listing the built asar instead of
+trusting the build to have guessed; `core/**/*` and `cli/**/*` are named now.
+
+Verified on the installed build rather than the source tree: `core/` and `cli/` are present inside
+`app.asar`, and loading the packaged `index.html` under Electron resolves `WfGraph` from
+`../core/graph.js` — the cross-directory script tag that would otherwise have failed silently and
+taken the workflow canvas with it.
+
 ## v3.24.0 — a second door, a third context level, and the drafts that were turned down
 
 **`data-agent` is a real command now.** The Electron app and the terminal are two clients of one
