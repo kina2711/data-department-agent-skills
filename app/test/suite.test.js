@@ -6,7 +6,7 @@
 
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { parseSuiteManifest } = require('../src/suite.js');
+const { parseSuiteManifest } = require('../core/suite.js');
 
 test('reads version and the role list', () => {
   const out = parseSuiteManifest([

@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MAP = ROOT / "docs" / "skill-map.md"
 SKILLS = ROOT / "skills"
-SUITE_VERSION = "3.23.1"
+SUITE_VERSION = "3.24.0"
 REPOSITORY_URL = "https://github.com/kina2711/data-department-agent-skills"
 
 

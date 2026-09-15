@@ -1,6 +1,6 @@
 # Chi tiết toàn bộ Data Department Skills và Atomic Tasks
 
-> Phiên bản `3.23.1` · `33` Claude role skills · `873` atomic workflows.
+> Phiên bản `3.24.0` · `33` Claude role skills · `873` atomic workflows.
 > Đây là catalog tra cứu đầy đủ được sinh từ `suite-manifest.yaml`, `task-catalog.json` và task contracts; không phải nội dung luôn được nạp vào context của Claude.
 
 ## Mục lục
@@ -1964,7 +1964,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Templates/assets có thể tái sử dụng:** `atomic-task-output.yaml`, `content-evidence-return.yaml`, `content-manifest.json`, `content-quality-review.yaml`, `design-option-set.yaml`, `editorial-calendar.yaml`, `episode-brief.yaml`, `series-concept-coverage.yaml`, `social-episode-package.yaml`, `source-pack.yaml`, `technical-series-plan.yaml`.
 
-**Scripts:** `render_content_images.js`, `validate_content_manifest.py`.
+**Scripts:** `render_content_images.js`, `validate_content_manifest.py`, `voice_ledger.py`.
 
 #### Plan / Design (11 tasks)
 

@@ -9,7 +9,7 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const g = require('../src/lib/graph.js');
+const g = require('../core/graph.js');
 const { APP } = require('./helpers/page.js');
 
 const SCHEMA = JSON.parse(fs.readFileSync(

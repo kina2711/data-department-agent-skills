@@ -1,11 +1,11 @@
 # Data Department Agent Skills
 
 Hệ điều hành có kiểm soát cho toàn bộ một phòng Data, đóng gói dưới dạng plugin Claude Code.
-**33 role skill**, **873 atomic task contract**, **53 slash command**, **54 executable evidence scripts** chạy được, **12 JSON Schema**, và một production guard hook.
+**33 role skill**, **873 atomic task contract**, **53 slash command**, **55 executable evidence scripts** chạy được, **12 JSON Schema**, và một production guard hook.
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
 
-Bản hiện tại: **v3.23.1** · Chạy được với **Claude Code**, **OpenAI Codex** và **Google Antigravity**
+Bản hiện tại: **v3.24.0** · Chạy được với **Claude Code**, **OpenAI Codex** và **Google Antigravity**
 
 🇬🇧 [Read in English](README.md)
 
@@ -59,16 +59,16 @@ script evidence đều cần; cả hai fail-open nếu thiếu).
 
 ```powershell
 # Windows
-$pluginRoot = "C:\Tools\data-department-agent-skills-v3.23.1"
-Expand-Archive .\data-department-claude-plugin-v3.23.1.zip -DestinationPath $pluginRoot
+$pluginRoot = "C:\Tools\data-department-agent-skills-v3.24.0"
+Expand-Archive .\data-department-claude-plugin-v3.24.0.zip -DestinationPath $pluginRoot
 claude plugin validate --strict $pluginRoot
 claude --plugin-dir $pluginRoot
 ```
 
 ```bash
 # macOS / Linux
-pluginRoot=~/tools/data-department-agent-skills-v3.23.1
-unzip data-department-claude-plugin-v3.23.1.zip -d "$pluginRoot"
+pluginRoot=~/tools/data-department-agent-skills-v3.24.0
+unzip data-department-claude-plugin-v3.24.0.zip -d "$pluginRoot"
 claude plugin validate --strict "$pluginRoot"
 claude --plugin-dir "$pluginRoot"
 ```
@@ -119,8 +119,26 @@ Cấp một lần trong `~/.claude/settings.json`:
 sau cũng dùng được luôn.
 
 Đo từ một thư mục trống: có dòng này thì `/dd-catalog` đọc
-`.../cache/data-department/data-department-agent-skills/3.23.1/task-catalog.json` và trả lời 873;
+`.../cache/data-department/data-department-agent-skills/3.24.0/task-catalog.json` và trả lời 873;
 không có thì lệnh dừng lại hỏi quyền. Bấm duyệt ở hộp thoại cũng được — dòng này chỉ để nó thôi hỏi.
+
+### Hai cửa vào: app và dòng lệnh
+
+`data-agent` chạy đúng bộ suite đó từ terminal. Nó và app Electron là hai client của cùng một thư
+viện trong `app/core/`, nên chọn suite ở cửa nào thì cửa kia đã thấy sẵn.
+
+```bash
+cd app && npm link            # hoặc: node app/cli/data-agent.js …
+data-agent use /đường/dẫn/data-department-agent-skills
+data-agent doctor
+data-agent find "pipeline chạy lại bị trùng dữ liệu"
+data-agent run de-build-batch-ingestion --dir . --dry-run
+```
+
+Mặc định chạy ở `--perm plan`, không đụng vào file nào. Mọi lệnh xem đều nhận `--json`.
+
+Task khai *tier* model chứ không khai tên model, nên `--model` là của bạn; CLI in tier ra và cảnh
+báo khi một task `strong` sắp chạy bằng model mặc định.
 
 ### Kiểm tra đã cài đúng chưa
 

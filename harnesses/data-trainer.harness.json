@@ -114,11 +114,11 @@
   },
   "evaluation": {
     "cases_ref": "evaluations/harness-cases.yaml",
-    "run_at": "2026-09-13T09:15:45Z",
+    "run_at": "2026-09-15T13:27:26Z",
     "score": 1.0,
     "cases_total": 20,
     "cases_passed": 20,
-    "score_is_for_version": "3.23.1",
+    "score_is_for_version": "3.24.0",
     "_": "Đo bằng `python3 tools/eval_harness.py run --suite harness`. 16 case hỏi harness cho phép, chặn hay từ chối một task cụ thể; 4 case còn lại là bất biến mà một harness bị nới rộng sẽ phá. Kỳ vọng viết từ ý định của luồng chứ không đọc ngược từ file này — một case tính ra từ chính file nó kiểm thì luôn xanh và không đo gì cả. Đã thử phá năm kiểu (đưa việc đăng bài vào scope, gỡ một cổng, xoá lý do loại trừ, đặt cổng vào thứ không tồn tại, bỏ một task workflow khỏi scope) và cả năm đều làm case đỏ. Điểm này nói ranh giới vẫn đúng như đã tuyên bố, không nói harness chạy tốt trong thực tế — không case nào ở đây gọi tới model."
   },
   "environment": {

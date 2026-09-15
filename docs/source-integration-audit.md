@@ -376,3 +376,34 @@ case, nhưng chưa có case nào đo chính harness này chạy đầu-cuối; m
 không nêu loại trừ, task không có trong catalog, điểm eval không gắn với phiên bản hay ngày chạy,
 grounding không ghim phiên bản, handover không nêu blast radius, và `status: active` khi chưa có
 owner hoặc chưa đo. Đã thử phá cả bốn dạng đầu để chắc nó bắt được.
+
+## lfnovo/open-notebook — read, one idea adopted, nothing vendored
+
+Cloned and read at v3.24.0. Its three interaction modes (chat, ask, transformations) map onto work
+this suite already does: the 873 task contracts are reusable templates, and the vault's four layers
+already separate sources from distilled notes.
+
+One thing it has that this suite did not: **context level as a per-source choice** — full content,
+a summary, or out of context. `build_context_package.py` had only the first and the last, so a
+source over budget disappeared rather than shrinking. Adopted as an idea and implemented here;
+no code, prompt or file was copied.
+
+Its stated principle "the UI is a client, never the only door" is the reason the app was split into
+`app/core/` with a CLI beside it, rather than a terminal-styled skin over the same Electron-only
+logic.
+
+## @shannholmberg's marketing second brain — read, one idea adopted
+
+A thread and diagram describing a Markdown knowledge base for a marketing team: shared company,
+customer, offer, positioning, voice and proof files; per-function playbooks, tools, checks and
+calendars; per-campaign briefs and decisions; an AGENTS.md naming trusted sources and what needs
+human sign-off.
+
+Most of that already exists here under other names. `company-data-context` registers systems,
+datasets, metrics, owners and policies; harness declarations already state grounding, scope and
+which gates need a named human; the second brain already separates sources from notes.
+
+The part that did not exist is the one the author stresses hardest: **keeping the rejected drafts
+with the feedback attached**, so an agent learns what to avoid from evidence rather than from
+abstraction. That became `voice_ledger.py`. Nothing was copied; the source is cited here as design
+evidence.

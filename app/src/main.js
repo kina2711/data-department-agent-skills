@@ -4,23 +4,19 @@ const { spawn, spawnSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
-const { readSuite, contractCache } = require('./suite');
+const { readSuite, contractCache } = require('../core/suite');
+const claudeCore = require('../core/claude');
+const configCore = require('../core/config');
 
 // The suite is read, never written. The app is a launcher; Claude Code does the work.
-const CONFIG_PATH = path.join(app.getPath('userData'), 'config.json');
-
-function readConfig() {
-  try {
-    return JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
-  } catch {
-    return { suitePath: '', recentFolders: [] };
-  }
-}
-
-function writeConfig(cfg) {
-  fs.mkdirSync(path.dirname(CONFIG_PATH), { recursive: true });
-  fs.writeFileSync(CONFIG_PATH, JSON.stringify(cfg, null, 2));
-}
+/* The config lives where the CLI also looks, not under Electron's userData.
+ *
+ * userData is named after the product, so the two doors sat in different directories and a suite
+ * picked in the app was invisible to `data-agent`. The first read adopts whatever the old
+ * location held — including the recent folders, which are the part a user would have to retype. */
+const readConfig = () => configCore.read();
+const writeConfig = (cfg) => configCore.write(cfg);
+configCore.migrate();
 
 /* Sessions that outlive the window.
  *
@@ -175,15 +171,8 @@ function shellQuote(value) {
 ipcMain.handle('session:launch', (_e, { folder, skillId, taskId, suitePath }) => {
   if (!folder || !fs.existsSync(folder)) return { ok: false, error: 'Thư mục không tồn tại' };
 
-  const prompt = taskId
-    ? `Use the ${skillId} skill and run the atomic task ${taskId} in this directory.`
-    : `Use the ${skillId} skill for work in this directory. Route to the right atomic task by primary deliverable.`;
-
-  const argv = ['claude'];
-  if (suitePath && fs.existsSync(path.join(suitePath, '.claude-plugin'))) {
-    argv.push('--plugin-dir', suitePath);
-  }
-  argv.push(prompt);
+  const prompt = claudeCore.defaultPrompt(skillId, taskId);
+  const argv = claudeCore.buildInteractiveArgv({ prompt, suitePath });
 
   const scriptPath = path.join(os.tmpdir(), `dd-studio-${Date.now()}.sh`);
   const script = [
@@ -346,71 +335,21 @@ ipcMain.handle('workflow:validate', (_e, { file, suitePath, mode }) => {
 
 const runs = new Map();
 
-ipcMain.handle('run:start', (event, { runId, folder, prompt, suitePath, permissionMode, model, resume }) => {
-  if (!folder || !fs.existsSync(folder)) return { ok: false, error: 'Thư mục không tồn tại' };
-  if (!String(prompt || '').trim()) return { ok: false, error: 'Prompt rỗng' };
-
-  const argv = ['-p', '--output-format', 'stream-json', '--verbose'];
-  if (suitePath && fs.existsSync(path.join(suitePath, '.claude-plugin'))) {
-    argv.push('--plugin-dir', suitePath);
-  }
-  argv.push('--permission-mode', permissionMode || 'plan');
-  // The task's declared tier decides this; an empty model means the CLI's own default applies,
-  // which is the honest outcome for a task whose tier nobody has set.
-  if (model) argv.push('--model', String(model));
-  // Resuming carries the whole prior exchange, which is what makes a reply a reply rather than a
-  // new conversation that happens to be about the same thing. Without it the agent asks eight
-  // questions, exits, and there is nowhere to answer.
-  if (resume) argv.push('--resume', String(resume));
-  argv.push(String(prompt));
-
-  let child;
-  try {
-    child = spawn('claude', argv, { cwd: folder, stdio: ['ignore', 'pipe', 'pipe'] });
-  } catch (err) {
-    return { ok: false, error: `Không chạy được claude: ${err.message}` };
-  }
-  runs.set(runId, child);
-
+ipcMain.handle('run:start', (event, options) => {
+  const { runId } = options;
   const send = (channel, payload) => {
     if (!event.sender.isDestroyed()) event.sender.send(channel, { runId, ...payload });
   };
-
-  let buffer = '';
-  child.stdout.on('data', (chunk) => {
-    buffer += chunk.toString('utf8');
-    const lines = buffer.split('\n');
-    buffer = lines.pop() || '';
-    for (const line of lines) {
-      const trimmed = line.trim();
-      if (!trimmed) continue;
-      try {
-        send('run:event', { event: JSON.parse(trimmed) });
-      } catch {
-        // Not every line is JSON when the CLI writes a notice; show it rather than drop it.
-        send('run:event', { event: { type: 'raw', text: trimmed } });
-      }
-    }
+  const started = claudeCore.startRun(options, {
+    onEvent: (ev) => send('run:event', { event: ev }),
+    onStderr: (text) => send('run:stderr', { text }),
+    onDone: (result) => {
+      runs.delete(runId);
+      send('run:done', result);
+    },
   });
-
-  child.stderr.on('data', (chunk) => send('run:stderr', { text: chunk.toString('utf8') }));
-
-  child.on('error', (err) => {
-    runs.delete(runId);
-    send('run:done', { code: -1, error: err.message });
-  });
-  child.on('close', (code) => {
-    runs.delete(runId);
-    if (buffer.trim()) {
-      try {
-        send('run:event', { event: JSON.parse(buffer.trim()) });
-      } catch {
-        send('run:event', { event: { type: 'raw', text: buffer.trim() } });
-      }
-    }
-    send('run:done', { code });
-  });
-
+  if (!started.ok) return { ok: false, error: started.error };
+  runs.set(runId, started.child);
   return { ok: true };
 });
 

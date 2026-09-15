@@ -44,5 +44,8 @@
   },
   "homepage": "https://github.com/kina2711/app-data-agent",
   "productName": "Data Agent",
-  "private": true
+  "private": true,
+  "bin": {
+    "data-agent": "./cli/data-agent.js"
+  }
 }

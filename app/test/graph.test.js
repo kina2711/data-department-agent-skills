@@ -5,7 +5,7 @@
 
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const g = require('../src/lib/graph.js');
+const g = require('../core/graph.js');
 
 const t = (id, ...deps) => ({ task_id: id, depends_on: deps, status: 'planned' });
 

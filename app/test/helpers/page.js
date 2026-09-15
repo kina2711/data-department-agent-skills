@@ -12,6 +12,8 @@
  * so a visual baseline and a DOM assertion can never disagree about which build they saw. */
 
 const { spawn } = require('node:child_process');
+const fs = require('node:fs');
+const os = require('node:os');
 const path = require('node:path');
 const net = require('node:net');
 
@@ -33,6 +35,13 @@ async function freePort() {
 async function open({ stubs = {}, width = 1280, height = 900, userData = null, sessionsPath = null } = {}) {
   const port = await freePort();
   const env = { ...process.env, DA_TEST_PORT: String(port), DA_TEST_STUBS: JSON.stringify(stubs) };
+  /* The config moved out of userData so the CLI could share it, and setPath('userData') stopped
+   * covering it — six tests that assert "no suite connected" began reading the developer's own
+   * saved suite and finding one. Every run gets its own config directory, named after the test's
+   * userData when it asked for one and thrown away with it otherwise. */
+  env.DA_CONFIG_DIR = userData
+    ? path.join(userData, 'shared-config')
+    : fs.mkdtempSync(path.join(os.tmpdir(), 'da-cfg-'));
   if (userData) env.DA_TEST_USERDATA = userData;
   if (sessionsPath) env.DA_SESSIONS_PATH = sessionsPath;
   delete env.ELECTRON_RUN_AS_NODE;

@@ -10,7 +10,7 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const g = require('../src/lib/graph.js');
+const g = require('../core/graph.js');
 const { APP } = require('./helpers/page.js');
 
 const VALIDATOR = path.join(APP, '..', 'skills', 'data-department-orchestrator',
@@ -38,7 +38,7 @@ test('the app copy of the transition table matches the validator exactly', () =>
   const js = Object.fromEntries(
     Object.entries(g.ALLOWED).map(([k, v]) => [k, [...v].sort()]));
   assert.deepEqual(js, python,
-    'app/src/lib/graph.js ALLOWED has drifted from validate_workflow.py');
+    'app/core/graph.js ALLOWED has drifted from validate_workflow.py');
 });
 
 test('planned does not go straight to in-progress', () => {

@@ -8,7 +8,7 @@ const assert = require('node:assert/strict');
 const path = require('node:path');
 const fs = require('node:fs');
 const { open, APP } = require('./helpers/page.js');
-const g = require('../src/lib/graph.js');
+const g = require('../core/graph.js');
 
 const SUITE = path.resolve(APP, '..');
 const WORKFLOW = path.join(SUITE, 'workflows', 'data-analysis.workflow.json');

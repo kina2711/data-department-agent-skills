@@ -1,5 +1,55 @@
 # Changelog
 
+## v3.24.0 — a second door, a third context level, and the drafts that were turned down
+
+**`data-agent` is a real command now.** The Electron app and the terminal are two clients of one
+library: `core/` owns reading the suite, composing a preset job's prompt, building the argv that
+runs Claude, and splitting its JSON stream. Neither door owns the permission mode, so it cannot
+mean one thing in each.
+
+```
+data-agent find "pipeline chạy lại bị trùng dữ liệu"
+data-agent show de-build-batch-ingestion --full
+data-agent run de-build-batch-ingestion --dir . --perm plan
+```
+
+Every listing command takes `--json`. Widths are measured in display columns rather than code
+points, because a Vietnamese combining mark occupies no column and counting it drifted every table
+one cell per diacritic.
+
+Three faults the extraction exposed, each a real one:
+
+- **Piped `--json` was truncated.** `console.log` to a pipe is asynchronous and `process.exit()`
+  did not wait, so the tail of the array never arrived and what did arrive parsed nowhere. The
+  exit code is set instead of forced.
+- **The tier was being passed as a model name.** A task declares `strong`, `standard` or `light`,
+  and the suite keeps it that way because tiers outlive model ids. Passing it through produced
+  `--model standard`, which is not a model. The CLI reports the tier and leaves `--model` to you.
+- **The two doors were reading different config files.** The app kept its config under Electron's
+  userData, named after the product; the CLI looked in `~/.config/data-agent`. They now share one
+  file, and the first read adopts whatever the old location held — including the recent folders,
+  which is the part a user would have had to retype.
+
+**A source can now enter context as a summary instead of vanishing.** `build_context_package.py`
+was binary: full content, or dropped when the budget ran out. Open Notebook makes this a
+per-source choice, and the third state is the one that was missing — losing a source entirely
+loses the fact that it existed, and nobody can ask about a gap they cannot see. Over budget, the
+lowest-priority source is demoted to a summary before anything is removed; measured on three
+sources at a 4k budget, all three survive where two were previously dropped. Summaries are
+extractive — headings and opening sentences, verbatim — and labelled in the package, because a
+generated abstract would be a claim this script has no model to stand behind. A required source is
+never demoted silently; that still fails, and now says what to do about it.
+
+**The rejected drafts are kept, with the reason.** A voice guide describes the target and not the
+misses, so an agent still has to guess which defensible sentence would actually have been sent
+back. `voice_ledger.py` keeps the approval and the rejection side by side; a rejection without a
+reason is refused, since that records that something was wrong and not what. `brief` renders what
+a draft should read first, rejections before approvals. It counts recurring reasons and refuses to
+promote one into a rule — that judgement belongs to a person, and a ledger that concluded things
+would be a second voice guide nobody agreed to.
+
+152 app tests, 17 of them new.
+
 ## v3.23.1 — the coverage report disagreed with the harness it reports on
 
 `docs/harness-coverage.json` still called data-trainer unevaluated while the declaration beside it
