@@ -19,6 +19,7 @@ const ui = require('../cli/ui.js');
 const claude = require('../core/claude.js');
 const prompt = require('../core/prompt.js');
 const config = require('../core/config.js');
+const sessionStore = require('../core/session.js');
 
 const CLI = path.join(__dirname, '..', 'cli', 'data-agent.js');
 const SUITE = path.join(__dirname, '..', '..');
@@ -166,4 +167,51 @@ test('a dry run prints the argv and sends nothing', () => {
   assert.ok(argvLine, 'the dry run must print the command it would have executed');
   assert.match(argvLine, /--permission-mode plan/);
   assert.ok(!argvLine.includes('--model'), 'the task tier must not be passed as a model name');
+});
+
+test('sessions merge from every legacy store, not just the most recently touched', () => {
+  // Picking the newest store adopted a development profile a test run had just written, and left
+  // the real unfinished work — older, in another directory — behind.
+  const home = fs.mkdtempSync(path.join(os.tmpdir(), 'da-home-'));
+  const write = (dir, doc) => {
+    fs.mkdirSync(path.join(home, dir), { recursive: true });
+    fs.writeFileSync(path.join(home, dir, 'sessions.json'), JSON.stringify(doc));
+  };
+  write('Data Agent', { version: 1, sessions: { '/real::orch': { sessionId: 'real', folder: '/real', skillId: 'orch', updatedAt: '2026-09-13T00:00:00Z' } } });
+  write('Electron', { version: 1, sessions: { '/dev::orch': { sessionId: 'dev', folder: '/dev', skillId: 'orch', updatedAt: '2026-09-15T00:00:00Z' } } });
+  // Make the development store the newest on disk, which is what misled the first attempt.
+  fs.utimesSync(path.join(home, 'Electron', 'sessions.json'), new Date(), new Date());
+
+  const target = path.join(home, 'store.json');
+  const env = process.env.XDG_CONFIG_HOME;
+  const store = process.env.DA_SESSIONS_PATH;
+  process.env.XDG_CONFIG_HOME = home;
+  delete process.env.DA_SESSIONS_PATH;
+  try {
+    const result = sessionStore.migrate(target);
+    assert.equal(result.count, 2, 'both stores must survive the merge');
+    const ids = sessionStore.list(target).map((s) => s.sessionId).sort();
+    assert.deepEqual(ids, ['dev', 'real']);
+  } finally {
+    if (env === undefined) delete process.env.XDG_CONFIG_HOME;
+    else process.env.XDG_CONFIG_HOME = env;
+    if (store !== undefined) process.env.DA_SESSIONS_PATH = store;
+    fs.rmSync(home, { recursive: true, force: true });
+  }
+});
+
+test('a saved session keeps the folder and skill it belongs to', () => {
+  const file = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'da-sess-')), 'sessions.json');
+  sessionStore.save({ sessionId: 'abc', folder: '/w', skillId: 'de', turns: 3, lastText: 'x' }, file);
+  const got = sessionStore.get('/w', 'de', file);
+  assert.equal(got.sessionId, 'abc');
+  assert.equal(got.turns, 3);
+  assert.equal(sessionStore.get('/w', 'other', file), null, 'a different skill is a different session');
+  fs.rmSync(path.dirname(file), { recursive: true, force: true });
+});
+
+test('a session with no id is refused rather than stored as a pointer to nothing', () => {
+  const file = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'da-sess-')), 'sessions.json');
+  assert.equal(sessionStore.save({ folder: '/w', skillId: 'de' }, file).ok, false);
+  fs.rmSync(path.dirname(file), { recursive: true, force: true });
 });

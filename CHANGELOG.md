@@ -1,5 +1,31 @@
 # Changelog
 
+## Data Agent 0.6.1 — the terminal can find the run you left unfinished
+
+The session store moved into `core/` and both doors use it. Until now only the app recorded a run,
+so a session started from `data-agent` printed its id once and forgot it — and an id nobody wrote
+down is a conversation nobody can reopen after a reboot.
+
+```
+data-agent resume                 # what is unfinished, newest first
+data-agent resume <id> --go       # continue it
+data-agent resume --here --go     # continue whatever was left in this folder
+```
+
+The id is written as the run streams rather than when it ends, because a run stopped by Ctrl-C or
+a session limit is exactly the one somebody wants back and it never reaches the end.
+
+**Adoption merges every old store instead of picking one.** The first attempt took the most
+recently modified, which was a development profile a test run had touched minutes earlier — so it
+adopted a fixture and left a real fourteen-turn run from two days before behind. Sessions are keyed
+by folder and skill, so there is nothing to choose between: the union is well defined and the newer
+record wins on a shared key.
+
+Resuming restores the model's memory of the work, not the transcript. Said in that wording
+wherever it is offered, because the opposite is what people expect.
+
+155 app tests.
+
 ## Data Agent 0.6.0 — the desktop build catches up with the split
 
 The suite is unchanged at v3.24.0. What moved is the app, which now loads its logic from

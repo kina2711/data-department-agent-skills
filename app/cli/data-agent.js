@@ -17,6 +17,7 @@ const { readSuite, contractCache } = require('../core/suite');
 const { composePrompt, missingRequired } = require('../core/prompt');
 const claude = require('../core/claude');
 const config = require('../core/config');
+const sessions = require('../core/session');
 const ui = require('./ui');
 
 const VERSION = require('../package.json').version;
@@ -260,17 +261,85 @@ async function runPrompt({ flags, prompt, suitePath, skillId, taskId, tier, risk
   ui.rule();
 
   const stream = ui.eventStream({ json: Boolean(flags.json) });
+  let sessionId = String(flags.resume || '');
+  let lastText = '';
   return new Promise((resolve) => {
     const started = claude.startRun(options, {
-      onEvent: (ev) => stream.event(ev),
+      onEvent: (ev) => {
+        // Written down as it arrives rather than at the end: a run killed by Ctrl-C or a session
+        // limit is exactly the run somebody wants back, and it never reaches onDone.
+        if (ev.session_id && ev.session_id !== sessionId) {
+          sessionId = ev.session_id;
+          sessions.save({ sessionId, folder, skillId, taskId, mode: permissionMode,
+            skillName: skillId, lastText: '' });
+        }
+        const content = ev.message && ev.message.content;
+        if (Array.isArray(content)) {
+          for (const block of content) {
+            if (block.type === 'text' && String(block.text).trim()) lastText = String(block.text);
+          }
+        }
+        stream.event(ev);
+      },
       onStderr: (text) => stream.stderr(text),
-      onDone: ({ code, error }) => { stream.done({ code, error }); resolve(code === 0 ? 0 : 1); },
+      onDone: ({ code, error }) => {
+        if (sessionId) {
+          sessions.save({ sessionId, folder, skillId, taskId, mode: permissionMode,
+            skillName: skillId, lastText });
+        }
+        stream.done({ code, error });
+        resolve(code === 0 ? 0 : 1);
+      },
     });
     if (!started.ok) { ui.fail(started.error); resolve(1); }
     const stop = () => { try { started.child.kill('SIGTERM'); } catch { /* already gone */ } };
     process.on('SIGINT', stop);
   });
 }
+
+commands.resume = async ({ flags, positional }) => {
+  const rows = sessions.list();
+  const [target] = positional;
+
+  if (!target && !flags.here) {
+    if (flags.json) return ui.json(rows);
+    ui.title(`${rows.length} phiên đang dở`);
+    if (!rows.length) {
+      return ui.hint('Chưa có phiên nào được ghi. Mỗi lần `data-agent run` sẽ ghi lại một phiên.');
+    }
+    ui.table(['PHIÊN', 'LƯỢT', 'SKILL', 'THƯ MỤC'],
+      rows.map((s) => [s.sessionId.slice(0, 8), String(s.turns || 1), s.skillId || '—', s.folder]));
+    ui.hint('data-agent resume <8-ký-tự-đầu>  ·  --here để lấy phiên của thư mục hiện tại');
+    return undefined;
+  }
+
+  const here = path.resolve(process.cwd());
+  const found = flags.here
+    ? rows.find((s) => s.folder === here)
+    : rows.find((s) => s.sessionId === target || s.sessionId.startsWith(target));
+  if (!found) {
+    ui.fail(flags.here ? `Không có phiên nào ghi cho ${here}` : `Không có phiên nào khớp ${target}`,
+      'data-agent resume  để xem danh sách');
+  }
+
+  ui.title(`Làm tiếp: ${found.skillId || 'phiên'}`);
+  ui.fields({ 'phiên': found.sessionId, 'thư mục': found.folder, 'lượt đã chạy': found.turns || 1,
+    'quyền lần trước': found.mode || 'plan', 'lần cuối': found.updatedAt });
+  if (found.lastText) ui.para(`Nó dừng ở: ${ui.clip(found.lastText, 300)}`);
+  // Said plainly every time it is offered, because the opposite is what people expect.
+  ui.hint('Làm tiếp khôi phục trí nhớ của model về công việc, không phải đoạn log trên màn hình.');
+
+  if (!flags.go) {
+    return ui.hint(`data-agent resume ${target || '--here'} --go   để chạy tiếp`);
+  }
+  const { suitePath } = loadSuite(flags);
+  return runPrompt({
+    flags: { ...flags, dir: found.folder, resume: found.sessionId,
+      perm: flags.perm || found.mode, prompt: flags.prompt },
+    prompt: flags.prompt && flags.prompt !== true ? String(flags.prompt) : 'Tiếp tục từ chỗ đang dở.',
+    suitePath, skillId: found.skillId, taskId: found.taskId || '',
+  });
+};
 
 commands.use = ({ positional }) => {
   const [target] = positional;
@@ -354,6 +423,8 @@ commands.help = () => {
     ['  --resume <session-id>', 'làm tiếp một phiên cũ'],
     ['jobs [skill]', 'liệt kê việc dựng sẵn'],
     ['job <job-id> --set k=v --run --dir .', 'điền tham số rồi chạy'],
+    ['resume', 'liệt kê phiên đang dở (sống qua lần tắt máy)'],
+    ['resume <id|--here> --go', 'làm tiếp một phiên'],
   ]);
   ui.section('Thiết lập', [
     ['use <đường-dẫn>', 'nhớ thư mục suite (app dùng chung)'],
@@ -366,6 +437,10 @@ commands.help = () => {
 /* ---------- entry -------------------------------------------------------------------------- */
 
 async function main(argv) {
+  // Sessions written by earlier builds live beside the old Electron profile. Adopting them here
+  // as well as in the app is the point: a run left unfinished before this split should still be
+  // offered afterwards, whichever door the person comes back through.
+  sessions.migrate();
   const { flags, positional, values } = parseArgs(argv);
   const name = positional.shift() || (flags.version ? 'version' : 'help');
   const command = commands[name];
