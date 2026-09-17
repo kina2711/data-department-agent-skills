@@ -1,6 +1,6 @@
 # Chi tiết toàn bộ Data Department Skills và Atomic Tasks
 
-> Phiên bản `3.26.1` · `33` Claude role skills · `873` atomic workflows.
+> Phiên bản `3.27.0` · `33` Claude role skills · `873` atomic workflows.
 > Đây là catalog tra cứu đầy đủ được sinh từ `suite-manifest.yaml`, `task-catalog.json` và task contracts; không phải nội dung luôn được nạp vào context của Claude.
 
 ## Mục lục
@@ -1625,7 +1625,7 @@ Guard chỉ trả `ask`, không bao giờ tự `deny`: quyền quyết định t
 
 **Templates/assets có thể tái sử dụng:** `assessment-blueprint.yaml`, `atomic-task-output.yaml`, `concept-knowledge-graph.yaml`, `concept-registry.json`, `corpus-priority-plan.yaml`, `corpus-workflow-manifest.json`, `curriculum-spec.yaml`, `design-option-set.yaml`, `knowledge-deep-dive.yaml`, `learner-evidence.yaml`, `lesson-plan.yaml`, `misconception-feedback.yaml`, `note-corpus-audit.yaml`, `note-corpus-manifest.json`, `note-diagnostic-session.yaml`, `prior-knowledge-profile.yaml`, `question-learning-traceability.yaml`, `role-roadmap.yaml`, `skill-track-map.yaml`.
 
-**Scripts:** `validate_curriculum_coverage.py`, `validate_note_corpus.py`.
+**Scripts:** `check_roadmap_rigor.py`, `validate_curriculum_coverage.py`, `validate_note_corpus.py`.
 
 #### Plan / Design (30 tasks)
 

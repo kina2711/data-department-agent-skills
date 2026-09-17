@@ -1,5 +1,33 @@
 # Changelog
 
+## v3.27.0 — "make it rigorous" turned into something a script can count
+
+Data 2026's first stage said to rewrite the roadmap's prose. Asked to make it rigorous and
+international-standard instead, the honest problem is that both are adjectives: a run told to apply
+one changes the wording and reports success. `check_roadmap_rigor.py` counts the properties
+underneath — an objective with a verb you can watch someone perform, a stated point at which a
+lesson is finished, a prerequisite, no metaphor standing in for a definition, no claim about
+industry practice without a date. Stage one now starts by running it and treats its output as the
+work list.
+
+**The measurement corrected the premise twice, in the author's favour.** The first version assumed
+`##` was a module and `###` a lesson, counted "Mức lương tham chiếu" as a module, and reported zero
+objectives and 73 missing exit criteria across three documents. The real format is a lesson block
+with bolded fields — Prerequisites, Learn, Outcome, Lab, Pitfalls, Done when — carrying both. The
+second version then scored 35% observable on objectives reading "Kể tên sáu vai trò" and "Vẽ lại
+vòng đời bảy chặng", which are plainly observable and simply absent from the verb list. An
+unrecognised verb is now reported separately from an unobservable one, because counting a
+dictionary gap as a curriculum defect sends someone to rewrite work that was already correct.
+
+What the three roadmaps actually need: 31 lessons without an objective, 20 without a prerequisite,
+8 with a verb that cannot be assessed, and 3 missing exit criteria out of 272 lessons. No metaphor,
+no hype, no unsourced industry claim anywhere in 7,000 lines.
+
+The four stages are now roadmap rigour, per-module roadmaps, per-lesson Bloom-levelled objectives
+with matching assessment, then composition. Stage one cites roadmap.sh, the EDISON Data Science
+Framework and SFIA as structures to compare against, and requires saying where this programme
+deliberately differs.
+
 ## v3.26.1 — a selector that collected an answer and changed nothing
 
 Data 2026 asks how far to run, and offers four stages from "rewrite the roadmap prose" through to

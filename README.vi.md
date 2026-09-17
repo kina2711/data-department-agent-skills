@@ -1,11 +1,11 @@
 # Data Department Agent Skills
 
 Hệ điều hành có kiểm soát cho toàn bộ một phòng Data, đóng gói dưới dạng plugin Claude Code.
-**33 role skill**, **873 atomic task contract**, **53 slash command**, **55 executable evidence scripts** chạy được, **12 JSON Schema**, và một production guard hook.
+**33 role skill**, **873 atomic task contract**, **53 slash command**, **56 executable evidence scripts** chạy được, **12 JSON Schema**, và một production guard hook.
 
 [![Validate](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kina2711/data-department-agent-skills/actions/workflows/validate.yml)
 
-Bản hiện tại: **v3.26.1** · Chạy được với **Claude Code**, **OpenAI Codex** và **Google Antigravity**
+Bản hiện tại: **v3.27.0** · Chạy được với **Claude Code**, **OpenAI Codex** và **Google Antigravity**
 
 🇬🇧 [Read in English](README.md)
 
@@ -59,16 +59,16 @@ script evidence đều cần; cả hai fail-open nếu thiếu).
 
 ```powershell
 # Windows
-$pluginRoot = "C:\Tools\data-department-agent-skills-v3.26.1"
-Expand-Archive .\data-department-claude-plugin-v3.26.1.zip -DestinationPath $pluginRoot
+$pluginRoot = "C:\Tools\data-department-agent-skills-v3.27.0"
+Expand-Archive .\data-department-claude-plugin-v3.27.0.zip -DestinationPath $pluginRoot
 claude plugin validate --strict $pluginRoot
 claude --plugin-dir $pluginRoot
 ```
 
 ```bash
 # macOS / Linux
-pluginRoot=~/tools/data-department-agent-skills-v3.26.1
-unzip data-department-claude-plugin-v3.26.1.zip -d "$pluginRoot"
+pluginRoot=~/tools/data-department-agent-skills-v3.27.0
+unzip data-department-claude-plugin-v3.27.0.zip -d "$pluginRoot"
 claude plugin validate --strict "$pluginRoot"
 claude --plugin-dir "$pluginRoot"
 ```
@@ -119,7 +119,7 @@ Cấp một lần trong `~/.claude/settings.json`:
 sau cũng dùng được luôn.
 
 Đo từ một thư mục trống: có dòng này thì `/dd-catalog` đọc
-`.../cache/data-department/data-department-agent-skills/3.26.1/task-catalog.json` và trả lời 873;
+`.../cache/data-department/data-department-agent-skills/3.27.0/task-catalog.json` và trả lời 873;
 không có thì lệnh dừng lại hỏi quyền. Bấm duyệt ở hộp thoại cũng được — dòng này chỉ để nó thôi hỏi.
 
 ### Hai cửa vào: app và dòng lệnh

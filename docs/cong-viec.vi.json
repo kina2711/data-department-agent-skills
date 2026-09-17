@@ -1136,10 +1136,10 @@
           "kieu": "chon",
           "bat_buoc": true,
           "chon": [
-            "Chỉ viết lại ngôn từ roadmap",
-            "Thêm: roadmap chi tiết + objective role/module/buổi",
-            "Thêm: gợi ý nguồn và cách lấy, rồi dừng chờ tôi tải",
-            "Tôi đã đưa nguồn vào rồi — trích note và soạn bài, dừng cho tôi chốt"
+            "Chặng 1 — siết roadmap tổng lên chuẩn đo được",
+            "Chặng 2 — thêm roadmap từng module",
+            "Chặng 3 — thêm objective chi tiết + gợi ý nguồn, dừng chờ tôi tải",
+            "Chặng 4 — nguồn đã có, soạn nội dung từng buổi"
           ]
         },
         {
@@ -1179,29 +1179,29 @@
           "text": "YÊU CẦU RIÊNG, ưu tiên hơn luồng mặc định: {yeu_cau_khac}"
         },
         {
-          "text": "BƯỚC 1 — BẮT ĐẦU TỪ ROADMAP, viết lại ngôn từ. Đọc roadmap.md hiện có trong phạm vi rồi rà văn phong bằng skill `humanizer` nếu nó có mặt (plugin riêng: `claude plugin install humanizer@humanizer`; không có thì dùng authored-prose-voice.md của bộ này và nói rõ đã dùng cái nào). Nó chỉ sửa văn xuôi: giữ nguyên code, câu lệnh, đường dẫn, bảng, YAML front matter và link. Và nó KHÔNG được thêm hay bớt một dữ kiện, con số, tên hay trích dẫn nào — mất một claim khi viết lại là lỗi, không phải gọn hơn. Số bài, số module, thời lượng trong bảng phải khớp y như trước.",
+          "text": "BƯỚC 1 — SIẾT ROADMAP TỔNG LÊN CHUẨN ĐO ĐƯỢC. Đây không phải sửa câu chữ cho hay. Chạy trước: `python3 <plugin>/skills/data-academy-and-curriculum/scripts/check_roadmap_rigor.py material/*/roadmap/roadmap.md` và lấy kết quả đó làm danh sách việc — sửa đúng những bài script gọi tên, không sửa những bài nó báo đạt. Bốn tiêu chí: (a) mỗi bài có Outcome dùng động từ quan sát được, không dùng 'hiểu', 'biết', 'nắm được' — thứ không đánh giá được thì không hứa được gì; (b) mỗi bài có Done when nói rõ lúc nào thì xong; (c) mỗi bài nêu Prerequisites; (d) không ẩn dụ dùng làm định nghĩa, không từ khoa trương, và mọi khẳng định về ngành phải kèm năm hoặc nguồn. Đối chiếu cấu trúc với roadmap.sh (data-analyst, backend), khung năng lực EDISON Data Science Framework và SFIA, cùng chính tin tuyển dụng thật — nói rõ đã đối chiếu với cái nào và chỗ nào chương trình này cố tình khác. Văn phong rà bằng humanizer sau khi nội dung đã đạt, và nó KHÔNG được thêm hay bớt một dữ kiện, con số, tên hay trích dẫn nào. Chạy lại script để chứng minh số lỗi đã giảm; in con số trước và sau.",
           "neu_la": {
             "giai_doan": [
-              "Chỉ viết lại ngôn từ roadmap",
-              "Thêm: roadmap chi tiết + objective role/module/buổi",
-              "Thêm: gợi ý nguồn và cách lấy, rồi dừng chờ tôi tải"
+              "Chặng 1 — siết roadmap tổng lên chuẩn đo được",
+              "Chặng 2 — thêm roadmap từng module",
+              "Chặng 3 — thêm objective chi tiết + gợi ý nguồn, dừng chờ tôi tải"
             ]
           }
         },
         {
-          "text": "BƯỚC 2 — ROADMAP CHI TIẾT rồi OBJECTIVE TỪNG TẦNG, đi từ trên xuống: (a) role / skill — học xong chương trình thì làm được gì; (b) từng module; (c) từng buổi học. Objective phải quan sát được và kiểm chứng được, không phải 'hiểu về X'. Mỗi module kèm exit criterion nói rõ học xong làm được gì. Đây là thứ mọi bước sau đo theo, nên viết xong objective mới được đi tiếp.",
+          "text": "BƯỚC 2 — ROADMAP TỪNG MODULE. Mỗi module một roadmap riêng, cùng mức chặt như roadmap tổng: objective cấp module dùng động từ quan sát được, exit criterion nói rõ học xong module thì làm được gì kiểm chứng được, đồ thị phụ thuộc giữa các bài trong module phải phi chu trình và nêu rõ bài nào chặn bài nào, và thứ tự bài phải giải thích được bằng phụ thuộc chứ không phải bằng thói quen. Ghi vào material/<chương-trình>/curriculum/module_<N>-<tên>/roadmap/roadmap.md, giữ đúng định dạng module đang có. Nói rõ module nào có thể học song song với module nào.",
           "neu_la": {
             "giai_doan": [
-              "Thêm: roadmap chi tiết + objective role/module/buổi",
-              "Thêm: gợi ý nguồn và cách lấy, rồi dừng chờ tôi tải"
+              "Chặng 2 — thêm roadmap từng module",
+              "Chặng 3 — thêm objective chi tiết + gợi ý nguồn, dừng chờ tôi tải"
             ]
           }
         },
         {
-          "text": "BƯỚC 3 — TỪ TÊN VÀ OBJECTIVE mới đi tìm nguồn, không phải ngược lại. Với mỗi buổi / module / skill / role, dùng chính tên và objective vừa viết làm câu tìm: \"The best book/document/video to learn <tên và objective>\". Tìm trước khi có objective là gom tài liệu cho một câu hỏi chưa ai đặt.",
+          "text": "BƯỚC 3 — OBJECTIVE CHI TIẾT TỪNG BUỔI, rồi mới đi tìm nguồn. Với mỗi buổi: objective viết theo thang Bloom (nhớ / hiểu / áp dụng / phân tích / đánh giá / sáng tạo), nêu rõ ở tầng nào và vì sao tầng đó hợp với vị trí của bài trong module; kèm cách đánh giá tương ứng — một objective tầng 'áp dụng' mà chỉ kiểm bằng câu hỏi trắc nghiệm là không khớp. Xong objective mới dùng chính tên và objective đó làm câu tìm: \"The best book/document/video to learn <tên và objective>\". Tìm trước khi có objective là gom tài liệu cho một câu hỏi chưa ai đặt.",
           "neu_la": {
             "giai_doan": [
-              "Thêm: gợi ý nguồn và cách lấy, rồi dừng chờ tôi tải"
+              "Chặng 3 — thêm objective chi tiết + gợi ý nguồn, dừng chờ tôi tải"
             ]
           }
         },
@@ -1209,7 +1209,7 @@
           "text": "BƯỚC 3b — NÊU TÊN NGUỒN VÀ CÁCH LẤY. Với mỗi nguồn: tên và tác giả, phiên bản hoặc năm, nó phục vụ objective nào, và lấy ở đâu — link nhà xuất bản, bản open-access, docs chính thức, arXiv, khoá học, hoặc ghi rõ 'cần mua' / 'mượn thư viện'. Không tải sách từ site chia sẻ lậu và không đưa link tới những site đó. Nguồn ngoài theo technical-content-quality-standard: tài liệu chính thức đang hiện hành, standard, nghiên cứu gốc, hoặc bằng chứng chạy thật. Blog cá nhân, nội dung tổng hợp lại và bài do AI viết không tính là nguồn.",
           "neu_la": {
             "giai_doan": [
-              "Thêm: gợi ý nguồn và cách lấy, rồi dừng chờ tôi tải"
+              "Chặng 3 — thêm objective chi tiết + gợi ý nguồn, dừng chờ tôi tải"
             ]
           }
         },
@@ -1217,7 +1217,7 @@
           "text": "Đường tôi lấy nguồn ngoài: {nguon_ngoai}. Ưu tiên nguồn tôi với tới được bằng đúng những đường đó; nguồn ngoài tầm với thì vẫn nêu nhưng nói thẳng là tôi chưa có cách lấy.",
           "neu_la": {
             "giai_doan": [
-              "Thêm: gợi ý nguồn và cách lấy, rồi dừng chờ tôi tải"
+              "Chặng 3 — thêm objective chi tiết + gợi ý nguồn, dừng chờ tôi tải"
             ]
           },
           "neu": "nguon_ngoai"
@@ -1226,7 +1226,7 @@
           "text": "BƯỚC 3c — DỪNG, CHỜ TÔI TẢI VỀ. Sau khi nêu danh sách, dừng lại. Tôi tự tải và đặt vào material/<chương-trình>/**/ref/ rồi báo bạn. Đừng đọc sâu, đừng trích, đừng suy nội dung sách từ tên sách trong lúc chờ. Tôi xác nhận xong thì `book-assess-source-rights` chạy trước tiên và chốt ngưỡng trích dẫn ngay ở đó.",
           "neu_la": {
             "giai_doan": [
-              "Thêm: gợi ý nguồn và cách lấy, rồi dừng chờ tôi tải"
+              "Chặng 3 — thêm objective chi tiết + gợi ý nguồn, dừng chờ tôi tải"
             ]
           }
         },
@@ -1234,7 +1234,7 @@
           "text": "BƯỚC 4 — TRÍCH NOTE. PDF và sách qua book-extract-source-text; video qua brain-transcribe-audio-video-source có timestamp và ghi rõ chỗ nghe không rõ; slide và ảnh qua brain-process-image-and-diagram-source. Note ref đầy đủ chứ không tóm tắt, tách rõ bốn phần: nguồn nói gì / tổng hợp / suy luận chưa có trong nguồn / còn chưa chắc. Mỗi mục kiến thức phải chỉ ra được nó nằm ở đâu trong nguồn. Thứ không đọc được thì nói là không đọc được.",
           "neu_la": {
             "giai_doan": [
-              "Tôi đã đưa nguồn vào rồi — trích note và soạn bài, dừng cho tôi chốt"
+              "Chặng 4 — nguồn đã có, soạn nội dung từng buổi"
             ]
           }
         },
@@ -1242,7 +1242,7 @@
           "text": "BƯỚC 5 — SOẠN BÀI, đo theo objective ở bước 2. Giữ nguyên cấu trúc ba tầng của repo: Chương trình → Module → Bài giảng, ghi vào material/<chương-trình>/curriculum/module_<N>-<tên>/curriculum/lesson_<NNN>_<tên>/note.md cùng quiz.md, homework.md, slides.md. Giữ đúng front matter mà Web/parse_curriculum.py đang đọc — đổi khoá là làm hỏng trang web.",
           "neu_la": {
             "giai_doan": [
-              "Tôi đã đưa nguồn vào rồi — trích note và soạn bài, dừng cho tôi chốt"
+              "Chặng 4 — nguồn đã có, soạn nội dung từng buổi"
             ]
           }
         },
@@ -1250,7 +1250,7 @@
           "text": "BƯỚC 6 — Index corpus, audit corpus, cổng bản quyền, cổng riêng tư, và ba cổng kiểm duyệt nội dung AI (code, văn bản, phương tiện). Số liệu in ra phải từ chạy thật; chưa chạy được thì ghi là chưa chạy được.",
           "neu_la": {
             "giai_doan": [
-              "Tôi đã đưa nguồn vào rồi — trích note và soạn bài, dừng cho tôi chốt"
+              "Chặng 4 — nguồn đã có, soạn nội dung từng buổi"
             ]
           }
         },
@@ -1258,7 +1258,7 @@
           "text": "BƯỚC 7 — DỪNG CHO TÔI CHỐT NỘI DUNG. Trình ra: file nào đã viết lại, objective nào đã viết, nguồn nào đã dùng, bài nào đã soạn, cổng nào đã qua và cổng nào đang chờ. Ghi quyết định vào approval ledger. Đừng build web ở bước này.",
           "neu_la": {
             "giai_doan": [
-              "Tôi đã đưa nguồn vào rồi — trích note và soạn bài, dừng cho tôi chốt"
+              "Chặng 4 — nguồn đã có, soạn nội dung từng buổi"
             ]
           }
         },
@@ -1266,7 +1266,7 @@
           "text": "BƯỚC 8 — TÔI CHỐT thì đóng gói bằng content-package-technical-series-repository, rồi HƯỚNG DẪN TÔI BUILD WEB: chạy `make status` xem đã soạn bao nhiêu trên tổng số, `make material` dựng đầu ra mọi bài đã soạn, `make web` dựng trang tra cứu ra Web/dist/index.html, `make preview` xem thử tại chỗ, `make deploy` đẩy lên Vercel. Nói rõ lệnh nào sinh ra file gì và cần chạy theo thứ tự nào; nếu parse_curriculum.py báo lỗi front matter thì chỉ ra bài nào sai khoá nào. Tôi tự chạy — đừng tự deploy và đừng bao giờ nói là đã deploy.",
           "neu_la": {
             "giai_doan": [
-              "Tôi đã đưa nguồn vào rồi — trích note và soạn bài, dừng cho tôi chốt"
+              "Chặng 4 — nguồn đã có, soạn nội dung từng buổi"
             ]
           }
         },
@@ -1274,7 +1274,7 @@
           "text": "TÔI KHÔNG CHỐT thì hỏi ngược tôi từng điểm: chỗ nào sai, sai vì nội dung hay vì văn phong, sửa ở tầng role / module / hay buổi — rồi mới sửa đúng chỗ đó. Đừng viết lại cả bài khi tôi chỉ chê một đoạn.",
           "neu_la": {
             "giai_doan": [
-              "Tôi đã đưa nguồn vào rồi — trích note và soạn bài, dừng cho tôi chốt"
+              "Chặng 4 — nguồn đã có, soạn nội dung từng buổi"
             ]
           }
         },
@@ -1282,16 +1282,16 @@
           "text": "DATASET: tôi sẽ tự đưa dữ liệu khi cần. Bạn chỉ đề xuất ý tưởng dataset và nói rõ cần dữ liệu hình dạng gì; đừng tự sinh dataset rồi coi như đã có, và đừng tải dataset nào về khi tôi chưa đồng ý.",
           "neu_la": {
             "giai_doan": [
-              "Tôi đã đưa nguồn vào rồi — trích note và soạn bài, dừng cho tôi chốt"
+              "Chặng 4 — nguồn đã có, soạn nội dung từng buổi"
             ]
           }
         },
         {
           "neu_la": {
             "giai_doan": [
-              "Chỉ viết lại ngôn từ roadmap",
-              "Thêm: roadmap chi tiết + objective role/module/buổi",
-              "Thêm: gợi ý nguồn và cách lấy, rồi dừng chờ tôi tải"
+              "Chặng 1 — siết roadmap tổng lên chuẩn đo được",
+              "Chặng 2 — thêm roadmap từng module",
+              "Chặng 3 — thêm objective chi tiết + gợi ý nguồn, dừng chờ tôi tải"
             ]
           },
           "text": "DỪNG Ở ĐÚNG CHẶNG TRÊN. Đừng đi tiếp sang chặng sau dù thấy rõ phải làm gì — tôi chạy từng chặng một để còn kịp sửa hướng. Kết thúc bằng: đã đụng vào file nào, và chặng tiếp theo cần tôi làm gì trước."
@@ -1299,7 +1299,7 @@
         {
           "neu_la": {
             "giai_doan": [
-              "Tôi đã đưa nguồn vào rồi — trích note và soạn bài, dừng cho tôi chốt"
+              "Chặng 4 — nguồn đã có, soạn nội dung từng buổi"
             ]
           },
           "text": "Roadmap và objective coi như đã xong ở lần chạy trước — đọc lại chúng làm chuẩn, đừng viết lại. Văn phong của bài giảng MỚI vẫn phải qua humanizer trước khi tôi đọc."

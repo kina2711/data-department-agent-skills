@@ -104,11 +104,11 @@
   },
   "evaluation": {
     "cases_ref": "evaluations/harness-cases.yaml",
-    "run_at": "2026-09-17T09:56:35Z",
+    "run_at": "2026-09-17T10:58:16Z",
     "score": 1.0,
     "cases_total": 36,
     "cases_passed": 36,
-    "score_is_for_version": "3.26.1",
+    "score_is_for_version": "3.27.0",
     "_": "Đo cho scope v2.0.0 (38 task, 9 cổng). Ba case mới cho hai cổng người duyệt và cho bước viết objective; đã thử gỡ từng cổng và bỏ task objective khỏi scope, cả ba đều làm case đỏ. Điểm này nói ranh giới đúng như đã khai, không nói harness chạy tốt thực tế — không case nào gọi tới model."
   },
   "environment": {
