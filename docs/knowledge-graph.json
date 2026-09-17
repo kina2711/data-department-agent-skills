@@ -2,11 +2,11 @@
  "_": "Every edge carries its provenance. `ambiguous` edges — workflow stage precedence — are excluded from degree, clustering and any claim about what depends on what.",
  "seed": 20260831,
  "node_count": 1228,
- "edge_count": 5151,
+ "edge_count": 5194,
  "edges_by_provenance": {
   "extracted": 4213,
   "inferred": 21,
-  "ambiguous": 917
+  "ambiguous": 960
  },
  "community_count": 99,
  "ubiquitous_standards_excluded": [
@@ -40203,6 +40203,307 @@
   {
    "from": "ctx-validate-context-pack",
    "to": "ctx-build-context-index",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "orchestrator-define-agent-harness",
+   "to": "orchestrator-hydrate-context",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "orchestrator-hydrate-context",
+   "to": "core-define-success-contract",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "core-define-success-contract",
+   "to": "academy-audit-curriculum-quality",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-audit-curriculum-quality",
+   "to": "content-define-author-voice",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-define-author-voice",
+   "to": "core-review-ai-prose",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "core-define-success-contract",
+   "to": "academy-elicit-prior-knowledge",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-audit-curriculum-quality",
+   "to": "academy-analyze-learning-gaps",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-elicit-prior-knowledge",
+   "to": "academy-analyze-learning-gaps",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-analyze-learning-gaps",
+   "to": "academy-prioritize-corpus-by-gap",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-prioritize-corpus-by-gap",
+   "to": "content-research-technical-topic",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-research-technical-topic",
+   "to": "book-assess-source-rights",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "book-assess-source-rights",
+   "to": "book-extract-source-text",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "book-assess-source-rights",
+   "to": "brain-transcribe-audio-video-source",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "book-assess-source-rights",
+   "to": "brain-process-image-and-diagram-source",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "book-extract-source-text",
+   "to": "brain-capture-source-material",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "brain-transcribe-audio-video-source",
+   "to": "brain-capture-source-material",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "brain-process-image-and-diagram-source",
+   "to": "brain-capture-source-material",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "brain-capture-source-material",
+   "to": "brain-distill-source-to-wiki-note",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "brain-distill-source-to-wiki-note",
+   "to": "content-audit-claim-source-traceability",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "brain-distill-source-to-wiki-note",
+   "to": "academy-plan-note-corpus",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-prioritize-corpus-by-gap",
+   "to": "academy-plan-note-corpus",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-plan-note-corpus",
+   "to": "academy-design-learning-module",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-design-learning-module",
+   "to": "academy-outline-lesson-from-source",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-outline-lesson-from-source",
+   "to": "academy-write-theory-lesson",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "core-review-ai-prose",
+   "to": "academy-write-theory-lesson",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-write-theory-lesson",
+   "to": "academy-design-hands-on-lab",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-design-hands-on-lab",
+   "to": "enable-generate-practice-exercise",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-write-theory-lesson",
+   "to": "academy-build-note-module",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "enable-generate-practice-exercise",
+   "to": "academy-build-note-module",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-build-note-module",
+   "to": "academy-index-note-corpus",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-index-note-corpus",
+   "to": "academy-audit-note-corpus",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-audit-note-corpus",
+   "to": "book-audit-copyright-and-privacy",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-audit-claim-source-traceability",
+   "to": "book-audit-copyright-and-privacy",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "book-audit-copyright-and-privacy",
+   "to": "brain-run-privacy-freshness-audit",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "enable-generate-practice-exercise",
+   "to": "core-review-ai-code",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-build-note-module",
+   "to": "core-review-ai-media",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-audit-note-corpus",
+   "to": "core-request-human-approval",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "brain-run-privacy-freshness-audit",
+   "to": "core-request-human-approval",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "core-review-ai-code",
+   "to": "core-request-human-approval",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "core-review-ai-media",
+   "to": "core-request-human-approval",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "core-request-human-approval",
+   "to": "content-package-technical-series-repository",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "content-package-technical-series-repository",
+   "to": "orchestrator-audit-agent-harness",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "orchestrator-audit-agent-harness",
+   "to": "core-handoff-data-work",
    "type": "stage-precedence",
    "provenance": "ambiguous",
    "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"

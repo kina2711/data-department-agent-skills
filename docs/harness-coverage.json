@@ -37,6 +37,15 @@
       "tasks_outside_harness": []
     },
     {
+      "workflow": "data-2026",
+      "kind": "authored",
+      "tasks": 34,
+      "harness": "data-2026",
+      "harness_status": "draft",
+      "evaluated": true,
+      "tasks_outside_harness": []
+    },
+    {
       "workflow": "data-academy-and-curriculum-standard-path",
       "kind": "template",
       "tasks": 52,
@@ -308,6 +317,7 @@
     }
   ],
   "harnesses": [
+    "data-2026",
     "data-trainer"
   ]
 }

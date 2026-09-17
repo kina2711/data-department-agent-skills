@@ -1,0 +1,137 @@
+{
+  "harness_id": "data-2026",
+  "role": "data-department-orchestrator",
+  "version": "1.0.0",
+  "owner": "",
+  "_": "Harness cho luồng Data 2026 trên repo data-trainer. Owner để trống theo quy ước template: một bản khai phát hành kèm tên sẽ giao việc cho người không có mặt lúc người khác dùng nó. Điền owner trước khi chạy thật.",
+  "scope": {
+    "tasks_in": [
+      "academy-analyze-learning-gaps",
+      "academy-audit-curriculum-quality",
+      "academy-audit-note-corpus",
+      "academy-build-note-module",
+      "academy-design-hands-on-lab",
+      "academy-design-learning-module",
+      "academy-elicit-prior-knowledge",
+      "academy-index-note-corpus",
+      "academy-outline-lesson-from-source",
+      "academy-plan-note-corpus",
+      "academy-prioritize-corpus-by-gap",
+      "academy-write-theory-lesson",
+      "book-assess-source-rights",
+      "book-audit-copyright-and-privacy",
+      "book-extract-source-text",
+      "brain-capture-source-material",
+      "brain-distill-source-to-wiki-note",
+      "brain-process-image-and-diagram-source",
+      "brain-run-privacy-freshness-audit",
+      "brain-transcribe-audio-video-source",
+      "content-audit-claim-source-traceability",
+      "content-define-author-voice",
+      "content-package-technical-series-repository",
+      "content-research-technical-topic",
+      "core-define-success-contract",
+      "core-handoff-data-work",
+      "core-request-human-approval",
+      "core-review-ai-code",
+      "core-review-ai-media",
+      "core-review-ai-prose",
+      "enable-generate-practice-exercise",
+      "orchestrator-audit-agent-harness",
+      "orchestrator-define-agent-harness",
+      "orchestrator-hydrate-context"
+    ],
+    "tasks_out": [
+      "bi-publish-dashboard",
+      "book-publish-derived-skill",
+      "brain-retire-stale-knowledge",
+      "content-publish-technical-content"
+    ],
+    "out_reason": "bi-publish-dashboard: Deploy là việc của Makefile và Vercel trong chính repo data-trainer, chạy bằng tay sau khi người dùng chốt. | book-publish-derived-skill: Phát hành lại nội dung rút từ sách của người khác là quyết định về quyền, không phải một bước trong dây chuyền soạn giáo trình. | brain-retire-stale-knowledge: Xoá note cũ là R4 và động vào tri thức người dùng đã viết. Harness này bổ sung giáo trình, không dọn vault. | content-publish-technical-content: Đăng bài là hành động trên tài khoản của tác giả. Luồng dừng ở gói bàn giao và ở lệnh build web do người chốt bấm."
+  },
+  "grounding": [
+    {
+      "source": "material/<chuong-trinh>/roadmap/roadmap.md",
+      "kind": "corpus",
+      "version": "front matter phien_ban + cap_nhat của từng roadmap",
+      "pinned_at": "lúc chạy"
+    },
+    {
+      "source": "material/<chuong-trinh>/**/ref/",
+      "kind": "corpus",
+      "version": "checksum từng tệp trong source manifest",
+      "pinned_at": "lúc chạy"
+    },
+    {
+      "source": "Web/parse_curriculum.py",
+      "kind": "build-contract",
+      "version": "git rev của repo data-trainer",
+      "pinned_at": "lúc chạy"
+    },
+    {
+      "source": "skills/data-technical-content-and-social/references/technical-content-quality-standard.md",
+      "kind": "standard",
+      "version": "theo suite version",
+      "pinned_at": "lúc chạy"
+    }
+  ],
+  "tool_surface_ref": "skills/data-department-orchestrator/references/external-tool-access.md",
+  "guardrails": {
+    "permission_mode": "plan",
+    "writes_per_run_limit": 0,
+    "stops_at_risk_tier": "R3-controlled",
+    "gates_requiring_authority": [
+      "academy-plan-note-corpus",
+      "book-assess-source-rights",
+      "book-audit-copyright-and-privacy",
+      "brain-run-privacy-freshness-audit",
+      "core-review-ai-code",
+      "core-review-ai-media",
+      "core-review-ai-prose",
+      "core-request-human-approval"
+    ]
+  },
+  "evaluation": {
+    "cases_ref": "evaluations/harness-cases.yaml",
+    "run_at": "2026-09-17T06:16:07Z",
+    "score": 1.0,
+    "cases_total": 34,
+    "cases_passed": 34,
+    "score_is_for_version": "3.25.0",
+    "_": "Đo bằng `python3 tools/eval_harness.py run --suite harness`, chung bộ case với các harness khác. Kỳ vọng viết từ ý định của luồng chứ không đọc ngược từ file này. Đã thử phá năm kiểu (đưa việc đăng vào scope, gỡ cổng chốt, gỡ cổng bản quyền, xoá lý do loại trừ, bỏ một task workflow khỏi scope) và cả năm đều làm case đỏ. Điểm này nói ranh giới đúng như đã khai, không nói harness chạy tốt trên thực tế — không case nào gọi tới model."
+  },
+  "environment": {
+    "services": [
+      "Node + Python cho Makefile của data-trainer",
+      "Vercel CLI cho bước deploy do người dùng bấm"
+    ],
+    "credential_names": [],
+    "versions": {
+      "suite": "",
+      "plugin": "",
+      "app": ""
+    }
+  },
+  "reproducible": {
+    "inputs_pinned": false,
+    "pinned_versions_recorded_with_run": false
+  },
+  "handover": {
+    "recipient": "tác giả của ba chương trình",
+    "blast_radius_stated": "Ghi vào material/** của repo data-trainer: roadmap được viết lại, ref note, và note.md của từng bài. Không chạy make web, không deploy, không đăng. Không đụng tới repo suite.",
+    "may_write": [
+      "material/**/roadmap/roadmap.md",
+      "material/**/ref/**",
+      "material/**/curriculum/**/note.md",
+      "material/**/curriculum/**/quiz.md",
+      "material/**/curriculum/**/homework.md",
+      "material/**/curriculum/**/slides.md"
+    ],
+    "may_spend": "chưa đặt trần; đặt trước khi chạy không giám sát",
+    "stops_for": [
+      "mọi cổng trong gates_requiring_authority",
+      "lệnh build web: người dùng tự chạy make web sau khi chốt"
+    ]
+  },
+  "status": "draft"
+}

@@ -1103,6 +1103,95 @@
         "Content: một canonical article rồi mới ra ba biến thể — Facebook tiếng Việt ở group Xóm Data, LinkedIn tiếng Anh trang cá nhân, Threads tiếng Việt ảnh dẫn trước chữ. Chạy content-render-post-images để xuất PNG thật cho code, cheatsheet và diagram. Ảnh màn hình thật thì chừa chỗ và bảo tôi tự chụp — đừng dựng một ảnh màn hình không có thật. Giới hạn ký tự là ràng buộc câu chữ, không phải cớ để bỏ mệnh đề làm cho claim đúng.",
         "Dừng ở: {dung_o}. Ngoài ra dừng lại cho tôi duyệt trước mỗi lần ghi vào vault. Mọi số in ra phải từ chạy thật; chưa chạy được thì ghi là chưa chạy được. Dây chuyền kết thúc ở gói bài + ảnh để TÔI tự đăng — không đăng hộ, và không bao giờ nói là đã đăng."
       ]
+    },
+    {
+      "id": "data-2026",
+      "skill": "data-department-orchestrator",
+      "ten": "Data 2026",
+      "mo_ta": "Ba chương trình đã có trên đĩa — DA, DE, AE — được nâng chuẩn chứ không làm lại: viết lại văn phong roadmap, gọi tên lỗ hổng reference ở ba tầng, tìm nguồn hợp pháp cho đúng lỗ hổng đó, soạn bài giảng từ nguồn, rồi DỪNG cho bạn chốt. Chốt thì đóng gói để build web; không chốt thì hỏi kỹ chỗ sai.",
+      "task_id": "orchestrator-define-agent-harness",
+      "thong_so": [
+        {
+          "key": "chuong_trinh",
+          "nhan": "Chương trình",
+          "kieu": "chon",
+          "bat_buoc": true,
+          "chon": [
+            "Data Analyst (DA)",
+            "Data Engineer (DE)",
+            "Analytics Engineer (AE)",
+            "Cả ba"
+          ]
+        },
+        {
+          "key": "pham_vi",
+          "nhan": "Phạm vi lần chạy này",
+          "kieu": "text",
+          "bat_buoc": true,
+          "goi_y": "Cả chương trình · hoặc: DA/Module 3 · hoặc: DA/Module 3/bài 27"
+        },
+        {
+          "key": "giai_doan",
+          "nhan": "Chạy tới đâu",
+          "kieu": "chon",
+          "bat_buoc": true,
+          "chon": [
+            "Chỉ viết lại văn phong doc đã có",
+            "Viết lại + gọi tên lỗ hổng reference (chưa đi tìm nguồn)",
+            "Thêm: tìm nguồn và trích thành note ref",
+            "Chạy hết tới lúc tôi chốt nội dung bài giảng"
+          ]
+        },
+        {
+          "key": "nguon_ngoai",
+          "nhan": "Tôi lấy sách/tài liệu ngoài bằng đường nào",
+          "kieu": "text",
+          "bat_buoc": false,
+          "nhieu_dong": true,
+          "goi_y": "vd: tôi có O'Reilly learning; sách giấy đã mua; chỉ dùng nguồn mở và docs chính thức"
+        },
+        {
+          "key": "ghi_chu",
+          "nhan": "Ghi chú thêm",
+          "kieu": "text",
+          "bat_buoc": false,
+          "nhieu_dong": true,
+          "goi_y": "vd: DA đã xong roadmap v4, AE mới có khung module. Dialect PostgreSQL 16."
+        },
+        {
+          "key": "yeu_cau_khac",
+          "nhan": "Yêu cầu khác",
+          "kieu": "text",
+          "bat_buoc": false,
+          "nhieu_dong": true,
+          "goi_y": "vd: bỏ qua phần content social. Hoặc: chỉ soạn 5 bài đầu module 2."
+        }
+      ],
+      "mau": [
+        "Chạy workflow `data-2026` trong workflows/, điều phối qua data-department-orchestrator. Thư mục làm việc là repo data-trainer: material/<chương-trình>/ chứa roadmap, ref và curriculum; Web/ chứa pipeline dựng site.",
+        "Chương trình: **{chuong_trinh}**. Phạm vi lần này: {pham_vi}. Chạy tới: {giai_doan}.",
+        {
+          "neu": "ghi_chu",
+          "text": "Ghi chú: {ghi_chu}"
+        },
+        {
+          "neu": "yeu_cau_khac",
+          "text": "YÊU CẦU RIÊNG, ưu tiên hơn luồng mặc định: {yeu_cau_khac}"
+        },
+        "BƯỚC 1 — Viết lại văn phong. Rà mọi roadmap.md và markdown đã viết trong phạm vi bằng skill `humanizer` nếu nó có mặt (plugin riêng: `claude plugin install humanizer@humanizer`; không có thì dùng authored-prose-voice.md của bộ này và nói rõ đã dùng cái nào). Nó chỉ sửa văn xuôi: giữ nguyên code, câu lệnh, đường dẫn, bảng, YAML front matter và link. Và nó KHÔNG được thêm hay bớt một dữ kiện, con số, tên hay trích dẫn nào — mất một claim khi viết lại là lỗi, không phải là gọn hơn. Số bài, số module, thời lượng trong bảng phải khớp y như trước.",
+        "BƯỚC 2 — Gọi tên lỗ hổng TRƯỚC khi đi tìm. Với từng tầng: (a) tổng chương trình, (b) từng module, (c) từng buổi học — nói rõ chỗ nào roadmap yêu cầu một năng lực mà trong ref hiện có không có gì phủ được, và vì sao. Chưa nêu được lỗ hổng thì chưa được tìm nguồn: tìm trước là đi gom tài liệu cho một câu hỏi chưa ai đặt.",
+        "BƯỚC 2b — Tìm nguồn cho đúng lỗ hổng đó. Cú pháp tìm: \"The best book/document for learn <DA|DE|AE> / <Module> / <nội dung buổi>\". Với mỗi kết quả phải trả về ĐỦ BỐN thứ, thiếu một thứ thì không được đưa vào danh sách: tên và tác giả · phiên bản hoặc năm xuất bản · lỗ hổng nào ở trên nó lấp · VÀ đường lấy hợp pháp cụ thể (link chính thức của nhà xuất bản, bản open-access, docs chính thức, arXiv, hoặc ghi rõ 'cần mua/mượn thư viện'). KHÔNG tải sách từ site chia sẻ lậu, và không đưa link tới những site đó — oceanofpdf và tương tự nằm ngoài luồng này. Nguồn ngoài theo technical-content-quality-standard: tài liệu chính thức đang hiện hành, standard, nghiên cứu gốc, hoặc bằng chứng chạy thật. Blog cá nhân, nội dung tổng hợp lại và bài do AI viết không tính là nguồn.",
+        {
+          "neu": "nguon_ngoai",
+          "text": "Đường tôi lấy nguồn ngoài: {nguon_ngoai}. Chỉ đề xuất nguồn tôi với tới được bằng đúng những đường đó; nguồn nằm ngoài tầm với thì nói thẳng là tôi chưa có cách lấy, đừng liệt kê rồi để đấy."
+        },
+        "BƯỚC 2c — `book-assess-source-rights` chạy TRƯỚC khi đọc sâu bất cứ nguồn nào, và chốt ngưỡng trích dẫn ngay ở đó. Nguồn tôi đã có bản hợp pháp thì tôi tự đặt vào material/<chương-trình>/**/ref/ rồi bảo bạn; bạn trích xuất thành note ref đầy đủ chứ không tóm tắt, tách rõ bốn phần: nguồn nói gì / tổng hợp / suy luận chưa có trong nguồn / còn chưa chắc. Mỗi mục kiến thức phải chỉ được ra nó nằm ở đâu trong nguồn.",
+        "BƯỚC 3 — Soạn nội dung buổi học. Cấu trúc ba tầng giữ nguyên như repo đang có: Chương trình → Module → Bài giảng, ghi vào material/<chương-trình>/curriculum/module_<N>-<tên>/curriculum/lesson_<NNN>_<tên>/note.md cùng quiz.md, homework.md, slides.md. Giữ đúng front matter mà Web/parse_curriculum.py đang đọc — đổi khoá là làm hỏng trang web. Mỗi module có exit criterion nói rõ học xong làm được gì kiểm chứng được.",
+        "BƯỚC 4 — Phần đuôi như Data Trainer: index corpus, audit corpus, cổng bản quyền, cổng riêng tư, và ba cổng kiểm duyệt nội dung AI (code, văn bản, phương tiện). Số liệu in ra phải từ chạy thật; chưa chạy được thì ghi là chưa chạy được.",
+        "BƯỚC 5 — DỪNG và đưa tôi chốt. Trình ra: đã viết lại những file nào, lỗ hổng nào đã lấp và lấp bằng nguồn gì, bài nào đã soạn, cổng nào đã qua, cổng nào đang chờ. Đừng build web.",
+        "BƯỚC 6 — Tôi chốt thì đóng gói bằng `content-package-technical-series-repository` và chỉ cho tôi lệnh build (`make web`, `make preview`, `make deploy`) để TÔI tự chạy — không tự chạy deploy, không nói là đã deploy. Tôi KHÔNG chốt thì hỏi ngược tôi từng điểm một: chỗ nào sai, sai vì nội dung hay vì văn phong, muốn sửa ở tầng chương trình / module / hay buổi — rồi mới sửa. Đừng viết lại cả bài khi tôi chỉ chê một đoạn.",
+        "DATASET: tôi sẽ tự đưa dữ liệu khi cần. Bạn chỉ đề xuất ý tưởng dataset và nói rõ cần dữ liệu hình dạng gì; đừng tự sinh dataset rồi coi như đã có, và đừng tải dataset ở đâu về mà tôi chưa đồng ý."
+      ]
     }
   ]
 }

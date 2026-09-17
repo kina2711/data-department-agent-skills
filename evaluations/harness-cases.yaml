@@ -128,3 +128,83 @@ cases:
     rule: every-workflow-task-is-in-scope
     because: A task the workflow runs and the harness never mentions is work happening outside
       the boundary that was supposed to contain it.
+
+  # --- data-2026: ba chương trình đã có trên đĩa, nâng chuẩn chứ không làm lại ---------------
+  - id: d26-refuse-publishing
+    harness: data-2026
+    request: content-publish-technical-content
+    expect: refused
+    because: The site is built by a Makefile in the author's own repository, run by hand after
+      they approve. A workflow that lists publishing invites a claim nobody holds evidence for.
+  - id: d26-refuse-deploy
+    harness: data-2026
+    request: bi-publish-dashboard
+    expect: refused
+    because: Deploying is `make deploy` plus Vercel in the data-trainer repo. It belongs to the
+      person who owns the account, after the approval gate, not inside the run.
+  - id: d26-refuse-republishing-source
+    harness: data-2026
+    request: book-publish-derived-skill
+    expect: refused
+    because: Re-releasing material extracted from someone else's book is a rights decision, not a
+      step in composing a curriculum.
+  - id: d26-refuse-knowledge-deletion
+    harness: data-2026
+    request: brain-retire-stale-knowledge
+    expect: refused
+    because: This harness adds to three curricula. Deleting the author's existing notes is R4 and
+      outside anything it was asked to do.
+  - id: d26-gate-source-rights
+    harness: data-2026
+    request: book-assess-source-rights
+    expect: gated
+    because: Whether a source may be used at all is settled before it is read deeply, and it is a
+      legal judgement rather than a step a run performs on its own.
+  - id: d26-gate-final-approval
+    harness: data-2026
+    request: core-request-human-approval
+    expect: gated
+    because: The whole flow exists to stop here. Building the site without that decision would be
+      the one failure the author asked to be protected from.
+  - id: d26-gate-prose-review
+    harness: data-2026
+    request: core-review-ai-prose
+    expect: gated
+    because: Rewriting the roadmap prose is the first stage, and a run that cleared its own
+      writing review would be marking its own homework.
+  - id: d26-allow-gap-analysis
+    harness: data-2026
+    request: academy-analyze-learning-gaps
+    expect: allowed
+    because: Naming which references are missing reads what is already on disk and writes nothing
+      outside the project.
+  - id: d26-allow-lesson-writing
+    harness: data-2026
+    request: academy-write-theory-lesson
+    expect: allowed
+    because: Composing a lesson into note.md is the deliverable, and the approval gate downstream
+      is what decides whether it ships.
+  - id: d26-allow-research
+    harness: data-2026
+    request: content-research-technical-topic
+    expect: allowed
+    because: Finding official, versioned sources for a named gap is reading, and the rights gate
+      sits between it and any extraction.
+  - id: d26-controlled-work-is-gated
+    harness: data-2026
+    rule: every-in-scope-task-at-or-above-stop-tier-is-gated
+    because: The declaration stops at R3. An R3 task in scope with nothing in front of it would
+      make the stop tier a comment rather than a control.
+  - id: d26-exclusions-carry-reasons
+    harness: data-2026
+    rule: every-excluded-task-names-a-reason
+    because: An exclusion nobody can read is an exclusion nobody can argue with when it is wrong.
+  - id: d26-gates-name-real-work
+    harness: data-2026
+    rule: every-gate-names-a-real-task-or-script
+    because: A gate in front of something that does not exist stops nothing.
+  - id: d26-scope-covers-the-workflow
+    harness: data-2026
+    rule: every-workflow-task-is-in-scope
+    because: A task the workflow runs and the harness never mentions is work happening outside the
+      boundary meant to contain it.

@@ -1,0 +1,463 @@
+{
+  "workflow_id": "data-2026",
+  "version": "1.0.0",
+  "objective": "Data 2026. Three curricula that already exist on disk — Data Analyst, Data Engineer and Analytics Engineer — are brought up to standard rather than started over: the prose already written is rewritten to read as the author, the reference gaps are named at programme, module and lesson level before anything is searched for, sources are acquired only where their licence permits it, and lessons are composed from what those sources actually say. The run stops at a named human decision. Approved, it packages the material for the site build; not approved, it asks what is wrong rather than guessing.",
+  "status": "planned",
+  "workflow_risk_tier": "R3-controlled",
+  "current_task_id": "orchestrator-define-agent-harness",
+  "transitions": [],
+  "claims": [],
+  "updated_at": "2026-09-17T06:01:14+00:00",
+  "tasks": [
+    {
+      "task_id": "orchestrator-define-agent-harness",
+      "owner": "",
+      "depends_on": [],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-hydrate-context",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-define-agent-harness"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-define-success-contract",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-hydrate-context"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-audit-curriculum-quality",
+      "owner": "",
+      "depends_on": [
+        "core-define-success-contract"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-define-author-voice",
+      "owner": "",
+      "depends_on": [
+        "academy-audit-curriculum-quality"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-review-ai-prose",
+      "owner": "",
+      "depends_on": [
+        "content-define-author-voice"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-elicit-prior-knowledge",
+      "owner": "",
+      "depends_on": [
+        "core-define-success-contract"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-analyze-learning-gaps",
+      "owner": "",
+      "depends_on": [
+        "academy-audit-curriculum-quality",
+        "academy-elicit-prior-knowledge"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-prioritize-corpus-by-gap",
+      "owner": "",
+      "depends_on": [
+        "academy-analyze-learning-gaps"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-research-technical-topic",
+      "owner": "",
+      "depends_on": [
+        "academy-prioritize-corpus-by-gap"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-assess-source-rights",
+      "owner": "",
+      "depends_on": [
+        "content-research-technical-topic"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-extract-source-text",
+      "owner": "",
+      "depends_on": [
+        "book-assess-source-rights"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-transcribe-audio-video-source",
+      "owner": "",
+      "depends_on": [
+        "book-assess-source-rights"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-process-image-and-diagram-source",
+      "owner": "",
+      "depends_on": [
+        "book-assess-source-rights"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-capture-source-material",
+      "owner": "",
+      "depends_on": [
+        "book-extract-source-text",
+        "brain-transcribe-audio-video-source",
+        "brain-process-image-and-diagram-source"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-distill-source-to-wiki-note",
+      "owner": "",
+      "depends_on": [
+        "brain-capture-source-material"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-audit-claim-source-traceability",
+      "owner": "",
+      "depends_on": [
+        "brain-distill-source-to-wiki-note"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-plan-note-corpus",
+      "owner": "",
+      "depends_on": [
+        "brain-distill-source-to-wiki-note",
+        "academy-prioritize-corpus-by-gap"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-design-learning-module",
+      "owner": "",
+      "depends_on": [
+        "academy-plan-note-corpus"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-outline-lesson-from-source",
+      "owner": "",
+      "depends_on": [
+        "academy-design-learning-module"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-write-theory-lesson",
+      "owner": "",
+      "depends_on": [
+        "academy-outline-lesson-from-source",
+        "core-review-ai-prose"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-design-hands-on-lab",
+      "owner": "",
+      "depends_on": [
+        "academy-write-theory-lesson"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "enable-generate-practice-exercise",
+      "owner": "",
+      "depends_on": [
+        "academy-design-hands-on-lab"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-build-note-module",
+      "owner": "",
+      "depends_on": [
+        "academy-write-theory-lesson",
+        "enable-generate-practice-exercise"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-index-note-corpus",
+      "owner": "",
+      "depends_on": [
+        "academy-build-note-module"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-audit-note-corpus",
+      "owner": "",
+      "depends_on": [
+        "academy-index-note-corpus"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "book-audit-copyright-and-privacy",
+      "owner": "",
+      "depends_on": [
+        "academy-audit-note-corpus",
+        "content-audit-claim-source-traceability"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "brain-run-privacy-freshness-audit",
+      "owner": "",
+      "depends_on": [
+        "book-audit-copyright-and-privacy"
+      ],
+      "status": "planned",
+      "risk_tier": "R3-controlled",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-review-ai-code",
+      "owner": "",
+      "depends_on": [
+        "enable-generate-practice-exercise"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-review-ai-media",
+      "owner": "",
+      "depends_on": [
+        "academy-build-note-module"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-request-human-approval",
+      "owner": "",
+      "depends_on": [
+        "academy-audit-note-corpus",
+        "brain-run-privacy-freshness-audit",
+        "core-review-ai-code",
+        "core-review-ai-media"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "content-package-technical-series-repository",
+      "owner": "",
+      "depends_on": [
+        "core-request-human-approval"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "orchestrator-audit-agent-harness",
+      "owner": "",
+      "depends_on": [
+        "content-package-technical-series-repository"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-handoff-data-work",
+      "owner": "",
+      "depends_on": [
+        "orchestrator-audit-agent-harness"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    }
+  ]
+}

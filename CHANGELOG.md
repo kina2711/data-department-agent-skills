@@ -1,5 +1,29 @@
 # Changelog
 
+## v3.25.0 — Data 2026, for three curricula that already exist
+
+A second authored workflow. Data Trainer starts from a folder of source material and builds a
+corpus; **Data 2026** starts from three curricula already written to disk — Data Analyst, Data
+Engineer, Analytics Engineer — and brings them up to standard without starting over. 34 tasks,
+26 waves, eight gates that need a named person.
+
+The ordering is the point. The prose already written is rewritten first, and the rewrite may not
+add or drop a single fact, number, name or citation — losing a claim while rewriting is a fault,
+not concision. Then the reference gaps are **named** at programme, module and lesson level before
+anything is searched for, because searching first collects material for a question nobody asked.
+Only then does a source hunt run, and every candidate must carry four things or it is not listed:
+title and author, version or year, which named gap it fills, and a concrete lawful way to obtain
+it. The run stops at a human decision; approved, it packages for the site build and hands over the
+commands rather than running them.
+
+**Both harnesses now carry a measured score.** Fourteen new cases for `data-2026` alongside the
+existing twenty, verified the same way before anything was recorded: publishing moved into scope,
+the approval gate removed, the rights gate removed, an exclusion stripped of its reason, and a
+workflow task dropped from the scope. Each broke a case. 34/34.
+
+Two faults caught by checks written in earlier releases rather than by reading: the preset job
+collected a field the template never used, and the coverage report had no row for the new harness.
+
 ## Data Agent 0.6.1 — the terminal can find the run you left unfinished
 
 The session store moved into `core/` and both doors use it. Until now only the app recorded a run,
