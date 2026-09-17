@@ -1165,11 +1165,23 @@
           "bat_buoc": false,
           "nhieu_dong": true,
           "goi_y": "vd: bỏ qua phần content social. Hoặc: chỉ soạn 5 bài đầu module 2."
+        },
+        {
+          "key": "lam_lai_roadmap",
+          "nhan": "Làm lại roadmap dù đã chốt",
+          "kieu": "text",
+          "bat_buoc": false,
+          "goi_y": "Bỏ trống = tôn trọng bản đã chốt. Điền lý do nếu thật sự muốn làm lại."
         }
       ],
       "mau": [
         "Chạy workflow `data-2026` trong workflows/, điều phối qua data-department-orchestrator. Thư mục làm việc là repo data-trainer: material/<chương-trình>/ chứa roadmap, ref và curriculum; Web/ chứa pipeline dựng site.",
         "Chương trình: **{chuong_trinh}**. Phạm vi lần này: {pham_vi}. Chạy tới: {giai_doan}.",
+        "LUẬT KHOÁ ROADMAP — kiểm trước khi làm bất cứ gì. Đọc `.data-2026/roadmap-approved.json` trong thư mục làm việc. Có tệp đó thì chạy `python3 <plugin>/skills/data-department-orchestrator/scripts/validate_approval_record.py .data-2026/roadmap-approved.json --artifact-root . --require-approved`. Nếu PASS: roadmap đã được tôi chốt — BỎ QUA chặng 1 và chặng 2 hoàn toàn, kể cả khi thấy chỗ có thể cải thiện. Đọc roadmap làm chuẩn, đừng sửa một chữ nào trong đó. Nói rõ ở đầu báo cáo là đã bỏ qua vì bản nào, chốt ngày nào. Nếu script báo `no artifact ... matches artifact_sha256`: roadmap đã bị sửa sau khi chốt. DỪNG và hỏi tôi — hoặc tôi cố ý sửa và cần chốt lại, hoặc có gì đó đã đổi mà tôi không biết; đoán bừa cái nào cũng sai. Không có tệp đó thì roadmap chưa được chốt, chạy chặng 1 và 2 như bình thường.",
+        {
+          "neu": "lam_lai_roadmap",
+          "text": "TÔI YÊU CẦU LÀM LẠI ROADMAP dù đã chốt. Lý do: {lam_lai_roadmap}. Bỏ qua luật khoá ở trên, chạy lại chặng 1 và 2 trong đúng phạm vi tôi nêu, và sau khi xong thì nhắc tôi chốt lại để tệp approval sinh sha mới."
+        },
         {
           "neu": "ghi_chu",
           "text": "Ghi chú: {ghi_chu}"
@@ -1303,6 +1315,14 @@
             ]
           },
           "text": "Roadmap và objective coi như đã xong ở lần chạy trước — đọc lại chúng làm chuẩn, đừng viết lại. Văn phong của bài giảng MỚI vẫn phải qua humanizer trước khi tôi đọc."
+        },
+        {
+          "neu_la": {
+            "giai_doan": [
+              "Chặng 4 — nguồn đã có, soạn nội dung từng buổi"
+            ]
+          },
+          "text": "Sau khi tôi chốt nội dung: nếu chặng 1 và 2 vừa chạy trong phiên này, sinh `.data-2026/roadmap-approved.json` theo mẫu approval-record.json — điền artifact_sha256 của chính roadmap đã chốt, approver là tên tôi, decision `approved`, expires_at cách một năm — rồi bảo tôi kiểm lại. Đó là thứ làm cho các phiên sau không lặp lại chặng 1."
         }
       ]
     }

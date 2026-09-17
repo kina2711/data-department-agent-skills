@@ -1,5 +1,30 @@
 # Changelog
 
+## v3.28.0 — the roadmap is settled once, and later runs are told so
+
+Data 2026 rebuilt the roadmap on every run, which is right the first time and wrong every time
+after: a curriculum that has been read and approved should not be quietly reworded by the next
+session that happens to open it.
+
+Every stage now begins by checking `.data-2026/roadmap-approved.json` against the roadmap it
+approved. Nothing new was built for this — `validate_approval_record.py` already binds an approval
+to an artifact by SHA-256 and to a date by expiry, which is exactly the question being asked. A
+`PASS` means stages one and two are skipped outright, and the run says which version it is
+honouring rather than silently doing less.
+
+The interesting case is the third answer. When the file no longer matches the hash it was approved
+against, the run stops and asks instead of choosing: either the author edited it deliberately and
+needs to re-approve, or something changed that they do not know about, and guessing wrong is bad in
+both directions. Verified by appending one blank line to a 2,334-line roadmap and watching the
+check fail, then restoring it and watching it pass.
+
+An override field carries the reason when the author does want the roadmap rebuilt, so the skip is
+a default rather than a wall.
+
+Two documents for the author's own repository: a step-by-step for starting a session — which
+directory, how to resume, how to ask whether the roadmap is settled, what each stage stops for —
+and the eight ready-to-paste prompts regenerated with the lock rule at the top of each.
+
 ## v3.27.0 — "make it rigorous" turned into something a script can count
 
 Data 2026's first stage said to rewrite the roadmap's prose. Asked to make it rigorous and
