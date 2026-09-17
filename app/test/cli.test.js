@@ -215,3 +215,32 @@ test('a session with no id is refused rather than stored as a pointer to nothing
   assert.equal(sessionStore.save({ folder: '/w', skillId: 'de' }, file).ok, false);
   fs.rmSync(path.dirname(file), { recursive: true, force: true });
 });
+
+test('neu_la keeps a part only when the parameter holds one of the named values', () => {
+  const job = { mau: ['luôn', { neu_la: { g: ['A', 'B'] }, text: 'A hoặc B' },
+                      { neu_la: { g: 'B' }, text: 'chỉ B' }] };
+  assert.equal(prompt.composePrompt(job, { g: 'A' }), 'luôn. A hoặc B.');
+  assert.equal(prompt.composePrompt(job, { g: 'B' }), 'luôn. A hoặc B. chỉ B.');
+  assert.equal(prompt.composePrompt(job, { g: 'C' }), 'luôn.');
+  assert.equal(prompt.composePrompt(job, {}), 'luôn.', 'an unset parameter matches no value');
+});
+
+test('the Data 2026 stage selector actually shortens the prompt', () => {
+  // The field asked how far to run and the template emitted every stage regardless, so choosing
+  // "rewrite the prose only" still handed over instructions for extracting sources and deploying.
+  // A selector that collects an answer and changes nothing is worse than not asking.
+  const jobs = require('../../docs/cong-viec.vi.json').cong_viec;
+  const job = jobs.find((j) => j.id === 'data-2026');
+  const stages = job.thong_so.find((p) => p.key === 'giai_doan').chon;
+  const base = { chuong_trinh: 'DA', pham_vi: 'cả chương trình' };
+  const first = prompt.composePrompt(job, { ...base, giai_doan: stages[0] });
+  const last = prompt.composePrompt(job, { ...base, giai_doan: stages[stages.length - 1] });
+
+  assert.ok(first.includes('BƯỚC 1'), 'the first stage must carry the rewrite');
+  for (const later of ['BƯỚC 3b', 'BƯỚC 4', 'BƯỚC 8']) {
+    assert.ok(!first.includes(later), `stage 1 must not carry ${later}`);
+  }
+  assert.ok(!last.includes('BƯỚC 1'), 'the last stage must not redo the rewrite');
+  assert.ok(last.includes('BƯỚC 8'), 'the last stage must carry the build instructions');
+  assert.ok(first.length < last.length);
+});

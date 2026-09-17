@@ -1,5 +1,24 @@
 # Changelog
 
+## v3.26.1 — a selector that collected an answer and changed nothing
+
+Data 2026 asks how far to run, and offers four stages from "rewrite the roadmap prose" through to
+"the sources are in, compose the lessons". The template emitted all eight steps whichever was
+chosen, so picking the first stage still handed over instructions for extracting sources and
+deploying the site. The field was answered and ignored — worse than not asking, because the person
+believes they scoped the run.
+
+The template engine gained `neu_la`, which keeps a part only when a parameter holds one of the
+named values; `neu` could only ask whether a parameter was filled at all. Both doors use it, since
+both compose prompts from the same library.
+
+Stage one is now 1076 characters rather than 4537, and carries the rewrite alone. The last stage
+carries extraction, composition and the build commands, and says explicitly that the roadmap and
+objectives are already settled and must not be rewritten. Two tests hold it: one on the engine,
+one asserting the first stage is shorter than the last and that neither carries the other's steps.
+
+157 app tests.
+
 ## v3.26.0 — Data 2026, reordered so the objective comes before the search
 
 The first cut of this workflow had gap analysis drive the source hunt. The author's own ordering is

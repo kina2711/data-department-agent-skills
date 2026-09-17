@@ -22,6 +22,21 @@ function fill(text, values, labels) {
   });
 }
 
+/* `neu` asks whether a parameter was filled at all. `neu_la` asks what it was filled with.
+ *
+ * A job had a selector for how far to run and a template that emitted every stage regardless, so
+ * choosing "rewrite the prose only" still handed over instructions for extracting sources and
+ * building the site. The field collected an answer and changed nothing, which is worse than not
+ * asking: the person believes they scoped the run. */
+function matchesValue(part, values) {
+  const rule = part.neu_la;
+  if (!rule) return true;
+  return Object.entries(rule).every(([key, accepted]) => {
+    const actual = String(values[key] || '').trim();
+    return (Array.isArray(accepted) ? accepted : [accepted]).some((v) => String(v).trim() === actual);
+  });
+}
+
 function composePrompt(job, values, labels) {
   const parts = [];
   for (const part of job.mau || []) {
@@ -31,6 +46,7 @@ function composePrompt(job, values, labels) {
     }
     const condition = String(part.neu || '').trim();
     if (condition && !String(values[condition] || '').trim()) continue;
+    if (!matchesValue(part, values)) continue;
     parts.push(fill(part.text || '', values, labels));
   }
   // A user-typed value rarely ends in punctuation, and two fragments joined by a space read as
@@ -50,4 +66,4 @@ function missingRequired(job, values) {
     .map((p) => p.nhan);
 }
 
-module.exports = { fill, composePrompt, missingRequired };
+module.exports = { fill, composePrompt, missingRequired, matchesValue };
