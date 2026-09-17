@@ -39,7 +39,7 @@
     {
       "workflow": "data-2026",
       "kind": "authored",
-      "tasks": 34,
+      "tasks": 38,
       "harness": "data-2026",
       "harness_status": "draft",
       "evaluated": true,

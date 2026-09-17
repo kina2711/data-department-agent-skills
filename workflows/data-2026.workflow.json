@@ -1,13 +1,13 @@
 {
   "workflow_id": "data-2026",
-  "version": "1.0.0",
-  "objective": "Data 2026. Three curricula that already exist on disk — Data Analyst, Data Engineer and Analytics Engineer — are brought up to standard rather than started over: the prose already written is rewritten to read as the author, the reference gaps are named at programme, module and lesson level before anything is searched for, sources are acquired only where their licence permits it, and lessons are composed from what those sources actually say. The run stops at a named human decision. Approved, it packages the material for the site build; not approved, it asks what is wrong rather than guessing.",
+  "version": "2.0.0",
+  "objective": "Data 2026. Three curricula already written to disk — Data Analyst, Data Engineer, Analytics Engineer — are taken further rather than restarted. It begins at the roadmap: the language is rewritten, the roadmap is detailed, and objectives are written for the role, then each module, then each lesson. Those names and objectives are what drive the search for books, documents and video, and the run hands the author a list with a way to obtain each one, then waits. Nothing is read until the author has fetched the sources and said so. Lessons are composed against the objectives, the run stops for the author to approve the content, and the site build is handed over as commands rather than run.",
   "status": "planned",
   "workflow_risk_tier": "R3-controlled",
   "current_task_id": "orchestrator-define-agent-harness",
   "transitions": [],
   "claims": [],
-  "updated_at": "2026-09-17T06:01:14+00:00",
+  "updated_at": "2026-09-17T07:44:10+00:00",
   "tasks": [
     {
       "task_id": "orchestrator-define-agent-harness",
@@ -86,6 +86,71 @@
       "approval_refs": []
     },
     {
+      "task_id": "academy-build-skill-track-map",
+      "owner": "",
+      "depends_on": [
+        "core-review-ai-prose"
+      ],
+      "status": "planned",
+      "risk_tier": "R2-standard",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-define-role-learning-outcomes",
+      "owner": "",
+      "depends_on": [
+        "academy-build-skill-track-map"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-design-role-syllabus",
+      "owner": "",
+      "depends_on": [
+        "academy-define-role-learning-outcomes"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-design-learning-module",
+      "owner": "",
+      "depends_on": [
+        "academy-design-role-syllabus"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "academy-map-questions-to-learning-objectives",
+      "owner": "",
+      "depends_on": [
+        "academy-design-learning-module"
+      ],
+      "status": "planned",
+      "risk_tier": "R1-reviewed",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
       "task_id": "academy-elicit-prior-knowledge",
       "owner": "",
       "depends_on": [
@@ -102,21 +167,8 @@
       "task_id": "academy-analyze-learning-gaps",
       "owner": "",
       "depends_on": [
-        "academy-audit-curriculum-quality",
+        "academy-map-questions-to-learning-objectives",
         "academy-elicit-prior-knowledge"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "academy-prioritize-corpus-by-gap",
-      "owner": "",
-      "depends_on": [
-        "academy-analyze-learning-gaps"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -129,7 +181,20 @@
       "task_id": "content-research-technical-topic",
       "owner": "",
       "depends_on": [
-        "academy-prioritize-corpus-by-gap"
+        "academy-analyze-learning-gaps"
+      ],
+      "status": "planned",
+      "risk_tier": "R0-light",
+      "artifact_version": "",
+      "artifact_sha256": "",
+      "evidence_refs": [],
+      "approval_refs": []
+    },
+    {
+      "task_id": "core-request-human-approval",
+      "owner": "",
+      "depends_on": [
+        "content-research-technical-topic"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -142,7 +207,7 @@
       "task_id": "book-assess-source-rights",
       "owner": "",
       "depends_on": [
-        "content-research-technical-topic"
+        "core-request-human-approval"
       ],
       "status": "planned",
       "risk_tier": "R0-light",
@@ -236,20 +301,7 @@
       "owner": "",
       "depends_on": [
         "brain-distill-source-to-wiki-note",
-        "academy-prioritize-corpus-by-gap"
-      ],
-      "status": "planned",
-      "risk_tier": "R1-reviewed",
-      "artifact_version": "",
-      "artifact_sha256": "",
-      "evidence_refs": [],
-      "approval_refs": []
-    },
-    {
-      "task_id": "academy-design-learning-module",
-      "owner": "",
-      "depends_on": [
-        "academy-plan-note-corpus"
+        "academy-map-questions-to-learning-objectives"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -262,7 +314,7 @@
       "task_id": "academy-outline-lesson-from-source",
       "owner": "",
       "depends_on": [
-        "academy-design-learning-module"
+        "academy-plan-note-corpus"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -275,8 +327,7 @@
       "task_id": "academy-write-theory-lesson",
       "owner": "",
       "depends_on": [
-        "academy-outline-lesson-from-source",
-        "core-review-ai-prose"
+        "academy-outline-lesson-from-source"
       ],
       "status": "planned",
       "risk_tier": "R1-reviewed",
@@ -405,7 +456,7 @@
       "approval_refs": []
     },
     {
-      "task_id": "core-request-human-approval",
+      "task_id": "orchestrator-manage-approval-ledger",
       "owner": "",
       "depends_on": [
         "academy-audit-note-corpus",
@@ -424,7 +475,7 @@
       "task_id": "content-package-technical-series-repository",
       "owner": "",
       "depends_on": [
-        "core-request-human-approval"
+        "orchestrator-manage-approval-ledger"
       ],
       "status": "planned",
       "risk_tier": "R2-standard",

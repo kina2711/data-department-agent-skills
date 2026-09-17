@@ -2,11 +2,11 @@
  "_": "Every edge carries its provenance. `ambiguous` edges — workflow stage precedence — are excluded from degree, clustering and any claim about what depends on what.",
  "seed": 20260831,
  "node_count": 1228,
- "edge_count": 5194,
+ "edge_count": 5197,
  "edges_by_provenance": {
   "extracted": 4213,
   "inferred": 21,
-  "ambiguous": 960
+  "ambiguous": 963
  },
  "community_count": 99,
  "ubiquitous_standards_excluded": [
@@ -40243,6 +40243,41 @@
    "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
   },
   {
+   "from": "core-review-ai-prose",
+   "to": "academy-build-skill-track-map",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-build-skill-track-map",
+   "to": "academy-define-role-learning-outcomes",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-define-role-learning-outcomes",
+   "to": "academy-design-role-syllabus",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-design-role-syllabus",
+   "to": "academy-design-learning-module",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "academy-design-learning-module",
+   "to": "academy-map-questions-to-learning-objectives",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
    "from": "core-define-success-contract",
    "to": "academy-elicit-prior-knowledge",
    "type": "stage-precedence",
@@ -40250,7 +40285,7 @@
    "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
   },
   {
-   "from": "academy-audit-curriculum-quality",
+   "from": "academy-map-questions-to-learning-objectives",
    "to": "academy-analyze-learning-gaps",
    "type": "stage-precedence",
    "provenance": "ambiguous",
@@ -40265,13 +40300,6 @@
   },
   {
    "from": "academy-analyze-learning-gaps",
-   "to": "academy-prioritize-corpus-by-gap",
-   "type": "stage-precedence",
-   "provenance": "ambiguous",
-   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
-  },
-  {
-   "from": "academy-prioritize-corpus-by-gap",
    "to": "content-research-technical-topic",
    "type": "stage-precedence",
    "provenance": "ambiguous",
@@ -40279,6 +40307,13 @@
   },
   {
    "from": "content-research-technical-topic",
+   "to": "core-request-human-approval",
+   "type": "stage-precedence",
+   "provenance": "ambiguous",
+   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
+  },
+  {
+   "from": "core-request-human-approval",
    "to": "book-assess-source-rights",
    "type": "stage-precedence",
    "provenance": "ambiguous",
@@ -40348,7 +40383,7 @@
    "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
   },
   {
-   "from": "academy-prioritize-corpus-by-gap",
+   "from": "academy-map-questions-to-learning-objectives",
    "to": "academy-plan-note-corpus",
    "type": "stage-precedence",
    "provenance": "ambiguous",
@@ -40356,13 +40391,6 @@
   },
   {
    "from": "academy-plan-note-corpus",
-   "to": "academy-design-learning-module",
-   "type": "stage-precedence",
-   "provenance": "ambiguous",
-   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
-  },
-  {
-   "from": "academy-design-learning-module",
    "to": "academy-outline-lesson-from-source",
    "type": "stage-precedence",
    "provenance": "ambiguous",
@@ -40370,13 +40398,6 @@
   },
   {
    "from": "academy-outline-lesson-from-source",
-   "to": "academy-write-theory-lesson",
-   "type": "stage-precedence",
-   "provenance": "ambiguous",
-   "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
-  },
-  {
-   "from": "core-review-ai-prose",
    "to": "academy-write-theory-lesson",
    "type": "stage-precedence",
    "provenance": "ambiguous",
@@ -40461,34 +40482,34 @@
   },
   {
    "from": "academy-audit-note-corpus",
-   "to": "core-request-human-approval",
+   "to": "orchestrator-manage-approval-ledger",
    "type": "stage-precedence",
    "provenance": "ambiguous",
    "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
   },
   {
    "from": "brain-run-privacy-freshness-audit",
-   "to": "core-request-human-approval",
+   "to": "orchestrator-manage-approval-ledger",
    "type": "stage-precedence",
    "provenance": "ambiguous",
    "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
   },
   {
    "from": "core-review-ai-code",
-   "to": "core-request-human-approval",
+   "to": "orchestrator-manage-approval-ledger",
    "type": "stage-precedence",
    "provenance": "ambiguous",
    "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
   },
   {
    "from": "core-review-ai-media",
-   "to": "core-request-human-approval",
+   "to": "orchestrator-manage-approval-ledger",
    "type": "stage-precedence",
    "provenance": "ambiguous",
    "basis": "phase order from docs/skill-map.md; tasks inside a stage are peers, so this is not a task-level prerequisite"
   },
   {
-   "from": "core-request-human-approval",
+   "from": "orchestrator-manage-approval-ledger",
    "to": "content-package-technical-series-repository",
    "type": "stage-precedence",
    "provenance": "ambiguous",

@@ -160,12 +160,25 @@ cases:
     expect: gated
     because: Whether a source may be used at all is settled before it is read deeply, and it is a
       legal judgement rather than a step a run performs on its own.
-  - id: d26-gate-final-approval
+  - id: d26-gate-source-handover
     harness: data-2026
     request: core-request-human-approval
     expect: gated
-    because: The whole flow exists to stop here. Building the site without that decision would be
-      the one failure the author asked to be protected from.
+    because: This is where the run hands over the source list and waits. The author fetches the
+      books and says they are in place; a run that read ahead would be reading something nobody
+      had agreed to obtain.
+  - id: d26-gate-content-decision
+    harness: data-2026
+    request: orchestrator-manage-approval-ledger
+    expect: gated
+    because: The content decision is recorded here, and the flow exists to stop for it. Packaging
+      for the site build without it is the one failure the author asked to be protected from.
+  - id: d26-allow-objectives
+    harness: data-2026
+    request: academy-map-questions-to-learning-objectives
+    expect: allowed
+    because: Lesson objectives are written before any source is looked for, and they are what the
+      search is run against. Nothing leaves the project to produce them.
   - id: d26-gate-prose-review
     harness: data-2026
     request: core-review-ai-prose

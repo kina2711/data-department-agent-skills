@@ -1,5 +1,32 @@
 # Changelog
 
+## v3.26.0 — Data 2026, reordered so the objective comes before the search
+
+The first cut of this workflow had gap analysis drive the source hunt. The author's own ordering is
+better and the workflow now follows it: start at the roadmap, rewrite its language, detail it, then
+write objectives for the role, each module and each lesson. **Those names and objectives are the
+search query.** Looking for material before an objective exists collects reading for a question
+nobody has asked.
+
+**The source step is a handover, not an acquisition.** It names each source and how to obtain it —
+publisher link, open-access copy, official docs, arXiv, or plainly "buy it" or "borrow it" — and
+then stops. The author fetches them, puts them in `ref/`, and says so. Nothing is read in the
+meantime, and guessing a book's contents from its title while waiting is called out as the failure
+it would be.
+
+**Building the site is now part of the flow, as instructions.** Step 8 walks through `make status`,
+`make material`, `make web`, `make preview` and `make deploy` in order, says which file each one
+produces, and explains how to find the lesson with the broken front matter when the parser
+complains. The run still does not deploy.
+
+38 tasks, 32 waves, nine gates. Two orderings are asserted in code at build time rather than
+trusted: the search runs after the objectives exist, and extraction runs after the author confirms.
+
+A green suite is not always good news. After the scope changed from 34 tasks to 38 and two gates
+moved, every case still passed — which meant the cases were describing the old flow. Three were
+rewritten and added for the two human gates and the objective stage, then verified by removing each
+gate and watching a case break. 36/36.
+
 ## v3.25.0 — Data 2026, for three curricula that already exist
 
 A second authored workflow. Data Trainer starts from a folder of source material and builds a

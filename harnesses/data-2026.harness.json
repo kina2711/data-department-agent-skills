@@ -1,7 +1,7 @@
 {
   "harness_id": "data-2026",
   "role": "data-department-orchestrator",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "owner": "",
   "_": "Harness cho luồng Data 2026 trên repo data-trainer. Owner để trống theo quy ước template: một bản khai phát hành kèm tên sẽ giao việc cho người không có mặt lúc người khác dùng nó. Điền owner trước khi chạy thật.",
   "scope": {
@@ -10,13 +10,16 @@
       "academy-audit-curriculum-quality",
       "academy-audit-note-corpus",
       "academy-build-note-module",
+      "academy-build-skill-track-map",
+      "academy-define-role-learning-outcomes",
       "academy-design-hands-on-lab",
       "academy-design-learning-module",
+      "academy-design-role-syllabus",
       "academy-elicit-prior-knowledge",
       "academy-index-note-corpus",
+      "academy-map-questions-to-learning-objectives",
       "academy-outline-lesson-from-source",
       "academy-plan-note-corpus",
-      "academy-prioritize-corpus-by-gap",
       "academy-write-theory-lesson",
       "book-assess-source-rights",
       "book-audit-copyright-and-privacy",
@@ -39,7 +42,8 @@
       "enable-generate-practice-exercise",
       "orchestrator-audit-agent-harness",
       "orchestrator-define-agent-harness",
-      "orchestrator-hydrate-context"
+      "orchestrator-hydrate-context",
+      "orchestrator-manage-approval-ledger"
     ],
     "tasks_out": [
       "bi-publish-dashboard",
@@ -73,6 +77,12 @@
       "kind": "standard",
       "version": "theo suite version",
       "pinned_at": "lúc chạy"
+    },
+    {
+      "source": "material/<chuong-trinh>/curriculum/**/objectives",
+      "kind": "corpus",
+      "version": "theo bản roadmap đã viết lại ở bước 1",
+      "pinned_at": "lúc chạy"
     }
   ],
   "tool_surface_ref": "skills/data-department-orchestrator/references/external-tool-access.md",
@@ -85,20 +95,21 @@
       "book-assess-source-rights",
       "book-audit-copyright-and-privacy",
       "brain-run-privacy-freshness-audit",
+      "core-request-human-approval",
       "core-review-ai-code",
       "core-review-ai-media",
       "core-review-ai-prose",
-      "core-request-human-approval"
+      "orchestrator-manage-approval-ledger"
     ]
   },
   "evaluation": {
     "cases_ref": "evaluations/harness-cases.yaml",
-    "run_at": "2026-09-17T06:16:07Z",
+    "run_at": "2026-09-17T07:51:28Z",
     "score": 1.0,
-    "cases_total": 34,
-    "cases_passed": 34,
-    "score_is_for_version": "3.25.0",
-    "_": "Đo bằng `python3 tools/eval_harness.py run --suite harness`, chung bộ case với các harness khác. Kỳ vọng viết từ ý định của luồng chứ không đọc ngược từ file này. Đã thử phá năm kiểu (đưa việc đăng vào scope, gỡ cổng chốt, gỡ cổng bản quyền, xoá lý do loại trừ, bỏ một task workflow khỏi scope) và cả năm đều làm case đỏ. Điểm này nói ranh giới đúng như đã khai, không nói harness chạy tốt trên thực tế — không case nào gọi tới model."
+    "cases_total": 36,
+    "cases_passed": 36,
+    "score_is_for_version": "3.26.0",
+    "_": "Đo cho scope v2.0.0 (38 task, 9 cổng). Ba case mới cho hai cổng người duyệt và cho bước viết objective; đã thử gỡ từng cổng và bỏ task objective khỏi scope, cả ba đều làm case đỏ. Điểm này nói ranh giới đúng như đã khai, không nói harness chạy tốt thực tế — không case nào gọi tới model."
   },
   "environment": {
     "services": [
@@ -130,7 +141,8 @@
     "may_spend": "chưa đặt trần; đặt trước khi chạy không giám sát",
     "stops_for": [
       "mọi cổng trong gates_requiring_authority",
-      "lệnh build web: người dùng tự chạy make web sau khi chốt"
+      "sau khi nêu danh sách nguồn: chờ tác giả tự tải về và xác nhận đã đặt vào ref/ trước khi đọc",
+      "lệnh build web: tác giả tự chạy make web sau khi chốt nội dung"
     ]
   },
   "status": "draft"
